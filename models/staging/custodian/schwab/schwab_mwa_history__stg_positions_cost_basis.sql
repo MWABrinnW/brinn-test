@@ -1,0 +1,46 @@
+
+select
+    recordtype
+    ,custodian
+    ,mstracctnumber
+    ,masteraccountname
+    ,businessdate
+    ,accountid
+    ,securitytype
+    ,prodcode
+    ,prodcatgcode
+    ,taxcode
+    ,tickersymbol
+    ,cusip
+    ,schwabsecnbr
+    ,itemissueid
+    ,isin
+    ,sedol
+    ,optionsdisplaysymbol
+    ,underlyingtickersymbol
+    ,underlyingcusip
+    ,underlyingschwabnbr
+    ,underlyingitmissid
+    ,underlyingisin
+    ,underlyingsedol
+    ,currentquantity
+    ,ls
+    ,currentmarketvalue
+    ,accruedinterest
+    ,costbasisunamortized
+    ,costpershare
+    ,adjcostbasisamortized
+    ,adjcostpershare
+    ,urgl
+    ,cb
+    ,ct
+    ,at
+    ,cf
+    ,originalface
+    ,dflottselct
+    ,cm
+    ,princpaydownfactor
+    ,effective_date
+    ,record_datetime
+    ,record_date
+from {{ source('schwab_mwa', 'positions_cost_basis') }}
