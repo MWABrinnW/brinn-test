@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: active_directory
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: active_directory_mwa
+    tables:
+      - name: groups_history
+        description: ""
+      - name: groups_history_legacy
+        description: ""
+      - name: user_history
+        description: ""
+      - name: user_history_legacy
+        description: ""

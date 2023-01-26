@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: vault
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    tables:
+      - name: vault
+        description: ""

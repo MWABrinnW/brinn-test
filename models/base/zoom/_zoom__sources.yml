@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: zoom_mwa
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: zoom_mwa
+    tables:
+      - name: account_phone_numbers
+      - name: phone_users

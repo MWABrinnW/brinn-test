@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: morningstar
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: morningstar_history
+    tables:
+      - name: fund
+        description: ""

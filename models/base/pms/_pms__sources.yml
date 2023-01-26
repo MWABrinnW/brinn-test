@@ -1,0 +1,595 @@
+version: 2
+
+sources:
+  - name: addepar_corbenic
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: addepar_corbenic_history
+    tables:
+      - name: accounts
+      - name: holdings
+
+  - name: axys_granite
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: axys_granite_history
+    tables:
+      - name: financial_accounts_monthly
+      - name: holdings_monthly
+      - name: households_monthly
+
+  - name: axys_cincinnati
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: axys_cincinnati_history
+    tables:
+      - name: financial_account
+      - name: holdings_monthly
+
+  - name: black_diamond_ap4
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: black_diamond_ap4_history
+    tables:
+      - name: accounts
+        description: ""
+      - name: client
+        description: ""
+      - name: portfolio
+        description: ""
+      - name: portfolio_group
+        description: ""
+      - name: relationship
+        description: ""
+      - name: target
+        description: ""
+
+  - name: black_diamond_cig
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: black_diamond_cig_history
+    tables:
+      - name: accounts
+        description: ""
+      - name: client
+        description: ""
+      - name: portfolio
+        description: ""
+      - name: portfolio_group
+        description: ""
+      - name: relationship
+        description: ""
+      - name: target
+        description: ""
+
+  - name: black_diamond_commonwealth
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: black_diamond_commonwealth_history
+    tables:
+      - name: accounts
+        description: ""
+      - name: client
+        description: ""
+      - name: portfolio
+        description: ""
+      - name: portfolio_group
+        description: ""
+      - name: relationship
+        description: ""
+      - name: target
+        description: ""
+
+  - name: black_diamond_houston
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: black_diamond_houston_history
+    tables:
+      - name: accounts
+        description: ""
+      - name: client
+        description: ""
+      - name: portfolio
+        description: ""
+      - name: portfolio_group
+        description: ""
+      - name: relationship
+        description: ""
+      - name: target
+        description: ""
+
+  - name: envestnet_mwa
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: envestnet_mwa_history
+    tables:
+      - name: account_fee_schedule_fee_component
+        description: ""
+      - name: account_fee_schedule_fee_filter
+        description: ""
+      - name: account_fee_schedule_fee_rate
+        description: ""
+      - name: account_fee_schedule_fee_schedule
+        description: ""
+      - name: accountmaster_accounts
+        description: ""
+      - name: codes_account_pricing_tier
+        description: ""
+      - name: codes_account_status
+        description: ""
+      - name: codes_address_type
+        description: ""
+      - name: codes_advisor_status
+        description: ""
+      - name: codes_asset_calculation_method
+        description: ""
+      - name: codes_asset_category
+        description: ""
+      - name: codes_aum_method
+        description: ""
+      - name: codes_authorized_programs
+        description: ""
+      - name: codes_billing_frequency
+        description: ""
+      - name: codes_billing_mode
+        description: ""
+      - name: codes_client_activity
+        description: ""
+      - name: codes_client_restriction
+        description: ""
+      - name: codes_contact_type
+        description: ""
+      - name: codes_country
+        description: ""
+      - name: codes_currency
+        description: ""
+      - name: codes_custodians
+        description: ""
+      - name: codes_dashboard_product_type
+        description: ""
+      - name: codes_employment_status
+        description: ""
+      - name: codes_fee_component_type
+        description: ""
+      - name: codes_fee_filter_type
+        description: ""
+      - name: codes_fee_paid_by
+        description: ""
+      - name: codes_fund_family
+        description: ""
+      - name: codes_gics_sector
+        description: ""
+      - name: codes_industry
+        description: ""
+      - name: codes_instruction_type
+        description: ""
+      - name: codes_marital_status
+        description: ""
+      - name: codes_moody_rating
+        description: ""
+      - name: codes_owner_type
+        description: ""
+      - name: codes_product_class
+        description: ""
+      - name: codes_product_imr_status
+        description: ""
+      - name: codes_product_overlay_feature
+        description: ""
+      - name: codes_product_status
+        description: ""
+      - name: codes_product_type
+        description: ""
+      - name: codes_program_type
+        description: ""
+      - name: codes_proposal_status
+        description: ""
+      - name: codes_registration_type
+        description: ""
+      - name: codes_relationship
+        description: ""
+      - name: codes_risk_scale
+        description: ""
+      - name: codes_s_and_p_rating
+        description: ""
+      - name: codes_salutation
+        description: ""
+      - name: codes_sector
+        description: ""
+      - name: codes_security_type
+        description: ""
+      - name: codes_service_request_type
+        description: ""
+      - name: codes_ssn_type
+        description: ""
+      - name: codes_style_type
+        description: ""
+      - name: familymember_client_activity
+        description: ""
+      - name: familymember_client_restriction
+        description: ""
+      - name: familymember_contact
+        description: ""
+      - name: familymember_family
+        description: ""
+      - name: familymember_family_member
+        description: ""
+      - name: gainloss_gain_loss
+        description: ""
+      - name: hierarchy_advisor
+        description: ""
+      - name: hierarchy_branch
+        description: ""
+      - name: hierarchy_contact
+        description: ""
+      - name: hierarchy_enterprise
+        description: ""
+      - name: hierarchy_entitlement
+        description: ""
+      - name: hierarchy_firm
+        description: ""
+      - name: hierarchy_rep_code
+        description: ""
+      - name: positions_positions
+        description: ""
+      - name: products_products
+        description: ""
+      - name: proposal_asset
+        description: ""
+      - name: proposal_investment
+        description: ""
+      - name: proposal_proposal
+        description: ""
+      - name: proposal_proposed_investment_group
+        description: ""
+      - name: proposal_registration
+        description: ""
+      - name: proposal_registration_owner
+        description: ""
+      - name: proposal_solution
+        description: ""
+      - name: securitymaster_securities
+        description: ""
+      - name: securityprice_firm_security_price
+        description: ""
+      - name: taxlots_taxlots
+        description: ""
+      - name: transactions_transactions
+        description: ""
+      - name: transactions_transactions_new
+        description: ""
+      - name: transactions_transactions_test
+        description: ""
+
+  - name: envestnet_mps
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: envestnet_mps_history
+    tables:
+      - name: account_fee_schedule_fee_component
+        description: ""
+      - name: account_fee_schedule_fee_filter
+        description: ""
+      - name: account_fee_schedule_fee_rate
+        description: ""
+      - name: account_fee_schedule_fee_schedule
+        description: ""
+      - name: accountmaster_accounts
+        description: ""
+      - name: codes_account_history_type
+        description: ""
+      - name: codes_account_status
+        description: ""
+      - name: codes_annual_income
+        description: ""
+      - name: codes_asset_category
+        description: ""
+      - name: codes_assets_calculation_method
+        description: ""
+      - name: codes_billing_debit_method
+        description: ""
+      - name: codes_billing_mode
+        description: ""
+      - name: codes_commission_type
+        description: ""
+      - name: codes_contact_type
+        description: ""
+      - name: codes_country
+        description: ""
+      - name: codes_employment_status
+        description: ""
+      - name: codes_estimated_net_worth
+        description: ""
+      - name: codes_fee_component_type
+        description: ""
+      - name: codes_fee_filter
+        description: ""
+      - name: codes_fee_filter_type
+        description: ""
+      - name: codes_fund_family
+        description: ""
+      - name: codes_gics_sector
+        description: ""
+      - name: codes_instruction_type
+        description: ""
+      - name: codes_investable_assets
+        description: ""
+      - name: codes_investment_knowledge
+        description: ""
+      - name: codes_investment_objective_rank
+        description: ""
+      - name: codes_marital_status
+        description: ""
+      - name: codes_product_imr_status
+        description: ""
+      - name: codes_product_name
+        description: ""
+      - name: codes_product_status
+        description: ""
+      - name: codes_product_type
+        description: ""
+      - name: codes_registration_type
+        description: ""
+      - name: codes_relationship
+        description: ""
+      - name: codes_risk_scale
+        description: ""
+      - name: codes_risk_tolerance
+        description: ""
+      - name: codes_salutation
+        description: ""
+      - name: codes_sector
+        description: ""
+      - name: codes_service_request_type
+        description: ""
+      - name: codes_ssn_type
+        description: ""
+      - name: codes_style_type
+        description: ""
+      - name: codes_suitability_status
+        description: ""
+      - name: codes_tax_bracket
+        description: ""
+      - name: codes_tax_efficiency
+        description: ""
+      - name: codes_time_horizion
+        description: ""
+      - name: codes_trade_exchange
+        description: ""
+      - name: codes_transaction_mapping
+        description: ""
+      - name: codes_transaction_type
+        description: ""
+      - name: familymember_client_activity
+        description: ""
+      - name: familymember_client_restriction
+        description: ""
+      - name: familymember_contact
+        description: ""
+      - name: familymember_family
+        description: ""
+      - name: familymember_family_member
+        description: ""
+      - name: gainloss_gain_loss
+        description: ""
+      - name: hierarchy_advisor
+        description: ""
+      - name: hierarchy_branch
+        description: ""
+      - name: hierarchy_contact
+        description: ""
+      - name: hierarchy_enterprise
+        description: ""
+      - name: hierarchy_firm
+        description: ""
+      - name: hierarchy_rep_code
+        description: ""
+      - name: positions_positions
+        description: ""
+      - name: products_products
+        description: ""
+      - name: proposal_asset
+        description: ""
+      - name: proposal_investment
+        description: ""
+      - name: proposal_proposal
+        description: ""
+      - name: proposal_registration
+        description: ""
+      - name: proposal_registration_owner
+        description: ""
+      - name: proposal_solution
+        description: ""
+      - name: securitymaster_securities
+        description: ""
+      - name: taxlots_taxlots
+        description: ""
+      - name: transactions_transactions
+        description: ""
+
+  - name: hfw
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    tables:
+      - name: holdings
+        description: ""
+
+  - name: orion_allegiant
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: orion_allegiant_report_history
+    tables:
+      - name: as_of_value_by_account_3679_history
+        description: ""
+      - name: asset_query_1809_history
+        description: ""
+      - name: audit_all_accounts_1922_history
+        description: ""
+
+  - name: orion_arbor_wealth
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: orion_arbor_wealth_report_history
+    tables:
+      - name: as_of_value_by_account_3679_history
+        description: ""
+      - name: as_of_value_by_asset_1809_history
+        description: ""
+      - name: audit_all_accounts_4213_history
+        description: ""
+
+  - name: orion_cascadia
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: orion_cascadia_report_history
+    tables:
+      - name: as_of_value_by_account_3679_history
+        description: ""
+      - name: asset_query_1809_history
+        description: ""
+      - name: audit_all_accounts_4213_history
+        description: ""
+
+  - name: orion_mps
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: orion_mps_report_history
+    tables:
+      - name: as_of_value_by_account_3679_history
+        description: ""
+      - name: asset_query_1809_history
+        description: ""
+      - name: audit_all_accounts_1922_history
+        description: ""
+
+  - name: orion_mwa_bulk
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: orion_mwa_bulk_history
+    tables:
+      - name: assetbasiscostlots
+        description: ""
+      - name: assets
+        description: ""
+      - name: financial_accounts
+        description: ""
+      - name: households
+        description: ""
+      - name: registrations
+        description: ""
+      - name: transactions
+        description: ""
+
+  - name: orion_mwa
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: orion_mwa_report_history
+    tables:
+      - name: as_of_value_by_account_6473_history
+        description: ""
+      - name: asset_query_mwa_5896_history
+        description: ""
+      - name: audit_all_advisors_1922_history
+        description: ""
+
+  - name: portfoliocenter_roseland
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: portfoliocenter_roseland_history
+    tables:
+      - name: financial_accounts
+        description: ""
+      - name: holdings_monthly
+        description: ""
+
+  - name: portfoliocenter_tcea
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: portfoliocenter_tcea_history
+    tables:
+      - name: fa_accounts_history
+        description: ""
+      - name: fa_holdings_history
+        description: ""
+
+  - name: tamarac_emerson
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: tamarac_emerson_history
+    tables:
+      - name: accounts
+        description: ""
+      - name: assets
+        description: ""
+      - name: clients
+        description: ""
+      - name: households
+        description: ""
+
+  - name: tamarac_nashville
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: tamarac_nashville_history
+    tables:
+      - name: assets
+        description: ""
+      - name: financial_accounts
+        description: ""
+
+  - name: tamarac_new_albany
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: tamarac_new_albany_history
+    tables:
+      - name: assets
+        description: ""
+      - name: financial_accounts
+        description: ""
+      - name: stg_assets
+        description: ""
+      - name: stg_financial_accounts
+        description: ""
+
+  - name: tamarac_savant
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: tamarac_savant_history
+    tables:
+      - name: assets
+        description: ""
+      - name: clients
+        description: ""
+      - name: financial_accounts
+        description: ""
+      - name: households
+        description: ""
+
+  - name: tamarac_state_college
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: tamarac_state_college_history
+    tables:
+      - name: assets
+        description: ""
+      - name: clients
+        description: ""
+      - name: financial_accounts
+        description: ""
+
+  - name: morningstar_executive_wealth
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: morningstar_executive_wealth
+    tables:
+      - name: aum
+        description: ""
+      - name: gain_loss
+        description: ""
+  - name: morningstar_hfw
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: morningstar_hfw
+    tables:
+      - name: aum
+        description: ""
+      - name: gain_loss
+        description: ""

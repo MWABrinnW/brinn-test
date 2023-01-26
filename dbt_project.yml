@@ -2,7 +2,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'mwa'
+name: 'data_engineering'
 version: '1.0.0'
 config-version: 2
 
@@ -10,8 +10,6 @@ config-version: 2
 profile: 'default'
 
 # These configurations specify where dbt should look for different types of files.
-# The `source-paths` config, for example, states that models in this project can be
-# found in the "models/" directory. You probably won't need to change these!
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
@@ -25,18 +23,145 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 
-# Configuring models
+# [Configuring models]
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
 # In this example config, we tell dbt to build all models in the example/ directory
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
-# vars:
-#   effective_date: '2022-08-18'
+
+vars:
+  dbt_date:time_zone: "America/Chicago"
+  lookback: 4
+  offset: 0
+  dev_day_filter: 30
+
+on-run-start:
+  - "{{ create_schemas() if target.name in ['prod','test'] }}"
+on-run-end: 
+  - "{{ grant_usage_on_schemas_where_select() if target.name in ['prod','test'] }}"
 
 models:
-  mwa:
-    materialized: view
-    staging:
-      materialized: view
+  data_engineering:
 
+# [BASE]
+    base:
+      +materialized: view
+
+      custodian:
+        +tags: ['custodian']
+        fidelity_mps:
+          +tags: ['fidelity', 'mps']
+          +grants:
+            select: "{{ ['db_custodial_mps_r'] if target.name in ['prod','test'] else []}}"
+        fidelity_msec:
+          +tags: ['fidelity', 'msec']
+          +grants:
+            select: "{{ ['db_custodial_msec_r'] if target.name in ['prod','test'] else []}}"
+        fidelity_mwa:
+          +tags: ['fidelity', 'mwa']
+          +grants:
+            select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod','test'] else []}}"
+        lpl_network:
+          +tags: ['lpl', 'network', 'mps']
+          +grants:
+            select: "{{ ['db_custodial_mps_r'] if target.name in ['prod','test'] else []}}"
+        schwab_mps:
+          +tags: ['schwab', 'mps']
+          +grants:
+            select: "{{ ['db_custodial_mps_r'] if target.name in ['prod','test'] else []}}"
+        schwab_mwa:
+          +tags: ['schwab', 'mwa']
+          +grants:
+            select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod','test'] else []}}"
+        tda:
+          +tags: ['tda', 'mwa', 'mps', 'network']
+          +grants:
+            select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod','test'] else []}}"
+        tda_mwa:
+          +tags: ['tda', 'mwa']
+          +grants:
+            select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod','test'] else []}}"
+      pms:
+        +tags: ['pms']
+        +grants:
+          select: "{{ ['db_pms_r'] if target.name in ['prod','test'] else []}}"
+
+      hubspot_network:
+        +tags: ['hubspot', 'network', 'hubspot_network']
+        +grants:
+          select: "{{ ['db_crm_mwa_r'] if target.name in ['prod','test'] else []}}"
+
+      moxy:
+        +tags: ['moxy']
+        +database: |
+          {%- if  target.name == "dev" -%} devops_test
+          {%- elif target.name == "prod"  -%} devops
+          {%- elif target.name == "test"  -%} devops_test
+          {%- else -%} devops_test
+          {%- endif -%}
+        +grants:
+          select: "{{ ['integration_dm'] if target.name in ['prod','test'] else []}}"
+
+      culture_amp:
+        +tags: ['culture_amp', 'hr']
+        +grants:
+          select: "{{ ['db_hr_r'] if target.name in ['prod','test'] else []}}"
+
+      icims:
+        +tags: ['icims', 'hr']
+        +grants:
+          select: "{{ ['db_hr_r'] if target.name in ['prod','test'] else []}}"
+
+      active_directory:
+        +tags: ['active_directory', 'hr', 'employees']
+        +grants:
+          select: "{{ ['db_hr_r'] if target.name in ['prod','test'] else []}}"
+
+      adp:
+        +tags: ['adp', 'hr', 'employees']
+        +grants:
+          select: "{{ ['db_hr_r'] if target.name in ['prod','test'] else []}}"
+
+      emoney:
+        +tags: ['emoney']
+        mwa:
+          +tags: ['mwa']
+          +grants:
+            select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod','test'] else []}}"
+
+# [INTERMEDIATE]
+    intermediate:
+      +materialized: view
+
+# [NORMAL]
+    normal:
+      +materialized: view
+      +tags: ['normal']
+
+# [MARTS]
+    marts:
+      edw:
+        +tags: ['edw']
+        +database: |
+          {%- if  target.name == "dev" -%} edw_test
+          {%- elif target.name == "prod"  -%} edw
+          {%- elif target.name == "test"  -%} edw_test
+          {%- else -%} edw_test
+          {%- endif -%}
+        custodian:
+          +tags: ['custodian']
+          +grants:
+            select: "{{ ['db_custodial_r'] if target.name in ['prod','test'] else []}}"
+        locations:
+          +tags: ['locations']
+          +grants:
+            select: "{{ ['db_pms_mwa_r', 'db_custodial_mwa_r', 'db_hr_mwa_r'] if target.name in ['prod','test'] else []}}"
+        employees:
+          +tags: ['employees']
+          firm:
+            +grants:
+              select: "{{ ['db_hr_mwa_r'] if target.name in ['prod','test'] else []}}"
+          legacy:
+            +grants:
+              select: "{{ ['db_hr_mwa_r'] if target.name in ['prod','test'] else []}}"

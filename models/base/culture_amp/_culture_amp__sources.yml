@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: culture_amp
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    tables:
+      - name: survey
+        description: "Survey level data from Culture Amp"

@@ -1,0 +1,27 @@
+
+version: 2
+
+sources:
+  - name: cusip
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: cusip_history
+    tables:
+      - name: allcmmaster_issue
+        description: ""
+      - name: allcmmaster_issue_archive
+        description: ""
+      - name: allcmmaster_issuer
+        description: ""
+      - name: cfi_map
+        description: ""
+      - name: issue_fd
+        description: ""
+      - name: issuer_fd
+        description: ""
+      - name: stg_allcmmaster_issue
+        description: ""
+      - name: stg_allcmmaster_issuer
+        description: ""
+      - name: xreff_fd
+        description: ""

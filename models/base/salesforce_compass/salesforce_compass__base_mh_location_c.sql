@@ -1,0 +1,40 @@
+select
+    id
+  , owner_id
+  , is_deleted
+  , name
+  , created_date
+  , created_by_id
+  , last_modified_date
+  , last_modified_by_id
+  , system_modstamp
+  , last_viewed_date
+  , last_referenced_date
+  , active_c
+  , city_c
+  , finance_code_c
+  , market_c
+  , office_c
+  , partner_firm_c
+  , region_c
+  , state_c
+  , exclude_from_mfit_c
+  , acquisition_date_c
+  , acquisition_type_c
+  , current_crm_c
+  , current_iaa_version_c
+  , current_oms_c
+  , current_pms_c
+  , legacy_crm_c
+  , legacy_firm_name_c
+  , legacy_oms_c
+  , legacy_pms_c
+  , notes_c
+  , setup_c
+  , x_1_mariner_date_c
+  , crm_conversion_date_c
+  , oms_conversion_date_c
+  , pms_conversion_date_c
+  , _fivetran_synced
+  , accounting_id_c
+from {{ source('salesforce_compass', 'mh_location_c') }}

@@ -1,0 +1,54 @@
+version: 2
+
+sources:
+  - name: cais
+    description: ""
+    database: datalake_dev
+    tables:
+      - name: status_definitions
+        description: ""
+        columns:
+          - name: transaction_status
+            description: ""
+          - name: definitions
+            description: ""
+
+      - name: trade_status
+        description: ""
+        columns:
+          - name: cais_order_id
+            description: "CAIS trade system unique ID"
+          - name: order_status
+            description: "Trade order pipeline status"
+          - name: close_date
+            description: "Target close date when actual close date not available (ie pre and post full execution)"
+          - name: amount
+            description: "Transaction Amount (Precision as appropriate)"
+          - name: user_name
+            description: "User name of transacting user (first + last name)"
+          - name: userid
+            description: "CAIS System Unique User ID"
+          - name: firm_name
+            description: "2 Entities - Mariner Platform Solutions or Mariner Wealth Advisors"
+          - name: firm_id
+            description: "CAIS System Unique Firm ID"
+          - name: fund_name
+            description: "Fund legal name"
+          - name: fund_id
+            description: "CAIS System Unique Fund ID"
+          - name: share_class
+            description: "Shareclass or Series information (if available)"
+          - name: investment_entity_name
+            description: "Registered investor account name as captured on sub doc"
+          - name: investment_entity_id
+            description: "CAIS System Unique Investment Entity ID"
+          - name: third_party_account
+            description: "Custodian or custom account number (if available)"
+
+      - name: trade_status_agg
+        description: ""
+        columns:
+          - name: order_status
+            description: "Trade order pipeline status"
+          - name: number_of_orders
+            description: "Number of Transactions"

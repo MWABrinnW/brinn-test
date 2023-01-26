@@ -1,0 +1,12 @@
+SELECT
+ID
+,IS_DELETED
+,PARENT_ID
+,CREATED_BY_ID
+,CREATED_DATE
+,FIELD
+,DATA_TYPE
+,OLD_VALUE
+,NEW_VALUE
+,_FIVETRAN_SYNCED
+FROM {{ source('salesforce_msec', 'payout_product_line_loa_history') }}

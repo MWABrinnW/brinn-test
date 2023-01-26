@@ -1,0 +1,1946 @@
+version: 2
+
+sources:
+  - name: hubspot_network
+    description: ""
+    database: fivetran
+    tables:
+      - name: company
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: portal_id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: property_hs_analytics_source_data_2
+            description: ""
+          - name: property_hs_analytics_num_page_views
+            description: ""
+          - name: property_hs_analytics_source_data_1
+            description: ""
+          - name: property_hs_analytics_first_timestamp
+            description: ""
+          - name: property_hs_analytics_num_visits
+            description: ""
+          - name: property_hs_analytics_source
+            description: ""
+          - name: property_hs_date_entered_opportunity
+            description: ""
+          - name: property_founded_year
+            description: ""
+          - name: property_first_deal_created_date
+            description: ""
+          - name: property_hs_analytics_latest_source
+            description: ""
+          - name: property_hs_analytics_latest_source_data_2
+            description: ""
+          - name: property_hs_analytics_latest_source_data_1
+            description: ""
+          - name: property_hs_analytics_latest_source_timestamp
+            description: ""
+          - name: property_hs_date_entered_customer
+            description: ""
+          - name: property_hs_date_entered_lead
+            description: ""
+          - name: property_hs_lastmodifieddate
+            description: ""
+          - name: property_hs_num_decision_makers
+            description: ""
+          - name: property_hs_num_open_deals
+            description: ""
+          - name: property_num_associated_deals
+            description: ""
+          - name: property_hs_total_deal_value
+            description: ""
+          - name: property_hs_target_account_probability
+            description: ""
+          - name: property_num_associated_contacts
+            description: ""
+          - name: property_hs_object_id
+            description: ""
+          - name: property_hs_time_in_opportunity
+            description: ""
+          - name: property_is_public
+            description: ""
+          - name: property_hs_num_blockers
+            description: ""
+          - name: property_hs_num_contacts_with_buying_roles
+            description: ""
+          - name: property_hs_last_logged_call_date
+            description: ""
+          - name: property_hs_time_in_customer
+            description: ""
+          - name: property_hs_date_exited_opportunity
+            description: ""
+          - name: property_hs_last_sales_activity_date
+            description: ""
+          - name: property_hs_last_sales_activity_timestamp
+            description: ""
+          - name: property_hs_last_open_task_date
+            description: ""
+          - name: property_hs_pipeline
+            description: ""
+          - name: property_hs_last_sales_activity_type
+            description: ""
+          - name: property_hubspot_owner_assigneddate
+            description: ""
+          - name: property_hs_user_ids_of_all_owners
+            description: ""
+          - name: property_hs_time_in_lead
+            description: ""
+          - name: property_total_money_raised
+            description: ""
+          - name: property_city
+            description: ""
+          - name: property_domain
+            description: ""
+          - name: property_industry
+            description: ""
+          - name: property_zip
+            description: ""
+          - name: property_website
+            description: ""
+          - name: property_facebook_company_page
+            description: ""
+          - name: property_state
+            description: ""
+          - name: property_lifecyclestage
+            description: ""
+          - name: property_name
+            description: ""
+          - name: property_linkedinbio
+            description: ""
+          - name: property_address
+            description: ""
+          - name: property_linkedin_company_page
+            description: ""
+          - name: property_country
+            description: ""
+          - name: property_timezone
+            description: ""
+          - name: property_twitterhandle
+            description: ""
+          - name: property_annualrevenue
+            description: ""
+          - name: property_numberofemployees
+            description: ""
+          - name: property_phone
+            description: ""
+          - name: property_num_notes
+            description: ""
+          - name: property_num_conversion_events
+            description: ""
+          - name: property_notes_last_contacted
+            description: ""
+          - name: property_notes_last_updated
+            description: ""
+          - name: property_num_contacted_notes
+            description: ""
+          - name: property_address_2
+            description: ""
+          - name: property_recent_deal_amount
+            description: ""
+          - name: property_total_revenue
+            description: ""
+          - name: property_recent_deal_close_date
+            description: ""
+          - name: property_notes_next_activity_date
+            description: ""
+          - name: property_hs_sales_email_last_replied
+            description: ""
+          - name: property_hubspot_team_id
+            description: ""
+          - name: property_hs_all_accessible_team_ids
+            description: ""
+          - name: property_hs_all_team_ids
+            description: ""
+          - name: property_hubspot_owner_id
+            description: ""
+          - name: property_hs_all_owner_ids
+            description: ""
+          - name: property_description
+            description: ""
+          - name: property_createdate
+            description: ""
+          - name: property_first_contact_createdate
+            description: ""
+          - name: property_web_technologies
+            description: ""
+          - name: property_closedate
+            description: ""
+          - name: property_days_to_close
+            description: ""
+          - name: property_hs_num_child_companies
+            description: ""
+          - name: _fivetran_deleted
+            description: ""
+
+      - name: company_property_history
+        description: ""
+        columns:
+          - name: company_id
+            description: ""
+          - name: name
+            description: ""
+          - name: timestamp
+            description: ""
+          - name: value
+            description: ""
+          - name: source_id
+            description: ""
+          - name: source
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: _fivetran_start
+            description: ""
+          - name: _fivetran_end
+            description: ""
+          - name: _fivetran_active
+            description: ""
+
+      - name: contact
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: _fivetran_deleted
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: property_hs_all_contact_vids
+            description: ""
+          - name: property_first_deal_created_date
+            description: ""
+          - name: property_hs_calculated_mobile_number
+            description: ""
+          - name: property_hs_date_entered_customer
+            description: ""
+          - name: property_hs_count_is_worked
+            description: ""
+          - name: property_days_to_close
+            description: ""
+          - name: property_hs_count_is_unworked
+            description: ""
+          - name: property_gdc
+            description: ""
+          - name: property_assets_under_managment
+            description: ""
+          - name: property_hs_calculated_phone_number_country_code
+            description: ""
+          - name: property_hs_calculated_phone_number
+            description: ""
+          - name: property_hs_calculated_merged_vids
+            description: ""
+          - name: property_hs_avatar_filemanager_key
+            description: ""
+          - name: property_hs_calculated_form_submissions
+            description: ""
+          - name: property_first_conversion_date
+            description: ""
+          - name: property_first_conversion_event_name
+            description: ""
+          - name: property_call_disposition
+            description: ""
+          - name: property_home_city
+            description: ""
+          - name: property_home_zipcode
+            description: ""
+          - name: property_date_of_birth
+            description: ""
+          - name: property_home_state
+            description: ""
+          - name: property_home_address_1
+            description: ""
+          - name: property_hs_additional_emails
+            description: ""
+          - name: property_gender
+            description: ""
+          - name: property_hs_created_by_user_id
+            description: ""
+          - name: property_home_address_2
+            description: ""
+          - name: property_hs_content_membership_status
+            description: ""
+          - name: property_hs_date_entered_opportunity
+            description: ""
+          - name: property_hs_is_unworked
+            description: ""
+          - name: property_hs_date_entered_lead
+            description: ""
+          - name: property_hs_date_exited_lead
+            description: ""
+          - name: property_hs_is_contact
+            description: ""
+          - name: property_hs_email_domain
+            description: ""
+          - name: property_hs_last_sales_activity_timestamp
+            description: ""
+          - name: property_hs_last_sales_activity_date
+            description: ""
+          - name: property_hs_date_exited_opportunity
+            description: ""
+          - name: property_hs_first_engagement_object_id
+            description: ""
+          - name: property_hs_date_entered_subscriber
+            description: ""
+          - name: property_hs_date_exited_subscriber
+            description: ""
+          - name: property_hs_email_sends_since_last_engagement
+            description: ""
+          - name: property_hs_last_sales_activity_type
+            description: ""
+          - name: property_hs_ip_timezone
+            description: ""
+          - name: property_hs_email_hard_bounce_reason_enum
+            description: ""
+          - name: property_hs_latest_sequence_enrolled_date
+            description: ""
+          - name: property_hs_latest_sequence_enrolled
+            description: ""
+          - name: property_hs_pipeline
+            description: ""
+          - name: property_hs_marketable_until_renewal
+            description: ""
+          - name: property_hs_latest_source_timestamp
+            description: ""
+          - name: property_hs_object_id
+            description: ""
+          - name: property_hs_time_in_opportunity
+            description: ""
+          - name: property_hs_marketable_status
+            description: ""
+          - name: property_hs_time_in_lead
+            description: ""
+          - name: property_hs_time_between_contact_creation_and_deal_close
+            description: ""
+          - name: property_hs_time_to_move_from_lead_to_customer
+            description: ""
+          - name: property_hs_searchable_calculated_mobile_number
+            description: ""
+          - name: property_hs_time_to_move_from_opportunity_to_customer
+            description: ""
+          - name: property_hs_sales_email_last_opened
+            description: ""
+          - name: property_hs_time_in_customer
+            description: ""
+          - name: property_hs_lead_status
+            description: ""
+          - name: property_hs_sa_first_engagement_object_type
+            description: ""
+          - name: property_hs_sa_first_engagement_date
+            description: ""
+          - name: property_hs_time_between_contact_creation_and_deal_creation
+            description: ""
+          - name: property_hs_sa_first_engagement_descr
+            description: ""
+          - name: property_hs_time_to_first_engagement
+            description: ""
+          - name: property_hs_searchable_calculated_phone_number
+            description: ""
+          - name: property_hs_sales_email_last_clicked
+            description: ""
+          - name: property_hs_time_in_subscriber
+            description: ""
+          - name: property_hs_timezone
+            description: ""
+          - name: property_hs_legal_basis
+            description: ""
+          - name: property_hs_time_to_move_from_subscriber_to_customer
+            description: ""
+          - name: property_hs_sequences_actively_enrolled_count
+            description: ""
+          - name: property_hs_pinned_engagement_id
+            description: ""
+          - name: property_hs_sequences_is_enrolled
+            description: ""
+          - name: property_hs_sequences_enrolled_count
+            description: ""
+          - name: property_recent_deal_close_date
+            description: ""
+          - name: property_hs_email_optout_7368234
+            description: ""
+          - name: property_num_conversion_events
+            description: ""
+          - name: property_firstname
+            description: ""
+          - name: property_num_unique_conversion_events
+            description: ""
+          - name: property_num_associated_deals
+            description: ""
+          - name: property_lastmodifieddate
+            description: ""
+          - name: property_recent_deal_amount
+            description: ""
+          - name: property_total_revenue
+            description: ""
+          - name: property_twitterhandle
+            description: ""
+          - name: property_referal_partner
+            description: ""
+          - name: property_hs_user_ids_of_all_owners
+            description: ""
+          - name: property_hubspot_owner_assigneddate
+            description: ""
+          - name: property_recruiter_custodian_sales_team
+            description: ""
+          - name: property_hs_email_optout_7484018
+            description: ""
+          - name: property_social_media
+            description: ""
+          - name: property_spouse_name
+            description: ""
+          - name: property_hs_updated_by_user_id
+            description: ""
+          - name: property_hs_email_delivered
+            description: ""
+          - name: property_ip_state_code
+            description: ""
+          - name: property_ip_city
+            description: ""
+          - name: property_recent_conversion_event_name
+            description: ""
+          - name: property_ip_country
+            description: ""
+          - name: property_ip_state
+            description: ""
+          - name: property_recent_conversion_date
+            description: ""
+          - name: property_ip_country_code
+            description: ""
+          - name: property_street_address_2
+            description: ""
+          - name: property_work_email
+            description: ""
+          - name: property_hs_user_ids_of_all_notification_unfollowers
+            description: ""
+          - name: property_hs_user_ids_of_all_notification_followers
+            description: ""
+          - name: property_outbound_advisor_retirement
+            description: ""
+          - name: property_repcrd
+            description: ""
+          - name: property_riafirmcrd
+            description: ""
+          - name: property_riafirmname
+            description: ""
+          - name: property_city
+            description: ""
+          - name: property_lastname
+            description: ""
+          - name: property_hs_analytics_num_page_views
+            description: ""
+          - name: property_hubspot_team_id
+            description: ""
+          - name: property_hs_analytics_num_event_completions
+            description: ""
+          - name: property_hs_email_optout
+            description: ""
+          - name: property_hs_analytics_first_timestamp
+            description: ""
+          - name: property_twitterprofilephoto
+            description: ""
+          - name: property_hs_analytics_num_visits
+            description: ""
+          - name: property_email
+            description: ""
+          - name: property_hs_social_facebook_clicks
+            description: ""
+          - name: property_hs_analytics_first_visit_timestamp
+            description: ""
+          - name: property_hs_analytics_last_timestamp
+            description: ""
+          - name: property_hs_social_google_plus_clicks
+            description: ""
+          - name: property_hs_all_owner_ids
+            description: ""
+          - name: property_hs_social_twitter_clicks
+            description: ""
+          - name: property_hs_social_linkedin_clicks
+            description: ""
+          - name: property_num_notes
+            description: ""
+          - name: property_engagements_last_meeting_booked
+            description: ""
+          - name: property_notes_last_updated
+            description: ""
+          - name: property_mobilephone
+            description: ""
+          - name: property_notes_next_activity_date
+            description: ""
+          - name: property_notes_last_contacted
+            description: ""
+          - name: property_address
+            description: ""
+          - name: property_hs_sales_email_last_replied
+            description: ""
+          - name: property_num_contacted_notes
+            description: ""
+          - name: property_hubspot_owner_id
+            description: ""
+          - name: property_phone
+            description: ""
+          - name: property_fax
+            description: ""
+          - name: property_hs_email_last_email_name
+            description: ""
+          - name: property_hs_email_last_send_date
+            description: ""
+          - name: property_hs_latest_meeting_activity
+            description: ""
+          - name: property_hs_analytics_last_url
+            description: ""
+          - name: property_hs_email_open
+            description: ""
+          - name: property_hs_email_last_open_date
+            description: ""
+          - name: property_hs_email_bounce
+            description: ""
+          - name: property_hs_analytics_source_data_2
+            description: ""
+          - name: property_hs_analytics_source_data_1
+            description: ""
+          - name: property_hs_latest_source
+            description: ""
+          - name: property_hs_analytics_revenue
+            description: ""
+          - name: property_hs_analytics_average_page_views
+            description: ""
+          - name: property_hs_all_accessible_team_ids
+            description: ""
+          - name: property_associatedcompanyid
+            description: ""
+          - name: property_website
+            description: ""
+          - name: property_hs_social_num_broadcast_clicks
+            description: ""
+          - name: property_state
+            description: ""
+          - name: property_lifecyclestage
+            description: ""
+          - name: property_hs_analytics_last_visit_timestamp
+            description: ""
+          - name: property_hs_lifecyclestage_lead_date
+            description: ""
+          - name: property_hs_analytics_source
+            description: ""
+          - name: property_createdate
+            description: ""
+          - name: property_hs_all_team_ids
+            description: ""
+          - name: property_hs_lifecyclestage_opportunity_date
+            description: ""
+          - name: property_hs_latest_source_data_1
+            description: ""
+          - name: property_hs_latest_source_data_2
+            description: ""
+          - name: property_company
+            description: ""
+          - name: property_jobtitle
+            description: ""
+          - name: property_hs_lifecyclestage_customer_date
+            description: ""
+          - name: property_closedate
+            description: ""
+          - name: property_country
+            description: ""
+          - name: property_annualrevenue
+            description: ""
+          - name: property_hs_lifecyclestage_subscriber_date
+            description: ""
+          - name: property_zip
+            description: ""
+          - name: property_hs_email_first_send_date
+            description: ""
+          - name: property_hs_email_first_open_date
+            description: ""
+
+      - name: contact_form_submission
+        description: ""
+        columns:
+          - name: contact_id
+            description: ""
+          - name: form_id
+            description: ""
+          - name: timestamp
+            description: ""
+          - name: portal_id
+            description: ""
+          - name: page_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: contact_list
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: name
+            description: ""
+          - name: deleteable
+            description: ""
+          - name: dynamic
+            description: ""
+          - name: portal_id
+            description: ""
+          - name: updated_at
+            description: ""
+          - name: created_at
+            description: ""
+          - name: metadata_last_processing_state_change_at
+            description: ""
+          - name: metadata_processing
+            description: ""
+          - name: metadata_last_size_change_at
+            description: ""
+          - name: metadata_error
+            description: ""
+          - name: metadata_size
+            description: ""
+          - name: offset
+            description: ""
+          - name: _fivetran_deleted
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: contact_list_member
+        description: ""
+        columns:
+          - name: contact_id
+            description: ""
+          - name: contact_list_id
+            description: ""
+          - name: added_at
+            description: ""
+          - name: _fivetran_deleted
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: contact_property_history
+        description: ""
+        columns:
+          - name: contact_id
+            description: ""
+          - name: name
+            description: ""
+          - name: timestamp
+            description: ""
+          - name: value
+            description: ""
+          - name: source_id
+            description: ""
+          - name: source
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: _fivetran_start
+            description: ""
+          - name: _fivetran_end
+            description: ""
+          - name: _fivetran_active
+            description: ""
+
+      - name: deal
+        description: ""
+        columns:
+          - name: deal_id
+            description: ""
+          - name: portal_id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: property_hs_analytics_source_data_2
+            description: ""
+          - name: property_hs_analytics_source_data_1
+            description: ""
+          - name: property_hs_closed_amount_in_home_currency
+            description: ""
+          - name: property_hs_analytics_latest_source_timestamp_contact
+            description: ""
+          - name: property_hs_date_entered_decisionmakerboughtin
+            description: ""
+          - name: property_hs_date_entered_6734705
+            description: ""
+          - name: property_hs_date_entered_2494962
+            description: ""
+          - name: property_hs_date_entered_962615
+            description: ""
+          - name: property_amount_in_home_currency
+            description: ""
+          - name: property_days_to_close
+            description: ""
+          - name: property_hs_date_entered_41524885
+            description: ""
+          - name: property_hs_date_entered_appointmentscheduled
+            description: ""
+          - name: property_hs_analytics_source
+            description: ""
+          - name: property_hs_date_entered_1016290
+            description: ""
+          - name: property_hs_closed_amount
+            description: ""
+          - name: property_hs_analytics_latest_source_data_2_contact
+            description: ""
+          - name: property_hs_date_entered_closedwon
+            description: ""
+          - name: property_hs_date_entered_presentationscheduled
+            description: ""
+          - name: property_hs_analytics_latest_source
+            description: ""
+          - name: property_hs_analytics_latest_source_data_2
+            description: ""
+          - name: property_hs_analytics_latest_source_data_1
+            description: ""
+          - name: property_hs_analytics_latest_source_timestamp
+            description: ""
+          - name: property_hs_analytics_latest_source_contact
+            description: ""
+          - name: property_hs_analytics_latest_source_data_1_contact
+            description: ""
+          - name: property_hs_date_entered_closedlost
+            description: ""
+          - name: property_hs_analytics_latest_source_data_1_company
+            description: ""
+          - name: property_hs_analytics_latest_source_data_2_company
+            description: ""
+          - name: property_hs_analytics_latest_source_company
+            description: ""
+          - name: property_hs_created_by_user_id
+            description: ""
+          - name: property_hs_date_entered_1037199
+            description: ""
+          - name: property_hs_date_entered_2216211
+            description: ""
+          - name: property_hs_date_entered_2216212
+            description: ""
+          - name: property_hs_date_entered_1037201
+            description: ""
+          - name: property_hs_date_entered_1037200
+            description: ""
+          - name: property_hs_date_entered_2216213
+            description: ""
+          - name: property_hs_date_entered_43126578
+            description: ""
+          - name: property_hs_date_entered_37104998
+            description: ""
+          - name: property_hs_date_entered_37105004
+            description: ""
+          - name: property_hs_forecast_amount
+            description: ""
+          - name: property_hs_date_exited_decisionmakerboughtin
+            description: ""
+          - name: property_hs_date_exited_6734705
+            description: ""
+          - name: property_hs_date_exited_2494962
+            description: ""
+          - name: property_hs_date_exited_962615
+            description: ""
+          - name: property_hs_is_closed
+            description: ""
+          - name: property_hs_date_exited_presentationscheduled
+            description: ""
+          - name: property_hs_date_exited_41524885
+            description: ""
+          - name: property_hs_deal_stage_probability_shadow
+            description: ""
+          - name: property_hs_date_exited_appointmentscheduled
+            description: ""
+          - name: property_hs_deal_stage_probability
+            description: ""
+          - name: property_hs_lastmodifieddate
+            description: ""
+          - name: property_hs_is_closed_won
+            description: ""
+          - name: property_hs_is_deal_split
+            description: ""
+          - name: property_hs_date_exited_1016290
+            description: ""
+          - name: property_hs_num_target_accounts
+            description: ""
+          - name: property_hs_date_exited_2216211
+            description: ""
+          - name: property_hs_date_exited_1037200
+            description: ""
+          - name: property_hs_date_exited_1037201
+            description: ""
+          - name: property_hs_date_exited_1037199
+            description: ""
+          - name: property_hs_num_associated_deal_splits
+            description: ""
+          - name: property_hs_num_associated_active_deal_registrations
+            description: ""
+          - name: property_hs_num_associated_deal_registrations
+            description: ""
+          - name: property_hs_date_exited_43126578
+            description: ""
+          - name: property_hs_merged_object_ids
+            description: ""
+          - name: property_hs_time_in_1016290
+            description: ""
+          - name: property_hs_time_in_decisionmakerboughtin
+            description: ""
+          - name: property_hs_time_in_2494962
+            description: ""
+          - name: property_hs_time_in_appointmentscheduled
+            description: ""
+          - name: property_hs_projected_amount_in_home_currency
+            description: ""
+          - name: property_hs_time_in_962615
+            description: ""
+          - name: property_hs_updated_by_user_id
+            description: ""
+          - name: property_hs_time_in_6734705
+            description: ""
+          - name: deal_pipeline_id
+            description: ""
+          - name: property_hubspot_owner_assigneddate
+            description: ""
+          - name: property_hs_projected_amount
+            description: ""
+          - name: property_dealname
+            description: ""
+          - name: property_closedate
+            description: ""
+          - name: property_createdate
+            description: ""
+          - name: property_hs_sales_email_last_replied
+            description: ""
+          - name: property_hs_time_in_presentationscheduled
+            description: ""
+          - name: deal_pipeline_stage_id
+            description: ""
+          - name: property_amount
+            description: ""
+          - name: property_hs_object_id
+            description: ""
+          - name: property_hs_time_in_41524885
+            description: ""
+          - name: property_hs_time_in_closedwon
+            description: ""
+          - name: property_hs_user_ids_of_all_owners
+            description: ""
+          - name: property_hs_time_in_closedlost
+            description: ""
+          - name: property_hs_priority
+            description: ""
+          - name: property_hs_time_in_1037201
+            description: ""
+          - name: property_hs_time_in_1037200
+            description: ""
+          - name: property_hs_time_in_1037199
+            description: ""
+          - name: property_hs_time_in_2216212
+            description: ""
+          - name: property_hs_time_in_2216211
+            description: ""
+          - name: property_hs_time_in_2216213
+            description: ""
+          - name: property_hs_time_in_43126578
+            description: ""
+          - name: property_hs_time_in_37104998
+            description: ""
+          - name: property_hs_time_in_37105004
+            description: ""
+          - name: property_num_notes
+            description: ""
+          - name: property_hubspot_team_id
+            description: ""
+          - name: owner_id
+            description: ""
+          - name: property_closed_won_reason
+            description: ""
+          - name: property_notes_last_contacted
+            description: ""
+          - name: property_hs_all_accessible_team_ids
+            description: ""
+          - name: property_num_associated_contacts
+            description: ""
+          - name: property_notes_last_updated
+            description: ""
+          - name: property_num_contacted_notes
+            description: ""
+          - name: property_hs_all_team_ids
+            description: ""
+          - name: property_notes_next_activity_date
+            description: ""
+          - name: property_hs_createdate
+            description: ""
+          - name: property_hs_all_owner_ids
+            description: ""
+          - name: property_closed_lost_reason
+            description: ""
+          - name: property_dealtype
+            description: ""
+          - name: _fivetran_deleted
+            description: ""
+
+      - name: deal_company
+        description: ""
+        columns:
+          - name: company_id
+            description: ""
+          - name: deal_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: deal_contact
+        description: ""
+        columns:
+          - name: contact_id
+            description: ""
+          - name: deal_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: deal_pipeline
+        description: ""
+        columns:
+          - name: pipeline_id
+            description: ""
+          - name: label
+            description: ""
+          - name: active
+            description: ""
+          - name: display_order
+            description: ""
+          - name: _fivetran_deleted
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: deal_pipeline_stage
+        description: ""
+        columns:
+          - name: stage_id
+            description: ""
+          - name: pipeline_id
+            description: ""
+          - name: label
+            description: ""
+          - name: active
+            description: ""
+          - name: display_order
+            description: ""
+          - name: probability
+            description: ""
+          - name: closed_won
+            description: ""
+          - name: _fivetran_deleted
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: deal_property_history
+        description: ""
+        columns:
+          - name: deal_id
+            description: ""
+          - name: name
+            description: ""
+          - name: timestamp
+            description: ""
+          - name: value
+            description: ""
+          - name: source_id
+            description: ""
+          - name: source
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: _fivetran_start
+            description: ""
+          - name: _fivetran_end
+            description: ""
+          - name: _fivetran_active
+            description: ""
+
+      - name: deal_stage
+        description: ""
+        columns:
+          - name: deal_id
+            description: ""
+          - name: value
+            description: ""
+          - name: source_id
+            description: ""
+          - name: source
+            description: ""
+          - name: date_entered
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: _fivetran_start
+            description: ""
+          - name: _fivetran_end
+            description: ""
+          - name: _fivetran_active
+            description: ""
+
+      - name: email_campaign
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: app_id
+            description: ""
+          - name: app_name
+            description: ""
+          - name: content_id
+            description: ""
+          - name: name
+            description: ""
+          - name: num_included
+            description: ""
+          - name: num_queued
+            description: ""
+          - name: sub_type
+            description: ""
+          - name: subject
+            description: ""
+          - name: type
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: email_event
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: created
+            description: ""
+          - name: type
+            description: ""
+          - name: recipient
+            description: ""
+          - name: portal_id
+            description: ""
+          - name: app_id
+            description: ""
+          - name: filtered_event
+            description: ""
+          - name: email_campaign_id
+            description: ""
+          - name: sent_by_id
+            description: ""
+          - name: sent_by_created
+            description: ""
+          - name: caused_by_id
+            description: ""
+          - name: caused_by_created
+            description: ""
+          - name: obsoleted_by_id
+            description: ""
+          - name: obsoleted_by_created
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: email_event_bounce
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: response
+            description: ""
+          - name: category
+            description: ""
+          - name: status
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: email_event_deferred
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: response
+            description: ""
+          - name: attempt
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: email_event_delivered
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: response
+            description: ""
+          - name: smtp_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: email_event_dropped
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: subject
+            description: ""
+          - name: from
+            description: ""
+          - name: reply_to
+            description: ""
+          - name: cc
+            description: ""
+          - name: bcc
+            description: ""
+          - name: drop_reason
+            description: ""
+          - name: drop_message
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: email_event_open
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: ip_address
+            description: ""
+          - name: user_agent
+            description: ""
+          - name: browser
+            description: ""
+          - name: location
+            description: ""
+          - name: duration
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: email_event_sent
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: subject
+            description: ""
+          - name: from
+            description: ""
+          - name: reply_to
+            description: ""
+          - name: cc
+            description: ""
+          - name: bcc
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: email_event_spam_report
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: user_agent
+            description: ""
+          - name: ip_address
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: email_event_status_change
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: source
+            description: ""
+          - name: requested_by
+            description: ""
+          - name: portal_subscription_status
+            description: ""
+          - name: subscriptions
+            description: ""
+          - name: bounced
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: email_subscription
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: portal_id
+            description: ""
+          - name: name
+            description: ""
+          - name: description
+            description: ""
+          - name: active
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: email_subscription_change
+        description: ""
+        columns:
+          - name: _fivetran_id
+            description: ""
+          - name: recipient
+            description: ""
+          - name: change
+            description: ""
+          - name: change_type
+            description: ""
+          - name: portal_id
+            description: ""
+          - name: source
+            description: ""
+          - name: caused_by_event_id
+            description: ""
+          - name: timestamp
+            description: ""
+          - name: email_subscription_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: engagement
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: portal_id
+            description: ""
+          - name: active
+            description: ""
+          - name: owner_id
+            description: ""
+          - name: type
+            description: ""
+          - name: activity_type
+            description: ""
+          - name: created_at
+            description: ""
+          - name: last_updated
+            description: ""
+          - name: timestamp
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: engagement_call
+        description: ""
+        columns:
+          - name: engagement_id
+            description: ""
+          - name: to_number
+            description: ""
+          - name: from_number
+            description: ""
+          - name: status
+            description: ""
+          - name: external_id
+            description: ""
+          - name: duration_milliseconds
+            description: ""
+          - name: external_account_id
+            description: ""
+          - name: recording_url
+            description: ""
+          - name: body
+            description: ""
+          - name: disposition
+            description: ""
+          - name: callee_object_type
+            description: ""
+          - name: callee_object_id
+            description: ""
+          - name: transcription_id
+            description: ""
+          - name: unknown_visitor_conversation
+            description: ""
+          - name: source
+            description: ""
+          - name: title
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: direction
+            description: ""
+
+      - name: engagement_company
+        description: ""
+        columns:
+          - name: company_id
+            description: ""
+          - name: engagement_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: engagement_contact
+        description: ""
+        columns:
+          - name: contact_id
+            description: ""
+          - name: engagement_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: engagement_deal
+        description: ""
+        columns:
+          - name: deal_id
+            description: ""
+          - name: engagement_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: engagement_email
+        description: ""
+        columns:
+          - name: engagement_id
+            description: ""
+          - name: from_email
+            description: ""
+          - name: from_first_name
+            description: ""
+          - name: from_last_name
+            description: ""
+          - name: subject
+            description: ""
+          - name: html
+            description: ""
+          - name: text
+            description: ""
+          - name: tracker_key
+            description: ""
+          - name: message_id
+            description: ""
+          - name: thread_id
+            description: ""
+          - name: status
+            description: ""
+          - name: sent_via
+            description: ""
+          - name: logged_from
+            description: ""
+          - name: error_message
+            description: ""
+          - name: facsimile_send_id
+            description: ""
+          - name: post_send_status
+            description: ""
+          - name: media_processing_status
+            description: ""
+          - name: attached_video_opened
+            description: ""
+          - name: attached_video_watched
+            description: ""
+          - name: attached_video_id
+            description: ""
+          - name: recipient_drop_reasons
+            description: ""
+          - name: validation_skipped
+            description: ""
+          - name: email_send_event_id_created
+            description: ""
+          - name: email_send_event_id_id
+            description: ""
+          - name: pending_inline_image_ids
+            description: ""
+          - name: bounce_error_detail
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: member_of_forwarded_subthread
+            description: ""
+          - name: encoded_email_associations_request
+            description: ""
+
+      - name: engagement_email_cc
+        description: ""
+        columns:
+          - name: email
+            description: ""
+          - name: engagement_id
+            description: ""
+          - name: first_name
+            description: ""
+          - name: last_name
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: engagement_email_to
+        description: ""
+        columns:
+          - name: email
+            description: ""
+          - name: engagement_id
+            description: ""
+          - name: first_name
+            description: ""
+          - name: last_name
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: engagement_meeting
+        description: ""
+        columns:
+          - name: engagement_id
+            description: ""
+          - name: body
+            description: ""
+          - name: start_time
+            description: ""
+          - name: end_time
+            description: ""
+          - name: title
+            description: ""
+          - name: external_url
+            description: ""
+          - name: source
+            description: ""
+          - name: created_from_link_id
+            description: ""
+          - name: source_id
+            description: ""
+          - name: web_conference_meeting_id
+            description: ""
+          - name: meeting_outcome
+            description: ""
+          - name: pre_meeting_prospect_reminders
+            description: ""
+          - name: attendee_owner_ids
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: engagement_note
+        description: ""
+        columns:
+          - name: engagement_id
+            description: ""
+          - name: body
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: engagement_task
+        description: ""
+        columns:
+          - name: engagement_id
+            description: ""
+          - name: body
+            description: ""
+          - name: subject
+            description: ""
+          - name: status
+            description: ""
+          - name: for_object_type
+            description: ""
+          - name: task_type
+            description: ""
+          - name: completion_date
+            description: ""
+          - name: priority
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: is_all_day
+            description: ""
+          - name: template_id
+            description: ""
+          - name: sequence_step_enrollment_id
+            description: ""
+          - name: sequence_step_order
+            description: ""
+
+      - name: fivetran_audit
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: message
+            description: ""
+          - name: update_started
+            description: ""
+          - name: update_id
+            description: ""
+          - name: schema
+            description: ""
+          - name: table
+            description: ""
+          - name: start
+            description: ""
+          - name: done
+            description: ""
+          - name: rows_updated_or_inserted
+            description: ""
+          - name: status
+            description: ""
+          - name: progress
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: form
+        description: ""
+        columns:
+          - name: guid
+            description: ""
+          - name: portal_id
+            description: ""
+          - name: name
+            description: ""
+          - name: action
+            description: ""
+          - name: method
+            description: ""
+          - name: css_class
+            description: ""
+          - name: redirect
+            description: ""
+          - name: submit_text
+            description: ""
+          - name: follow_up_id
+            description: ""
+          - name: notify_recipients
+            description: ""
+          - name: lead_nurturing_campaign_id
+            description: ""
+          - name: form_type
+            description: ""
+          - name: created_at
+            description: ""
+          - name: updated_at
+            description: ""
+          - name: _fivetran_deleted
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: line_item
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: product_id
+            description: ""
+          - name: deal_id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: property_price
+            description: ""
+          - name: property_createdate
+            description: ""
+          - name: property_description
+            description: ""
+          - name: property_hs_lastmodifieddate
+            description: ""
+          - name: property_hs_position_on_quote
+            description: ""
+          - name: property_quantity
+            description: ""
+          - name: property_hs_object_id
+            description: ""
+          - name: property_hs_updated_by_user_id
+            description: ""
+          - name: property_hs_created_by_user_id
+            description: ""
+          - name: property_recurringbillingfrequency
+            description: ""
+          - name: property_name
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: property_hs_url
+            description: ""
+
+      - name: line_item_property_history
+        description: ""
+        columns:
+          - name: line_item_id
+            description: ""
+          - name: name
+            description: ""
+          - name: timestamp
+            description: ""
+          - name: value
+            description: ""
+          - name: selected
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: _fivetran_start
+            description: ""
+          - name: _fivetran_end
+            description: ""
+          - name: _fivetran_active
+            description: ""
+
+      - name: marketing_email
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: subscription
+            description: ""
+          - name: ab
+            description: ""
+          - name: ab_hours_to_wait
+            description: ""
+          - name: ab_variation
+            description: ""
+          - name: ab_sample_size_default
+            description: ""
+          - name: ab_sampling_default
+            description: ""
+          - name: ab_status
+            description: ""
+          - name: ab_success_metric
+            description: ""
+          - name: ab_test_id
+            description: ""
+          - name: ab_test_percentage
+            description: ""
+          - name: absolute_url
+            description: ""
+          - name: analytics_page_id
+            description: ""
+          - name: analytics_page_type
+            description: ""
+          - name: archived
+            description: ""
+          - name: author
+            description: ""
+          - name: author_at
+            description: ""
+          - name: author_email
+            description: ""
+          - name: author_name
+            description: ""
+          - name: author_user_id
+            description: ""
+          - name: blog_email_type
+            description: ""
+          - name: campaign
+            description: ""
+          - name: campaign_name
+            description: ""
+          - name: can_spam_settings_id
+            description: ""
+          - name: cloned_from
+            description: ""
+          - name: create_page
+            description: ""
+          - name: created
+            description: ""
+          - name: currently_published
+            description: ""
+          - name: domain
+            description: ""
+          - name: email_body
+            description: ""
+          - name: email_note
+            description: ""
+          - name: email_type
+            description: ""
+          - name: feedback_email_category
+            description: ""
+          - name: feedback_survey_id
+            description: ""
+          - name: folder_id
+            description: ""
+          - name: freeze_date
+            description: ""
+          - name: from_name
+            description: ""
+          - name: is_graymail_suppression_enabled
+            description: ""
+          - name: is_local_timezone_send
+            description: ""
+          - name: is_published
+            description: ""
+          - name: is_recipient_fatigue_suppression_enabled
+            description: ""
+          - name: lead_flow_id
+            description: ""
+          - name: live_domain
+            description: ""
+          - name: meta_description
+            description: ""
+          - name: name
+            description: ""
+          - name: page_expiry_date
+            description: ""
+          - name: page_expiry_redirect_id
+            description: ""
+          - name: page_redirected
+            description: ""
+          - name: portal_id
+            description: ""
+          - name: preview_key
+            description: ""
+          - name: processing_status
+            description: ""
+          - name: publish_date
+            description: ""
+          - name: published_at
+            description: ""
+          - name: published_by_id
+            description: ""
+          - name: published_by_name
+            description: ""
+          - name: publish_immediately
+            description: ""
+          - name: published_url
+            description: ""
+          - name: reply_to
+            description: ""
+          - name: resolved_domain
+            description: ""
+          - name: slug
+            description: ""
+          - name: subcategory
+            description: ""
+          - name: subject
+            description: ""
+          - name: subscription_blog_id
+            description: ""
+          - name: subscription_name
+            description: ""
+          - name: transactional
+            description: ""
+          - name: unpublished_at
+            description: ""
+          - name: updated
+            description: ""
+          - name: updated_by_id
+            description: ""
+          - name: url
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: marketing_email_campaign
+        description: ""
+        columns:
+          - name: campaign_id
+            description: ""
+          - name: marketing_email_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: marketing_email_contact
+        description: ""
+        columns:
+          - name: contact_id
+            description: ""
+          - name: marketing_email_id
+            description: ""
+          - name: is_contact_included
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: marketing_email_contact_list
+        description: ""
+        columns:
+          - name: contact_list_id
+            description: ""
+          - name: marketing_email_id
+            description: ""
+          - name: is_mailing_list_included
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: merged_deal
+        description: ""
+        columns:
+          - name: deal_id
+            description: ""
+          - name: merged_deal_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: owner
+        description: ""
+        columns:
+          - name: owner_id
+            description: ""
+          - name: first_name
+            description: ""
+          - name: last_name
+            description: ""
+          - name: email
+            description: ""
+          - name: created_at
+            description: ""
+          - name: updated_at
+            description: ""
+          - name: active_user_id
+            description: ""
+          - name: is_active
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: owner_team
+        description: ""
+        columns:
+          - name: owner_id
+            description: ""
+          - name: team_id
+            description: ""
+          - name: _fivetran_deleted
+            description: ""
+          - name: is_team_primary
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: property
+        description: ""
+        columns:
+          - name: _fivetran_id
+            description: ""
+          - name: hubspot_object
+            description: ""
+          - name: name
+            description: ""
+          - name: label
+            description: ""
+          - name: description
+            description: ""
+          - name: group_name
+            description: ""
+          - name: type
+            description: ""
+          - name: field_type
+            description: ""
+          - name: calculated
+            description: ""
+          - name: hubspot_defined
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: property_option
+        description: ""
+        columns:
+          - name: label
+            description: ""
+          - name: property_id
+            description: ""
+          - name: value
+            description: ""
+          - name: display_order
+            description: ""
+          - name: double_data
+            description: ""
+          - name: hidden
+            description: ""
+          - name: read_only
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: team
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: name
+            description: ""
+          - name: _fivetran_deleted
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: team_user
+        description: ""
+        columns:
+          - name: team_id
+            description: ""
+          - name: user_id
+            description: ""
+          - name: is_secondary_user
+            description: ""
+          - name: _fivetran_deleted
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: ticket_pipeline
+        description: ""
+        columns:
+          - name: pipeline_id
+            description: ""
+          - name: label
+            description: ""
+          - name: active
+            description: ""
+          - name: display_order
+            description: ""
+          - name: object_type_id
+            description: ""
+          - name: _fivetran_deleted
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: ticket_pipeline_stage
+        description: ""
+        columns:
+          - name: stage_id
+            description: ""
+          - name: pipeline_id
+            description: ""
+          - name: label
+            description: ""
+          - name: active
+            description: ""
+          - name: display_order
+            description: ""
+          - name: is_closed
+            description: ""
+          - name: ticket_state
+            description: ""
+          - name: _fivetran_deleted
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: users
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: email
+            description: ""
+          - name: _fivetran_deleted
+            description: ""
+          - name: role_id
+            description: ""
+          - name: primary_team_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""

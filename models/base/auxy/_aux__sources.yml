@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: aux
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    tables:
+      - name: location_accounts
+        description: ""
+      - name: location_cost_center_history
+        description: ""
+      - name: locations
+        description: ""
+      - name: locations_history
+        description: ""
+      - name: employee_overrides
+        description: "Employee record value overrides and manual entries (1085269023169)."
+      - name: integration_roadmap
+        description: ""
