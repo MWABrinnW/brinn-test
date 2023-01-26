@@ -165,3 +165,6 @@ models:
           legacy:
             +grants:
               select: "{{ ['db_hr_mwa_r'] if target.name in ['prod','test'] else []}}"
+        trade_blotter:
+          +tags: ['trade_blotter']
+          +enabled: false

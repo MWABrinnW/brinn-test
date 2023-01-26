@@ -1,5 +1,5 @@
 with dates as ( --- date spine
-  select date_day as _date
+  select date_key as _date
   from {{ ref('dates') }}
   where true
     and _date between current_date - 90 and current_date
