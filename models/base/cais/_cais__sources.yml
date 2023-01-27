@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: cais
     description: ""
-    database: datalake_dev
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
     tables:
       - name: status_definitions
         description: ""
