@@ -1,0 +1,78 @@
+version: 2
+
+models:
+  - name: aux__base_locations
+    config:
+      tags: ['locations']
+    description: >
+      Primary purpose for this table is to assign a Mariner Location ID to each Mariner Location.
+      That ID/name is used throughout a number of systems (ex. Great Plains, ADP, Salesforce, Enterprise Reporting, etc).
+      The Location Master is also where the the hierarchy of Region/Market/Location is kept, along with other ancillary levels (Division, Legal, and Tax hierarchy) will be found.
+    columns:
+      - name: start_date
+        description: Unique identifier for each Location Master record.
+      - name: end_date
+        description: Start date the new location is active.
+      - name: active_directory
+        description: True = active; False = Inactive
+      - name: general_access
+        description: "True = everyone can see code; False = restricted view NOTE: This is always set to True."
+      - name: location_code
+        description: Mariner Location ID for the location (ex. 100, L-10015)
+      - name: division
+        description: "Division: separates Wealth, Advisory Solutions, and HQ"
+      - name: legal_name
+        description: Legal entity
+      - name: region_name
+        description: Region name, markets are grouped into a region
+      - name: market_name
+        description: Market name, locations are grouped into a market
+      - name: location_name
+        description: Location name, offices are grouped into a location
+      - name: office_name
+        description: "Office name/location in the format of 'City, State'"
+      - name: location_city
+        description: Location city
+      - name: location_state
+        description: Location state
+      - name: accounting_id_description
+        description: Great Plains accounting/cost code description (ex. Costa Mesa, CA; Costa Mesa, CA - MSEC; Costa Mesa, CA - MIR),
+      - name: accounting_id
+        description: Great Plains accounting/cost code (ex. 1104, 7704, 8804),
+      - name: acquisition_name
+        description: Name of firm purchase/acquisition or advisor lift-out,
+      - name: acquisition_type
+        description: Type of acquisition (ex. Advisor lift-out, Firm purchase, Significant hire, Greenfield, Tax Acquisition),
+      - name: _source_file
+        description: Source data file name (if applicable).
+      - name: _created_at
+        description: Datetime representing when the record was loaded into the table from the source file.
+ 
+  - name: aux__base_location_cost_center_history
+    config:
+      tags: ['locations']
+    description: >
+      Primary purpose for this table is to track prior accounting codes/cost centers for each location and the corresponding current accounting code.
+      These accounting codes tie to Great Plains and ADP.
+    columns:
+      - name: start_date
+        description: Start date the new location is active
+      - name: end_date
+        description: End date of current location OR date that current record will be modified and new record will start
+      - name: old_code
+        description: Great Plains accounting/cost code (ex. 1104, 7704, 8804) - prior code
+      - name: new_code
+        description: Great Plains accounting/cost code (ex. 1104, 7704, 8804) - current code
+      - name: _source_file
+        description: Source data file name (if applicable).
+      - name: _created_at
+        description: Datetime representing when the record was loaded into the table from the source file.
+
+  - name: aux__base_employee_overrides.sql
+    tags: ['employees']
+    description: >
+      "Employee record value overrides and manual entries (box file id: 1085269023169)."
+      Used by the HR team to make modification to employee records before they appear in the EDW.
+
+  - name: aux__base_integration_roademap
+    description: This smartsheets file is maintained by the platforms team and details the roadmap for various location Orion integration activities.

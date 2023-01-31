@@ -144,10 +144,10 @@ select
 
     {# What are the start and end fields used for?? #}
 from {{ ref('build__int_adp_employees_initial_supplemented') }} e
-left join {{ ref('ref__location_history') }} lh
+left join {{ ref('ref__location_cost_center_history') }} lh
     on e.position_cost_num_location_code = lh.old_code
     and e.effective_at::date between nvl(lh.start_date, coalesce(e.associate_final_termination_date, e.effective_at::date)) and nvl(lh.end_date, coalesce(e.associate_final_termination_date, e.effective_at::date))
-left join {{ ref('firm__location_master') }} lm
+left join {{ ref('firm__locations') }} lm
     on coalesce(lh.current_code, e.position_cost_num_location_code) = case
                                                                         when lh.current_code is not null then lm.location_code
                                                                         else lm.accounting_id
