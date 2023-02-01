@@ -1,7 +1,7 @@
 with cte_locations as
 (
     select *
-    from {{ ref('build__int_locations') }}
+    from {{ ref('int_locations') }}
 )
 ,cte_date_spine as
 (

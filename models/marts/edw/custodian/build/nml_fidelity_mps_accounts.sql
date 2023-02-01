@@ -1,15 +1,16 @@
+
 select
     a.effective_date
   , a.custodian
   , a.firm
-  , a.account_number                        as account_number
-  , a.account_number_formatted              as account_number_formatted
+  , a.account_number                                           as account_number
+  , a.account_number_formatted                                 as account_number_formatted
 
   , a.custodian_link -- branch/firm/gnumber? primary g number but how?
   , a.custodian_link_detail
   , a.account_type_source_code
-  , ar.definition                           as account_type_source_definition
-  , ar.normalized                           as account_type -- (ira rollover, etc)
+  , ar.definition                                              as account_type_source_definition
+  , ar.normalized                                              as account_type -- (ira rollover, etc)
   , a.opened_date
 
   , a.account_title
@@ -29,8 +30,8 @@ select
   , a.is_fee_authorized
   , a.is_prime_broker
   , a.restrictions_source_code
-  , r.definition                            as restrctions_source_defintion
-  , r.normalized                            as restrictions
+  , r.definition                                               as restrctions_source_defintion
+  , r.normalized                                               as restrictions
 
   , a.mailing_address_street::varchar(100)  as mailing_address_street
   , a.mailing_address_city::varchar(100)    as mailing_address_city
@@ -45,12 +46,12 @@ select
   , a.is_head
   , a.is_current
   , a._created_at
-from {{ ref('build__int_fidelity_mwa_accounts') }} a
-left join {{ ref('custodian_mappings') }}            r
-              on r.custodian = 'fidelity'
-              and r.field = 'restriction'
-              and a.restrictions_source_code = r.source
-left join {{ ref('custodian_mappings') }}            ar
-              on ar.custodian = 'fidelity'
-              and ar.field = 'account_registration'
-              and a.account_type_source_code = ar.source
+from {{ ref('int_fidelity_mps_accounts') }} a
+left join {{ ref('custodian_mappings') }} r
+    on r.custodian = 'fidelity'
+    and r.field = 'restriction'
+    and a.restrictions_source_code = r.source
+left join {{ ref('custodian_mappings') }} ar
+    on ar.custodian = 'fidelity'
+    and ar.field = 'account_registration'
+    and a.account_type_source_code = ar.source

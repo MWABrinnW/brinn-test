@@ -21,7 +21,6 @@ prod:
   ./test.ps1
 
 docs:
-  dbt compile
   dbt docs generate
   dbt docs serve
 

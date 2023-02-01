@@ -17,4 +17,5 @@ select
     ,acquisition_name
     ,acquisition_type
     ,_created_at
-from {{ref('build__int_locations')}}
+from {{ref('int_locations')}}
+where active = 1 and general_access = 1

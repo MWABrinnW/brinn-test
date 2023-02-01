@@ -48,7 +48,7 @@ models:
       - name: _created_at
         description: Datetime representing when the record was loaded into the table from the source file.
  
-  - name: aux__base_location_cost_center_history
+  - name: aux__base_locations_cost_center_history
     config:
       tags: ['locations']
     description: >
@@ -68,7 +68,7 @@ models:
       - name: _created_at
         description: Datetime representing when the record was loaded into the table from the source file.
 
-  - name: aux__base_employee_overrides.sql
+  - name: aux__base_employee_overrides
     tags: ['employees']
     description: >
       "Employee record value overrides and manual entries (box file id: 1085269023169)."

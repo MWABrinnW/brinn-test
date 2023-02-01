@@ -1,3 +1,5 @@
+{{ config(enabled = false) }}
+
 select
     a.effective_date
   , 'tda'                       as custodian
