@@ -1,5 +1,35 @@
-{{ config(materialized = 'table', enabled = false) }}
+{{ config(materialized = 'table') }}
+-- depends_on: {{ ref('tda_mwa_history__vw_demographics') }}
+-- depends_on: {{ ref('tda_mwa_history__vw_positions') }}
+-- depends_on: {{ ref('dates') }}
 
+{# Prepare the query we'll use to determine if new data from the source is available #}
+{% set qry_check_for_new_data %}
+select
+    case
+        when (select count(*) from {{ this }}) = 0
+            then 1
+        when (select top 1 1
+              from {{ ref('tda_mwa_history__vw_demographics') }}
+              where effective_date > (select max(effective_date) from {{ this }})
+              ) = 1
+            then 1
+        else 0
+        end
+{% endset %}
+
+{# Execute the query to determine if new data is ready. 1=yes 0=no#}
+{% if execute %}
+  {% set result = dbt_utils.get_single_value(qry_check_for_new_data) %}
+{% else %}
+  {{ dbt_utils.log_info('setting result from default')}}
+  {% set result = 0 %}
+{% endif %}
+
+{% if result == 0 %}
+  select *
+  from {{ this }}
+{% else %}
 with cte_accounts as
 (
     select
@@ -103,3 +133,4 @@ left join (
     and s.date_key = p.effective_date
 where s.date_key in (select date_key from {{ ref('dates') }} where is_market_day = 1)
 order by s.account_number, s.date_key
+{% endif %}
