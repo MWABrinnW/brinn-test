@@ -101,6 +101,6 @@ select
   , vol_invol                                 as vol_invol
   , reporting_office                          as reporting_office
   , source                                    as source
-from {{ ref('build__int_adp_employees_all') }}
+from {{ ref('int_adp_employees_all') }}
 where true
     and is_head = 1

@@ -44,6 +44,6 @@ select
     ,last_day_of_month
     ,position_start_date #}
     ,source
-from {{ ref('firm__employee_census') }}
+from {{ ref('employee_census') }}
 where true
     and is_month_end = 1

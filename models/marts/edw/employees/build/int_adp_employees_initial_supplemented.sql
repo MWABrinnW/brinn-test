@@ -1,3 +1,6 @@
+-- depends_on: {{ ref('int_adp_employees_initial') }}
+-- depends_on: {{ ref('aux__base_employee_overrides') }}
+-- depends_on: {{ ref('dates') }}
 {{ config(materialized = 'table') }}
 
 {#
@@ -5,10 +8,42 @@
   and not just the time it was loaded (_created_at/record_datetime)
 #}
 
+{%- set src = ref('int_adp_employees_initial') -%}
+
+{# Prepare the query we'll use to determine if new data from the source is available #}
+{% set qry_check_for_new_data %}
+select
+    case
+        when (select count(*) from {{ this }}) = 0
+            then 1
+        when (select top 1 1
+              from {{ src }}
+              where _created_at > (select max(_created_at) from {{ this }})
+              ) = 1
+            then 1
+        else 0
+        end
+{% endset %}
+
+{# Execute the query to determine if new data is ready. 1=yes 0=no#}
+{% if execute %}
+  {% set result = dbt_utils.get_single_value(qry_check_for_new_data) %}
+{% else %}
+  {{ dbt_utils.log_info('setting result from default')}}
+  {% set result = 0 %}
+{% endif %}
+
+{# Log the result #}
+{{ dbt_utils.log_info(result)}}
+
+{% if result == 0 %}
+  select *
+  from {{ this }}
+{% else %}
 with cte_employees_all           as
     (
         select *
-        from {{ ref('build__int_adp_employees_initial') }}
+        from {{ src }}
     )
     , cte_employees              as
         (select
@@ -728,3 +763,5 @@ select
   , current_timestamp()                                                                     as _created_at
 from cte_final_with_manual_and_missing_dates
 order by effective_at, employee_num
+
+{% endif %}

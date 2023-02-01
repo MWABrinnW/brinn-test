@@ -4,12 +4,14 @@ select
     ,lm.accounting_id                               as accounting_id
     ,lm.accounting_id_description                   as accounting_id_description
     ,lm.location_name                               as location_name
-    ,lm.category                                    as location_category
-    ,lm.legal_name                                  as category_legal_name
+    ,lm.legal_name                                  as location_legal_name
     ,lm.location_city                               as location_city
     ,lm.location_state                              as location_state
     ,lm.region_name                                 as location_region_name
     ,lm.market_name                                 as location_market_name
+    ,lm.division                                    as location_division
+    ,lm.acquisition_name                            as location_acquisition_name
+    ,lm.acquisition_type                            as location_acquisition_type
 
     , case
           when e.occupational_classifications_class ilike '%advisor%'
@@ -143,14 +145,15 @@ select
           end                                                                                              as is_end
 
     {# What are the start and end fields used for?? #}
-from {{ ref('build__int_adp_employees_initial_supplemented') }} e
-left join {{ ref('ref__location_history') }} lh
+from {{ ref('int_adp_employees_initial_supplemented') }} e
+left join {{ ref('locations_cost_center_history') }} lh
     on e.position_cost_num_location_code = lh.old_code
     and e.effective_at::date between nvl(lh.start_date, coalesce(e.associate_final_termination_date, e.effective_at::date)) and nvl(lh.end_date, coalesce(e.associate_final_termination_date, e.effective_at::date))
-left join {{ ref('firm__location_master') }} lm
+left join {{ ref('locations') }} lm
     on coalesce(lh.current_code, e.position_cost_num_location_code) = case
                                                                         when lh.current_code is not null then lm.location_code
                                                                         else lm.accounting_id
                                                                         end
+    and lm.active = 1
 where true
   and nvl(e.is_deleted,0) = 0

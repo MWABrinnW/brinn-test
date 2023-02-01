@@ -43,7 +43,7 @@ select
   , emp.data_last_refreshed_date
   , emp.accounting_id
   , emp.source
-from {{ ref('build__int_adp_employees_all') }} emp
+from {{ ref('int_adp_employees_all') }} emp
 where true
   and right(lower(emp.position_id),1) <> 'n'
   and emp.is_head = 1

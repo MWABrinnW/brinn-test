@@ -74,7 +74,7 @@ select
   , em.effective_at                                                                                      as effective_at
   , em.is_month_end                                                                                      as is_month_end
   , em.is_head                                                                                           as is_head
-from {{ ref('build__int_adp_employees_all') }} em
+from {{ ref('int_adp_employees_all') }} em
 where true
   and em.is_census = 1
   and nvl(em.is_deleted, 0) = 0
@@ -151,7 +151,7 @@ select
   , 1                                      as is_month_end
   , 0                                      as is_head
 from {{ ref('edw_legacy__base_employee_reporting_history') }} le
-left join {{ ref('build__int_adp_employees_all') }}                    be
+left join {{ ref('int_adp_employees_all') }}                    be
   on le.position_id = be.position_id
   and le.report_month_end = be.effective_at::date
 where report_month_end <= '11/30/2022'

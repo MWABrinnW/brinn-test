@@ -43,7 +43,7 @@ select
   , emp.data_last_refreshed_date             as data_last_refreshed_date
   , emp.location_code                        as accounting_id
   , emp.source                               as source
-from {{ ref('firm__employees') }} as emp
+from {{ ref('employees') }} as emp
 where true
   and right(lower(emp.position_id), 1) <> 'n'
   {# and nvl(emp.is_deleted,0) = 0 #}

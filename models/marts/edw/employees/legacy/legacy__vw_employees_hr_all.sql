@@ -93,7 +93,7 @@ select
   , e.reporting_office                          as reporting_office
   , e.accounting_id                             as accounting_id
   , e.source                                    as source
-from {{ ref('build__int_adp_employees_all') }} e
+from {{ ref('int_adp_employees_all') }} e
 where true
   and e.is_head = 1
   {# and e.is_employee = 1 #}

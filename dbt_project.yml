@@ -151,20 +151,42 @@ models:
           {%- endif -%}
         custodian:
           +tags: ['custodian']
-          +grants:
-            select: "{{ ['db_custodial_r'] if target.name in ['prod','test'] else []}}"
-        locations:
-          +tags: ['locations']
-          +grants:
-            select: "{{ ['db_pms_mwa_r', 'db_custodial_mwa_r', 'db_hr_mwa_r'] if target.name in ['prod','test'] else []}}"
+          build:
+            +schema: build
+          enterprise:
+            +schema: enterprise
+            +grants:
+              select: "{{ ['db_custodial_r'] if target.name in ['prod','test'] else []}}"
         employees:
           +tags: ['employees']
-          firm:
+          build:
+            +schema: build
+          enterprise:
+            +schema: enterprise
             +grants:
               select: "{{ ['db_hr_mwa_r'] if target.name in ['prod','test'] else []}}"
           legacy:
+            +schema: legacy
             +grants:
               select: "{{ ['db_hr_mwa_r'] if target.name in ['prod','test'] else []}}"
+        locations:
+          +tags: ['locations']
+          build:
+            +schema: build
+          enterprise:
+            +schema: enterprise
+            +grants:
+              select: "{{ ['db_pms_mwa_r', 'db_custodial_mwa_r', 'db_hr_mwa_r'] if target.name in ['prod','test'] else []}}"
+          ref:
+            +schema: ref
+            +grants:
+              select: "{{ ['db_pms_mwa_r', 'db_custodial_mwa_r', 'db_hr_mwa_r'] if target.name in ['prod','test'] else []}}"
         trade_blotter:
           +tags: ['trade_blotter']
           +enabled: false
+          build:
+            +schema: build
+          enterprise:
+            +schema: enterprise
+          ref:
+            +schema: ref

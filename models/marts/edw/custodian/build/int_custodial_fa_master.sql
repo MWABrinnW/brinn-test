@@ -8,14 +8,14 @@
 
 /* SCHWAB */
 select *
-from {{ ref('build__nml_schwab_mwa_accounts') }}
+from {{ ref('nml_schwab_mwa_accounts') }}
 where true
     {{ incremental_date_filter(source_col_name='effective_date', target_col_name='effective_date', filter="and lower(custodian) = 'schwab' and lower(firm) = 'mwa'") }}
 
 union all
 
 select *
-from {{ ref('build__nml_schwab_mps_accounts') }}
+from {{ ref('nml_schwab_mps_accounts') }}
 where true
     {{ incremental_date_filter(source_col_name='effective_date', target_col_name='effective_date', filter="and lower(custodian) = 'schwab' and lower(firm) = 'mps'") }}
 
@@ -23,21 +23,21 @@ union all
 
 /* FIDELITY */
 select *
-from {{ ref('build__nml_fidelity_mwa_accounts') }}
+from {{ ref('nml_fidelity_mwa_accounts') }}
 where true
     {{ incremental_date_filter(source_col_name='effective_date', target_col_name='effective_date', filter="and lower(custodian) = 'fidelity' and lower(firm) = 'mwa'") }}
 
 union all
 
 select *
-from {{ ref('build__nml_fidelity_mps_accounts') }}
+from {{ ref('nml_fidelity_mps_accounts') }}
 where true
     {{ incremental_date_filter(source_col_name='effective_date', target_col_name='effective_date', filter="and lower(custodian) = 'fidelity' and lower(firm) = 'mps'") }}
 
-union all
+{# union all #}
 
 /* TDA */
-select *
-from {{ ref('build__nml_tda_mwa_accounts') }}
+{# select *
+from {{ ref('nml_tda_mwa_accounts') }}
 where true
-    {{ incremental_date_filter(source_col_name='effective_date', target_col_name='effective_date', filter="and lower(custodian) = 'tda' and lower(firm) = 'mwa'") }}
+    {{ incremental_date_filter(source_col_name='effective_date', target_col_name='effective_date', filter="and lower(custodian) = 'tda' and lower(firm) = 'mwa'") }} #}
