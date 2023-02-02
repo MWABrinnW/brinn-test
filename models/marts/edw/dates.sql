@@ -77,6 +77,6 @@ select
   *
   ,last_value(case when is_market_day = 1 then date_key end) ignore nulls
             over (order by date_key asc rows between unbounded preceding and 1 preceding)
-            as prior_market_day
+            as prior_market_date
 from cte_flagged
 order by date_key
