@@ -1,0 +1,43 @@
+select
+    id
+  , owner_id
+  , is_deleted
+  , name
+  , created_date
+  , created_by_id
+  , last_modified_date
+  , last_modified_by_id
+  , system_modstamp
+  , last_viewed_date
+  , last_referenced_date
+  , basis_c
+  , fee_rate_10_c
+  , fee_rate_11_c
+  , fee_rate_1_c
+  , fee_rate_2_c
+  , fee_rate_3_c
+  , fee_rate_4_c
+  , fee_rate_5_c
+  , fee_rate_6_c
+  , fee_rate_7_c
+  , fee_rate_8_c
+  , fee_rate_9_c
+  , fee_schedule_expiration_date_c
+  , fee_type_c
+  , level_10_c
+  , level_11_c
+  , level_1_c
+  , level_2_c
+  , level_3_c
+  , level_4_c
+  , level_5_c
+  , level_6_c
+  , level_7_c
+  , level_8_c
+  , level_9_c
+  , minimum_annual_fee_c
+  , number_of_levels_c
+  , firms_using_this_fee_schedule_c
+  , _fivetran_synced
+  , maximum_level_c
+from {{ source('salesforce_compass', 'fee_schedule_c') }}

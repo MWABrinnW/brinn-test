@@ -1,0 +1,18 @@
+version: 2
+
+seeds:
+  - name: market_holidays
+    description: '{{ doc("holidays_description") }}'
+    docs:
+      show: true
+    config:
+      enabled: true
+      tags: aux
+      schema: aux
+      grants:
+        select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod','test'] else []}}"
+    columns:
+      - name: market_holiday
+        tests:
+          - not_null
+          - unique

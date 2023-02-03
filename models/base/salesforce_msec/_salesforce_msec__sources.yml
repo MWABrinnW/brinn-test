@@ -1,0 +1,5112 @@
+version: 2
+
+sources:
+  - name: salesforce_msec
+    description: ""
+    database: fivetran
+    tables:
+      - name: account
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: master_record_id
+            description: ""
+          - name: name
+            description: ""
+          - name: last_name
+            description: ""
+          - name: first_name
+            description: ""
+          - name: salutation
+            description: ""
+          - name: type
+            description: ""
+          - name: record_type_id
+            description: ""
+          - name: parent_id
+            description: ""
+          - name: billing_street
+            description: ""
+          - name: billing_city
+            description: ""
+          - name: billing_state
+            description: ""
+          - name: billing_postal_code
+            description: ""
+          - name: billing_country
+            description: ""
+          - name: billing_latitude
+            description: ""
+          - name: billing_longitude
+            description: ""
+          - name: billing_geocode_accuracy
+            description: ""
+          - name: shipping_street
+            description: ""
+          - name: shipping_city
+            description: ""
+          - name: shipping_state
+            description: ""
+          - name: shipping_postal_code
+            description: ""
+          - name: shipping_country
+            description: ""
+          - name: shipping_latitude
+            description: ""
+          - name: shipping_longitude
+            description: ""
+          - name: shipping_geocode_accuracy
+            description: ""
+          - name: phone
+            description: ""
+          - name: fax
+            description: ""
+          - name: account_number
+            description: ""
+          - name: website
+            description: ""
+          - name: photo_url
+            description: ""
+          - name: sic
+            description: ""
+          - name: industry
+            description: ""
+          - name: annual_revenue
+            description: ""
+          - name: number_of_employees
+            description: ""
+          - name: ownership
+            description: ""
+          - name: ticker_symbol
+            description: ""
+          - name: description
+            description: ""
+          - name: rating
+            description: ""
+          - name: site
+            description: ""
+          - name: owner_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: last_activity_date
+            description: ""
+          - name: last_viewed_date
+            description: ""
+          - name: last_referenced_date
+            description: ""
+          - name: person_contact_id
+            description: ""
+          - name: is_person_account
+            description: ""
+          - name: person_mailing_street
+            description: ""
+          - name: person_mailing_city
+            description: ""
+          - name: person_mailing_state
+            description: ""
+          - name: person_mailing_postal_code
+            description: ""
+          - name: person_mailing_country
+            description: ""
+          - name: person_mailing_latitude
+            description: ""
+          - name: person_mailing_longitude
+            description: ""
+          - name: person_mailing_geocode_accuracy
+            description: ""
+          - name: person_other_street
+            description: ""
+          - name: person_other_city
+            description: ""
+          - name: person_other_state
+            description: ""
+          - name: person_other_postal_code
+            description: ""
+          - name: person_other_country
+            description: ""
+          - name: person_other_latitude
+            description: ""
+          - name: person_other_longitude
+            description: ""
+          - name: person_other_geocode_accuracy
+            description: ""
+          - name: person_mobile_phone
+            description: ""
+          - name: person_home_phone
+            description: ""
+          - name: person_other_phone
+            description: ""
+          - name: person_assistant_phone
+            description: ""
+          - name: person_email
+            description: ""
+          - name: person_title
+            description: ""
+          - name: person_department
+            description: ""
+          - name: person_assistant_name
+            description: ""
+          - name: person_lead_source
+            description: ""
+          - name: person_birthdate
+            description: ""
+          - name: person_has_opted_out_of_email
+            description: ""
+          - name: person_has_opted_out_of_fax
+            description: ""
+          - name: person_do_not_call
+            description: ""
+          - name: person_last_curequest_date
+            description: ""
+          - name: person_last_cuupdate_date
+            description: ""
+          - name: person_email_bounced_reason
+            description: ""
+          - name: person_email_bounced_date
+            description: ""
+          - name: person_individual_id
+            description: ""
+          - name: jigsaw
+            description: ""
+          - name: jigsaw_company_id
+            description: ""
+          - name: account_source
+            description: ""
+          - name: sic_desc
+            description: ""
+          - name: salesforce_customer
+            description: ""
+          - name: connection_received_id
+            description: ""
+          - name: connection_sent_id
+            description: ""
+          - name: payout_soc_sec_number_c
+            description: ""
+          - name: abc_money_manager_c
+            description: ""
+          - name: spouse_license_number_c
+            description: ""
+          - name: spouse_license_exp_date_c
+            description: ""
+          - name: spouse_email_c
+            description: ""
+          - name: spouse_gender_c
+            description: ""
+          - name: anniversary_c
+            description: ""
+          - name: client_level_c
+            description: ""
+          - name: place_of_birth_c
+            description: ""
+          - name: spouse_place_of_birth_c
+            description: ""
+          - name: spouse_employer_c
+            description: ""
+          - name: spouse_work_phone_c
+            description: ""
+          - name: phone_extension_c
+            description: ""
+          - name: id_status_c
+            description: ""
+          - name: marital_status_c
+            description: ""
+          - name: maiden_name_c
+            description: ""
+          - name: other_extension_c
+            description: ""
+          - name: occupation_c
+            description: ""
+          - name: pager_c
+            description: ""
+          - name: personal_email_c
+            description: ""
+          - name: salutation_name_c
+            description: ""
+          - name: spouse_name_c
+            description: ""
+          - name: spouse_birthdate_c
+            description: ""
+          - name: spouse_license_state_c
+            description: ""
+          - name: spouse_ssn_c
+            description: ""
+          - name: spouse_nickname_c
+            description: ""
+          - name: home_address_c
+            description: ""
+          - name: home_city_c
+            description: ""
+          - name: home_state_c
+            description: ""
+          - name: home_zip_c
+            description: ""
+          - name: test_percent_c
+            description: ""
+          - name: payout_advisor_payout_grid_c
+            description: ""
+          - name: payout_commission_advisor_c
+            description: ""
+          - name: payout_commission_split_c
+            description: ""
+          - name: payout_fixed_advisory_payout_c
+            description: ""
+          - name: payout_fixed_advisory_rate_c
+            description: ""
+          - name: payout_fixed_payout_rate_c
+            description: ""
+          - name: payout_fixed_split_c
+            description: ""
+          - name: payout_override_paid_to_c
+            description: ""
+          - name: payout_override_percentage_c
+            description: ""
+          - name: payout_override_c
+            description: ""
+          - name: payout_payout_grid_c
+            description: ""
+          - name: payout_starting_tiered_payout_rate_c
+            description: ""
+          - name: payout_track_ledger_at_group_level_c
+            description: ""
+          - name: quarterback_c
+            description: ""
+          - name: introducer_c
+            description: ""
+          - name: montage_account_open_c
+            description: ""
+          - name: company_c
+            description: ""
+          - name: payout_advisory_gross_ytd_c
+            description: ""
+          - name: payout_advisory_starting_tiered_payout_rate_c
+            description: ""
+          - name: payout_client_birthdate_c
+            description: ""
+          - name: payout_insurance_fixed_payout_rate_c
+            description: ""
+          - name: payout_insurance_fixed_split_c
+            description: ""
+          - name: payout_insurance_gross_ytd_c
+            description: ""
+          - name: payout_insurance_payout_grid_c
+            description: ""
+          - name: payout_insurance_starting_tiered_payout_rate_c
+            description: ""
+          - name: payout_investment_gross_ytd_c
+            description: ""
+          - name: payout_payout_tier_lookup_basis_c
+            description: ""
+          - name: payout_spouse_birthdate_c
+            description: ""
+          - name: payout_spouse_c
+            description: ""
+          - name: payout_account_creation_c
+            description: ""
+          - name: payout_active_c
+            description: ""
+          - name: payout_address_changed_c
+            description: ""
+          - name: payout_advisor_mailing_list_c
+            description: ""
+          - name: payout_advisor_c
+            description: ""
+          - name: payout_albridge_title_c
+            description: ""
+          - name: payout_appt_frequency_c
+            description: ""
+          - name: payout_bonus_c
+            description: ""
+          - name: payout_contract_type_c
+            description: ""
+          - name: payout_customer_priority_c
+            description: ""
+          - name: payout_dividend_c
+            description: ""
+          - name: payout_emp_address_1_c
+            description: ""
+          - name: payout_emp_address_2_c
+            description: ""
+          - name: payout_emp_city_c
+            description: ""
+          - name: payout_emp_start_date_c
+            description: ""
+          - name: payout_emp_state_c
+            description: ""
+          - name: payout_emp_zip_code_c
+            description: ""
+          - name: payout_employer_c
+            description: ""
+          - name: payout_employment_remarks_c
+            description: ""
+          - name: payout_employment_status_c
+            description: ""
+          - name: payout_fi_id_c
+            description: ""
+          - name: payout_fact_finder_client_id_c
+            description: ""
+          - name: payout_federal_tax_braket_c
+            description: ""
+          - name: payout_gender_c
+            description: ""
+          - name: payout_income_remarks_c
+            description: ""
+          - name: payout_interest_c
+            description: ""
+          - name: payout_last_appointment_c
+            description: ""
+          - name: payout_last_update_by_c
+            description: ""
+          - name: payout_last_update_c
+            description: ""
+          - name: payout_license_exp_date_c
+            description: ""
+          - name: payout_license_issue_date_c
+            description: ""
+          - name: payout_license_number_c
+            description: ""
+          - name: payout_license_state_c
+            description: ""
+          - name: payout_mailing_address_1_temp_c
+            description: ""
+          - name: payout_mailing_city_temp_c
+            description: ""
+          - name: payout_mailing_lists_c
+            description: ""
+          - name: payout_mailing_state_temp_c
+            description: ""
+          - name: payout_mailing_zip_temp_c
+            description: ""
+          - name: payout_middle_name_c
+            description: ""
+          - name: payout_misc_description_c
+            description: ""
+          - name: payout_misc_c
+            description: ""
+          - name: payout_next_appointment_c
+            description: ""
+          - name: payout_next_meeting_status_c
+            description: ""
+          - name: payout_nickname_c
+            description: ""
+          - name: payout_numberof_locations_c
+            description: ""
+          - name: payout_original_entry_by_c
+            description: ""
+          - name: payout_original_entry_date_c
+            description: ""
+          - name: payout_other_income_description_c
+            description: ""
+          - name: payout_other_income_c
+            description: ""
+          - name: payout_other_phone_type_c
+            description: ""
+          - name: payout_pension_c
+            description: ""
+          - name: payout_real_estate_c
+            description: ""
+          - name: payout_referred_by_c
+            description: ""
+          - name: payout_slaexpiration_date_c
+            description: ""
+          - name: payout_slaserial_number_c
+            description: ""
+          - name: payout_ssn_c
+            description: ""
+          - name: payout_salary_c
+            description: ""
+          - name: payout_scanned_c
+            description: ""
+          - name: payout_security_license_c
+            description: ""
+          - name: payout_social_security_c
+            description: ""
+          - name: payout_start_date_c
+            description: ""
+          - name: payout_upsell_opportunity_c
+            description: ""
+          - name: payout_years_employed_c
+            description: ""
+          - name: dst_dealer_number_c
+            description: ""
+          - name: cirrus_unique_id_c
+            description: ""
+          - name: commission_switch_date_c
+            description: ""
+          - name: payout_gross_or_net_c
+            description: ""
+          - name: payout_override_paid_by_c
+            description: ""
+          - name: payout_override_payout_grid_c
+            description: ""
+          - name: cirrus_address_c
+            description: ""
+          - name: cirrus_city_c
+            description: ""
+          - name: cirrus_state_c
+            description: ""
+          - name: cirrus_zip_c
+            description: ""
+          - name: payout_households_c
+            description: ""
+          - name: payout_plan_manufacturer_c
+            description: ""
+          - name: payout_state_holder_c
+            description: ""
+          - name: payout_states_advisory_c
+            description: ""
+          - name: payout_states_text_c
+            description: ""
+          - name: payout_states_c
+            description: ""
+          - name: payout_ticket_charge_schedule_c
+            description: ""
+          - name: payout_password_c
+            description: ""
+          - name: payout_salt_c
+            description: ""
+          - name: citizenship_c
+            description: ""
+          - name: type_of_id_c
+            description: ""
+          - name: employers_address_c
+            description: ""
+          - name: owners_annual_income_c
+            description: ""
+          - name: owners_estimated_net_worth_c
+            description: ""
+          - name: investable_liquid_assets_c
+            description: ""
+          - name: special_expense_c
+            description: ""
+          - name: special_expense_time_frame_c
+            description: ""
+          - name: passport_id_number_c
+            description: ""
+          - name: fbo_c
+            description: ""
+          - name: date_of_trust_c
+            description: ""
+          - name: irs_tax_number_c
+            description: ""
+          - name: irs_tax_number_type_c
+            description: ""
+          - name: payout_aum_c
+            description: ""
+          - name: payout_account_referred_by_c
+            description: ""
+          - name: payout_albridge_mgt_name_c
+            description: ""
+          - name: payout_business_account_site_email_c
+            description: ""
+          - name: payout_client_address_c
+            description: ""
+          - name: payout_client_city_c
+            description: ""
+          - name: payout_client_email_c
+            description: ""
+          - name: payout_client_first_name_c
+            description: ""
+          - name: payout_client_last_name_c
+            description: ""
+          - name: payout_client_name_c
+            description: ""
+          - name: payout_client_state_c
+            description: ""
+          - name: payout_client_zip_c
+            description: ""
+          - name: payout_copy_from_employer_account_c
+            description: ""
+          - name: payout_copy_from_household_c
+            description: ""
+          - name: payout_employee_account_c
+            description: ""
+          - name: payout_employer_account_c
+            description: ""
+          - name: payout_employer_phone_c
+            description: ""
+          - name: payout_id_type_c
+            description: ""
+          - name: payout_id_on_file_c
+            description: ""
+          - name: payout_last_position_update_c
+            description: ""
+          - name: payout_mass_update_c
+            description: ""
+          - name: payout_plan_client_c
+            description: ""
+          - name: payout_reset_c
+            description: ""
+          - name: payout_session_id_c
+            description: ""
+          - name: payout_spouse_account_c
+            description: ""
+          - name: payout_tax_id_type_c
+            description: ""
+          - name: payout_x_529_product_sponsor_c
+            description: ""
+          - name: payout_auto_refresh_holdings_c
+            description: ""
+          - name: payout_refresh_holdings_days_c
+            description: ""
+          - name: payout_advisor_user_c
+            description: ""
+          - name: payout_deduct_mgt_fee_after_payout_c
+            description: ""
+          - name: payout_deduct_ticket_charge_after_payout_c
+            description: ""
+          - name: payout_household_17_a_3_start_date_c
+            description: ""
+          - name: payout_token_c
+            description: ""
+          - name: payout_use_household_36_month_date_c
+            description: ""
+          - name: payout_use_suggested_36_month_date_c
+            description: ""
+          - name: payout_advisory_license_renewal_cost_c
+            description: ""
+          - name: payout_investment_license_renewal_cost_c
+            description: ""
+          - name: payout_populate_from_crd_c
+            description: ""
+          - name: payout_total_household_holdings_c
+            description: ""
+          - name: payout_zz_trigger_c
+            description: ""
+          - name: payout_approval_date_c
+            description: ""
+          - name: payout_assigned_branch_c
+            description: ""
+          - name: payout_aum_reports_billing_forwarded_to_c
+            description: ""
+          - name: payout_aum_reports_sales_forwarded_to_c
+            description: ""
+          - name: payout_aum_targets_c
+            description: ""
+          - name: payout_advisor_crd_c
+            description: ""
+          - name: payout_advisor_hold_c
+            description: ""
+          - name: payout_advisor_termination_date_c
+            description: ""
+          - name: payout_affiliated_with_member_of_any_exchange_c
+            description: ""
+          - name: payout_alt_address_description_c
+            description: ""
+          - name: payout_alt_address_c
+            description: ""
+          - name: payout_alt_city_c
+            description: ""
+          - name: payout_alt_phone_description_c
+            description: ""
+          - name: payout_alt_phone_c
+            description: ""
+          - name: payout_alt_zip_c
+            description: ""
+          - name: payout_bd_id_c
+            description: ""
+          - name: payout_balance_as_of_last_payment_advisory_c
+            description: ""
+          - name: payout_balance_as_of_last_payment_insurance_c
+            description: ""
+          - name: payout_balance_as_of_last_payment_investments_c
+            description: ""
+          - name: payout_balance_as_of_last_payment_other_c
+            description: ""
+          - name: payout_balance_as_of_last_payment_c
+            description: ""
+          - name: payout_bank_account_number_c
+            description: ""
+          - name: payout_bank_account_type_c
+            description: ""
+          - name: payout_bank_payment_type_c
+            description: ""
+          - name: payout_bank_routing_number_c
+            description: ""
+          - name: payout_branch_crd_number_c
+            description: ""
+          - name: payout_branch_manager_fee_c
+            description: ""
+          - name: payout_branch_manager_c
+            description: ""
+          - name: payout_branch_office_rating_c
+            description: ""
+          - name: payout_branch_office_c
+            description: ""
+          - name: payout_branch_ytd_advisory_c
+            description: ""
+          - name: payout_branch_ytd_insurance_c
+            description: ""
+          - name: payout_branch_ytd_investments_c
+            description: ""
+          - name: payout_branch_ytd_total_c
+            description: ""
+          - name: payout_broker_dealer_name_c
+            description: ""
+          - name: payout_cirrus_unique_id_c
+            description: ""
+          - name: payout_dba_c
+            description: ""
+          - name: payout_dst_account_name_c
+            description: ""
+          - name: payout_dst_city_c
+            description: ""
+          - name: payout_dst_first_name_c
+            description: ""
+          - name: payout_dst_last_name_c
+            description: ""
+          - name: payout_dst_state_c
+            description: ""
+          - name: payout_dst_street_c
+            description: ""
+          - name: payout_dst_zip_c
+            description: ""
+          - name: payout_due_diligence_ongoing_c
+            description: ""
+          - name: payout_due_diligence_provided_by_c
+            description: ""
+          - name: payout_employee_of_another_broker_dealer_c
+            description: ""
+          - name: payout_employer_address_c
+            description: ""
+          - name: payout_employer_city_c
+            description: ""
+          - name: payout_employer_state_c
+            description: ""
+          - name: payout_employer_zip_c
+            description: ""
+          - name: payout_firm_name_c
+            description: ""
+          - name: payout_heightened_supervision_end_date_c
+            description: ""
+          - name: payout_heightened_supervision_reason_c
+            description: ""
+          - name: payout_heightened_supervision_start_date_c
+            description: ""
+          - name: payout_hold_reason_c
+            description: ""
+          - name: payout_invoice_frequency_c
+            description: ""
+          - name: payout_invoice_method_1_c
+            description: ""
+          - name: payout_invoice_method_c
+            description: ""
+          - name: payout_last_review_date_c
+            description: ""
+          - name: payout_last_payment_amount_c
+            description: ""
+          - name: payout_last_temp_address_update_c
+            description: ""
+          - name: payout_line_of_business_c
+            description: ""
+          - name: payout_mailing_address_same_as_residence_c
+            description: ""
+          - name: payout_maintaining_other_brokerage_accounts_c
+            description: ""
+          - name: payout_min_fa_length_c
+            description: ""
+          - name: payout_minimum_fa_check_c
+            description: ""
+          - name: payout_next_audit_date_c
+            description: ""
+          - name: payout_occupation_c
+            description: ""
+          - name: payout_pfs_model_c
+            description: ""
+          - name: payout_pay_trails_to_c
+            description: ""
+          - name: payout_platforf_c
+            description: ""
+          - name: payout_residence_address_c
+            description: ""
+          - name: payout_residence_city_c
+            description: ""
+          - name: payout_residence_state_c
+            description: ""
+          - name: payout_residence_zip_c
+            description: ""
+          - name: payout_status_c
+            description: ""
+          - name: payout_senior_military_gov_or_political_offi_c
+            description: ""
+          - name: payout_senior_officer_directory_or_own_10_mor_c
+            description: ""
+          - name: payout_service_model_status_c
+            description: ""
+          - name: payout_service_model_c
+            description: ""
+          - name: payout_share_in_negative_transactions_c
+            description: ""
+          - name: payout_spouse_email_c
+            description: ""
+          - name: payout_spouse_employer_c
+            description: ""
+          - name: payout_spouse_first_name_c
+            description: ""
+          - name: payout_spouse_gender_c
+            description: ""
+          - name: payout_spouse_last_name_c
+            description: ""
+          - name: payout_spouse_license_exp_date_c
+            description: ""
+          - name: payout_spouse_license_number_c
+            description: ""
+          - name: payout_spouse_license_state_c
+            description: ""
+          - name: payout_spouse_mobile_c
+            description: ""
+          - name: payout_spouse_name_c
+            description: ""
+          - name: payout_spouse_ssn_c
+            description: ""
+          - name: payout_spouse_work_address_c
+            description: ""
+          - name: payout_spouse_work_city_c
+            description: ""
+          - name: payout_spouse_work_phone_c
+            description: ""
+          - name: payout_spouse_work_state_c
+            description: ""
+          - name: payout_spouse_work_zip_c
+            description: ""
+          - name: payout_states_advisory_text_c
+            description: ""
+          - name: payout_supervising_principal_c
+            description: ""
+          - name: payout_terminated_date_c
+            description: ""
+          - name: payout_trading_tool_used_c
+            description: ""
+          - name: payout_use_advisor_grid_c
+            description: ""
+          - name: payout_ytd_advisor_ledger_gross_c
+            description: ""
+          - name: payout_dl_account_number_del_c
+            description: ""
+          - name: payout_dst_raw_xml_c
+            description: ""
+          - name: payout_balance_as_of_last_locked_payout_c
+            description: ""
+          - name: payout_branch_licensed_principal_c
+            description: ""
+          - name: payout_designations_c
+            description: ""
+          - name: payout_last_locked_payout_date_c
+            description: ""
+          - name: payout_advisory_bank_account_number_c
+            description: ""
+          - name: payout_advisory_bank_account_type_c
+            description: ""
+          - name: payout_advisory_bank_information_c
+            description: ""
+          - name: payout_advisory_bank_payment_type_c
+            description: ""
+          - name: payout_advisory_bank_routing_number_c
+            description: ""
+          - name: payout_insurance_bank_account_number_c
+            description: ""
+          - name: payout_insurance_bank_account_type_c
+            description: ""
+          - name: payout_insurance_bank_information_c
+            description: ""
+          - name: payout_insurance_bank_payment_type_c
+            description: ""
+          - name: payout_insurance_bank_routing_number_c
+            description: ""
+          - name: payout_investments_bank_information_c
+            description: ""
+          - name: payout_t_12_date_c
+            description: ""
+          - name: payout_t_12_gross_c
+            description: ""
+          - name: payout_wf_name_c
+            description: ""
+          - name: payout_delete_account_c
+            description: ""
+          - name: payout_t_12_branch_total_c
+            description: ""
+          - name: payout_client_hold_reason_c
+            description: ""
+          - name: payout_client_hold_c
+            description: ""
+          - name: payout_emergency_contact_c
+            description: ""
+          - name: payout_mtd_adv_gross_c
+            description: ""
+          - name: payout_next_override_rate_c
+            description: ""
+          - name: payout_override_exp_date_c
+            description: ""
+          - name: payout_previous_city_for_ba_c
+            description: ""
+          - name: payout_previous_state_for_ba_c
+            description: ""
+          - name: payout_previous_street_for_ba_c
+            description: ""
+          - name: payout_previous_zip_for_ba_c
+            description: ""
+          - name: payout_x_36_month_letter_c
+            description: ""
+          - name: payout_trail_frequency_c
+            description: ""
+          - name: payout_hours_of_operation_c
+            description: ""
+          - name: payout_may_we_drop_off_flyers_in_the_teachers_c
+            description: ""
+          - name: payout_may_we_email_teachers_directly_c
+            description: ""
+          - name: payout_may_we_walk_through_the_halls_c
+            description: ""
+          - name: payout_last_ofac_review_c
+            description: ""
+          - name: payout_last_ofac_run_c
+            description: ""
+          - name: payout_branch_advisor_advisory_c
+            description: ""
+          - name: payout_branch_advisor_insurance_c
+            description: ""
+          - name: payout_branch_advisor_investments_c
+            description: ""
+          - name: payout_notification_email_c
+            description: ""
+          - name: payout_use_branch_payout_rates_c
+            description: ""
+          - name: payout_mtd_commission_payable_c
+            description: ""
+          - name: source_c
+            description: ""
+          - name: payout_bad_address_c
+            description: ""
+          - name: payout_business_nature_c
+            description: ""
+          - name: payout_data_import_id_c
+            description: ""
+          - name: payout_date_of_death_c
+            description: ""
+          - name: payout_ofac_last_hit_date_c
+            description: ""
+          - name: payout_ofac_match_resolution_c
+            description: ""
+          - name: payout_orion_registration_id_c
+            description: ""
+          - name: payout_override_line_of_business_c
+            description: ""
+          - name: payout_primary_country_citizenship_c
+            description: ""
+          - name: payout_retired_c
+            description: ""
+          - name: payout_states_global_c
+            description: ""
+          - name: payout_tax_status_reason_c
+            description: ""
+          - name: payout_usa_patriot_act_exempt_c
+            description: ""
+          - name: payout_w_8_w_9_date_signed_c
+            description: ""
+          - name: payout_w_8_w_9_document_type_c
+            description: ""
+          - name: payout_w_8_w_9_effective_date_c
+            description: ""
+          - name: payout_w_8_w_9_indicator_c
+            description: ""
+          - name: payout_trust_date_c
+            description: ""
+          - name: payout_retroactive_bonus_c
+            description: ""
+          - name: payout_tier_1_amt_c
+            description: ""
+          - name: payout_tier_1_c
+            description: ""
+          - name: payout_tier_2_amt_c
+            description: ""
+          - name: payout_tier_2_c
+            description: ""
+          - name: payout_tier_3_amt_c
+            description: ""
+          - name: payout_tier_3_c
+            description: ""
+          - name: payout_tier_4_c
+            description: ""
+          - name: payout_tier_4_amt_c
+            description: ""
+          - name: payout_tier_5_amt_c
+            description: ""
+          - name: payout_tier_5_c
+            description: ""
+          - name: payout_tier_6_amt_c
+            description: ""
+          - name: payout_tier_6_c
+            description: ""
+          - name: payout_tier_7_c
+            description: ""
+          - name: payout_advisor_group_sub_type_c
+            description: ""
+          - name: payout_last_crd_date_c
+            description: ""
+          - name: payout_tier_7_amt_c
+            description: ""
+          - name: of_dependents_c
+            description: ""
+          - name: electronic_delivery_consent_c
+            description: ""
+          - name: test_email_address_pc
+            description: ""
+          - name: legal_street_address_pc
+            description: ""
+          - name: legal_city_pc
+            description: ""
+          - name: legal_state_pc
+            description: ""
+          - name: legal_zip_pc
+            description: ""
+          - name: legal_country_pc
+            description: ""
+          - name: type_of_id_pc
+            description: ""
+          - name: id_number_pc
+            description: ""
+          - name: state_of_issuance_pc
+            description: ""
+          - name: id_expiration_date_pc
+            description: ""
+          - name: citizenship_pc
+            description: ""
+          - name: employment_status_pc
+            description: ""
+          - name: income_source_pc
+            description: ""
+          - name: occupation_pc
+            description: ""
+          - name: employer_name_pc
+            description: ""
+          - name: employer_address_pc
+            description: ""
+          - name: senior_political_figure_pc
+            description: ""
+          - name: control_person_pc
+            description: ""
+          - name: company_name_pc
+            description: ""
+          - name: cusip_or_symbol_pc
+            description: ""
+          - name: employed_by_financial_company_pc
+            description: ""
+          - name: entity_name_pc
+            description: ""
+          - name: entity_address_pc
+            description: ""
+          - name: id_issuance_date_pc
+            description: ""
+          - name: payout_annual_income_pc
+            description: ""
+          - name: payout_assistant_name_pc
+            description: ""
+          - name: payout_assistant_phone_pc
+            description: ""
+          - name: payout_birthday_card_pc
+            description: ""
+          - name: payout_business_email_pc
+            description: ""
+          - name: payout_client_preferences_pc
+            description: ""
+          - name: payout_do_not_call_pc
+            description: ""
+          - name: payout_head_of_household_pc
+            description: ""
+          - name: payout_health_medical_concerns_pc
+            description: ""
+          - name: payout_hobbies_pc
+            description: ""
+          - name: payout_investment_interests_pc
+            description: ""
+          - name: payout_key_notes_pc
+            description: ""
+          - name: payout_languages_1_pc
+            description: ""
+          - name: payout_languages_pc
+            description: ""
+          - name: payout_level_pc
+            description: ""
+          - name: payout_marital_status_pc
+            description: ""
+          - name: payout_middle_name_pc
+            description: ""
+          - name: payout_name_pronunciation_pc
+            description: ""
+          - name: payout_personal_interests_pc
+            description: ""
+          - name: payout_preferred_contact_method_pc
+            description: ""
+          - name: payout_preferred_contact_time_pc
+            description: ""
+          - name: payout_professional_interests_pc
+            description: ""
+          - name: payout_social_security_tax_id_pc
+            description: ""
+          - name: payout_suffix_pc
+            description: ""
+          - name: payout_u_s_citizenship_pc
+            description: ""
+          - name: payout_of_dependents_pc
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: payout_attention_line_prefix_c
+            description: ""
+          - name: payout_ofac_match_c
+            description: ""
+          - name: payout_home_state_pc
+            description: ""
+          - name: payout_broker_dealer_name_pc
+            description: ""
+          - name: payout_prior_firm_2_pc
+            description: ""
+          - name: payout_background_credit_check_status_c
+            description: ""
+          - name: payout_licences_pc
+            description: ""
+          - name: payout_contact_id_c
+            description: ""
+          - name: payout_candidate_status_pc
+            description: ""
+          - name: payout_prior_firm_5_number_of_years_pc
+            description: ""
+          - name: payout_letter_of_explanation_for_findings_c
+            description: ""
+          - name: payout_role_at_current_firm_pc
+            description: ""
+          - name: payout_date_of_hire_at_current_firm_full_pc
+            description: ""
+          - name: payout_prior_firm_3_number_of_years_pc
+            description: ""
+          - name: payout_team_name_pc
+            description: ""
+          - name: payout_consent_to_background_credit_checks_c
+            description: ""
+          - name: payout_prior_firm_1_number_of_years_pc
+            description: ""
+          - name: payout_prior_firm_3_pc
+            description: ""
+          - name: payout_list_of_obas_rec_d_c
+            description: ""
+          - name: payout_clearing_firm_pc
+            description: ""
+          - name: payout_primary_bd_type_pc
+            description: ""
+          - name: payout_regulatory_disclosures_pc
+            description: ""
+          - name: payout_email_personal_pc
+            description: ""
+          - name: payout_branch_phone_do_not_call_pc
+            description: ""
+          - name: payout_social_media_linked_in_pc
+            description: ""
+          - name: payout_how_was_form_crs_delivered_c
+            description: ""
+          - name: payout_last_crs_form_sent_c
+            description: ""
+          - name: payout_aum_self_reported_pc
+            description: ""
+          - name: payout_date_added_to_discovery_db_pc
+            description: ""
+          - name: payout_attention_country_code_c
+            description: ""
+          - name: payout_prior_firm_4_pc
+            description: ""
+          - name: payout_candidate_stage_pc
+            description: ""
+          - name: payout_known_non_advisor_pc
+            description: ""
+          - name: payout_confidential_profile_rec_d_c
+            description: ""
+          - name: payout_home_city_pc
+            description: ""
+          - name: payout_prior_firm_4_number_of_years_pc
+            description: ""
+          - name: payout_prior_firm_2_number_of_years_pc
+            description: ""
+          - name: payout_house_advisor_c
+            description: ""
+          - name: payout_date_becamoe_rep_full_pc
+            description: ""
+          - name: payout_prior_firm_5_pc
+            description: ""
+          - name: payout_email_opt_out_c
+            description: ""
+          - name: payout_prospective_advisor_status_c
+            description: ""
+          - name: payout_prior_firm_1_pc
+            description: ""
+          - name: payout_credentials_pc
+            description: ""
+          - name: payout_home_postal_pc
+            description: ""
+          - name: payout_home_address_pc
+            description: ""
+          - name: payout_dba_name_pc
+            description: ""
+          - name: payout_production_self_reported_pc
+            description: ""
+          - name: payout_rep_crd_pc
+            description: ""
+          - name: payout_discovery_profile_url_pc
+            description: ""
+          - name: mwahousehold_id_c
+            description: ""
+          - name: payout_last_payout_run_c
+            description: ""
+          - name: payout_tiered_payout_rate_c
+            description: ""
+          - name: payout_balance_since_last_locked_payout_run_c
+            description: ""
+          - name: client_age_pc
+            description: ""
+          - name: payout_net_advisor_payable_c
+            description: ""
+          - name: state_length_c
+            description: ""
+          - name: payout_account_name_account_number_c
+            description: ""
+          - name: payout_mtd_investment_c
+            description: ""
+          - name: payout_next_target_meeting_date_c
+            description: ""
+          - name: payout_nap_other_c
+            description: ""
+          - name: payout_total_monthly_payments_c
+            description: ""
+          - name: payout_birthday_this_year_pc
+            description: ""
+          - name: payout_investment_payout_grid_f_c
+            description: ""
+          - name: payout_years_since_start_date_c
+            description: ""
+          - name: payout_ytd_advisory_c
+            description: ""
+          - name: payout_total_net_cash_value_c
+            description: ""
+          - name: payout_ytd_credits_c
+            description: ""
+          - name: payout_advisory_tiered_payout_rate_c
+            description: ""
+          - name: payout_ytd_total_c
+            description: ""
+          - name: payout_days_since_last_review_c
+            description: ""
+          - name: payout_advisor_payable_c
+            description: ""
+          - name: payout_on_hold_c
+            description: ""
+          - name: advisor_on_household_c
+            description: ""
+          - name: payout_ytd_payments_c
+            description: ""
+          - name: payout_nap_investments_c
+            description: ""
+          - name: payout_next_36_month_review_c
+            description: ""
+          - name: payout_total_income_c
+            description: ""
+          - name: payout_advisory_payout_grid_f_c
+            description: ""
+          - name: payout_total_bank_accounts_c
+            description: ""
+          - name: payout_insurance_payout_grid_f_c
+            description: ""
+          - name: payout_ytd_insurance_c
+            description: ""
+          - name: payout_last_payment_date_c
+            description: ""
+          - name: payout_total_net_equity_c
+            description: ""
+          - name: payout_total_assests_c
+            description: ""
+          - name: payout_ytd_gross_commission_c
+            description: ""
+          - name: payout_other_investments_net_value_c
+            description: ""
+          - name: unique_id_check_c
+            description: ""
+          - name: payout_last_payout_pc
+            description: ""
+          - name: payout_financial_account_current_value_c
+            description: ""
+          - name: payout_laa_billing_street_c
+            description: ""
+          - name: payout_days_since_last_activity_c
+            description: ""
+          - name: payout_spouse_birthday_this_year_c
+            description: ""
+          - name: payout_record_type_name_c
+            description: ""
+          - name: payout_check_acc_record_type_c
+            description: ""
+          - name: payout_total_debt_owed_c
+            description: ""
+          - name: payout_days_since_last_appt_c
+            description: ""
+          - name: payout_laa_person_mailing_street_c
+            description: ""
+          - name: payout_days_since_start_date_c
+            description: ""
+          - name: payout_fee_based_current_account_value_c
+            description: ""
+          - name: payout_net_equity_c
+            description: ""
+          - name: payout_insurance_tiered_payout_rate_c
+            description: ""
+          - name: payout_next_birthday_pc
+            description: ""
+          - name: payout_payout_rate_c
+            description: ""
+          - name: payout_investments_lookup_amount_c
+            description: ""
+          - name: payout_insurance_payout_rate_c
+            description: ""
+          - name: payout_ytd_payable_c
+            description: ""
+          - name: payout_balance_since_last_locked_payout_run_2_c
+            description: ""
+          - name: payout_household_last_client_meeting_c
+            description: ""
+          - name: payout_household_36_month_review_c
+            description: ""
+          - name: payout_advisory_payout_rate_c
+            description: ""
+          - name: payout_mtd_insurance_c
+            description: ""
+          - name: payout_mtd_advisory_c
+            description: ""
+          - name: payout_last_client_review_c
+            description: ""
+          - name: payout_client_age_c
+            description: ""
+          - name: payout_days_since_last_payout_c
+            description: ""
+          - name: payout_insurance_lookup_amount_c
+            description: ""
+          - name: payout_advisor_type_c
+            description: ""
+          - name: payout_nap_advisory_c
+            description: ""
+          - name: payout_nap_insurance_c
+            description: ""
+          - name: payout_expired_id_c
+            description: ""
+          - name: payout_appointment_flag_c
+            description: ""
+          - name: payout_advisory_lookup_amount_c
+            description: ""
+          - name: payout_hh_address_diff_from_mailing_add_c
+            description: ""
+          - name: payout_last_meeting_c
+            description: ""
+          - name: tax_bracket_c
+            description: ""
+          - name: migration_track_id_c
+            description: ""
+          - name: payout_plan_contact_phone_c
+            description: ""
+          - name: payout_fincen_last_hit_date_c
+            description: ""
+          - name: payout_fiduciary_status_c
+            description: ""
+          - name: payout_plan_year_end_c
+            description: ""
+          - name: payout_ersplan_id_c
+            description: ""
+          - name: payout_referral_percentage_c
+            description: ""
+          - name: payout_ersplan_create_date_c
+            description: ""
+          - name: payout_manual_household_c
+            description: ""
+          - name: payout_region_c
+            description: ""
+          - name: payout_ersrecord_keeper_name_c
+            description: ""
+          - name: payout_pa_from_ct_c
+            description: ""
+          - name: payout_form_crs_sent_from_button_c
+            description: ""
+          - name: payout_plan_contact_name_c
+            description: ""
+          - name: payout_numof_elig_employees_c
+            description: ""
+          - name: payout_fincen_match_c
+            description: ""
+          - name: payout_household_code_c
+            description: ""
+          - name: payout_last_fincen_run_c
+            description: ""
+          - name: payout_percentage_c
+            description: ""
+          - name: payout_numof_participants_c
+            description: ""
+          - name: payout_household_code_changed_c
+            description: ""
+          - name: payout_engaged_since_c
+            description: ""
+          - name: payout_fincen_cleared_c
+            description: ""
+          - name: payout_referral_paid_to_c
+            description: ""
+          - name: payout_unaffiliated_ria_crd_c
+            description: ""
+          - name: payout_plan_contact_email_c
+            description: ""
+          - name: payout_referral_bonus_calc_based_on_c
+            description: ""
+          - name: payout_tot_mkt_value_c
+            description: ""
+          - name: payout_copy_from_spouse_c
+            description: ""
+          - name: payout_custodial_data_source_c
+            description: ""
+          - name: payout_state_of_residency_c
+            description: ""
+          - name: payout_tot_dist_amt_c
+            description: ""
+          - name: payout_commission_file_pdf_type_c
+            description: ""
+          - name: payout_data_source_c
+            description: ""
+          - name: payout_days_engaged_since_c
+            description: ""
+          - name: payout_ofac_cleared_c
+            description: ""
+          - name: payout_company_name_nipr_c
+            description: ""
+          - name: payout_tot_contrib_amt_c
+            description: ""
+          - name: payout_total_rate_to_be_paid_out_c
+            description: ""
+          - name: payout_company_fein_c
+            description: ""
+          - name: payout_added_to_pdb_alerts_c
+            description: ""
+          - name: payout_copy_from_spouse_on_spouse_c
+            description: ""
+          - name: payout_npn_c
+            description: ""
+          - name: payout_advisor_type_picklist_c
+            description: ""
+          - name: payout_state_domicile_c
+            description: ""
+          - name: payout_ct_id_c
+            description: ""
+          - name: payout_cirrus_record_id_c
+            description: ""
+          - name: payout_selling_agreement_status_c
+            description: ""
+          - name: payout_tot_plan_amt_c
+            description: ""
+          - name: payout_dealer_number_c
+            description: ""
+          - name: payout_effective_date_c
+            description: ""
+          - name: payout_state_co_id_c
+            description: ""
+          - name: x_3_p_rate_c
+            description: ""
+          - name: x_3_p_intro_c
+            description: ""
+
+      - name: authorization_form_text_feed
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: parent_id
+            description: ""
+          - name: type
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: connection_id
+            description: ""
+          - name: comment_count
+            description: ""
+          - name: like_count
+            description: ""
+          - name: title
+            description: ""
+          - name: body
+            description: ""
+          - name: link_url
+            description: ""
+          - name: is_rich_text
+            description: ""
+          - name: related_record_id
+            description: ""
+          - name: inserted_by_id
+            description: ""
+          - name: best_comment_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: briefcase_assignment
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: user_or_group_id
+            description: ""
+          - name: briefcase_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: business_brand
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: owner_id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: last_viewed_date
+            description: ""
+          - name: last_referenced_date
+            description: ""
+          - name: org_id
+            description: ""
+          - name: parent_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: contact
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: master_record_id
+            description: ""
+          - name: account_id
+            description: ""
+          - name: is_person_account
+            description: ""
+          - name: last_name
+            description: ""
+          - name: first_name
+            description: ""
+          - name: salutation
+            description: ""
+          - name: name
+            description: ""
+          - name: record_type_id
+            description: ""
+          - name: other_street
+            description: ""
+          - name: other_city
+            description: ""
+          - name: other_state
+            description: ""
+          - name: other_postal_code
+            description: ""
+          - name: other_country
+            description: ""
+          - name: other_latitude
+            description: ""
+          - name: other_longitude
+            description: ""
+          - name: other_geocode_accuracy
+            description: ""
+          - name: mailing_street
+            description: ""
+          - name: mailing_city
+            description: ""
+          - name: mailing_state
+            description: ""
+          - name: mailing_postal_code
+            description: ""
+          - name: mailing_country
+            description: ""
+          - name: mailing_latitude
+            description: ""
+          - name: mailing_longitude
+            description: ""
+          - name: mailing_geocode_accuracy
+            description: ""
+          - name: phone
+            description: ""
+          - name: fax
+            description: ""
+          - name: mobile_phone
+            description: ""
+          - name: home_phone
+            description: ""
+          - name: other_phone
+            description: ""
+          - name: assistant_phone
+            description: ""
+          - name: reports_to_id
+            description: ""
+          - name: email
+            description: ""
+          - name: title
+            description: ""
+          - name: department
+            description: ""
+          - name: assistant_name
+            description: ""
+          - name: lead_source
+            description: ""
+          - name: birthdate
+            description: ""
+          - name: description
+            description: ""
+          - name: owner_id
+            description: ""
+          - name: has_opted_out_of_email
+            description: ""
+          - name: has_opted_out_of_fax
+            description: ""
+          - name: do_not_call
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: last_activity_date
+            description: ""
+          - name: last_curequest_date
+            description: ""
+          - name: last_cuupdate_date
+            description: ""
+          - name: last_viewed_date
+            description: ""
+          - name: last_referenced_date
+            description: ""
+          - name: email_bounced_reason
+            description: ""
+          - name: email_bounced_date
+            description: ""
+          - name: is_email_bounced
+            description: ""
+          - name: photo_url
+            description: ""
+          - name: use_salesforce
+            description: ""
+          - name: jigsaw
+            description: ""
+          - name: jigsaw_contact_id
+            description: ""
+          - name: connection_received_id
+            description: ""
+          - name: connection_sent_id
+            description: ""
+          - name: individual_id
+            description: ""
+          - name: test_email_address_c
+            description: ""
+          - name: legal_street_address_c
+            description: ""
+          - name: legal_city_c
+            description: ""
+          - name: legal_state_c
+            description: ""
+          - name: legal_zip_c
+            description: ""
+          - name: legal_country_c
+            description: ""
+          - name: type_of_id_c
+            description: ""
+          - name: id_number_c
+            description: ""
+          - name: state_of_issuance_c
+            description: ""
+          - name: id_expiration_date_c
+            description: ""
+          - name: citizenship_c
+            description: ""
+          - name: employment_status_c
+            description: ""
+          - name: income_source_c
+            description: ""
+          - name: occupation_c
+            description: ""
+          - name: employer_name_c
+            description: ""
+          - name: employer_address_c
+            description: ""
+          - name: senior_political_figure_c
+            description: ""
+          - name: control_person_c
+            description: ""
+          - name: company_name_c
+            description: ""
+          - name: cusip_or_symbol_c
+            description: ""
+          - name: employed_by_financial_company_c
+            description: ""
+          - name: entity_name_c
+            description: ""
+          - name: entity_address_c
+            description: ""
+          - name: id_issuance_date_c
+            description: ""
+          - name: payout_annual_income_c
+            description: ""
+          - name: payout_assistant_name_c
+            description: ""
+          - name: payout_assistant_phone_c
+            description: ""
+          - name: payout_birthday_card_c
+            description: ""
+          - name: payout_business_email_c
+            description: ""
+          - name: payout_client_preferences_c
+            description: ""
+          - name: payout_do_not_call_c
+            description: ""
+          - name: payout_head_of_household_c
+            description: ""
+          - name: payout_health_medical_concerns_c
+            description: ""
+          - name: payout_hobbies_c
+            description: ""
+          - name: payout_investment_interests_c
+            description: ""
+          - name: payout_key_notes_c
+            description: ""
+          - name: payout_languages_1_c
+            description: ""
+          - name: payout_languages_c
+            description: ""
+          - name: payout_level_c
+            description: ""
+          - name: payout_marital_status_c
+            description: ""
+          - name: payout_middle_name_c
+            description: ""
+          - name: payout_name_pronunciation_c
+            description: ""
+          - name: payout_personal_interests_c
+            description: ""
+          - name: payout_preferred_contact_method_c
+            description: ""
+          - name: payout_preferred_contact_time_c
+            description: ""
+          - name: payout_professional_interests_c
+            description: ""
+          - name: payout_social_security_tax_id_c
+            description: ""
+          - name: payout_suffix_c
+            description: ""
+          - name: payout_u_s_citizenship_c
+            description: ""
+          - name: payout_of_dependents_c
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: payout_regulatory_disclosures_c
+            description: ""
+          - name: payout_date_added_to_discovery_db_c
+            description: ""
+          - name: payout_email_personal_c
+            description: ""
+          - name: payout_known_non_advisor_c
+            description: ""
+          - name: payout_prior_firm_5_number_of_years_c
+            description: ""
+          - name: payout_prior_firm_2_number_of_years_c
+            description: ""
+          - name: payout_rep_crd_c
+            description: ""
+          - name: payout_branch_phone_do_not_call_c
+            description: ""
+          - name: payout_home_city_c
+            description: ""
+          - name: payout_home_state_c
+            description: ""
+          - name: payout_aum_self_reported_c
+            description: ""
+          - name: payout_candidate_status_c
+            description: ""
+          - name: payout_dba_name_c
+            description: ""
+          - name: payout_licences_c
+            description: ""
+          - name: payout_credentials_c
+            description: ""
+          - name: payout_primary_bd_type_c
+            description: ""
+          - name: payout_role_at_current_firm_c
+            description: ""
+          - name: payout_discovery_profile_url_c
+            description: ""
+          - name: payout_prior_firm_1_number_of_years_c
+            description: ""
+          - name: payout_home_address_c
+            description: ""
+          - name: payout_clearing_firm_c
+            description: ""
+          - name: payout_prior_firm_4_number_of_years_c
+            description: ""
+          - name: payout_prior_firm_2_c
+            description: ""
+          - name: payout_prior_firm_1_c
+            description: ""
+          - name: payout_prior_firm_4_c
+            description: ""
+          - name: payout_prior_firm_3_c
+            description: ""
+          - name: payout_prior_firm_5_c
+            description: ""
+          - name: payout_prior_firm_3_number_of_years_c
+            description: ""
+          - name: payout_broker_dealer_name_c
+            description: ""
+          - name: payout_home_postal_c
+            description: ""
+          - name: payout_date_becamoe_rep_full_c
+            description: ""
+          - name: payout_social_media_linked_in_c
+            description: ""
+          - name: payout_candidate_stage_c
+            description: ""
+          - name: payout_team_name_c
+            description: ""
+          - name: payout_production_self_reported_c
+            description: ""
+          - name: payout_date_of_hire_at_current_firm_full_c
+            description: ""
+          - name: payout_last_payout_c
+            description: ""
+          - name: payout_birthday_this_year_c
+            description: ""
+          - name: client_age_c
+            description: ""
+          - name: payout_next_birthday_c
+            description: ""
+
+      - name: customer
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: owner_id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: last_viewed_date
+            description: ""
+          - name: last_referenced_date
+            description: ""
+          - name: party_id
+            description: ""
+          - name: total_life_time_value
+            description: ""
+          - name: customer_status_type
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: data_asset_usage_tracking_info
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: usage_entity_id
+            description: ""
+          - name: first_usage_time
+            description: ""
+          - name: last_usage_time
+            description: ""
+          - name: usage_tracking_type
+            description: ""
+          - name: usage_tracking_category
+            description: ""
+          - name: usage_count
+            description: ""
+          - name: user_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: event_relay_feedback
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: event_relay_number
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: event_relay_config_id
+            description: ""
+          - name: remote_resource
+            description: ""
+          - name: replay
+            description: ""
+          - name: num_events_dropped
+            description: ""
+          - name: num_events_relayed
+            description: ""
+          - name: status
+            description: ""
+          - name: error_message
+            description: ""
+          - name: error_time
+            description: ""
+          - name: error_identifier
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: fivetran_api_call
+        description: ""
+        columns:
+          - name: start
+            description: ""
+          - name: method
+            description: ""
+          - name: uri
+            description: ""
+          - name: update_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: fivetran_audit
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: message
+            description: ""
+          - name: update_started
+            description: ""
+          - name: update_id
+            description: ""
+          - name: schema
+            description: ""
+          - name: table
+            description: ""
+          - name: start
+            description: ""
+          - name: done
+            description: ""
+          - name: rows_updated_or_inserted
+            description: ""
+          - name: status
+            description: ""
+          - name: progress
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: fivetran_formula
+        description: ""
+        columns:
+          - name: field
+            description: ""
+          - name: object
+            description: ""
+          - name: formula
+            description: ""
+          - name: sql
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: view_sql
+            description: ""
+          - name: reason_null
+            description: ""
+          - name: _fivetran_deleted
+            description: ""
+
+      - name: fivetran_formula_history
+        description: ""
+        columns:
+          - name: field
+            description: ""
+          - name: object
+            description: ""
+          - name: version
+            description: ""
+          - name: formula
+            description: ""
+          - name: sql
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: fivetran_formula_model
+        description: ""
+        columns:
+          - name: object
+            description: ""
+          - name: model
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: fivetran_query
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: start
+            description: ""
+          - name: done
+            description: ""
+          - name: source_object
+            description: ""
+          - name: source_api
+            description: ""
+          - name: modified_field
+            description: ""
+          - name: modified_since_inclusive
+            description: ""
+          - name: query
+            description: ""
+          - name: merge_mode
+            description: ""
+          - name: rows_updated_or_inserted
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: flow_orchestration_instance
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: status
+            description: ""
+          - name: interview_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: flow_orchestration_stage_instance
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: orchestration_instance_id
+            description: ""
+          - name: status
+            description: ""
+          - name: position
+            description: ""
+          - name: label
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: flow_orchestration_step_instance
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: orchestration_instance_id
+            description: ""
+          - name: stage_instance_id
+            description: ""
+          - name: step_type
+            description: ""
+          - name: status
+            description: ""
+          - name: label
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: flow_orchestration_work_item
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: step_instance_id
+            description: ""
+          - name: status
+            description: ""
+          - name: related_record_id
+            description: ""
+          - name: label
+            description: ""
+          - name: description
+            description: ""
+          - name: assignee_id
+            description: ""
+          - name: screen_flow
+            description: ""
+          - name: screen_flow_inputs
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: image_feed
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: parent_id
+            description: ""
+          - name: type
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: connection_id
+            description: ""
+          - name: comment_count
+            description: ""
+          - name: like_count
+            description: ""
+          - name: title
+            description: ""
+          - name: body
+            description: ""
+          - name: link_url
+            description: ""
+          - name: is_rich_text
+            description: ""
+          - name: related_record_id
+            description: ""
+          - name: inserted_by_id
+            description: ""
+          - name: best_comment_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: image_history
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: image_id
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: field
+            description: ""
+          - name: data_type
+            description: ""
+          - name: old_value
+            description: ""
+          - name: new_value
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: managed_content_space
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: last_viewed_date
+            description: ""
+          - name: last_referenced_date
+            description: ""
+          - name: description
+            description: ""
+          - name: default_language
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: managed_content_variant
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: variant_type
+            description: ""
+          - name: language
+            description: ""
+          - name: url_name
+            description: ""
+          - name: managed_content_key
+            description: ""
+          - name: is_published
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_advisor_confidential_information_c
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: owner_id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: last_activity_date
+            description: ""
+          - name: last_viewed_date
+            description: ""
+          - name: last_referenced_date
+            description: ""
+          - name: connection_received_id
+            description: ""
+          - name: connection_sent_id
+            description: ""
+          - name: payout_account_c
+            description: ""
+          - name: payout_notes_c
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_advisor_confidential_information_history
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: parent_id
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: field
+            description: ""
+          - name: data_type
+            description: ""
+          - name: old_value
+            description: ""
+          - name: new_value
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_beneficiary_c
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: owner_id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: last_activity_date
+            description: ""
+          - name: connection_received_id
+            description: ""
+          - name: connection_sent_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_beneficiary_history
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: parent_id
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: field
+            description: ""
+          - name: data_type
+            description: ""
+          - name: old_value
+            description: ""
+          - name: new_value
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_commission_batch_c
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: owner_id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: record_type_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: last_activity_date
+            description: ""
+          - name: last_viewed_date
+            description: ""
+          - name: last_referenced_date
+            description: ""
+          - name: connection_received_id
+            description: ""
+          - name: connection_sent_id
+            description: ""
+          - name: payout_check_amount_c
+            description: ""
+          - name: payout_deposit_date_c
+            description: ""
+          - name: payout_line_of_business_c
+            description: ""
+          - name: payout_payor_c
+            description: ""
+          - name: payout_statement_date_c
+            description: ""
+          - name: payout_bd_c
+            description: ""
+          - name: payout_commission_run_c
+            description: ""
+          - name: payout_status_c
+            description: ""
+          - name: payout_payout_c
+            description: ""
+          - name: payout_batch_processed_c
+            description: ""
+          - name: payout_check_c
+            description: ""
+          - name: payout_x_12_b_1_batch_c
+            description: ""
+          - name: reconciled_by_finance_c
+            description: ""
+          - name: source_datas_c
+            description: ""
+          - name: payout_commission_batch_unique_id_c
+            description: ""
+          - name: payout_statement_beg_date_c
+            description: ""
+          - name: payout_comments_c
+            description: ""
+          - name: payout_auto_calc_total_gross_c
+            description: ""
+          - name: payout_total_gross_c
+            description: ""
+          - name: payout_add_dst_rep_c
+            description: ""
+          - name: payout_create_client_c
+            description: ""
+          - name: payout_create_financial_account_c
+            description: ""
+          - name: payout_create_holding_c
+            description: ""
+          - name: payout_current_file_position_c
+            description: ""
+          - name: payout_file_type_c
+            description: ""
+          - name: payout_firm_affiliation_c
+            description: ""
+          - name: payout_ignore_fa_characters_after_dash_c
+            description: ""
+          - name: check_date_c
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: payout_batch_upload_errors_c
+            description: ""
+          - name: payout_batch_upload_status_c
+            description: ""
+          - name: payout_account_product_type_c
+            description: ""
+          - name: payout_check_amount_flag_c
+            description: ""
+          - name: payout_payor_id_c
+            description: ""
+          - name: payout_description_c
+            description: ""
+          - name: payor_type_c
+            description: ""
+          - name: payout_lob_c
+            description: ""
+          - name: payout_run_date_c
+            description: ""
+          - name: payout_reversal_c
+            description: ""
+          - name: payout_commission_transaction_gross_c
+            description: ""
+          - name: payout_wf_rule_fired_c
+            description: ""
+          - name: payout_cb_in_proof_c
+            description: ""
+          - name: payout_adv_ledger_gross_c
+            description: ""
+          - name: payout_ct_gross_less_al_gross_c
+            description: ""
+          - name: payout_filename_c
+            description: ""
+          - name: payout_commission_calculation_ended_c
+            description: ""
+          - name: payout_commission_calculation_started_c
+            description: ""
+
+      - name: payout_commission_transactions_c
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: owner_id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: record_type_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: last_activity_date
+            description: ""
+          - name: last_viewed_date
+            description: ""
+          - name: last_referenced_date
+            description: ""
+          - name: connection_received_id
+            description: ""
+          - name: connection_sent_id
+            description: ""
+          - name: payout_account_value_c
+            description: ""
+          - name: payout_charges_c
+            description: ""
+          - name: payout_commission_batch_c
+            description: ""
+          - name: payout_fee_c
+            description: ""
+          - name: payout_financial_account_c
+            description: ""
+          - name: payout_gross_commission_c
+            description: ""
+          - name: payout_holding_c
+            description: ""
+          - name: payout_insurance_c
+            description: ""
+          - name: payout_price_c
+            description: ""
+          - name: payout_ticket_charge_c
+            description: ""
+          - name: payout_tran_type_c
+            description: ""
+          - name: payout_units_c
+            description: ""
+          - name: payout_rep_made_sale_c
+            description: ""
+          - name: payout_trade_date_c
+            description: ""
+          - name: payout_reconciled_c
+            description: ""
+          - name: payout_management_fee_c
+            description: ""
+          - name: payout_new_or_renewal_c
+            description: ""
+          - name: payout_transaction_amount_c
+            description: ""
+          - name: payout_transaction_date_c
+            description: ""
+          - name: payout_security_type_c
+            description: ""
+          - name: payout_source_data_c
+            description: ""
+          - name: payout_clearing_addl_fee_code_c
+            description: ""
+          - name: payout_clearing_addl_fee_c
+            description: ""
+          - name: payout_clearing_blotter_code_c
+            description: ""
+          - name: payout_clearing_charge_c
+            description: ""
+          - name: payout_clearing_commission_amount_c
+            description: ""
+          - name: payout_clearing_concession_amount_c
+            description: ""
+          - name: payout_clearing_execution_fee_c
+            description: ""
+          - name: payout_clearing_firm_c
+            description: ""
+          - name: payout_clearing_market_code_c
+            description: ""
+          - name: payout_clearing_misc_fee_c
+            description: ""
+          - name: payout_clearing_mutual_fund_dtc_number_c
+            description: ""
+          - name: payout_clearing_net_c
+            description: ""
+          - name: payout_clearing_offset_account_c
+            description: ""
+          - name: payout_clearing_offset_rep_c
+            description: ""
+          - name: payout_clearing_order_ref_number_c
+            description: ""
+          - name: payout_clearing_primary_exchange_c
+            description: ""
+          - name: payout_clearing_product_code_c
+            description: ""
+          - name: payout_clearing_purchase_type_c
+            description: ""
+          - name: payout_clearing_reg_rep_c
+            description: ""
+          - name: payout_clearing_run_date_c
+            description: ""
+          - name: payout_clearing_security_type_modifier_c
+            description: ""
+          - name: payout_clearing_security_type_c
+            description: ""
+          - name: payout_clearing_short_name_c
+            description: ""
+          - name: payout_clearing_state_c
+            description: ""
+          - name: payout_clearing_symbol_c
+            description: ""
+          - name: payout_clearing_trade_ref_number_c
+            description: ""
+          - name: payout_ticket_charge_mark_up_rule_c
+            description: ""
+          - name: payout_ticket_charge_mark_up_c
+            description: ""
+          - name: payout_unique_transaction_id_c
+            description: ""
+          - name: payout_clearing_charge_schedule_c
+            description: ""
+          - name: payout_trail_c
+            description: ""
+          - name: payout_cusip_value_c
+            description: ""
+          - name: payout_wm_asset_c
+            description: ""
+          - name: payout_change_payout_adv_to_statement_adv_c
+            description: ""
+          - name: payout_clearing_branch_prefix_c
+            description: ""
+          - name: payout_clearing_execution_count_c
+            description: ""
+          - name: payout_clearing_mf_type_c
+            description: ""
+          - name: payout_clearing_product_type_c
+            description: ""
+          - name: payout_client_account_c
+            description: ""
+          - name: payout_compliance_approvals_c
+            description: ""
+          - name: payout_description_c
+            description: ""
+          - name: payout_payout_advisor_account_c
+            description: ""
+          - name: payout_statement_advisor_c
+            description: ""
+          - name: payout_statement_rep_id_c
+            description: ""
+          - name: payout_statement_rep_name_c
+            description: ""
+          - name: payout_zz_trigger_c
+            description: ""
+          - name: payout_clearing_postage_c
+            description: ""
+          - name: payout_clearing_trade_cancel_indicator_c
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: payout_clearing_percent_sales_charge_c
+            description: ""
+          - name: payout_carrier_assigned_agent_id_c
+            description: ""
+          - name: payout_nscc_settle_amount_c
+            description: ""
+          - name: payout_distributor_agent_id_c
+            description: ""
+          - name: payout_of_days_billed_c
+            description: ""
+          - name: payout_zz_ticket_charge_rule_c
+            description: ""
+          - name: payout_advisor_crd_c
+            description: ""
+          - name: payout_national_producer_number_c
+            description: ""
+          - name: payout_commission_percentage_c
+            description: ""
+          - name: gross_prior_to_ticket_charge_c
+            description: ""
+          - name: payout_value_c
+            description: ""
+          - name: security_type_name_c
+            description: ""
+          - name: payout_expected_commission_c
+            description: ""
+          - name: payout_transaction_type_c
+            description: ""
+          - name: payout_financial_account_num_c
+            description: ""
+          - name: payout_lob_c
+            description: ""
+          - name: payout_fa_clearing_firm_account_type_c
+            description: ""
+          - name: payout_holding_financial_account_c
+            description: ""
+          - name: x_529_c
+            description: ""
+          - name: payout_client_id_c
+            description: ""
+          - name: payout_asset_type_c
+            description: ""
+          - name: payout_cusip_c
+            description: ""
+          - name: payout_x_529_plan_c
+            description: ""
+          - name: payout_license_flag_investments_c
+            description: ""
+          - name: payout_payor_c
+            description: ""
+          - name: asset_name_c
+            description: ""
+          - name: state_c
+            description: ""
+          - name: client_name_c
+            description: ""
+          - name: payout_commission_4_c
+            description: ""
+          - name: payout_policy_num_c
+            description: ""
+          - name: payout_account_group_c
+            description: ""
+          - name: payout_total_ticket_charge_c
+            description: ""
+          - name: payout_transaction_flag_c
+            description: ""
+          - name: payout_advisor_c
+            description: ""
+          - name: payout_run_date_c
+            description: ""
+          - name: payout_termed_rep_c
+            description: ""
+          - name: payout_payout_advisor_insurance_c
+            description: ""
+          - name: payout_statement_date_c
+            description: ""
+          - name: symbol_c
+            description: ""
+          - name: payout_adv_account_name_c
+            description: ""
+          - name: payout_net_c
+            description: ""
+          - name: x_12_b_1_amount_c
+            description: ""
+          - name: payout_license_flag_advisory_c
+            description: ""
+          - name: payout_difference_c
+            description: ""
+          - name: payout_payout_advisor_c
+            description: ""
+          - name: payout_commission_hold_c
+            description: ""
+          - name: payout_client_c
+            description: ""
+          - name: payout_payout_c
+            description: ""
+          - name: payout_ct_out_of_proof_c
+            description: ""
+
+      - name: payout_create_payments_settings_c
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: setup_owner_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: payout_value_currency_c
+            description: ""
+          - name: payout_value_string_c
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_dashboard_review_c
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: owner_id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: last_activity_date
+            description: ""
+          - name: connection_received_id
+            description: ""
+          - name: connection_sent_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_financial_account_c
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: record_type_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: last_activity_date
+            description: ""
+          - name: last_viewed_date
+            description: ""
+          - name: last_referenced_date
+            description: ""
+          - name: connection_received_id
+            description: ""
+          - name: connection_sent_id
+            description: ""
+          - name: payout_client_c
+            description: ""
+          - name: payout_account_close_c
+            description: ""
+          - name: payout_account_description_c
+            description: ""
+          - name: payout_account_opening_c
+            description: ""
+          - name: payout_account_type_c
+            description: ""
+          - name: payout_ad_rep_number_c
+            description: ""
+          - name: payout_advisor_c
+            description: ""
+          - name: payout_albridge_title_c
+            description: ""
+          - name: payout_approval_status_c
+            description: ""
+          - name: payout_beneficiary_c
+            description: ""
+          - name: payout_custodian_c
+            description: ""
+          - name: payout_date_of_naf_approval_or_rejection_c
+            description: ""
+          - name: payout_date_of_naf_submission_c
+            description: ""
+          - name: payout_fi_id_c
+            description: ""
+          - name: payout_fee_based_c
+            description: ""
+          - name: payout_feed_base_c
+            description: ""
+          - name: payout_financial_account_number_c
+            description: ""
+          - name: payout_inst_type_c
+            description: ""
+          - name: payout_investment_objective_c
+            description: ""
+          - name: payout_joint_party_c
+            description: ""
+          - name: payout_managed_elsewhere_c
+            description: ""
+          - name: payout_managed_by_c
+            description: ""
+          - name: payout_margin_c
+            description: ""
+          - name: payout_naf_approved_c
+            description: ""
+          - name: payout_ownership_c
+            description: ""
+          - name: payout_poa_contact_c
+            description: ""
+          - name: payout_portfolio_c
+            description: ""
+          - name: payout_power_of_attorney_c
+            description: ""
+          - name: payout_rate_c
+            description: ""
+          - name: payout_risk_tolerance_c
+            description: ""
+          - name: payout_seg_dictator_c
+            description: ""
+          - name: payout_statement_address_1_c
+            description: ""
+          - name: payout_statement_address_2_c
+            description: ""
+          - name: payout_statement_city_c
+            description: ""
+          - name: payout_statement_country_c
+            description: ""
+          - name: payout_statement_state_c
+            description: ""
+          - name: payout_statement_zip_postal_code_c
+            description: ""
+          - name: payout_tax_status_c
+            description: ""
+          - name: payout_title_c
+            description: ""
+          - name: payout_trustee_c
+            description: ""
+          - name: payout_years_of_investment_experience_c
+            description: ""
+          - name: payout_commission_hold_c
+            description: ""
+          - name: mariner_financial_account_num_c
+            description: ""
+          - name: line_of_business_c
+            description: ""
+          - name: payout_cum_disc_c
+            description: ""
+          - name: payout_plan_group_c
+            description: ""
+          - name: dst_reg_line_1_c
+            description: ""
+          - name: dst_reg_line_2_c
+            description: ""
+          - name: dst_reg_line_3_c
+            description: ""
+          - name: dst_reg_line_4_c
+            description: ""
+          - name: manufacturer_c
+            description: ""
+          - name: dst_nfs_rep_number_c
+            description: ""
+          - name: quarterback_c
+            description: ""
+          - name: introducer_c
+            description: ""
+          - name: portfolio_name_c
+            description: ""
+          - name: payout_manufacturer_c
+            description: ""
+          - name: payout_registration_line_1_c
+            description: ""
+          - name: payout_registration_line_2_c
+            description: ""
+          - name: payout_registration_line_3_c
+            description: ""
+          - name: payout_registration_line_4_c
+            description: ""
+          - name: payout_variable_product_name_c
+            description: ""
+          - name: aum_advisor_c
+            description: ""
+          - name: financial_account_status_c
+            description: ""
+          - name: ssn_fa_c
+            description: ""
+          - name: mariner_sync_c
+            description: ""
+          - name: created_by_dst_03_c
+            description: ""
+          - name: payout_hold_effective_date_c
+            description: ""
+          - name: payout_hold_reason_c
+            description: ""
+          - name: payout_naf_c
+            description: ""
+          - name: msec_account_type_c
+            description: ""
+          - name: joint_party_type_c
+            description: ""
+          - name: msec_sub_type_c
+            description: ""
+          - name: msec_other_description_c
+            description: ""
+          - name: x_529_account_c
+            description: ""
+          - name: payout_account_status_c
+            description: ""
+          - name: payout_cirrus_ssn_fa_c
+            description: ""
+          - name: payout_cirrus_source_c
+            description: ""
+          - name: payout_liquidity_order_c
+            description: ""
+          - name: payout_mass_update_c
+            description: ""
+          - name: payout_systematic_amount_c
+            description: ""
+          - name: payout_systematic_plan_type_c
+            description: ""
+          - name: payout_systematic_timeframe_c
+            description: ""
+          - name: payout_account_type_text_c
+            description: ""
+          - name: payout_x_529_plan_c
+            description: ""
+          - name: payout_aum_billing_amount_c
+            description: ""
+          - name: payout_aum_date_c
+            description: ""
+          - name: payout_advance_or_arrears_c
+            description: ""
+          - name: payout_bill_to_c
+            description: ""
+          - name: payout_billing_cycle_c
+            description: ""
+          - name: payout_cirrus_unique_id_c
+            description: ""
+          - name: payout_last_revenue_date_c
+            description: ""
+          - name: payout_new_account_17_a_3_letter_c
+            description: ""
+          - name: payout_opening_balance_c
+            description: ""
+          - name: payout_x_36_month_17_a_3_letter_c
+            description: ""
+          - name: payout_use_plan_group_advisor_for_payout_c
+            description: ""
+          - name: payout_z_trigger_c
+            description: ""
+          - name: payout_prev_statement_address_c
+            description: ""
+          - name: payout_prev_statement_city_c
+            description: ""
+          - name: payout_prev_statement_state_c
+            description: ""
+          - name: payout_prev_statement_zip_c
+            description: ""
+          - name: payout_statement_address_change_date_c
+            description: ""
+          - name: payout_temp_statement_address_c
+            description: ""
+          - name: payout_temp_statement_city_c
+            description: ""
+          - name: payout_temp_statement_state_c
+            description: ""
+          - name: payout_temp_statement_zip_c
+            description: ""
+          - name: payout_alpha_c
+            description: ""
+          - name: payout_authorized_to_withdraw_or_take_action_c
+            description: ""
+          - name: payout_data_source_account_c
+            description: ""
+          - name: payout_data_source_rep_name_c
+            description: ""
+          - name: payout_first_revenue_date_c
+            description: ""
+          - name: payout_last_revenue_date_excl_trails_c
+            description: ""
+          - name: payout_merge_c
+            description: ""
+          - name: payout_mgt_start_date_c
+            description: ""
+          - name: payout_override_cirrus_data_source_ssn_c
+            description: ""
+          - name: payout_payout_advisor_account_c
+            description: ""
+          - name: payout_platform_record_c
+            description: ""
+          - name: payout_portfolio_record_c
+            description: ""
+          - name: payout_possible_switch_c
+            description: ""
+          - name: payout_rmd_value_c
+            description: ""
+          - name: payout_reparent_to_c
+            description: ""
+          - name: payout_servicing_advisor_c
+            description: ""
+          - name: payout_surrender_value_c
+            description: ""
+          - name: payout_total_revenue_c
+            description: ""
+          - name: payout_use_mailing_state_c
+            description: ""
+          - name: payout_ytd_revenue_c
+            description: ""
+          - name: payout_cash_balance_c
+            description: ""
+          - name: payout_payout_advisor_change_date_c
+            description: ""
+          - name: payout_dividends_interest_amount_c
+            description: ""
+          - name: payout_fund_company_code_c
+            description: ""
+          - name: payout_institutional_c
+            description: ""
+          - name: payout_long_market_value_cash_c
+            description: ""
+          - name: payout_long_market_value_margin_c
+            description: ""
+          - name: payout_margin_balance_c
+            description: ""
+          - name: payout_money_market_balance_c
+            description: ""
+          - name: payout_non_purpose_loan_amount_c
+            description: ""
+          - name: payout_short_market_value_margin_c
+            description: ""
+          - name: payout_statement_rep_text_c
+            description: ""
+          - name: payout_total_account_value_c
+            description: ""
+          - name: payout_value_of_linked_positions_c
+            description: ""
+          - name: payout_payout_adv_ad_rep_reviewed_c
+            description: ""
+          - name: payout_clearing_firm_account_type_c
+            description: ""
+          - name: payout_use_fa_advisor_for_payout_advisor_c
+            description: ""
+          - name: payout_discretionary_type_c
+            description: ""
+          - name: payout_clearing_advisor_code_c
+            description: ""
+          - name: data_import_id_c
+            description: ""
+          - name: payout_ama_indicator_c
+            description: ""
+          - name: payout_account_type_code_c
+            description: ""
+          - name: payout_acct_foreign_financial_inst_c
+            description: ""
+          - name: payout_age_to_terminate_c
+            description: ""
+          - name: payout_agreement_execution_date_c
+            description: ""
+          - name: payout_amended_date_c
+            description: ""
+          - name: payout_custodian_acct_type_c
+            description: ""
+          - name: payout_date_gift_given_c
+            description: ""
+          - name: payout_employee_indicator_c
+            description: ""
+          - name: payout_fully_paid_lending_agreement_date_c
+            description: ""
+          - name: payout_fully_paid_lending_agreement_c
+            description: ""
+          - name: payout_institutional_deal_c
+            description: ""
+          - name: payout_investment_advisor_discretion_c
+            description: ""
+          - name: payout_investment_professional_discretion_c
+            description: ""
+          - name: payout_joint_tenancy_c
+            description: ""
+          - name: payout_last_date_investment_objectives_mailed_c
+            description: ""
+          - name: payout_last_date_investment_objectives_provided_c
+            description: ""
+          - name: payout_manner_of_gift_c
+            description: ""
+          - name: payout_non_customer_indicator_c
+            description: ""
+          - name: payout_option_currency_c
+            description: ""
+          - name: payout_option_debt_c
+            description: ""
+          - name: payout_option_equities_c
+            description: ""
+          - name: payout_option_index_c
+            description: ""
+          - name: payout_option_level_1_c
+            description: ""
+          - name: payout_option_level_2_c
+            description: ""
+          - name: payout_option_level_3_c
+            description: ""
+          - name: payout_option_level_4_c
+            description: ""
+          - name: payout_option_papers_on_file_c
+            description: ""
+          - name: payout_pledge_collateral_indicator_c
+            description: ""
+          - name: payout_state_gift_given_c
+            description: ""
+          - name: payout_sweep_status_indicator_c
+            description: ""
+          - name: payout_trustee_independent_action_c
+            description: ""
+          - name: payout_orion_account_id_c
+            description: ""
+          - name: payout_number_of_trades_c
+            description: ""
+          - name: payout_ytd_number_of_trades_c
+            description: ""
+          - name: payout_original_account_number_c
+            description: ""
+          - name: payout_client_changed_c
+            description: ""
+          - name: payout_test_client_c
+            description: ""
+          - name: payout_test_manufacturer_c
+            description: ""
+          - name: repapered_c
+            description: ""
+          - name: payout_fee_based_license_exception_c
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: payout_agent_irs_code_c
+            description: ""
+          - name: payout_agent_ssn_c
+            description: ""
+          - name: payout_flow_to_update_c
+            description: ""
+          - name: payout_foreign_address_c
+            description: ""
+          - name: payout_contract_date_qualifier_c
+            description: ""
+          - name: payout_party_non_natural_entity_date_qualifier_c
+            description: ""
+          - name: payout_agent_role_c
+            description: ""
+          - name: payout_national_producer_number_c
+            description: ""
+          - name: payout_address_line_5_c
+            description: ""
+          - name: payout_beneficiary_amount_quantity_c
+            description: ""
+          - name: payout_agent_natural_non_natural_name_ind_c
+            description: ""
+          - name: payout_plan_account_number_ind_text_c
+            description: ""
+          - name: payout_cont_entity_natural_non_natural_name_ind_c
+            description: ""
+          - name: payout_plan_account_number_ind_c
+            description: ""
+          - name: payout_party_natural_non_natural_entity_name_ind_c
+            description: ""
+          - name: payout_beneficiary_quantity_qualifier_c
+            description: ""
+          - name: payout_plan_account_number_c
+            description: ""
+          - name: quarterback_2_c
+            description: ""
+          - name: introducer_2_c
+            description: ""
+          - name: fa_length_c
+            description: ""
+          - name: payout_account_product_type_c
+            description: ""
+          - name: payout_product_name_c
+            description: ""
+          - name: payout_client_name_c
+            description: ""
+          - name: payout_fa_adv_account_name_c
+            description: ""
+          - name: payout_reparent_account_id_c
+            description: ""
+          - name: manufacturer_product_type_c
+            description: ""
+          - name: cirrus_unique_id_c
+            description: ""
+          - name: payout_net_worth_c
+            description: ""
+          - name: payout_no_of_holdings_c
+            description: ""
+          - name: payout_spouse_age_this_year_c
+            description: ""
+          - name: payout_employment_status_c
+            description: ""
+          - name: payout_employer_c
+            description: ""
+          - name: payout_blue_sky_license_c
+            description: ""
+          - name: advisor_dst_rep_number_c
+            description: ""
+          - name: payout_prorated_fee_c
+            description: ""
+          - name: payout_quarterly_fee_c
+            description: ""
+          - name: payout_fee_opening_calc_date_c
+            description: ""
+          - name: payout_adrep_c
+            description: ""
+          - name: payout_total_income_c
+            description: ""
+          - name: payout_series_6_and_7_c
+            description: ""
+          - name: payout_variable_asset_name_c
+            description: ""
+          - name: payout_rmd_applies_c
+            description: ""
+          - name: payout_current_account_value_c
+            description: ""
+          - name: payout_payout_advisor_source_c
+            description: ""
+          - name: advisor_on_client_c
+            description: ""
+          - name: last_revenue_more_than_180_days_c
+            description: ""
+          - name: payout_last_transaction_date_c
+            description: ""
+          - name: payout_licensed_c
+            description: ""
+          - name: payout_exp_commission_c
+            description: ""
+          - name: payout_federal_tax_bracket_c
+            description: ""
+          - name: cirrus_unique_id_check_c
+            description: ""
+          - name: payout_total_fee_c
+            description: ""
+          - name: short_account_num_c
+            description: ""
+          - name: payout_x_529_product_sponsor_c
+            description: ""
+          - name: payout_fa_name_mfr_number_type_c
+            description: ""
+          - name: payout_state_of_residence_c
+            description: ""
+          - name: payout_last_17_a_3_letter_c
+            description: ""
+          - name: payout_state_registration_c
+            description: ""
+          - name: payout_advisor_number_c
+            description: ""
+          - name: payout_fee_based_license_flag_c
+            description: ""
+          - name: payout_license_flag_c
+            description: ""
+          - name: payout_data_source_account_ssn_c
+            description: ""
+          - name: is_529_account_c
+            description: ""
+          - name: payout_advisor_type_c
+            description: ""
+          - name: payout_credited_fee_c
+            description: ""
+          - name: payout_payout_advisor_c
+            description: ""
+          - name: payout_new_or_renewal_c
+            description: ""
+          - name: payout_client_age_this_year_c
+            description: ""
+          - name: payout_liquid_assets_c
+            description: ""
+
+      - name: payout_finra_licensing_c
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: owner_id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: record_type_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: last_activity_date
+            description: ""
+          - name: last_viewed_date
+            description: ""
+          - name: last_referenced_date
+            description: ""
+          - name: connection_received_id
+            description: ""
+          - name: connection_sent_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_finra_licensing_history
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: parent_id
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: field
+            description: ""
+          - name: data_type
+            description: ""
+          - name: old_value
+            description: ""
+          - name: new_value
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_finra_update_c
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: owner_id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: connection_received_id
+            description: ""
+          - name: connection_sent_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_line_of_authority_c
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: connection_received_id
+            description: ""
+          - name: connection_sent_id
+            description: ""
+          - name: payout_state_license_c
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_line_of_authority_history
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: parent_id
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: field
+            description: ""
+          - name: data_type
+            description: ""
+          - name: old_value
+            description: ""
+          - name: new_value
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_naf_c
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: owner_id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: record_type_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: last_activity_date
+            description: ""
+          - name: last_viewed_date
+            description: ""
+          - name: last_referenced_date
+            description: ""
+          - name: connection_received_id
+            description: ""
+          - name: connection_sent_id
+            description: ""
+          - name: payout_annual_income_c
+            description: ""
+          - name: payout_annuities_years_c
+            description: ""
+          - name: payout_annuities_c
+            description: ""
+          - name: payout_bond_years_c
+            description: ""
+          - name: payout_bonds_c
+            description: ""
+          - name: payout_client_c
+            description: ""
+          - name: payout_description_c
+            description: ""
+          - name: payout_financial_account_c
+            description: ""
+          - name: payout_investment_horizon_c
+            description: ""
+          - name: payout_liquid_net_worth_c
+            description: ""
+          - name: payout_liquidity_needs_c
+            description: ""
+          - name: payout_mutual_fund_years_c
+            description: ""
+          - name: payout_mutual_funds_c
+            description: ""
+          - name: payout_net_worth_c
+            description: ""
+          - name: payout_primary_investment_objective_c
+            description: ""
+          - name: payout_risk_tolerance_c
+            description: ""
+          - name: payout_source_of_funds_other_description_c
+            description: ""
+          - name: payout_source_of_funds_c
+            description: ""
+          - name: payout_stock_years_c
+            description: ""
+          - name: payout_stocks_c
+            description: ""
+          - name: payout_variable_life_years_c
+            description: ""
+          - name: payout_variable_life_c
+            description: ""
+          - name: years_of_investment_experience_c
+            description: ""
+          - name: stocks_c
+            description: ""
+          - name: payout_date_of_last_update_c
+            description: ""
+          - name: mutual_funds_c
+            description: ""
+          - name: bonds_c
+            description: ""
+          - name: variable_contracts_c
+            description: ""
+          - name: limited_partnerships_c
+            description: ""
+          - name: preservation_of_capital_c
+            description: ""
+          - name: income_c
+            description: ""
+          - name: capital_appreciation_c
+            description: ""
+          - name: trading_profits_c
+            description: ""
+          - name: speculation_c
+            description: ""
+          - name: other_c
+            description: ""
+          - name: combination_description_c
+            description: ""
+          - name: more_than_5_c
+            description: ""
+          - name: other_accounts_c
+            description: ""
+          - name: other_security_accounts_detail_c
+            description: ""
+          - name: i_consult_with_my_broker_c
+            description: ""
+          - name: consult_with_broker_detail_c
+            description: ""
+          - name: i_make_my_own_decisions_c
+            description: ""
+          - name: make_own_decisions_detail_c
+            description: ""
+          - name: i_consult_with_family_friends_c
+            description: ""
+          - name: consult_with_family_friends_detail_c
+            description: ""
+          - name: stocks_held_away_c
+            description: ""
+          - name: mutual_funds_held_away_c
+            description: ""
+          - name: cds_bank_accounts_held_away_c
+            description: ""
+          - name: bonds_held_away_c
+            description: ""
+          - name: limited_partnerships_held_away_c
+            description: ""
+          - name: variable_contracts_held_away_c
+            description: ""
+          - name: fixed_annuities_held_away_c
+            description: ""
+          - name: other_held_away_c
+            description: ""
+          - name: stocks_amount_c
+            description: ""
+          - name: mutual_funds_amount_c
+            description: ""
+          - name: cds_bank_accounts_amount_c
+            description: ""
+          - name: bonds_amount_c
+            description: ""
+          - name: limited_partnerships_amount_c
+            description: ""
+          - name: variable_contracts_amount_c
+            description: ""
+          - name: fixed_annuities_amount_c
+            description: ""
+          - name: other_amount_c
+            description: ""
+          - name: account_owner_signature_c
+            description: ""
+          - name: joint_owner_signature_c
+            description: ""
+          - name: rep_signature_c
+            description: ""
+          - name: principal_signature_c
+            description: ""
+          - name: investment_objective_other_description_c
+            description: ""
+          - name: variable_contracts_exp_c
+            description: ""
+          - name: limited_partnerships_exp_c
+            description: ""
+          - name: additional_interest_c
+            description: ""
+          - name: addition_interest_type_c
+            description: ""
+          - name: payout_naf_signature_date_c
+            description: ""
+          - name: payout_alternative_address_c
+            description: ""
+          - name: payout_care_of_c
+            description: ""
+          - name: payout_most_recent_36_month_letter_c
+            description: ""
+          - name: payout_new_account_17_a_3_letter_c
+            description: ""
+          - name: payout_use_client_address_c
+            description: ""
+          - name: payout_x_17_a_3_address_c
+            description: ""
+          - name: payout_x_17_a_3_city_c
+            description: ""
+          - name: payout_x_17_a_3_state_c
+            description: ""
+          - name: payout_x_17_a_3_zip_c
+            description: ""
+          - name: naf_type_c
+            description: ""
+          - name: mass_update_c
+            description: ""
+          - name: payout_advisor_c
+            description: ""
+          - name: payout_key_field_change_date_c
+            description: ""
+          - name: trusted_contact_person_c
+            description: ""
+          - name: trusted_contact_person_phone_c
+            description: ""
+          - name: date_paperwork_sent_to_carrier_c
+            description: ""
+          - name: ofac_dtec_approval_date_c
+            description: ""
+          - name: ofac_dtec_approved_by_c
+            description: ""
+          - name: paperwork_entered_by_c
+            description: ""
+          - name: paperwork_entered_date_c
+            description: ""
+          - name: paperwork_received_by_c
+            description: ""
+          - name: paperwork_received_date_c
+            description: ""
+          - name: paperwork_sent_to_carrier_by_c
+            description: ""
+          - name: paperwork_stage_c
+            description: ""
+          - name: paperwork_status_c
+            description: ""
+          - name: paperwork_url_c
+            description: ""
+          - name: principal_approval_by_c
+            description: ""
+          - name: principal_approval_date_c
+            description: ""
+          - name: principal_approval_notified_date_c
+            description: ""
+          - name: principal_rejected_by_c
+            description: ""
+          - name: principal_rejected_date_c
+            description: ""
+          - name: signed_paperwork_url_c
+            description: ""
+          - name: trusted_contact_person_email_c
+            description: ""
+          - name: years_of_investment_experience_picklist_c
+            description: ""
+          - name: crs_delivery_c
+            description: ""
+          - name: sr_officer_c
+            description: ""
+          - name: director_c
+            description: ""
+          - name: cont_sh_c
+            description: ""
+          - name: associated_with_broker_dealer_c
+            description: ""
+          - name: finra_affiliated_c
+            description: ""
+          - name: sr_policital_figure_c
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: financial_account_number_c
+            description: ""
+          - name: last_change_of_address_c
+            description: ""
+          - name: total_amount_held_away_c
+            description: ""
+          - name: total_held_away_c
+            description: ""
+          - name: payout_next_recommended_36_month_letter_c
+            description: ""
+          - name: additional_interest_birthdate_c
+            description: ""
+          - name: payout_last_17_a_3_letter_c
+            description: ""
+          - name: privacy_policy_c
+            description: ""
+          - name: country_c
+            description: ""
+          - name: payout_primary_investment_objective_pl_c
+            description: ""
+          - name: migration_track_id_c
+            description: ""
+
+      - name: payout_nipr_update_c
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: owner_id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: last_viewed_date
+            description: ""
+          - name: last_referenced_date
+            description: ""
+          - name: connection_received_id
+            description: ""
+          - name: connection_sent_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_ofac_c
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: owner_id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: last_activity_date
+            description: ""
+          - name: last_viewed_date
+            description: ""
+          - name: last_referenced_date
+            description: ""
+          - name: connection_received_id
+            description: ""
+          - name: connection_sent_id
+            description: ""
+          - name: payout_city_c
+            description: ""
+          - name: payout_country_c
+            description: ""
+          - name: payout_date_of_birth_c
+            description: ""
+          - name: payout_description_2_c
+            description: ""
+          - name: payout_description_c
+            description: ""
+          - name: payout_middle_name_c
+            description: ""
+          - name: payout_number_type_c
+            description: ""
+          - name: payout_phone_c
+            description: ""
+          - name: payout_program_c
+            description: ""
+          - name: payout_ssn_c
+            description: ""
+          - name: payout_sdn_type_c
+            description: ""
+          - name: payout_state_c
+            description: ""
+          - name: payout_street_c
+            description: ""
+          - name: payout_suffix_c
+            description: ""
+          - name: payout_title_c
+            description: ""
+          - name: payout_tracking_number_c
+            description: ""
+          - name: payout_uid_c
+            description: ""
+          - name: payout_zip_c
+            description: ""
+          - name: payout_call_sign_c
+            description: ""
+          - name: payout_gross_registered_tonnage_c
+            description: ""
+          - name: payout_tonnage_c
+            description: ""
+          - name: payout_vessel_flag_c
+            description: ""
+          - name: payout_vessel_owner_c
+            description: ""
+          - name: payout_vessel_type_c
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: payout_first_name_c
+            description: ""
+          - name: payout_last_name_c
+            description: ""
+
+      - name: payout_ofac_cs_c
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: setup_owner_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: payout_client_id_c
+            description: ""
+          - name: payout_client_secret_c
+            description: ""
+          - name: payout_endpoint_c
+            description: ""
+          - name: payout_password_c
+            description: ""
+          - name: payout_username_c
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_ofac_history
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: parent_id
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: field
+            description: ""
+          - name: data_type
+            description: ""
+          - name: old_value
+            description: ""
+          - name: new_value
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_payout_summary_c
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: last_activity_date
+            description: ""
+          - name: last_viewed_date
+            description: ""
+          - name: last_referenced_date
+            description: ""
+          - name: connection_received_id
+            description: ""
+          - name: connection_sent_id
+            description: ""
+          - name: payout_advisor_c
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_payout_summary_history
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: parent_id
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: field
+            description: ""
+          - name: data_type
+            description: ""
+          - name: old_value
+            description: ""
+          - name: new_value
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_portfolio_c
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: owner_id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: record_type_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: last_activity_date
+            description: ""
+          - name: last_viewed_date
+            description: ""
+          - name: last_referenced_date
+            description: ""
+          - name: connection_received_id
+            description: ""
+          - name: connection_sent_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_product_line_loa_c
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: connection_received_id
+            description: ""
+          - name: connection_sent_id
+            description: ""
+          - name: payout_carrier_appointment_c
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_product_line_loa_history
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: parent_id
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: field
+            description: ""
+          - name: data_type
+            description: ""
+          - name: old_value
+            description: ""
+          - name: new_value
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_regulatory_action_c
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: connection_received_id
+            description: ""
+          - name: connection_sent_id
+            description: ""
+          - name: payout_advisor_c
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: last_referenced_date
+            description: ""
+          - name: last_viewed_date
+            description: ""
+
+      - name: payout_regulatory_action_history
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: parent_id
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: field
+            description: ""
+          - name: data_type
+            description: ""
+          - name: old_value
+            description: ""
+          - name: new_value
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_tab_access_to_profile_c
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: setup_owner_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: payout_profile_name_c
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_ticket_charge_configuration_c
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: last_activity_date
+            description: ""
+          - name: last_viewed_date
+            description: ""
+          - name: last_referenced_date
+            description: ""
+          - name: connection_received_id
+            description: ""
+          - name: connection_sent_id
+            description: ""
+          - name: payout_ticket_charge_rule_c
+            description: ""
+          - name: payout_ct_clearing_addl_fee_code_c
+            description: ""
+          - name: payout_ct_clearing_adv_fee_code_c
+            description: ""
+          - name: payout_ct_clearing_charge_c
+            description: ""
+          - name: payout_ct_clearing_execution_count_c
+            description: ""
+          - name: payout_ct_clearing_mf_type_c
+            description: ""
+          - name: payout_ct_clearing_market_code_c
+            description: ""
+          - name: payout_ct_clearing_notes_c
+            description: ""
+          - name: payout_ct_clearing_order_type_c
+            description: ""
+          - name: payout_ct_clearing_product_code_c
+            description: ""
+          - name: payout_ct_clearing_product_type_c
+            description: ""
+          - name: payout_ct_clearing_security_type_c
+            description: ""
+          - name: payout_ct_clearing_split_percentage_c
+            description: ""
+          - name: payout_ct_clearing_total_units_c
+            description: ""
+          - name: payout_ct_clearing_trade_cancel_indicator_c
+            description: ""
+          - name: payout_ct_fa_clearing_firm_account_type_c
+            description: ""
+          - name: payout_ct_field_to_update_c
+            description: ""
+          - name: payout_ct_gross_commission_c
+            description: ""
+          - name: payout_ct_price_c
+            description: ""
+          - name: payout_ct_trail_c
+            description: ""
+          - name: payout_ct_trans_type_c
+            description: ""
+          - name: payout_ct_units_c
+            description: ""
+          - name: payout_clearing_addl_fee_code_operator_c
+            description: ""
+          - name: payout_clearing_addl_fee_code_c
+            description: ""
+          - name: payout_clearing_adv_fee_code_operator_c
+            description: ""
+          - name: payout_clearing_adv_fee_code_c
+            description: ""
+          - name: payout_clearing_charge_operator_c
+            description: ""
+          - name: payout_clearing_charge_c
+            description: ""
+          - name: payout_clearing_execution_count_operator_c
+            description: ""
+          - name: payout_clearing_execution_count_c
+            description: ""
+          - name: payout_clearing_firm_account_type_c
+            description: ""
+          - name: payout_clearing_mf_type_operator_c
+            description: ""
+          - name: payout_clearing_mf_type_c
+            description: ""
+          - name: payout_clearing_market_code_operator_c
+            description: ""
+          - name: payout_clearing_market_code_c
+            description: ""
+          - name: payout_clearing_notes_operator_c
+            description: ""
+          - name: payout_clearing_notes_c
+            description: ""
+          - name: payout_clearing_order_type_operator_c
+            description: ""
+          - name: payout_clearing_order_type_c
+            description: ""
+          - name: payout_clearing_product_code_operator_c
+            description: ""
+          - name: payout_clearing_product_code_c
+            description: ""
+          - name: payout_clearing_product_type_operator_c
+            description: ""
+          - name: payout_clearing_product_type_c
+            description: ""
+          - name: payout_clearing_security_type_operator_c
+            description: ""
+          - name: payout_clearing_security_type_c
+            description: ""
+          - name: payout_clearing_split_percentage_operator_c
+            description: ""
+          - name: payout_clearing_split_percentage_c
+            description: ""
+          - name: payout_clearing_total_units_operator_c
+            description: ""
+          - name: payout_clearing_total_units_c
+            description: ""
+          - name: payout_clearing_trade_cancel_indicator_operator_c
+            description: ""
+          - name: payout_clearing_trade_cancel_indicator_c
+            description: ""
+          - name: payout_description_c
+            description: ""
+          - name: payout_execution_order_c
+            description: ""
+          - name: payout_fa_clearing_firm_account_type_operator_c
+            description: ""
+          - name: payout_gross_commission_operator_c
+            description: ""
+          - name: payout_gross_commission_c
+            description: ""
+          - name: payout_price_operator_c
+            description: ""
+          - name: payout_price_c
+            description: ""
+          - name: payout_record_type_operator_c
+            description: ""
+          - name: payout_record_type_c
+            description: ""
+          - name: payout_trail_operator_c
+            description: ""
+          - name: payout_trail_c
+            description: ""
+          - name: payout_trans_type_operator_c
+            description: ""
+          - name: payout_trans_type_c
+            description: ""
+          - name: payout_units_operator_c
+            description: ""
+          - name: payout_units_c
+            description: ""
+          - name: payout_workflow_name_c
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: payout_schedule_name_c
+            description: ""
+
+      - name: payout_ticket_charge_configuration_history
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: parent_id
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: field
+            description: ""
+          - name: data_type
+            description: ""
+          - name: old_value
+            description: ""
+          - name: new_value
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_ticket_charge_rule_c
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: owner_id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: last_activity_date
+            description: ""
+          - name: last_viewed_date
+            description: ""
+          - name: last_referenced_date
+            description: ""
+          - name: connection_received_id
+            description: ""
+          - name: connection_sent_id
+            description: ""
+          - name: payout_clearing_firm_name_operator_c
+            description: ""
+          - name: payout_clearing_firm_name_c
+            description: ""
+          - name: payout_description_c
+            description: ""
+          - name: payout_per_unit_charge_c
+            description: ""
+          - name: payout_ticket_charge_schedule_c
+            description: ""
+          - name: payout_ticket_charge_to_advisor_c
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: payout_ticket_charge_rule_history
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: parent_id
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: created_date
+            description: ""
+          - name: field
+            description: ""
+          - name: data_type
+            description: ""
+          - name: old_value
+            description: ""
+          - name: new_value
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: prompt_error
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: owner_id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: prompt_action_id
+            description: ""
+          - name: type
+            description: ""
+          - name: step_number
+            description: ""
+          - name: is_error
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: recommendation_response
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: on_behalf_of
+            description: ""
+          - name: on_behalf_of_type
+            description: ""
+          - name: on_behalf_of_name
+            description: ""
+          - name: recommendation_key
+            description: ""
+          - name: recommendation_type
+            description: ""
+          - name: recommendation_name
+            description: ""
+          - name: action_reference
+            description: ""
+          - name: response
+            description: ""
+          - name: strategy_reference
+            description: ""
+          - name: strategy_version
+            description: ""
+          - name: context_record
+            description: ""
+          - name: context_record_type
+            description: ""
+          - name: context_record_name
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: scorecard
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: owner_id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: last_viewed_date
+            description: ""
+          - name: last_referenced_date
+            description: ""
+          - name: description
+            description: ""
+          - name: target_entity
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: scorecard_association
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: last_viewed_date
+            description: ""
+          - name: last_referenced_date
+            description: ""
+          - name: scorecard_id
+            description: ""
+          - name: target_entity_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: scorecard_metric
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: scorecard_id
+            description: ""
+          - name: description
+            description: ""
+          - name: category
+            description: ""
+          - name: report_id
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: seller
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: owner_id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: last_viewed_date
+            description: ""
+          - name: last_referenced_date
+            description: ""
+          - name: party_id
+            description: ""
+          - name: sales_amount
+            description: ""
+          - name: seller_type
+            description: ""
+          - name: seller_tier
+            description: ""
+          - name: active_from_date
+            description: ""
+          - name: active_to_date
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: service_setup_provisioning
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: is_deleted
+            description: ""
+          - name: name
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: job_name
+            description: ""
+          - name: task_name
+            description: ""
+          - name: status
+            description: ""
+          - name: task_context
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: user
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: username
+            description: ""
+          - name: last_name
+            description: ""
+          - name: first_name
+            description: ""
+          - name: name
+            description: ""
+          - name: company_name
+            description: ""
+          - name: division
+            description: ""
+          - name: department
+            description: ""
+          - name: title
+            description: ""
+          - name: street
+            description: ""
+          - name: city
+            description: ""
+          - name: state
+            description: ""
+          - name: postal_code
+            description: ""
+          - name: country
+            description: ""
+          - name: latitude
+            description: ""
+          - name: longitude
+            description: ""
+          - name: geocode_accuracy
+            description: ""
+          - name: email
+            description: ""
+          - name: email_preferences_auto_bcc
+            description: ""
+          - name: email_preferences_auto_bcc_stay_in_touch
+            description: ""
+          - name: email_preferences_stay_in_touch_reminder
+            description: ""
+          - name: sender_email
+            description: ""
+          - name: sender_name
+            description: ""
+          - name: signature
+            description: ""
+          - name: stay_in_touch_subject
+            description: ""
+          - name: stay_in_touch_signature
+            description: ""
+          - name: stay_in_touch_note
+            description: ""
+          - name: phone
+            description: ""
+          - name: fax
+            description: ""
+          - name: mobile_phone
+            description: ""
+          - name: alias
+            description: ""
+          - name: community_nickname
+            description: ""
+          - name: badge_text
+            description: ""
+          - name: is_active
+            description: ""
+          - name: time_zone_sid_key
+            description: ""
+          - name: user_role_id
+            description: ""
+          - name: locale_sid_key
+            description: ""
+          - name: receives_info_emails
+            description: ""
+          - name: receives_admin_info_emails
+            description: ""
+          - name: email_encoding_key
+            description: ""
+          - name: profile_id
+            description: ""
+          - name: user_type
+            description: ""
+          - name: language_locale_key
+            description: ""
+          - name: employee_number
+            description: ""
+          - name: delegated_approver_id
+            description: ""
+          - name: manager_id
+            description: ""
+          - name: last_login_date
+            description: ""
+          - name: last_password_change_date
+            description: ""
+          - name: created_date
+            description: ""
+          - name: created_by_id
+            description: ""
+          - name: last_modified_date
+            description: ""
+          - name: last_modified_by_id
+            description: ""
+          - name: system_modstamp
+            description: ""
+          - name: number_of_failed_logins
+            description: ""
+          - name: offline_trial_expiration_date
+            description: ""
+          - name: offline_pda_trial_expiration_date
+            description: ""
+          - name: user_permissions_marketing_user
+            description: ""
+          - name: user_permissions_offline_user
+            description: ""
+          - name: user_permissions_avantgo_user
+            description: ""
+          - name: user_permissions_call_center_auto_login
+            description: ""
+          - name: user_permissions_sfcontent_user
+            description: ""
+          - name: user_permissions_interaction_user
+            description: ""
+          - name: user_permissions_support_user
+            description: ""
+          - name: user_permissions_chatter_answers_user
+            description: ""
+          - name: forecast_enabled
+            description: ""
+          - name: user_preferences_activity_reminders_popup
+            description: ""
+          - name: user_preferences_event_reminders_checkbox_default
+            description: ""
+          - name: user_preferences_task_reminders_checkbox_default
+            description: ""
+          - name: user_preferences_reminder_sound_off
+            description: ""
+          - name: user_preferences_disable_all_feeds_email
+            description: ""
+          - name: user_preferences_disable_followers_email
+            description: ""
+          - name: user_preferences_disable_profile_post_email
+            description: ""
+          - name: user_preferences_disable_change_comment_email
+            description: ""
+          - name: user_preferences_disable_later_comment_email
+            description: ""
+          - name: user_preferences_dis_prof_post_comment_email
+            description: ""
+          - name: user_preferences_content_no_email
+            description: ""
+          - name: user_preferences_content_email_as_and_when
+            description: ""
+          - name: user_preferences_apex_pages_developer_mode
+            description: ""
+          - name: user_preferences_receive_no_notifications_as_approver
+            description: ""
+          - name: user_preferences_receive_notifications_as_delegated_approver
+            description: ""
+          - name: user_preferences_hide_csnget_chatter_mobile_task
+            description: ""
+          - name: user_preferences_disable_mentions_post_email
+            description: ""
+          - name: user_preferences_dis_mentions_comment_email
+            description: ""
+          - name: user_preferences_hide_csndesktop_task
+            description: ""
+          - name: user_preferences_hide_chatter_onboarding_splash
+            description: ""
+          - name: user_preferences_hide_second_chatter_onboarding_splash
+            description: ""
+          - name: user_preferences_dis_comment_after_like_email
+            description: ""
+          - name: user_preferences_disable_like_email
+            description: ""
+          - name: user_preferences_sort_feed_by_comment
+            description: ""
+          - name: user_preferences_disable_message_email
+            description: ""
+          - name: user_preferences_disable_bookmark_email
+            description: ""
+          - name: user_preferences_disable_share_post_email
+            description: ""
+          - name: user_preferences_enable_auto_sub_for_feeds
+            description: ""
+          - name: user_preferences_disable_file_share_notifications_for_api
+            description: ""
+          - name: user_preferences_show_title_to_external_users
+            description: ""
+          - name: user_preferences_show_manager_to_external_users
+            description: ""
+          - name: user_preferences_show_email_to_external_users
+            description: ""
+          - name: user_preferences_show_work_phone_to_external_users
+            description: ""
+          - name: user_preferences_show_mobile_phone_to_external_users
+            description: ""
+          - name: user_preferences_show_fax_to_external_users
+            description: ""
+          - name: user_preferences_show_street_address_to_external_users
+            description: ""
+          - name: user_preferences_show_city_to_external_users
+            description: ""
+          - name: user_preferences_show_state_to_external_users
+            description: ""
+          - name: user_preferences_show_postal_code_to_external_users
+            description: ""
+          - name: user_preferences_show_country_to_external_users
+            description: ""
+          - name: user_preferences_show_profile_pic_to_guest_users
+            description: ""
+          - name: user_preferences_show_title_to_guest_users
+            description: ""
+          - name: user_preferences_show_city_to_guest_users
+            description: ""
+          - name: user_preferences_show_state_to_guest_users
+            description: ""
+          - name: user_preferences_show_postal_code_to_guest_users
+            description: ""
+          - name: user_preferences_show_country_to_guest_users
+            description: ""
+          - name: user_preferences_hide_s_1_browser_ui
+            description: ""
+          - name: user_preferences_disable_endorsement_email
+            description: ""
+          - name: user_preferences_path_assistant_collapsed
+            description: ""
+          - name: user_preferences_cache_diagnostics
+            description: ""
+          - name: user_preferences_show_email_to_guest_users
+            description: ""
+          - name: user_preferences_show_manager_to_guest_users
+            description: ""
+          - name: user_preferences_show_work_phone_to_guest_users
+            description: ""
+          - name: user_preferences_show_mobile_phone_to_guest_users
+            description: ""
+          - name: user_preferences_show_fax_to_guest_users
+            description: ""
+          - name: user_preferences_show_street_address_to_guest_users
+            description: ""
+          - name: user_preferences_lightning_experience_preferred
+            description: ""
+          - name: user_preferences_preview_lightning
+            description: ""
+          - name: user_preferences_hide_end_user_onboarding_assistant_modal
+            description: ""
+          - name: user_preferences_hide_lightning_migration_modal
+            description: ""
+          - name: user_preferences_hide_sfx_welcome_mat
+            description: ""
+          - name: user_preferences_hide_bigger_photo_callout
+            description: ""
+          - name: user_preferences_global_nav_bar_wtshown
+            description: ""
+          - name: user_preferences_global_nav_grid_menu_wtshown
+            description: ""
+          - name: user_preferences_create_lexapps_wtshown
+            description: ""
+          - name: user_preferences_favorites_wtshown
+            description: ""
+          - name: user_preferences_record_home_section_collapse_wtshown
+            description: ""
+          - name: user_preferences_record_home_reserved_wtshown
+            description: ""
+          - name: user_preferences_favorites_show_top_favorites
+            description: ""
+          - name: user_preferences_exclude_mail_app_attachments
+            description: ""
+          - name: user_preferences_suppress_task_sfxreminders
+            description: ""
+          - name: user_preferences_suppress_event_sfxreminders
+            description: ""
+          - name: user_preferences_preview_custom_theme
+            description: ""
+          - name: user_preferences_has_celebration_badge
+            description: ""
+          - name: user_preferences_user_debug_mode_pref
+            description: ""
+          - name: user_preferences_srhoverride_activities
+            description: ""
+          - name: user_preferences_new_lightning_report_run_page_enabled
+            description: ""
+          - name: user_preferences_native_email_client
+            description: ""
+          - name: contact_id
+            description: ""
+          - name: account_id
+            description: ""
+          - name: call_center_id
+            description: ""
+          - name: extension
+            description: ""
+          - name: federation_identifier
+            description: ""
+          - name: about_me
+            description: ""
+          - name: full_photo_url
+            description: ""
+          - name: small_photo_url
+            description: ""
+          - name: is_ext_indicator_visible
+            description: ""
+          - name: out_of_office_message
+            description: ""
+          - name: medium_photo_url
+            description: ""
+          - name: digest_frequency
+            description: ""
+          - name: default_group_notification_frequency
+            description: ""
+          - name: last_viewed_date
+            description: ""
+          - name: last_referenced_date
+            description: ""
+          - name: banner_photo_url
+            description: ""
+          - name: small_banner_photo_url
+            description: ""
+          - name: medium_banner_photo_url
+            description: ""
+          - name: is_profile_photo_active
+            description: ""
+          - name: individual_id
+            description: ""
+          - name: skyvvasolutions_cim_licence_key_c
+            description: ""
+          - name: payout_manager_c
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+          - name: _fivetran_deleted
+            description: ""
+          - name: user_preferences_hide_statements_redirect_confirmation
+            description: ""
+          - name: user_preferences_hide_invoices_redirect_confirmation
+            description: ""
+          - name: user_preferences_hide_browse_product_redirect_confirmation
+            description: ""
+          - name: user_preferences_hide_online_sales_app_welcome_mat
+            description: ""
+          - name: user_preferences_reverse_open_activities_view
+            description: ""
+          - name: user_preferences_show_forecasting_change_signals
+            description: ""
+          - name: user_preferences_has_sent_warning_email
+            description: ""

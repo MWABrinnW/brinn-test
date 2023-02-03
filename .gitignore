@@ -1,4 +1,8 @@
-
 target/
 dbt_packages/
 logs/
+scratches/
+profiles.yml
+.user.yml
+.vscode/settings.json
+.venv/

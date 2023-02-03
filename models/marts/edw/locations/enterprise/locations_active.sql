@@ -1,0 +1,21 @@
+select
+     location_code
+    ,start_date
+    ,end_date
+    ,active
+    ,division
+    ,legal_name
+    ,region_name
+    ,market_name
+    ,location_name
+    ,office_name
+    ,location_city
+    ,location_state
+    ,accounting_id
+    ,accounting_id_description
+    ,acquisition_name
+    ,acquisition_type
+    ,general_access
+    ,_created_at
+from {{ref('int_locations')}}
+where active = 1 and general_access = 1

@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: emoney_mwa
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: emoney_mwa_history
+    tables:
+      - name: emoney_mwa_advisors
+        description: ""
+      - name: emoney_mwa_businesses
+        description: ""
+      - name: emoney_mwa_clients
+        description: ""
+      - name: emoney_mwa_entity_interests
+        description: ""
+      - name: emoney_mwa_investment_deposit_accounts
+        description: ""
+      - name: emoney_mwa_net_worth_history
+        description: ""
+      - name: emoney_mwa_people
+        description: ""
+      - name: emoney_mwa_real_estate_assets
+        description: ""
+      - name: emoney_mwa_user
+        description: ""

@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: edw_legacy
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: edw_legacy
+    tables:
+      - name: employee_reporting_history
+        description: ""

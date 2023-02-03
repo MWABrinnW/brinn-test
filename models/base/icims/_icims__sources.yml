@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: icims
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    tables:
+      - name: json_data
+        description: "Raw json data loaded as returned from the ICIMS API"
+      - name: stg_json_data
+        description: "Staging table used during engineering's load process"

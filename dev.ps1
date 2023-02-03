@@ -1,0 +1,7 @@
+Set-Item Env:DBT_LOOKBACK_DAYS "4"
+Set-Item Env:DBT_LOOKBACK_OFFSET_DAYS "0"
+Set-Item Env:DBT_DB_DATALAKE_SRC "datalake_dev"
+Set-Item Env:DBT_DB_DATALAKE_DEST "datalake_test"
+Set-Item Env:DBT_DB_DEVOPS_DEST "devops_test"
+Set-Item Env:DBT_DB_EDW_DEST "edw_test"
+Get-ChildItem env:* | sort-object name | Where-Object -property name -like "DBT*"

@@ -1,0 +1,27 @@
+packages:
+
+  - package: dbt-labs/dbt_utils
+    version: 1.0.0
+    # https://github.com/dbt-labs/dbt-utils
+
+  - package: dbt-labs/audit_helper
+    version: 0.7.0
+    # https://github.com/dbt-labs/dbt-audit-helper
+
+  - package: dbt-labs/codegen
+    version: 0.9.0
+    # https://github.com/dbt-labs/dbt-codegen
+
+  - package: calogica/dbt_date
+    version: [">=0.7.0", "<0.8.0"]
+    # https://github.com/calogica/dbt-date/
+    # https://github.com/dbt-labs/dbt-utils
+
+  - package: calogica/dbt_expectations
+    version: [">=0.8.0", "<0.9.0"]
+    # https://github.com/calogica/dbt-expectations
+
+  # - package: re-data/re_data
+  #   version: [">=0.10.0", "<0.11.0"]
+    # https://hub.getdbt.com/re-data/re_data/latest/
+    # https://docs.getre.io/latest/docs/start_here

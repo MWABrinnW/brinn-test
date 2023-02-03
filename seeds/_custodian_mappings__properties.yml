@@ -1,0 +1,40 @@
+version: 2
+
+seeds:
+  - name: custodian_mappings
+    description: Mapping file used to decode or normalize values from custodian files
+    docs:
+      show: true
+    config:
+      enabled: true
+      tags: custodial
+      schema: aux
+      grants:
+        select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod','test'] else []}}"
+    tests:
+      - dbt_expectations.expect_compound_columns_to_be_unique:
+          column_list: ["custodian", "field", "source"]
+          quote_columns: false
+    columns:
+      - name: custodian
+        description: "Custodian key value"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['schwab', 'fidelity', 'tda']
+      - name: field
+        description: "The field the contains the values we are evaluating or joining on"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['account_registration', 'restriction', 'cost_basis']
+      - name: source
+        description: "Original value as represented in the source data"
+        tests:
+          - not_null
+      - name: definition
+        description: "Definition or decoded value of the source value"
+        tests:
+          - not_null
+      - name: normalized
+        description: "Business value the source value should map to"

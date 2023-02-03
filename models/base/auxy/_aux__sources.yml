@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: aux
+    description: >
+      The sources represent auxillary source systems and files,
+      Typically resulting in the use of Box or Smartsheets files used for mapping or as supplemntary data not available elsewhere."
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+
+    tables:
+      - name: locations
+        tags: ['locations']
+        description: >
+          Primary purpose for this table is to assign a Mariner Location ID to each Mariner Location.
+          That ID/name is used throughout a number of systems (ex. Great Plains, ADP, Salesforce, Enterprise Reporting, etc).
+          The Location Master is also where the the hierarchy of Region/Market/Location is kept, along with other ancillary levels (Division, Legal, and Tax hierarchy) will be found.
+      - name: employee_overrides
+        tags: ['employees']
+        description: >
+          "Employee record value overrides and manual entries (box file id: 1085269023169)."
+          Used by the HR team to make modification to employee records before they appear in the EDW.
+      - name: integration_roadmap
+        description: This smartsheets file is maintained by the platforms team and details the roadmap for various location Orion integration activities.

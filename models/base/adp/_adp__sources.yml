@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: adp
+    description: ""
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: adp_history
+    tags: ['adp', 'employees']
+    loaded_at_field: record_datetime
+    tables:
+      - name: worker_assignment_history
+        description: "Json worker assignments (positions) from ADP"
+        freshness:
+          error_after: {count: 25, period: hour}
+      - name: worker_history
+        description: "Json workers (employees) from ADP"
+        freshness:
+          error_after: {count: 25, period: hour}
+      - name: worker_assignment_history_backup
+        description: "Original worker assignment table containing data until 2021-08-11."
+      - name: worker_history_backup
+        description: "Original worker table containing data until 2021-08-11."
+      - name: worker_json_history
+        description: ""
