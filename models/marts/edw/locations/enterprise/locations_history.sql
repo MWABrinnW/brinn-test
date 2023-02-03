@@ -13,29 +13,30 @@ with cte_locations as
 )
 select
     ds.date_key                     as effective_date
-    ,l.location_name
+    ,l.location_code
     ,l.start_date
     ,l.end_date
-    ,l.location_code
     ,l.active
-    ,l.office_name
+    ,l.division
     ,l.legal_name
     ,l.region_name
     ,l.market_name
-    ,l.division
-    ,l.general_access
+    ,l.location_name
+    ,l.office_name
     ,l.location_city
     ,l.location_state
     ,l.accounting_id
     ,l.accounting_id_description
     ,l.acquisition_name
     ,l.acquisition_type
+    ,l.general_access
     ,case 
         when ds.date_key = last_day(ds.date_key, 'month') 
             then 1 
             else 0 
             end                     as is_month_end
     ,last_day(ds.date_key, 'month') as month_end_date
+    ,l._created_at
 from cte_locations l
 cross join cte_date_spine ds
 where true

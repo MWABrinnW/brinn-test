@@ -176,11 +176,11 @@ models:
           enterprise:
             +schema: enterprise
             +grants:
-              select: "{{ ['db_pms_mwa_r', 'db_custodial_mwa_r', 'db_hr_mwa_r'] if target.name in ['prod','test'] else []}}"
+              select: "{{ ['db_pms_mwa_r', 'db_custodial_mwa_r', 'db_hr_mwa_r', 'integration_dm'] if target.name in ['prod','test'] else []}}"
           ref:
             +schema: ref
             +grants:
-              select: "{{ ['db_pms_mwa_r', 'db_custodial_mwa_r', 'db_hr_mwa_r'] if target.name in ['prod','test'] else []}}"
+              select: "{{ ['db_pms_mwa_r', 'db_custodial_mwa_r', 'db_hr_mwa_r', 'integration_dm'] if target.name in ['prod','test'] else []}}"
         trade_blotter:
           +tags: ['trade_blotter']
           +enabled: false

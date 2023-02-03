@@ -1,20 +1,20 @@
 select
-    location_name
+     location_code
     ,start_date
     ,end_date
-    ,location_code
     ,active
-    ,office_name
+    ,division
     ,legal_name
     ,region_name
     ,market_name
-    ,division
-    ,general_access
+    ,location_name
+    ,office_name
     ,location_city
     ,location_state
     ,accounting_id
     ,accounting_id_description
     ,acquisition_name
     ,acquisition_type
+    ,general_access
     ,_created_at
 from {{ref('int_locations')}}

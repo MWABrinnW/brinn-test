@@ -3,23 +3,23 @@
 #}
 
 select
-     l.location_name
-    ,l.start_date
-    ,l.end_date
-    ,l.location_code
-    ,l.active
-    ,l.office_name
-    ,l.legal_name
-    ,l.region_name
-    ,l.market_name
-    ,l.division
-    ,l.general_access
-    ,l.location_city
-    ,l.location_state
-    ,l.accounting_id
-    ,l.accounting_id_description
-    ,l.acquisition_name
-    ,l.acquisition_type
-    ,l._created_at
-from {{ ref('aux__base_locations') }} l
-where l.is_head = 1
+     location_code
+    ,start_date
+    ,end_date
+    ,active
+    ,division
+    ,legal_name
+    ,region_name
+    ,market_name
+    ,location_name
+    ,office_name
+    ,location_city
+    ,location_state
+    ,accounting_id
+    ,accounting_id_description
+    ,acquisition_name
+    ,acquisition_type
+    ,general_access
+    ,_created_at
+from {{ ref('aux__base_locations') }}
+where is_head = 1
