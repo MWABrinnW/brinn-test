@@ -93,6 +93,7 @@ select
   , e.reporting_office                          as reporting_office
   , e.accounting_id                             as accounting_id
   , e.source                                    as source
+  , e.title_change_reason                       as title_change_reason
 from {{ ref('int_adp_employees_all') }} e
 where true
   and e.is_head = 1

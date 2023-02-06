@@ -82,5 +82,5 @@ models:
       "Employee record value overrides and manual entries (box file id: 1085269023169)."
       Used by the HR team to make modification to employee records before they appear in the EDW.
 
-  - name: aux__base_integration_roademap
+  - name: aux__base_integration_roadmap
     description: This smartsheets file is maintained by the platforms team and details the roadmap for various location Orion integration activities.

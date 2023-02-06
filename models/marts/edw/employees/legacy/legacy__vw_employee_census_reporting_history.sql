@@ -44,6 +44,7 @@ select
     ,last_day_of_month
     ,position_start_date #}
     ,source
+    ,title_change_reason
 from {{ ref('employee_census') }}
 where true
     and is_month_end = 1

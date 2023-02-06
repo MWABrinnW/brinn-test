@@ -39,6 +39,7 @@ select
     ,source
     ,manager_name                           as position_manager_name
     ,manager_position_id                    as position_manager_position_id
+    ,title_change_reason
 from {{ ref('employee_census') }}
 where true
     and is_head = 1

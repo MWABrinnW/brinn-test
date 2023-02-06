@@ -43,6 +43,7 @@ select
   , emp.data_last_refreshed_date
   , emp.accounting_id
   , emp.source
+  , emp.title_change_reason
 from {{ ref('int_adp_employees_all') }} emp
 where true
   and right(lower(emp.position_id),1) <> 'n'

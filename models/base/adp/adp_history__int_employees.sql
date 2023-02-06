@@ -45,6 +45,7 @@ select
   , w.reporting_office
   , trim(w.hire_details)                                                                    as hire_details
   , w.source
+  , w.title_change_reason
   , w.position_company_code
   , w.position_id
   , w.position_status_code
