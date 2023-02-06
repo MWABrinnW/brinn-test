@@ -68,6 +68,7 @@ select
   , em.data_last_refreshed_date                                                                          as data_last_refreshed_date
   , em.position_start_date                                                                               as position_start_date
   , em.source                                                                                            as source
+  , em.title_change_reason                                                                               as title_change_reason
   , em.month_end_date                                                                                    as month_end_date
   , date_trunc(month, em.effective_at::date)                                                             as first_day_of_month
   , em.month_end_date                                                                                    as last_day_of_month
@@ -144,6 +145,7 @@ select
   , null                                   as data_last_refreshed_date
   , le.position_start_date                 as position_start_date
   , be.source                              as source
+  , be.title_change_reason                 as title_change_reason
   , le.report_month_end                    as month_end_date
   , date_trunc(month, le.report_month_end) as first_day_of_month
   , last_day(le.report_month_end)          as last_day_of_month

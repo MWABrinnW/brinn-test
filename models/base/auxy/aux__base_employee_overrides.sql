@@ -107,4 +107,5 @@ select
   , position_department_name::varchar(100)                    as position_department_name
   , position_market_name::varchar(100)                        as position_market_name
   , reporting_office::varchar(100)                            as reporting_office
+  , title_change_reason::varchar(100)                         as title_change_reason
 from {{ source('aux', 'employee_overrides') }}

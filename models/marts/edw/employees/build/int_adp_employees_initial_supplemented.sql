@@ -127,6 +127,7 @@ with cte_employees_all           as
           , w.reporting_office
           , w.hire_details
           , w.source
+          , w.title_change_reason
           , w.associate_legal_name_first
           , w.associate_legal_name_middle
           , w.associate_legal_name_last
@@ -249,6 +250,7 @@ with cte_employees_all           as
           , w.reporting_office
           , w.hire_details
           , w.source
+          , w.title_change_reason
           , w.associate_legal_name_first
           , w.associate_legal_name_middle
           , w.associate_legal_name_last
@@ -371,6 +373,7 @@ with cte_employees_all           as
       , case when lower(eo.reporting_office) = 'null' then null else coalesce(eo.reporting_office::text, e.reporting_office) end as reporting_office
       , case when lower(eo.hire_details) = 'null' then null else coalesce(eo.hire_details::text, e.hire_details) end as hire_details
       , case when lower(eo.source) = 'null' then null else coalesce(eo.source::text, e.source) end as source
+      , case when lower(eo.title_change_reason) = 'null' then null else coalesce(eo.title_change_reason::text, e.title_change_reason) end as title_change_reason
       , case when lower(eo.associate_legal_name_first) = 'null' then null else coalesce(eo.associate_legal_name_first::text, e.associate_legal_name_first) end as associate_legal_name_first
       , case when lower(eo.associate_legal_name_middle) = 'null' then null else coalesce(eo.associate_legal_name_middle::text, e.associate_legal_name_middle) end as associate_legal_name_middle
       , case when lower(eo.associate_legal_name_last) = 'null' then null else coalesce(eo.associate_legal_name_last::text, e.associate_legal_name_last) end as associate_legal_name_last
@@ -488,6 +491,7 @@ with cte_employees_all           as
         , eo.reporting_office
         , eo.hire_details
         , eo.source
+        , eo.title_change_reason
         , eo.associate_legal_name_first
         , eo.associate_legal_name_middle
         , eo.associate_legal_name_last
@@ -647,6 +651,7 @@ with cte_employees_all           as
         , e.reporting_office
         , e.hire_details
         , e.source
+        , e.title_change_reason
         , e.associate_legal_name_first
         , e.associate_legal_name_middle
         , e.associate_legal_name_last

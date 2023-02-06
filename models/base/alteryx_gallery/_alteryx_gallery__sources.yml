@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: alteryx_gallery
+    description: Alteryx gallery data from mongodb.
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: alteryx_gallery
+    tables:
+      - name: appinfos
+      - name: usagereports
+      - name: users

@@ -13,6 +13,7 @@ select
   , w.reporting_office                                                                     as reporting_office
   , trim(w.hire_details)                                                                   as hire_details
   , w.source                                                                               as source
+  , w.title_change_reason                                                                  as title_change_reason
   , w.legal_name_first                                                                     as associate_legal_name_first
   , w.legal_name_middle                                                                    as associate_legal_name_middle
   , w.legal_name_last                                                                      as associate_legal_name_last
