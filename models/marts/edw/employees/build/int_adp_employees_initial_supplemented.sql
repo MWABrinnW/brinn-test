@@ -29,14 +29,11 @@ select
 {% if execute %}
   {% set result = dbt_utils.get_single_value(qry_check_for_new_data) %}
 {% else %}
-  {{ dbt_utils.log_info('setting result from default')}}
+  {{ dbt_utils.log_info('Checking int_adp_employees_initial_supplemented')}}
   {% set result = 0 %}
 {% endif %}
 
-{# Log the result #}
-{{ dbt_utils.log_info(result)}}
-
-{% if result == 0 %}
+{% if result == 0 and full_refresh == false %}
   select *
   from {{ this }}
 {% else %}
