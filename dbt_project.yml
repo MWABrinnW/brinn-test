@@ -182,68 +182,74 @@ models:
       +materialized: view
       +tags: ['normal']
 
+# [EDW]
+    edw:
+      +tags: ['edw']
+      +database: |
+        {%- if  target.name == "dev" -%} edw_test
+        {%- elif target.name == "prod"  -%} edw
+        {%- elif target.name == "test"  -%} edw_test
+        {%- else -%} edw_test
+        {%- endif -%}
+      +grants:
+        select: "{{ ['db_edw_r'] if target.name in ['prod','test'] else []}}"
+
+      custodian:
+        +tags: ['custodian']
+        build:
+          +schema: build
+          +grants:
+            select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+        enterprise:
+          +schema: enterprise
+          +grants:
+            select: "{{ ['db_custodial_r'] if target.name in ['prod','test'] else []}}"
+
+      employees:
+        +tags: ['employees']
+        build:
+          +schema: build
+          +grants:
+            select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+        enterprise:
+          +schema: enterprise
+          +grants:
+            select: "{{ ['db_hr_r'] if target.name in ['prod','test'] else []}}"
+        legacy:
+          +schema: legacy
+          +grants:
+            select: "{{ ['db_hr_r'] if target.name in ['prod','test'] else []}}"
+
+      locations:
+        +tags: ['locations']
+        build:
+          +schema: build
+          +grants:
+            select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+        enterprise:
+          +schema: enterprise
+          +grants:
+            select: "{{ ['db_edw_general_mwa_r', 'integration_dm'] if target.name in ['prod','test'] else []}}"
+        ref:
+          +schema: ref
+          +grants:
+            select: "{{ ['db_edw_general_mwa_r', 'integration_dm'] if target.name in ['prod','test'] else []}}"
+
+      trade_blotter:
+        +tags: ['trade_blotter']
+        +enabled: false
+        build:
+          +schema: build
+          +grants:
+            select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+        enterprise:
+          +schema: enterprise
+        ref:
+          +schema: ref
+
 # [MARTS]
     marts:
-      edw:
-        +tags: ['edw']
-        +database: |
-          {%- if  target.name == "dev" -%} edw_test
-          {%- elif target.name == "prod"  -%} edw
-          {%- elif target.name == "test"  -%} edw_test
-          {%- else -%} edw_test
-          {%- endif -%}
+      engineering:
         +grants:
-          select: "{{ ['db_edw_r'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
 
-        custodian:
-          +tags: ['custodian']
-          build:
-            +schema: build
-            +grants:
-              select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
-          enterprise:
-            +schema: enterprise
-            +grants:
-              select: "{{ ['db_custodial_r'] if target.name in ['prod','test'] else []}}"
-
-        employees:
-          +tags: ['employees']
-          build:
-            +schema: build
-            +grants:
-              select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
-          enterprise:
-            +schema: enterprise
-            +grants:
-              select: "{{ ['db_hr_r'] if target.name in ['prod','test'] else []}}"
-          legacy:
-            +schema: legacy
-            +grants:
-              select: "{{ ['db_hr_r'] if target.name in ['prod','test'] else []}}"
-
-        locations:
-          +tags: ['locations']
-          build:
-            +schema: build
-            +grants:
-              select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
-          enterprise:
-            +schema: enterprise
-            +grants:
-              select: "{{ ['db_edw_general_mwa_r', 'integration_dm'] if target.name in ['prod','test'] else []}}"
-          ref:
-            +schema: ref
-            +grants:
-              select: "{{ ['db_edw_general_mwa_r', 'integration_dm'] if target.name in ['prod','test'] else []}}"
-
-        trade_blotter:
-          +tags: ['trade_blotter']
-          +enabled: false
-          build:
-            +schema: build
-            +grants:
-              select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
-          enterprise:
-            +schema: enterprise
-          ref:
-            +schema: ref
