@@ -61,7 +61,7 @@ models:
       alteryx_gallery:
         +tags: ['alteryx']
         +grants:
-          select: "{{ ['engineering', 'datamanagement', 'integration_dm'] if target.name in ['prod','test'] else []}}"          
+          select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod','test'] else []}}"          
 
       auxy:
         +tags: ['aux']
