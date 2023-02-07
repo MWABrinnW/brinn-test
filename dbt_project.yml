@@ -193,7 +193,7 @@ models:
         {%- endif -%}
 
       custodian:
-        +tags: ['custodian']
+        +tags: ['custodian', 'custodian-master']
         build:
           +schema: build
           +grants:
