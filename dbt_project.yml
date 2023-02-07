@@ -191,8 +191,6 @@ models:
         {%- elif target.name == "test"  -%} edw_test
         {%- else -%} edw_test
         {%- endif -%}
-      +grants:
-        select: "{{ ['db_edw_r'] if target.name in ['prod','test'] else []}}"
 
       custodian:
         +tags: ['custodian']
