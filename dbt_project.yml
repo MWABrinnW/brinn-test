@@ -43,6 +43,9 @@ on-run-end:
 
 models:
   data_engineering:
+    +persist_docs:
+      relation: true
+      columns: true
 
 # [BASE]
     base:
