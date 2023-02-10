@@ -45,6 +45,7 @@ select
   , a.legal_address_country::varchar(100)   as legal_address_country
   , a.is_head
   , a.is_current
+  , a._source_loaded_at
   , a._created_at
 from {{ ref('int_fidelity_mps_accounts') }} a
 left join {{ ref('custodian_mappings') }} r

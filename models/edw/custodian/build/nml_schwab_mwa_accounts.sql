@@ -68,7 +68,7 @@ select
   , null                                             as legal_address_country
   , is_head
   , is_current
-  , _created_at
+  , _source_loaded_at
 from {{ ref('schwab_mwa_history__base_accounts') }} a
 left join {{ ref('custodian_mappings') }}           ar
     on ar.custodian = 'schwab'

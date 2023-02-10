@@ -82,5 +82,6 @@ select
     ,{{ col_is_head(reference=source('schwab_mwa', 'accounts')) }}
     ,{{ col_is_current(date_col='effective_date') }}
     ,effective_date::date                       as effective_date
-    ,record_datetime::timestamp                 as _created_at
+    ,record_datetime::timestamp                 as record_datetime
+    ,record_datetime::timestamp                 as _source_loaded_at
 from {{ source('schwab_mwa', 'accounts') }}

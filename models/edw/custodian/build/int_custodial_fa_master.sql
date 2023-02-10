@@ -6,38 +6,50 @@
 )}}
 {# full_refresh=true if flags.FULL_REFRESH and var('full_refresh_force', false) else false #}
 
-/* SCHWAB */
-select *
-from {{ ref('nml_schwab_mwa_accounts') }}
-where true
-    {{ incremental_date_filter(source_col_name='effective_date', target_col_name='effective_date', filter="and lower(custodian) = 'schwab' and lower(firm) = 'mwa'") }}
 
-union all
+with cte_accounts as
+(
+    /* SCHWAB */
+    select *
+    from {{ ref('nml_schwab_mwa_accounts') }}
+    where true
+        {{ incremental_date_filter(source_col_name='effective_date', target_col_name='effective_date', filter="and lower(custodian) = 'schwab' and lower(firm) = 'mwa'") }}
 
-select *
-from {{ ref('nml_schwab_mps_accounts') }}
-where true
-    {{ incremental_date_filter(source_col_name='effective_date', target_col_name='effective_date', filter="and lower(custodian) = 'schwab' and lower(firm) = 'mps'") }}
+    union all
 
-union all
+    select *
+    from {{ ref('nml_schwab_mps_accounts') }}
+    where true
+        {{ incremental_date_filter(source_col_name='effective_date', target_col_name='effective_date', filter="and lower(custodian) = 'schwab' and lower(firm) = 'mps'") }}
 
-/* FIDELITY */
-select *
-from {{ ref('nml_fidelity_mwa_accounts') }}
-where true
-    {{ incremental_date_filter(source_col_name='effective_date', target_col_name='effective_date', filter="and lower(custodian) = 'fidelity' and lower(firm) = 'mwa'") }}
+    union all
 
-union all
+    /* FIDELITY */
+    select * exclude _created_at
+    from {{ ref('nml_fidelity_mwa_accounts') }}
+    where true
+        {{ incremental_date_filter(source_col_name='effective_date', target_col_name='effective_date', filter="and lower(custodian) = 'fidelity' and lower(firm) = 'mwa'") }}
 
-select *
-from {{ ref('nml_fidelity_mps_accounts') }}
-where true
-    {{ incremental_date_filter(source_col_name='effective_date', target_col_name='effective_date', filter="and lower(custodian) = 'fidelity' and lower(firm) = 'mps'") }}
+    union all
 
-{# union all #}
+    select * exclude _created_at
+    from {{ ref('nml_fidelity_mps_accounts') }}
+    where true
+        {{ incremental_date_filter(source_col_name='effective_date', target_col_name='effective_date', filter="and lower(custodian) = 'fidelity' and lower(firm) = 'mps'") }}
 
-/* TDA */
-{# select *
-from {{ ref('nml_tda_mwa_accounts') }}
-where true
-    {{ incremental_date_filter(source_col_name='effective_date', target_col_name='effective_date', filter="and lower(custodian) = 'tda' and lower(firm) = 'mwa'") }} #}
+    {# union all #}
+
+    /* TDA */
+    {# select *
+    from {{ ref('nml_tda_mwa_accounts') }}
+    where true
+        {{ incremental_date_filter(source_col_name='effective_date', target_col_name='effective_date', filter="and lower(custodian) = 'tda' and lower(firm) = 'mwa'") }} #}
+
+    /* PERSHING */
+
+    /* LPL */
+
+)
+
+select *, current_timestamp()::timestamp as _created_at
+from cte_accounts

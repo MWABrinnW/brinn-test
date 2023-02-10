@@ -119,6 +119,7 @@ select
   , d.payout_rate
   , {{ col_is_head(reference='cte_spined', reference_date_col='date_key', source_date_col='s.date_key') }}
   , {{ col_is_current(date_col='s.date_key') }}
+  , null::timestamp                as _source_loaded_at
   , current_timestamp()::timestamp as _created_at
 from cte_spined                           s
 left join {{ ref('tda_mwa_history__vw_demographics') }} d

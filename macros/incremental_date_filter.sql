@@ -3,7 +3,8 @@
     target_col_name,
     relation = "this",
     filter = none,
-    dev_filter=var("dev_day_filter")
+    dev_filter=var("dev_day_filter"),
+    mode = 'lookback'
 )-%}
 
 {#
@@ -19,6 +20,7 @@ Args:
     relation(snowflake relation)        : Relation to which this filter must be applied to. Default actual table.
     lookback (int)           : Number of days back to update, relative to the offset. Default is 3.
     offset (int)             : Number of days to offset the start date by, relative to the current date. Default is 0.
+    mode                     : [lookback|new]
 
 Returns:
     AND statement for a where clause that performs a filter on incremental models.
@@ -28,14 +30,17 @@ Returns:
 {%- set lookback_var = var('lookback', 4) -%}
 {%- set offset_var = var('offset', 0) -%}
 {%- set filter_var = var('filter', none) -%}
-    {%- set unique_key = config.require('unique_key') -%}
+{%- set unique_key = config.require('unique_key') -%}
+
     {%- if target.name not in ['prod', 'test'] -%}
-        and {{source_col_name}} >= (current_date() - {{dev_filter}})
+        AND {{source_col_name}}::timestamp >= (current_date() - {{dev_filter}})::timestamp
     {% endif -%}
+
     {% if is_incremental() -%}
         AND (
-            TO_DATE({{source_col_name}}) > (
-                SELECT MAX({{target_col_name}})
+            -- select records that have a greater {effective_date} than the destination
+            {{source_col_name}}::timestamp > (
+                SELECT MAX({{target_col_name}}::timestamp)
                 FROM {% if relation == "this" -%}
                         {{ this }}
                      {%- else -%}
@@ -46,8 +51,12 @@ Returns:
                     filter_var
                 {% endif %}
             )
+    {% endif %}  
+
+    {% if is_incremental() and mode == 'lookback' -%}
         OR (
-            TO_DATE({{source_col_name}})
+            -- select records with the lookback window using supplied {effective_date} key
+            {{source_col_name}}::date
                 >= DATEADD(
                     DAY,
                     -({{ offset_var + lookback_var }}),
@@ -60,6 +69,6 @@ Returns:
                     CURRENT_DATE()
             )
         )
-    )
     {% endif %}
+        )
 {% endmacro %}

@@ -38,6 +38,7 @@ select
     ,legal_address_country
     ,{{ col_is_head(reference=ref('int_custodial_fa_master'), reference_date_col='effective_date', source_date_col='effective_date') }}
     ,{{ col_is_current(date_col='effective_date') }}
+    ,_source_loaded_at
     ,_created_at
 from {{ ref('int_custodial_fa_master') }}
 where true

@@ -130,6 +130,7 @@ select
   , la.country_name                                            as legal_address_country
   , {{ col_is_head(reference=ref('fidelity_mwa_history__vw_nabase_101_account'), source_date_col='a.effective_date') }}
   , {{ col_is_current(date_col='a.effective_date') }}
+  , a._source_loaded_at::timestamp                             as _source_loaded_at
   , current_timestamp()::timestamp                             as _created_at
 from {{ ref('fidelity_mwa_history__vw_nabase_101_account') }} a
 left join cte_mailing_address ma
