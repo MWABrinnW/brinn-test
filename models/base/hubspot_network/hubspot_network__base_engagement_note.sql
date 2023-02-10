@@ -1,5 +1,2 @@
-select
-    engagement_id
-    , body
-    , _fivetran_synced
+select *
 from {{ source('hubspot_network', 'engagement_note') }}

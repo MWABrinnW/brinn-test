@@ -1,6 +1,2 @@
-select
-    id
-    , name
-    , _fivetran_deleted
-    , _fivetran_synced
+select *
 from {{ source('hubspot_network', 'team') }}

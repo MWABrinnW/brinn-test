@@ -1,7 +1,2 @@
-select
-    id
-    , response
-    , category
-    , status
-    , _fivetran_synced
+select *
 from {{ source('hubspot_network', 'email_event_bounce') }}

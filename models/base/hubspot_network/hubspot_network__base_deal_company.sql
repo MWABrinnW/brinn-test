@@ -1,5 +1,2 @@
-select
-    company_id
-    , deal_id
-    , _fivetran_synced
+select *
 from {{ source('hubspot_network', 'deal_company') }}

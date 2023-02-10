@@ -1,5 +1,2 @@
-select
-    campaign_id
-    , marketing_email_id
-    , _fivetran_synced
+select *
 from {{ source('hubspot_network', 'marketing_email_campaign') }}

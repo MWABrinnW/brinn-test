@@ -1,8 +1,2 @@
-select
-    id
-    , portal_id
-    , name
-    , description
-    , active
-    , _fivetran_synced
+select *
 from {{ source('hubspot_network', 'email_subscription') }}
