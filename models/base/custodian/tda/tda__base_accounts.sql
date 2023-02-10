@@ -1,4 +1,4 @@
-{{ config(materialized = 'table') }}
+{{ config(materialized = 'table', enabled = false) }}
 -- depends_on: {{ ref('tda_mwa_history__vw_demographics') }}
 -- depends_on: {{ ref('tda_mwa_history__vw_positions') }}
 -- depends_on: {{ ref('dates') }}
