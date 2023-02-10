@@ -32,7 +32,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 vars:
   dbt_date:time_zone: "America/Chicago"
-  lookback: 4
+  lookback: 3
   offset: 0
   dev_day_filter: 30
 
