@@ -112,6 +112,7 @@ models:
           +grants:
             select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod','test'] else []}}"
         tda:
+          +enabled: false
           +tags: ['tda', 'mwa', 'mps', 'network']
           +grants:
             select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod','test'] else []}}"
