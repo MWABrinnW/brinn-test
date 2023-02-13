@@ -11,25 +11,25 @@ with cte_effective_dates_out_of_date as
 (
   select distinct effective_date
   from {{ ref('nml_schwab_mwa_accounts') }}
-  where _source_loaded_at > (select max(_created_at) from int_fidelity_mps_accounts)
+  where _created_at > (select max(_created_at) from {{ this }})
 
   union
 
   select distinct effective_date
   from {{ ref('nml_schwab_mps_accounts') }}
-  where _source_loaded_at > (select max(_created_at) from int_fidelity_mps_accounts)
+  where _created_at > (select max(_created_at) from {{ this }})
 
   union
 
   select distinct effective_date
   from {{ ref('nml_fidelity_mwa_accounts') }}
-  where _source_loaded_at > (select max(_created_at) from int_fidelity_mps_accounts)
+  where _created_at > (select max(_created_at) from {{ this }})
 
   union
 
   select distinct effective_date
   from {{ ref('nml_fidelity_mps_accounts') }}
-  where _source_loaded_at > (select max(_created_at) from int_fidelity_mps_accounts)
+  where _created_at > (select max(_created_at) from {{ this }})
 )
 ,cte_accounts as
 (
