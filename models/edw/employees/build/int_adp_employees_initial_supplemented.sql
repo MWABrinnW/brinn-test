@@ -36,6 +36,7 @@ select
 {% if result == 0 and full_refresh == false %}
   select *
   from {{ this }}
+  limit 0
 {% else %}
 with cte_employees_all           as
     (

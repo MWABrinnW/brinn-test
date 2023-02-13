@@ -9,6 +9,7 @@
     target_created_at_col = '_created_at',
     filter = none,
     custom_condition = none,
+    custom_condition_only = false,
     dev_filter = var("dev_day_filter", "30")
 )-%}
 
@@ -49,6 +50,7 @@ Returns:
 
     {% if is_incremental() -%}
     AND (
+        {% if not custom_condition_only -%}
             -- select records that have a greater {effective_date} than the destination
             {{source_col_name}}::timestamp > (
                 SELECT MAX({{target_col_name}}::timestamp)
@@ -58,7 +60,8 @@ Returns:
                     filter_var
                 {% endif %}
             )
-        {% if do_new == true -%}
+        {% endif -%}
+        {% if do_new == true and not custom_condition_only -%}
         -- all effective_dates where the source is more up to date than the target
         OR (
             {{source_col_name}}::timestamp in (
@@ -78,7 +81,7 @@ Returns:
         )
         {% endif -%}
 
-    {% if do_lookback == true -%}
+    {% if do_lookback == true and not custom_condition_only -%}
         OR (
             -- select records with the lookback window using supplied {effective_date} key
             {{source_col_name}}::date
@@ -96,13 +99,17 @@ Returns:
         )
     {% endif -%}
 
-    {%- if custom_condition is not none -%}
+    {%- if custom_condition -%}
         -- custom condition
+        {% if custom_condition_only == true -%}
+        (
+        {% else -%}
         OR (
+        {% endif -%}
             {{ custom_condition }}
         )
-    {%- endif -%}
+    {% endif -%}
     )
-
     {%- endif -%}
+
 {% endmacro %}

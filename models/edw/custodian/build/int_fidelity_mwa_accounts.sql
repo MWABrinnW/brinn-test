@@ -5,29 +5,41 @@
     on_schema_change='sync_all_columns'
 )}}
 
+{# Prepare the query we'll use to determine if new data from the source is available #}
+{%- set src = source('fidelity_mwa', 'nabase') -%}
+{%- set qry_check_for_new_data -%}
+select
+    case
+        when (select count(*) from {{ this }}) = 0
+            then 1
+        when (select top 1 1
+              from {{ src }}
+              where record_datetime > (select max(_created_at) from {{ this }})
+              ) = 1
+            then 1
+        else 0
+        end
+{%- endset -%}
+
+{# Execute the query to determine if new data is ready. 1=yes 0=no#}
+{{ dbt_utils.log_info('Compiling int_fidelity_mwa_accounts')}}
+{%- if execute -%}
+  {%- set result = dbt_utils.get_single_value(qry_check_for_new_data) -%}
+{%- else -%}
+  {%- set result = 0 -%}
+{%- endif -%}
+{{ dbt_utils.log_info(result)}}
+{%- if result == 0 and flags.FULL_REFRESH == false -%}
+  select *
+  from {{ this }}
+  limit 0
+{%- else -%}
+
 with cte_effective_dates_out_of_date as
 (
   select distinct effective_date
-  from {{ ref('fidelity_mwa_history__vw_nabase_2x1_mailing_address') }}
-  where _source_loaded_at > (select max(_created_at) from int_fidelity_mwa_accounts)
-
-  union
-
-  select distinct effective_date
-  from {{ ref('fidelity_mwa_history__vw_nabase_2x2_legal_address') }}
-  where _source_loaded_at > (select max(_created_at) from int_fidelity_mwa_accounts)
-
-  union
-
-  select distinct effective_date
-  from {{ ref('fidelity_mwa_history__vw_nabase_3x0_notification') }}
-  where _source_loaded_at > (select max(_created_at) from int_fidelity_mwa_accounts)
-
-  union
-
-  select distinct effective_date
-  from {{ ref('fidelity_mwa_history__vw_nabase_2x0_customer') }}
-  where _source_loaded_at > (select max(_created_at) from int_fidelity_mwa_accounts)
+  from {{ source('fidelity_mwa', 'nabase') }}
+  where record_datetime > (select max(_created_at) from {{ this }})
 )
 ,cte_mailing_address as
 (
@@ -51,6 +63,7 @@ with cte_effective_dates_out_of_date as
           target_col_name = 'effective_date',
           do_lookback = false,
           do_new = false,
+          custom_condition_only = true,
           custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
     ) }}
     
@@ -77,6 +90,7 @@ with cte_effective_dates_out_of_date as
           target_col_name = 'effective_date',
           do_lookback = false,
           do_new = false,
+          custom_condition_only = true,
           custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
     ) }}
 )
@@ -95,6 +109,7 @@ with cte_effective_dates_out_of_date as
           target_col_name = 'effective_date',
           do_lookback = false,
           do_new = false,
+          custom_condition_only = true,
           custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
     ) }}
 )
@@ -116,6 +131,7 @@ with cte_effective_dates_out_of_date as
           target_col_name = 'effective_date',
           do_lookback = false,
           do_new = false,
+          custom_condition_only = true,
           custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
     ) }}
 )
@@ -204,5 +220,8 @@ where true
           target_col_name = 'effective_date',
           do_lookback = false,
           do_new = false,
+          custom_condition_only = true,
           custom_condition = 'a.effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
     ) }}
+
+{%- endif -%}
