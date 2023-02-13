@@ -5,7 +5,31 @@
     on_schema_change='sync_all_columns'
 )}}
 
-with cte_mailing_address as
+with cte_effective_dates_out_of_date as
+(
+  select distinct effective_date
+  from {{ ref('fidelity_mwa_history__vw_nabase_2x1_mailing_address') }}
+  where _source_loaded_at > (select max(_created_at) from int_fidelity_mwa_accounts)
+
+  union
+
+  select distinct effective_date
+  from {{ ref('fidelity_mwa_history__vw_nabase_2x2_legal_address') }}
+  where _source_loaded_at > (select max(_created_at) from int_fidelity_mwa_accounts)
+
+  union
+
+  select distinct effective_date
+  from {{ ref('fidelity_mwa_history__vw_nabase_3x0_notification') }}
+  where _source_loaded_at > (select max(_created_at) from int_fidelity_mwa_accounts)
+
+  union
+
+  select distinct effective_date
+  from {{ ref('fidelity_mwa_history__vw_nabase_2x0_customer') }}
+  where _source_loaded_at > (select max(_created_at) from int_fidelity_mwa_accounts)
+)
+,cte_mailing_address as
 (
   select
     effective_date
@@ -22,7 +46,14 @@ with cte_mailing_address as
   from {{ ref('fidelity_mwa_history__vw_nabase_2x1_mailing_address') }}
   where true
     and record_number = '211'
-    {{ incremental_date_filter(source_col_name='effective_date', target_col_name='effective_date') }}
+    {{ incremental_date_filter(
+          source_col_name = 'effective_date',
+          target_col_name = 'effective_date',
+          do_lookback = false,
+          do_new = false,
+          custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
+    ) }}
+    
 )
 ,cte_legal_address as
 (
@@ -41,7 +72,13 @@ with cte_mailing_address as
   from {{ ref('fidelity_mwa_history__vw_nabase_2x2_legal_address') }}
   where true
     and record_number = '212'
-    {{ incremental_date_filter(source_col_name='effective_date', target_col_name='effective_date') }}
+    {{ incremental_date_filter(
+          source_col_name = 'effective_date',
+          target_col_name = 'effective_date',
+          do_lookback = false,
+          do_new = false,
+          custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
+    ) }}
 )
 ,cte_notification as
 (
@@ -53,7 +90,13 @@ with cte_mailing_address as
   from {{ ref('fidelity_mwa_history__vw_nabase_3x0_notification') }}
   where true
     and record_number = '310'
-    {{ incremental_date_filter(source_col_name='effective_date', target_col_name='effective_date') }}
+    {{ incremental_date_filter(
+          source_col_name = 'effective_date',
+          target_col_name = 'effective_date',
+          do_lookback = false,
+          do_new = false,
+          custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
+    ) }}
 )
 ,cte_customer as
 (
@@ -68,7 +111,13 @@ with cte_mailing_address as
   from {{ ref('fidelity_mwa_history__vw_nabase_2x0_customer') }}
   where true
     and record_number = '210'
-    {{ incremental_date_filter(source_col_name='effective_date', target_col_name='effective_date') }}
+    {{ incremental_date_filter(
+          source_col_name = 'effective_date',
+          target_col_name = 'effective_date',
+          do_lookback = false,
+          do_new = false,
+          custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
+    ) }}
 )
 
 select
@@ -150,4 +199,10 @@ left join cte_customer c
   and a.account_custodial = c.account_custodial
   and c.record_number = '210'
 where true
-{{ incremental_date_filter(source_col_name='a.effective_date', target_col_name='effective_date') }}
+    {{ incremental_date_filter(
+          source_col_name = 'a.effective_date',
+          target_col_name = 'effective_date',
+          do_lookback = false,
+          do_new = false,
+          custom_condition = 'a.effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
+    ) }}

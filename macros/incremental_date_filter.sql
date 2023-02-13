@@ -1,10 +1,15 @@
 {%- macro incremental_date_filter(
     source_col_name,
     target_col_name,
-    relation = "this",
+    source_relation = none,
+    target_relation = "this",
+    do_lookback = true,
+    do_new = true,
+    source_created_at_col = '_source_created_at',
+    target_created_at_col = '_created_at',
     filter = none,
-    dev_filter=var("dev_day_filter"),
-    mode = 'lookback'
+    custom_condition = none,
+    dev_filter = var("dev_day_filter", "30")
 )-%}
 
 {#
@@ -31,29 +36,49 @@ Returns:
 {%- set offset_var = var('offset', 0) -%}
 {%- set filter_var = var('filter', none) -%}
 {%- set unique_key = config.require('unique_key') -%}
+{%- set target_relation_var = none -%}
+{% if target_relation == "this" -%}
+    {%- set target_relation_var = this -%}
+{%- else -%}
+    {%- set target_relation_var = relation -%}
+{%- endif -%}
 
     {%- if target.name not in ['prod', 'test'] -%}
         AND {{source_col_name}}::timestamp >= (current_date() - {{dev_filter}})::timestamp
     {% endif -%}
 
     {% if is_incremental() -%}
-        AND (
+    AND (
             -- select records that have a greater {effective_date} than the destination
             {{source_col_name}}::timestamp > (
                 SELECT MAX({{target_col_name}}::timestamp)
-                FROM {% if relation == "this" -%}
-                        {{ this }}
-                     {%- else -%}
-                        {{ relation }}
-                     {%- endif %}
+                FROM {{target_relation_var}}
                 WHERE true
                 {% if filter_var is not none %}
                     filter_var
                 {% endif %}
             )
-    {% endif %}  
+        {% if do_new == true -%}
+        -- all effective_dates where the source is more up to date than the target
+        OR (
+            {{source_col_name}}::timestamp in (
+                                    select distinct {{target_col_name}}::timestamp
+                                    from {{ source_relation }}
+                                    where {{ source_created_at_col }} > (select max({{ target_created_at_col }})
+                                                                        from {{ target_relation_var }}
+                                                                        where true
+                                                                        {% if filter_var is not none -%}
+                                                                            filter_var
+                                                                        {% endif -%}
+                                                                        )
+                                    
+                                    group by 1
+                                    )
 
-    {% if is_incremental() and mode == 'lookback' -%}
+        )
+        {% endif -%}
+
+    {% if do_lookback == true -%}
         OR (
             -- select records with the lookback window using supplied {effective_date} key
             {{source_col_name}}::date
@@ -69,6 +94,15 @@ Returns:
                     CURRENT_DATE()
             )
         )
-    {% endif %}
+    {% endif -%}
+
+    {%- if custom_condition is not none -%}
+        -- custom condition
+        OR (
+            {{ custom_condition }}
         )
+    {%- endif -%}
+    )
+
+    {%- endif -%}
 {% endmacro %}
