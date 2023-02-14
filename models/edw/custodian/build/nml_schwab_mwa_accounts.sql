@@ -71,6 +71,7 @@ select
   , is_head::int                                                   as is_head
   , is_current::int                                                as is_current
   , _source_loaded_at::timestamp                                   as _source_loaded_at
+  , _source_loaded_at::timestamp                                   as _created_at
 from {{ ref('schwab_mwa_history__base_accounts') }} a
 left join {{ ref('custodian_mappings') }}           ar
     on ar.custodian = 'schwab'

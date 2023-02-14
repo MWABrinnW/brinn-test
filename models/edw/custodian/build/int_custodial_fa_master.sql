@@ -4,7 +4,17 @@
     incremental_strategy='delete+insert',
     on_schema_change='sync_all_columns'
 )}}
-{# full_refresh=true if flags.FULL_REFRESH and var('full_refresh_force', false) else false #}
+
+{# Set the upstream normalized models here and dbt will use them dynamically below #}
+{%-
+    set source_models = [
+         'nml_schwab_mwa_accounts',
+         'nml_schwab_mps_accounts',
+         'nml_fidelity_mwa_accounts',
+         'nml_fidelity_mps_accounts',
+         'nml_lpl_network_accounts'
+    ]
+-%}
 
 with cte_max_created_at as
 (
@@ -12,117 +22,39 @@ with cte_max_created_at as
 )
 ,cte_effective_dates_out_of_date as
 (
-  select distinct effective_date
-  from {{ ref('nml_schwab_mwa_accounts') }}
-  where _source_loaded_at > (select max(_created_at) from cte_max_created_at)
+    {% for nml_model in source_models -%}
+    select distinct effective_date
+    from {{ ref(nml_model) }}
+    where _created_at > (select max(_created_at) from cte_max_created_at)
 
-  union
+    {%- if not loop.last %}
+    
+    union
 
-  select distinct effective_date
-  from {{ ref('nml_schwab_mps_accounts') }}
-  where _source_loaded_at > (select max(_created_at) from cte_max_created_at)
-
-  union
-
-  select distinct effective_date
-  from {{ ref('nml_fidelity_mwa_accounts') }}
-  where _created_at > (select max(_created_at) from cte_max_created_at)
-
-  union
-
-  select distinct effective_date
-  from {{ ref('nml_fidelity_mps_accounts') }}
-  where _created_at > (select max(_created_at) from cte_max_created_at)
-
-  union
-
-  select distinct effective_date
-  from {{ ref('nml_lpl_network_accounts') }}
-  where _source_loaded_at > (select max(_created_at) from cte_max_created_at)
+    {% endif -%}
+    {%- endfor %}
 )
 ,cte_accounts as
 (
-    /* SCHWAB */
-    select *
-    from {{ ref('nml_schwab_mwa_accounts') }}
-    where true
-        {{ incremental_date_filter(
-            source_col_name='effective_date',
-            target_col_name='effective_date',
-            do_lookback = false,
-            do_new = false,
-            filter="and lower(custodian) = 'schwab' and lower(firm) = 'mwa'",
-            custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
-        ) }}
-
-    union all
-
-    select *
-    from {{ ref('nml_schwab_mps_accounts') }}
-    where true
-        {{ incremental_date_filter(
-            source_col_name='effective_date',
-            target_col_name='effective_date',
-            do_lookback = false,
-            do_new = false,
-            filter="and lower(custodian) = 'schwab' and lower(firm) = 'mps'",
-            custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
-        ) }}
-
-    union all
-
-    /* FIDELITY */
+    {% for nml_model in source_models -%}
     select * exclude _created_at
-    from {{ ref('nml_fidelity_mwa_accounts') }}
+    from {{ ref(nml_model) }}
     where true
         {{ incremental_date_filter(
             source_col_name='effective_date',
             target_col_name='effective_date',
             do_lookback = false,
             do_new = false,
-            filter="and lower(custodian) = 'fidelity' and lower(firm) = 'mwa'",
+            custom_condition_only = true,
             custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
         ) }}
 
+    {%- if not loop.last %}
+    
     union all
 
-    select * exclude _created_at
-    from {{ ref('nml_fidelity_mps_accounts') }}
-    where true
-        {{ incremental_date_filter(
-            source_col_name='effective_date',
-            target_col_name='effective_date',
-            do_lookback = false,
-            do_new = false,
-            filter="and lower(custodian) = 'fidelity' and lower(firm) = 'mps'",
-            custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
-        ) }}
-
-    {# union all #}
-
-    /* TDA */
-    {# select *
-    from {{ ref('nml_tda_mwa_accounts') }}
-    where true
-        {{ incremental_date_filter(source_col_name='effective_date', target_col_name='effective_date', filter="and lower(custodian) = 'tda' and lower(firm) = 'mwa'") }} #}
-
-    /* PERSHING */
-
-    /* LPL */
-    union all
-
-    select * 
-    from {{ ref('nml_lpl_network_accounts') }}
-    where true
-        {{ incremental_date_filter(
-            source_col_name='effective_date',
-            target_col_name='effective_date',
-            do_lookback = false,
-            do_new = false,
-            filter="and lower(custodian) = 'fidelity' and lower(firm) = 'mps'",
-            custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
-        ) }}
-
+    {% endif -%}
+    {%- endfor %}
 )
 
 select *, current_timestamp()::timestamp as _created_at

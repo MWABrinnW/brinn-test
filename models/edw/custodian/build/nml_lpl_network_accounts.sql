@@ -54,6 +54,7 @@ select
   , a.is_head::int                                  as is_head
   , a.is_current::int                               as is_current
   , a._source_loaded_at::timestamp                  as _source_loaded_at
+  , a._source_loaded_at::timestamp                  as _created_at
 from {{ ref('lpl_network__base_accounts') }}     a
     -- left join lpl_network__base_account_participants ap
 --           on a.account_id = ap.account_id

@@ -46,10 +46,10 @@ Returns:
 
     {%- if target.name not in ['prod', 'test'] -%}
         AND {{source_col_name}}::timestamp >= (current_date() - {{dev_filter}})::timestamp
-    {% endif -%}
+    {%- endif -%}
 
-    {% if is_incremental() -%}
-    AND (
+    {%- if is_incremental() %}
+        AND (
         {% if not custom_condition_only -%}
             -- select records that have a greater {effective_date} than the destination
             {{source_col_name}}::timestamp > (

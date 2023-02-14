@@ -68,9 +68,10 @@ select
   , null::varchar(50)                                              as legal_address_state
   , null::varchar(12)                                              as legal_address_zip
   , null::varchar(50)                                              as legal_address_country
-  , is_head::int                                                   as is_head
-  , is_current::int                                                as is_current
-  , _source_loaded_at::timestamp                                   as _source_loaded_at
+  , a.is_head::int                                                 as is_head
+  , a.is_current::int                                              as is_current
+  , a._source_loaded_at::timestamp                                 as _source_loaded_at
+  , a._source_loaded_at::timestamp                                 as _created_at
 from {{ ref('schwab_mps_history__base_accounts') }} a
 left join {{ ref('custodian_mappings') }}           ar
     on ar.custodian = 'schwab'
