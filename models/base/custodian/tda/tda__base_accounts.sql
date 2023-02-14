@@ -19,17 +19,18 @@ select
 {% endset %}
 
 {# Execute the query to determine if new data is ready. 1=yes 0=no#}
-{% if execute %}
-  {% set result = dbt_utils.get_single_value(qry_check_for_new_data) %}
-{% else %}
-  {{ dbt_utils.log_info('setting result from default')}}
-  {% set result = 0 %}
-{% endif %}
-
-{% if result == 0 %}
+{%- if execute -%}
+  {{ dbt_utils.log_info(this.identifier ~ ' | compiling')}}
+  {%- set result = dbt_utils.get_single_value(qry_check_for_new_data) -%}
+  {{ dbt_utils.log_info(this.identifier ~ ' | ' ~ result)}}
+{%- else -%}
+  {%- set result = 0 -%}
+{%- endif -%}
+{%- if result == 0 and flags.FULL_REFRESH == false -%}
   select *
   from {{ this }}
-{% else %}
+  limit 0
+{%- else -%}
 with cte_accounts as
 (
     select

@@ -1,74 +1,76 @@
 select
-    a.effective_date
-  , 'schwab'                                         as custodian
-  , 'mwa'                                            as firm
-  , a.account_id                                     as account_number
-  , a.account_id                                     as account_number_formatted
+    a.effective_date::date                                         as effective_date
+  , 'schwab'::varchar(50)                                          as custodian
+  , 'mwa'::varchar(50)                                             as firm
+  , a.account_id::varchar(50)                                      as account_number
+  , a.account_id::varchar(50)                                      as account_number_formatted
 
-  , a.master_account_number                          as custodian_link
-  , 'master'                                         as custodian_link_detail
+  , a.master_account_number::varchar(50)                           as custodian_link
+  , 'master'::varchar(50)                                          as custodian_link_detail
+  , null::varchar(50)                                              as rep_link
+  , null::varchar(50)                                              as rep_link_detail
     -- ,lower(customer_type)                   as registration_type -- (inv,trust,org)
-  , a.account_registration                           as account_type_source_code
-  , ar.definition                                    as account_type_source_definition
-  , ar.normalized                                    as account_type -- (ira rollover, etc)
+  , a.account_registration::varchar(50)                            as account_type_source_code
+  , ar.definition::varchar(50)                                     as account_type_source_definition
+  , ar.normalized::varchar(50)                                     as account_type -- (ira rollover, etc)
 
-  , a.date_opened                                    as opened_date
-  , a.account_title_line_1                           as account_title
-  , a.tax_payer_first_name                           as first_name
-  , a.tax_payer_middle_name                          as middle_name
-  , a.tax_payer_last_name                            as last_name
+  , a.date_opened::date                                            as opened_date
+  , a.account_title_line_1::varchar(100)                           as account_title
+  , a.tax_payer_first_name::varchar(100)                           as first_name
+  , a.tax_payer_middle_name::varchar(100)                          as middle_name
+  , a.tax_payer_last_name::varchar(100)                            as last_name
 
-  , replace(a.ssn_tin, '-', '')::varchar(20)         as irs_id
+  , replace(a.ssn_tin, '-', '')::varchar(20)                       as irs_id
   , case
         when left(a.ssn_tin, 1) = '9'
             then 'tin'
         else 'ssn'
-        end                                          as irs_id_type
-  , null                                             as birth_date -- not provided
+        end::varchar(10)                                           as irs_id_type
+  , null::date                                                     as birth_date -- not provided
 
-  , a.email_address                                  as email_address
-  , a.phone::varchar(20)                             as phone
-  , a.cost_basis_method_for_mutual_funds             as cost_basis_method_mutual_funds -- needs normalization
-  , a.cost_basis_method_non_mutual_funds             as cost_basis_method_non_mutual_funds -- needs normalization
+  , a.email_address::varchar(75)                                   as email_address
+  , a.phone::varchar(20)                                           as phone
+  , a.cost_basis_method_for_mutual_funds::varchar(50)              as cost_basis_method_mutual_funds -- needs normalization
+  , a.cost_basis_method_non_mutual_funds::varchar(50)              as cost_basis_method_non_mutual_funds -- needs normalization
   , case
         when nvl(a.account_taxable_indicator, 'N') = 'Y'
             then 1
         else 0
-        end                                          as is_taxable
+        end::int                                                   as is_taxable
   , case
         when nvl(a.fa_fee_status, 'N') = 'Y'
             then 1
         else 0
-        end                                          as is_fee_authorized
+        end::int                                                   as is_fee_authorized
   , case
         when nvl(a.prime_broker_enabled_indicator, 'N') = 'Y'
             then 1
         else 0
-        end                                          as is_prime_broker
+        end::int                                                   as is_prime_broker
   , nullif(rtrim(regexp_replace(concat_ws('|'
                                     , nvl(a.restriction_reason_code_1, '')
                                     , nvl(a.restriction_reason_code_2, '')
                                     , nvl(a.restriction_reason_code_3, '')
                                     , nvl(a.restriction_reason_code_4, '')
-                                    , nvl(a.restriction_reason_code_5, '')), '(\\|{2,5})', '|'), '|'), '')
-                                                     as restrictions_source_code
-  , null                                             as restrictions_source_definition
-  , null                                             as restrictions
+                                    , nvl(a.restriction_reason_code_5, '')), '(\\|{2,5})', '|'), '|'), '')::varchar(100)
+                                                                   as restrictions_source_code
+  , null::varchar(75)                                              as restrictions_source_definition
+  , null::varchar(75)                                              as restrictions
   , trim(concat(nvl(a.mailing_address_line_1, ''),
                 nvl(a.mailing_address_line_2, ' '),
-                nvl(a.mailing_address_line_3, ' '))) as mailing_address_street
-  , a.account_mailing_city                           as mailing_address_city
-  , a.account_mailing_state                          as mailing_address_state
-  , a.account_mailing_zip::varchar(12)               as mailing_address_zip
-  , a.account_mailing_country_code                   as mailing_address_country
-  , null                                             as legal_address_street
-  , null                                             as legal_address_city
-  , null                                             as legal_address_state
-  , null::varchar(12)                                as legal_address_zip
-  , null                                             as legal_address_country
-  , is_head
-  , is_current
-  , _source_loaded_at
+                nvl(a.mailing_address_line_3, ' ')))::varchar(100) as mailing_address_street
+  , a.account_mailing_city::varchar(75)                            as mailing_address_city
+  , a.account_mailing_state::varchar(50)                           as mailing_address_state
+  , a.account_mailing_zip::varchar(12)                             as mailing_address_zip
+  , a.account_mailing_country_code::varchar(50)                    as mailing_address_country
+  , null::varchar(100)                                             as legal_address_street
+  , null::varchar(75)                                              as legal_address_city
+  , null::varchar(50)                                              as legal_address_state
+  , null::varchar(12)                                              as legal_address_zip
+  , null::varchar(50)                                              as legal_address_country
+  , is_head::int                                                   as is_head
+  , is_current::int                                                as is_current
+  , _source_loaded_at::timestamp                                   as _source_loaded_at
 from {{ ref('schwab_mwa_history__base_accounts') }} a
 left join {{ ref('custodian_mappings') }}           ar
     on ar.custodian = 'schwab'
