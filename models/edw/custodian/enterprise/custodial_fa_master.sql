@@ -6,6 +6,8 @@ select
     ,account_number_formatted
     ,custodian_link
     ,custodian_link_detail
+    ,rep_link
+    ,rep_link_detail
     ,account_type_source_code
     ,account_type_source_definition
     ,account_type
