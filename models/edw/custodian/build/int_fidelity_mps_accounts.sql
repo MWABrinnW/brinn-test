@@ -4,6 +4,7 @@
 -- depends_on: {{ ref('fidelity_mps_history__vw_nabase_3x0_notification') }}
 -- depends_on: {{ ref('fidelity_mps_history__vw_nabase_2x0_customer') }}
 -- depends_on: {{ ref('fidelity_mps_history__vw_nabase_101_account') }}
+-- depends_on: {{ ref('dates') }}
 {{config(
     materialized='incremental',
     unique_key='effective_date',
