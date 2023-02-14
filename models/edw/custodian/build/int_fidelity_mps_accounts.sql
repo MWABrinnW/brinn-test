@@ -1,3 +1,9 @@
+-- depends_on: {{ source('fidelity_mps', 'nabase') }}
+-- depends_on: {{ ref('fidelity_mps_history__vw_nabase_2x1_mailing_address') }}
+-- depends_on: {{ ref('fidelity_mps_history__vw_nabase_2x2_legal_address') }}
+-- depends_on: {{ ref('fidelity_mps_history__vw_nabase_3x0_notification') }}
+-- depends_on: {{ ref('fidelity_mps_history__vw_nabase_2x0_customer') }}
+-- depends_on: {{ ref('fidelity_mps_history__vw_nabase_101_account') }}
 {{config(
     materialized='incremental',
     unique_key='effective_date',
