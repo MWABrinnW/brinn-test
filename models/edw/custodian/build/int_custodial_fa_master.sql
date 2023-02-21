@@ -16,16 +16,28 @@
     ]
 -%}
 
+{# Check if table exists in the database. If it doesn't we can't run the query to check for new data without failing #}
+{%- set source_relation = adapter.get_relation(
+      database=this.database,
+      schema=this.schema,
+      identifier=this.name) -%}
+
+{%- set table_exists=source_relation is not none -%}
+
 with cte_max_created_at as
 (
+    {%- if table_exists -%}
     select max(_created_at) as _created_at from {{ this }}
+    {%- else -%}
+    select null::timestamp as _created_at
+    {%- endif -%}
 )
 ,cte_effective_dates_out_of_date as
 (
     {% for nml_model in source_models -%}
     select distinct effective_date
     from {{ ref(nml_model) }}
-    where _created_at > (select max(_created_at) from cte_max_created_at)
+    where _created_at > nvl((select max(_created_at) from cte_max_created_at), dateadd(d, -1, _created_at))
 
     {%- if not loop.last %}
     

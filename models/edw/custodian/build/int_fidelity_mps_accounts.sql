@@ -14,6 +14,15 @@
 
 {# Prepare the query we'll use to determine if new data from the source is available #}
 {%- set src = source('fidelity_mps', 'nabase') -%}
+
+{# Check if table exists in the database. If it doesn't we can't run the query to check for new data without failing #}
+{%- set source_relation = adapter.get_relation(
+      database=this.database,
+      schema=this.schema,
+      identifier=this.name) -%}
+
+{%- set table_exists=source_relation is not none -%}
+
 {%- set qry_check_for_new_data -%}
 select
     case
@@ -29,14 +38,15 @@ select
 {%- endset -%}
 
 {# Execute the query to determine if new data is ready. 1=yes 0=no#}
-{%- if execute -%}
+{%- if execute and table_exists -%}
   {{ dbt_utils.log_info(this.identifier ~ ' | compiling')}}
   {%- set result = dbt_utils.get_single_value(qry_check_for_new_data) -%}
   {{ dbt_utils.log_info(this.identifier ~ ' | ' ~ result)}}
 {%- else -%}
   {%- set result = 0 -%}
 {%- endif -%}
-{%- if result == 0 and flags.FULL_REFRESH == false -%}
+
+{%- if result == 0 and flags.FULL_REFRESH == false and table_exists -%}
   select *
   from {{ this }}
   limit 0
@@ -45,8 +55,12 @@ select
 with cte_effective_dates_out_of_date as
 (
   select distinct effective_date
-  from {{ source('fidelity_mps', 'nabase') }}
-  where record_datetime > (select max(_created_at) from {{ this }})
+  from {{ src }}
+  {% if table_exists -%}
+  where record_datetime > (select nvl(max(_created_at), dateadd(d, -1, record_datetime)) from {{ this }})
+  {% else -%}
+  where true
+  {% endif -%}
 )
 ,cte_mailing_address as
 (
