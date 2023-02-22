@@ -160,7 +160,7 @@ with cte_effective_dates_out_of_date as
 select
     a.effective_date
   , 'fidelity'                                                 as custodian
-  , 'mps'                                                      as firm
+  , 'mps'                                                      as firm_source
   , a.account_custodial                                        as account_number
   , a.account_custodial_formatted                              as account_number_formatted
 

@@ -81,6 +81,7 @@ select
     ,banksweepdisplayname                       as bank_sweep_display_name
     ,{{ col_is_head(reference=source('schwab_mwa', 'accounts')) }}
     ,{{ col_is_current(date_col='effective_date') }}
+    ,'mwa'                                      as firm_source
     ,effective_date::date                       as effective_date
     ,record_datetime::timestamp                 as record_datetime
     ,record_datetime::timestamp                 as _source_loaded_at

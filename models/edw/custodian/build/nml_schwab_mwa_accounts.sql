@@ -1,7 +1,8 @@
 select
     a.effective_date::date                                         as effective_date
   , 'schwab'::varchar(50)                                          as custodian
-  , 'mwa'::varchar(50)                                             as firm
+  , cf.firm                                                        as firm
+  , a.firm_source::varchar(50)                                     as firm_source
   , a.account_id::varchar(50)                                      as account_number
   , a.account_id::varchar(50)                                      as account_number_formatted
 
@@ -26,7 +27,7 @@ select
             then 'tin'
         else 'ssn'
         end::varchar(10)                                           as irs_id_type
-  , null::date                                                     as birth_date -- not provided
+  , null                                                           as birth_date -- not provided
 
   , a.email_address::varchar(75)                                   as email_address
   , a.phone::varchar(20)                                           as phone
@@ -68,11 +69,13 @@ select
   , null::varchar(50)                                              as legal_address_state
   , null::varchar(12)                                              as legal_address_zip
   , null::varchar(50)                                              as legal_address_country
-  , is_head::int                                                   as is_head
-  , is_current::int                                                as is_current
-  , _source_loaded_at::timestamp                                   as _source_loaded_at
-  , _source_loaded_at::timestamp                                   as _created_at
+  , a.is_head::int                                                 as is_head
+  , a.is_current::int                                              as is_current
+  , a._source_loaded_at::timestamp                                 as _source_loaded_at
+  , a._source_loaded_at::timestamp                                 as _created_at
 from {{ ref('schwab_mwa_history__base_accounts') }} a
+left join {{ ref('custodian_firms') }} cf
+    on a.firm_source = cf.firm_source
 left join {{ ref('custodian_mappings') }}           ar
     on ar.custodian = 'schwab'
     and ar.field = 'account_registration'

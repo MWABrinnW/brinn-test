@@ -1,7 +1,8 @@
 select
     a.effective_date::date                                         as effective_date
   , 'schwab'::varchar(50)                                          as custodian
-  , 'mps'::varchar(50)                                             as firm
+  , cf.firm                                                        as firm
+  , a.firm_source::varchar(50)                                     as firm_source
   , a.account_id::varchar(50)                                      as account_number
   , a.account_id::varchar(50)                                      as account_number_formatted
 
@@ -73,6 +74,8 @@ select
   , a._source_loaded_at::timestamp                                 as _source_loaded_at
   , a._source_loaded_at::timestamp                                 as _created_at
 from {{ ref('schwab_mps_history__base_accounts') }} a
+left join {{ ref('custodian_firms') }} cf
+    on a.firm_source = cf.firm_source
 left join {{ ref('custodian_mappings') }}           ar
     on ar.custodian = 'schwab'
     and ar.field = 'account_registration'

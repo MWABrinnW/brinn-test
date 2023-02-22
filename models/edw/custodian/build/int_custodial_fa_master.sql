@@ -26,7 +26,7 @@
 
 with cte_max_created_at as
 (
-    {%- if table_exists -%}
+    {%- if table_exists and is_incremental() -%}
     select max(_created_at) as _created_at from {{ this }}
     {%- else -%}
     select null::timestamp as _created_at

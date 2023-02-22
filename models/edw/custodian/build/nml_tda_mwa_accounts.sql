@@ -3,7 +3,8 @@
 select
     a.effective_date
   , 'tda'                       as custodian
-  , 'mwa'                       as firm
+  , null::varchar(50)                                              as firm
+  , 'mwa'::varchar(50)                                             as firm_source
   , a.account_number            as account_number
   , a.account_number            as account_number_formatted
 

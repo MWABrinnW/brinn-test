@@ -1,7 +1,8 @@
 select
     a.effective_date::date                          as effective_date
   , 'lpl'::varchar(50)                              as custodian
-  , 'network'::varchar(50)                          as firm
+  , cf.firm                                         as firm
+  , a.firm_source                                   as firm_source
   , a.lpl_account_no::varchar(50)                   as account_number
   , a.lpl_account_no::varchar(50)                   as account_number_formatted
   , a.subscriber_id::varchar(50)                    as custodian_link
@@ -60,6 +61,8 @@ from {{ ref('lpl_network__base_accounts') }}     a
 --           on a.account_id = ap.account_id
 --               and a.effective_date = ap.effective_date
 --               and ap.account_role = 'Primary Customer'
+left join {{ ref('custodian_firms') }} cf
+    on a.firm_source = cf.firm_source
 left join {{ ref('lpl_network__base_clients') }} c
     on a.client_id = c.client_id
     and a.effective_date = c.effective_date

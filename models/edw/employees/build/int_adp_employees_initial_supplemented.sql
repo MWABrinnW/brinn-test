@@ -44,9 +44,11 @@ select
 {%- endif -%}
 
 {%- if result == 0 and flags.FULL_REFRESH == false and table_exists -%}
+  {{ dbt_utils.log_info(this.identifier ~ ' | full refresh false')}}
   select *
   from {{ this }}
 {%- else -%}
+  {{ dbt_utils.log_info(this.identifier ~ ' | full refresh true')}}
 with cte_employees_all           as
     (
         select *
@@ -361,124 +363,651 @@ with cte_employees_all           as
 (
   /* All records from adp history json data.
      Layers any overrides provided by HR via box file. */
-    select
+    select distinct
         e.effective_at
-
       , e.associate_id
       , e.employee_id
-      -- There are a few cases where employee_num is not populated even though there is a position_id. Parse that id if necessary.
       , case
-            when lower(eo.employee_num) = 'null' then null
-            else coalesce(eo.employee_num, e.payroll_file_number, right(left(e.position_id, 9),6)) end                                                   as employee_num
-      , e.position_id
-      , e.data_last_refreshed_date
-      , case when lower(eo.employment_status) = 'null' then null else coalesce(eo.employment_status::text, e.employment_status) end as employment_status
-      , case when lower(eo.job_function_code) = 'null' then null else coalesce(eo.job_function_code::text, e.job_function_code) end as job_function_code
-      , case when lower(eo.change_reason_code) = 'null' then null else coalesce(eo.change_reason_code::text, e.change_reason_code) end as change_reason_code
-      , case when lower(eo.change_reason_description) = 'null' then null else coalesce(eo.change_reason_description::text, e.change_reason_description) end as change_reason_description
-      , case when lower(eo.vol_invol) = 'null' then null else coalesce(eo.vol_invol::text, e.vol_invol) end as vol_invol
-      , case when lower(eo.reporting_office) = 'null' then null else coalesce(eo.reporting_office::text, e.reporting_office) end as reporting_office
-      , case when lower(eo.hire_details) = 'null' then null else coalesce(eo.hire_details::text, e.hire_details) end as hire_details
-      , case when lower(eo.source) = 'null' then null else coalesce(eo.source::text, e.source) end as source
-      , case when lower(eo.title_change_reason) = 'null' then null else coalesce(eo.title_change_reason::text, e.title_change_reason) end as title_change_reason
-      , case when lower(eo.associate_legal_name_first) = 'null' then null else coalesce(eo.associate_legal_name_first::text, e.associate_legal_name_first) end as associate_legal_name_first
-      , case when lower(eo.associate_legal_name_middle) = 'null' then null else coalesce(eo.associate_legal_name_middle::text, e.associate_legal_name_middle) end as associate_legal_name_middle
-      , case when lower(eo.associate_legal_name_last) = 'null' then null else coalesce(eo.associate_legal_name_last::text, e.associate_legal_name_last) end as associate_legal_name_last
-      , case when lower(eo.associate_legal_name_full) = 'null' then null else coalesce(eo.associate_legal_name_full::text, e.associate_legal_name_full) end as associate_legal_name_full
-      , case when lower(eo.associate_preferred_name) = 'null' then null else coalesce(eo.associate_preferred_name::text, e.associate_preferred_name) end as associate_preferred_name
-      , case when lower(eo.associate_legal_name_suffix) = 'null' then null else coalesce(eo.associate_legal_name_suffix::text, e.associate_legal_name_suffix) end as associate_legal_name_suffix
-      , case when lower(eo.associate_birth_date) = 'null' then null else coalesce(eo.associate_birth_date::text, max(e.associate_birth_date) over(partition by e.employee_id)) end::date as associate_birth_date
-      , case when lower(eo.associate_gender_code) = 'null' then null else coalesce(eo.associate_gender_code::text, e.associate_gender_code) end as associate_gender_code
-      , case when lower(eo.associate_gender_name) = 'null' then null else coalesce(eo.associate_gender_name::text, e.associate_gender_name) end as associate_gender_name
-      , case when lower(eo.associate_personal_email) = 'null' then null else coalesce(eo.associate_personal_email::text, e.associate_personal_email) end as associate_personal_email
-      , case when lower(eo.associate_personal_phone) = 'null' then null else coalesce(eo.associate_personal_phone::text, e.associate_personal_phone) end as associate_personal_phone
-      , case when lower(eo.associate_personal_cell_phone) = 'null' then null else coalesce(eo.associate_personal_cell_phone::text, e.associate_personal_cell_phone) end as associate_personal_cell_phone
-      , case when lower(eo.associate_legal_address_line1) = 'null' then null else coalesce(eo.associate_legal_address_line1::text, e.associate_legal_address_line1) end as associate_legal_address_line1
-      , case when lower(eo.associate_legal_address_line2) = 'null' then null else coalesce(eo.associate_legal_address_line2::text, e.associate_legal_address_line2) end as associate_legal_address_line2
-      , case when lower(eo.associate_legal_address_city) = 'null' then null else coalesce(eo.associate_legal_address_city::text, e.associate_legal_address_city) end as associate_legal_address_city
-      , case when lower(eo.associate_legal_address_state_abb) = 'null' then null else coalesce(eo.associate_legal_address_state_abb::text, e.associate_legal_address_state_abb) end as associate_legal_address_state_abb
-      , case when lower(eo.associate_legal_address_state) = 'null' then null else coalesce(eo.associate_legal_address_state::text, e.associate_legal_address_state) end as associate_legal_address_state
-      , case when lower(eo.associate_legal_address_zip_code) = 'null' then null else coalesce(eo.associate_legal_address_zip_code::text, e.associate_legal_address_zip_code) end as associate_legal_address_zip_code
-      , case when lower(eo.associate_legal_address_country) = 'null' then null else coalesce(eo.associate_legal_address_country::text, e.associate_legal_address_country) end as associate_legal_address_country
-      , case when lower(eo.associate_other_address_line1) = 'null' then null else coalesce(eo.associate_other_address_line1::text, e.associate_other_address_line1) end as associate_other_address_line1
-      , case when lower(eo.associate_other_address_line2) = 'null' then null else coalesce(eo.associate_other_address_line2::text, e.associate_other_address_line2) end as associate_other_address_line2
-      , case when lower(eo.associate_other_address_city) = 'null' then null else coalesce(eo.associate_other_address_city::text, e.associate_other_address_city) end as associate_other_address_city
-      , case when lower(eo.associate_other_address_state_abb) = 'null' then null else coalesce(eo.associate_other_address_state_abb::text, e.associate_other_address_state_abb) end as associate_other_address_state_abb
-      , case when lower(eo.associate_other_address_state) = 'null' then null else coalesce(eo.associate_other_address_state::text, e.associate_other_address_state) end as associate_other_address_state
-      , case when lower(eo.associate_other_address_zip_code) = 'null' then null else coalesce(eo.associate_other_address_zip_code::text, e.associate_other_address_zip_code) end as associate_other_address_zip_code
-      , case when lower(eo.associate_other_address_country) = 'null' then null else coalesce(eo.associate_other_address_country::text, e.associate_other_address_country) end as associate_other_address_country
-      , case when lower(eo.associate_eeo_ethnicity) = 'null' then null else coalesce(eo.associate_eeo_ethnicity::text, e.associate_eeo_ethnicity) end as associate_eeo_ethnicity
-      , case when lower(eo.associate_eeo_identification_method) = 'null' then null else coalesce(eo.associate_eeo_identification_method::text, e.associate_eeo_identification_method) end as associate_eeo_identification_method
-      , case when lower(eo.associate_education) = 'null' then null else coalesce(eo.associate_education::text, e.associate_education) end as associate_education
-      , case when lower(eo.associate_work_email) = 'null' then null else coalesce(eo.associate_work_email::text, e.associate_work_email) end as associate_work_email
-      , case when lower(eo.associate_work_phone) = 'null' then null else coalesce(eo.associate_work_phone::text, e.associate_work_phone) end as associate_work_phone
-      , case when lower(eo.associate_work_cell_phone) = 'null' then null else coalesce(eo.associate_work_cell_phone::text, e.associate_work_cell_phone) end as associate_work_cell_phone
-      , case when lower(eo.associate_original_hire_date) = 'null' then null else coalesce(eo.associate_original_hire_date::text, e.associate_original_hire_date) end::date as associate_original_hire_date
-      , case when lower(eo.associate_rehire_date) = 'null' then null else coalesce(eo.associate_rehire_date::text, e.associate_rehire_date) end::date as associate_rehire_date
-      , case when lower(eo.associate_final_termination_date) = 'null' then null else coalesce(eo.associate_final_termination_date::text, e.associate_final_termination_date) end::date as associate_final_termination_date
-      , case when lower(eo.position_company_code) = 'null' then null else coalesce(eo.position_company_code::text, e.position_company_code) end as position_company_code
-      , case when lower(eo.position_status_code) = 'null' then null else coalesce(eo.position_status_code::text, e.position_status_code) end as position_status_code
-      , case when lower(eo.position_status) = 'null' then null else coalesce(eo.position_status::text, e.position_status) end as position_status
-      , case when lower(eo.position_seniority_hire_date) = 'null' then null else coalesce(eo.position_seniority_hire_date::text, e.position_seniority_hire_date) end::date as position_seniority_hire_date
-      , case when lower(eo.position_start_date) = 'null' then null else coalesce(eo.position_start_date::text, e.position_start_date) end::date as position_start_date
-      , case when lower(eo.position_termination_date) = 'null' then null else coalesce(eo.position_termination_date::text, e.position_termination_date) end::date as position_termination_date
-      , case when lower(eo.position_change_reason) = 'null' then null else coalesce(eo.position_change_reason::text, e.position_change_reason) end as position_change_reason
-      , case when lower(eo.position_manager_position_id) = 'null' then null else coalesce(eo.position_manager_position_id::text, e.position_manager_position_id) end as position_manager_position_id
-      , case when lower(eo.position_manager_name) = 'null' then null else coalesce(eo.position_manager_name::text, e.position_manager_name) end as position_manager_name
-      , case when lower(eo.position_primary_job_indicator) = 'null' then null else coalesce(eo.position_primary_job_indicator::text, e.position_primary_job_indicator) end::int as position_primary_job_indicator
-      , case when lower(eo.position_title_code) = 'null' then null else coalesce(eo.position_title_code::text, e.position_title_code) end as position_title_code
-      , case when lower(eo.position_title) = 'null' then null else coalesce(eo.position_title::text, e.position_title) end as position_title
-      , case when lower(eo.position_worker_type) = 'null' then null else coalesce(eo.position_worker_type::text, e.position_worker_type) end as position_worker_type
-      , case when lower(eo.position_benefits_group_code) = 'null' then null else coalesce(eo.position_benefits_group_code::text, e.position_benefits_group_code) end as position_benefits_group_code
-      , case when lower(eo.position_benefits_group_class) = 'null' then null else coalesce(eo.position_benefits_group_class::text, e.position_benefits_group_class) end as position_benefits_group_class
-      , case when lower(eo.position_flsa) = 'null' then null else coalesce(eo.position_flsa::text, e.position_flsa) end as position_flsa
-      , case when lower(eo.position_full_time_equivalent) = 'null' then null else coalesce(eo.position_full_time_equivalent::text, e.position_full_time_equivalent) end as position_full_time_equivalent
-      , case when lower(eo.position_scheduled_hours) = 'null' then null else coalesce(eo.position_scheduled_hours::text, e.position_scheduled_hours) end as position_scheduled_hours
-      , case when lower(eo.position_standard_hours) = 'null' then null else coalesce(eo.position_standard_hours::text, e.position_standard_hours) end as position_standard_hours
-      , case when lower(eo.position_work_site_location_code) = 'null' then null else coalesce(eo.position_work_site_location_code::text, e.position_work_site_location_code) end as position_work_site_location_code
-      , case when lower(eo.position_work_site_location_name) = 'null' then null else coalesce(eo.position_work_site_location_name::text, e.position_work_site_location_name) end as position_work_site_location_name
-      , case when lower(eo.position_work_site_address_line1) = 'null' then null else coalesce(eo.position_work_site_address_line1::text, e.position_work_site_address_line1) end as position_work_site_address_line1
-      , case when lower(eo.position_work_site_address_line2) = 'null' then null else coalesce(eo.position_work_site_address_line2::text, e.position_work_site_address_line2) end as position_work_site_address_line2
-      , case when lower(eo.position_work_site_address_line3) = 'null' then null else coalesce(eo.position_work_site_address_line3::text, e.position_work_site_address_line3) end as position_work_site_address_line3
-      , case when lower(eo.position_work_site_address_city) = 'null' then null else coalesce(eo.position_work_site_address_city::text, e.position_work_site_address_city) end as position_work_site_address_city
-      , case when lower(eo.position_work_site_address_state_abb) = 'null' then null else coalesce(eo.position_work_site_address_state_abb::text, e.position_work_site_address_state_abb) end as position_work_site_address_state_abb
-      , case when lower(eo.position_work_site_address_state) = 'null' then null else coalesce(eo.position_work_site_address_state::text, e.position_work_site_address_state) end as position_work_site_address_state
-      , case when lower(eo.position_work_site_address_zip_code) = 'null' then null else coalesce(eo.position_work_site_address_zip_code::text, e.position_work_site_address_zip_code) end as position_work_site_address_zip_code
-      , case when lower(eo.position_work_site_address_country) = 'null' then null else coalesce(eo.position_work_site_address_country::text, e.position_work_site_address_country) end as position_work_site_address_country
-      , case when lower(eo.home_organizational_units) = 'null' then null else coalesce(eo.home_organizational_units::text, e.home_organizational_units) end as home_organizational_units
-      , case when lower(eo.home_organizational_units_market_code) = 'null' then null else coalesce(eo.home_organizational_units_market_code::text, e.home_organizational_units_market_code) end as home_organizational_units_market_code
-      , case when lower(eo.home_organizational_units_market_name_1) = 'null' then null else coalesce(eo.home_organizational_units_market_name_1::text, e.home_organizational_units_market_name_1) end as home_organizational_units_market_name_1
-      , case when lower(eo.home_organizational_units_market_name_2) = 'null' then null else coalesce(eo.home_organizational_units_market_name_2::text, e.home_organizational_units_market_name_2) end as home_organizational_units_market_name_2
-      , case when lower(eo.home_organizational_units_department_code) = 'null' then null else coalesce(eo.home_organizational_units_department_code::text, e.home_organizational_units_department_code) end as home_organizational_units_department_code
-      , case when lower(eo.home_organizational_units_department_name_1) = 'null' then null else coalesce(eo.home_organizational_units_department_name_1::text, e.home_organizational_units_department_name_1) end as home_organizational_units_department_name_1
-      , case when lower(eo.home_organizational_units_department_name_2) = 'null' then null else coalesce(eo.home_organizational_units_department_name_2::text, e.home_organizational_units_department_name_2) end as home_organizational_units_department_name_2
-      , case when lower(eo.home_organizational_units_cost_num) = 'null' then null else coalesce(eo.home_organizational_units_cost_num::text, e.home_organizational_units_cost_num) end as home_organizational_units_cost_num
-      , case when lower(eo.position_cost_num_legal_code) = 'null' then null else coalesce(eo.position_cost_num_legal_code::text, e.position_cost_num_legal_code) end as position_cost_num_legal_code
-      , case when lower(eo.position_cost_num_region_code) = 'null' then null else coalesce(eo.position_cost_num_region_code::text, e.position_cost_num_region_code) end as position_cost_num_region_code
-      , case when lower(eo.position_cost_num_market_code) = 'null' then null else coalesce(eo.position_cost_num_market_code::text, e.position_cost_num_market_code) end as position_cost_num_market_code
-      , case when lower(eo.position_cost_num_location_code) = 'null' then null else coalesce(eo.position_cost_num_location_code::text, e.position_cost_num_location_code) end as position_cost_num_location_code
-      , case when lower(eo.position_cost_num_team_code) = 'null' then null else coalesce(eo.position_cost_num_team_code::text, e.position_cost_num_team_code) end as position_cost_num_team_code
-      , case when lower(eo.position_cost_num_natural_account) = 'null' then null else coalesce(eo.position_cost_num_natural_account::text, e.position_cost_num_natural_account) end as position_cost_num_natural_account
-      , case when lower(eo.position_cost_num_category) = 'null' then null else coalesce(eo.position_cost_num_category::text, e.position_cost_num_category) end as position_cost_num_category
-      , case when lower(eo.occupational_classifications) = 'null' then null else coalesce(eo.occupational_classifications::text, e.occupational_classifications) end as occupational_classifications
-      , case when lower(eo.occupational_classifications_eeo_code) = 'null' then null else coalesce(eo.occupational_classifications_eeo_code::text, e.occupational_classifications_eeo_code) end as occupational_classifications_eeo_code
-      , case when lower(eo.occupational_classifications_eeo_class_p2) = 'null' then null else coalesce(eo.occupational_classifications_eeo_class_p2::text, e.occupational_classifications_eeo_class_p2) end as occupational_classifications_eeo_class_p2
-      , case when lower(eo.occupational_classifications_eeo_class_p1) = 'null' then null else coalesce(eo.occupational_classifications_eeo_class_p1::text, e.occupational_classifications_eeo_class_p1) end as occupational_classifications_eeo_class_p1
-      , case when lower(eo.occupational_classifications_class_code) = 'null' then null else coalesce(eo.occupational_classifications_class_code::text, e.occupational_classifications_class_code) end as occupational_classifications_class_code
-      , case when lower(eo.occupational_classifications_class) = 'null' then null else coalesce(eo.occupational_classifications_class::text, e.occupational_classifications_class) end as occupational_classifications_class
-      , case when lower(eo.position_eeo_class) = 'null' then null else coalesce(eo.position_eeo_class::text, e.position_eeo_class) end as position_eeo_class
-      , case when lower(eo.position_region_name) = 'null' then null else coalesce(eo.position_region_name::text, e.position_region_name) end as position_region_name
-      , case when lower(eo.position_region_code) = 'null' then null else coalesce(eo.position_region_code::text, e.position_region_code) end as position_region_code
-      , case when lower(eo.position_region_description) = 'null' then null else coalesce(eo.position_region_description::text, e.position_region_description) end as position_region_description
-      , case when lower(eo.position_department_name) = 'null' then null else coalesce(eo.position_department_name::text, e.position_department_name) end as position_department_name
-      , case when lower(eo.position_market_name) = 'null' then null else coalesce(eo.position_market_name::text, e.position_market_name) end as position_market_name
-      , coalesce(eo.is_deleted::int, e.is_deleted)                                                                      as is_deleted
-      , 'adp'                                                                                                           as record_source
-      , null as overrides
-    from cte_final                                        e
-    left join {{ ref('aux__base_employee_overrides') }} eo
-        on e.position_id = eo.position_id
-        and e.effective_at::date between nvl(eo.start_date::text::date, e.effective_at::date) and nvl(eo.end_date::text::date, e.effective_at::date)
+            when lower(coalesce(eo_posid.employee_num, eo_empid.employee_num, eo_assid.employee_num)) =
+                'null' then null
+            else coalesce(eo_posid.employee_num, eo_empid.employee_num, eo_assid.employee_num,
+                          right(left(e.position_id, 9),6)) end                                                         as employee_num
+      , e.position_id                                                                                                  as position_id
+      , e.data_last_refreshed_date                                                                                     as data_last_refreshed_date
+      , case
+            when lower(coalesce(eo_posid.employment_status, eo_empid.employment_status, eo_assid.employment_status,
+                                e.employment_status)) = 'null' then null
+            else coalesce(eo_posid.employment_status, eo_empid.employment_status, eo_assid.employment_status,
+                          e.employment_status) end                                                                     as employment_status
+      , case
+            when lower(coalesce(eo_posid.job_function_code, eo_empid.job_function_code, eo_assid.job_function_code,
+                                e.job_function_code)) = 'null' then null
+            else coalesce(eo_posid.job_function_code, eo_empid.job_function_code, eo_assid.job_function_code,
+                          e.job_function_code) end                                                                     as job_function_code
+      , case
+            when lower(coalesce(eo_posid.change_reason_code, eo_empid.change_reason_code, eo_assid.change_reason_code,
+                                e.change_reason_code)) = 'null' then null
+            else coalesce(eo_posid.change_reason_code, eo_empid.change_reason_code, eo_assid.change_reason_code,
+                          e.change_reason_code) end                                                                    as change_reason_code
+      , case
+            when lower(coalesce(eo_posid.change_reason_description, eo_empid.change_reason_description,
+                                eo_assid.change_reason_description, e.change_reason_description)) = 'null' then null
+            else coalesce(eo_posid.change_reason_description, eo_empid.change_reason_description,
+                          eo_assid.change_reason_description,
+                          e.change_reason_description) end                                                             as change_reason_description
+      , case
+            when lower(coalesce(eo_posid.vol_invol, eo_empid.vol_invol, eo_assid.vol_invol, e.vol_invol)) = 'null' then null
+            else coalesce(eo_posid.vol_invol, eo_empid.vol_invol, eo_assid.vol_invol,
+                          e.vol_invol) end                                                                             as vol_invol
+      , case
+            when lower(coalesce(eo_posid.reporting_office, eo_empid.reporting_office, eo_assid.reporting_office,
+                                e.reporting_office)) = 'null' then null
+            else coalesce(eo_posid.reporting_office, eo_empid.reporting_office, eo_assid.reporting_office,
+                          e.reporting_office) end                                                                      as reporting_office
+      , case
+            when lower(coalesce(eo_posid.hire_details, eo_empid.hire_details, eo_assid.hire_details, e.hire_details)) =
+                'null' then null
+            else coalesce(eo_posid.hire_details, eo_empid.hire_details, eo_assid.hire_details,
+                          e.hire_details) end                                                                          as hire_details
+      , case
+            when lower(coalesce(eo_posid.source, eo_empid.source, eo_assid.source, e.source)) = 'null' then null
+            else coalesce(eo_posid.source, eo_empid.source, eo_assid.source,
+                          e.source) end                                                                                as source
+      , case
+            when lower(coalesce(eo_posid.title_change_reason, eo_empid.title_change_reason, eo_assid.title_change_reason,
+                                e.title_change_reason)) = 'null' then null
+            else coalesce(eo_posid.title_change_reason, eo_empid.title_change_reason, eo_assid.title_change_reason,
+                          e.title_change_reason) end                                                                   as title_change_reason
+      , case
+            when lower(coalesce(eo_posid.associate_legal_name_first, eo_empid.associate_legal_name_first,
+                                eo_assid.associate_legal_name_first, e.associate_legal_name_first)) = 'null' then null
+            else coalesce(eo_posid.associate_legal_name_first, eo_empid.associate_legal_name_first,
+                          eo_assid.associate_legal_name_first,
+                          e.associate_legal_name_first) end                                                            as associate_legal_name_first
+      , case
+            when lower(coalesce(eo_posid.associate_legal_name_middle, eo_empid.associate_legal_name_middle,
+                                eo_assid.associate_legal_name_middle, e.associate_legal_name_middle)) = 'null' then null
+            else coalesce(eo_posid.associate_legal_name_middle, eo_empid.associate_legal_name_middle,
+                          eo_assid.associate_legal_name_middle,
+                          e.associate_legal_name_middle) end                                                           as associate_legal_name_middle
+      , case
+            when lower(coalesce(eo_posid.associate_legal_name_last, eo_empid.associate_legal_name_last,
+                                eo_assid.associate_legal_name_last, e.associate_legal_name_last)) = 'null' then null
+            else coalesce(eo_posid.associate_legal_name_last, eo_empid.associate_legal_name_last,
+                          eo_assid.associate_legal_name_last,
+                          e.associate_legal_name_last) end                                                             as associate_legal_name_last
+      , case
+            when lower(coalesce(eo_posid.associate_legal_name_full, eo_empid.associate_legal_name_full,
+                                eo_assid.associate_legal_name_full, e.associate_legal_name_full)) = 'null' then null
+            else coalesce(eo_posid.associate_legal_name_full, eo_empid.associate_legal_name_full,
+                          eo_assid.associate_legal_name_full,
+                          e.associate_legal_name_full) end                                                             as associate_legal_name_full
+      , case
+            when lower(coalesce(eo_posid.associate_preferred_name, eo_empid.associate_preferred_name,
+                                eo_assid.associate_preferred_name, e.associate_preferred_name)) = 'null' then null
+            else coalesce(eo_posid.associate_preferred_name, eo_empid.associate_preferred_name,
+                          eo_assid.associate_preferred_name,
+                          e.associate_preferred_name) end                                                              as associate_preferred_name
+      , case
+            when lower(coalesce(eo_posid.associate_legal_name_suffix, eo_empid.associate_legal_name_suffix,
+                                eo_assid.associate_legal_name_suffix, e.associate_legal_name_suffix)) = 'null' then null
+            else coalesce(eo_posid.associate_legal_name_suffix, eo_empid.associate_legal_name_suffix,
+                          eo_assid.associate_legal_name_suffix,
+                          e.associate_legal_name_suffix) end                                                           as associate_legal_name_suffix
+      , case
+            when lower(coalesce(eo_posid.associate_birth_date, eo_empid.associate_birth_date, eo_assid.associate_birth_date,
+                                e.associate_birth_date)) = 'null' then null
+            else coalesce(eo_posid.associate_birth_date, eo_empid.associate_birth_date, eo_assid.associate_birth_date,
+                          e.associate_birth_date) end                                                                  as associate_birth_date
+      , case
+            when lower(coalesce(eo_posid.associate_gender_code, eo_empid.associate_gender_code,
+                                eo_assid.associate_gender_code, e.associate_gender_code)) = 'null' then null
+            else coalesce(eo_posid.associate_gender_code, eo_empid.associate_gender_code, eo_assid.associate_gender_code,
+                          e.associate_gender_code) end                                                                 as associate_gender_code
+      , case
+            when lower(coalesce(eo_posid.associate_gender_name, eo_empid.associate_gender_name,
+                                eo_assid.associate_gender_name, e.associate_gender_name)) = 'null' then null
+            else coalesce(eo_posid.associate_gender_name, eo_empid.associate_gender_name, eo_assid.associate_gender_name,
+                          e.associate_gender_name) end                                                                 as associate_gender_name
+      , case
+            when lower(coalesce(eo_posid.associate_personal_email, eo_empid.associate_personal_email,
+                                eo_assid.associate_personal_email, e.associate_personal_email)) = 'null' then null
+            else coalesce(eo_posid.associate_personal_email, eo_empid.associate_personal_email,
+                          eo_assid.associate_personal_email,
+                          e.associate_personal_email) end                                                              as associate_personal_email
+      , case
+            when lower(coalesce(eo_posid.associate_personal_phone, eo_empid.associate_personal_phone,
+                                eo_assid.associate_personal_phone, e.associate_personal_phone)) = 'null' then null
+            else coalesce(eo_posid.associate_personal_phone, eo_empid.associate_personal_phone,
+                          eo_assid.associate_personal_phone,
+                          e.associate_personal_phone) end                                                              as associate_personal_phone
+      , case
+            when lower(coalesce(eo_posid.associate_personal_cell_phone, eo_empid.associate_personal_cell_phone,
+                                eo_assid.associate_personal_cell_phone, e.associate_personal_cell_phone)) = 'null' then null
+            else coalesce(eo_posid.associate_personal_cell_phone, eo_empid.associate_personal_cell_phone,
+                          eo_assid.associate_personal_cell_phone,
+                          e.associate_personal_cell_phone) end                                                         as associate_personal_cell_phone
+      , case
+            when lower(coalesce(eo_posid.associate_legal_address_line1, eo_empid.associate_legal_address_line1,
+                                eo_assid.associate_legal_address_line1, e.associate_legal_address_line1)) = 'null' then null
+            else coalesce(eo_posid.associate_legal_address_line1, eo_empid.associate_legal_address_line1,
+                          eo_assid.associate_legal_address_line1,
+                          e.associate_legal_address_line1) end                                                         as associate_legal_address_line1
+      , case
+            when lower(coalesce(eo_posid.associate_legal_address_line2, eo_empid.associate_legal_address_line2,
+                                eo_assid.associate_legal_address_line2, e.associate_legal_address_line2)) = 'null' then null
+            else coalesce(eo_posid.associate_legal_address_line2, eo_empid.associate_legal_address_line2,
+                          eo_assid.associate_legal_address_line2,
+                          e.associate_legal_address_line2) end                                                         as associate_legal_address_line2
+      , case
+            when lower(coalesce(eo_posid.associate_legal_address_city, eo_empid.associate_legal_address_city,
+                                eo_assid.associate_legal_address_city, e.associate_legal_address_city)) = 'null' then null
+            else coalesce(eo_posid.associate_legal_address_city, eo_empid.associate_legal_address_city,
+                          eo_assid.associate_legal_address_city,
+                          e.associate_legal_address_city) end                                                          as associate_legal_address_city
+      , case
+            when lower(coalesce(eo_posid.associate_legal_address_state_abb, eo_empid.associate_legal_address_state_abb,
+                                eo_assid.associate_legal_address_state_abb, e.associate_legal_address_state_abb)) = 'null'
+                then null
+            else coalesce(eo_posid.associate_legal_address_state_abb, eo_empid.associate_legal_address_state_abb,
+                          eo_assid.associate_legal_address_state_abb,
+                          e.associate_legal_address_state_abb) end                                                     as associate_legal_address_state_abb
+      , case
+            when lower(coalesce(eo_posid.associate_legal_address_state, eo_empid.associate_legal_address_state,
+                                eo_assid.associate_legal_address_state, e.associate_legal_address_state)) = 'null' then null
+            else coalesce(eo_posid.associate_legal_address_state, eo_empid.associate_legal_address_state,
+                          eo_assid.associate_legal_address_state,
+                          e.associate_legal_address_state) end                                                         as associate_legal_address_state
+      , case
+            when lower(coalesce(eo_posid.associate_legal_address_zip_code, eo_empid.associate_legal_address_zip_code,
+                                eo_assid.associate_legal_address_zip_code, e.associate_legal_address_zip_code)) = 'null'
+                then null
+            else coalesce(eo_posid.associate_legal_address_zip_code, eo_empid.associate_legal_address_zip_code,
+                          eo_assid.associate_legal_address_zip_code,
+                          e.associate_legal_address_zip_code) end                                                      as associate_legal_address_zip_code
+      , case
+            when lower(coalesce(eo_posid.associate_legal_address_country, eo_empid.associate_legal_address_country,
+                                eo_assid.associate_legal_address_country, e.associate_legal_address_country)) = 'null'
+                then null
+            else coalesce(eo_posid.associate_legal_address_country, eo_empid.associate_legal_address_country,
+                          eo_assid.associate_legal_address_country,
+                          e.associate_legal_address_country) end                                                       as associate_legal_address_country
+      , case
+            when lower(coalesce(eo_posid.associate_other_address_line1, eo_empid.associate_other_address_line1,
+                                eo_assid.associate_other_address_line1, e.associate_other_address_line1)) = 'null' then null
+            else coalesce(eo_posid.associate_other_address_line1, eo_empid.associate_other_address_line1,
+                          eo_assid.associate_other_address_line1,
+                          e.associate_other_address_line1) end                                                         as associate_other_address_line1
+      , case
+            when lower(coalesce(eo_posid.associate_other_address_line2, eo_empid.associate_other_address_line2,
+                                eo_assid.associate_other_address_line2, e.associate_other_address_line2)) = 'null' then null
+            else coalesce(eo_posid.associate_other_address_line2, eo_empid.associate_other_address_line2,
+                          eo_assid.associate_other_address_line2,
+                          e.associate_other_address_line2) end                                                         as associate_other_address_line2
+      , case
+            when lower(coalesce(eo_posid.associate_other_address_city, eo_empid.associate_other_address_city,
+                                eo_assid.associate_other_address_city, e.associate_other_address_city)) = 'null' then null
+            else coalesce(eo_posid.associate_other_address_city, eo_empid.associate_other_address_city,
+                          eo_assid.associate_other_address_city,
+                          e.associate_other_address_city) end                                                          as associate_other_address_city
+      , case
+            when lower(coalesce(eo_posid.associate_other_address_state_abb, eo_empid.associate_other_address_state_abb,
+                                eo_assid.associate_other_address_state_abb, e.associate_other_address_state_abb)) = 'null'
+                then null
+            else coalesce(eo_posid.associate_other_address_state_abb, eo_empid.associate_other_address_state_abb,
+                          eo_assid.associate_other_address_state_abb,
+                          e.associate_other_address_state_abb) end                                                     as associate_other_address_state_abb
+      , case
+            when lower(coalesce(eo_posid.associate_other_address_state, eo_empid.associate_other_address_state,
+                                eo_assid.associate_other_address_state, e.associate_other_address_state)) = 'null' then null
+            else coalesce(eo_posid.associate_other_address_state, eo_empid.associate_other_address_state,
+                          eo_assid.associate_other_address_state,
+                          e.associate_other_address_state) end                                                         as associate_other_address_state
+      , case
+            when lower(coalesce(eo_posid.associate_other_address_zip_code, eo_empid.associate_other_address_zip_code,
+                                eo_assid.associate_other_address_zip_code, e.associate_other_address_zip_code)) = 'null'
+                then null
+            else coalesce(eo_posid.associate_other_address_zip_code, eo_empid.associate_other_address_zip_code,
+                          eo_assid.associate_other_address_zip_code,
+                          e.associate_other_address_zip_code) end                                                      as associate_other_address_zip_code
+      , case
+            when lower(coalesce(eo_posid.associate_other_address_country, eo_empid.associate_other_address_country,
+                                eo_assid.associate_other_address_country, e.associate_other_address_country)) = 'null'
+                then null
+            else coalesce(eo_posid.associate_other_address_country, eo_empid.associate_other_address_country,
+                          eo_assid.associate_other_address_country,
+                          e.associate_other_address_country) end                                                       as associate_other_address_country
+      , case
+            when lower(coalesce(eo_posid.associate_eeo_ethnicity, eo_empid.associate_eeo_ethnicity,
+                                eo_assid.associate_eeo_ethnicity, e.associate_eeo_ethnicity)) = 'null' then null
+            else coalesce(eo_posid.associate_eeo_ethnicity, eo_empid.associate_eeo_ethnicity,
+                          eo_assid.associate_eeo_ethnicity,
+                          e.associate_eeo_ethnicity) end                                                               as associate_eeo_ethnicity
+      , case
+            when lower(coalesce(eo_posid.associate_eeo_identification_method, eo_empid.associate_eeo_identification_method,
+                                eo_assid.associate_eeo_identification_method, e.associate_eeo_identification_method)) =
+                'null' then null
+            else coalesce(eo_posid.associate_eeo_identification_method, eo_empid.associate_eeo_identification_method,
+                          eo_assid.associate_eeo_identification_method,
+                          e.associate_eeo_identification_method) end                                                   as associate_eeo_identification_method
+      , case
+            when lower(coalesce(eo_posid.associate_education, eo_empid.associate_education, eo_assid.associate_education,
+                                e.associate_education)) = 'null' then null
+            else coalesce(eo_posid.associate_education, eo_empid.associate_education, eo_assid.associate_education,
+                          e.associate_education) end                                                                   as associate_education
+      , case
+            when lower(coalesce(eo_posid.associate_work_email, eo_empid.associate_work_email, eo_assid.associate_work_email,
+                                e.associate_work_email)) = 'null' then null
+            else coalesce(eo_posid.associate_work_email, eo_empid.associate_work_email, eo_assid.associate_work_email,
+                          e.associate_work_email) end                                                                  as associate_work_email
+      , case
+            when lower(coalesce(eo_posid.associate_work_phone, eo_empid.associate_work_phone, eo_assid.associate_work_phone,
+                                e.associate_work_phone)) = 'null' then null
+            else coalesce(eo_posid.associate_work_phone, eo_empid.associate_work_phone, eo_assid.associate_work_phone,
+                          e.associate_work_phone) end                                                                  as associate_work_phone
+      , case
+            when lower(coalesce(eo_posid.associate_work_cell_phone, eo_empid.associate_work_cell_phone,
+                                eo_assid.associate_work_cell_phone, e.associate_work_cell_phone)) = 'null' then null
+            else coalesce(eo_posid.associate_work_cell_phone, eo_empid.associate_work_cell_phone,
+                          eo_assid.associate_work_cell_phone,
+                          e.associate_work_cell_phone) end                                                             as associate_work_cell_phone
+      , case
+            when lower(coalesce(eo_posid.associate_original_hire_date, eo_empid.associate_original_hire_date,
+                                eo_assid.associate_original_hire_date, e.associate_original_hire_date)) = 'null' then null
+            else coalesce(eo_posid.associate_original_hire_date, eo_empid.associate_original_hire_date,
+                          eo_assid.associate_original_hire_date,
+                          e.associate_original_hire_date) end                                                          as associate_original_hire_date
+      , case
+            when lower(coalesce(eo_posid.associate_rehire_date, eo_empid.associate_rehire_date,
+                                eo_assid.associate_rehire_date, e.associate_rehire_date)) = 'null' then null
+            else coalesce(eo_posid.associate_rehire_date, eo_empid.associate_rehire_date, eo_assid.associate_rehire_date,
+                          e.associate_rehire_date) end                                                                 as associate_rehire_date
+      , case
+            when lower(coalesce(eo_posid.associate_final_termination_date, eo_empid.associate_final_termination_date,
+                                eo_assid.associate_final_termination_date, e.associate_final_termination_date)) = 'null'
+                then null
+            else coalesce(eo_posid.associate_final_termination_date, eo_empid.associate_final_termination_date,
+                          eo_assid.associate_final_termination_date,
+                          e.associate_final_termination_date) end                                                      as associate_final_termination_date
+      , case
+            when lower(coalesce(eo_posid.position_company_code, eo_empid.position_company_code,
+                                eo_assid.position_company_code, e.position_company_code)) = 'null' then null
+            else coalesce(eo_posid.position_company_code, eo_empid.position_company_code, eo_assid.position_company_code,
+                          e.position_company_code) end                                                                 as position_company_code
+      , case
+            when lower(coalesce(eo_posid.position_status_code, eo_empid.position_status_code, eo_assid.position_status_code,
+                                e.position_status_code)) = 'null' then null
+            else coalesce(eo_posid.position_status_code, eo_empid.position_status_code, eo_assid.position_status_code,
+                          e.position_status_code) end                                                                  as position_status_code
+      , case
+            when lower(coalesce(eo_posid.position_status, eo_empid.position_status, eo_assid.position_status,
+                                e.position_status)) = 'null' then null
+            else coalesce(eo_posid.position_status, eo_empid.position_status, eo_assid.position_status,
+                          e.position_status) end                                                                       as position_status
+      , case
+            when lower(coalesce(eo_posid.position_seniority_hire_date, eo_empid.position_seniority_hire_date,
+                                eo_assid.position_seniority_hire_date, e.position_seniority_hire_date)) = 'null' then null
+            else coalesce(eo_posid.position_seniority_hire_date, eo_empid.position_seniority_hire_date,
+                          eo_assid.position_seniority_hire_date,
+                          e.position_seniority_hire_date) end                                                          as position_seniority_hire_date
+      , case
+            when lower(coalesce(eo_posid.position_start_date, eo_empid.position_start_date, eo_assid.position_start_date,
+                                e.position_start_date)) = 'null' then null
+            else coalesce(eo_posid.position_start_date, eo_empid.position_start_date, eo_assid.position_start_date,
+                          e.position_start_date) end                                                                   as position_start_date
+      , case
+            when lower(coalesce(eo_posid.position_termination_date, eo_empid.position_termination_date,
+                                eo_assid.position_termination_date, e.position_termination_date)) = 'null' then null
+            else coalesce(eo_posid.position_termination_date, eo_empid.position_termination_date,
+                          eo_assid.position_termination_date,
+                          e.position_termination_date) end                                                             as position_termination_date
+      , case
+            when lower(coalesce(eo_posid.position_change_reason, eo_empid.position_change_reason,
+                                eo_assid.position_change_reason, e.position_change_reason)) = 'null' then null
+            else coalesce(eo_posid.position_change_reason, eo_empid.position_change_reason, eo_assid.position_change_reason,
+                          e.position_change_reason) end                                                                as position_change_reason
+      , case
+            when lower(coalesce(eo_posid.position_manager_position_id, eo_empid.position_manager_position_id,
+                                eo_assid.position_manager_position_id, e.position_manager_position_id)) = 'null' then null
+            else coalesce(eo_posid.position_manager_position_id, eo_empid.position_manager_position_id,
+                          eo_assid.position_manager_position_id,
+                          e.position_manager_position_id) end                                                          as position_manager_position_id
+      , case
+            when lower(coalesce(eo_posid.position_manager_name, eo_empid.position_manager_name,
+                                eo_assid.position_manager_name, e.position_manager_name)) = 'null' then null
+            else coalesce(eo_posid.position_manager_name, eo_empid.position_manager_name, eo_assid.position_manager_name,
+                          e.position_manager_name) end                                                                 as position_manager_name
+      , case
+            when lower(coalesce(eo_posid.position_primary_job_indicator, eo_empid.position_primary_job_indicator,
+                                eo_assid.position_primary_job_indicator, e.position_primary_job_indicator)) = 'null'
+                then null
+            else coalesce(eo_posid.position_primary_job_indicator, eo_empid.position_primary_job_indicator,
+                          eo_assid.position_primary_job_indicator,
+                          e.position_primary_job_indicator) end                                                        as position_primary_job_indicator
+      , case
+            when lower(coalesce(eo_posid.position_title_code, eo_empid.position_title_code, eo_assid.position_title_code,
+                                e.position_title_code)) = 'null' then null
+            else coalesce(eo_posid.position_title_code, eo_empid.position_title_code, eo_assid.position_title_code,
+                          e.position_title_code) end                                                                   as position_title_code
+      , case
+            when lower(coalesce(eo_posid.position_title, eo_empid.position_title, eo_assid.position_title,
+                                e.position_title)) = 'null' then null
+            else coalesce(eo_posid.position_title, eo_empid.position_title, eo_assid.position_title,
+                          e.position_title) end                                                                        as position_title
+      , case
+            when lower(coalesce(eo_posid.position_worker_type, eo_empid.position_worker_type, eo_assid.position_worker_type,
+                                e.position_worker_type)) = 'null' then null
+            else coalesce(eo_posid.position_worker_type, eo_empid.position_worker_type, eo_assid.position_worker_type,
+                          e.position_worker_type) end                                                                  as position_worker_type
+      , case
+            when lower(coalesce(eo_posid.position_benefits_group_code, eo_empid.position_benefits_group_code,
+                                eo_assid.position_benefits_group_code, e.position_benefits_group_code)) = 'null' then null
+            else coalesce(eo_posid.position_benefits_group_code, eo_empid.position_benefits_group_code,
+                          eo_assid.position_benefits_group_code,
+                          e.position_benefits_group_code) end                                                          as position_benefits_group_code
+      , case
+            when lower(coalesce(eo_posid.position_benefits_group_class, eo_empid.position_benefits_group_class,
+                                eo_assid.position_benefits_group_class, e.position_benefits_group_class)) = 'null' then null
+            else coalesce(eo_posid.position_benefits_group_class, eo_empid.position_benefits_group_class,
+                          eo_assid.position_benefits_group_class,
+                          e.position_benefits_group_class) end                                                         as position_benefits_group_class
+      , case
+            when lower(coalesce(eo_posid.position_flsa, eo_empid.position_flsa, eo_assid.position_flsa, e.position_flsa)) =
+                'null' then null
+            else coalesce(eo_posid.position_flsa, eo_empid.position_flsa, eo_assid.position_flsa,
+                          e.position_flsa) end                                                                         as position_flsa
+      , case
+            when lower(coalesce(eo_posid.position_full_time_equivalent, eo_empid.position_full_time_equivalent,
+                                eo_assid.position_full_time_equivalent, e.position_full_time_equivalent)) = 'null' then null
+            else coalesce(eo_posid.position_full_time_equivalent, eo_empid.position_full_time_equivalent,
+                          eo_assid.position_full_time_equivalent,
+                          e.position_full_time_equivalent) end                                                         as position_full_time_equivalent
+      , case
+            when lower(coalesce(eo_posid.position_scheduled_hours, eo_empid.position_scheduled_hours,
+                                eo_assid.position_scheduled_hours, e.position_scheduled_hours)) = 'null' then null
+            else coalesce(eo_posid.position_scheduled_hours, eo_empid.position_scheduled_hours,
+                          eo_assid.position_scheduled_hours,
+                          e.position_scheduled_hours) end                                                              as position_scheduled_hours
+      , case
+            when lower(coalesce(eo_posid.position_standard_hours, eo_empid.position_standard_hours,
+                                eo_assid.position_standard_hours, e.position_standard_hours)) = 'null' then null
+            else coalesce(eo_posid.position_standard_hours, eo_empid.position_standard_hours,
+                          eo_assid.position_standard_hours,
+                          e.position_standard_hours) end                                                               as position_standard_hours
+      , case
+            when lower(coalesce(eo_posid.position_work_site_location_code, eo_empid.position_work_site_location_code,
+                                eo_assid.position_work_site_location_code, e.position_work_site_location_code)) = 'null'
+                then null
+            else coalesce(eo_posid.position_work_site_location_code, eo_empid.position_work_site_location_code,
+                          eo_assid.position_work_site_location_code,
+                          e.position_work_site_location_code) end                                                      as position_work_site_location_code
+      , case
+            when lower(coalesce(eo_posid.position_work_site_location_name, eo_empid.position_work_site_location_name,
+                                eo_assid.position_work_site_location_name, e.position_work_site_location_name)) = 'null'
+                then null
+            else coalesce(eo_posid.position_work_site_location_name, eo_empid.position_work_site_location_name,
+                          eo_assid.position_work_site_location_name,
+                          e.position_work_site_location_name) end                                                      as position_work_site_location_name
+      , case
+            when lower(coalesce(eo_posid.position_work_site_address_line1, eo_empid.position_work_site_address_line1,
+                                eo_assid.position_work_site_address_line1, e.position_work_site_address_line1)) = 'null'
+                then null
+            else coalesce(eo_posid.position_work_site_address_line1, eo_empid.position_work_site_address_line1,
+                          eo_assid.position_work_site_address_line1,
+                          e.position_work_site_address_line1) end                                                      as position_work_site_address_line1
+      , case
+            when lower(coalesce(eo_posid.position_work_site_address_line2, eo_empid.position_work_site_address_line2,
+                                eo_assid.position_work_site_address_line2, e.position_work_site_address_line2)) = 'null'
+                then null
+            else coalesce(eo_posid.position_work_site_address_line2, eo_empid.position_work_site_address_line2,
+                          eo_assid.position_work_site_address_line2,
+                          e.position_work_site_address_line2) end                                                      as position_work_site_address_line2
+      , case
+            when lower(coalesce(eo_posid.position_work_site_address_line3, eo_empid.position_work_site_address_line3,
+                                eo_assid.position_work_site_address_line3, e.position_work_site_address_line3)) = 'null'
+                then null
+            else coalesce(eo_posid.position_work_site_address_line3, eo_empid.position_work_site_address_line3,
+                          eo_assid.position_work_site_address_line3,
+                          e.position_work_site_address_line3) end                                                      as position_work_site_address_line3
+      , case
+            when lower(coalesce(eo_posid.position_work_site_address_city, eo_empid.position_work_site_address_city,
+                                eo_assid.position_work_site_address_city, e.position_work_site_address_city)) = 'null'
+                then null
+            else coalesce(eo_posid.position_work_site_address_city, eo_empid.position_work_site_address_city,
+                          eo_assid.position_work_site_address_city,
+                          e.position_work_site_address_city) end                                                       as position_work_site_address_city
+      , case
+            when lower(coalesce(eo_posid.position_work_site_address_state_abb,
+                                eo_empid.position_work_site_address_state_abb,
+                                eo_assid.position_work_site_address_state_abb, e.position_work_site_address_state_abb)) =
+                'null' then null
+            else coalesce(eo_posid.position_work_site_address_state_abb, eo_empid.position_work_site_address_state_abb,
+                          eo_assid.position_work_site_address_state_abb,
+                          e.position_work_site_address_state_abb) end                                                  as position_work_site_address_state_abb
+      , case
+            when lower(coalesce(eo_posid.position_work_site_address_state, eo_empid.position_work_site_address_state,
+                                eo_assid.position_work_site_address_state, e.position_work_site_address_state)) = 'null'
+                then null
+            else coalesce(eo_posid.position_work_site_address_state, eo_empid.position_work_site_address_state,
+                          eo_assid.position_work_site_address_state,
+                          e.position_work_site_address_state) end                                                      as position_work_site_address_state
+      , case
+            when lower(coalesce(eo_posid.position_work_site_address_zip_code, eo_empid.position_work_site_address_zip_code,
+                                eo_assid.position_work_site_address_zip_code, e.position_work_site_address_zip_code)) =
+                'null' then null
+            else coalesce(eo_posid.position_work_site_address_zip_code, eo_empid.position_work_site_address_zip_code,
+                          eo_assid.position_work_site_address_zip_code,
+                          e.position_work_site_address_zip_code) end                                                   as position_work_site_address_zip_code
+      , case
+            when lower(coalesce(eo_posid.position_work_site_address_country, eo_empid.position_work_site_address_country,
+                                eo_assid.position_work_site_address_country, e.position_work_site_address_country)) = 'null'
+                then null
+            else coalesce(eo_posid.position_work_site_address_country, eo_empid.position_work_site_address_country,
+                          eo_assid.position_work_site_address_country,
+                          e.position_work_site_address_country) end                                                    as position_work_site_address_country
+      , case
+            when lower(coalesce(eo_posid.home_organizational_units, eo_empid.home_organizational_units,
+                                eo_assid.home_organizational_units, e.home_organizational_units)) = 'null' then null
+            else coalesce(eo_posid.home_organizational_units, eo_empid.home_organizational_units,
+                          eo_assid.home_organizational_units,
+                          e.home_organizational_units) end                                                             as home_organizational_units
+      , case
+            when lower(coalesce(eo_posid.home_organizational_units_market_code,
+                                eo_empid.home_organizational_units_market_code,
+                                eo_assid.home_organizational_units_market_code, e.home_organizational_units_market_code)) =
+                'null' then null
+            else coalesce(eo_posid.home_organizational_units_market_code, eo_empid.home_organizational_units_market_code,
+                          eo_assid.home_organizational_units_market_code,
+                          e.home_organizational_units_market_code) end                                                 as home_organizational_units_market_code
+      , case
+            when lower(coalesce(eo_posid.home_organizational_units_market_name_1,
+                                eo_empid.home_organizational_units_market_name_1,
+                                eo_assid.home_organizational_units_market_name_1,
+                                e.home_organizational_units_market_name_1)) = 'null' then null
+            else coalesce(eo_posid.home_organizational_units_market_name_1,
+                          eo_empid.home_organizational_units_market_name_1,
+                          eo_assid.home_organizational_units_market_name_1,
+                          e.home_organizational_units_market_name_1) end                                               as home_organizational_units_market_name_1
+      , case
+            when lower(coalesce(eo_posid.home_organizational_units_market_name_2,
+                                eo_empid.home_organizational_units_market_name_2,
+                                eo_assid.home_organizational_units_market_name_2,
+                                e.home_organizational_units_market_name_2)) = 'null' then null
+            else coalesce(eo_posid.home_organizational_units_market_name_2,
+                          eo_empid.home_organizational_units_market_name_2,
+                          eo_assid.home_organizational_units_market_name_2,
+                          e.home_organizational_units_market_name_2) end                                               as home_organizational_units_market_name_2
+      , case
+            when lower(coalesce(eo_posid.home_organizational_units_department_code,
+                                eo_empid.home_organizational_units_department_code,
+                                eo_assid.home_organizational_units_department_code,
+                                e.home_organizational_units_department_code)) = 'null' then null
+            else coalesce(eo_posid.home_organizational_units_department_code,
+                          eo_empid.home_organizational_units_department_code,
+                          eo_assid.home_organizational_units_department_code,
+                          e.home_organizational_units_department_code) end                                             as home_organizational_units_department_code
+      , case
+            when lower(coalesce(eo_posid.home_organizational_units_department_name_1,
+                                eo_empid.home_organizational_units_department_name_1,
+                                eo_assid.home_organizational_units_department_name_1,
+                                e.home_organizational_units_department_name_1)) = 'null' then null
+            else coalesce(eo_posid.home_organizational_units_department_name_1,
+                          eo_empid.home_organizational_units_department_name_1,
+                          eo_assid.home_organizational_units_department_name_1,
+                          e.home_organizational_units_department_name_1) end                                           as home_organizational_units_department_name_1
+      , case
+            when lower(coalesce(eo_posid.home_organizational_units_department_name_2,
+                                eo_empid.home_organizational_units_department_name_2,
+                                eo_assid.home_organizational_units_department_name_2,
+                                e.home_organizational_units_department_name_2)) = 'null' then null
+            else coalesce(eo_posid.home_organizational_units_department_name_2,
+                          eo_empid.home_organizational_units_department_name_2,
+                          eo_assid.home_organizational_units_department_name_2,
+                          e.home_organizational_units_department_name_2) end                                           as home_organizational_units_department_name_2
+      , case
+            when lower(coalesce(eo_posid.home_organizational_units_cost_num, eo_empid.home_organizational_units_cost_num,
+                                eo_assid.home_organizational_units_cost_num, e.home_organizational_units_cost_num)) = 'null'
+                then null
+            else coalesce(eo_posid.home_organizational_units_cost_num, eo_empid.home_organizational_units_cost_num,
+                          eo_assid.home_organizational_units_cost_num,
+                          e.home_organizational_units_cost_num) end                                                    as home_organizational_units_cost_num
+      , case
+            when lower(coalesce(eo_posid.position_cost_num_legal_code, eo_empid.position_cost_num_legal_code,
+                                eo_assid.position_cost_num_legal_code, e.position_cost_num_legal_code)) = 'null' then null
+            else coalesce(eo_posid.position_cost_num_legal_code, eo_empid.position_cost_num_legal_code,
+                          eo_assid.position_cost_num_legal_code,
+                          e.position_cost_num_legal_code) end                                                          as position_cost_num_legal_code
+      , case
+            when lower(coalesce(eo_posid.position_cost_num_region_code, eo_empid.position_cost_num_region_code,
+                                eo_assid.position_cost_num_region_code, e.position_cost_num_region_code)) = 'null' then null
+            else coalesce(eo_posid.position_cost_num_region_code, eo_empid.position_cost_num_region_code,
+                          eo_assid.position_cost_num_region_code,
+                          e.position_cost_num_region_code) end                                                         as position_cost_num_region_code
+      , case
+            when lower(coalesce(eo_posid.position_cost_num_market_code, eo_empid.position_cost_num_market_code,
+                                eo_assid.position_cost_num_market_code, e.position_cost_num_market_code)) = 'null' then null
+            else coalesce(eo_posid.position_cost_num_market_code, eo_empid.position_cost_num_market_code,
+                          eo_assid.position_cost_num_market_code,
+                          e.position_cost_num_market_code) end                                                         as position_cost_num_market_code
+      , case
+            when lower(coalesce(eo_posid.position_cost_num_location_code, eo_empid.position_cost_num_location_code,
+                                eo_assid.position_cost_num_location_code, e.position_cost_num_location_code)) = 'null'
+                then null
+            else coalesce(eo_posid.position_cost_num_location_code, eo_empid.position_cost_num_location_code,
+                          eo_assid.position_cost_num_location_code,
+                          e.position_cost_num_location_code) end                                                       as position_cost_num_location_code
+      , case
+            when lower(coalesce(eo_posid.position_cost_num_team_code, eo_empid.position_cost_num_team_code,
+                                eo_assid.position_cost_num_team_code, e.position_cost_num_team_code)) = 'null' then null
+            else coalesce(eo_posid.position_cost_num_team_code, eo_empid.position_cost_num_team_code,
+                          eo_assid.position_cost_num_team_code,
+                          e.position_cost_num_team_code) end                                                           as position_cost_num_team_code
+      , case
+            when lower(coalesce(eo_posid.position_cost_num_natural_account, eo_empid.position_cost_num_natural_account,
+                                eo_assid.position_cost_num_natural_account, e.position_cost_num_natural_account)) = 'null'
+                then null
+            else coalesce(eo_posid.position_cost_num_natural_account, eo_empid.position_cost_num_natural_account,
+                          eo_assid.position_cost_num_natural_account,
+                          e.position_cost_num_natural_account) end                                                     as position_cost_num_natural_account
+      , case
+            when lower(coalesce(eo_posid.position_cost_num_category, eo_empid.position_cost_num_category,
+                                eo_assid.position_cost_num_category, e.position_cost_num_category)) = 'null' then null
+            else coalesce(eo_posid.position_cost_num_category, eo_empid.position_cost_num_category,
+                          eo_assid.position_cost_num_category,
+                          e.position_cost_num_category) end                                                            as position_cost_num_category
+      , case
+            when lower(coalesce(eo_posid.occupational_classifications, eo_empid.occupational_classifications,
+                                eo_assid.occupational_classifications, e.occupational_classifications)) = 'null' then null
+            else coalesce(eo_posid.occupational_classifications, eo_empid.occupational_classifications,
+                          eo_assid.occupational_classifications,
+                          e.occupational_classifications) end                                                          as occupational_classifications
+      , case
+            when lower(coalesce(eo_posid.occupational_classifications_eeo_code,
+                                eo_empid.occupational_classifications_eeo_code,
+                                eo_assid.occupational_classifications_eeo_code, e.occupational_classifications_eeo_code)) =
+                'null' then null
+            else coalesce(eo_posid.occupational_classifications_eeo_code, eo_empid.occupational_classifications_eeo_code,
+                          eo_assid.occupational_classifications_eeo_code,
+                          e.occupational_classifications_eeo_code) end                                                 as occupational_classifications_eeo_code
+      , case
+            when lower(coalesce(eo_posid.occupational_classifications_eeo_class_p2,
+                                eo_empid.occupational_classifications_eeo_class_p2,
+                                eo_assid.occupational_classifications_eeo_class_p2,
+                                e.occupational_classifications_eeo_class_p2)) = 'null' then null
+            else coalesce(eo_posid.occupational_classifications_eeo_class_p2,
+                          eo_empid.occupational_classifications_eeo_class_p2,
+                          eo_assid.occupational_classifications_eeo_class_p2,
+                          e.occupational_classifications_eeo_class_p2) end                                             as occupational_classifications_eeo_class_p2
+      , case
+            when lower(coalesce(eo_posid.occupational_classifications_eeo_class_p1,
+                                eo_empid.occupational_classifications_eeo_class_p1,
+                                eo_assid.occupational_classifications_eeo_class_p1,
+                                e.occupational_classifications_eeo_class_p1)) = 'null' then null
+            else coalesce(eo_posid.occupational_classifications_eeo_class_p1,
+                          eo_empid.occupational_classifications_eeo_class_p1,
+                          eo_assid.occupational_classifications_eeo_class_p1,
+                          e.occupational_classifications_eeo_class_p1) end                                             as occupational_classifications_eeo_class_p1
+      , case
+            when lower(coalesce(eo_posid.occupational_classifications_class_code,
+                                eo_empid.occupational_classifications_class_code,
+                                eo_assid.occupational_classifications_class_code,
+                                e.occupational_classifications_class_code)) = 'null' then null
+            else coalesce(eo_posid.occupational_classifications_class_code,
+                          eo_empid.occupational_classifications_class_code,
+                          eo_assid.occupational_classifications_class_code,
+                          e.occupational_classifications_class_code) end                                               as occupational_classifications_class_code
+      , case
+            when lower(coalesce(eo_posid.occupational_classifications_class, eo_empid.occupational_classifications_class,
+                                eo_assid.occupational_classifications_class, e.occupational_classifications_class)) = 'null'
+                then null
+            else coalesce(eo_posid.occupational_classifications_class, eo_empid.occupational_classifications_class,
+                          eo_assid.occupational_classifications_class,
+                          e.occupational_classifications_class) end                                                    as occupational_classifications_class
+      , case
+            when lower(coalesce(eo_posid.position_eeo_class, eo_empid.position_eeo_class, eo_assid.position_eeo_class,
+                                e.position_eeo_class)) = 'null' then null
+            else coalesce(eo_posid.position_eeo_class, eo_empid.position_eeo_class, eo_assid.position_eeo_class,
+                          e.position_eeo_class) end                                                                    as position_eeo_class
+      , case
+            when lower(coalesce(eo_posid.position_region_name, eo_empid.position_region_name, eo_assid.position_region_name,
+                                e.position_region_name)) = 'null' then null
+            else coalesce(eo_posid.position_region_name, eo_empid.position_region_name, eo_assid.position_region_name,
+                          e.position_region_name) end                                                                  as position_region_name
+      , case
+            when lower(coalesce(eo_posid.position_region_code, eo_empid.position_region_code, eo_assid.position_region_code,
+                                e.position_region_code)) = 'null' then null
+            else coalesce(eo_posid.position_region_code, eo_empid.position_region_code, eo_assid.position_region_code,
+                          e.position_region_code) end                                                                  as position_region_code
+      , case
+            when lower(coalesce(eo_posid.position_region_description, eo_empid.position_region_description,
+                                eo_assid.position_region_description, e.position_region_description)) = 'null' then null
+            else coalesce(eo_posid.position_region_description, eo_empid.position_region_description,
+                          eo_assid.position_region_description,
+                          e.position_region_description) end                                                           as position_region_description
+      , case
+            when lower(coalesce(eo_posid.position_department_name, eo_empid.position_department_name,
+                                eo_assid.position_department_name, e.position_department_name)) = 'null' then null
+            else coalesce(eo_posid.position_department_name, eo_empid.position_department_name,
+                          eo_assid.position_department_name,
+                          e.position_department_name) end                                                              as position_department_name
+      , case
+            when lower(coalesce(eo_posid.position_market_name, eo_empid.position_market_name, eo_assid.position_market_name,
+                                e.position_market_name)) = 'null' then null
+            else coalesce(eo_posid.position_market_name, eo_empid.position_market_name, eo_assid.position_market_name,
+                          e.position_market_name) end                                                                  as position_market_name
+      , coalesce(eo_posid.is_deleted, eo_empid.is_deleted, eo_assid.is_deleted, e.is_deleted)::int                     as is_deleted
+      , 'adp'                                                                                                          as record_source
+      , null                                                                                                           as overrides
+    from cte_final e
+    left join {{ ref('aux__base_employee_overrides') }} eo_posid
+    on e.position_id = eo_posid.position_id
+        and e.effective_at::date between nvl(eo_posid.start_date::text::date, e.effective_at::date) and nvl(eo_posid.end_date::text::date, e.effective_at::date)
+    left join {{ ref('aux__base_employee_overrides') }} eo_empid
+        on e.employee_id = eo_empid.employee_id
+        and e.effective_at::date between nvl(eo_empid.start_date::text::date, e.effective_at::date) and nvl(eo_empid.end_date::text::date, e.effective_at::date)
+    left join {{ ref('aux__base_employee_overrides') }} eo_assid
+        on e.employee_id = eo_assid.employee_id
+        and e.effective_at::date between nvl(eo_assid.start_date::text::date, e.effective_at::date) and nvl(eo_assid.end_date::text::date, e.effective_at::date)
 
     union all
 
@@ -598,6 +1127,7 @@ with cte_employees_all           as
         on eo.position_id = e.position_id
     cross join cte_dates d
     where true
+        and eo.position_id is not null
         and e.employee_id is null
         and d.effective_at::date between nvl(eo.start_date::date, (select min(effective_at::date) from cte_dates)) and nvl(eo.end_date::date, (select max(effective_at::date) from cte_dates))
 

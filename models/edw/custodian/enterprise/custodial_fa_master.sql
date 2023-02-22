@@ -2,6 +2,7 @@ select
     effective_date
     ,custodian
     ,firm
+    ,firm_source
     ,account_number
     ,account_number_formatted
     ,custodian_link

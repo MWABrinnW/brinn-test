@@ -1,7 +1,8 @@
 select
     a.effective_date::date                            as effective_date
   , a.custodian::varchar(50)                          as custodian
-  , a.firm::varchar(50)                               as firm
+  , cf.firm                                           as firm
+  , a.firm_source::varchar(50)                        as firm_source
   , a.account_number::varchar(50)                     as account_number
   , a.account_number_formatted::varchar(50)           as account_number_formatted
 
@@ -49,6 +50,8 @@ select
   , a._source_loaded_at::timestamp                    as _source_loaded_at
   , a._created_at::timestamp                          as _created_at
 from {{ ref('int_fidelity_mps_accounts') }} a
+left join {{ ref('custodian_firms') }} cf
+    on a.firm_source = cf.firm_source
 left join {{ ref('custodian_mappings') }}            r
     on r.custodian = 'fidelity'
     and r.field = 'restriction'
