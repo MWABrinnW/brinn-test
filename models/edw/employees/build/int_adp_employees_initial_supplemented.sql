@@ -1,7 +1,7 @@
 -- depends_on: {{ ref('int_adp_employees_initial') }}
 -- depends_on: {{ ref('aux__base_employee_overrides') }}
 -- depends_on: {{ ref('dates') }}
-{{ config(materialized = 'table') }}
+{{ config(materialized='table') }}
 
 {#
   We should consider adding a field to the adp tables which indicates the date of the data (i.e. effective_date)
@@ -46,7 +46,6 @@ select
 {%- if result == 0 and flags.FULL_REFRESH == false and table_exists -%}
   select *
   from {{ this }}
-  limit 0
 {%- else -%}
 with cte_employees_all           as
     (
