@@ -1,0 +1,13 @@
+version: 2
+
+seeds:
+  - name: adp_status_change_reasons
+    description: Mapping file used for employee change reasons.
+    docs:
+      show: true
+    config:
+      enabled: true
+      tags: employees
+      schema: aux
+      grants:
+        select: "{{ ['db_hr_mwa_r'] if target.name in ['prod','test'] else []}}"
