@@ -28,6 +28,6 @@ select
         when trim(substring(content, 169, 12)) = '' then null
         else trim(substring(content, 169, 12)) end::decimal(12, 2) as fees_due_for_household
   , effective_date::date                                           as effective_date
-  , _created_at::timestamp                                         as _created_at
+  , _created_at::timestamp                                         as _source_loaded_at
   , _source_file::varchar(100)                                     as source_file
 from {{ source('schwab_mwa', 'referral_fees_prior_quarter') }}

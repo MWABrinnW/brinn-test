@@ -11,6 +11,6 @@ select
   , case when trim(substring(content, 128, 16)) = '' then null else trim(substring(content, 128, 16)) end::decimal(16,2)      as advisor_network_participation_fee
   , case when trim(substring(content, 145, 16)) = '' then null else trim(substring(content, 145, 16)) end::decimal(16,2)      as fee_paid_to_advisor
   , effective_date::date                   as effective_date
-  , _created_at::timestamp                 as _created_at
+  ,_created_at::timestamp                  as _source_loaded_at
   , _source_file::varchar(100)             as source_file
 from {{ source('schwab_mwa', 'referral_fees_advisor_network') }}

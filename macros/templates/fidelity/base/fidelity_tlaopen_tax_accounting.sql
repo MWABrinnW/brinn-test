@@ -60,7 +60,7 @@ select
   , {{ col_is_current(date_col='effective_date') }}
   , effective_date
   , effective_date_original
-  , record_datetime                                                                         as _created_at
+  , record_datetime                                                                         as _source_loaded_at
   , source_file                                                                             as _source_file
 from {{ src }}
 {%- endmacro -%}

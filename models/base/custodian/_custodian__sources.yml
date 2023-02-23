@@ -23,14 +23,71 @@ sources:
     schema: fidelity_mwa_history
     tables:
       - name: acctbald
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
       - name: actvyd
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
       - name: nabase
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
       - name: positd
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
       - name: secmast
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
       - name: tlaopen_tax_accounting
+        description: ""
       - name: tlaopendelta
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
       - name: tlaopenfull
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
       - name: trdrev_td
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
 
   - name: tda_mwa
     database: datalake
@@ -49,14 +106,71 @@ sources:
     schema: fidelity_mps_history
     tables:
       - name: acctbald
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
       - name: actvyd
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
       - name: nabase
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
       - name: positd
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
       - name: secmast
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
       - name: tlaopen_tax_accounting
+        description: ""
       - name: tlaopendelta
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
       - name: tlaopenfull
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
       - name: trdrev_td
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
 
   - name: schwab_mps
     description: ""

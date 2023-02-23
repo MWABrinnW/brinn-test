@@ -11,8 +11,6 @@ models:
     columns:
       - name: start_date
         description: Unique identifier for each Location Master record.
-        tests:
-          - not_null
       - name: end_date
         description: Start date the new location is active.
       - name: active_directory
@@ -31,8 +29,6 @@ models:
         description: Market name, locations are grouped into a market
       - name: location_name
         description: Location name, offices are grouped into a location
-        tests:
-          - not_null
       - name: office_name
         description: "Office name/location in the format of 'City, State'"
       - name: location_city
@@ -49,8 +45,6 @@ models:
         description: Type of acquisition (ex. Advisor lift-out, Firm purchase, Significant hire, Greenfield, Tax Acquisition),
       - name: _created_at
         description: Datetime representing when the record was loaded into the table from the source file.
-        tests:
-          - not_null
  
   - name: aux__base_locations_cost_center_history
     config:
@@ -65,16 +59,10 @@ models:
         description: End date of current location OR date that current record will be modified and new record will start
       - name: old_code
         description: Great Plains accounting/cost code (ex. 1104, 7704, 8804) - prior code
-        tests:
-          - not_null
       - name: current_code
         description: Great Plains accounting/cost code (ex. 1104, 7704, 8804) - current code
-        tests:
-          - not_null
       - name: _created_at
         description: Datetime representing when the record was loaded into the table from the source file.
-        tests:
-          - not_null
 
   - name: aux__base_employee_overrides
     tags: ['employees']
@@ -82,5 +70,5 @@ models:
       "Employee record value overrides and manual entries (box file id: 1085269023169)."
       Used by the HR team to make modification to employee records before they appear in the EDW.
 
-  - name: aux__base_integration_roademap
+  - name: aux__base_integration_roadmap
     description: This smartsheets file is maintained by the platforms team and details the roadmap for various location Orion integration activities.

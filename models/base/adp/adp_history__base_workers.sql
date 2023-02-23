@@ -43,6 +43,7 @@ select
   , JSON:customFieldGroup.stringFields[0].stringValue::string                                                       as reporting_office
   , JSON:customFieldGroup.stringFields[1].stringValue::string                                                       as hire_details
   , JSON:customFieldGroup.stringFields[2].stringValue::string                                                       as source
+  , JSON:customFieldGroup.stringFields[3].stringValue::string                                                       as title_change_reason
   , case
         when record_datetime::timestamp =
              (select max(record_datetime::timestamp) from {{ source('adp', 'worker_json_history') }}) then 1
@@ -107,6 +108,7 @@ select
   , customfieldgroup_stringfields_0_stringvalue                                                                  as reporting_office
   , customfieldgroup_stringfields_1_stringvalue                                                                  as hire_details
   , null                                                                                                         as source
+  , null                                                                                                         as title_change_reason
   , case
         when record_datetime::timestamp =
              (select max(record_datetime::timestamp) from {{ source('adp', 'worker_json_history') }}) then 1

@@ -1,4 +1,5 @@
-with dates as ( --- date spine
+-- date spine
+with dates as (
   select date_key as _date
   from {{ ref('dates') }}
   where true
@@ -7,7 +8,7 @@ with dates as ( --- date spine
 
 ,metadata as (
   select
-    table_schema,table_name,row_count
+    table_schema, table_name, row_count
     ,convert_timezone('UTC', 'America/Chicago', dbt_valid_from) as dbt_valid_from
     ,convert_timezone('UTC', 'America/Chicago', dbt_valid_to) as dbt_valid_to
   from {{ ref('snapshots__datalake_tables_history') }}
@@ -16,11 +17,11 @@ with dates as ( --- date spine
 )
 
 ,daily_row_counts as (
-  select _date,table_name,max(row_count) as daily_row_count
+  select _date, table_schema, table_name, max(row_count) as daily_row_count
   from dates
   inner join metadata
       on _date between metadata.dbt_valid_from::date and ifnull(dbt_valid_to,current_timestamp)
-  group by 1,2
+  group by 1,2,3
 )
 
 ,new_row_counts as (
@@ -30,8 +31,8 @@ with dates as ( --- date spine
   from daily_row_counts
 )
 
-select _date,table_name,sum(row_diff) as daily_row_diff
+select _date, table_schema, table_name, sum(row_diff) as daily_row_diff
 from new_row_counts
 where true
   and row_diff is not null
-group by _date,table_name
+group by _date, table_schema, table_name

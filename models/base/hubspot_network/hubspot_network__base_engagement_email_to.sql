@@ -1,7 +1,2 @@
-select
-    email
-    , engagement_id
-    , first_name
-    , last_name
-    , _fivetran_synced
+select *
 from {{ source('hubspot_network', 'engagement_email_to') }}

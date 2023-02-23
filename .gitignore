@@ -6,3 +6,4 @@ profiles.yml
 .user.yml
 .vscode/settings.json
 .venv/
+scratch.sql

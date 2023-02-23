@@ -20,4 +20,5 @@ select
     ,effective_date::date           as effective_date
     ,record_datetime::timestamp     as record_datetime
     ,record_date::date              as record_date
+    ,record_datetime::timestamp     as _source_loaded_at
 from {{ source('schwab_mps', 'customer') }}

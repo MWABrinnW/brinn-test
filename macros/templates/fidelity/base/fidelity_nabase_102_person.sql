@@ -90,7 +90,7 @@ select
   , is_head
   , is_current
   , effective_date
-  , _created_at
+  , _source_loaded_at
   , _source_file
 from {{ src }}
 {%- endmacro -%}

@@ -81,6 +81,9 @@ select
     ,banksweepdisplayname                       as bank_sweep_display_name
     ,{{ col_is_head(reference=source('schwab_mps', 'accounts')) }}
     ,{{ col_is_current(date_col='effective_date') }}
+    ,'mps'                                      as firm_source
     ,effective_date::date                       as effective_date
-    ,record_datetime::timestamp                 as _created_at
+    ,record_datetime::timestamp                 as record_datetime
+    ,record_date::date                          as record_date
+    ,record_datetime::timestamp                 as _source_loaded_at
 from {{ source('schwab_mps', 'accounts') }}

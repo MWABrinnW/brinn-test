@@ -1,4 +1,4 @@
-{{ config(materialized = 'table') }}
+{{ config(materialized = 'table', enabled = false) }}
 -- depends_on: {{ ref('tda_mwa_history__vw_demographics') }}
 -- depends_on: {{ ref('tda_mwa_history__vw_positions') }}
 -- depends_on: {{ ref('dates') }}
@@ -19,17 +19,18 @@ select
 {% endset %}
 
 {# Execute the query to determine if new data is ready. 1=yes 0=no#}
-{% if execute %}
-  {% set result = dbt_utils.get_single_value(qry_check_for_new_data) %}
-{% else %}
-  {{ dbt_utils.log_info('setting result from default')}}
-  {% set result = 0 %}
-{% endif %}
-
-{% if result == 0 %}
+{%- if execute -%}
+  {{ dbt_utils.log_info(this.identifier ~ ' | compiling')}}
+  {%- set result = dbt_utils.get_single_value(qry_check_for_new_data) -%}
+  {{ dbt_utils.log_info(this.identifier ~ ' | ' ~ result)}}
+{%- else -%}
+  {%- set result = 0 -%}
+{%- endif -%}
+{%- if result == 0 and flags.FULL_REFRESH == false -%}
   select *
   from {{ this }}
-{% else %}
+  limit 0
+{%- else -%}
 with cte_accounts as
 (
     select
@@ -119,6 +120,7 @@ select
   , d.payout_rate
   , {{ col_is_head(reference='cte_spined', reference_date_col='date_key', source_date_col='s.date_key') }}
   , {{ col_is_current(date_col='s.date_key') }}
+  , null::timestamp                as _source_loaded_at
   , current_timestamp()::timestamp as _created_at
 from cte_spined                           s
 left join {{ ref('tda_mwa_history__vw_demographics') }} d

@@ -3,7 +3,7 @@ select
     ,advisor_name                                   as advisor_name
     ,client_name                                    as client_name
     ,account_name                                   as account_name
-    ,account_number                                 as account_numer
+    ,account_number                                 as account_number
     ,current_custodian                              as custodian
     ,account_managed_by                             as account_managed_by
     ,investment_strategy                            as investment_strategy
