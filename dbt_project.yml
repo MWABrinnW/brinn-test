@@ -84,6 +84,8 @@ models:
 
       cusip:
         +tags: ['cusip']
+        +grants:
+          select: "{{ ['db_custodial_mwa_r', 'integration_dm'] if target.name in ['prod','test'] else []}}"
 
       custodian:
         +tags: ['custodian']
