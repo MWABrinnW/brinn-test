@@ -92,7 +92,7 @@ models:
         fidelity_mps:
           +tags: ['fidelity', 'mps']
           +grants:
-            select: "{{ ['db_custodial_mps_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_custodial_mps_r', 'integration_dm'] if target.name in ['prod','test'] else []}}"
         fidelity_msec:
           +tags: ['fidelity', 'msec']
           +grants:
