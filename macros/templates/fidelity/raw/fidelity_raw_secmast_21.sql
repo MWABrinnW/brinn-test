@@ -7,7 +7,7 @@ select
   , nullif(trim(substring(content, 5, 1)), '')                                             as EXCHANGE_TRADED_FUND_INDICATOR
   , {{ col_is_head(reference=src) }}
   , {{ col_is_current(date_col='effective_date') }}
-  , effective_date
+  , effective_date, record_datetime::date as record_date, record_datetime::timestamp as record_datetime, source_file as source_file
   , record_datetime                                                                         as _source_loaded_at
   , source_file                                                                             as _source_file
 from {{ src }}
