@@ -84,6 +84,8 @@ models:
 
       cusip:
         +tags: ['cusip']
+        +grants:
+          select: "{{ ['db_custodial_mwa_r', 'integration_dm'] if target.name in ['prod','test'] else []}}"
 
       custodian:
         +tags: ['custodian']
@@ -98,7 +100,7 @@ models:
         fidelity_mwa:
           +tags: ['fidelity', 'mwa']
           +grants:
-            select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_custodial_mwa_r', 'integration_dm'] if target.name in ['prod','test'] else []}}"
         lpl_network:
           +tags: ['lpl', 'network', 'mps']
           +grants:
@@ -110,7 +112,7 @@ models:
         schwab_mwa:
           +tags: ['schwab', 'mwa']
           +grants:
-            select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_custodial_mwa_r', 'integration_dm'] if target.name in ['prod','test'] else []}}"
         tda:
           +enabled: false
           +tags: ['tda', 'mwa', 'mps', 'network']

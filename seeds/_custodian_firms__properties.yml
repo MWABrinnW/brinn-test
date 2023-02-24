@@ -1,0 +1,13 @@
+version: 2
+
+seeds:
+  - name: custodian_firms
+    description: Mapping file used for custodian firm label rollups.
+    docs:
+      show: true
+    config:
+      enabled: true
+      tags: custodian
+      schema: aux
+      grants:
+        select: "{{ ['db_custodial_r'] if target.name in ['prod','test'] else []}}"
