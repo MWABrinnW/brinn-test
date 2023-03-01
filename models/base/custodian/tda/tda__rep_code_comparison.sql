@@ -1,7 +1,7 @@
 with tmp_rep_codes as 
 (
     select
-        _rep_code as rep_code
+         advisor_rep_code as rep_code
         ,count(distinct _source_file) as file_count
         ,min(effective_date) as min_effective_date
         ,max(effective_date) as max_effective_date
@@ -12,7 +12,7 @@ with tmp_rep_codes as
 ,tmp_rep_codes_map as
 (
     select distinct
-        regexp_substr(advisor_code, '^[^ ]+') as rep_code
+         regexp_substr(advisor_code, '^[^ ]+') as rep_code
         ,office_location
         ,status
         ,description
@@ -43,5 +43,4 @@ left join tmp_rep_codes b
 left join tmp_rep_codes_map c
     on a.rep_code = c.rep_code
 where true
-    and (b.rep_code is null or c.rep_code is null)
 order by a.rep_code

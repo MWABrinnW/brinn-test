@@ -5,8 +5,6 @@ SELECT
   , json:c4::decimal(19,6)     as price
   , json:c5::varchar(100)      as factor
   , rc.firm                    as rep_code_firm
-  , rc.status                  as rep_code_status
-  , rc.description             as rep_code_description
   , effective_date::date       as effective_date
   , _rep_code::varchar(10)     as _rep_code
   , _file_type::varchar(100)   as _file_type
@@ -15,5 +13,5 @@ SELECT
   , {{ col_is_head(reference=source('tda', 'pri')) }}
   , {{ col_is_current(date_col='effective_date') }}
 from {{ source('tda', 'pri') }} a
-left join {{ref('tda__rep_codes')}} rc
+left join {{ref('tda_rep_codes')}} rc
   on a._rep_code = rc.rep_code

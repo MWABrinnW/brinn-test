@@ -1,4 +1,4 @@
-{{ config(materialized = 'view', enabled = true) }}
+{{ config(materialized = 'view') }}
 select
     company_name::varchar(100)                        as company_name
   , last_name::varchar(100)                           as last_name
@@ -37,6 +37,7 @@ select
   , discount_rate::double                             as discount_rate
   , payout_rate::double                               as payout_rate
   , effective_date                                    as effective_date
+  , rep_code_firm                                     as rep_code_firm
   , _rep_code                                         as _rep_code
   , _file_type                                        as _file_type
   , _source_file                                      as _source_file
@@ -84,6 +85,7 @@ select
   , discount_rate::double                             as discount_rate
   , payout_rate::double                               as payout_rate
   , effective_date                                    as effective_date
+  , rep_code_firm                                     as rep_code_firm
   , _rep_code                                         as _rep_code
   , _file_type                                        as _file_type
   , _source_file                                      as _source_file

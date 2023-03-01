@@ -1,0 +1,21 @@
+version: 2
+
+seeds:
+  - name: tda_rep_codes
+    description: TDA rep code to firm mapping file.
+    docs:
+      show: true
+    config:
+      enabled: true
+      tags: custodian
+      schema: tda
+      grants:
+        select: "{{ ['db_custodial_r'] if target.name in ['prod','test'] else []}}"
+    columns:
+      - name: rep_code
+        description: "TDA rep code"
+        tests:
+          - not_null
+          - unique
+      - name: firm
+        description: "Firm name"

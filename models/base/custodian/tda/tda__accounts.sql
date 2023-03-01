@@ -92,8 +92,8 @@ select
   , d.discount_rate
   , d.payout_rate
   , rc.firm                        as rep_code_firm
-  , rc.status                      as rep_code_status
-  , rc.description                 as rep_code_description
+  {# , rc.status                      as rep_code_status
+  , rc.description                 as rep_code_description #}
   , {{ col_is_head(reference='cte_spined', reference_date_col='date_key', source_date_col='s.date_key') }}
   , {{ col_is_current(date_col='s.date_key') }}
   , d._rep_code                    as _rep_code
@@ -113,7 +113,7 @@ left join (
           )p
     on s.account_number = p.account_number
     and s.date_key = p.effective_date
-left join {{ref('tda__rep_codes')}} rc
+left join {{ref('tda_rep_codes')}} rc
   on d._rep_code = rc.rep_code
 where s.date_key in (select date_key from {{ ref('dates') }} where is_market_day = 1)
 order by s.account_number, s.date_key

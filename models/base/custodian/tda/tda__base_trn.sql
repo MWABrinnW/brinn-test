@@ -19,8 +19,6 @@ select
   , json:c18::varchar(100)     as closing_accounting_method
   , json:c19::varchar(100)     as comment
   , rc.firm                    as rep_code_firm
-  , rc.status                  as rep_code_status
-  , rc.description             as rep_code_description
   , effective_date::date       as effective_date
   , _rep_code::varchar(10)     as _rep_code
   , _file_type::varchar(100)   as _file_type
@@ -29,5 +27,5 @@ select
   , {{ col_is_head(reference=source('tda', 'trn')) }}
   , {{ col_is_current(date_col='effective_date') }}
 from {{ source('tda', 'trn') }} a
-left join {{ref('tda__rep_codes')}} rc
+left join {{ref('tda_rep_codes')}} rc
   on a._rep_code = rc.rep_code

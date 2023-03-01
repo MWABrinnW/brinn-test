@@ -1,0 +1,98 @@
+version: 2
+
+models:
+  - name: tda__base_pos
+    columns:
+      - name: custodial_id
+      - name: business_date
+      - name: account_number
+      - name: account_type
+      - name: security_type
+      - name: symbol
+      - name: current_quantity
+      - name: cost_basis
+      - name: adjusted_cost_basis
+      - name: unrealized_gain_loss
+      - name: cost_basis_fully_known
+      - name: certified_flag
+      - name: original_purchase_date
+      - name: original_purchase_price
+      - name: wash_sale_indicator
+      - name: disallowed_amount
+      - name: averaged_cost
+      - name: book_cost
+      - name: book_proceeds
+      - name: fixed_income_cost_adjustment
+      - name: id
+      - name: security_name
+      - name: covered
+      - name: unknown_total
+      - name: rep_code_firm
+        tests:
+          - not_null
+      - name: effective_date
+      - name: _rep_code
+      - name: _file_type
+      - name: _source_file 
+      - name: _created_at
+
+
+  - name: tda__accounts
+    description: >
+      This table represents the tda account feed in its entirety.
+      With other custodial feeds we know when an account is delinked because it no longer feeds in the files we are sent.
+      TDA does not use this mechanism and does not offer an alternative for understanding when and if an account is not linked to a firm any longer.
+      Accounts which may have left Mariner service weeks or months ago may still appear in this data.
+    columns:
+      - name: effective_date
+      - name: account_number
+      - name: advisor_id
+      - name: account_type
+      - name: taxable
+      - name: has_positions
+      - name: first_positions_date
+      - name: last_positions_date
+      - name: objective
+      - name: company_name
+      - name: last_name
+      - name: first_name
+      - name: street
+      - name: address_2
+      - name: address_3
+      - name: address_4
+      - name: address_5
+      - name: address_6
+      - name: city
+      - name: state
+      - name: zip_code
+      - name: ssn
+      - name: phone_number
+      - name: fax_number
+      - name: billing_account_number
+      - name: default_account
+      - name: state_of_primary_residence
+      - name: performance_inception_date
+      - name: billing_inception_date
+      - name: federal_tax_rate
+      - name: state_tax_rate
+      - name: months_in_short_term_holding_period
+      - name: fiscal_year_end
+      - name: use_average_cost_accounting
+      - name: display_accrued_interest
+      - name: display_accrued_dividends
+      - name: display_accrued_gains
+      - name: birth_date
+      - name: discount_rate
+      - name: payout_rate
+      - name: rep_code_firm
+        tests:
+          - not_null
+      - name: rep_code_status
+      - name: rep_code_description
+      - name: is_head
+      - name: is_current
+      - name: _rep_code
+      - name: _file_type
+      - name: _source_file
+      - name: _source_loaded_at
+      - name: _created_at

@@ -24,8 +24,6 @@ select
   , json:c23::varchar(100)     as covered
   , json:c24::varchar(100)     as unknown_total
   , rc.firm                    as rep_code_firm
-  , rc.status                  as rep_code_status
-  , rc.description             as rep_code_description
   , effective_date::date       as effective_date
   , _rep_code::varchar(10)     as _rep_code
   , _file_type::varchar(100)   as _file_type
@@ -34,5 +32,5 @@ select
   , {{ col_is_head(reference=source('tda', 'cbl')) }}
   , {{ col_is_current(date_col='effective_date') }}
 from {{ source('tda', 'cbl') }} a
-left join {{ref('tda__rep_codes')}} rc
+left join {{ref('tda_rep_codes')}} rc
   on a._rep_code = rc.rep_code
