@@ -1,10 +1,10 @@
 
 select
-    accountid::int                             as account_id
-  , clientid::int                              as client_id
-  , lplaccountno::int                          as lpl_account_no
-  , sponsorname::text(50)                      as sponsor_name
-  , sponsoraccountno::text(50)                 as sponsor_account_no
+    accountid::text(100)                       as account_id
+  , clientid::text(100)                        as client_id
+  , lplaccountno::text(100)                    as lpl_account_no
+  , sponsorname::varchar(100)                  as sponsor_name
+  , sponsoraccountno::text(100)                as sponsor_account_no
   , accountclasscode::varchar(10)              as account_class_code
   , institutioncode::varchar(1)                as institution_code
   , repid::varchar(5)                          as rep_id
@@ -23,53 +23,53 @@ select
   , registrationcountry::varchar(100)          as registrationcountry
   , to_date(opendate, 'MM/DD/YYYY')            as open_date
   , to_date(closedate, 'MM/DD/YYYY')           as close_date
-  , ddano::int                                 as ddano
-  , registrationline2                          as registration_line_2
-  , registrationline3                          as registration_line_3
-  , registrationline4                          as registration_line_4
-  , registrationline5                          as registration_line_5
-  , registrationline6                          as registration_line_6
-  , registrationline7                          as registration_line_7
-  , homephoneno::text(50)                      as home_phone_no
-  , businessphoneno::text(50)                  as business_phone_no
-  , faxno::text(50)                            as fax_no
-  , mobilephoneno::text(50)                    as mobile_phone_no
-  , emailaddress                               as email_address
-  , feeschedule                                as fee_schedule
+  , ddano::text(100)                           as ddano
+  , registrationline2::text(100)               as registration_line_2
+  , registrationline3::text(100)               as registration_line_3
+  , registrationline4::text(100)               as registration_line_4
+  , registrationline5::text(100)               as registration_line_5
+  , registrationline6::text(100)               as registration_line_6
+  , registrationline7::text(100)               as registration_line_7
+  , homephoneno::int                           as home_phone_no
+  , businessphoneno::int                       as business_phone_no
+  , faxno::int                                 as fax_no
+  , mobilephoneno::text(100)                   as mobile_phone_no
+  , emailaddress::text(100)                    as email_address
+  , feeschedule::text(100)                     as fee_schedule
   , opennotificationcount::int                 as open_notification_count
-  , booksandrecordsstatus                      as books_and_record_status
-  , accountnickname                            as account_nickname
-  , secondaryrepid                             as secondary_rep_id
-  , referralrepid                              as referral_rep_id
-  , accountmarketvalue                         as account_market_value
-  , networkedaccountmarketvalue                as networkd_account_market_value
-  , accountlocationcode                        as account_location_code
-  , accountsocialcode                          as account_social_code
-  , investmentobjectivecode                    as investment_objective_code
-  , annualincomecode                           as annual_income_code
-  , networthcode                               as networth_code
-  , liquidnetworthcode                         as liquid_networth_code
-  , approximateaccountvaluecode                as approximate_account_value_code
-  , proceedsinstructionscode                   as proceeds_instructions_code
-  , securityinstructioncode                    as security_instruction_code
-  , dividendsinstructioncode                   as dividends_instruction_code
-  , dividendreinvestinstructioncode            as dividen_reinvest_instruction_code
+  , booksandrecordsstatus::text(100)           as books_and_record_status
+  , accountnickname::text(100)                 as account_nickname
+  , secondaryrepid::text(100)                  as secondary_rep_id
+  , referralrepid::text(100)                   as referral_rep_id
+  , accountmarketvalue::text(100)              as account_market_value
+  , networkedaccountmarketvalue::text(100)     as networkd_account_market_value
+  , accountlocationcode::text(100)             as account_location_code
+  , accountsocialcode::text(100)               as account_social_code
+  , investmentobjectivecode::text(100)         as investment_objective_code
+  , annualincomecode::text(100)                as annual_income_code
+  , networthcode::text(100)                    as networth_code
+  , liquidnetworthcode::text(100)              as liquid_networth_code
+  , approximateaccountvaluecode::text(100)     as approximate_account_value_code
+  , proceedsinstructionscode::text(100)        as proceeds_instructions_code
+  , securityinstructioncode::text(100)         as security_instruction_code
+  , dividendsinstructioncode::text(100)        as dividends_instruction_code
+  , dividendreinvestinstructioncode::text(100) as dividen_reinvest_instruction_code
   , iscostbasisonstatements::int               as is_cost_basis_on_statements
-  , w9statuscode                               as w9_status_code
-  , optionlevelcode                            as option_level_code
-  , oldaccountno                               as old_account_no
+  , w9statuscode::text(100)                    as w9_status_code
+  , optionlevelcode::text(100)                 as option_level_code
+  , oldaccountno::text(100)                    as old_account_no
   , to_date(accountmodifieddate, 'MM/DD/YYYY') as account_modified_date
-  , commissionaccountno                        as commission_account_no
-  , clientisssn                                as client_isssn
-  , sponsorcode                                as sponsor_code
-  , cusip                                      as cusip
+  , commissionaccountno::text(100)             as commission_account_no
+  , clientisssn::text(100)                     as client_isssn
+  , sponsorcode::text(100)                     as sponsor_code
+  , cusip::text(100)                           as cusip
   , issuppressed::int                          as is_suppressed
-  , erisa                                      as erisa
-  , timehorizon                                as time_horizon
-  , institutiontype                            as institution_type
-  , employeeclasscode                          as employee_class_code
-  , accountclassificationcode                  as account_classification_code
-  , mktg_opt_out                               as marketing_opt_out
+  , erisa::text(100)                           as erisa
+  , timehorizon::text(100)                     as time_horizon
+  , institutiontype::text(100)                 as institution_type
+  , employeeclasscode::text(100)               as employee_class_code
+  , accountclassificationcode::text(100)       as account_classification_code
+  , mktg_opt_out::text(100)                    as marketing_opt_out
   , {{ col_is_head(reference=source('lpl_network', 'accountext')) }}
   , {{ col_is_current(date_col='effective_date') }}
   , case

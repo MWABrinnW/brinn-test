@@ -3,7 +3,7 @@ select
   , lastname                                 as last_name
   , firstname                                as first_name
   , middlename                               as middle_name
-  , businessphoneno::int                     as business_phone_no
+  , businessphoneno::text(50)                as business_phone_no
   , businessphonenoextension                 as business_phone_no_extension
   , ssntin                                   as ssn_tin
   , isssn::int                               as is_ssn
@@ -21,8 +21,8 @@ select
   , mailingcity                              as mailing_city
   , mailingstate                             as mailing_state
   , mailingzipcode                           as mailing_zip_code
-  , mailingphoneno::int                      as mailing_phone_no
-  , homephoneno::int                         as home_phone_no
+  , mailingphoneno::text(50)                 as mailing_phone_no
+  , homephoneno::text(50)                    as home_phone_no
   , reptypedescription                       as rep_type_description
   , masterrepid                              as mater_rep_id
   , osjmanagerrepid                          as osj_manager_rep_id

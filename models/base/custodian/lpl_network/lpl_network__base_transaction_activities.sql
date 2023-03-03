@@ -3,8 +3,8 @@ select
     accountid::int                         as account_id
   , accountlocationcode                    as account_location_code
   , to_date(transactiondate, 'MM/DD/YYYY') as transaction_date
-  , lplaccountno::int                      as lpl_account_no
-  , sponsoraccountno::int                  as sponsor_account_no
+  , lplaccountno::text(50)                 as lpl_account_no
+  , sponsoraccountno::text(50)             as sponsor_account_no
   , sponsorcode                            as sponsor_code
   , accountname                            as account_name
   , accounttype                            as account_type
@@ -13,13 +13,13 @@ select
   , price::decimal(20, 5)                  as price
   , amount::decimal(20, 2)                 as amount
   , creditdebitindicator                   as credit_debit_indicator
-  , securityid::int                        as security_id
+  , securityid::text(50)                   as security_id
   , assetclasscode                         as asset_class_code
   , sponsorname                            as sponsor_name
   , cusip                                  as cusip
   , symbol                                 as symbol
   , securitydescription                    as security_description
-  , orderno::int                           as order_no
+  , orderno::text(50)                      as order_no
   , effectivedate
   , sourceorder                            as source_order
   , {{ col_is_head(reference=source('lpl_network', 'transactionactivityext')) }}
