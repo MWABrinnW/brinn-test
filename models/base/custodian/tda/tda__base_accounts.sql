@@ -1,138 +1,96 @@
-{{ config(materialized = 'table', enabled = false) }}
--- depends_on: {{ ref('tda_mwa_history__vw_demographics') }}
--- depends_on: {{ ref('tda_mwa_history__vw_positions') }}
--- depends_on: {{ ref('dates') }}
-
-{# Prepare the query we'll use to determine if new data from the source is available #}
-{% set qry_check_for_new_data %}
+{{ config(materialized = 'view') }}
 select
-    case
-        when (select count(*) from {{ this }}) = 0
-            then 1
-        when (select top 1 1
-              from {{ ref('tda_mwa_history__vw_demographics') }}
-              where effective_date > (select max(effective_date) from {{ this }})
-              ) = 1
-            then 1
-        else 0
-        end
-{% endset %}
+    company_name::varchar(100)                        as company_name
+  , last_name::varchar(100)                           as last_name
+  , first_name::varchar(100)                          as first_name
+  , street::varchar(100)                              as street
+  , address_2::varchar(100)                           as address_2
+  , address_3::varchar(100)                           as address_3
+  , address_4::varchar(100)                           as address_4
+  , address_5::varchar(100)                           as address_5
+  , address_6::varchar(100)                           as address_6
+  , city::varchar(100)                                as city
+  , state::varchar(100)                               as state
+  , zip_code::varchar(50)                             as zip_code
+  , ssn::number                                       as ssn
+  , account_number::varchar(100)                      as account_number
+  , advisor_id::varchar(100)                          as advisor_id
+  , taxable::varchar(100)                             as taxable
+  , phone_number::number                              as phone_number
+  , fax_number::number                                as fax_number
+  , account_type::varchar(100)                        as account_type
+  , objective::varchar(100)                           as objective
+  , billing_account_number::varchar(100)              as billing_account_number
+  , default_account::varchar(100)                     as default_account
+  , state_of_primary_residence::boolean               as state_of_primary_residence
+  , performance_inception_date::date                  as performance_inception_date
+  , billing_inception_date::date                      as billing_inception_date
+  , federal_tax_rate::varchar(100)                    as federal_tax_rate
+  , state_tax_rate::varchar(100)                      as state_tax_rate
+  , months_in_short_term_holding_period::varchar(100) as months_in_short_term_holding_period
+  , fiscal_year_end::varchar(100)                     as fiscal_year_end
+  , use_average_cost_accounting::decimal(19, 6)       as use_average_cost_accounting
+  , display_accrued_interest::decimal(19, 6)          as display_accrued_interest
+  , display_accrued_dividends::decimal(19, 6)         as display_accrued_dividends
+  , display_accrued_gains::decimal(19, 6)             as display_accrued_gains
+  , birth_date::date                                  as birth_date
+  , discount_rate::double                             as discount_rate
+  , payout_rate::double                               as payout_rate
+  , effective_date                                    as effective_date
+  , rep_code_firm                                     as rep_code_firm
+  , _rep_code                                         as _rep_code
+  , _file_type                                        as _file_type
+  , _source_file                                      as _source_file
+  , _created_at                                       as _created_at
+from {{ ref('tda__base_trf') }}
+where true
 
-{# Execute the query to determine if new data is ready. 1=yes 0=no#}
-{%- if execute -%}
-  {{ dbt_utils.log_info(this.identifier ~ ' | compiling')}}
-  {%- set result = dbt_utils.get_single_value(qry_check_for_new_data) -%}
-  {{ dbt_utils.log_info(this.identifier ~ ' | ' ~ result)}}
-{%- else -%}
-  {%- set result = 0 -%}
-{%- endif -%}
-{%- if result == 0 and flags.FULL_REFRESH == false -%}
-  select *
-  from {{ this }}
-  limit 0
-{%- else -%}
-with cte_accounts as
-(
-    select
-        account_number
-        ,file_type
-        ,effective_date
-        ,min(effective_date) over(partition by account_number) as min_effective_date
-        ,max(effective_date) over(partition by account_number) as max_effective_date
-        ,count(*) over(partition by account_number) as cnt
-    from {{ ref('tda_mwa_history__vw_demographics') }}
-    where true
-    group by 1,2,3
-    order by 1,3
-)
-,cte_date_spine as
-(
-    select
-      dateadd(day, '-' || seq4(), current_date()) as date_key
-    from table(generator(rowcount => 10000))
-    where date_key between 
-        (select min(effective_date) from {{ ref('tda_mwa_history__vw_demographics') }}) and (select max(effective_date) from {{ ref('tda_mwa_history__vw_demographics') }})
-)
-,cte_spined as
-(
-    select
-        a.account_number
-        ,a.min_effective_date
-        ,ds.date_key
-        ,case when acc.account_number is not null then 1 else 0 end as is_exists
-        ,iff(is_exists = 1
-            , ds.date_key
-            , coalesce(last_value(case when is_exists = 1 then ds.date_key end) ignore nulls
-                over(partition by a.account_number order by ds.date_key asc rows between unbounded preceding and 1 preceding)
-                , ds.date_key
-                )
-            )
-            as last_effective_date
-    from (select account_number, min(min_effective_date) as min_effective_date
-          from cte_accounts group by 1) a
-    cross join cte_date_spine ds
-    left join cte_accounts acc
-        on a.account_number = acc.account_number
-        and ds.date_key = acc.effective_date
-    where 1=1
-        and ds.date_key >= a.min_effective_date
-)
+union all
 
 select
-    s.date_key as effective_date
-  , s.account_number
-  , d.file_type
-  , d.advisor_id
-  , d.account_type
-  , d.taxable
-  , case when p.account_number is not null then 1 else 0 end as has_positions
-  , d.objective
-  , nullif(trim(d.company_name), '') as company_name
-  , d.last_name
-  , d.first_name
-  , d.street
-  , d.address_2
-  , d.address_3
-  , d.address_4
-  , d.address_5
-  , d.address_6
-  , d.city
-  , d.state
-  , d.zip_code
-  , d.ssn
-  , d.phone_number
-  , d.fax_number
-  , d.billing_account_number
-  , d.default_account
-  , d.state_of_primary_residence
-  , d.performance_inception_date
-  , d.billing_inception_date
-  , d.federal_tax_rate
-  , d.state_tax_rate
-  , d.months_in_short_term_holding_period
-  , d.fiscal_year_end
-  , d.use_average_cost_accounting
-  , d.display_accrued_interest
-  , d.display_accrued_dividends
-  , d.display_accrued_gains
-  , d.birth_date
-  , d.discount_rate
-  , d.payout_rate
-  , {{ col_is_head(reference='cte_spined', reference_date_col='date_key', source_date_col='s.date_key') }}
-  , {{ col_is_current(date_col='s.date_key') }}
-  , null::timestamp                as _source_loaded_at
-  , current_timestamp()::timestamp as _created_at
-from cte_spined                           s
-left join {{ ref('tda_mwa_history__vw_demographics') }} d
-    on s.last_effective_date = d.effective_date
-    and s.account_number = d.account_number
-left join (
-            select effective_date, account_number
-            from {{ ref('tda_mwa_history__vw_positions') }}
-            group by effective_date, account_number
-          )p
-    on s.account_number = p.account_number
-    and s.date_key = p.effective_date
-where s.date_key in (select date_key from {{ ref('dates') }} where is_market_day = 1)
-order by s.account_number, s.date_key
-{% endif %}
+    company_name::varchar(100)                        as company_name
+  , last_name::varchar(100)                           as last_name
+  , first_name::varchar(100)                          as first_name
+  , street::varchar(100)                              as street
+  , address_2::varchar(100)                           as address_2
+  , address_3::varchar(100)                           as address_3
+  , address_4::varchar(100)                           as address_4
+  , address_5::varchar(100)                           as address_5
+  , address_6::varchar(100)                           as address_6
+  , city::varchar(100)                                as city
+  , state::varchar(100)                               as state
+  , zip_code::varchar(50)                             as zip_code
+  , ssn::number                                       as ssn
+  , account_number::varchar(100)                      as account_number
+  , advisor_id::varchar(100)                          as advisor_id
+  , taxable::varchar(100)                             as taxable
+  , phone_number::number                              as phone_number
+  , fax_number::number                                as fax_number
+  , account_type::varchar(100)                        as account_type
+  , objective::varchar(100)                           as objective
+  , billing_account_number::varchar(100)              as billing_account_number
+  , default_account::varchar(100)                     as default_account
+  , state_of_primary_residence::boolean               as state_of_primary_residence
+  , performance_inception_date::date                  as performance_inception_date
+  , billing_inception_date::date                      as billing_inception_date
+  , federal_tax_rate::varchar(100)                    as federal_tax_rate
+  , state_tax_rate::varchar(100)                      as state_tax_rate
+  , months_in_short_term_holding_period::varchar(100) as months_in_short_term_holding_period
+  , fiscal_year_end::varchar(100)                     as fiscal_year_end
+  , use_average_cost_accounting::decimal(19, 6)       as use_average_cost_accounting
+  , display_accrued_interest::decimal(19, 6)          as display_accrued_interest
+  , display_accrued_dividends::decimal(19, 6)         as display_accrued_dividends
+  , display_accrued_gains::decimal(19, 6)             as display_accrued_gains
+  , birth_date::date                                  as birth_date
+  , discount_rate::double                             as discount_rate
+  , payout_rate::double                               as payout_rate
+  , effective_date                                    as effective_date
+  , rep_code_firm                                     as rep_code_firm
+  , _rep_code                                         as _rep_code
+  , _file_type                                        as _file_type
+  , _source_file                                      as _source_file
+  , _created_at                                       as _created_at
+from {{ ref('tda__base_trd') }}
+where true
+
+

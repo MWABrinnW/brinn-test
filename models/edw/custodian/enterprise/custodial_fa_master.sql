@@ -17,7 +17,7 @@ select
     ,first_name
     ,middle_name
     ,last_name
-    ,irs_id
+    {# ,irs_id #}
     ,irs_id_type
     ,birth_date
     ,email_address

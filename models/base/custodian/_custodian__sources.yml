@@ -100,6 +100,25 @@ sources:
       - name: securities
       - name: transactions
 
+  - name: tda
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: tda
+    tables:
+      - name: cbl
+        description: Cost basis
+      - name: pos
+        description: Positions
+      - name: pri
+        description: Security prices
+      - name: sec
+        description: Securities
+      - name: trd
+        description: Account demographics delta file
+      - name: trf
+        description: Account demographics full file. This is not delivered on a schedule and is by request only.
+      - name: trn
+        description: Transactions
+
 # MPS -------------------------------------
   - name: fidelity_mps
     database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"

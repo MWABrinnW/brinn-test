@@ -21,3 +21,11 @@ sources:
           Used by the HR team to make modification to employee records before they appear in the EDW.
       - name: integration_roadmap
         description: This smartsheets file is maintained by the platforms team and details the roadmap for various location Orion integration activities.
+      - name: executive_wealth_account_data
+        description: Supplemental data for Executive Wealth accounts that doesn't exist in Morningstar.
+      - name: hfw_acct_data
+        description: Supplemental data for HFW accounts that doesn't exist in Morningstar or TPG.
+      - name: hfw_tpg_mstar_overlap
+        description: Supplemental mapping for HFW accounts that exist in both Morningstar and TPG.
+      - name: custodian_codes_master_list
+        description: Dataset is maintained by Amanda Green and team to catalog custodian masters/gnumbers/rep codes/etc.

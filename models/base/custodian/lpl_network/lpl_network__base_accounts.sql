@@ -3,8 +3,8 @@ select
     accountid::int                             as account_id
   , clientid::int                              as client_id
   , lplaccountno::int                          as lpl_account_no
-  , sponsorname::varchar(100)                  as sponsor_name
-  , sponsoraccountno::int                      as sponsor_account_no
+  , sponsorname::text(50)                      as sponsor_name
+  , sponsoraccountno::text(50)                 as sponsor_account_no
   , accountclasscode::varchar(10)              as account_class_code
   , institutioncode::varchar(1)                as institution_code
   , repid::varchar(5)                          as rep_id
@@ -30,10 +30,10 @@ select
   , registrationline5                          as registration_line_5
   , registrationline6                          as registration_line_6
   , registrationline7                          as registration_line_7
-  , homephoneno::int                           as home_phone_no
-  , businessphoneno::int                       as business_phone_no
-  , faxno::int                                 as fax_no
-  , mobilephoneno::int                         as mobile_phone_no
+  , homephoneno::text(50)                      as home_phone_no
+  , businessphoneno::text(50)                  as business_phone_no
+  , faxno::text(50)                            as fax_no
+  , mobilephoneno::text(50)                    as mobile_phone_no
   , emailaddress                               as email_address
   , feeschedule                                as fee_schedule
   , opennotificationcount::int                 as open_notification_count
