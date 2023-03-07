@@ -1,263 +1,284 @@
 select
-    id
-  , owner_id
-  , is_deleted
-  , name
-  , record_type_id
-  , created_date
-  , created_by_id
-  , last_modified_date
-  , last_modified_by_id
-  , system_modstamp
-  , last_activity_date
-  , last_viewed_date
-  , last_referenced_date
-  , account_execuitive_c
-  , account_c
-  , active_participants_c
-  , administrator_benchmarking_review_c
-  , adoption_agreement_received_c
-  , advisory_or_brokerage_c
-  , allocation_frequency_c
-  , amendment_effective_date_c
-  , amendments_received_c
-  , analyst_c
-  , annual_participant_retirement_report_c
-  , assigned_tier_c
-  , auto_enrollment_pct_c
-  , auto_enrollment_c
-  , bor_date_c
-  , bor_c
-  , behaviorial_finance_review_c
-  , client_type_c
-  , company_match_type_c
-  , company_match_c
-  , company_non_elective_c
-  , composite_plan_return_c
-  , confirmed_assets_c
-  , consultant_c
-  , contact_c
-  , contract_number_c
-  , copy_of_investment_policy_statement_c
-  , created_by_name_c
-  , date_client_profile_obtained_c
-  , date_fiduciary_doc_pack_provided_c
-  , date_iaa_submitted_c
-  , date_ima_obtained_c
-  , date_ips_revised_c
-  , date_last_sp_checklist_contract_review_c
-  , date_new_account_paperwork_issued_c
-  , date_new_account_setup_c
-  , date_new_acct_paperwork_obtained_c
-  , date_scanned_in_c
-  , date_signed_paperwork_faxed_c
-  , date_toa_completed_c
-  , date_toa_intiated_c
-  , date_toa_obtained_c
-  , date_of_last_admin_benchmarking_review_c
-  , date_of_last_fee_review_c
-  , date_of_last_fiduciary_training_c
-  , date_of_last_goals_and_objectives_c
-  , date_of_last_industry_reports_c
-  , date_of_last_legislative_update_c
-  , date_of_last_model_changes_c
-  , date_of_last_participant_education_c
-  , date_of_last_rfp_rfi_search_c
-  , date_of_last_rk_plan_review_c
-  , date_of_last_rk_review_c
-  , date_of_last_review_c
-  , date_of_verbal_intent_c
-  , document_1_link_c
-  , document_2_link_c
-  , document_3_link_c
-  , document_4_link_c
-  , document_5_link_c
-  , document_effective_date_c
-  , education_specialist_c
-  , eligibility_provisions_service_c
-  , eligibility_provisions_c
-  , employee_wellness_survey_c
-  , entry_dates_c
-  , fee_analysis_schedule_c
-  , fee_analysis_c
-  , fee_schedule_c
-  , fiduciary_document_pack_c
-  , fiduciary_relationship_c
-  , fiduciary_training_schedule_c
-  , financial_hardship_c
-  , firm_plan_id_c
-  , firm_plan_status_c
-  , firm_refresh_date_time_c
-  , first_payroll_submission_completed_c
-  , goals_and_objectives_c
-  , household_c
-  , how_many_accounts_of_each_type_c
-  , iaa_version_c
-  , ima_fee_c
-  , import_id_c
-  , in_service_withdraw_c
-  , industry_name_c
-  , industry_reports_c
-  , investment_menu_c
-  , last_modified_by_name_c
-  , lead_originator_c
-  , legislative_update_c
-  , loans_c
-  , mra_investment_review_schedule_c
-  , match_provisions_c
-  , matching_formula_c
-  , model_portfolio_c
-  , models_per_account_c
-  , non_elective_formula_c
-  , number_of_funds_c
-  , number_of_outstanding_loans_c
-  , opportunity_c
-  , other_eligibility_age_c
-  , other_eligibility_service_c
-  , other_vesting_schedule_c
-  , outstanding_loan_amount_c
-  , owner_name_c
-  , participant_education_plan_c
-  , participants_actual_c
-  , participants_eligible_c
-  , participants_with_three_plus_funds_c
-  , participations_termed_c
-  , plan_assets_as_of_date_c
-  , plan_assets_c
-  , plan_deferral_rate_c
-  , plan_entry_dates_c
-  , plan_implementation_completed_c
-  , plan_participation_rate_c
-  , plan_tax_id_c
-  , plan_type_c
-  , plan_year_end_c
-  , platform_c
-  , primary_contact_c
-  , product_type_c
-  , provider_name_c
-  , provider_product_name_c
-  , qdia_fund_c
-  , quarterback_name_c
-  , quarterback_c
-  , rfp_rfi_search_c
-  , ria_firm_name_c
-  , rk_plan_review_c
-  , rk_review_schedule_c
-  , reason_for_delay_c
-  , record_keeper_plan_number_c
-  , recordkeeper_product_name_c
-  , recordkeeper_c
-  , report_email_address_c
-  , report_schedule_c
-  , review_frequency_c
-  , roth_401_k_c
-  , sfdc_project_end_date_c
-  , sfdc_project_manager_c
-  , sfdc_project_stage_c
-  , sfdc_project_start_date_c
-  , sfdc_project_status_c
-  , sfdc_status_description_c
-  , spd_effective_date_c
-  , spd_received_c
-  , sp_checklist_contract_review_c
-  , safe_harbor_indicator_c
-  , source_of_funds_c
-  , tpa_obtained_c
-  , tpa_c
-  , temporary_account_number_c
-  , tier_c
-  , total_contribution_amount_c
-  , total_distribution_amount_c
-  , total_market_value_c
-  , total_plan_net_amount_c
-  , transfer_frequency_c
-  , transfer_of_assets_completed_c
-  , types_of_accounts_c
-  , uninvested_cash_c
-  , vendor_review_schedule_c
-  , vesting_schedule_c
-  , x_401_k_size_c
-  , e_money_c
-  , or_dollar_amount_c
-  , account_idorion_c
-  , billing_method_c
-  , billing_frequency_c
-  , date_fee_forms_submitted_to_recordkeeper_c
-  , current_fee_at_recordkeeper_c
-  , operations_notes_c
-  , date_of_last_fee_review_confirmed_c
-  , custodian_c
-  , accounting_tracking_number_c
-  , start_date_c
-  , close_date_c
-  , _fivetran_synced
-  , aum_classification_c
-  , actuary_c
-  , third_party_administrator_tpa_c
-  , auditor_c
-  , review_schedule_c
-  , hsa_provider_c
-  , in_plan_roth_conversion_c
-  , rk_rfp_rfi_c
-  , financial_wellness_c
-  , mariner_managed_accounts_c
-  , education_meeting_frequency_c
-  , education_meeting_type_c
-  , education_rps_personnel_c
-  , auto_increase_pct_c
-  , advisor_rfp_rfi_search_c
-  , hsa_c
-  , date_of_last_rk_rfp_rfi_c
-  , student_loan_repayment_c
-  , auto_increase_c
-  , after_tax_c
-  , tdf_series_c
-  , date_of_last_advisor_rfp_rfi_search_c
-  , partner_firm_c
-  , account_tier_c
-  , days_since_fee_updated_at_recordkeeper_c
-  , sfdc_project_duration_c
-  , plan_id_18_c
-  , rate_based_on_most_recent_assets_c
-  , days_until_ips_expires_c
-  , sfdc_days_remaining_c
-  , days_until_new_ips_due_c
-  , x_5_th_tier_dollars_threshold_c
-  , flat_fee_type_c
-  , flat_percent_fee_c
-  , x_3_rd_tier_percent_c
-  , fee_type_c
-  , flat_annual_fee_c
-  , advisory_fee_schedule_c
-  , x_4_th_tier_dollars_threshold_c
-  , x_1_st_tier_percent_c
-  , x_2_nd_tier_dollars_threshold_c
-  , x_1_st_tier_dollars_threshold_c
-  , x_4_th_tier_percent_c
-  , x_5_th_tier_percent_c
-  , number_of_fee_tiers_c
-  , x_3_rd_tier_dollars_threshold_c
-  , x_2_nd_tier_percent_c
-  , mh_location_c
-  , x_3_rd_mariner_managed_tier_threshold_c
-  , msec_registration_c
-  , venrollment_video_c
-  , x_1_st_mariner_managed_tier_c
-  , x_4_th_mariner_managed_tier_c
-  , bill_on_balance_c
-  , x_4_th_mariner_managed_tier_threshold_c
-  , ama_balance_c
-  , x_6_th_tier_percent_c
-  , mariner_managed_number_of_fee_tiers_c
-  , trust_company_c
-  , service_model_c
-  , x_6_th_tier_dollars_threshold_c
-  , x_1_st_mariner_managed_tier_threshold_c
-  , x_2_nd_mariner_managed_tier_c
-  , approximate_annual_contribution_c
-  , x_2_nd_mariner_managed_tier_threshold_c
-  , fixed_icr_c
-  , interest_crediting_rate_strategy_c
-  , x_3_rd_mariner_managed_tier_c
-  , transferred_balance_c
-from {{ source('salesforce_compass', 'plan_c') }}
+    a.json:ID:: VARCHAR(18)                                        as id
+  , a.json:OWNER_ID:: VARCHAR(18)                                  as owner_id
+  , a.json:IS_DELETED:: BOOLEAN                                    as is_deleted
+  , a.json:NAME:: VARCHAR(240)                                     as name
+  , a.json:RECORD_TYPE_ID:: VARCHAR(18)                            as record_type_id
+  , a.json:CREATED_DATE:: TIMESTAMPTZ                              as created_date
+  , a.json:CREATED_BY_ID:: VARCHAR(18)                             as created_by_id
+  , a.json:LAST_MODIFIED_DATE:: TIMESTAMPTZ                        as last_modified_date
+  , a.json:LAST_MODIFIED_BY_ID:: VARCHAR(18)                       as last_modified_by_id
+  , a.json:SYSTEM_MODSTAMP:: TIMESTAMPTZ                           as system_modstamp
+  , a.json:LAST_ACTIVITY_DATE:: DATE                               as last_activity_date
+  , a.json:LAST_VIEWED_DATE:: TIMESTAMPTZ                          as last_viewed_date
+  , a.json:LAST_REFERENCED_DATE:: TIMESTAMPTZ                      as last_referenced_date
+  , a.json:ACCOUNT_EXECUITIVE_C:: VARCHAR(18)                      as account_execuitive_c
+  , a.json:ACCOUNT_C:: VARCHAR(18)                                 as account_c
+  , a.json:ACTIVE_PARTICIPANTS_C:: DOUBLE                          as active_participants_c
+  , a.json:ADMINISTRATOR_BENCHMARKING_REVIEW_C:: VARCHAR(765)      as administrator_benchmarking_review_c
+  , a.json:ADOPTION_AGREEMENT_RECEIVED_C:: BOOLEAN                 as adoption_agreement_received_c
+  , a.json:ADVISORY_OR_BROKERAGE_C:: VARCHAR(765)                  as advisory_or_brokerage_c
+  , a.json:ALLOCATION_FREQUENCY_C:: VARCHAR(765)                   as allocation_frequency_c
+  , a.json:AMENDMENT_EFFECTIVE_DATE_C:: DATE                       as amendment_effective_date_c
+  , a.json:AMENDMENTS_RECEIVED_C:: BOOLEAN                         as amendments_received_c
+  , a.json:ANALYST_C:: VARCHAR(18)                                 as analyst_c
+  , a.json:ANNUAL_PARTICIPANT_RETIREMENT_REPORT_C:: VARCHAR(765)   as annual_participant_retirement_report_c
+  , a.json:ASSIGNED_TIER_C:: VARCHAR(765)                          as assigned_tier_c
+  , a.json:AUTO_ENROLLMENT_PCT_C:: DOUBLE                          as auto_enrollment_pct_c
+  , a.json:AUTO_ENROLLMENT_C:: BOOLEAN                             as auto_enrollment_c
+  , a.json:BOR_DATE_C:: DATE                                       as bor_date_c
+  , a.json:BOR_C:: VARCHAR(765)                                    as bor_c
+  , a.json:BEHAVIORIAL_FINANCE_REVIEW_C:: VARCHAR(765)             as behaviorial_finance_review_c
+  , a.json:CLIENT_TYPE_C:: VARCHAR(4099)                           as client_type_c
+  , a.json:COMPANY_MATCH_TYPE_C:: VARCHAR(765)                     as company_match_type_c
+  , a.json:COMPANY_MATCH_C:: BOOLEAN                               as company_match_c
+  , a.json:COMPANY_NON_ELECTIVE_C:: BOOLEAN                        as company_non_elective_c
+  , a.json:COMPOSITE_PLAN_RETURN_C:: NUMBER(18, 2)                 as composite_plan_return_c
+  , a.json:CONFIRMED_ASSETS_C:: NUMBER(18, 2)                      as confirmed_assets_c
+  , a.json:CONSULTANT_C:: VARCHAR(18)                              as consultant_c
+  , a.json:CONTACT_C:: VARCHAR(18)                                 as contact_c
+  , a.json:CONTRACT_NUMBER_C:: VARCHAR(120)                        as contract_number_c
+  , a.json:COPY_OF_INVESTMENT_POLICY_STATEMENT_C:: VARCHAR(765)    as copy_of_investment_policy_statement_c
+  , a.json:CREATED_BY_NAME_C:: VARCHAR(300)                        as created_by_name_c
+  , a.json:DATE_CLIENT_PROFILE_OBTAINED_C:: DATE                   as date_client_profile_obtained_c
+  , a.json:DATE_FIDUCIARY_DOC_PACK_PROVIDED_C:: DATE               as date_fiduciary_doc_pack_provided_c
+  , a.json:DATE_IAA_SUBMITTED_C:: DATE                             as date_iaa_submitted_c
+  , a.json:DATE_IMA_OBTAINED_C:: DATE                              as date_ima_obtained_c
+  , a.json:DATE_IPS_REVISED_C:: DATE                               as date_ips_revised_c
+  , a.json:DATE_LAST_SP_CHECKLIST_CONTRACT_REVIEW_C:: DATE         as date_last_sp_checklist_contract_review_c
+  , a.json:DATE_NEW_ACCOUNT_PAPERWORK_ISSUED_C:: DATE              as date_new_account_paperwork_issued_c
+  , a.json:DATE_NEW_ACCOUNT_SETUP_C:: DATE                         as date_new_account_setup_c
+  , a.json:DATE_NEW_ACCT_PAPERWORK_OBTAINED_C:: DATE               as date_new_acct_paperwork_obtained_c
+  , a.json:DATE_SCANNED_IN_C:: DATE                                as date_scanned_in_c
+  , a.json:DATE_SIGNED_PAPERWORK_FAXED_C:: DATE                    as date_signed_paperwork_faxed_c
+  , a.json:DATE_TOA_COMPLETED_C:: DATE                             as date_toa_completed_c
+  , a.json:DATE_TOA_INTIATED_C:: DATE                              as date_toa_intiated_c
+  , a.json:DATE_TOA_OBTAINED_C:: DATE                              as date_toa_obtained_c
+  , a.json:DATE_OF_LAST_ADMIN_BENCHMARKING_REVIEW_C:: DATE         as date_of_last_admin_benchmarking_review_c
+  , a.json:DATE_OF_LAST_FEE_REVIEW_C:: DATE                        as date_of_last_fee_review_c
+  , a.json:DATE_OF_LAST_FIDUCIARY_TRAINING_C:: DATE                as date_of_last_fiduciary_training_c
+  , a.json:DATE_OF_LAST_GOALS_AND_OBJECTIVES_C:: DATE              as date_of_last_goals_and_objectives_c
+  , a.json:DATE_OF_LAST_INDUSTRY_REPORTS_C:: DATE                  as date_of_last_industry_reports_c
+  , a.json:DATE_OF_LAST_LEGISLATIVE_UPDATE_C:: DATE                as date_of_last_legislative_update_c
+  , a.json:DATE_OF_LAST_MODEL_CHANGES_C:: DATE                     as date_of_last_model_changes_c
+  , a.json:DATE_OF_LAST_PARTICIPANT_EDUCATION_C:: DATE             as date_of_last_participant_education_c
+  , a.json:DATE_OF_LAST_RFP_RFI_SEARCH_C:: DATE                    as date_of_last_rfp_rfi_search_c
+  , a.json:DATE_OF_LAST_RK_PLAN_REVIEW_C:: DATE                    as date_of_last_rk_plan_review_c
+  , a.json:DATE_OF_LAST_RK_REVIEW_C:: DATE                         as date_of_last_rk_review_c
+  , a.json:DATE_OF_LAST_REVIEW_C:: DATE                            as date_of_last_review_c
+  , a.json:DATE_OF_VERBAL_INTENT_C:: DATE                          as date_of_verbal_intent_c
+  , a.json:DOCUMENT_1_LINK_C:: VARCHAR(765)                        as document_1_link_c
+  , a.json:DOCUMENT_2_LINK_C:: VARCHAR(765)                        as document_2_link_c
+  , a.json:DOCUMENT_3_LINK_C:: VARCHAR(765)                        as document_3_link_c
+  , a.json:DOCUMENT_4_LINK_C:: VARCHAR(765)                        as document_4_link_c
+  , a.json:DOCUMENT_5_LINK_C:: VARCHAR(765)                        as document_5_link_c
+  , a.json:DOCUMENT_EFFECTIVE_DATE_C:: DATE                        as document_effective_date_c
+  , a.json:EDUCATION_SPECIALIST_C:: VARCHAR(18)                    as education_specialist_c
+  , a.json:ELIGIBILITY_PROVISIONS_SERVICE_C:: VARCHAR(765)         as eligibility_provisions_service_c
+  , a.json:ELIGIBILITY_PROVISIONS_C:: VARCHAR(765)                 as eligibility_provisions_c
+  , a.json:EMPLOYEE_WELLNESS_SURVEY_C:: VARCHAR(765)               as employee_wellness_survey_c
+  , a.json:ENTRY_DATES_C:: VARCHAR(765)                            as entry_dates_c
+  , a.json:FEE_ANALYSIS_SCHEDULE_C:: VARCHAR(765)                  as fee_analysis_schedule_c
+  , a.json:FEE_ANALYSIS_C:: VARCHAR(765)                           as fee_analysis_c
+  , a.json:FEE_SCHEDULE_C:: VARCHAR(18)                            as fee_schedule_c
+  , a.json:FIDUCIARY_DOCUMENT_PACK_C:: VARCHAR(765)                as fiduciary_document_pack_c
+  , a.json:FIDUCIARY_RELATIONSHIP_C:: VARCHAR(765)                 as fiduciary_relationship_c
+  , a.json:FIDUCIARY_TRAINING_SCHEDULE_C:: VARCHAR(765)            as fiduciary_training_schedule_c
+  , a.json:FINANCIAL_HARDSHIP_C:: BOOLEAN                          as financial_hardship_c
+  , a.json:FIRM_PLAN_ID_C:: VARCHAR(765)                           as firm_plan_id_c
+  , a.json:FIRM_PLAN_STATUS_C:: VARCHAR(765)                       as firm_plan_status_c
+  , a.json:FIRM_REFRESH_DATE_TIME_C:: TIMESTAMPTZ                  as firm_refresh_date_time_c
+  , a.json:FIRST_PAYROLL_SUBMISSION_COMPLETED_C:: DATE             as first_payroll_submission_completed_c
+  , a.json:GOALS_AND_OBJECTIVES_C:: VARCHAR(765)                   as goals_and_objectives_c
+  , a.json:HOUSEHOLD_C:: VARCHAR(18)                               as household_c
+  , a.json:HOW_MANY_ACCOUNTS_OF_EACH_TYPE_C:: VARCHAR(765)         as how_many_accounts_of_each_type_c
+  , a.json:IAA_VERSION_C:: VARCHAR(765)                            as iaa_version_c
+  , a.json:IMA_FEE_C:: DOUBLE                                      as ima_fee_c
+  , a.json:IMPORT_ID_C:: VARCHAR(90)                               as import_id_c
+  , a.json:IN_SERVICE_WITHDRAW_C:: BOOLEAN                         as in_service_withdraw_c
+  , a.json:INDUSTRY_NAME_C:: VARCHAR(765)                          as industry_name_c
+  , a.json:INDUSTRY_REPORTS_C:: VARCHAR(765)                       as industry_reports_c
+  , a.json:INVESTMENT_MENU_C:: VARCHAR(765)                        as investment_menu_c
+  , a.json:LAST_MODIFIED_BY_NAME_C:: VARCHAR(300)                  as last_modified_by_name_c
+  , a.json:LEAD_ORIGINATOR_C:: VARCHAR(300)                        as lead_originator_c
+  , a.json:LEGISLATIVE_UPDATE_C:: VARCHAR(765)                     as legislative_update_c
+  , a.json:LOANS_C:: BOOLEAN                                       as loans_c
+  , a.json:MRA_INVESTMENT_REVIEW_SCHEDULE_C:: VARCHAR(98304)       as mra_investment_review_schedule_c
+  , a.json:MATCH_PROVISIONS_C:: VARCHAR(765)                       as match_provisions_c
+  , a.json:MATCHING_FORMULA_C:: VARCHAR(300)                       as matching_formula_c
+  , a.json:MODEL_PORTFOLIO_C:: VARCHAR(765)                        as model_portfolio_c
+  , a.json:MODELS_PER_ACCOUNT_C:: VARCHAR(765)                     as models_per_account_c
+  , a.json:NON_ELECTIVE_FORMULA_C:: VARCHAR(300)                   as non_elective_formula_c
+  , a.json:NUMBER_OF_FUNDS_C:: DOUBLE                              as number_of_funds_c
+  , a.json:NUMBER_OF_OUTSTANDING_LOANS_C:: DOUBLE                  as number_of_outstanding_loans_c
+  , a.json:OPPORTUNITY_C:: VARCHAR(18)                             as opportunity_c
+  , a.json:OTHER_ELIGIBILITY_AGE_C:: VARCHAR(150)                  as other_eligibility_age_c
+  , a.json:OTHER_ELIGIBILITY_SERVICE_C:: VARCHAR(240)              as other_eligibility_service_c
+  , a.json:OTHER_VESTING_SCHEDULE_C:: VARCHAR(360)                 as other_vesting_schedule_c
+  , a.json:OUTSTANDING_LOAN_AMOUNT_C:: NUMBER(18, 2)               as outstanding_loan_amount_c
+  , a.json:OWNER_NAME_C:: VARCHAR(300)                             as owner_name_c
+  , a.json:PARTICIPANT_EDUCATION_PLAN_C:: VARCHAR(765)             as participant_education_plan_c
+  , a.json:PARTICIPANTS_ACTUAL_C:: DOUBLE                          as participants_actual_c
+  , a.json:PARTICIPANTS_ELIGIBLE_C:: DOUBLE                        as participants_eligible_c
+  , a.json:PARTICIPANTS_WITH_THREE_PLUS_FUNDS_C:: DOUBLE           as participants_with_three_plus_funds_c
+  , a.json:PARTICIPATIONS_TERMED_C:: DOUBLE                        as participations_termed_c
+  , a.json:PLAN_ASSETS_AS_OF_DATE_C:: DATE                         as plan_assets_as_of_date_c
+  , a.json:PLAN_ASSETS_C:: NUMBER(18, 2)                           as plan_assets_c
+  , a.json:PLAN_DEFERRAL_RATE_C:: DOUBLE                           as plan_deferral_rate_c
+  , a.json:PLAN_ENTRY_DATES_C:: VARCHAR(765)                       as plan_entry_dates_c
+  , a.json:PLAN_IMPLEMENTATION_COMPLETED_C:: DATE                  as plan_implementation_completed_c
+  , a.json:PLAN_PARTICIPATION_RATE_C:: DOUBLE                      as plan_participation_rate_c
+  , a.json:PLAN_TAX_ID_C:: VARCHAR(765)                            as plan_tax_id_c
+  , a.json:PLAN_TYPE_C:: VARCHAR(765)                              as plan_type_c
+  , a.json:PLAN_YEAR_END_C:: VARCHAR(765)                          as plan_year_end_c
+  , a.json:PLATFORM_C:: VARCHAR(765)                               as platform_c
+  , a.json:PRIMARY_CONTACT_C:: VARCHAR(18)                         as primary_contact_c
+  , a.json:PRODUCT_TYPE_C:: VARCHAR(765)                           as product_type_c
+  , a.json:PROVIDER_NAME_C:: VARCHAR(765)                          as provider_name_c
+  , a.json:PROVIDER_PRODUCT_NAME_C:: VARCHAR(765)                  as provider_product_name_c
+  , a.json:QDIA_FUND_C:: VARCHAR(765)                              as qdia_fund_c
+  , a.json:QUARTERBACK_NAME_C:: VARCHAR(300)                       as quarterback_name_c
+  , a.json:QUARTERBACK_C:: VARCHAR(18)                             as quarterback_c
+  , a.json:RFP_RFI_SEARCH_C:: VARCHAR(765)                         as rfp_rfi_search_c
+  , a.json:RIA_FIRM_NAME_C:: VARCHAR(765)                          as ria_firm_name_c
+  , a.json:RK_PLAN_REVIEW_C:: VARCHAR(765)                         as rk_plan_review_c
+  , a.json:RK_REVIEW_SCHEDULE_C:: VARCHAR(765)                     as rk_review_schedule_c
+  , a.json:REASON_FOR_DELAY_C:: VARCHAR(765)                       as reason_for_delay_c
+  , a.json:RECORD_KEEPER_PLAN_NUMBER_C:: VARCHAR(765)              as record_keeper_plan_number_c
+  , a.json:RECORDKEEPER_PRODUCT_NAME_C:: VARCHAR(765)              as recordkeeper_product_name_c
+  , a.json:RECORDKEEPER_C:: VARCHAR(18)                            as recordkeeper_c
+  , a.json:REPORT_EMAIL_ADDRESS_C:: VARCHAR(765)                   as report_email_address_c
+  , a.json:REPORT_SCHEDULE_C:: VARCHAR(4099)                       as report_schedule_c
+  , a.json:REVIEW_FREQUENCY_C:: VARCHAR(765)                       as review_frequency_c
+  , a.json:ROTH_401_K_C:: BOOLEAN                                  as roth_401_k_c
+  , a.json:SFDC_PROJECT_END_DATE_C:: DATE                          as sfdc_project_end_date_c
+  , a.json:SFDC_PROJECT_MANAGER_C:: VARCHAR(18)                    as sfdc_project_manager_c
+  , a.json:SFDC_PROJECT_STAGE_C:: VARCHAR(765)                     as sfdc_project_stage_c
+  , a.json:SFDC_PROJECT_START_DATE_C:: DATE                        as sfdc_project_start_date_c
+  , a.json:SFDC_PROJECT_STATUS_C:: VARCHAR(765)                    as sfdc_project_status_c
+  , a.json:SFDC_STATUS_DESCRIPTION_C:: VARCHAR(765)                as sfdc_status_description_c
+  , a.json:SPD_EFFECTIVE_DATE_C:: DATE                             as spd_effective_date_c
+  , a.json:SPD_RECEIVED_C:: BOOLEAN                                as spd_received_c
+  , a.json:SP_CHECKLIST_CONTRACT_REVIEW_C:: VARCHAR(765)           as sp_checklist_contract_review_c
+  , a.json:SAFE_HARBOR_INDICATOR_C:: BOOLEAN                       as safe_harbor_indicator_c
+  , a.json:SOURCE_OF_FUNDS_C:: VARCHAR(765)                        as source_of_funds_c
+  , a.json:TPA_OBTAINED_C:: DATE                                   as tpa_obtained_c
+  , a.json:TPA_C:: VARCHAR(18)                                     as tpa_c
+  , a.json:TEMPORARY_ACCOUNT_NUMBER_C:: VARCHAR(300)               as temporary_account_number_c
+  , a.json:TIER_C:: VARCHAR(765)                                   as tier_c
+  , a.json:TOTAL_CONTRIBUTION_AMOUNT_C:: NUMBER(18, 2)             as total_contribution_amount_c
+  , a.json:TOTAL_DISTRIBUTION_AMOUNT_C:: NUMBER(18, 2)             as total_distribution_amount_c
+  , a.json:TOTAL_MARKET_VALUE_C:: NUMBER(18, 2)                    as total_market_value_c
+  , a.json:TOTAL_PLAN_NET_AMOUNT_C:: NUMBER(18, 2)                 as total_plan_net_amount_c
+  , a.json:TRANSFER_FREQUENCY_C:: VARCHAR(765)                     as transfer_frequency_c
+  , a.json:TRANSFER_OF_ASSETS_COMPLETED_C:: DATE                   as transfer_of_assets_completed_c
+  , a.json:TYPES_OF_ACCOUNTS_C:: VARCHAR(765)                      as types_of_accounts_c
+  , a.json:UNINVESTED_CASH_C:: NUMBER(18, 2)                       as uninvested_cash_c
+  , a.json:VENDOR_REVIEW_SCHEDULE_C:: VARCHAR(98304)               as vendor_review_schedule_c
+  , a.json:VESTING_SCHEDULE_C:: VARCHAR(765)                       as vesting_schedule_c
+  , a.json:X_401_K_SIZE_C:: NUMBER(18)                             as x_401_k_size_c
+  , a.json:E_MONEY_C:: VARCHAR(765)                                as e_money_c
+  , a.json:OR_DOLLAR_AMOUNT_C:: VARCHAR(765)                       as or_dollar_amount_c
+  , a.json:ACCOUNT_IDORION_C:: VARCHAR(24)                         as account_idorion_c
+  , a.json:BILLING_METHOD_C:: VARCHAR(765)                         as billing_method_c
+  , a.json:BILLING_FREQUENCY_C:: VARCHAR(765)                      as billing_frequency_c
+  , a.json:DATE_FEE_FORMS_SUBMITTED_TO_RECORDKEEPER_C:: DATE       as date_fee_forms_submitted_to_recordkeeper_c
+  , a.json:CURRENT_FEE_AT_RECORDKEEPER_C:: DOUBLE                  as current_fee_at_recordkeeper_c
+  , a.json:OPERATIONS_NOTES_C:: VARCHAR(765)                       as operations_notes_c
+  , a.json:DATE_OF_LAST_FEE_REVIEW_CONFIRMED_C:: DATE              as date_of_last_fee_review_confirmed_c
+  , a.json:CUSTODIAN_C:: VARCHAR(18)                               as custodian_c
+  , a.json:ACCOUNTING_TRACKING_NUMBER_C:: VARCHAR(150)             as accounting_tracking_number_c
+  , a.json:START_DATE_C:: DATE                                     as start_date_c
+  , a.json:CLOSE_DATE_C:: DATE                                     as close_date_c
+  , a.json:_FIVETRAN_SYNCED:: TIMESTAMPTZ                          as _fivetran_synced
+  , a.json:AUM_CLASSIFICATION_C:: VARCHAR(765)                     as aum_classification_c
+  , a.json:ACTUARY_C:: VARCHAR(765)                                as actuary_c
+  , a.json:THIRD_PARTY_ADMINISTRATOR_TPA_C:: VARCHAR(765)          as third_party_administrator_tpa_c
+  , a.json:AUDITOR_C:: VARCHAR(765)                                as auditor_c
+  , a.json:REVIEW_SCHEDULE_C:: VARCHAR(4099)                       as review_schedule_c
+  , a.json:HSA_PROVIDER_C:: VARCHAR(765)                           as hsa_provider_c
+  , a.json:IN_PLAN_ROTH_CONVERSION_C:: BOOLEAN                     as in_plan_roth_conversion_c
+  , a.json:RK_RFP_RFI_C:: VARCHAR(765)                             as rk_rfp_rfi_c
+  , a.json:FINANCIAL_WELLNESS_C:: VARCHAR(765)                     as financial_wellness_c
+  , a.json:MARINER_MANAGED_ACCOUNTS_C:: BOOLEAN                    as mariner_managed_accounts_c
+  , a.json:EDUCATION_MEETING_FREQUENCY_C:: VARCHAR(765)            as education_meeting_frequency_c
+  , a.json:EDUCATION_MEETING_TYPE_C:: VARCHAR(765)                 as education_meeting_type_c
+  , a.json:EDUCATION_RPS_PERSONNEL_C:: VARCHAR(18)                 as education_rps_personnel_c
+  , a.json:AUTO_INCREASE_PCT_C:: DOUBLE                            as auto_increase_pct_c
+  , a.json:ADVISOR_RFP_RFI_SEARCH_C:: VARCHAR(765)                 as advisor_rfp_rfi_search_c
+  , a.json:HSA_C:: BOOLEAN                                         as hsa_c
+  , a.json:DATE_OF_LAST_RK_RFP_RFI_C:: DATE                        as date_of_last_rk_rfp_rfi_c
+  , a.json:STUDENT_LOAN_REPAYMENT_C:: BOOLEAN                      as student_loan_repayment_c
+  , a.json:AUTO_INCREASE_C:: BOOLEAN                               as auto_increase_c
+  , a.json:AFTER_TAX_C:: BOOLEAN                                   as after_tax_c
+  , a.json:TDF_SERIES_C:: VARCHAR(765)                             as tdf_series_c
+  , a.json:DATE_OF_LAST_ADVISOR_RFP_RFI_SEARCH_C:: DATE            as date_of_last_advisor_rfp_rfi_search_c
+  , a.json:PARTNER_FIRM_C:: VARCHAR(3900)                          as partner_firm_c
+  , a.json:ACCOUNT_TIER_C:: VARCHAR(3900)                          as account_tier_c
+  , a.json:DAYS_SINCE_FEE_UPDATED_AT_RECORDKEEPER_C:: DOUBLE       as days_since_fee_updated_at_recordkeeper_c
+  , a.json:SFDC_PROJECT_DURATION_C:: DOUBLE                        as sfdc_project_duration_c
+  , a.json:PLAN_ID_18_C:: VARCHAR(3900)                            as plan_id_18_c
+  , a.json:RATE_BASED_ON_MOST_RECENT_ASSETS_C:: DOUBLE             as rate_based_on_most_recent_assets_c
+  , a.json:DAYS_UNTIL_IPS_EXPIRES_C:: DOUBLE                       as days_until_ips_expires_c
+  , a.json:SFDC_DAYS_REMAINING_C:: DOUBLE                          as sfdc_days_remaining_c
+  , a.json:DAYS_UNTIL_NEW_IPS_DUE_C:: DOUBLE                       as days_until_new_ips_due_c
+  , a.json:X_5_TH_TIER_DOLLARS_THRESHOLD_C:: NUMBER(18, 2)         as x_5_th_tier_dollars_threshold_c
+  , a.json:FLAT_FEE_TYPE_C:: VARCHAR(765)                          as flat_fee_type_c
+  , a.json:FLAT_PERCENT_FEE_C:: DOUBLE                             as flat_percent_fee_c
+  , a.json:X_3_RD_TIER_PERCENT_C:: DOUBLE                          as x_3_rd_tier_percent_c
+  , a.json:FEE_TYPE_C:: VARCHAR(765)                               as fee_type_c
+  , a.json:FLAT_ANNUAL_FEE_C:: NUMBER(18, 2)                       as flat_annual_fee_c
+  , a.json:ADVISORY_FEE_SCHEDULE_C:: VARCHAR(3900)                 as advisory_fee_schedule_c
+  , a.json:X_4_TH_TIER_DOLLARS_THRESHOLD_C:: NUMBER(18, 2)         as x_4_th_tier_dollars_threshold_c
+  , a.json:X_1_ST_TIER_PERCENT_C:: DOUBLE                          as x_1_st_tier_percent_c
+  , a.json:X_2_ND_TIER_DOLLARS_THRESHOLD_C:: NUMBER(18, 2)         as x_2_nd_tier_dollars_threshold_c
+  , a.json:X_1_ST_TIER_DOLLARS_THRESHOLD_C:: NUMBER(18, 2)         as x_1_st_tier_dollars_threshold_c
+  , a.json:X_4_TH_TIER_PERCENT_C:: DOUBLE                          as x_4_th_tier_percent_c
+  , a.json:X_5_TH_TIER_PERCENT_C:: DOUBLE                          as x_5_th_tier_percent_c
+  , a.json:NUMBER_OF_FEE_TIERS_C:: VARCHAR(765)                    as number_of_fee_tiers_c
+  , a.json:X_3_RD_TIER_DOLLARS_THRESHOLD_C:: NUMBER(18, 2)         as x_3_rd_tier_dollars_threshold_c
+  , a.json:X_2_ND_TIER_PERCENT_C:: DOUBLE                          as x_2_nd_tier_percent_c
+  , a.json:MH_LOCATION_C:: VARCHAR(18)                             as mh_location_c
+  , a.json:X_3_RD_MARINER_MANAGED_TIER_THRESHOLD_C:: NUMBER(18, 2) as x_3_rd_mariner_managed_tier_threshold_c
+  , a.json:MSEC_REGISTRATION_C:: BOOLEAN                           as msec_registration_c
+  , a.json:VENROLLMENT_VIDEO_C:: BOOLEAN                           as venrollment_video_c
+  , a.json:X_1_ST_MARINER_MANAGED_TIER_C:: DOUBLE                  as x_1_st_mariner_managed_tier_c
+  , a.json:X_4_TH_MARINER_MANAGED_TIER_C:: DOUBLE                  as x_4_th_mariner_managed_tier_c
+  , a.json:BILL_ON_BALANCE_C:: VARCHAR(765)                        as bill_on_balance_c
+  , a.json:X_4_TH_MARINER_MANAGED_TIER_THRESHOLD_C:: NUMBER(18, 2) as x_4_th_mariner_managed_tier_threshold_c
+  , a.json:AMA_BALANCE_C:: NUMBER(18, 2)                           as ama_balance_c
+  , a.json:X_6_TH_TIER_PERCENT_C:: DOUBLE                          as x_6_th_tier_percent_c
+  , a.json:MARINER_MANAGED_NUMBER_OF_FEE_TIERS_C:: VARCHAR(765)    as mariner_managed_number_of_fee_tiers_c
+  , a.json:TRUST_COMPANY_C:: VARCHAR(765)                          as trust_company_c
+  , a.json:SERVICE_MODEL_C:: VARCHAR(765)                          as service_model_c
+  , a.json:X_6_TH_TIER_DOLLARS_THRESHOLD_C:: NUMBER(18, 2)         as x_6_th_tier_dollars_threshold_c
+  , a.json:X_1_ST_MARINER_MANAGED_TIER_THRESHOLD_C:: NUMBER(18, 2) as x_1_st_mariner_managed_tier_threshold_c
+  , a.json:X_2_ND_MARINER_MANAGED_TIER_C:: DOUBLE                  as x_2_nd_mariner_managed_tier_c
+  , a.json:APPROXIMATE_ANNUAL_CONTRIBUTION_C:: VARCHAR(765)        as approximate_annual_contribution_c
+  , a.json:X_2_ND_MARINER_MANAGED_TIER_THRESHOLD_C:: NUMBER(18, 2) as x_2_nd_mariner_managed_tier_threshold_c
+  , a.json:FIXED_ICR_C:: DOUBLE                                    as fixed_icr_c
+  , a.json:INTEREST_CREDITING_RATE_STRATEGY_C:: VARCHAR(765)       as interest_crediting_rate_strategy_c
+  , a.json:X_3_RD_MARINER_MANAGED_TIER_C:: DOUBLE                  as x_3_rd_mariner_managed_tier_c
+  , a.json:TRANSFERRED_BALANCE_C:: VARCHAR(765)                    as transferred_balance_c
+  , a.json:GENERAL_NOTES_C:: VARCHAR(765)                          as general_notes_c
+  , a.json:BILLING_NOTES_C:: VARCHAR(765)                          as billing_notes_c
+  , a.json:QUARTER_END_NOTES_C:: VARCHAR(765)                      as quarter_end_notes_c
+  , a.json:PRIMARY_INTRODUCER_C:: VARCHAR(18)                      as primary_introducer_c
+  , a.json:MARINER_MANAGED_FLAT_ANNUAL_FEE_C:: NUMBER(18, 2)       as mariner_managed_flat_annual_fee_c
+  , a.json:MARINER_MANAGED_FLAT_FEE_TYPE_C:: VARCHAR(765)          as mariner_managed_flat_fee_type_c
+  , a.json:MARINER_MANAGED_FLAT_PERCENT_FEE_C:: DOUBLE             as mariner_managed_flat_percent_fee_c
+  , a.json:MARINER_MANAGED_FEE_TYPE_C:: VARCHAR(765)               as mariner_managed_fee_type_c
+  , a.json:_FIVETRAN_DELETED:: BOOLEAN                             as _fivetran_deleted
+
+  , a.effective_at::timestamp                                      as effective_at
+  , a._created_at::timestamp                                       as _created_at
+  , {{ col_is_head(reference=source('salesforce_compass', 'plan_c'), source_date_col='a.effective_at', reference_date_col='effective_at') }}
+  , case when b.rn = 1 then 1 else 0 end                           as is_latest
+from {{ source('salesforce_compass', 'plan_c') }} a
+left join (
+  select effective_at::date as effective_at, _created_at, row_number() over(partition by effective_at::date order by _created_at desc) as rn
+  from {{ source('salesforce_compass', 'plan_c') }}
+  group by 1,2
+) b
+on a.effective_at::date = b.effective_at::date
+    and a._created_at = b._created_at

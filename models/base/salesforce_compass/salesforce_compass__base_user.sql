@@ -1,178 +1,192 @@
 select
-    id
-  , username
-  , last_name
-  , first_name
-  , middle_name
-  , suffix
-  , name
-  , company_name
-  , division
-  , department
-  , title
-  , street
-  , city
-  , state
-  , postal_code
-  , country
-  , latitude
-  , longitude
-  , geocode_accuracy
-  , email
-  , email_preferences_auto_bcc
-  , email_preferences_auto_bcc_stay_in_touch
-  , email_preferences_stay_in_touch_reminder
-  , sender_email
-  , sender_name
-  , signature
-  , stay_in_touch_subject
-  , stay_in_touch_signature
-  , stay_in_touch_note
-  , phone
-  , fax
-  , mobile_phone
-  , alias
-  , community_nickname
-  , badge_text
-  , is_active
-  , time_zone_sid_key
-  , user_role_id
-  , locale_sid_key
-  , receives_info_emails
-  , receives_admin_info_emails
-  , email_encoding_key
-  , profile_id
-  , user_type
-  , language_locale_key
-  , employee_number
-  , delegated_approver_id
-  , manager_id
-  , last_login_date
-  , created_date
-  , created_by_id
-  , last_modified_date
-  , last_modified_by_id
-  , system_modstamp
-  , offline_trial_expiration_date
-  , offline_pda_trial_expiration_date
-  , user_permissions_marketing_user
-  , user_permissions_offline_user
-  , user_permissions_avantgo_user
-  , user_permissions_call_center_auto_login
-  , user_permissions_sfcontent_user
-  , user_permissions_knowledge_user
-  , user_permissions_interaction_user
-  , user_permissions_support_user
-  , forecast_enabled
-  , user_preferences_activity_reminders_popup
-  , user_preferences_event_reminders_checkbox_default
-  , user_preferences_task_reminders_checkbox_default
-  , user_preferences_reminder_sound_off
-  , user_preferences_disable_all_feeds_email
-  , user_preferences_disable_followers_email
-  , user_preferences_disable_profile_post_email
-  , user_preferences_disable_change_comment_email
-  , user_preferences_disable_later_comment_email
-  , user_preferences_dis_prof_post_comment_email
-  , user_preferences_content_no_email
-  , user_preferences_content_email_as_and_when
-  , user_preferences_apex_pages_developer_mode
-  , user_preferences_receive_no_notifications_as_approver
-  , user_preferences_receive_notifications_as_delegated_approver
-  , user_preferences_hide_csnget_chatter_mobile_task
-  , user_preferences_disable_mentions_post_email
-  , user_preferences_dis_mentions_comment_email
-  , user_preferences_hide_csndesktop_task
-  , user_preferences_hide_chatter_onboarding_splash
-  , user_preferences_hide_second_chatter_onboarding_splash
-  , user_preferences_dis_comment_after_like_email
-  , user_preferences_disable_like_email
-  , user_preferences_sort_feed_by_comment
-  , user_preferences_disable_message_email
-  , user_preferences_disable_bookmark_email
-  , user_preferences_disable_share_post_email
-  , user_preferences_enable_auto_sub_for_feeds
-  , user_preferences_disable_file_share_notifications_for_api
-  , user_preferences_show_title_to_external_users
-  , user_preferences_show_manager_to_external_users
-  , user_preferences_show_email_to_external_users
-  , user_preferences_show_work_phone_to_external_users
-  , user_preferences_show_mobile_phone_to_external_users
-  , user_preferences_show_fax_to_external_users
-  , user_preferences_show_street_address_to_external_users
-  , user_preferences_show_city_to_external_users
-  , user_preferences_show_state_to_external_users
-  , user_preferences_show_postal_code_to_external_users
-  , user_preferences_show_country_to_external_users
-  , user_preferences_show_profile_pic_to_guest_users
-  , user_preferences_show_title_to_guest_users
-  , user_preferences_show_city_to_guest_users
-  , user_preferences_show_state_to_guest_users
-  , user_preferences_show_postal_code_to_guest_users
-  , user_preferences_show_country_to_guest_users
-  , user_preferences_hide_s_1_browser_ui
-  , user_preferences_disable_endorsement_email
-  , user_preferences_path_assistant_collapsed
-  , user_preferences_cache_diagnostics
-  , user_preferences_show_email_to_guest_users
-  , user_preferences_show_manager_to_guest_users
-  , user_preferences_show_work_phone_to_guest_users
-  , user_preferences_show_mobile_phone_to_guest_users
-  , user_preferences_show_fax_to_guest_users
-  , user_preferences_show_street_address_to_guest_users
-  , user_preferences_lightning_experience_preferred
-  , user_preferences_hide_end_user_onboarding_assistant_modal
-  , user_preferences_hide_lightning_migration_modal
-  , user_preferences_hide_sfx_welcome_mat
-  , user_preferences_hide_bigger_photo_callout
-  , user_preferences_global_nav_bar_wtshown
-  , user_preferences_global_nav_grid_menu_wtshown
-  , user_preferences_create_lexapps_wtshown
-  , user_preferences_favorites_wtshown
-  , user_preferences_record_home_section_collapse_wtshown
-  , user_preferences_record_home_reserved_wtshown
-  , user_preferences_favorites_show_top_favorites
-  , user_preferences_exclude_mail_app_attachments
-  , user_preferences_suppress_task_sfxreminders
-  , user_preferences_suppress_event_sfxreminders
-  , user_preferences_preview_custom_theme
-  , user_preferences_has_celebration_badge
-  , user_preferences_user_debug_mode_pref
-  , user_preferences_srhoverride_activities
-  , user_preferences_new_lightning_report_run_page_enabled
-  , contact_id
-  , account_id
-  , call_center_id
-  , extension
-  , federation_identifier
-  , about_me
-  , full_photo_url
-  , small_photo_url
-  , is_ext_indicator_visible
-  , out_of_office_message
-  , medium_photo_url
-  , digest_frequency
-  , default_group_notification_frequency
-  , last_viewed_date
-  , last_referenced_date
-  , banner_photo_url
-  , small_banner_photo_url
-  , medium_banner_photo_url
-  , is_profile_photo_active
-  , partner_firm_c
-  , business_line_c
-  , mariner_location_secondary_c
-  , mariner_location_c
-  , sys_migration_source_c
-  , sys_migration_id_c
-  , _fivetran_synced
-  , _fivetran_deleted
-  , allow_these_introductions_c
-  , user_preferences_hide_statements_redirect_confirmation
-  , user_preferences_hide_invoices_redirect_confirmation
-  , user_preferences_hide_browse_product_redirect_confirmation
-  , user_preferences_hide_online_sales_app_welcome_mat
-  , user_preferences_reverse_open_activities_view
-  , user_preferences_show_forecasting_change_signals
-  , user_preferences_has_sent_warning_email
-from {{ source('salesforce_compass', 'user') }}
+    a.json:ID:: VARCHAR(18)                                                       as id
+  , a.json:USERNAME:: VARCHAR(240)                                                as username
+  , a.json:LAST_NAME:: VARCHAR(240)                                               as last_name
+  , a.json:FIRST_NAME:: VARCHAR(120)                                              as first_name
+  , a.json:MIDDLE_NAME:: VARCHAR(120)                                             as middle_name
+  , a.json:SUFFIX:: VARCHAR(120)                                                  as suffix
+  , a.json:NAME:: VARCHAR(363)                                                    as name
+  , a.json:COMPANY_NAME:: VARCHAR(240)                                            as company_name
+  , a.json:DIVISION:: VARCHAR(240)                                                as division
+  , a.json:DEPARTMENT:: VARCHAR(240)                                              as department
+  , a.json:TITLE:: VARCHAR(240)                                                   as title
+  , a.json:STREET:: VARCHAR(765)                                                  as street
+  , a.json:CITY:: VARCHAR(120)                                                    as city
+  , a.json:STATE:: VARCHAR(240)                                                   as state
+  , a.json:POSTAL_CODE:: VARCHAR(60)                                              as postal_code
+  , a.json:COUNTRY:: VARCHAR(240)                                                 as country
+  , a.json:LATITUDE:: DOUBLE                                                      as latitude
+  , a.json:LONGITUDE:: DOUBLE                                                     as longitude
+  , a.json:GEOCODE_ACCURACY:: VARCHAR(120)                                        as geocode_accuracy
+  , a.json:EMAIL:: VARCHAR(384)                                                   as email
+  , a.json:EMAIL_PREFERENCES_AUTO_BCC:: BOOLEAN                                   as email_preferences_auto_bcc
+  , a.json:EMAIL_PREFERENCES_AUTO_BCC_STAY_IN_TOUCH:: BOOLEAN                     as email_preferences_auto_bcc_stay_in_touch
+  , a.json:EMAIL_PREFERENCES_STAY_IN_TOUCH_REMINDER:: BOOLEAN                     as email_preferences_stay_in_touch_reminder
+  , a.json:SENDER_EMAIL:: VARCHAR(240)                                            as sender_email
+  , a.json:SENDER_NAME:: VARCHAR(240)                                             as sender_name
+  , a.json:SIGNATURE:: VARCHAR(3999)                                              as signature
+  , a.json:STAY_IN_TOUCH_SUBJECT:: VARCHAR(240)                                   as stay_in_touch_subject
+  , a.json:STAY_IN_TOUCH_SIGNATURE:: VARCHAR(1536)                                as stay_in_touch_signature
+  , a.json:STAY_IN_TOUCH_NOTE:: VARCHAR(1536)                                     as stay_in_touch_note
+  , a.json:PHONE:: VARCHAR(120)                                                   as phone
+  , a.json:FAX:: VARCHAR(120)                                                     as fax
+  , a.json:MOBILE_PHONE:: VARCHAR(120)                                            as mobile_phone
+  , a.json:ALIAS:: VARCHAR(24)                                                    as alias
+  , a.json:COMMUNITY_NICKNAME:: VARCHAR(120)                                      as community_nickname
+  , a.json:BADGE_TEXT:: VARCHAR(240)                                              as badge_text
+  , a.json:IS_ACTIVE:: BOOLEAN                                                    as is_active
+  , a.json:TIME_ZONE_SID_KEY:: VARCHAR(120)                                       as time_zone_sid_key
+  , a.json:USER_ROLE_ID:: VARCHAR(18)                                             as user_role_id
+  , a.json:LOCALE_SID_KEY:: VARCHAR(120)                                          as locale_sid_key
+  , a.json:RECEIVES_INFO_EMAILS:: BOOLEAN                                         as receives_info_emails
+  , a.json:RECEIVES_ADMIN_INFO_EMAILS:: BOOLEAN                                   as receives_admin_info_emails
+  , a.json:EMAIL_ENCODING_KEY:: VARCHAR(120)                                      as email_encoding_key
+  , a.json:PROFILE_ID:: VARCHAR(18)                                               as profile_id
+  , a.json:USER_TYPE:: VARCHAR(120)                                               as user_type
+  , a.json:LANGUAGE_LOCALE_KEY:: VARCHAR(120)                                     as language_locale_key
+  , a.json:EMPLOYEE_NUMBER:: VARCHAR(60)                                          as employee_number
+  , a.json:DELEGATED_APPROVER_ID:: VARCHAR(18)                                    as delegated_approver_id
+  , a.json:MANAGER_ID:: VARCHAR(18)                                               as manager_id
+  , a.json:LAST_LOGIN_DATE:: TIMESTAMPTZ                                          as last_login_date
+  , a.json:CREATED_DATE:: TIMESTAMPTZ                                             as created_date
+  , a.json:CREATED_BY_ID:: VARCHAR(18)                                            as created_by_id
+  , a.json:LAST_MODIFIED_DATE:: TIMESTAMPTZ                                       as last_modified_date
+  , a.json:LAST_MODIFIED_BY_ID:: VARCHAR(18)                                      as last_modified_by_id
+  , a.json:SYSTEM_MODSTAMP:: TIMESTAMPTZ                                          as system_modstamp
+  , a.json:OFFLINE_TRIAL_EXPIRATION_DATE:: TIMESTAMPTZ                            as offline_trial_expiration_date
+  , a.json:OFFLINE_PDA_TRIAL_EXPIRATION_DATE:: TIMESTAMPTZ                        as offline_pda_trial_expiration_date
+  , a.json:USER_PERMISSIONS_MARKETING_USER:: BOOLEAN                              as user_permissions_marketing_user
+  , a.json:USER_PERMISSIONS_OFFLINE_USER:: BOOLEAN                                as user_permissions_offline_user
+  , a.json:USER_PERMISSIONS_AVANTGO_USER:: BOOLEAN                                as user_permissions_avantgo_user
+  , a.json:USER_PERMISSIONS_CALL_CENTER_AUTO_LOGIN:: BOOLEAN                      as user_permissions_call_center_auto_login
+  , a.json:USER_PERMISSIONS_SFCONTENT_USER:: BOOLEAN                              as user_permissions_sfcontent_user
+  , a.json:USER_PERMISSIONS_KNOWLEDGE_USER:: BOOLEAN                              as user_permissions_knowledge_user
+  , a.json:USER_PERMISSIONS_INTERACTION_USER:: BOOLEAN                            as user_permissions_interaction_user
+  , a.json:USER_PERMISSIONS_SUPPORT_USER:: BOOLEAN                                as user_permissions_support_user
+  , a.json:FORECAST_ENABLED:: BOOLEAN                                             as forecast_enabled
+  , a.json:USER_PREFERENCES_ACTIVITY_REMINDERS_POPUP:: BOOLEAN                    as user_preferences_activity_reminders_popup
+  , a.json:USER_PREFERENCES_EVENT_REMINDERS_CHECKBOX_DEFAULT:: BOOLEAN            as user_preferences_event_reminders_checkbox_default
+  , a.json:USER_PREFERENCES_TASK_REMINDERS_CHECKBOX_DEFAULT:: BOOLEAN             as user_preferences_task_reminders_checkbox_default
+  , a.json:USER_PREFERENCES_REMINDER_SOUND_OFF:: BOOLEAN                          as user_preferences_reminder_sound_off
+  , a.json:USER_PREFERENCES_DISABLE_ALL_FEEDS_EMAIL:: BOOLEAN                     as user_preferences_disable_all_feeds_email
+  , a.json:USER_PREFERENCES_DISABLE_FOLLOWERS_EMAIL:: BOOLEAN                     as user_preferences_disable_followers_email
+  , a.json:USER_PREFERENCES_DISABLE_PROFILE_POST_EMAIL:: BOOLEAN                  as user_preferences_disable_profile_post_email
+  , a.json:USER_PREFERENCES_DISABLE_CHANGE_COMMENT_EMAIL:: BOOLEAN                as user_preferences_disable_change_comment_email
+  , a.json:USER_PREFERENCES_DISABLE_LATER_COMMENT_EMAIL:: BOOLEAN                 as user_preferences_disable_later_comment_email
+  , a.json:USER_PREFERENCES_DIS_PROF_POST_COMMENT_EMAIL:: BOOLEAN                 as user_preferences_dis_prof_post_comment_email
+  , a.json:USER_PREFERENCES_CONTENT_NO_EMAIL:: BOOLEAN                            as user_preferences_content_no_email
+  , a.json:USER_PREFERENCES_CONTENT_EMAIL_AS_AND_WHEN:: BOOLEAN                   as user_preferences_content_email_as_and_when
+  , a.json:USER_PREFERENCES_APEX_PAGES_DEVELOPER_MODE:: BOOLEAN                   as user_preferences_apex_pages_developer_mode
+  , a.json:USER_PREFERENCES_RECEIVE_NO_NOTIFICATIONS_AS_APPROVER:: BOOLEAN        as user_preferences_receive_no_notifications_as_approver
+  , a.json:USER_PREFERENCES_RECEIVE_NOTIFICATIONS_AS_DELEGATED_APPROVER:: BOOLEAN as user_preferences_receive_notifications_as_delegated_approver
+  , a.json:USER_PREFERENCES_HIDE_CSNGET_CHATTER_MOBILE_TASK:: BOOLEAN             as user_preferences_hide_csnget_chatter_mobile_task
+  , a.json:USER_PREFERENCES_DISABLE_MENTIONS_POST_EMAIL:: BOOLEAN                 as user_preferences_disable_mentions_post_email
+  , a.json:USER_PREFERENCES_DIS_MENTIONS_COMMENT_EMAIL:: BOOLEAN                  as user_preferences_dis_mentions_comment_email
+  , a.json:USER_PREFERENCES_HIDE_CSNDESKTOP_TASK:: BOOLEAN                        as user_preferences_hide_csndesktop_task
+  , a.json:USER_PREFERENCES_HIDE_CHATTER_ONBOARDING_SPLASH:: BOOLEAN              as user_preferences_hide_chatter_onboarding_splash
+  , a.json:USER_PREFERENCES_HIDE_SECOND_CHATTER_ONBOARDING_SPLASH:: BOOLEAN       as user_preferences_hide_second_chatter_onboarding_splash
+  , a.json:USER_PREFERENCES_DIS_COMMENT_AFTER_LIKE_EMAIL:: BOOLEAN                as user_preferences_dis_comment_after_like_email
+  , a.json:USER_PREFERENCES_DISABLE_LIKE_EMAIL:: BOOLEAN                          as user_preferences_disable_like_email
+  , a.json:USER_PREFERENCES_SORT_FEED_BY_COMMENT:: BOOLEAN                        as user_preferences_sort_feed_by_comment
+  , a.json:USER_PREFERENCES_DISABLE_MESSAGE_EMAIL:: BOOLEAN                       as user_preferences_disable_message_email
+  , a.json:USER_PREFERENCES_DISABLE_BOOKMARK_EMAIL:: BOOLEAN                      as user_preferences_disable_bookmark_email
+  , a.json:USER_PREFERENCES_DISABLE_SHARE_POST_EMAIL:: BOOLEAN                    as user_preferences_disable_share_post_email
+  , a.json:USER_PREFERENCES_ENABLE_AUTO_SUB_FOR_FEEDS:: BOOLEAN                   as user_preferences_enable_auto_sub_for_feeds
+  , a.json:USER_PREFERENCES_DISABLE_FILE_SHARE_NOTIFICATIONS_FOR_API:: BOOLEAN    as user_preferences_disable_file_share_notifications_for_api
+  , a.json:USER_PREFERENCES_SHOW_TITLE_TO_EXTERNAL_USERS:: BOOLEAN                as user_preferences_show_title_to_external_users
+  , a.json:USER_PREFERENCES_SHOW_MANAGER_TO_EXTERNAL_USERS:: BOOLEAN              as user_preferences_show_manager_to_external_users
+  , a.json:USER_PREFERENCES_SHOW_EMAIL_TO_EXTERNAL_USERS:: BOOLEAN                as user_preferences_show_email_to_external_users
+  , a.json:USER_PREFERENCES_SHOW_WORK_PHONE_TO_EXTERNAL_USERS:: BOOLEAN           as user_preferences_show_work_phone_to_external_users
+  , a.json:USER_PREFERENCES_SHOW_MOBILE_PHONE_TO_EXTERNAL_USERS:: BOOLEAN         as user_preferences_show_mobile_phone_to_external_users
+  , a.json:USER_PREFERENCES_SHOW_FAX_TO_EXTERNAL_USERS:: BOOLEAN                  as user_preferences_show_fax_to_external_users
+  , a.json:USER_PREFERENCES_SHOW_STREET_ADDRESS_TO_EXTERNAL_USERS:: BOOLEAN       as user_preferences_show_street_address_to_external_users
+  , a.json:USER_PREFERENCES_SHOW_CITY_TO_EXTERNAL_USERS:: BOOLEAN                 as user_preferences_show_city_to_external_users
+  , a.json:USER_PREFERENCES_SHOW_STATE_TO_EXTERNAL_USERS:: BOOLEAN                as user_preferences_show_state_to_external_users
+  , a.json:USER_PREFERENCES_SHOW_POSTAL_CODE_TO_EXTERNAL_USERS:: BOOLEAN          as user_preferences_show_postal_code_to_external_users
+  , a.json:USER_PREFERENCES_SHOW_COUNTRY_TO_EXTERNAL_USERS:: BOOLEAN              as user_preferences_show_country_to_external_users
+  , a.json:USER_PREFERENCES_SHOW_PROFILE_PIC_TO_GUEST_USERS:: BOOLEAN             as user_preferences_show_profile_pic_to_guest_users
+  , a.json:USER_PREFERENCES_SHOW_TITLE_TO_GUEST_USERS:: BOOLEAN                   as user_preferences_show_title_to_guest_users
+  , a.json:USER_PREFERENCES_SHOW_CITY_TO_GUEST_USERS:: BOOLEAN                    as user_preferences_show_city_to_guest_users
+  , a.json:USER_PREFERENCES_SHOW_STATE_TO_GUEST_USERS:: BOOLEAN                   as user_preferences_show_state_to_guest_users
+  , a.json:USER_PREFERENCES_SHOW_POSTAL_CODE_TO_GUEST_USERS:: BOOLEAN             as user_preferences_show_postal_code_to_guest_users
+  , a.json:USER_PREFERENCES_SHOW_COUNTRY_TO_GUEST_USERS:: BOOLEAN                 as user_preferences_show_country_to_guest_users
+  , a.json:USER_PREFERENCES_HIDE_S_1_BROWSER_UI:: BOOLEAN                         as user_preferences_hide_s_1_browser_ui
+  , a.json:USER_PREFERENCES_DISABLE_ENDORSEMENT_EMAIL:: BOOLEAN                   as user_preferences_disable_endorsement_email
+  , a.json:USER_PREFERENCES_PATH_ASSISTANT_COLLAPSED:: BOOLEAN                    as user_preferences_path_assistant_collapsed
+  , a.json:USER_PREFERENCES_CACHE_DIAGNOSTICS:: BOOLEAN                           as user_preferences_cache_diagnostics
+  , a.json:USER_PREFERENCES_SHOW_EMAIL_TO_GUEST_USERS:: BOOLEAN                   as user_preferences_show_email_to_guest_users
+  , a.json:USER_PREFERENCES_SHOW_MANAGER_TO_GUEST_USERS:: BOOLEAN                 as user_preferences_show_manager_to_guest_users
+  , a.json:USER_PREFERENCES_SHOW_WORK_PHONE_TO_GUEST_USERS:: BOOLEAN              as user_preferences_show_work_phone_to_guest_users
+  , a.json:USER_PREFERENCES_SHOW_MOBILE_PHONE_TO_GUEST_USERS:: BOOLEAN            as user_preferences_show_mobile_phone_to_guest_users
+  , a.json:USER_PREFERENCES_SHOW_FAX_TO_GUEST_USERS:: BOOLEAN                     as user_preferences_show_fax_to_guest_users
+  , a.json:USER_PREFERENCES_SHOW_STREET_ADDRESS_TO_GUEST_USERS:: BOOLEAN          as user_preferences_show_street_address_to_guest_users
+  , a.json:USER_PREFERENCES_LIGHTNING_EXPERIENCE_PREFERRED:: BOOLEAN              as user_preferences_lightning_experience_preferred
+  , a.json:USER_PREFERENCES_HIDE_END_USER_ONBOARDING_ASSISTANT_MODAL:: BOOLEAN    as user_preferences_hide_end_user_onboarding_assistant_modal
+  , a.json:USER_PREFERENCES_HIDE_LIGHTNING_MIGRATION_MODAL:: BOOLEAN              as user_preferences_hide_lightning_migration_modal
+  , a.json:USER_PREFERENCES_HIDE_SFX_WELCOME_MAT:: BOOLEAN                        as user_preferences_hide_sfx_welcome_mat
+  , a.json:USER_PREFERENCES_HIDE_BIGGER_PHOTO_CALLOUT:: BOOLEAN                   as user_preferences_hide_bigger_photo_callout
+  , a.json:USER_PREFERENCES_GLOBAL_NAV_BAR_WTSHOWN:: BOOLEAN                      as user_preferences_global_nav_bar_wtshown
+  , a.json:USER_PREFERENCES_GLOBAL_NAV_GRID_MENU_WTSHOWN:: BOOLEAN                as user_preferences_global_nav_grid_menu_wtshown
+  , a.json:USER_PREFERENCES_CREATE_LEXAPPS_WTSHOWN:: BOOLEAN                      as user_preferences_create_lexapps_wtshown
+  , a.json:USER_PREFERENCES_FAVORITES_WTSHOWN:: BOOLEAN                           as user_preferences_favorites_wtshown
+  , a.json:USER_PREFERENCES_RECORD_HOME_SECTION_COLLAPSE_WTSHOWN:: BOOLEAN        as user_preferences_record_home_section_collapse_wtshown
+  , a.json:USER_PREFERENCES_RECORD_HOME_RESERVED_WTSHOWN:: BOOLEAN                as user_preferences_record_home_reserved_wtshown
+  , a.json:USER_PREFERENCES_FAVORITES_SHOW_TOP_FAVORITES:: BOOLEAN                as user_preferences_favorites_show_top_favorites
+  , a.json:USER_PREFERENCES_EXCLUDE_MAIL_APP_ATTACHMENTS:: BOOLEAN                as user_preferences_exclude_mail_app_attachments
+  , a.json:USER_PREFERENCES_SUPPRESS_TASK_SFXREMINDERS:: BOOLEAN                  as user_preferences_suppress_task_sfxreminders
+  , a.json:USER_PREFERENCES_SUPPRESS_EVENT_SFXREMINDERS:: BOOLEAN                 as user_preferences_suppress_event_sfxreminders
+  , a.json:USER_PREFERENCES_PREVIEW_CUSTOM_THEME:: BOOLEAN                        as user_preferences_preview_custom_theme
+  , a.json:USER_PREFERENCES_HAS_CELEBRATION_BADGE:: BOOLEAN                       as user_preferences_has_celebration_badge
+  , a.json:USER_PREFERENCES_USER_DEBUG_MODE_PREF:: BOOLEAN                        as user_preferences_user_debug_mode_pref
+  , a.json:USER_PREFERENCES_SRHOVERRIDE_ACTIVITIES:: BOOLEAN                      as user_preferences_srhoverride_activities
+  , a.json:USER_PREFERENCES_NEW_LIGHTNING_REPORT_RUN_PAGE_ENABLED:: BOOLEAN       as user_preferences_new_lightning_report_run_page_enabled
+  , a.json:CONTACT_ID:: VARCHAR(18)                                               as contact_id
+  , a.json:ACCOUNT_ID:: VARCHAR(18)                                               as account_id
+  , a.json:CALL_CENTER_ID:: VARCHAR(18)                                           as call_center_id
+  , a.json:EXTENSION:: VARCHAR(120)                                               as extension
+  , a.json:FEDERATION_IDENTIFIER:: VARCHAR(1536)                                  as federation_identifier
+  , a.json:ABOUT_ME:: VARCHAR(3000)                                               as about_me
+  , a.json:FULL_PHOTO_URL:: VARCHAR(3072)                                         as full_photo_url
+  , a.json:SMALL_PHOTO_URL:: VARCHAR(3072)                                        as small_photo_url
+  , a.json:IS_EXT_INDICATOR_VISIBLE:: BOOLEAN                                     as is_ext_indicator_visible
+  , a.json:OUT_OF_OFFICE_MESSAGE:: VARCHAR(120)                                   as out_of_office_message
+  , a.json:MEDIUM_PHOTO_URL:: VARCHAR(3072)                                       as medium_photo_url
+  , a.json:DIGEST_FREQUENCY:: VARCHAR(120)                                        as digest_frequency
+  , a.json:DEFAULT_GROUP_NOTIFICATION_FREQUENCY:: VARCHAR(120)                    as default_group_notification_frequency
+  , a.json:LAST_VIEWED_DATE:: TIMESTAMPTZ                                         as last_viewed_date
+  , a.json:LAST_REFERENCED_DATE:: TIMESTAMPTZ                                     as last_referenced_date
+  , a.json:BANNER_PHOTO_URL:: VARCHAR(3072)                                       as banner_photo_url
+  , a.json:SMALL_BANNER_PHOTO_URL:: VARCHAR(3072)                                 as small_banner_photo_url
+  , a.json:MEDIUM_BANNER_PHOTO_URL:: VARCHAR(3072)                                as medium_banner_photo_url
+  , a.json:IS_PROFILE_PHOTO_ACTIVE:: BOOLEAN                                      as is_profile_photo_active
+  , a.json:PARTNER_FIRM_C:: VARCHAR(765)                                          as partner_firm_c
+  , a.json:BUSINESS_LINE_C:: VARCHAR(765)                                         as business_line_c
+  , a.json:MARINER_LOCATION_SECONDARY_C:: VARCHAR(765)                            as mariner_location_secondary_c
+  , a.json:MARINER_LOCATION_C:: VARCHAR(765)                                      as mariner_location_c
+  , a.json:SYS_MIGRATION_SOURCE_C:: VARCHAR(4099)                                 as sys_migration_source_c
+  , a.json:SYS_MIGRATION_ID_C:: VARCHAR(765)                                      as sys_migration_id_c
+  , a.json:_FIVETRAN_SYNCED:: TIMESTAMPTZ                                         as _fivetran_synced
+  , a.json:_FIVETRAN_DELETED:: BOOLEAN                                            as _fivetran_deleted
+  , a.json:ALLOW_THESE_INTRODUCTIONS_C:: VARCHAR(4099)                            as allow_these_introductions_c
+  , a.json:USER_PREFERENCES_HIDE_STATEMENTS_REDIRECT_CONFIRMATION:: BOOLEAN       as user_preferences_hide_statements_redirect_confirmation
+  , a.json:USER_PREFERENCES_HIDE_INVOICES_REDIRECT_CONFIRMATION:: BOOLEAN         as user_preferences_hide_invoices_redirect_confirmation
+  , a.json:USER_PREFERENCES_HIDE_BROWSE_PRODUCT_REDIRECT_CONFIRMATION:: BOOLEAN   as user_preferences_hide_browse_product_redirect_confirmation
+  , a.json:USER_PREFERENCES_HIDE_ONLINE_SALES_APP_WELCOME_MAT:: BOOLEAN           as user_preferences_hide_online_sales_app_welcome_mat
+  , a.json:USER_PREFERENCES_REVERSE_OPEN_ACTIVITIES_VIEW:: BOOLEAN                as user_preferences_reverse_open_activities_view
+  , a.json:USER_PREFERENCES_SHOW_FORECASTING_CHANGE_SIGNALS:: BOOLEAN             as user_preferences_show_forecasting_change_signals
+  , a.json:USER_PREFERENCES_HAS_SENT_WARNING_EMAIL:: BOOLEAN                      as user_preferences_has_sent_warning_email
+  , a.json:USER_PREFERENCES_HAS_SENT_WARNING_EMAIL_238:: BOOLEAN                  as user_preferences_has_sent_warning_email_238
+  , a.json:USER_PREFERENCES_HAS_SENT_WARNING_EMAIL_240:: BOOLEAN                  as user_preferences_has_sent_warning_email_240
+
+  , a.effective_at::timestamp                                                     as effective_at
+  , a._created_at::timestamp                                                      as _created_at
+  , {{ col_is_head(reference=source('salesforce_compass', 'user'), source_date_col='a.effective_at', reference_date_col='effective_at') }}
+  , case when b.rn = 1 then 1 else 0 end                                          as is_latest
+from {{ source('salesforce_compass', 'user') }} a
+left join (
+  select effective_at::date as effective_at, _created_at, row_number() over(partition by effective_at::date order by _created_at desc) as rn
+  from {{ source('salesforce_compass', 'user') }}
+  group by 1,2
+) b
+on a.effective_at::date = b.effective_at::date
+    and a._created_at = b._created_at
