@@ -115,6 +115,26 @@ select
   , a.json:PROPERTY_CLOSED_LOST_REASON::text(500)                           as property_closed_lost_reason
   , a.json:PROPERTY_DEALTYPE::text(500)                                     as property_dealtype
   , a.json:_FIVETRAN_DELETED::int                                           as _fivetran_deleted
+	, try_to_timestamp(a.json:PROPERTY_HS_LATEST_MEETING_ACTIVITY::text)      as property_hs_latest_meeting_activity
+	, a.json:PROPERTY_HS_PINNED_ENGAGEMENT_ID::text(500)                      as property_hs_pinned_engagement_id
+	, a.json:PROPERTY_SERVICE_TYPE::text(500)                                 as property_service_type
+	, a.json:PROPERTY_MARINER_ADVISORY_CUSTODIAN::text(500)                   as property_mariner_advisory_custodian
+	, a.json:PROPERTY_AFFILIATION_TYPE::text(500)                             as property_affiliation_type
+	, a.json:PROPERTY_MARINER_A_LA_CARTE_SERVICES::text(500)                  as property_mariner_a_la_carte_services
+	, a.json:PROPERTY_MARINER_BD_PAYOUT_::text(500)                           as property_mariner_bd_payout_
+	, a.json:PROPERTY_MARINER_PCS_FEE_IN_BPTS::text(500)                      as property_mariner_pcs_fee_in_bpts
+	, a.json:PROPERTY_MARINER_ADV_PAYOUT_::text(500)                          as property_mariner_adv_payout_
+	, a.json:PROPERTY_MARINER_RIA_SWAG_OR_MPS_::text(500)                     as property_mariner_ria_swag_or_mps_
+	, a.json:PROPERTY_MARINER_MINORITY_RECAP::text(500)                       as property_mariner_minority_recap
+	, a.json:PROPERTY_LOCATION_CITY::text(500)                                as property_location_city
+	, a.json:PROPERTY_LOCATION_STATE_2_LETTERS_::text(500)                    as property_location_state_2_letters_
+	, a.json:PROPERTY_GDC::text(500)                                          as property_gdc
+	, a.json:PROPERTY_MARINER_REFERRAL_PARTNER::text(500)                     as property_mariner_referral_partner
+	, a.json:PROPERTY_MARINER_REFERRAL_PARTNER_NAME_FIRM::text(500)           as property_mariner_referral_partner_name_firm
+	, a.json:PROPERTY_MARINER_PCS_AUM_COMMITMENT::text(500)                   as property_mariner_pcs_aum_commitment
+	, a.json:PROPERTY_HS_USER_IDS_OF_ALL_OWNERS::text(500)                    as property_hs_user_ids_of_all_owners
+	, a.json:PROPERTY_HS_ALL_OWNER_IDS::text(500)                             as property_hs_all_owner_ids
+	, a.json:PROPERTY_HS_ALL_COLLABORATOR_OWNER_IDS::text(500)                as property_hs_all_collaborator_owner_ids
 
   , a.effective_at::timestamp                                               as effective_at
   , a._created_at::timestamp                                                as _created_at

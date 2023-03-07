@@ -84,6 +84,15 @@ select
   , json:PROPERTY_DAYS_TO_CLOSE::text(500)                        as property_days_to_close
   , json:PROPERTY_HS_NUM_CHILD_COMPANIES::text(500)               as property_hs_num_child_companies
   , json:_FIVETRAN_DELETED::text(500)                             as _fivetran_deleted
+  , try_to_timestamp(json:PROPERTY_HS_LATEST_MEETING_ACTIVITY::text) as PROPERTY_HS_LATEST_MEETING_ACTIVITY
+  , try_to_timestamp(json:PROPERTY_HS_LAST_BOOKED_MEETING_DATE::text) as PROPERTY_HS_LAST_BOOKED_MEETING_DATE
+  , try_to_timestamp(json:PROPERTY_HS_DATE_EXITED_LEAD::text)     as PROPERTY_HS_DATE_EXITED_LEAD
+  , json:PROPERTY_HS_UPDATED_BY_USER_ID::FLOAT                    as PROPERTY_HS_UPDATED_BY_USER_ID
+  , json:PROPERTY_HS_CREATED_BY_USER_ID::FLOAT                    as PROPERTY_HS_CREATED_BY_USER_ID
+  , json:PROPERTY_AUM::FLOAT                                      as PROPERTY_AUM
+  , json:PROPERTY_NUMBER_OF_CLIENTS::FLOAT                        as PROPERTY_NUMBER_OF_CLIENTS
+  , json:PROPERTY_HS_ANNUAL_REVENUE_CURRENCY_CODE::text(256)      as PROPERTY_HS_ANNUAL_REVENUE_CURRENCY_CODE
+
   , a.effective_at::timestamp                                     as effective_at
   , a._created_at::timestamp                                      as _created_at
   , {{ col_is_head(reference=source('hubspot_network', 'company'), source_date_col='a.effective_at', reference_date_col='effective_at') }}
