@@ -1,2 +1,130 @@
-select *
-from {{ source('hubspot_network', 'deal') }}
+select
+    a.json:DEAL_ID::text(500)                                               as deal_id
+  , a.json:PORTAL_ID::text(500)                                             as portal_id
+  , a.json:IS_DELETED::text(500)                                            as is_deleted
+  , try_to_timestamp(a.json:_FIVETRAN_SYNCED::text)                         as _fivetran_synced
+  , a.json:PROPERTY_HS_ANALYTICS_SOURCE_DATA_2::text(500)                   as property_hs_analytics_source_data_2
+  , a.json:PROPERTY_HS_ANALYTICS_SOURCE_DATA_1::text(500)                   as property_hs_analytics_source_data_1
+  , a.json:PROPERTY_HS_CLOSED_AMOUNT_IN_HOME_CURRENCY::text(500)            as property_hs_closed_amount_in_home_currency
+  , try_to_timestamp(a.json:PROPERTY_HS_ANALYTICS_LATEST_SOURCE_TIMESTAMP_CONTACT::text) as property_hs_analytics_latest_source_timestamp_contact
+  , a.json:PROPERTY_HS_DATE_ENTERED_DECISIONMAKERBOUGHTIN::text(500)        as property_hs_date_entered_decisionmakerboughtin
+  , try_to_timestamp(a.json:PROPERTY_HS_DATE_ENTERED_6734705::text)         as property_hs_date_entered_6734705
+  , try_to_timestamp(a.json:PROPERTY_HS_DATE_ENTERED_2494962::text)         as property_hs_date_entered_2494962
+  , try_to_timestamp(a.json:PROPERTY_HS_DATE_ENTERED_962615::text)          as property_hs_date_entered_962615
+  , a.json:PROPERTY_AMOUNT_IN_HOME_CURRENCY::decimal(18,2)                  as property_amount_in_home_currency
+  , a.json:PROPERTY_DAYS_TO_CLOSE::int                                      as property_days_to_close
+  , try_to_timestamp(a.json:PROPERTY_HS_DATE_ENTERED_41524885::text)        as property_hs_date_entered_41524885
+  , try_to_timestamp(a.json:PROPERTY_HS_DATE_ENTERED_APPOINTMENTSCHEDULED::text) as property_hs_date_entered_appointmentscheduled
+  , a.json:PROPERTY_HS_ANALYTICS_SOURCE::text(500)                          as property_hs_analytics_source
+  , try_to_timestamp(a.json:PROPERTY_HS_DATE_ENTERED_1016290::text)         as property_hs_date_entered_1016290
+  , a.json:PROPERTY_HS_CLOSED_AMOUNT::decimal(18,2)                         as property_hs_closed_amount
+  , a.json:PROPERTY_HS_ANALYTICS_LATEST_SOURCE_DATA_2_CONTACT::text(500)    as property_hs_analytics_latest_source_data_2_contact
+  , try_to_timestamp(a.json:PROPERTY_HS_DATE_ENTERED_CLOSEDWON::text)       as property_hs_date_entered_closedwon
+  , try_to_timestamp(a.json:PROPERTY_HS_DATE_ENTERED_PRESENTATIONSCHEDULED::text) as property_hs_date_entered_presentationscheduled
+  , a.json:PROPERTY_HS_ANALYTICS_LATEST_SOURCE::text(500)                   as property_hs_analytics_latest_source
+  , a.json:PROPERTY_HS_ANALYTICS_LATEST_SOURCE_DATA_2::text(500)            as property_hs_analytics_latest_source_data_2
+  , a.json:PROPERTY_HS_ANALYTICS_LATEST_SOURCE_DATA_1::text(500)            as property_hs_analytics_latest_source_data_1
+  , try_to_timestamp(a.json:PROPERTY_HS_ANALYTICS_LATEST_SOURCE_TIMESTAMP::text) as property_hs_analytics_latest_source_timestamp
+  , a.json:PROPERTY_HS_ANALYTICS_LATEST_SOURCE_CONTACT::text(500)           as property_hs_analytics_latest_source_contact
+  , a.json:PROPERTY_HS_ANALYTICS_LATEST_SOURCE_DATA_1_CONTACT::text(500)    as property_hs_analytics_latest_source_data_1_contact
+  , try_to_timestamp(a.json:PROPERTY_HS_DATE_ENTERED_CLOSEDLOST::text)      as property_hs_date_entered_closedlost
+  , a.json:PROPERTY_HS_ANALYTICS_LATEST_SOURCE_DATA_1_COMPANY::text(500)    as property_hs_analytics_latest_source_data_1_company
+  , a.json:PROPERTY_HS_ANALYTICS_LATEST_SOURCE_DATA_2_COMPANY::text(500)    as property_hs_analytics_latest_source_data_2_company
+  , a.json:PROPERTY_HS_ANALYTICS_LATEST_SOURCE_COMPANY::text(500)           as property_hs_analytics_latest_source_company
+  , a.json:PROPERTY_HS_CREATED_BY_USER_ID::text(500)                        as property_hs_created_by_user_id
+  , try_to_timestamp(a.json:PROPERTY_HS_DATE_ENTERED_1037199::text)         as property_hs_date_entered_1037199
+  , try_to_timestamp(a.json:PROPERTY_HS_DATE_ENTERED_2216211::text)         as property_hs_date_entered_2216211
+  , try_to_timestamp(a.json:PROPERTY_HS_DATE_ENTERED_2216212::text)         as property_hs_date_entered_2216212
+  , try_to_timestamp(a.json:PROPERTY_HS_DATE_ENTERED_1037201::text)         as property_hs_date_entered_1037201
+  , try_to_timestamp(a.json:PROPERTY_HS_DATE_ENTERED_1037200::text)         as property_hs_date_entered_1037200
+  , try_to_timestamp(a.json:PROPERTY_HS_DATE_ENTERED_2216213::text)         as property_hs_date_entered_2216213
+  , try_to_timestamp(a.json:PROPERTY_HS_DATE_ENTERED_43126578::text)        as property_hs_date_entered_43126578
+  , try_to_timestamp(a.json:PROPERTY_HS_DATE_ENTERED_37104998::text)        as property_hs_date_entered_37104998
+  , try_to_timestamp(a.json:PROPERTY_HS_DATE_ENTERED_37105004::text)        as property_hs_date_entered_37105004
+  , a.json:PROPERTY_HS_FORECAST_AMOUNT::decimal(18,2)                       as property_hs_forecast_amount
+  , a.json:PROPERTY_HS_DATE_EXITED_DECISIONMAKERBOUGHTIN::text(500)         as property_hs_date_exited_decisionmakerboughtin
+  , a.json:PROPERTY_HS_DATE_EXITED_6734705::text(500)                       as property_hs_date_exited_6734705
+  , a.json:PROPERTY_HS_DATE_EXITED_2494962::text(500)                       as property_hs_date_exited_2494962
+  , a.json:PROPERTY_HS_DATE_EXITED_962615::text(500)                        as property_hs_date_exited_962615
+  , a.json:PROPERTY_HS_IS_CLOSED::text(500)                                 as property_hs_is_closed
+  , a.json:PROPERTY_HS_DATE_EXITED_PRESENTATIONSCHEDULED::text(500)         as property_hs_date_exited_presentationscheduled
+  , a.json:PROPERTY_HS_DATE_EXITED_41524885::text(500)                      as property_hs_date_exited_41524885
+  , a.json:PROPERTY_HS_DEAL_STAGE_PROBABILITY_SHADOW::text(500)             as property_hs_deal_stage_probability_shadow
+  , a.json:PROPERTY_HS_DATE_EXITED_APPOINTMENTSCHEDULED::text(500)          as property_hs_date_exited_appointmentscheduled
+  , a.json:PROPERTY_HS_DEAL_STAGE_PROBABILITY::text(500)                    as property_hs_deal_stage_probability
+  , a.json:PROPERTY_HS_LASTMODIFIEDDATE::text(500)                          as property_hs_lastmodifieddate
+  , a.json:PROPERTY_HS_IS_CLOSED_WON::text(500)                             as property_hs_is_closed_won
+  , a.json:PROPERTY_HS_IS_DEAL_SPLIT::text(500)                             as property_hs_is_deal_split
+  , a.json:PROPERTY_HS_DATE_EXITED_1016290::text(500)                       as property_hs_date_exited_1016290
+  , a.json:PROPERTY_HS_NUM_TARGET_ACCOUNTS::text(500)                       as property_hs_num_target_accounts
+  , a.json:PROPERTY_HS_DATE_EXITED_2216211::text(500)                       as property_hs_date_exited_2216211
+  , a.json:PROPERTY_HS_DATE_EXITED_1037200::text(500)                       as property_hs_date_exited_1037200
+  , a.json:PROPERTY_HS_DATE_EXITED_1037201::text(500)                       as property_hs_date_exited_1037201
+  , a.json:PROPERTY_HS_DATE_EXITED_1037199::text(500)                       as property_hs_date_exited_1037199
+  , a.json:PROPERTY_HS_NUM_ASSOCIATED_DEAL_SPLITS::text(500)                as property_hs_num_associated_deal_splits
+  , a.json:PROPERTY_HS_NUM_ASSOCIATED_ACTIVE_DEAL_REGISTRATIONS::text(500)  as property_hs_num_associated_active_deal_registrations
+  , a.json:PROPERTY_HS_NUM_ASSOCIATED_DEAL_REGISTRATIONS::text(500)         as property_hs_num_associated_deal_registrations
+  , a.json:PROPERTY_HS_DATE_EXITED_43126578::text(500)                      as property_hs_date_exited_43126578
+  , a.json:PROPERTY_HS_MERGED_OBJECT_IDS::text(500)                         as property_hs_merged_object_ids
+  , a.json:PROPERTY_HS_TIME_IN_1016290::text(500)                           as property_hs_time_in_1016290
+  , a.json:PROPERTY_HS_TIME_IN_DECISIONMAKERBOUGHTIN::text(500)             as property_hs_time_in_decisionmakerboughtin
+  , a.json:PROPERTY_HS_TIME_IN_2494962::text(500)                           as property_hs_time_in_2494962
+  , a.json:PROPERTY_HS_TIME_IN_APPOINTMENTSCHEDULED::text(500)              as property_hs_time_in_appointmentscheduled
+  , a.json:PROPERTY_HS_PROJECTED_AMOUNT_IN_HOME_CURRENCY::text(500)         as property_hs_projected_amount_in_home_currency
+  , a.json:PROPERTY_HS_TIME_IN_962615::text(500)                            as property_hs_time_in_962615
+  , a.json:PROPERTY_HS_UPDATED_BY_USER_ID::text(500)                        as property_hs_updated_by_user_id
+  , a.json:PROPERTY_HS_TIME_IN_6734705::text(500)                           as property_hs_time_in_6734705
+  , a.json:DEAL_PIPELINE_ID::text(500)                                      as deal_pipeline_id
+  , a.json:PROPERTY_HUBSPOT_OWNER_ASSIGNEDDATE::text(500)                   as property_hubspot_owner_assigneddate
+  , a.json:PROPERTY_HS_PROJECTED_AMOUNT::text(500)                          as property_hs_projected_amount
+  , a.json:PROPERTY_DEALNAME::text(500)                                     as property_dealname
+  , a.json:PROPERTY_CLOSEDATE::text(500)                                    as property_closedate
+  , a.json:PROPERTY_CREATEDATE::text(500)                                   as property_createdate
+  , a.json:PROPERTY_HS_SALES_EMAIL_LAST_REPLIED::text(500)                  as property_hs_sales_email_last_replied
+  , a.json:PROPERTY_HS_TIME_IN_PRESENTATIONSCHEDULED::text(500)             as property_hs_time_in_presentationscheduled
+  , a.json:DEAL_PIPELINE_STAGE_ID::text(500)                                as deal_pipeline_stage_id
+  , a.json:PROPERTY_AMOUNT::text(500)                                       as property_amount
+  , a.json:PROPERTY_HS_OBJECT_ID::text(500)                                 as property_hs_object_id
+  , a.json:PROPERTY_HS_TIME_IN_41524885::text(500)                          as property_hs_time_in_41524885
+  , a.json:PROPERTY_HS_TIME_IN_CLOSEDWON::text(500)                         as property_hs_time_in_closedwon
+  , a.json:PROPERTY_HS_USER_IDS_OF_ALL_OWNERS::text(500)                    as property_hs_user_ids_of_all_owners
+  , a.json:PROPERTY_HS_TIME_IN_CLOSEDLOST::text(500)                        as property_hs_time_in_closedlost
+  , a.json:PROPERTY_HS_PRIORITY::text(500)                                  as property_hs_priority
+  , a.json:PROPERTY_HS_TIME_IN_1037201::text(500)                           as property_hs_time_in_1037201
+  , a.json:PROPERTY_HS_TIME_IN_1037200::text(500)                           as property_hs_time_in_1037200
+  , a.json:PROPERTY_HS_TIME_IN_1037199::text(500)                           as property_hs_time_in_1037199
+  , a.json:PROPERTY_HS_TIME_IN_2216212::text(500)                           as property_hs_time_in_2216212
+  , a.json:PROPERTY_HS_TIME_IN_2216211::text(500)                           as property_hs_time_in_2216211
+  , a.json:PROPERTY_HS_TIME_IN_2216213::text(500)                           as property_hs_time_in_2216213
+  , a.json:PROPERTY_HS_TIME_IN_43126578::text(500)                          as property_hs_time_in_43126578
+  , a.json:PROPERTY_HS_TIME_IN_37104998::text(500)                          as property_hs_time_in_37104998
+  , a.json:PROPERTY_HS_TIME_IN_37105004::text(500)                          as property_hs_time_in_37105004
+  , a.json:PROPERTY_NUM_NOTES::text(500)                                    as property_num_notes
+  , a.json:PROPERTY_HUBSPOT_TEAM_ID::text(500)                              as property_hubspot_team_id
+  , a.json:OWNER_ID::text(500)                                              as owner_id
+  , a.json:PROPERTY_CLOSED_WON_REASON::text(500)                            as property_closed_won_reason
+  , a.json:PROPERTY_NOTES_LAST_CONTACTED::text(500)                         as property_notes_last_contacted
+  , a.json:PROPERTY_HS_ALL_ACCESSIBLE_TEAM_IDS::text(500)                   as property_hs_all_accessible_team_ids
+  , a.json:PROPERTY_NUM_ASSOCIATED_CONTACTS::text(500)                      as property_num_associated_contacts
+  , a.json:PROPERTY_NOTES_LAST_UPDATED::text(500)                           as property_notes_last_updated
+  , a.json:PROPERTY_NUM_CONTACTED_NOTES::text(500)                          as property_num_contacted_notes
+  , a.json:PROPERTY_HS_ALL_TEAM_IDS::text(500)                              as property_hs_all_team_ids
+  , a.json:PROPERTY_NOTES_NEXT_ACTIVITY_DATE::text(500)                     as property_notes_next_activity_date
+  , a.json:PROPERTY_HS_CREATEDATE::text(500)                                as property_hs_createdate
+  , a.json:PROPERTY_HS_ALL_OWNER_IDS::text(500)                             as property_hs_all_owner_ids
+  , a.json:PROPERTY_CLOSED_LOST_REASON::text(500)                           as property_closed_lost_reason
+  , a.json:PROPERTY_DEALTYPE::text(500)                                     as property_dealtype
+  , a.json:_FIVETRAN_DELETED::int                                           as _fivetran_deleted
+
+  , a.effective_at::timestamp                                               as effective_at
+  , a._created_at::timestamp                                                as _created_at
+  , {{ col_is_head(reference=source('hubspot_network', 'deal'), source_date_col='a.effective_at', reference_date_col='effective_at') }}
+  , case when b.rn = 1 then 1 else 0 end                                    as is_latest
+from {{ source('hubspot_network', 'deal') }} a
+left join (
+  select effective_at::date as effective_at, _created_at, row_number() over(partition by effective_at::date order by _created_at desc) as rn
+  from {{ source('hubspot_network', 'deal') }}
+  group by 1,2
+) b
+on a.effective_at::date = b.effective_at::date
+    and a._created_at = b._created_at
