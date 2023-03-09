@@ -4,6 +4,7 @@ sources:
   - name: salesforce_msec
     description: ""
     database: fivetran
+    loaded_at_field: _fivetran_synced
     tables:
       - name: account
         description: ""

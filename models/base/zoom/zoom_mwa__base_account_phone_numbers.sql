@@ -19,6 +19,7 @@ select
   , json:emergency_address:state_code::varchar(10)     as emerg_address_state_code
   , json:emergency_address:zip::varchar(10)            as emerg_address_zip
   , effective_at::timestamp                            as effective_at
+  , {{ col_is_head(reference=source('zoom_mwa', 'account_phone_numbers'), reference_date_col='_created_at', source_date_col='_created_at') }}
   , _created_at::timestamp                             as _created_at
   , _source_file                                       as _source_file
 from {{ source('zoom_mwa', 'account_phone_numbers') }}

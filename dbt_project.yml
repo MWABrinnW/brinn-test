@@ -55,12 +55,12 @@ models:
       active_directory:
         +tags: ['active_directory', 'hr', 'employees']
         +grants:
-          select: "{{ ['db_hr_r', 'db_it_r'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['db_hr_gen_r', 'db_it_r'] if target.name in ['prod','test'] else []}}"
 
       adp:
         +tags: ['adp', 'hr', 'employees']
         +grants:
-          select: "{{ ['db_hr_r'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['db_hr_assoc_r'] if target.name in ['prod','test'] else []}}"
 
       alteryx_gallery:
         +tags: ['alteryx']
@@ -80,7 +80,7 @@ models:
       culture_amp:
         +tags: ['culture_amp', 'hr']
         +grants:
-          select: "{{ ['db_hr_r'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['db_hr_assoc_r'] if target.name in ['prod','test'] else []}}"
 
       cusip:
         +tags: ['cusip']
@@ -126,6 +126,11 @@ models:
           +grants:
             select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod','test'] else []}}"
 
+      data_engineering:
+        +tags: ['de']
+        +grants:
+          select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+
       edw_legacy:
         +tags: ['edw', 'employees']
 
@@ -144,7 +149,7 @@ models:
       icims:
         +tags: ['icims', 'hr']
         +grants:
-          select: "{{ ['db_hr_r'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['db_hr_talent_r'] if target.name in ['prod','test'] else []}}"
 
       morningstar:
         +tags: ['morningstar']
@@ -222,11 +227,11 @@ models:
         enterprise:
           +schema: enterprise
           +grants:
-            select: "{{ ['db_hr_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_hr_assoc_r'] if target.name in ['prod','test'] else []}}"
         legacy:
           +schema: legacy
           +grants:
-            select: "{{ ['db_hr_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_hr_assoc_r'] if target.name in ['prod','test'] else []}}"
 
       locations:
         +tags: ['locations']

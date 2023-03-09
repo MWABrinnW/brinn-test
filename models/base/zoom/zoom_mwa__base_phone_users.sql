@@ -10,6 +10,7 @@ SELECT
   , json:site:id::varchar(100)                          as site_id
   , json:site:name::varchar(100)                        as site_name
   , effective_at::timestamp                             as effective_at
+  , {{ col_is_head(reference=source('zoom_mwa', 'phone_users'), reference_date_col='_created_at', source_date_col='_created_at') }}
   , _created_at::timestamp                              as _created_at
   , _source_file                                        as _source_file
 FROM {{ source('zoom_mwa', 'phone_users') }}

@@ -26,6 +26,7 @@ select
     ,apn.capability
     ,apn.assignee_ext_number
     ,apn.assignee_type
+    ,{{ col_is_head(reference=ref('zoom_mwa__base_account_phone_numbers'), reference_date_col='_created_at', source_date_col='apn._created_at') }}
 from cte_users_with_id u
 join {{ ref('zoom_mwa__base_account_phone_numbers') }} apn
     on u.id = apn.assignee_id

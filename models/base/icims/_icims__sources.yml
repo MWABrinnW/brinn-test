@@ -4,6 +4,7 @@ sources:
   - name: icims
     description: ""
     database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    loaded_at_field: record_datetime
     tables:
       - name: json_data
         description: "Raw json data loaded as returned from the ICIMS API"

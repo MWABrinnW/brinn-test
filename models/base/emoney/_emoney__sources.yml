@@ -5,6 +5,7 @@ sources:
     description: ""
     database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
     schema: emoney_mwa_history
+    loaded_at_field: record_datetime
     tables:
       - name: emoney_mwa_advisors
         description: ""
