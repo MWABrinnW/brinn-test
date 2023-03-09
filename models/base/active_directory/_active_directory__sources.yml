@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: active_directory
+  - name: active_directory_mwa
     description: ""
     database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
     schema: active_directory_mwa

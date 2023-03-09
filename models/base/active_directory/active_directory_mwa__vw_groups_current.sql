@@ -1,16 +1,16 @@
 select
     id
-  , dn                           as group_id
+  , dn
   , rdn
   , basedn
   , grouptype
-  , instancetype::int as instancetype
+  , instancetype
   , ntsecuritydescriptor
   , objectcategory
   , objectclass
   , samaccountname
   , accountnamehistory
-  , admincount::int              as admincount
+  , admincount
   , admindescription
   , admindisplayname
   , allowedattributes
@@ -23,7 +23,7 @@ select
   , info
   , cn
   , controlaccessrights
-  , createtimestamp::timestamp   as createtimestamp
+  , createtimestamp
   , description
   , desktopprofile
   , displayname
@@ -49,9 +49,9 @@ select
   , managedobjects
   , masteredby
   , member
-  , modifytimestamp::timestamp   as modifytimestamp
-  , "MS-DS-CONSISTENCYCHILDCOUNT" as ms_ds_consistency_child_count
-  , "MS-DS-CONSISTENCYGUID" as ms_ds_consistency_guid
+  , modifytimestamp
+  , "MS-DS-CONSISTENCYCHILDCOUNT"
+  , "MS-DS-CONSISTENCYGUID"
   , netbootscpbl
   , nonsecuritymember
   , nonsecuritymemberbl
@@ -65,11 +65,11 @@ select
   , partialattributedeletionlist
   , partialattributeset
   , possibleinferiors
-  , primarygrouptoken            as group_token
+  , primarygrouptoken
   , proxiedobjectname
   , proxyaddresses
   , querypolicybl
-  , name                         as group_name
+  , name
   , repluptodatevector
   , directreports
   , repsfrom
@@ -100,16 +100,16 @@ select
   , usnsource
   , wbempath
   , wellknownobjects
-  , whenchanged::timestamp       as whenchanged
-  , whencreated::timestamp       as whencreated
+  , whenchanged
+  , whencreated
   , wwwhomepage
   , url
   , usercertificate
-  , record_datetime::timestamp   as record_datetime
-  , record_date::date            as record_date
-  , case
-        when record_datetime::timestamp =
-             (select max(record_datetime::timestamp) from {{ source('active_directory_mwa', 'groups_history') }})
-            then 1
-        else 0 end               as is_current
+  , record_datetime
+  , record_date
 from {{ source('active_directory_mwa', 'groups_history') }}
+where record_datetime in (
+                             select
+                                 max(record_datetime)
+                             from {{ source('active_directory_mwa', 'groups_history') }}
+                         )
