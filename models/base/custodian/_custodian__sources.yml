@@ -5,6 +5,7 @@ sources:
   - name: schwab_mwa
     database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
     schema: schwab_mwa_history
+    loaded_at_field: record_datetime
     tables:
       - name: accounts
       - name: customer
@@ -21,6 +22,7 @@ sources:
   - name: fidelity_mwa
     database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
     schema: fidelity_mwa_history
+    loaded_at_field: record_datetime
     tables:
       - name: acctbald
         description: ""
@@ -89,20 +91,10 @@ sources:
           - name: record_datetime
           - name: source_file
 
-  - name: tda_mwa
-    database: datalake
-    schema: tda_mwa_history
-    tables:
-      - name: cost_basis
-      - name: demographics
-      - name: positions
-      - name: prices
-      - name: securities
-      - name: transactions
-
   - name: tda
     database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
     schema: tda
+    loaded_at_field: _created_at
     tables:
       - name: cbl
         description: Cost basis
@@ -123,6 +115,7 @@ sources:
   - name: fidelity_mps
     database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
     schema: fidelity_mps_history
+    loaded_at_field: record_datetime
     tables:
       - name: acctbald
         description: ""
@@ -195,6 +188,7 @@ sources:
     description: ""
     database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
     schema: schwab_mps_history
+    loaded_at_field: record_datetime
     tables:
       - name: accounts
         description: ""
@@ -215,6 +209,7 @@ sources:
   - name: fidelity_msec
     database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
     schema: fidelity_msec_history
+    loaded_at_field: record_datetime
     tables:
       - name: acctbald
       - name: actvyd
@@ -227,6 +222,7 @@ sources:
   - name: lpl_network
     description: ""
     database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    loaded_at_field: _created_at
     tables:
       - name: accountext
         description: "This file represents all brokerage, advisory and direct business accounts associated with your organization. Each account is uniquely represented by a numeric account key which is distinct from brokerage and sponsor account numbers."
@@ -255,3 +251,74 @@ sources:
       - name: transactionactivityext
         description: "The Transaction Activity file contains account activity records for accounts under Rep IDs that belong to your organization. Types of transactions include deposits/withdrawals, dividends/interest, buys/sells and redemptions. Activity is limited to what is available via ClientWorks."
 
+  - name: fidelity_swag
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: fidelity_swag_history
+    loaded_at_field: record_datetime
+    tables:
+      - name: acctbald
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
+      - name: actvyd
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
+      - name: nabase
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
+      - name: positd
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
+      - name: secmast
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
+      - name: tlaopen_tax_accounting
+        description: ""
+      - name: tlaopendelta
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
+      - name: tlaopenfull
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
+      - name: trdrev_td
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
