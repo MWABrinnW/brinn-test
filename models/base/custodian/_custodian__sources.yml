@@ -18,6 +18,7 @@ sources:
       - name: referral_fees_prior_quarter
       - name: referral_fees_current_quarter
       - name: referral_fees_advisor_network
+      - name: master_account_relationships
 
   - name: fidelity_mwa
     database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
