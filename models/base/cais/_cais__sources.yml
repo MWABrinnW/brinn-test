@@ -15,6 +15,7 @@ sources:
 
       - name: trade_status
         description: ""
+        loaded_at_field: _created_at
         columns:
           - name: cais_order_id
             description: "CAIS trade system unique ID"
@@ -47,6 +48,7 @@ sources:
 
       - name: trade_status_agg
         description: ""
+        loaded_at_field: _created_at
         columns:
           - name: order_status
             description: "Trade order pipeline status"

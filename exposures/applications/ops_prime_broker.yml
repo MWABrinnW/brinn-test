@@ -1,0 +1,21 @@
+version: 2
+
+exposures:
+  
+  - name: prime_broker_upsert
+    label: "Prime broker Salesforce upsert"
+    type: application
+    maturity: high
+    url:
+    description: >
+      Sourcing Prime Brokerage from the custodial feed in the Data Lake, update the Prime_Broker_Enabled__c field in Salesforce where applicable.
+
+    depends_on:
+      - source('fidelity_mwa', 'nabase')
+      - source('schwab_mwa', 'accounts')
+      - ref('fidelity_mwa_history__vw_raw_nabase_101_account')
+      - ref('fidelity_mwa_history__vw_nabase_101_account')
+
+    owner:
+      name: Adriane House
+      email: adriane.house@marinerwealth.com

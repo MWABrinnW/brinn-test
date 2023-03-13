@@ -211,8 +211,8 @@ select
   , case when useraccountcontrol = '512' then 1 else 0 end as is_active
   , case
         when record_datetime::timestamp =
-             (select max(record_datetime::timestamp) from {{ source('active_directory', 'user_history') }})
+             (select max(record_datetime::timestamp) from {{ source('active_directory_mwa', 'user_history') }})
             then 1
         else 0 end                                         as is_current
-from {{ source('active_directory', 'user_history') }}
+from {{ source('active_directory_mwa', 'user_history') }}
 limit 500

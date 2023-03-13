@@ -1,113 +1,130 @@
 select
-    id
-  , owner_id
-  , is_deleted
-  , name
-  , created_date
-  , created_by_id
-  , last_modified_date
-  , last_modified_by_id
-  , system_modstamp
-  , last_activity_date
-  , last_viewed_date
-  , last_referenced_date
-  , import_name_c
-  , action_c
-  , adjustment_type_c
-  , advisor_consent_c
-  , amount_c
-  , approved_on_c
-  , approved_by_ic_unapproved_purchase_c
-  , approver_c
-  , call_put_c
-  , cash_raised_follow_up_c
-  , category_c
-  , client_directed_attachment_notes_c
-  , client_directed_type_c
-  , client_directed_c
-  , client_c
-  , comments_ic_c
-  , comments_c
-  , completed_by_c
-  , cover_uncover_c
-  , created_by_name_c
-  , date_of_contact_c
-  , date_of_trade_c
-  , exported_c
-  , import_id_c
-  , journal_date_c
-  , last_modified_by_name_c
-  , limit_amount_c
-  , limit_stop_amount_c
-  , maturity_date_begin_c
-  , maturity_date_end_c
-  , maximum_dollar_price_c
-  , minimum_credit_rating_c
-  , model_c
-  , month_c
-  , moxy_order_id_c
-  , non_discretionary_account_at_trade_time_c
-  , notes_fixed_income_trader_c
-  , order_type_c
-  , override_trade_block_model_c
-  , owner_name_c
-  , price_c
-  , priority_level_c
-  , product_status_as_of_trade_c
-  , quantity_c
-  , recommender_name_c
-  , recommender_c
-  , recurrences_c
-  , remaining_recurrences_c
-  , requestor_name_c
-  , requestor_c
-  , security_name_c
-  , security_type_c
-  , security_c
-  , sell_all_c
-  , sell_entire_position_c
-  , send_notification_transaction_completed_c
-  , share_quantity_c
-  , state_flexibility_c
-  , state_c
-  , strike_c
-  , ticker_symbol_c
-  , trade_frequency_c
-  , trade_status_c
-  , trade_type_c
-  , trading_notes_c
-  , transaction_block_c
-  , worked_by_c
-  , year_c
-  , estate_item_c
-  , previously_approved_by_ic_c
-  , _fivetran_synced
-  , account_name_c
-  , custodial_firm_c
-  , client_owner_c
-  , account_cash_balance_c
-  , account_c
-  , courtesy_account_form_c
-  , trading_system_c
-  , bostale_date_c
-  , current_model_on_account_c
-  , account_id_c
-  , current_cash_percentage_c
-  , prime_broker_enabled_c
-  , margin_on_account_c
-  , recommender_name_2_c
-  , ima_c
-  , risk_objective_c
-  , requester_name_2_del_c
-  , non_discretionary_account_c
-  , account_closed_date_c
-  , current_account_value_c
-  , block_on_account_c
-  , valid_paperwork_c
-  , branch_c
-  , custodian_restriction_notes_c
-  , risk_tolerance_c
-  , location_c
-  , as_of_date_c
-  , sys_complete_notification_cc_c
-from {{ source('salesforce_compass', 'trade_instruction_c') }}
+    a.json:ID:: VARCHAR(18)                                    as id
+  , a.json:OWNER_ID:: VARCHAR(18)                              as owner_id
+  , a.json:IS_DELETED:: BOOLEAN                                as is_deleted
+  , a.json:NAME:: VARCHAR(240)                                 as name
+  , a.json:CREATED_DATE:: TIMESTAMPTZ                          as created_date
+  , a.json:CREATED_BY_ID:: VARCHAR(18)                         as created_by_id
+  , a.json:LAST_MODIFIED_DATE:: TIMESTAMPTZ                    as last_modified_date
+  , a.json:LAST_MODIFIED_BY_ID:: VARCHAR(18)                   as last_modified_by_id
+  , a.json:SYSTEM_MODSTAMP:: TIMESTAMPTZ                       as system_modstamp
+  , a.json:LAST_ACTIVITY_DATE:: DATE                           as last_activity_date
+  , a.json:LAST_VIEWED_DATE:: TIMESTAMPTZ                      as last_viewed_date
+  , a.json:LAST_REFERENCED_DATE:: TIMESTAMPTZ                  as last_referenced_date
+  , a.json:IMPORT_NAME_C:: VARCHAR(90)                         as import_name_c
+  , a.json:ACTION_C:: VARCHAR(765)                             as action_c
+  , a.json:ADJUSTMENT_TYPE_C:: VARCHAR(75)                     as adjustment_type_c
+  , a.json:ADVISOR_CONSENT_C:: BOOLEAN                         as advisor_consent_c
+  , a.json:AMOUNT_C:: NUMBER(10, 2)                            as amount_c
+  , a.json:APPROVED_ON_C:: TIMESTAMPTZ                         as approved_on_c
+  , a.json:APPROVED_BY_IC_UNAPPROVED_PURCHASE_C:: BOOLEAN      as approved_by_ic_unapproved_purchase_c
+  , a.json:APPROVER_C:: VARCHAR(18)                            as approver_c
+  , a.json:CALL_PUT_C:: VARCHAR(765)                           as call_put_c
+  , a.json:CASH_RAISED_FOLLOW_UP_C:: BOOLEAN                   as cash_raised_follow_up_c
+  , a.json:CATEGORY_C:: VARCHAR(765)                           as category_c
+  , a.json:CLIENT_DIRECTED_ATTACHMENT_NOTES_C:: VARCHAR(765)   as client_directed_attachment_notes_c
+  , a.json:CLIENT_DIRECTED_TYPE_C:: VARCHAR(765)               as client_directed_type_c
+  , a.json:CLIENT_DIRECTED_C:: BOOLEAN                         as client_directed_c
+  , a.json:CLIENT_C:: VARCHAR(18)                              as client_c
+  , a.json:COMMENTS_IC_C:: VARCHAR(6000)                       as comments_ic_c
+  , a.json:COMMENTS_C:: VARCHAR(96000)                         as comments_c
+  , a.json:COMPLETED_BY_C:: VARCHAR(150)                       as completed_by_c
+  , a.json:COVER_UNCOVER_C:: VARCHAR(765)                      as cover_uncover_c
+  , a.json:CREATED_BY_NAME_C:: VARCHAR(300)                    as created_by_name_c
+  , a.json:DATE_OF_CONTACT_C:: DATE                            as date_of_contact_c
+  , a.json:DATE_OF_TRADE_C:: DATE                              as date_of_trade_c
+  , a.json:EXPORTED_C:: BOOLEAN                                as exported_c
+  , a.json:IMPORT_ID_C:: VARCHAR(90)                           as import_id_c
+  , a.json:JOURNAL_DATE_C:: DATE                               as journal_date_c
+  , a.json:LAST_MODIFIED_BY_NAME_C:: VARCHAR(300)              as last_modified_by_name_c
+  , a.json:LIMIT_AMOUNT_C:: NUMBER(12, 2)                      as limit_amount_c
+  , a.json:LIMIT_STOP_AMOUNT_C:: NUMBER(10, 2)                 as limit_stop_amount_c
+  , a.json:MATURITY_DATE_BEGIN_C:: DATE                        as maturity_date_begin_c
+  , a.json:MATURITY_DATE_END_C:: DATE                          as maturity_date_end_c
+  , a.json:MAXIMUM_DOLLAR_PRICE_C:: VARCHAR(765)               as maximum_dollar_price_c
+  , a.json:MINIMUM_CREDIT_RATING_C:: VARCHAR(765)              as minimum_credit_rating_c
+  , a.json:MODEL_C:: VARCHAR(18)                               as model_c
+  , a.json:MONTH_C:: VARCHAR(765)                              as month_c
+  , a.json:MOXY_ORDER_ID_C:: VARCHAR(36)                       as moxy_order_id_c
+  , a.json:NON_DISCRETIONARY_ACCOUNT_AT_TRADE_TIME_C:: BOOLEAN as non_discretionary_account_at_trade_time_c
+  , a.json:NOTES_FIXED_INCOME_TRADER_C:: VARCHAR(765)          as notes_fixed_income_trader_c
+  , a.json:ORDER_TYPE_C:: VARCHAR(765)                         as order_type_c
+  , a.json:OVERRIDE_TRADE_BLOCK_MODEL_C:: BOOLEAN              as override_trade_block_model_c
+  , a.json:OWNER_NAME_C:: VARCHAR(300)                         as owner_name_c
+  , a.json:PRICE_C:: NUMBER(9, 2)                              as price_c
+  , a.json:PRIORITY_LEVEL_C:: VARCHAR(765)                     as priority_level_c
+  , a.json:PRODUCT_STATUS_AS_OF_TRADE_C:: VARCHAR(225)         as product_status_as_of_trade_c
+  , a.json:QUANTITY_C:: DOUBLE                                 as quantity_c
+  , a.json:RECOMMENDER_NAME_C:: VARCHAR(300)                   as recommender_name_c
+  , a.json:RECOMMENDER_C:: VARCHAR(18)                         as recommender_c
+  , a.json:RECURRENCES_C:: DOUBLE                              as recurrences_c
+  , a.json:REMAINING_RECURRENCES_C:: DOUBLE                    as remaining_recurrences_c
+  , a.json:REQUESTOR_NAME_C:: VARCHAR(300)                     as requestor_name_c
+  , a.json:REQUESTOR_C:: VARCHAR(18)                           as requestor_c
+  , a.json:SECURITY_NAME_C:: VARCHAR(300)                      as security_name_c
+  , a.json:SECURITY_TYPE_C:: VARCHAR(765)                      as security_type_c
+  , a.json:SECURITY_C:: VARCHAR(18)                            as security_c
+  , a.json:SELL_ALL_C:: BOOLEAN                                as sell_all_c
+  , a.json:SELL_ENTIRE_POSITION_C:: BOOLEAN                    as sell_entire_position_c
+  , a.json:SEND_NOTIFICATION_TRANSACTION_COMPLETED_C:: BOOLEAN as send_notification_transaction_completed_c
+  , a.json:SHARE_QUANTITY_C:: DOUBLE                           as share_quantity_c
+  , a.json:STATE_FLEXIBILITY_C:: VARCHAR(765)                  as state_flexibility_c
+  , a.json:STATE_C:: VARCHAR(18)                               as state_c
+  , a.json:STRIKE_C:: VARCHAR(765)                             as strike_c
+  , a.json:TICKER_SYMBOL_C:: VARCHAR(75)                       as ticker_symbol_c
+  , a.json:TRADE_FREQUENCY_C:: VARCHAR(765)                    as trade_frequency_c
+  , a.json:TRADE_STATUS_C:: VARCHAR(765)                       as trade_status_c
+  , a.json:TRADE_TYPE_C:: VARCHAR(765)                         as trade_type_c
+  , a.json:TRADING_NOTES_C:: VARCHAR(24000)                    as trading_notes_c
+  , a.json:TRANSACTION_BLOCK_C:: VARCHAR(150)                  as transaction_block_c
+  , a.json:WORKED_BY_C:: VARCHAR(150)                          as worked_by_c
+  , a.json:YEAR_C:: VARCHAR(12)                                as year_c
+  , a.json:ESTATE_ITEM_C:: VARCHAR(18)                         as estate_item_c
+  , a.json:PREVIOUSLY_APPROVED_BY_IC_C:: BOOLEAN               as previously_approved_by_ic_c
+  , a.json:_FIVETRAN_SYNCED:: TIMESTAMPTZ                      as _fivetran_synced
+  , a.json:ACCOUNT_NAME_C:: VARCHAR(3900)                      as account_name_c
+  , a.json:CUSTODIAL_FIRM_C:: VARCHAR(3900)                    as custodial_firm_c
+  , a.json:CLIENT_OWNER_C:: VARCHAR(3900)                      as client_owner_c
+  , a.json:ACCOUNT_CASH_BALANCE_C:: NUMBER(18, 2)              as account_cash_balance_c
+  , a.json:ACCOUNT_C:: VARCHAR(3900)                           as account_c
+  , a.json:COURTESY_ACCOUNT_FORM_C:: BOOLEAN                   as courtesy_account_form_c
+  , a.json:TRADING_SYSTEM_C:: VARCHAR(3900)                    as trading_system_c
+  , a.json:BOSTALE_DATE_C:: DATE                               as bostale_date_c
+  , a.json:CURRENT_MODEL_ON_ACCOUNT_C:: VARCHAR(3900)          as current_model_on_account_c
+  , a.json:ACCOUNT_ID_C:: VARCHAR(3900)                        as account_id_c
+  , a.json:CURRENT_CASH_PERCENTAGE_C:: DOUBLE                  as current_cash_percentage_c
+  , a.json:PRIME_BROKER_ENABLED_C:: BOOLEAN                    as prime_broker_enabled_c
+  , a.json:MARGIN_ON_ACCOUNT_C:: BOOLEAN                       as margin_on_account_c
+  , a.json:RECOMMENDER_NAME_2_C:: VARCHAR(3900)                as recommender_name_2_c
+  , a.json:IMA_C:: BOOLEAN                                     as ima_c
+  , a.json:RISK_OBJECTIVE_C:: BOOLEAN                          as risk_objective_c
+  , a.json:REQUESTER_NAME_2_DEL_C:: VARCHAR(3900)              as requester_name_2_del_c
+  , a.json:NON_DISCRETIONARY_ACCOUNT_C:: BOOLEAN               as non_discretionary_account_c
+  , a.json:ACCOUNT_CLOSED_DATE_C:: DATE                        as account_closed_date_c
+  , a.json:CURRENT_ACCOUNT_VALUE_C:: NUMBER(18, 2)             as current_account_value_c
+  , a.json:BLOCK_ON_ACCOUNT_C:: BOOLEAN                        as block_on_account_c
+  , a.json:VALID_PAPERWORK_C:: BOOLEAN                         as valid_paperwork_c
+  , a.json:BRANCH_C:: VARCHAR(3900)                            as branch_c
+  , a.json:CUSTODIAN_RESTRICTION_NOTES_C:: VARCHAR(3900)       as custodian_restriction_notes_c
+  , a.json:RISK_TOLERANCE_C:: BOOLEAN                          as risk_tolerance_c
+  , a.json:LOCATION_C:: VARCHAR(3900)                          as location_c
+  , a.json:AS_OF_DATE_C:: DATE                                 as as_of_date_c
+  , a.json:SYS_COMPLETE_NOTIFICATION_CC_C:: VARCHAR(765)       as sys_complete_notification_cc_c
+  , a.json:SYS_OPS_LAST_NOTIFIED_ATTN_REQ_C:: TIMESTAMPTZ      as sys_ops_last_notified_attn_req_c
+  , a.json:REQUIRED_OPERATIONS_ATTENTION_C:: BOOLEAN           as required_operations_attention_c
+  , a.json:CLIENT_AGREEMENT_VERSION_C:: VARCHAR(3900)          as client_agreement_version_c
+  , a.json:ACCOUNT_PAPERWORK_TYPE_ON_FILE_C_C:: VARCHAR(3900)  as account_paperwork_type_on_file_c_c
+  , a.json:_FIVETRAN_DELETED:: BOOLEAN                         as _fivetran_deleted
+
+  , a.effective_at::timestamp                                  as effective_at
+  , a._created_at::timestamp                                   as _created_at
+  , {{ col_is_head(reference=source('salesforce_compass', 'trade_instruction_c'), source_date_col='a.effective_at', reference_date_col='effective_at') }}
+  , case when b.rn = 1 then 1 else 0 end                       as is_latest
+from {{ source('salesforce_compass', 'trade_instruction_c') }} a
+left join (
+  select effective_at::date as effective_at, _created_at, row_number() over(partition by effective_at::date order by _created_at desc) as rn
+  from {{ source('salesforce_compass', 'trade_instruction_c') }}
+  group by 1,2
+) b
+on a.effective_at::date = b.effective_at::date
+    and a._created_at = b._created_at

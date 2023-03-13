@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: de
+    description: "Data engineering schema"
+    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    schema: de
+    tables:
+      - name: db_grants
+      - name: db_roles
+      - name: db_users

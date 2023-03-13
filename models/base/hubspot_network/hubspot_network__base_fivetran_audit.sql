@@ -1,3 +1,4 @@
+{{ config(enabled = false) }}
 select
     * rename
     update_started                 as update_started_at

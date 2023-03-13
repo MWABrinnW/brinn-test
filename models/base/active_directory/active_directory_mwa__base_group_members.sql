@@ -9,9 +9,9 @@ select
   , g.record_datetime::timestamp as record_datetime
   , case
         when record_datetime::timestamp =
-             (select max(record_datetime::timestamp) from {{ source('active_directory', 'groups_history') }})
+             (select max(record_datetime::timestamp) from {{ source('active_directory_mwa', 'groups_history') }})
             then 1
         else 0 end             as is_current
-from {{ source('active_directory', 'groups_history') }} g
+from {{ source('active_directory_mwa', 'groups_history') }} g
    , lateral flatten(input =>split(member, ';')) c
 

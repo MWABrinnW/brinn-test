@@ -7,3 +7,4 @@ profiles.yml
 .vscode/settings.json
 .venv/
 scratch.sql
+analyses/scratch/
