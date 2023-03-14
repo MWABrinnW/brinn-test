@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: alteryx_gallery
     description: Alteryx gallery data from mongodb.
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: alteryx_gallery
     tables:
       - name: appinfos

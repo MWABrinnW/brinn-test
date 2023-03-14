@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: addepar_corbenic
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: addepar_corbenic_history
     tables:
       - name: accounts
@@ -11,7 +11,7 @@ sources:
 
   - name: axys_granite
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: axys_granite_history
     tables:
       - name: financial_accounts_monthly
@@ -20,7 +20,7 @@ sources:
 
   - name: axys_cincinnati
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: axys_cincinnati_history
     tables:
       - name: financial_account
@@ -28,7 +28,7 @@ sources:
 
   - name: black_diamond_ap4
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: black_diamond_ap4_history
     tables:
       - name: accounts
@@ -46,7 +46,7 @@ sources:
 
   - name: black_diamond_cig
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: black_diamond_cig_history
     tables:
       - name: accounts
@@ -64,7 +64,7 @@ sources:
 
   - name: black_diamond_commonwealth
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: black_diamond_commonwealth_history
     tables:
       - name: accounts
@@ -82,7 +82,7 @@ sources:
 
   - name: black_diamond_houston
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: black_diamond_houston_history
     tables:
       - name: accounts
@@ -100,7 +100,7 @@ sources:
 
   - name: envestnet_mwa
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: envestnet_mwa_history
     tables:
       - name: account_fee_schedule_fee_component
@@ -262,7 +262,7 @@ sources:
 
   - name: envestnet_mps
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: envestnet_mps_history
     tables:
       - name: account_fee_schedule_fee_component
@@ -408,14 +408,14 @@ sources:
 
   - name: hfw
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     tables:
       - name: holdings
         description: ""
 
   - name: orion_allegiant
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: orion_allegiant_report_history
     tables:
       - name: as_of_value_by_account_3679_history
@@ -427,7 +427,7 @@ sources:
 
   - name: orion_arbor_wealth
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: orion_arbor_wealth_report_history
     tables:
       - name: as_of_value_by_account_3679_history
@@ -439,7 +439,7 @@ sources:
 
   - name: orion_cascadia
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: orion_cascadia_report_history
     tables:
       - name: as_of_value_by_account_3679_history
@@ -451,7 +451,7 @@ sources:
 
   - name: orion_mps
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: orion_mps_report_history
     tables:
       - name: as_of_value_by_account_3679_history
@@ -463,7 +463,7 @@ sources:
 
   - name: orion_mwa_bulk
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: orion_mwa_bulk_history
     tables:
       - name: assetbasiscostlots
@@ -481,7 +481,7 @@ sources:
 
   - name: orion_mwa
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: orion_mwa_report_history
     tables:
       - name: as_of_value_by_account_6473_history
@@ -493,7 +493,7 @@ sources:
 
   - name: portfoliocenter_roseland
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: portfoliocenter_roseland_history
     tables:
       - name: financial_accounts
@@ -503,7 +503,7 @@ sources:
 
   - name: portfoliocenter_tcea
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: portfoliocenter_tcea_history
     tables:
       - name: fa_accounts_history
@@ -513,7 +513,7 @@ sources:
 
   - name: tamarac_emerson
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: tamarac_emerson_history
     tables:
       - name: accounts
@@ -527,7 +527,7 @@ sources:
 
   - name: tamarac_nashville
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: tamarac_nashville_history
     tables:
       - name: assets
@@ -537,7 +537,7 @@ sources:
 
   - name: tamarac_new_albany
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: tamarac_new_albany_history
     tables:
       - name: assets
@@ -551,7 +551,7 @@ sources:
 
   - name: tamarac_savant
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: tamarac_savant_history
     tables:
       - name: assets
@@ -565,7 +565,7 @@ sources:
 
   - name: tamarac_state_college
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: tamarac_state_college_history
     tables:
       - name: assets
@@ -577,19 +577,32 @@ sources:
 
   - name: morningstar_executive_wealth
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: morningstar_executive_wealth
     tables:
       - name: aum
         description: ""
       - name: gain_loss
         description: ""
+
   - name: morningstar_hfw
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: morningstar_hfw
     tables:
       - name: aum
         description: ""
       - name: gain_loss
+        description: ""
+      - name: accounts
+        description: ""
+      - name: clients
+        description: ""
+
+  - name: tpg_hfw
+    description: ""
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    schema: tpg_hfw
+    tables:
+      - name: holdings
         description: ""

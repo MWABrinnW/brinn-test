@@ -167,8 +167,8 @@ models:
 
       pms:
         +tags: ['pms']
-        # +grants:
-        #   select: "{{ ['db_pms_r'] if target.name in ['prod','test'] else []}}"
+        +grants:
+          select: "{{ ['db_pms_mwa_r'] if target.name in ['prod','test'] else []}}"
 
       ring_central:
         +tags: ['ring_central']

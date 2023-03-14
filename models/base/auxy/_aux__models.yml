@@ -72,3 +72,16 @@ models:
 
   - name: aux__base_integration_roadmap
     description: This smartsheets file is maintained by the platforms team and details the roadmap for various location Orion integration activities.
+
+  - name: aux__base_hfw_acct_data
+    config:
+      tags: ['hfw']
+      grants:
+        select: "{{ ['db_pms_mwa_r'] if target.name in ['prod','test'] else []}}"
+
+  - name: aux__base_hfw_tpg_mstar_overlap
+    config:
+      tags: ['hfw']
+      grants:
+        select: "{{ ['db_pms_mwa_r'] if target.name in ['prod','test'] else []}}"
+

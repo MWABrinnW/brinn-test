@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: zoom_mwa
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: zoom_mwa
     loaded_at_field: _created_at
     tables:

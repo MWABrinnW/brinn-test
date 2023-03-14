@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: active_directory_mwa
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: active_directory_mwa
     loaded_at_field: record_datetime
     tables:
