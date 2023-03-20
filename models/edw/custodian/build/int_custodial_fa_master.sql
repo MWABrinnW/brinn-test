@@ -12,6 +12,7 @@
          'nml_schwab_mps_accounts',
          'nml_fidelity_mwa_accounts',
          'nml_fidelity_mps_accounts',
+         'nml_fidelity_swag_accounts',
          'nml_lpl_network_accounts'
     ]
 -%}

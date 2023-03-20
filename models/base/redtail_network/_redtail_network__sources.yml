@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: redtail_network
+    description: ""
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    loaded_at_field: _created_at
+    tables:
+      - name: contacts
+        description: "Contact records from redtail"
+      - name: contact_udfs
+        description: "User defined contact fields from redtail"

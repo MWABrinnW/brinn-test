@@ -5,7 +5,7 @@ sources:
     description: >
       The sources represent auxillary source systems and files,
       Typically resulting in the use of Box or Smartsheets files used for mapping or as supplemntary data not available elsewhere."
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
 
     tables:
       - name: locations

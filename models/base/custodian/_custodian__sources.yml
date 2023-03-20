@@ -3,7 +3,7 @@ version: 2
 sources:
 # MWA -------------------------------------
   - name: schwab_mwa
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: schwab_mwa_history
     loaded_at_field: record_datetime
     tables:
@@ -21,7 +21,7 @@ sources:
       - name: master_account_relationships
 
   - name: fidelity_mwa
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: fidelity_mwa_history
     loaded_at_field: record_datetime
     tables:
@@ -93,7 +93,7 @@ sources:
           - name: source_file
 
   - name: tda
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: tda
     loaded_at_field: _created_at
     tables:
@@ -111,10 +111,12 @@ sources:
         description: Account demographics full file. This is not delivered on a schedule and is by request only.
       - name: trn
         description: Transactions
+      - name: accounts_balances
+        description: File from TDA VEO (website) that shows all accounts and associated rep code.
 
 # MPS -------------------------------------
   - name: fidelity_mps
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: fidelity_mps_history
     loaded_at_field: record_datetime
     tables:
@@ -187,7 +189,7 @@ sources:
 
   - name: schwab_mps
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: schwab_mps_history
     loaded_at_field: record_datetime
     tables:
@@ -208,7 +210,7 @@ sources:
 
 # MSEC -------------------------------------
   - name: fidelity_msec
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: fidelity_msec_history
     loaded_at_field: record_datetime
     tables:
@@ -222,7 +224,7 @@ sources:
 # Network -------------------------------------
   - name: lpl_network
     description: ""
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     loaded_at_field: _created_at
     tables:
       - name: accountext
@@ -253,7 +255,7 @@ sources:
         description: "The Transaction Activity file contains account activity records for accounts under Rep IDs that belong to your organization. Types of transactions include deposits/withdrawals, dividends/interest, buys/sells and redemptions. Activity is limited to what is available via ClientWorks."
 
   - name: fidelity_swag
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake_dev') }}"
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: fidelity_swag_history
     loaded_at_field: record_datetime
     tables:
