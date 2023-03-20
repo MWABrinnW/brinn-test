@@ -111,6 +111,8 @@ sources:
         description: Account demographics full file. This is not delivered on a schedule and is by request only.
       - name: trn
         description: Transactions
+      - name: accounts_balances
+        description: File from TDA VEO (website) that shows all accounts and associated rep code.
 
 # MPS -------------------------------------
   - name: fidelity_mps
