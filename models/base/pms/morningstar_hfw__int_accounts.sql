@@ -234,8 +234,8 @@ with cte_effective_dates as
                   when t_acc.effective_date is not null then t_acc.customername
                   when m_acc.effective_date is not null then m_acc.client_name
                   else hfw.household_name end                                                   as household_name
-            , 'l-10004'                                                                         as location_code
-            , 'bloomfield hills, mi - springdale park'                                          as location_name
+            , 'L-10004'                                                                         as location_code
+            , 'Bloomfield Hills, MI - Springdale Park'                                          as location_name
             , case
                   when olap.client_name is not null then t_acc.customertypedesc
                   when t_acc.effective_date is not null then t_acc.customertypedesc
