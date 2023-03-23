@@ -1,0 +1,1 @@
+{{ mftd_c_rules(source('pershing_mwa', 'mftd')) }}

@@ -15,10 +15,10 @@ select
   , ar.normalized::varchar(50)                        as account_type -- (ira rollover, etc)
   , a.opened_date::date                               as date_opened
 
-  , a.account_title::varchar(100)                     as account_title
-  , a.first_name::varchar(100)                        as first_name
-  , a.middle_name::varchar(100)                       as middle_name
-  , a.last_name::varchar(100)                         as last_name
+  , a.account_title::varchar(200)                     as account_title
+  , a.first_name::varchar(200)                        as first_name
+  , a.middle_name::varchar(200)                       as middle_name
+  , a.last_name::varchar(200)                         as last_name
 
   , a.irs_id::varchar(10)
   , a.irs_id_type::varchar(75)
@@ -31,20 +31,20 @@ select
   , a.is_taxable::int                                 as is_taxable
   , a.is_fee_authorized::int                          as is_fee_authorized
   , a.is_prime_broker::int                            as is_prime_broker
-  , a.restrictions_source_code::varchar(100)          as restrictions_source_code
-  , r.definition::varchar(100)                        as restrctions_source_defintion
-  , r.normalized::varchar(100)                        as restrictions
+  , a.restrictions_source_code::varchar(200)          as restrictions_source_code
+  , r.definition::varchar(200)                        as restrctions_source_defintion
+  , r.normalized::varchar(200)                        as restrictions
 
-  , a.mailing_address_street::varchar(100)            as mailing_address_street
-  , a.mailing_address_city::varchar(100)              as mailing_address_city
-  , a.mailing_address_state::varchar(100)             as mailing_address_state
-  , a.mailing_address_zip::varchar(100)               as mailing_address_zip
-  , a.mailing_address_country::varchar(100)           as mailing_address_country
-  , a.legal_address_street::varchar(100)              as legal_address_street
-  , a.legal_address_city::varchar(100)                as legal_address_city
-  , a.legal_address_state::varchar(100)               as legal_address_state
-  , a.legal_address_zip::varchar(100)                 as legal_address_zip
-  , a.legal_address_country::varchar(100)             as legal_address_country
+  , a.mailing_address_street::varchar(200)            as mailing_address_street
+  , a.mailing_address_city::varchar(200)              as mailing_address_city
+  , a.mailing_address_state::varchar(200)             as mailing_address_state
+  , a.mailing_address_zip::varchar(200)               as mailing_address_zip
+  , a.mailing_address_country::varchar(200)           as mailing_address_country
+  , a.legal_address_street::varchar(200)              as legal_address_street
+  , a.legal_address_city::varchar(200)                as legal_address_city
+  , a.legal_address_state::varchar(200)               as legal_address_state
+  , a.legal_address_zip::varchar(200)                 as legal_address_zip
+  , a.legal_address_country::varchar(200)             as legal_address_country
   , a.is_head::int                                    as is_head
   , a.is_current::int                                 as is_current
   , a._source_loaded_at::timestamp                    as _source_loaded_at

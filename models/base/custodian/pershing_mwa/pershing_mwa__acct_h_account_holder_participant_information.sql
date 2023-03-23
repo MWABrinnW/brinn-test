@@ -1,0 +1,1 @@
+{{ acct_h_account_holder_participant_information(source('pershing_mwa', 'acct')) }}

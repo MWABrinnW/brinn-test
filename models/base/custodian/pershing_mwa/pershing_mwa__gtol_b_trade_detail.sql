@@ -1,0 +1,1 @@
+{{ gtol_b_trade_detail(source('pershing_mwa', 'gtol')) }}

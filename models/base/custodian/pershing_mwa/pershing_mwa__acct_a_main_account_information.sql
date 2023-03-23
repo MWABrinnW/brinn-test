@@ -1,0 +1,1 @@
+{{ acct_a_main_account_information(source('pershing_mwa', 'acct')) }}

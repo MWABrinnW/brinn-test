@@ -10,13 +10,13 @@ select
   , a.rep_id::varchar(50)                           as rep_link
   , 'rep id'::varchar(50)                           as rep_link_detail
   , a.institution_type::varchar(75)                 as account_type_source_code
-  , ar.definition::varchar(100)                     as account_type_source_definition
-  , ar.normalized::varchar(100)                     as account_type
+  , ar.definition::varchar(200)                     as account_type_source_definition
+  , ar.normalized::varchar(200)                     as account_type
   , a.open_date::date                               as opened_date
-  , a.account_name::varchar(100)                    as account_title
-  , c.first_name::varchar(100)                      as first_name
-  , c.middle_name::varchar(100)                     as middle_name
-  , c.last_name::varchar(100)                       as last_name
+  , a.account_name::varchar(200)                    as account_title
+  , c.first_name::varchar(200)                      as first_name
+  , c.middle_name::varchar(200)                     as middle_name
+  , c.last_name::varchar(200)                       as last_name
   , replace(a.client_ssn_tin, '-', '')::varchar(20) as irs_id
   , case
         when left(c.ssn_tin, 1) = '9'
@@ -34,9 +34,9 @@ select
   , null::int                                       as is_taxable
   , null::int                                       as is_fee_authorized
   , null::int                                       as is_prime_broker
-  , null::varchar(100)                              as restrictions_source_code
-  , null::varchar(100)                              as restrictions_source_definition
-  , null::varchar(100)                              as restrictions
+  , null::varchar(200)                              as restrictions_source_code
+  , null::varchar(200)                              as restrictions_source_definition
+  , null::varchar(200)                              as restrictions
   , trim(concat(nvl(c.address_1, ''),
                 nvl(c.address_2, ' '),
                 nvl(c.address_3, ' ')))             as mailing_address_street
@@ -47,11 +47,11 @@ select
         when c.is_foreign = 0
             then 'US'
         else null end                               as mailing_address_country
-  , null::varchar(100)                              as legal_address_street
-  , null::varchar(100)                              as legal_address_city
-  , null::varchar(100)                              as legal_address_state
-  , null::varchar(100)                              as legal_address_zip
-  , null::varchar(100)                              as legal_address_country
+  , null::varchar(200)                              as legal_address_street
+  , null::varchar(200)                              as legal_address_city
+  , null::varchar(200)                              as legal_address_state
+  , null::varchar(200)                              as legal_address_zip
+  , null::varchar(200)                              as legal_address_country
   , a.is_head::int                                  as is_head
   , a.is_current::int                               as is_current
   , a._source_loaded_at::timestamp                  as _source_loaded_at

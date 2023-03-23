@@ -1,0 +1,1 @@
+{{ acct_t_beneficiary_information_up_to_10_primary_and_10_contingents(source('pershing_mwa', 'acct')) }}

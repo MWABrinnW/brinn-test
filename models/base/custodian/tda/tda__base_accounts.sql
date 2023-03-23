@@ -41,7 +41,7 @@ select
   , _rep_code                                         as _rep_code
   , _file_type                                        as _file_type
   , _source_file                                      as _source_file
-  , _created_at                                       as _created_at
+  , _created_at                                       as _source_loaded_at
 from {{ ref('tda__base_trf') }}
 where true
 
@@ -89,7 +89,7 @@ select
   , _rep_code                                         as _rep_code
   , _file_type                                        as _file_type
   , _source_file                                      as _source_file
-  , _created_at                                       as _created_at
+  , _created_at                                       as _source_loaded_at
 from {{ ref('tda__base_trd') }}
 where true
 

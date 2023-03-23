@@ -1,0 +1,1 @@
+{{ potl_a_aggregated_total_position_quantity_holdings(source('pershing_mwa', 'potl')) }}

@@ -1,0 +1,1 @@
+{{ gtol_f_alternative_investment_product_order_information(source('pershing_mwa', 'gtol')) }}

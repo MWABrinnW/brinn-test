@@ -1,0 +1,1 @@
+{{ mftd_a(source('pershing_mwa', 'mftd')) }}

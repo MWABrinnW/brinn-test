@@ -1,0 +1,1 @@
+{{ isrc_a(source('pershing_mps', 'isrc')) }}

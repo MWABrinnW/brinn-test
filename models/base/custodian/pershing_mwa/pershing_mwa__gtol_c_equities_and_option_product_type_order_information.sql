@@ -1,0 +1,1 @@
+{{ gtol_c_equities_and_option_product_type_order_information(source('pershing_mwa', 'gtol')) }}
