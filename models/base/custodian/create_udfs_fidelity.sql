@@ -1,3 +1,4 @@
+{{ config(enabled = false) }}
 {%- if execute -%}
     {%- set qry -%}
     create schema if not exists {{target.schema}};
