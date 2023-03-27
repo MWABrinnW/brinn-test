@@ -1,0 +1,1 @@
+{{ hldr_j_individual_entity_client_common_information(source('pershing_mps', 'hldr')) }}

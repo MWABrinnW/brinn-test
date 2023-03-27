@@ -1,0 +1,1 @@
+{{ acct_7_account_holder_participant_level_information_for_bank_custody_trust_and_cdd_accounts(source('pershing_mwa', 'acct')) }}

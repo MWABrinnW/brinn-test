@@ -1,0 +1,1 @@
+{{ gact_b(source('pershing_mwa', 'gact')) }}

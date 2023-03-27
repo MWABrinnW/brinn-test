@@ -1,0 +1,810 @@
+{% macro create_f_get_fidelity_taxlots() %}
+create or replace function {{target.schema}}.GET_FIDELITY_TAXLOTS(DATE_VAL VARCHAR)
+    returns TABLE (ACCOUNT_CUSTODIAL VARCHAR, ACCOUNT_CUSTODIAL_FORMATTED VARCHAR, RECORD_NUMBER VARCHAR
+                    , TAS_DELTA_INDICATOR VARCHAR, BRANCH VARCHAR, ACCOUNT_NUMBER VARCHAR
+                    , ACCOUNT_TYPE VARCHAR, CUSIP VARCHAR, SECURITY_DESCRIPTION_LINES_1_6 VARCHAR
+                    , PRODUCT_CODE VARCHAR, CLOSING_MARKET_PRICE NUMBER, LOT_QUANTITY NUMBER
+                    , LOT_MARKET_VALUE NUMBER, TAS_COST_BASIS_AMOUNT_PROCEEDS NUMBER
+                    , UNREALIZED_GAIN_LOSS_AMOUNT NUMBER, COST_BASIS_EVENT_SOURCE_CODE VARCHAR
+                    , TAS_LOT_ACQUIRED_DATE DATE, LOT_COST_BASIS_METHOD_CODE VARCHAR
+                    , HOLDING_PERIOD_FRACTURED_LOT_INDICATOR VARCHAR, WASH_SALE_INDICATOR VARCHAR
+                    , LONG_SHORT_CODE VARCHAR, MARK_TO_MARKET_INDICATOR VARCHAR, RETIREMENT_INDICATOR VARCHAR
+                    , FIXED_INCOME_UNADJUSTED_COST_BASIS_AMOUNT NUMBER
+                    , FIXED_INCOME_ADJUSTED_COST_BASIS_INDICATOR VARCHAR, YTD_ACQUISITION_PREMIUM NUMBER
+                    , YTD_AMORTIZED_PREMIUM NUMBER, YTD_MARKET_DISCOUNT_INCOME NUMBER
+                    , OPTION_CONTRACT_ID VARCHAR, OPTION_EXPIRATION_DATE DATE
+                    , OPTION_CALL_PUT_INDICATOR VARCHAR, OPTION_STRIKE_PRICE NUMBER
+                    , OPTION_SYMBOL_ID VARCHAR, CBL_COVERED_LOT_INDICATOR VARCHAR
+                    , CBL_GIFTED_INHERITED_LOT_INDICATOR VARCHAR, GIFTED_LOT_DATE DATE
+                    , GIFTED_LOT_FAIR_MARKET_VALUE NUMBER, CBL_COVERED_REASON_CODE VARCHAR
+                    , WASH_SALE_HOLDING_PERIOD_DATE DATE, OPEN_LOT_IDENTIFIER VARCHAR
+                    , NIGO_OUT_OF_BALANCE_EXCEPTION_INDICATOR VARCHAR
+                    , NIGO_TECH_SHORT_EXCEPTION_INDICATOR VARCHAR, NIGO_COST_EXCEPTION_INDICATOR VARCHAR
+                    , POSITION_COST_BASIS_METHOD_CODE VARCHAR, OPEN_LOT_SETTLEMENT_DATE DATE
+                    , ORIGINAL_LOT_QUANTITY NUMBER, ORIGINAL_LOT_COST NUMBER, CURRENT_COST_UNADJUSTED_WASH NUMBER
+                    , OPEN_RUN_DATE DATE, SEDOL VARCHAR, YTD_ORIGINAL_ISSUE_DISCOUNT_AMOUNT NUMBER
+                    , THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_DATE DATE
+                    , THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_AMOUNT NUMBER, LOT_RECEIVED_DATE DATE
+                    , YTD_NON_QUALIFIED_STATED_INTEREST_AMOUNT NUMBER, EFFECTIVE_DATE DATE
+                    , EFFECTIVE_DATE_ORIGINAL DATE, RECORD_DATE DATE, RECORD_DATETIME TIMESTAMP_NTZ
+                    , SOURCE_FILE VARCHAR, DTNUM NUMBER)
+as
+$$
+    with cte_full as
+        (select *,
+                0::int as dtnum
+         from vw_tlaopenfull
+         where 1 = 1
+           and effective_date = (select top 1
+                                     EFFECTIVE_DATE
+                                 from VW_TLAOPENFULL
+                                 where 1 = 1
+                                   and EFFECTIVE_DATE <= var_effective_date
+                                 order by EFFECTIVE_DATE desc)
+        )
+       , cte_delta as
+        (
+        select *,
+                dense_rank() over (order by EFFECTIVE_DATE asc) as dtnum
+         from VW_TLAOPENDELTA
+         where EFFECTIVE_DATE between
+                       (select max(EFFECTIVE_DATE) from cte_full) + 1 and
+                            (select max(EFFECTIVE_DATE) from cte_full) + datediff(day, (select max(EFFECTIVE_DATE) from cte_full), var_effective_date::date)
+        )
+       , cte_delta_dates as
+        (
+        select distinct
+             EFFECTIVE_DATE,
+             dtnum
+         from cte_delta
+         group by EFFECTIVE_DATE, dtnum
+        )
+    ,cte_1 as (
+        -- Records from full, without deleted
+        select
+            ACCOUNT_CUSTODIAL
+            ,ACCOUNT_CUSTODIAL_FORMATTED
+            ,RECORD_NUMBER
+            ,TAS_DELTA_INDICATOR
+            ,BRANCH
+            ,ACCOUNT_NUMBER
+            ,ACCOUNT_TYPE
+            ,CUSIP
+            ,SECURITY_DESCRIPTION_LINES_1_6
+            ,PRODUCT_CODE
+            ,CLOSING_MARKET_PRICE
+            ,LOT_QUANTITY
+            ,LOT_MARKET_VALUE
+            ,TAS_COST_BASIS_AMOUNT_PROCEEDS
+            ,UNREALIZED_GAIN_LOSS_AMOUNT
+            ,COST_BASIS_EVENT_SOURCE_CODE
+            ,TAS_LOT_ACQUIRED_DATE
+            ,LOT_COST_BASIS_METHOD_CODE
+            ,HOLDING_PERIOD_FRACTURED_LOT_INDICATOR
+            ,WASH_SALE_INDICATOR
+            ,LONG_SHORT_CODE
+            ,MARK_TO_MARKET_INDICATOR
+            ,RETIREMENT_INDICATOR
+            ,FIXED_INCOME_UNADJUSTED_COST_BASIS_AMOUNT
+            ,FIXED_INCOME_ADJUSTED_COST_BASIS_INDICATOR
+            ,YTD_ACQUISITION_PREMIUM
+            ,YTD_AMORTIZED_PREMIUM
+            ,YTD_MARKET_DISCOUNT_INCOME
+            ,OPTION_CONTRACT_ID
+            ,OPTION_EXPIRATION_DATE
+            ,OPTION_CALL_PUT_INDICATOR
+            ,OPTION_STRIKE_PRICE
+            ,OPTION_SYMBOL_ID
+            ,CBL_COVERED_LOT_INDICATOR
+            ,CBL_GIFTED_INHERITED_LOT_INDICATOR
+            ,GIFTED_LOT_DATE
+            ,GIFTED_LOT_FAIR_MARKET_VALUE
+            ,CBL_COVERED_REASON_CODE
+            ,WASH_SALE_HOLDING_PERIOD_DATE
+            ,OPEN_LOT_IDENTIFIER
+            ,NIGO_OUT_OF_BALANCE_EXCEPTION_INDICATOR
+            ,NIGO_TECH_SHORT_EXCEPTION_INDICATOR
+            ,NIGO_COST_EXCEPTION_INDICATOR
+            ,POSITION_COST_BASIS_METHOD_CODE
+            ,OPEN_LOT_SETTLEMENT_DATE
+            ,ORIGINAL_LOT_QUANTITY
+            ,ORIGINAL_LOT_COST
+            ,CURRENT_COST_UNADJUSTED_WASH
+            ,OPEN_RUN_DATE
+            ,SEDOL
+            ,YTD_ORIGINAL_ISSUE_DISCOUNT_AMOUNT
+            ,THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_DATE
+            ,THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_AMOUNT
+            ,LOT_RECEIVED_DATE
+            ,YTD_NON_QUALIFIED_STATED_INTEREST_AMOUNT
+            ,DTNUM
+            ,EFFECTIVE_DATE as EFFECTIVE_DATE_ORIGINAL
+            ,_source_loaded_at
+            ,_SOURCE_FILE
+            ,coalesce((select EFFECTIVE_DATE from cte_delta_dates where dtnum = 1),EFFECTIVE_DATE) as EFFECTIVE_DATE
+        from cte_full
+        where 1=1
+            and coalesce(OPEN_LOT_IDENTIFIER,'') not in (select distinct OPEN_LOT_IDENTIFIER from cte_delta where dtnum = 1 and TAS_DELTA_INDICATOR in ('D', 'C'))
+        UNION
+        -- Added/Changed records
+        select
+            ACCOUNT_CUSTODIAL
+            ,ACCOUNT_CUSTODIAL_FORMATTED
+            ,RECORD_NUMBER
+            ,TAS_DELTA_INDICATOR
+            ,BRANCH
+            ,ACCOUNT_NUMBER
+            ,ACCOUNT_TYPE
+            ,CUSIP
+            ,SECURITY_DESCRIPTION_LINES_1_6
+            ,PRODUCT_CODE
+            ,CLOSING_MARKET_PRICE
+            ,LOT_QUANTITY
+            ,LOT_MARKET_VALUE
+            ,TAS_COST_BASIS_AMOUNT_PROCEEDS
+            ,UNREALIZED_GAIN_LOSS_AMOUNT
+            ,COST_BASIS_EVENT_SOURCE_CODE
+            ,TAS_LOT_ACQUIRED_DATE
+            ,LOT_COST_BASIS_METHOD_CODE
+            ,HOLDING_PERIOD_FRACTURED_LOT_INDICATOR
+            ,WASH_SALE_INDICATOR
+            ,LONG_SHORT_CODE
+            ,MARK_TO_MARKET_INDICATOR
+            ,RETIREMENT_INDICATOR
+            ,FIXED_INCOME_UNADJUSTED_COST_BASIS_AMOUNT
+            ,FIXED_INCOME_ADJUSTED_COST_BASIS_INDICATOR
+            ,YTD_ACQUISITION_PREMIUM
+            ,YTD_AMORTIZED_PREMIUM
+            ,YTD_MARKET_DISCOUNT_INCOME
+            ,OPTION_CONTRACT_ID
+            ,OPTION_EXPIRATION_DATE
+            ,OPTION_CALL_PUT_INDICATOR
+            ,OPTION_STRIKE_PRICE
+            ,OPTION_SYMBOL_ID
+            ,CBL_COVERED_LOT_INDICATOR
+            ,CBL_GIFTED_INHERITED_LOT_INDICATOR
+            ,GIFTED_LOT_DATE
+            ,GIFTED_LOT_FAIR_MARKET_VALUE
+            ,CBL_COVERED_REASON_CODE
+            ,WASH_SALE_HOLDING_PERIOD_DATE
+            ,OPEN_LOT_IDENTIFIER
+            ,NIGO_OUT_OF_BALANCE_EXCEPTION_INDICATOR
+            ,NIGO_TECH_SHORT_EXCEPTION_INDICATOR
+            ,NIGO_COST_EXCEPTION_INDICATOR
+            ,POSITION_COST_BASIS_METHOD_CODE
+            ,OPEN_LOT_SETTLEMENT_DATE
+            ,ORIGINAL_LOT_QUANTITY
+            ,ORIGINAL_LOT_COST
+            ,CURRENT_COST_UNADJUSTED_WASH
+            ,OPEN_RUN_DATE
+            ,SEDOL
+            ,YTD_ORIGINAL_ISSUE_DISCOUNT_AMOUNT
+            ,THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_DATE
+            ,THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_AMOUNT
+            ,LOT_RECEIVED_DATE
+            ,YTD_NON_QUALIFIED_STATED_INTEREST_AMOUNT
+            ,DTNUM
+            ,EFFECTIVE_DATE as EFFECTIVE_DATE_ORIGINAL
+            ,_source_loaded_at
+            ,_SOURCE_FILE
+            ,EFFECTIVE_DATE
+        from cte_delta
+        where 1=1
+            and dtnum = 1
+            and TAS_DELTA_INDICATOR in ('A','C')
+    )
+    ,cte_2 as (
+        select
+            ACCOUNT_CUSTODIAL
+            ,ACCOUNT_CUSTODIAL_FORMATTED
+            ,RECORD_NUMBER
+            ,TAS_DELTA_INDICATOR
+            ,BRANCH
+            ,ACCOUNT_NUMBER
+            ,ACCOUNT_TYPE
+            ,CUSIP
+            ,SECURITY_DESCRIPTION_LINES_1_6
+            ,PRODUCT_CODE
+            ,CLOSING_MARKET_PRICE
+            ,LOT_QUANTITY
+            ,LOT_MARKET_VALUE
+            ,TAS_COST_BASIS_AMOUNT_PROCEEDS
+            ,UNREALIZED_GAIN_LOSS_AMOUNT
+            ,COST_BASIS_EVENT_SOURCE_CODE
+            ,TAS_LOT_ACQUIRED_DATE
+            ,LOT_COST_BASIS_METHOD_CODE
+            ,HOLDING_PERIOD_FRACTURED_LOT_INDICATOR
+            ,WASH_SALE_INDICATOR
+            ,LONG_SHORT_CODE
+            ,MARK_TO_MARKET_INDICATOR
+            ,RETIREMENT_INDICATOR
+            ,FIXED_INCOME_UNADJUSTED_COST_BASIS_AMOUNT
+            ,FIXED_INCOME_ADJUSTED_COST_BASIS_INDICATOR
+            ,YTD_ACQUISITION_PREMIUM
+            ,YTD_AMORTIZED_PREMIUM
+            ,YTD_MARKET_DISCOUNT_INCOME
+            ,OPTION_CONTRACT_ID
+            ,OPTION_EXPIRATION_DATE
+            ,OPTION_CALL_PUT_INDICATOR
+            ,OPTION_STRIKE_PRICE
+            ,OPTION_SYMBOL_ID
+            ,CBL_COVERED_LOT_INDICATOR
+            ,CBL_GIFTED_INHERITED_LOT_INDICATOR
+            ,GIFTED_LOT_DATE
+            ,GIFTED_LOT_FAIR_MARKET_VALUE
+            ,CBL_COVERED_REASON_CODE
+            ,WASH_SALE_HOLDING_PERIOD_DATE
+            ,OPEN_LOT_IDENTIFIER
+            ,NIGO_OUT_OF_BALANCE_EXCEPTION_INDICATOR
+            ,NIGO_TECH_SHORT_EXCEPTION_INDICATOR
+            ,NIGO_COST_EXCEPTION_INDICATOR
+            ,POSITION_COST_BASIS_METHOD_CODE
+            ,OPEN_LOT_SETTLEMENT_DATE
+            ,ORIGINAL_LOT_QUANTITY
+            ,ORIGINAL_LOT_COST
+            ,CURRENT_COST_UNADJUSTED_WASH
+            ,OPEN_RUN_DATE
+            ,SEDOL
+            ,YTD_ORIGINAL_ISSUE_DISCOUNT_AMOUNT
+            ,THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_DATE
+            ,THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_AMOUNT
+            ,LOT_RECEIVED_DATE
+            ,YTD_NON_QUALIFIED_STATED_INTEREST_AMOUNT
+            ,DTNUM
+            ,EFFECTIVE_DATE_ORIGINAL
+            ,_source_loaded_at
+            ,_SOURCE_FILE
+            ,(select EFFECTIVE_DATE from cte_delta_dates where dtnum = 2) as EFFECTIVE_DATE
+        from cte_1
+        where 1=1
+            and coalesce(OPEN_LOT_IDENTIFIER,'') not in (select distinct OPEN_LOT_IDENTIFIER from cte_delta where dtnum = 2 and TAS_DELTA_INDICATOR in ('D', 'C'))
+        UNION
+        -- Added/Changed records
+        select
+            ACCOUNT_CUSTODIAL
+            ,ACCOUNT_CUSTODIAL_FORMATTED
+            ,RECORD_NUMBER
+            ,TAS_DELTA_INDICATOR
+            ,BRANCH
+            ,ACCOUNT_NUMBER
+            ,ACCOUNT_TYPE
+            ,CUSIP
+            ,SECURITY_DESCRIPTION_LINES_1_6
+            ,PRODUCT_CODE
+            ,CLOSING_MARKET_PRICE
+            ,LOT_QUANTITY
+            ,LOT_MARKET_VALUE
+            ,TAS_COST_BASIS_AMOUNT_PROCEEDS
+            ,UNREALIZED_GAIN_LOSS_AMOUNT
+            ,COST_BASIS_EVENT_SOURCE_CODE
+            ,TAS_LOT_ACQUIRED_DATE
+            ,LOT_COST_BASIS_METHOD_CODE
+            ,HOLDING_PERIOD_FRACTURED_LOT_INDICATOR
+            ,WASH_SALE_INDICATOR
+            ,LONG_SHORT_CODE
+            ,MARK_TO_MARKET_INDICATOR
+            ,RETIREMENT_INDICATOR
+            ,FIXED_INCOME_UNADJUSTED_COST_BASIS_AMOUNT
+            ,FIXED_INCOME_ADJUSTED_COST_BASIS_INDICATOR
+            ,YTD_ACQUISITION_PREMIUM
+            ,YTD_AMORTIZED_PREMIUM
+            ,YTD_MARKET_DISCOUNT_INCOME
+            ,OPTION_CONTRACT_ID
+            ,OPTION_EXPIRATION_DATE
+            ,OPTION_CALL_PUT_INDICATOR
+            ,OPTION_STRIKE_PRICE
+            ,OPTION_SYMBOL_ID
+            ,CBL_COVERED_LOT_INDICATOR
+            ,CBL_GIFTED_INHERITED_LOT_INDICATOR
+            ,GIFTED_LOT_DATE
+            ,GIFTED_LOT_FAIR_MARKET_VALUE
+            ,CBL_COVERED_REASON_CODE
+            ,WASH_SALE_HOLDING_PERIOD_DATE
+            ,OPEN_LOT_IDENTIFIER
+            ,NIGO_OUT_OF_BALANCE_EXCEPTION_INDICATOR
+            ,NIGO_TECH_SHORT_EXCEPTION_INDICATOR
+            ,NIGO_COST_EXCEPTION_INDICATOR
+            ,POSITION_COST_BASIS_METHOD_CODE
+            ,OPEN_LOT_SETTLEMENT_DATE
+            ,ORIGINAL_LOT_QUANTITY
+            ,ORIGINAL_LOT_COST
+            ,CURRENT_COST_UNADJUSTED_WASH
+            ,OPEN_RUN_DATE
+            ,SEDOL
+            ,YTD_ORIGINAL_ISSUE_DISCOUNT_AMOUNT
+            ,THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_DATE
+            ,THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_AMOUNT
+            ,LOT_RECEIVED_DATE
+            ,YTD_NON_QUALIFIED_STATED_INTEREST_AMOUNT
+            ,DTNUM
+            ,EFFECTIVE_DATE as EFFECTIVE_DATE_ORIGINAL
+            ,_source_loaded_at
+            ,_SOURCE_FILE
+            ,EFFECTIVE_DATE
+        from cte_delta
+        where 1=1
+            and dtnum = 2
+            and TAS_DELTA_INDICATOR in ('A','C')
+    )
+    ,cte_3 as (
+        -- Records from full, without deleted
+        select
+            ACCOUNT_CUSTODIAL
+            ,ACCOUNT_CUSTODIAL_FORMATTED
+            ,RECORD_NUMBER
+            ,TAS_DELTA_INDICATOR
+            ,BRANCH
+            ,ACCOUNT_NUMBER
+            ,ACCOUNT_TYPE
+            ,CUSIP
+            ,SECURITY_DESCRIPTION_LINES_1_6
+            ,PRODUCT_CODE
+            ,CLOSING_MARKET_PRICE
+            ,LOT_QUANTITY
+            ,LOT_MARKET_VALUE
+            ,TAS_COST_BASIS_AMOUNT_PROCEEDS
+            ,UNREALIZED_GAIN_LOSS_AMOUNT
+            ,COST_BASIS_EVENT_SOURCE_CODE
+            ,TAS_LOT_ACQUIRED_DATE
+            ,LOT_COST_BASIS_METHOD_CODE
+            ,HOLDING_PERIOD_FRACTURED_LOT_INDICATOR
+            ,WASH_SALE_INDICATOR
+            ,LONG_SHORT_CODE
+            ,MARK_TO_MARKET_INDICATOR
+            ,RETIREMENT_INDICATOR
+            ,FIXED_INCOME_UNADJUSTED_COST_BASIS_AMOUNT
+            ,FIXED_INCOME_ADJUSTED_COST_BASIS_INDICATOR
+            ,YTD_ACQUISITION_PREMIUM
+            ,YTD_AMORTIZED_PREMIUM
+            ,YTD_MARKET_DISCOUNT_INCOME
+            ,OPTION_CONTRACT_ID
+            ,OPTION_EXPIRATION_DATE
+            ,OPTION_CALL_PUT_INDICATOR
+            ,OPTION_STRIKE_PRICE
+            ,OPTION_SYMBOL_ID
+            ,CBL_COVERED_LOT_INDICATOR
+            ,CBL_GIFTED_INHERITED_LOT_INDICATOR
+            ,GIFTED_LOT_DATE
+            ,GIFTED_LOT_FAIR_MARKET_VALUE
+            ,CBL_COVERED_REASON_CODE
+            ,WASH_SALE_HOLDING_PERIOD_DATE
+            ,OPEN_LOT_IDENTIFIER
+            ,NIGO_OUT_OF_BALANCE_EXCEPTION_INDICATOR
+            ,NIGO_TECH_SHORT_EXCEPTION_INDICATOR
+            ,NIGO_COST_EXCEPTION_INDICATOR
+            ,POSITION_COST_BASIS_METHOD_CODE
+            ,OPEN_LOT_SETTLEMENT_DATE
+            ,ORIGINAL_LOT_QUANTITY
+            ,ORIGINAL_LOT_COST
+            ,CURRENT_COST_UNADJUSTED_WASH
+            ,OPEN_RUN_DATE
+            ,SEDOL
+            ,YTD_ORIGINAL_ISSUE_DISCOUNT_AMOUNT
+            ,THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_DATE
+            ,THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_AMOUNT
+            ,LOT_RECEIVED_DATE
+            ,YTD_NON_QUALIFIED_STATED_INTEREST_AMOUNT
+            ,DTNUM
+            ,EFFECTIVE_DATE_ORIGINAL
+            ,_source_loaded_at
+            ,_SOURCE_FILE
+            ,(select EFFECTIVE_DATE from cte_delta_dates where dtnum = 3) as EFFECTIVE_DATE
+        from cte_2
+        where 1=1
+            and coalesce(OPEN_LOT_IDENTIFIER,'') not in (select distinct OPEN_LOT_IDENTIFIER from cte_delta where dtnum = 3 and TAS_DELTA_INDICATOR in ('D', 'C'))
+        UNION
+        -- Added/Changed records
+        select
+            ACCOUNT_CUSTODIAL
+            ,ACCOUNT_CUSTODIAL_FORMATTED
+            ,RECORD_NUMBER
+            ,TAS_DELTA_INDICATOR
+            ,BRANCH
+            ,ACCOUNT_NUMBER
+            ,ACCOUNT_TYPE
+            ,CUSIP
+            ,SECURITY_DESCRIPTION_LINES_1_6
+            ,PRODUCT_CODE
+            ,CLOSING_MARKET_PRICE
+            ,LOT_QUANTITY
+            ,LOT_MARKET_VALUE
+            ,TAS_COST_BASIS_AMOUNT_PROCEEDS
+            ,UNREALIZED_GAIN_LOSS_AMOUNT
+            ,COST_BASIS_EVENT_SOURCE_CODE
+            ,TAS_LOT_ACQUIRED_DATE
+            ,LOT_COST_BASIS_METHOD_CODE
+            ,HOLDING_PERIOD_FRACTURED_LOT_INDICATOR
+            ,WASH_SALE_INDICATOR
+            ,LONG_SHORT_CODE
+            ,MARK_TO_MARKET_INDICATOR
+            ,RETIREMENT_INDICATOR
+            ,FIXED_INCOME_UNADJUSTED_COST_BASIS_AMOUNT
+            ,FIXED_INCOME_ADJUSTED_COST_BASIS_INDICATOR
+            ,YTD_ACQUISITION_PREMIUM
+            ,YTD_AMORTIZED_PREMIUM
+            ,YTD_MARKET_DISCOUNT_INCOME
+            ,OPTION_CONTRACT_ID
+            ,OPTION_EXPIRATION_DATE
+            ,OPTION_CALL_PUT_INDICATOR
+            ,OPTION_STRIKE_PRICE
+            ,OPTION_SYMBOL_ID
+            ,CBL_COVERED_LOT_INDICATOR
+            ,CBL_GIFTED_INHERITED_LOT_INDICATOR
+            ,GIFTED_LOT_DATE
+            ,GIFTED_LOT_FAIR_MARKET_VALUE
+            ,CBL_COVERED_REASON_CODE
+            ,WASH_SALE_HOLDING_PERIOD_DATE
+            ,OPEN_LOT_IDENTIFIER
+            ,NIGO_OUT_OF_BALANCE_EXCEPTION_INDICATOR
+            ,NIGO_TECH_SHORT_EXCEPTION_INDICATOR
+            ,NIGO_COST_EXCEPTION_INDICATOR
+            ,POSITION_COST_BASIS_METHOD_CODE
+            ,OPEN_LOT_SETTLEMENT_DATE
+            ,ORIGINAL_LOT_QUANTITY
+            ,ORIGINAL_LOT_COST
+            ,CURRENT_COST_UNADJUSTED_WASH
+            ,OPEN_RUN_DATE
+            ,SEDOL
+            ,YTD_ORIGINAL_ISSUE_DISCOUNT_AMOUNT
+            ,THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_DATE
+            ,THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_AMOUNT
+            ,LOT_RECEIVED_DATE
+            ,DTNUM
+            ,YTD_NON_QUALIFIED_STATED_INTEREST_AMOUNT
+            ,EFFECTIVE_DATE as EFFECTIVE_DATE_ORIGINAL
+            ,_source_loaded_at
+            ,_SOURCE_FILE
+            ,EFFECTIVE_DATE
+        from cte_delta
+        where 1=1
+            and dtnum = 3
+            and TAS_DELTA_INDICATOR in ('A','C')
+    )
+    ,cte_4 as (
+        -- Records from full, without deleted
+        select
+            ACCOUNT_CUSTODIAL
+            ,ACCOUNT_CUSTODIAL_FORMATTED
+            ,RECORD_NUMBER
+            ,TAS_DELTA_INDICATOR
+            ,BRANCH
+            ,ACCOUNT_NUMBER
+            ,ACCOUNT_TYPE
+            ,CUSIP
+            ,SECURITY_DESCRIPTION_LINES_1_6
+            ,PRODUCT_CODE
+            ,CLOSING_MARKET_PRICE
+            ,LOT_QUANTITY
+            ,LOT_MARKET_VALUE
+            ,TAS_COST_BASIS_AMOUNT_PROCEEDS
+            ,UNREALIZED_GAIN_LOSS_AMOUNT
+            ,COST_BASIS_EVENT_SOURCE_CODE
+            ,TAS_LOT_ACQUIRED_DATE
+            ,LOT_COST_BASIS_METHOD_CODE
+            ,HOLDING_PERIOD_FRACTURED_LOT_INDICATOR
+            ,WASH_SALE_INDICATOR
+            ,LONG_SHORT_CODE
+            ,MARK_TO_MARKET_INDICATOR
+            ,RETIREMENT_INDICATOR
+            ,FIXED_INCOME_UNADJUSTED_COST_BASIS_AMOUNT
+            ,FIXED_INCOME_ADJUSTED_COST_BASIS_INDICATOR
+            ,YTD_ACQUISITION_PREMIUM
+            ,YTD_AMORTIZED_PREMIUM
+            ,YTD_MARKET_DISCOUNT_INCOME
+            ,OPTION_CONTRACT_ID
+            ,OPTION_EXPIRATION_DATE
+            ,OPTION_CALL_PUT_INDICATOR
+            ,OPTION_STRIKE_PRICE
+            ,OPTION_SYMBOL_ID
+            ,CBL_COVERED_LOT_INDICATOR
+            ,CBL_GIFTED_INHERITED_LOT_INDICATOR
+            ,GIFTED_LOT_DATE
+            ,GIFTED_LOT_FAIR_MARKET_VALUE
+            ,CBL_COVERED_REASON_CODE
+            ,WASH_SALE_HOLDING_PERIOD_DATE
+            ,OPEN_LOT_IDENTIFIER
+            ,NIGO_OUT_OF_BALANCE_EXCEPTION_INDICATOR
+            ,NIGO_TECH_SHORT_EXCEPTION_INDICATOR
+            ,NIGO_COST_EXCEPTION_INDICATOR
+            ,POSITION_COST_BASIS_METHOD_CODE
+            ,OPEN_LOT_SETTLEMENT_DATE
+            ,ORIGINAL_LOT_QUANTITY
+            ,ORIGINAL_LOT_COST
+            ,CURRENT_COST_UNADJUSTED_WASH
+            ,OPEN_RUN_DATE
+            ,SEDOL
+            ,YTD_ORIGINAL_ISSUE_DISCOUNT_AMOUNT
+            ,THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_DATE
+            ,THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_AMOUNT
+            ,LOT_RECEIVED_DATE
+            ,YTD_NON_QUALIFIED_STATED_INTEREST_AMOUNT
+            ,DTNUM
+            ,EFFECTIVE_DATE_ORIGINAL
+            ,_source_loaded_at
+            ,_SOURCE_FILE
+            ,(select EFFECTIVE_DATE from cte_delta_dates where dtnum = 4) as EFFECTIVE_DATE
+        from cte_3
+        where 1=1
+            and coalesce(OPEN_LOT_IDENTIFIER,'') not in (select distinct OPEN_LOT_IDENTIFIER from cte_delta where dtnum = 4 and TAS_DELTA_INDICATOR in ('D', 'C'))
+        UNION
+        -- Added/Changed records
+        select
+            ACCOUNT_CUSTODIAL
+            ,ACCOUNT_CUSTODIAL_FORMATTED
+            ,RECORD_NUMBER
+            ,TAS_DELTA_INDICATOR
+            ,BRANCH
+            ,ACCOUNT_NUMBER
+            ,ACCOUNT_TYPE
+            ,CUSIP
+            ,SECURITY_DESCRIPTION_LINES_1_6
+            ,PRODUCT_CODE
+            ,CLOSING_MARKET_PRICE
+            ,LOT_QUANTITY
+            ,LOT_MARKET_VALUE
+            ,TAS_COST_BASIS_AMOUNT_PROCEEDS
+            ,UNREALIZED_GAIN_LOSS_AMOUNT
+            ,COST_BASIS_EVENT_SOURCE_CODE
+            ,TAS_LOT_ACQUIRED_DATE
+            ,LOT_COST_BASIS_METHOD_CODE
+            ,HOLDING_PERIOD_FRACTURED_LOT_INDICATOR
+            ,WASH_SALE_INDICATOR
+            ,LONG_SHORT_CODE
+            ,MARK_TO_MARKET_INDICATOR
+            ,RETIREMENT_INDICATOR
+            ,FIXED_INCOME_UNADJUSTED_COST_BASIS_AMOUNT
+            ,FIXED_INCOME_ADJUSTED_COST_BASIS_INDICATOR
+            ,YTD_ACQUISITION_PREMIUM
+            ,YTD_AMORTIZED_PREMIUM
+            ,YTD_MARKET_DISCOUNT_INCOME
+            ,OPTION_CONTRACT_ID
+            ,OPTION_EXPIRATION_DATE
+            ,OPTION_CALL_PUT_INDICATOR
+            ,OPTION_STRIKE_PRICE
+            ,OPTION_SYMBOL_ID
+            ,CBL_COVERED_LOT_INDICATOR
+            ,CBL_GIFTED_INHERITED_LOT_INDICATOR
+            ,GIFTED_LOT_DATE
+            ,GIFTED_LOT_FAIR_MARKET_VALUE
+            ,CBL_COVERED_REASON_CODE
+            ,WASH_SALE_HOLDING_PERIOD_DATE
+            ,OPEN_LOT_IDENTIFIER
+            ,NIGO_OUT_OF_BALANCE_EXCEPTION_INDICATOR
+            ,NIGO_TECH_SHORT_EXCEPTION_INDICATOR
+            ,NIGO_COST_EXCEPTION_INDICATOR
+            ,POSITION_COST_BASIS_METHOD_CODE
+            ,OPEN_LOT_SETTLEMENT_DATE
+            ,ORIGINAL_LOT_QUANTITY
+            ,ORIGINAL_LOT_COST
+            ,CURRENT_COST_UNADJUSTED_WASH
+            ,OPEN_RUN_DATE
+            ,SEDOL
+            ,YTD_ORIGINAL_ISSUE_DISCOUNT_AMOUNT
+            ,THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_DATE
+            ,THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_AMOUNT
+            ,LOT_RECEIVED_DATE
+            ,YTD_NON_QUALIFIED_STATED_INTEREST_AMOUNT
+            ,DTNUM
+            ,EFFECTIVE_DATE as EFFECTIVE_DATE_ORIGINAL
+            ,_source_loaded_at
+            ,_SOURCE_FILE
+            ,EFFECTIVE_DATE
+        from cte_delta
+        where 1=1
+            and dtnum = 4
+            and TAS_DELTA_INDICATOR in ('A','C')
+    )
+    ,cte_5 as (
+        -- Records from full, without deleted
+        select
+            ACCOUNT_CUSTODIAL
+            ,ACCOUNT_CUSTODIAL_FORMATTED
+            ,RECORD_NUMBER
+            ,TAS_DELTA_INDICATOR
+            ,BRANCH
+            ,ACCOUNT_NUMBER
+            ,ACCOUNT_TYPE
+            ,CUSIP
+            ,SECURITY_DESCRIPTION_LINES_1_6
+            ,PRODUCT_CODE
+            ,CLOSING_MARKET_PRICE
+            ,LOT_QUANTITY
+            ,LOT_MARKET_VALUE
+            ,TAS_COST_BASIS_AMOUNT_PROCEEDS
+            ,UNREALIZED_GAIN_LOSS_AMOUNT
+            ,COST_BASIS_EVENT_SOURCE_CODE
+            ,TAS_LOT_ACQUIRED_DATE
+            ,LOT_COST_BASIS_METHOD_CODE
+            ,HOLDING_PERIOD_FRACTURED_LOT_INDICATOR
+            ,WASH_SALE_INDICATOR
+            ,LONG_SHORT_CODE
+            ,MARK_TO_MARKET_INDICATOR
+            ,RETIREMENT_INDICATOR
+            ,FIXED_INCOME_UNADJUSTED_COST_BASIS_AMOUNT
+            ,FIXED_INCOME_ADJUSTED_COST_BASIS_INDICATOR
+            ,YTD_ACQUISITION_PREMIUM
+            ,YTD_AMORTIZED_PREMIUM
+            ,YTD_MARKET_DISCOUNT_INCOME
+            ,OPTION_CONTRACT_ID
+            ,OPTION_EXPIRATION_DATE
+            ,OPTION_CALL_PUT_INDICATOR
+            ,OPTION_STRIKE_PRICE
+            ,OPTION_SYMBOL_ID
+            ,CBL_COVERED_LOT_INDICATOR
+            ,CBL_GIFTED_INHERITED_LOT_INDICATOR
+            ,GIFTED_LOT_DATE
+            ,GIFTED_LOT_FAIR_MARKET_VALUE
+            ,CBL_COVERED_REASON_CODE
+            ,WASH_SALE_HOLDING_PERIOD_DATE
+            ,OPEN_LOT_IDENTIFIER
+            ,NIGO_OUT_OF_BALANCE_EXCEPTION_INDICATOR
+            ,NIGO_TECH_SHORT_EXCEPTION_INDICATOR
+            ,NIGO_COST_EXCEPTION_INDICATOR
+            ,POSITION_COST_BASIS_METHOD_CODE
+            ,OPEN_LOT_SETTLEMENT_DATE
+            ,ORIGINAL_LOT_QUANTITY
+            ,ORIGINAL_LOT_COST
+            ,CURRENT_COST_UNADJUSTED_WASH
+            ,OPEN_RUN_DATE
+            ,SEDOL
+            ,YTD_ORIGINAL_ISSUE_DISCOUNT_AMOUNT
+            ,THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_DATE
+            ,THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_AMOUNT
+            ,LOT_RECEIVED_DATE
+            ,YTD_NON_QUALIFIED_STATED_INTEREST_AMOUNT
+            ,DTNUM
+            ,EFFECTIVE_DATE_ORIGINAL
+            ,_source_loaded_at
+            ,_SOURCE_FILE
+            ,(select EFFECTIVE_DATE from cte_delta_dates where dtnum = 5) as EFFECTIVE_DATE
+        from cte_4
+        where 1=1
+            and coalesce(OPEN_LOT_IDENTIFIER,'') not in (select distinct OPEN_LOT_IDENTIFIER from cte_delta where dtnum = 5 and TAS_DELTA_INDICATOR in ('D', 'C'))
+        UNION
+        -- Added/Changed records
+        select
+            ACCOUNT_CUSTODIAL
+            ,ACCOUNT_CUSTODIAL_FORMATTED
+            ,RECORD_NUMBER
+            ,TAS_DELTA_INDICATOR
+            ,BRANCH
+            ,ACCOUNT_NUMBER
+            ,ACCOUNT_TYPE
+            ,CUSIP
+            ,SECURITY_DESCRIPTION_LINES_1_6
+            ,PRODUCT_CODE
+            ,CLOSING_MARKET_PRICE
+            ,LOT_QUANTITY
+            ,LOT_MARKET_VALUE
+            ,TAS_COST_BASIS_AMOUNT_PROCEEDS
+            ,UNREALIZED_GAIN_LOSS_AMOUNT
+            ,COST_BASIS_EVENT_SOURCE_CODE
+            ,TAS_LOT_ACQUIRED_DATE
+            ,LOT_COST_BASIS_METHOD_CODE
+            ,HOLDING_PERIOD_FRACTURED_LOT_INDICATOR
+            ,WASH_SALE_INDICATOR
+            ,LONG_SHORT_CODE
+            ,MARK_TO_MARKET_INDICATOR
+            ,RETIREMENT_INDICATOR
+            ,FIXED_INCOME_UNADJUSTED_COST_BASIS_AMOUNT
+            ,FIXED_INCOME_ADJUSTED_COST_BASIS_INDICATOR
+            ,YTD_ACQUISITION_PREMIUM
+            ,YTD_AMORTIZED_PREMIUM
+            ,YTD_MARKET_DISCOUNT_INCOME
+            ,OPTION_CONTRACT_ID
+            ,OPTION_EXPIRATION_DATE
+            ,OPTION_CALL_PUT_INDICATOR
+            ,OPTION_STRIKE_PRICE
+            ,OPTION_SYMBOL_ID
+            ,CBL_COVERED_LOT_INDICATOR
+            ,CBL_GIFTED_INHERITED_LOT_INDICATOR
+            ,GIFTED_LOT_DATE
+            ,GIFTED_LOT_FAIR_MARKET_VALUE
+            ,CBL_COVERED_REASON_CODE
+            ,WASH_SALE_HOLDING_PERIOD_DATE
+            ,OPEN_LOT_IDENTIFIER
+            ,NIGO_OUT_OF_BALANCE_EXCEPTION_INDICATOR
+            ,NIGO_TECH_SHORT_EXCEPTION_INDICATOR
+            ,NIGO_COST_EXCEPTION_INDICATOR
+            ,POSITION_COST_BASIS_METHOD_CODE
+            ,OPEN_LOT_SETTLEMENT_DATE
+            ,ORIGINAL_LOT_QUANTITY
+            ,ORIGINAL_LOT_COST
+            ,CURRENT_COST_UNADJUSTED_WASH
+            ,OPEN_RUN_DATE
+            ,SEDOL
+            ,YTD_ORIGINAL_ISSUE_DISCOUNT_AMOUNT
+            ,THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_DATE
+            ,THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_AMOUNT
+            ,LOT_RECEIVED_DATE
+            ,YTD_NON_QUALIFIED_STATED_INTEREST_AMOUNT
+            ,DTNUM
+            ,EFFECTIVE_DATE as EFFECTIVE_DATE_ORIGINAL
+            ,_source_loaded_at
+            ,_SOURCE_FILE
+            ,EFFECTIVE_DATE
+        from cte_delta
+        where 1=1
+            and dtnum = 5
+            and TAS_DELTA_INDICATOR in ('A','C')
+    )
+    ,cte_final as
+    (
+        select * from cte_1
+        union
+        select * from cte_2
+        union
+        select * from cte_3
+        union
+        select * from cte_4
+        union
+        select * from cte_5
+    )
+
+    select
+        ACCOUNT_CUSTODIAL
+      , ACCOUNT_CUSTODIAL_FORMATTED
+      , RECORD_NUMBER
+      , TAS_DELTA_INDICATOR
+      , BRANCH
+      , ACCOUNT_NUMBER
+      , ACCOUNT_TYPE
+      , CUSIP
+      , SECURITY_DESCRIPTION_LINES_1_6
+      , PRODUCT_CODE
+      , CLOSING_MARKET_PRICE
+      , LOT_QUANTITY
+      , LOT_MARKET_VALUE
+      , TAS_COST_BASIS_AMOUNT_PROCEEDS
+      , UNREALIZED_GAIN_LOSS_AMOUNT
+      , COST_BASIS_EVENT_SOURCE_CODE
+      , TAS_LOT_ACQUIRED_DATE
+      , LOT_COST_BASIS_METHOD_CODE
+      , HOLDING_PERIOD_FRACTURED_LOT_INDICATOR
+      , WASH_SALE_INDICATOR
+      , LONG_SHORT_CODE
+      , MARK_TO_MARKET_INDICATOR
+      , RETIREMENT_INDICATOR
+      , FIXED_INCOME_UNADJUSTED_COST_BASIS_AMOUNT
+      , FIXED_INCOME_ADJUSTED_COST_BASIS_INDICATOR
+      , YTD_ACQUISITION_PREMIUM
+      , YTD_AMORTIZED_PREMIUM
+      , YTD_MARKET_DISCOUNT_INCOME
+      , OPTION_CONTRACT_ID
+      , OPTION_EXPIRATION_DATE
+      , OPTION_CALL_PUT_INDICATOR
+      , OPTION_STRIKE_PRICE
+      , OPTION_SYMBOL_ID
+      , CBL_COVERED_LOT_INDICATOR
+      , CBL_GIFTED_INHERITED_LOT_INDICATOR
+      , GIFTED_LOT_DATE
+      , GIFTED_LOT_FAIR_MARKET_VALUE
+      , CBL_COVERED_REASON_CODE
+      , WASH_SALE_HOLDING_PERIOD_DATE
+      , OPEN_LOT_IDENTIFIER
+      , NIGO_OUT_OF_BALANCE_EXCEPTION_INDICATOR
+      , NIGO_TECH_SHORT_EXCEPTION_INDICATOR
+      , NIGO_COST_EXCEPTION_INDICATOR
+      , POSITION_COST_BASIS_METHOD_CODE
+      , OPEN_LOT_SETTLEMENT_DATE
+      , ORIGINAL_LOT_QUANTITY
+      , ORIGINAL_LOT_COST
+      , CURRENT_COST_UNADJUSTED_WASH
+      , OPEN_RUN_DATE
+      , SEDOL
+      , YTD_ORIGINAL_ISSUE_DISCOUNT_AMOUNT
+      , THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_DATE
+      , THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_AMOUNT
+      , LOT_RECEIVED_DATE
+      , YTD_NON_QUALIFIED_STATED_INTEREST_AMOUNT
+      , EFFECTIVE_DATE
+      , EFFECTIVE_DATE_ORIGINAL
+      ,_source_loaded_at::date as record_date
+      ,_source_loaded_at::timestamp as record_datetime
+      ,_SOURCE_FILE as source_file
+      , DTNUM
+    from cte_final
+    where EFFECTIVE_DATE = var_effective_date
+
+$$
+{% endmacro %}

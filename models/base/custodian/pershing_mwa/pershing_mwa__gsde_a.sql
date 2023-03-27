@@ -1,0 +1,1 @@
+{{ gsde_a(source('pershing_mwa', 'gsde')) }}

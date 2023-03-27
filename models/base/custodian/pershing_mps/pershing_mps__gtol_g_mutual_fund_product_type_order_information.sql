@@ -1,0 +1,1 @@
+{{ gtol_g_mutual_fund_product_type_order_information(source('pershing_mps', 'gtol')) }}

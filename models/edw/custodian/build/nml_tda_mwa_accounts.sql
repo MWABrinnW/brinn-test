@@ -50,16 +50,17 @@ select
                 nvl(a.address_5, ' '),
                 nvl(a.address_6, ' ')
     ))                          as mailing_address_street
-  , a.city::varchar(100)        as mailing_address_city
-  , a.state::varchar(100)       as mailing_address_state
+  , a.city::varchar(200)        as mailing_address_city
+  , a.state::varchar(200)       as mailing_address_state
   , a.zip_code::varchar(12)     as mailing_address_zip
-  , null::varchar(100)          as mailing_address_country
-  , null::varchar(100)          as legal_address_street
-  , null::varchar(100)          as legal_address_city
-  , null::varchar(100)          as legal_address_state
+  , null::varchar(200)          as mailing_address_country
+  , null::varchar(200)          as legal_address_street
+  , null::varchar(200)          as legal_address_city
+  , null::varchar(200)          as legal_address_state
   , null::varchar(12)           as legal_address_zip
-  , null::varchar(100)          as legal_address_country
+  , null::varchar(200)          as legal_address_country
   , a.is_head::int              as is_head
   , a.is_current::int           as is_current
-  , a._created_at::timestamp    as _created_at
+  , a._source_loaded_at::timestamp   as _source_loaded_at
+  , a._source_loaded_at::timestamp   as _created_at
 from {{ ref('tda__base_accounts') }} a

@@ -1,0 +1,1 @@
+{{ acct_4_kyc_investment_knowledge_bank_custody_information_aml_risk_ratings(source('pershing_mps', 'acct')) }}

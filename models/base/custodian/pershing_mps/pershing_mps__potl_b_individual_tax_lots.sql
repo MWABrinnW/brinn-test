@@ -1,0 +1,1 @@
+{{ potl_b_individual_tax_lots(source('pershing_mps', 'potl')) }}

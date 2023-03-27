@@ -1,0 +1,1 @@
+{{ gtol_d_fixed_income_product_type_order_information(source('pershing_mwa', 'gtol')) }}

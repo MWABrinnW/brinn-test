@@ -13,7 +13,9 @@
          'nml_fidelity_mwa_accounts',
          'nml_fidelity_mps_accounts',
          'nml_fidelity_swag_accounts',
-         'nml_lpl_network_accounts'
+         'nml_lpl_network_accounts',
+         'nml_pershing_mwa_accounts',
+         'nml_pershing_mps_accounts'
     ]
 -%}
 
@@ -36,9 +38,15 @@ with cte_max_created_at as
 ,cte_effective_dates_out_of_date as
 (
     {% for nml_model in source_models -%}
+    {%- set parts = nml_model.split('_') -%}
+    {%- set custodian = parts[1] -%}
+    {%- set firm_source = parts[2] -%}
     select distinct effective_date
     from {{ ref(nml_model) }}
     where _created_at > nvl((select max(_created_at) from cte_max_created_at), dateadd(d, -1, _created_at))
+        {%- if table_exists and is_incremental() -%}
+        or effective_date > (select max(effective_date) from {{ this }} where custodian = '{{custodian}}' and firm_source = '{{firm_source}}' )
+        {%- endif -%}
 
     {%- if not loop.last %}
     

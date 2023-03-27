@@ -16,10 +16,10 @@ select
   , ar.normalized::varchar(50)                                     as account_type -- (ira rollover, etc)
 
   , a.date_opened::date                                            as opened_date
-  , a.account_title_line_1::varchar(100)                           as account_title
-  , a.tax_payer_first_name::varchar(100)                           as first_name
-  , a.tax_payer_middle_name::varchar(100)                          as middle_name
-  , a.tax_payer_last_name::varchar(100)                            as last_name
+  , a.account_title_line_1::varchar(200)                           as account_title
+  , a.tax_payer_first_name::varchar(200)                           as first_name
+  , a.tax_payer_middle_name::varchar(200)                          as middle_name
+  , a.tax_payer_last_name::varchar(200)                            as last_name
 
   , replace(a.ssn_tin, '-', '')::varchar(20)                       as irs_id
   , case
@@ -53,18 +53,18 @@ select
                                     , nvl(a.restriction_reason_code_2, '')
                                     , nvl(a.restriction_reason_code_3, '')
                                     , nvl(a.restriction_reason_code_4, '')
-                                    , nvl(a.restriction_reason_code_5, '')), '(\\|{2,5})', '|'), '|'), '')::varchar(100)
+                                    , nvl(a.restriction_reason_code_5, '')), '(\\|{2,5})', '|'), '|'), '')::varchar(200)
                                                                    as restrictions_source_code
   , null::varchar(75)                                              as restrictions_source_definition
   , null::varchar(75)                                              as restrictions
   , trim(concat(nvl(a.mailing_address_line_1, ''),
                 nvl(a.mailing_address_line_2, ' '),
-                nvl(a.mailing_address_line_3, ' ')))::varchar(100) as mailing_address_street
+                nvl(a.mailing_address_line_3, ' ')))::varchar(200) as mailing_address_street
   , a.account_mailing_city::varchar(75)                            as mailing_address_city
   , a.account_mailing_state::varchar(50)                           as mailing_address_state
   , a.account_mailing_zip::varchar(12)                             as mailing_address_zip
   , a.account_mailing_country_code::varchar(50)                    as mailing_address_country
-  , null::varchar(100)                                             as legal_address_street
+  , null::varchar(200)                                             as legal_address_street
   , null::varchar(75)                                              as legal_address_city
   , null::varchar(50)                                              as legal_address_state
   , null::varchar(12)                                              as legal_address_zip

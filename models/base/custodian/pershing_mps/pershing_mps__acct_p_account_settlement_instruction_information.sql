@@ -1,0 +1,1 @@
+{{ acct_p_account_settlement_instruction_information(source('pershing_mps', 'acct')) }}
