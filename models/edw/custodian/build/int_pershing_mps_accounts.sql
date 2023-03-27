@@ -34,7 +34,7 @@ with cte_effective_date_map as
     select distinct effective_date, 'delta' as src
     from {{ source('pershing_mps', 'acct') }}
     where true
-        and effective_date >= (select min(effective_date) from pershing_mps__accf_a_main_account_information)
+        and effective_date >= (select min(effective_date) from {{ ref('pershing_mps__accf_a_main_account_information') }})
 )
 ,cte_effective_dates as
 (

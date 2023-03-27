@@ -64,3 +64,4 @@ select
   , a._source_loaded_at::timestamp   as _source_loaded_at
   , a._source_loaded_at::timestamp   as _created_at
 from {{ ref('tda__base_accounts') }} a
+where nvl(a.closed_date, a.effective_date) <= a.effective_date
