@@ -24,7 +24,7 @@ select
   , mailingphoneno::text(50)                 as mailing_phone_no
   , homephoneno::text(50)                    as home_phone_no
   , reptypedescription                       as rep_type_description
-  , masterrepid                              as mater_rep_id
+  , masterrepid                              as master_rep_id
   , osjmanagerrepid                          as osj_manager_rep_id
   , emailaddress                             as email_address
   , repstatuscode                            as rep_status_code
