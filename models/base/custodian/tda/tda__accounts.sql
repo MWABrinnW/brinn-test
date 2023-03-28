@@ -9,11 +9,11 @@ with cte_accounts as
         *
         ,min(effective_date) over(partition by account_number) as min_effective_date
         ,max(effective_date) over(partition by account_number) as max_effective_date
-        ,row_number() over(partition by account_number, effective_date order by case when _file_type = 'TRF' then 1 else 0 end desc, _created_at desc) as rn
-        ,row_number() over(partition by account_number order by case when _file_type = 'TRF' then 1 else 0 end desc, _created_at desc) as rn_account
+        ,row_number() over(partition by account_number, effective_date order by case when _file_type = 'TRF' then 1 else 0 end desc, _source_loaded_at desc) as rn
+        ,row_number() over(partition by account_number order by case when _file_type = 'TRF' then 1 else 0 end desc, _source_loaded_at desc) as rn_account
     from {{ ref('tda__base_accounts') }}
     where true
-    qualify row_number() over(partition by account_number, effective_date order by case when _file_type = 'TRF' then 1 else 0 end desc, _created_at desc) = 1
+    qualify row_number() over(partition by account_number, effective_date order by case when _file_type = 'TRF' then 1 else 0 end desc, _source_loaded_at desc) = 1
     order by 1,3,2
 )
 ,cte_date_spine as
@@ -61,7 +61,7 @@ select
     , max(p.effective_date) over(partition by s.account_number)   as last_positions_date
     , p.amount                         as account_value
     , case
-        when p.amount > 0
+        when p.account_number is not null
             then 1
         when ab.status = 'Active'
             then 1
@@ -70,7 +70,7 @@ select
         else 0
         end                            as is_active
     ,case
-        when p.amount > 0
+        when p.account_number is not null
             then 'Active'
         else ab.status
         end as status
@@ -78,6 +78,8 @@ select
     ,case
         when ab.status in ('Closed', 'Blocked')
             then nvl(last_positions_date, ab.open_date)
+        when ab.status = 'Active'
+            then null
         when p.account_number is null
             then last_positions_date
         else null
@@ -123,7 +125,7 @@ select
     , d._rep_code                    as _rep_code
     , d._file_type                   as _file_type
     , d._source_file                 as _source_file
-    , d._created_at                  as _source_loaded_at
+    , d._source_loaded_at            as _source_loaded_at
     , current_timestamp()::timestamp as _created_at
 from cte_spined                           s
 left join cte_accounts d
