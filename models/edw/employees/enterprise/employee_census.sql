@@ -149,7 +149,7 @@ select
   , le.report_month_end                    as month_end_date
   , date_trunc(month, le.report_month_end) as first_day_of_month
   , last_day(le.report_month_end)          as last_day_of_month
-  , null::timestamp                        as effective_at
+  , le.report_month_end::timestamp         as effective_at
   , 1                                      as is_month_end
   , 0                                      as is_head
 from {{ ref('edw_legacy__base_employee_reporting_history') }} le

@@ -21,7 +21,7 @@ select
   , emp.position_work_site_address_line1
   , emp.position_work_site_address_line2
   , emp.position_work_site_address_line3
-  , emp.position_eeo_class
+  {# , emp.position_eeo_class #}
   , emp.position_worker_type
   , emp.position_company_code
   , emp.position_manager_name
@@ -43,6 +43,7 @@ select
   , emp.data_last_refreshed_date
   , emp.accounting_id
   , emp.source
+  , emp.position_start_date
   , emp.title_change_reason
 from {{ ref('int_adp_employees_all') }} emp
 where true
