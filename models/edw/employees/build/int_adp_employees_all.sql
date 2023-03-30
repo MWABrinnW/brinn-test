@@ -12,6 +12,7 @@ select
     ,lm.division                                    as location_division
     ,lm.acquisition_name                            as location_acquisition_name
     ,lm.acquisition_type                            as location_acquisition_type
+    ,lh.old_code                                    as location_old_code
 
     , case
           when e.occupational_classifications_class ilike '%advisor%'
@@ -150,10 +151,11 @@ left join {{ ref('locations_cost_center_history') }} lh
     on e.position_cost_num_location_code = lh.old_code
     and e.effective_at::date between nvl(lh.start_date, coalesce(e.associate_final_termination_date, e.effective_at::date)) and nvl(lh.end_date, coalesce(e.associate_final_termination_date, e.effective_at::date))
 left join {{ ref('locations') }} lm
-    on coalesce(lh.current_code, e.position_cost_num_location_code) = case
-                                                                        when lh.current_code is not null then lm.location_code
-                                                                        else lm.accounting_id
-                                                                        end
+    {# on coalesce(lh.current_code, e.position_cost_num_location_code) = case
+                                                                        when lh.current_code is not null then coalesce(lm.accounting_id, lm.location_code)
+                                                                        else coalesce(lm.location_code, lm.accounting_id)
+                                                                        end #}
+    on coalesce(lh.current_code, e.position_cost_num_location_code) = coalesce(lm.accounting_id, lm.location_code)
     and lm.active = 1
 where true
   and nvl(e.is_deleted,0) = 0
