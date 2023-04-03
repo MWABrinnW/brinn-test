@@ -39,7 +39,7 @@ select
   , em.advisor_nonadvisor                                                                                as advisor_nonadvisor
   , em.occupational_classifications_class                                                                as class
   , em.position_region_name                                                                              as position_region_name
-  , em.position_market_name                                                                              as position_market_name
+  , em.position_location_name                                                                            as position_location_name
   , em.position_department_name                                                                          as position_department_name
   , em.position_work_site_location_name                                                                  as work_site_location_name
   , em.reporting_office                                                                                  as reporting_office

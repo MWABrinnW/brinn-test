@@ -1294,7 +1294,7 @@ select
     'adp' as source_system
   , case when position_id is not null then last_day(effective_at) || '-' || position_id end as employee_reporting_id
   , case when lower(employment_status) = 'active' then 1 else 0 end::int                    as is_active
-  , *
+  , * rename position_market_name as position_location_name
   , last_day(effective_at::date)                                                            as month_end_date
   , case
         when effective_at::date = last_day(effective_at::date) then 1
