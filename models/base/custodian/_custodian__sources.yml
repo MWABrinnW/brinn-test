@@ -19,6 +19,27 @@ sources:
       - name: referral_fees_current_quarter
       - name: referral_fees_advisor_network
       - name: master_account_relationships
+      - name: sec
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        columns:
+          - name: _id
+          - name: json
+          - name: effective_date
+          - name: _created_at
+      - name: rps_d1
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        columns:
+          - name: _id
+          - name: json
+          - name: effective_date
+          - name: _created_at
+      - name: rps_d2
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        columns:
+          - name: _id
+          - name: json
+          - name: effective_date
+          - name: _created_at
 
   - name: fidelity_mwa
     database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
@@ -353,6 +374,27 @@ sources:
         description: ""
       - name: transactions
         description: ""
+      - name: sec
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        columns:
+          - name: _id
+          - name: json
+          - name: effective_date
+          - name: _created_at
+      - name: rps_d1
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        columns:
+          - name: _id
+          - name: json
+          - name: effective_date
+          - name: _created_at
+      - name: rps_d2
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        columns:
+          - name: _id
+          - name: json
+          - name: effective_date
+          - name: _created_at
 
   - name: pershing_mps
     description: ""
