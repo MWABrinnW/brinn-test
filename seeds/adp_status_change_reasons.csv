@@ -5,13 +5,13 @@ Status Change Reasons,3,V - Other Opportunity,Status Change Reasons,Terminate,Y,
 Status Change Reasons,4,V - Personal/Family (unrelated to work),Status Change Reasons,Terminate,Y,Voluntary
 Status Change Reasons,5,I - Resignation in Lieu of Termination,Status Change Reasons,Terminate,Y,Involuntary
 Status Change Reasons,6,V - Self-employment,Status Change Reasons,Terminate,Y,Voluntary
-Status Change Reasons,7,V - Transfer/Promotion,Status Change Reasons,Terminate,Y,Voluntary
+Status Change Reasons,7,V - Transfer/Promotion,Status Change Reasons,Terminate,Y,Other
 Status Change Reasons,8,V - Type of Work,Status Change Reasons,Terminate,Y,Voluntary
 Status Change Reasons,9,V - Culture,Status Change Reasons,Terminate,Y,Voluntary
 Status Change Reasons,A,I - Attendance,Status Change Reasons,Terminate,Y,Involuntary
 Status Change Reasons,ADPYEP,Purged by Download,Status Change Reasons,Terminate,Y,
 Status Change Reasons,B,Never Started,Status Change Reasons,Terminate,Y,Voluntary
-Status Change Reasons,C,I - Deceased,Status Change Reasons,Terminate,Y,Involuntary
+Status Change Reasons,C,I - Deceased,Status Change Reasons,Terminate,Y,Other
 Status Change Reasons,D,V - Benefits,Status Change Reasons,Terminate,Y,Voluntary
 Status Change Reasons,E,I - Divestiture,Status Change Reasons,Terminate,Y,Involuntary
 Status Change Reasons,F,End of Assignment,Status Change Reasons,Terminate,Y,

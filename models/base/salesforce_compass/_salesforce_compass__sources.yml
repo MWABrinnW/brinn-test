@@ -365,4 +365,16 @@ sources:
           - name: json
           - name: effective_at
           - name: _created_at
+      - name: mh_historical_c
+        columns:
+          - name: json
+          - name: effective_at
+          - name: _created_at
 
+  - name: salesforce_compass_fivetran
+    description: ""
+    database: fivetran
+    schema: salesforce_compass
+    loaded_at_field: _fivetran_synced
+    tables:
+      - name: mh_historical_c
