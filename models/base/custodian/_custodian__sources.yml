@@ -374,6 +374,7 @@ sources:
         description: ""
       - name: transactions
         description: ""
+      - name: master_account_relationships
       - name: sec
         description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
         columns:
