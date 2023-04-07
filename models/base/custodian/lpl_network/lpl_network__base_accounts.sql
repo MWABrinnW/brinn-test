@@ -1,6 +1,14 @@
 
 select
-    accountid::text(100)                       as account_id
+    'lpl'                                      as custodian
+  , subscriberid::varchar(5)                   as subscriber_id
+  , case
+        when subscriberid::varchar(5) in ('R5TC','42LN','7PCM','86JN','86YM','G44R','G9CN','H01M','LH7H','V0TK')
+            THEN 'swag'
+        else
+            'network'
+        end::varchar(50)                       as firm_source
+  , accountid::text(100)                       as account_id
   , clientid::text(100)                        as client_id
   , lplaccountno::text(100)                    as lpl_account_no
   , sponsorname::varchar(100)                  as sponsor_name
@@ -10,7 +18,6 @@ select
   , repid::varchar(5)                          as rep_id
   , repssn::varchar(11)                        as rep_ssn
   , repname::varchar(100)                      as rep_name
-  , subscriberid::varchar(5)                   as subscriber_id
   , subscribername::varchar(100)               as subscriber_name
   , fisbranchid::varchar(50)                   as fis_branch_id
   , fisbranchname::varchar(100)                as fis_branch_name
@@ -72,12 +79,6 @@ select
   , mktg_opt_out::text(100)                    as marketing_opt_out
   , {{ col_is_head(reference=source('lpl_network', 'accountext')) }}
   , {{ col_is_current(date_col='effective_date') }}
-  , case
-        when subscriberid::varchar(5) in ('R5TC','42LN','7PCM','86JN','86YM','G44R','G9CN','H01M','LH7H','V0TK')
-            THEN 'swag'
-        else
-            'network'
-        end::varchar(50)                       as firm_source
   , effective_date::date                       as effective_date
   , _created_at::timestamp                     as _source_loaded_at
   , _source_file::varchar(255)                 as _source_file
