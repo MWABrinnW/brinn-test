@@ -109,7 +109,13 @@ select
   , closingpriceunfactored         as closing_price_unfactored
   , factor                         as factor
   , factordate                     as factor_date
-  , 'mps'                          as firm_source
+  ,case
+      when master_account_number = '08051423'
+          then 'swag'
+      when master_account_number = '08355335'
+          then 'mps'
+      else 'mps'
+      end                          as firm_source
   , effective_date::date           as effective_date
   , {{ col_is_head(reference=source('schwab_mps', 'tax_lots')) }}
   , {{ col_is_current(date_col='effective_date') }}

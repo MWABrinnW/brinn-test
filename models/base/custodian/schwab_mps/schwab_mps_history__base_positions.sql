@@ -1,11 +1,10 @@
 
 select
-    securitysymbol                  as security_symbol
+     securitysymbol                 as security_symbol
     ,accountnumber                  as account_number
     ,accounttype                    as account_type
     ,longshort                      as long_short
     ,units                          as units
-    ,'mps'                          as firm_source
     ,effective_date::date           as effective_date
     ,{{ col_is_head(reference=source('schwab_mps', 'positions')) }}
     ,{{ col_is_current(date_col='effective_date') }}

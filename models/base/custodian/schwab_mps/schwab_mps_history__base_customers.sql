@@ -16,7 +16,6 @@ select
   , margininstructions         as margin_instructions
   , restrictions               as restrictions
   , optionlevel                as option_level
-  , 'mps'                      as firm_source
   , effective_date::date       as effective_date
   ,{{ col_is_head(reference=source('schwab_mps', 'customer')) }}
   ,{{ col_is_current(date_col='effective_date') }}

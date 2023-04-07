@@ -31,7 +31,13 @@ select r.json:"H4 H5"::varchar(100)                             as h4_h5
      , r.json:"Cash Margin Bal Settled"::decimal(15, 2)         as cash_margin_balance_settled
      , r.json:"VersMrkr #3"::varchar(100)                       as versmrkr_3
      , r.json:"Bank Sweep IBF"::decimal(15, 2)                  as bank_sweep_interest_bearing_feature
-     , 'mps'                                                    as firm_source
+     ,case
+          when master_account_number = '08051423'
+               then 'swag'
+          when master_account_number = '08355335'
+               then 'mps'
+          else 'mps'
+          end                                                   as firm_source
      , effective_date::date                                     as effective_date
      , {{ col_is_head(reference=source('schwab_mps', 'rps_d2')) }}
      , {{ col_is_current(date_col='effective_date') }}
