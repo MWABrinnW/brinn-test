@@ -1,6 +1,7 @@
 
 select
-    accountnumber              as account_number
+    'schwab'                   as custodian
+  , accountnumber              as account_number
   , accountdesc                as account_description
   , accountaddr1               as account_address_1
   , accountaddr2               as account_address_2

@@ -1,6 +1,7 @@
 
 select 
-    custodianid                                 as custodian_id
+     lower(custodianid)                         as custodian
+    ,'mwa'                                      as firm_source
     ,right(masteraccountnumber::varchar(25), 8) as master_account_number
     ,masteraccountname                          as master_account_name
     ,businessdate::date                         as business_date
@@ -79,7 +80,6 @@ select
     ,managedaccountinvestmentstrategy           as managed_account_investment_strategy
     ,versionmarkernumber5                       as version_marker_number_5
     ,banksweepdisplayname                       as bank_sweep_display_name
-    ,'mwa'                                      as firm_source
     ,effective_date::date                       as effective_date
     ,{{ col_is_head(reference=source('schwab_mwa', 'accounts')) }}
     ,{{ col_is_current(date_col='effective_date') }}

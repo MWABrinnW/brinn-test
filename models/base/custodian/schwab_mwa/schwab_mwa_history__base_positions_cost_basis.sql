@@ -1,5 +1,7 @@
 select
     recordtype                 as record_type
+  , 'schwab'                   as custodian
+  , 'mwa'                      as firm_source
   , custodian                  as custodian
   , right(mstracctnumber,8)    as master_account_number
   , masteraccountname          as master_account_name
@@ -39,7 +41,6 @@ select
   , dflottselct                as df_lott_select
   , cm                         as cm
   , princpaydownfactor         as princ_pay_down_factor
-  , 'mwa'                      as firm_source
   , effective_date::date       as effective_date
   , {{ col_is_head(reference=source('schwab_mwa', 'positions_cost_basis')) }}
   , {{ col_is_current(date_col='effective_date') }}

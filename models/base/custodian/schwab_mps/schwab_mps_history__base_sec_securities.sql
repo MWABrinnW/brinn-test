@@ -1,7 +1,16 @@
-select r.json:"H2 H3"::varchar(100)                                       as h2_h3
+select 
+     'schwab'                                                           as custodian
+     , r.json:"H2 H3"::varchar(100)                                       as h2_h3
      , r.json:"Custdian ID"::varchar(100)                                 as custodian_id
      , right(r.json:"MstrAcct Number", 8)::varchar(100)                   as master_account_number
      , r.json:"Master Account Name"::varchar(100)                         as master_account_name
+     ,case
+          when right(master_account_number,8) = '08051423'
+               then 'swag'
+          when right(master_account_number,8) = '08355335'
+               then 'mps'
+          else 'mps'
+          end                                                             as firm_source
      , try_to_date(to_char(r.json:"Business Date"), 'YYYYMMDD')::date     as business_date
      , r.json:"Prod Code"::varchar(100)                                   as product_code
      , r.json:"ProdCatg Code"::varchar(100)                               as product_category_code
@@ -52,13 +61,6 @@ select r.json:"H2 H3"::varchar(100)                                       as h2_
      , r.json:"Closing Price Unfactored"::decimal(16, 5)                  as closing_price_unfactored
      , r.json:"Factor"::decimal(15, 12)                                   as factor
      , try_to_date(to_char(r.json:"Factor Date"), 'YYYYMMDD')::date       as factor_date
-     ,case
-          when right(master_account_number,8) = '08051423'
-               then 'swag'
-          when right(master_account_number,8) = '08355335'
-               then 'mps'
-          else 'mps'
-          end                                                             as firm_source
      , effective_date::date                                               as effective_date
      , {{ col_is_head(reference=source('schwab_mps', 'sec')) }}
      , {{ col_is_current(date_col='effective_date') }}

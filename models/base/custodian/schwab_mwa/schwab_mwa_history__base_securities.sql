@@ -1,6 +1,8 @@
 
 select
-     securitysymbol                 as security_symbol
+     'schwab'                       as custodian
+    ,'mwa'                          as firm_source
+    ,securitysymbol                 as security_symbol
     ,securitytype                   as security_type
     ,securitydesc1                  as security_description_1
     ,securitydesc2                  as security_description_2
@@ -9,7 +11,6 @@ select
     ,price                          as price
     ,pricedate                      as price_date
     ,valuationunit                  as valuation_unit
-    ,'mwa'                          as firm_source
     ,effective_date::date           as effective_date
     , {{ col_is_head(reference=source('schwab_mwa', 'securities')) }}
     , {{ col_is_current(date_col='effective_date') }}

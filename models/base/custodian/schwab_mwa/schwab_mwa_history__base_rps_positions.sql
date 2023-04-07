@@ -1,4 +1,7 @@
-select r.json:"H2 H3"::varchar(100)                                  as h2_h3
+select 
+       'schwab'                                                      as schwab
+     , 'mwa'                                                         as firm_source
+     , r.json:"H2 H3"::varchar(100)                                  as h2_h3
      , r.json:"Custdian ID"::varchar(100)                            as custodian_id
      , right(r.json:"MstrAcct Number", 8)::varchar(100)              as master_account_number
      , r.json:"Master Account Name"::varchar(100)                    as master_account_name
@@ -48,7 +51,6 @@ select r.json:"H2 H3"::varchar(100)                                  as h2_h3
      , r.json:"Closing Price Unfactored"::decimal(16, 5)             as closing_price_unfactored
      , r.json:"Factor"::decimal(15, 12)                              as factor
      , try_to_date(r.json:"Factor Date"::varchar(100), 'YYYYMMDD')   as factor_date
-     , 'mwa'                                                         as firm_source
      , effective_date::date                                          as effective_date
      , {{ col_is_head(reference=source('schwab_mwa', 'rps_d1')) }}
      , {{ col_is_current(date_col='effective_date') }}

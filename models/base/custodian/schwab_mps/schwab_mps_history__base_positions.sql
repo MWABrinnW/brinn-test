@@ -1,6 +1,7 @@
 
 select
-     securitysymbol                 as security_symbol
+     'schwab'                       as custodian
+    ,securitysymbol                 as security_symbol
     ,accountnumber                  as account_number
     ,accounttype                    as account_type
     ,longshort                      as long_short

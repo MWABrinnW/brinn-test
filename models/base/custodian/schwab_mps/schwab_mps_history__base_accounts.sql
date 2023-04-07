@@ -1,8 +1,15 @@
 
 select 
-    custodianid                                 as custodian_id
+    lower(custodianid)                          as custodian
     ,right(masteraccountnumber::varchar(11),8)  as master_account_number
     ,masteraccountname                          as master_account_name
+    ,case
+        when right(master_account_number,8) = '08051423'
+            then 'swag'
+        when right(master_account_number,8) = '08355335'
+            then 'mps'
+        else 'mps'
+        end                                     as firm_source
     ,businessdate::date                         as business_date
     ,accountid                                  as account_number
     ,accounttitleline1                          as account_title_line_1
@@ -79,13 +86,6 @@ select
     ,managedaccountinvestmentstrategy           as managed_account_investment_strategy
     ,versionmarkernumber5                       as version_marker_number_5
     ,banksweepdisplayname                       as bank_sweep_display_name
-    ,case
-        when right(master_account_number,8) = '08051423'
-            then 'swag'
-        when right(master_account_number,8) = '08355335'
-            then 'mps'
-        else 'mps'
-        end                                     as firm_source
     ,effective_date::date                       as effective_date
     ,{{ col_is_head(reference=source('schwab_mps', 'accounts')) }}
     ,{{ col_is_current(date_col='effective_date') }}

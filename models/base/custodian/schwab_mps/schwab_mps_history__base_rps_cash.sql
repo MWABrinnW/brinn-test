@@ -1,7 +1,16 @@
-select r.json:"H4 H5"::varchar(100)                             as h4_h5
+select 
+      'schwab'                                                  as custodian
+     , r.json:"H4 H5"::varchar(100)                             as h4_h5
      , r.json:"Custdian ID"::varchar(100)                       as custodian_id
      , right(r.json:"MstrAcct Number"::varchar(100),8)          as master_account_number
      , right(r.json:"Master Account Name", 8)::varchar(100)     as master_account_name
+     ,case
+          when right(master_account_number,8) = '08051423'
+               then 'swag'
+          when right(master_account_number,8) = '08355335'
+               then 'mps'
+          else 'mps'
+          end                                                   as firm_source
      , try_to_date(as_char(r.json:"Business Date"), 'YYYYMMDD') as business_date
      , right(r.json:"Account ID", 8)::varchar(100)              as account_number
      , r.json:"Account Title Line 1"::varchar(100)              as account_title_line_1
@@ -31,13 +40,6 @@ select r.json:"H4 H5"::varchar(100)                             as h4_h5
      , r.json:"Cash Margin Bal Settled"::decimal(15, 2)         as cash_margin_balance_settled
      , r.json:"VersMrkr #3"::varchar(100)                       as versmrkr_3
      , r.json:"Bank Sweep IBF"::decimal(15, 2)                  as bank_sweep_interest_bearing_feature
-     ,case
-          when right(master_account_number,8) = '08051423'
-               then 'swag'
-          when right(master_account_number,8) = '08355335'
-               then 'mps'
-          else 'mps'
-          end                                                   as firm_source
      , effective_date::date                                     as effective_date
      , {{ col_is_head(reference=source('schwab_mps', 'rps_d2')) }}
      , {{ col_is_current(date_col='effective_date') }}

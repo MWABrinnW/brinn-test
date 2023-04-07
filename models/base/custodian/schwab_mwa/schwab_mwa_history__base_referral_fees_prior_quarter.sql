@@ -1,5 +1,7 @@
 select
-    trim(substring(content, 1, 7))                                 as quarter
+    'schwab'                                                       as custodian
+  , 'mwa'                                                          as firm_source
+  , trim(substring(content, 1, 7))                                 as quarter
   , trim(substring(content, 9, 10))::date                          as report_run_date
   , trim(substring(content, 20, 10))::date                         as account_balance_as_of_date
   , substring(content, 31, 8)                                      as network_master
@@ -27,7 +29,6 @@ select
   , case
         when trim(substring(content, 169, 12)) = '' then null
         else trim(substring(content, 169, 12)) end::decimal(12, 2) as fees_due_for_household
-  , 'mwa'                                                          as firm_source
   , effective_date::date                                           as effective_date
   , _created_at::timestamp                                         as _source_loaded_at
   , _source_file::varchar(100)                                     as source_file

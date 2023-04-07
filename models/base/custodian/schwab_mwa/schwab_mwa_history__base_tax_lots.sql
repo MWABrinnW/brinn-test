@@ -1,5 +1,7 @@
 select
     recordtype                   as record_type
+  , 'schwab'                     as custodian
+  , 'mwa'                        as firm_source
   , custodian                    as custodian_id
   , right(mstracctnumber, 8)     as master_account_number
   , masteraccountname            as master_account_name
@@ -53,7 +55,6 @@ select
   , originalcostbasis            as original_cost_basis
   , versmrkr3                    as version_marker_3
   , adjustedcostincludgunpdamort as adjusted_cost_included_gunp_amortized
-  , 'mwa'                        as firm_source
   , effective_date::date         as effective_date
   , {{ col_is_head(reference=source('schwab_mwa', 'tax_lots')) }}
   , {{ col_is_current(date_col='effective_date') }}

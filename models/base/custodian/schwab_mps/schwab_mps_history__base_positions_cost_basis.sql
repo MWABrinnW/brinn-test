@@ -1,8 +1,15 @@
 select
     recordtype                 as record_type
-  , custodian                  as custodian
+  , lower(custodian)           as custodian
   , right(mstracctnumber,8)    as master_account_number
   , masteraccountname          as master_account_name
+  ,case
+      when right(master_account_number,8) = '08051423'
+          then 'swag'
+      when right(master_account_number,8) = '08355335'
+          then 'mps'
+      else 'mps'
+      end                      as firm_source
   , businessdate               as business_date
   , accountid                  as account_number
   , securitytype               as security_type
@@ -39,13 +46,6 @@ select
   , dflottselct                as df_lott_select
   , cm                         as cm
   , princpaydownfactor         as princ_pay_down_factor
-    ,case
-        when right(master_account_number,8) = '08051423'
-            then 'swag'
-        when right(master_account_number,8) = '08355335'
-            then 'mps'
-        else 'mps'
-        end                    as firm_source
   , effective_date::date       as effective_date
   , {{ col_is_head(reference=source('schwab_mps', 'positions_cost_basis')) }}
   , {{ col_is_current(date_col='effective_date') }}

@@ -1,4 +1,7 @@
-select r.json:"H4 H5"::varchar(100)                             as h4_h5
+select 
+       'schwab'                                                 as custodian
+     , 'mwa'                                                    as firm_source
+     , r.json:"H4 H5"::varchar(100)                             as h4_h5
      , r.json:"Custdian ID"::varchar(100)                       as custodian_id
      , right(r.json:"MstrAcct Number"::varchar(100), 8)         as master_account_number
      , right(r.json:"Master Account Name", 8)::varchar(100)     as master_account_name
@@ -31,7 +34,6 @@ select r.json:"H4 H5"::varchar(100)                             as h4_h5
      , r.json:"Cash Margin Bal Settled"::decimal(15, 2)         as cash_margin_balance_settled
      , r.json:"VersMrkr #3"::varchar(100)                       as versmrkr_3
      , r.json:"Bank Sweep IBF"::decimal(15, 2)                  as bank_sweep_interest_bearing_feature
-     , 'mwa'                                                    as firm_source
      , effective_date::date                                     as effective_date
      , {{ col_is_head(reference=source('schwab_mwa', 'rps_d2')) }}
      , {{ col_is_current(date_col='effective_date') }}

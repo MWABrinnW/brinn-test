@@ -1,6 +1,8 @@
 
 select
-    accountnumber              as account_number
+   'schwab'                    as custodian
+  , 'mwa'                      as firm_source
+  , accountnumber              as account_number
   , accountdesc                as account_description
   , accountaddr1               as account_address_1
   , accountaddr2               as account_address_2
@@ -17,7 +19,6 @@ select
   , restrictions               as restrictions
   , optionlevel                as option_level
   , effective_date::date       as effective_date
-  , 'mwa'                      as firm_source
   ,{{ col_is_head(reference=source('schwab_mwa', 'customer')) }}
   ,{{ col_is_current(date_col='effective_date') }}
   , record_datetime::timestamp as record_datetime

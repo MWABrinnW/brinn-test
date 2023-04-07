@@ -1,8 +1,16 @@
 select
-    recordtype                   as record_type
+   'schwab'                     as custodian
+  , recordtype                   as record_type
   , custodian                    as custodian_id
   , right(mstracctnumber, 8)     as master_account_number
   , masteraccountname            as master_account_name
+  ,case
+      when right(master_account_number,8) = '08051423'
+          then 'swag'
+      when right(master_account_number,8) = '08355335'
+          then 'mps'
+      else 'mps'
+      end                        as firm_source
   , businessdate                 as business_date
   , accountid                    as account_number
   , prodcode                     as product_code
@@ -53,13 +61,6 @@ select
   , originalcostbasis            as original_cost_basis
   , versmrkr3                    as version_marker_3
   , adjustedcostincludgunpdamort as adjusted_cost_included_gunp_amortized
-  ,case
-      when right(master_account_number,8) = '08051423'
-          then 'swag'
-      when right(master_account_number,8) = '08355335'
-          then 'mps'
-      else 'mps'
-      end                        as firm_source
   , effective_date::date         as effective_date
   , {{ col_is_head(reference=source('schwab_mps', 'tax_lots')) }}
   , {{ col_is_current(date_col='effective_date') }}

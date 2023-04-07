@@ -1,5 +1,7 @@
 select
     recordtype                     as record_type
+  , 'custodian'                    as custodian
+  , 'mwa'                          as firm_source
   , custodianid                    as custodian_id
   , right(mstracctnumber, 8)       as master_account_number
   , masteraccountname              as master_account_name
@@ -109,7 +111,6 @@ select
   , closingpriceunfactored         as closing_price_unfactored
   , factor                         as factor
   , factordate                     as factor_date
-  , 'mwa'                          as firm_source
   , effective_date::date           as effective_date
   , {{ col_is_head(reference=source('schwab_mwa', 'tax_lots')) }}
   , {{ col_is_current(date_col='effective_date') }}

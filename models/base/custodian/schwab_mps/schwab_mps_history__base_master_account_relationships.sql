@@ -1,5 +1,6 @@
 select
-    '0' || fa_master_account_number as fa_master_account_number
+    'schwab'                        as custodian
+  , '0' || fa_master_account_number as fa_master_account_number
   , fa_master_account_description   as fa_master_account_description
   , fa_rep_name                     as fa_rep_name
   , sub_account_number              as sub_account_number
