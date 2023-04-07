@@ -1,5 +1,5 @@
 select 
-       'schwab'                                                      as schwab
+       'schwab'                                                      as custodian
      , 'mwa'                                                         as firm_source
      , r.json:"H2 H3"::varchar(100)                                  as h2_h3
      , r.json:"Custdian ID"::varchar(100)                            as custodian_id

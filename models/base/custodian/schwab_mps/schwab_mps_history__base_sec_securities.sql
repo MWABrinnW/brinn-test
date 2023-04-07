@@ -1,5 +1,5 @@
 select 
-     'schwab'                                                           as custodian
+     'schwab'                                                             as custodian
      , r.json:"H2 H3"::varchar(100)                                       as h2_h3
      , r.json:"Custdian ID"::varchar(100)                                 as custodian_id
      , right(r.json:"MstrAcct Number", 8)::varchar(100)                   as master_account_number
