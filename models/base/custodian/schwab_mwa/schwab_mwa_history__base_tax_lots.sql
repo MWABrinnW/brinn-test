@@ -1,62 +1,63 @@
-
 select
-    recordtype
-    ,custodian
-    ,mstracctnumber
-    ,masteraccountname
-    ,businessdate
-    ,accountid
-    ,prodcode
-    ,prodcatgcode
-    ,taxcode
-    ,tickersymbol
-    ,cusip
-    ,schwabsecnbr
-    ,itemissueid
-    ,isin
-    ,sedol
-    ,optionsdisplaysymbol
-    ,underlyingtickersymbol
-    ,underlyingcusip
-    ,underlyingschwabnbr
-    ,underlyingitmissid
-    ,underlyingisin
-    ,underlyingsedol
-    ,currentquantity
-    ,ls
-    ,transcode
-    ,currentmarketvalue
-    ,accruedinterest
-    ,acquireddate
-    ,origpurchasedate
-    ,orgpurchaseprice
-    ,yieldtomaturity
-    ,costbasisunamortized
-    ,costpershare
-    ,adjustedcostbasisamortized
-    ,adjustedcostpershare
-    ,urgl
-    ,daysheld
-    ,ht
-    ,cb
-    ,ct
-    ,at
-    ,cf
-    ,originalface
-    ,dflotselct
-    ,ws
-    ,versionmrkr1
-    ,disallowedlossamount
-    ,transactioncost
-    ,transactioncostpershare
-    ,versmrkr2
-    ,gi
-    ,originalcostbasis
-    ,versmrkr3
-    ,adjustedcostincludgunpdamort
-    ,case when effective_date::date = (select max(effective_date::date) from {{ source('schwab_mwa', 'tax_lots') }}) then 1 else 0 end as is_current
-    ,effective_date::date           as effective_date
-    ,record_datetime::timestamp     as record_datetime
-    ,record_datetime::timestamp     as _source_loaded_at
-    ,record_date::date              as record_date
+    recordtype                   as record_type
+  , custodian                    as custodian_id
+  , mstracctnumber               as master_account_number
+  , masteraccountname            as master_account_name
+  , businessdate                 as business_date
+  , accountid                    as account_number
+  , prodcode                     as product_code
+  , prodcatgcode                 as product_category_code
+  , taxcode                      as tax_code
+  , tickersymbol                 as ticker_symbol
+  , cusip                        as cusip
+  , schwabsecnbr                 as schwab_security_number
+  , itemissueid                  as item_issue_id
+  , isin                         as isin
+  , sedol                        as sedol
+  , optionsdisplaysymbol         as option_display_symbol
+  , underlyingtickersymbol       as underlying_ticker_symbol
+  , underlyingcusip              as underlying_cusip
+  , underlyingschwabnbr          as underlying_schwab_number
+  , underlyingitmissid           as underlying_item_issue_id
+  , underlyingisin               as underlying_isin
+  , underlyingsedol              as underlying_sedol
+  , currentquantity              as current_quantity
+  , ls                           as long_short_indicator
+  , transcode                    as transaction_code
+  , currentmarketvalue           as current_market_value
+  , accruedinterest              as accrued_interest
+  , acquireddate                 as acquired_date
+  , origpurchasedate             as original_purchase_date
+  , orgpurchaseprice             as original_purchase_price
+  , yieldtomaturity              as yield_to_maturity
+  , costbasisunamortized         as cost_basis_unamortized
+  , costpershare                 as cost_per_share
+  , adjustedcostbasisamortized   as adjusted_cost_basisi_amortized
+  , adjustedcostpershare         as adjusted_cost_per_share
+  , urgl                         as unrealized_gain_loss
+  , daysheld                     as days_held
+  , ht                           as ht
+  , cb                           as cost_basis_fully_known
+  , ct                           as cost_basis_type
+  , at                           as account_taxable_indicator
+  , cf                           as certified_indicator
+  , originalface                 as original_face
+  , dflotselct                   as account_lot_selection_method_default
+  , ws                           as cost_method
+  , versionmrkr1                 as version_marker_1
+  , disallowedlossamount         as disallowed_loss_amount
+  , transactioncost              as transaction_cost
+  , transactioncostpershare      as transaction_cost_per_share
+  , versmrkr2                    as version_marker_2
+  , gi                           as gi
+  , originalcostbasis            as original_cost_basis
+  , versmrkr3                    as version_marker_3
+  , adjustedcostincludgunpdamort as adjusted_cost_included_gunp_amortized
+  , 'mwa'                        as firm_source
+  , effective_date::date         as effective_date
+  , {{ col_is_head(reference=source('schwab_mwa', 'tax_lots')) }}
+  , {{ col_is_current(date_col='effective_date') }}
+  , record_datetime::timestamp   as record_datetime
+  , record_date::date            as record_date
+  , record_datetime::timestamp   as _source_loaded_at
 from {{ source('schwab_mwa', 'tax_lots') }}

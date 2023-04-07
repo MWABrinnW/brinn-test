@@ -1,17 +1,19 @@
 
 select
-    securitysymbol
-    ,securitytype
-    ,securitydesc1
-    ,securitydesc2
-    ,securitydesc3
-    ,securitydesc4
-    ,price
-    ,pricedate
-    ,valuationunit
-    ,case when effective_date::date = (select max(effective_date::date) from {{ source('schwab_mwa', 'securities') }}) then 1 else 0 end as is_current
+    securitysymbol                  as security_symbol
+    ,securitytype                   as security_type
+    ,securitydesc1                  as security_description_1
+    ,securitydesc2                  as security_description_2
+    ,securitydesc3                  as security_description_3
+    ,securitydesc4                  as security_description_4
+    ,price                          as price
+    ,pricedate                      as price_date
+    ,valuationunit                  as valuation_unit
+    ,'mwa'                          as firm_source
     ,effective_date::date           as effective_date
+    , {{ col_is_head(reference=source('schwab_mwa', 'securities')) }}
+    , {{ col_is_current(date_col='effective_date') }}
     ,record_datetime::timestamp     as record_datetime
-    ,record_datetime::timestamp     as _source_loaded_at
     ,record_date::date              as record_date
+    ,record_datetime::timestamp     as _source_loaded_at
 from {{ source('schwab_mwa', 'securities') }}
