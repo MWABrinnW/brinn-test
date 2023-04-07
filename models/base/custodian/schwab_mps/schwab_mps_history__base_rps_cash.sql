@@ -1,6 +1,6 @@
 select r.json:"H4 H5"::varchar(100)                             as h4_h5
      , r.json:"Custdian ID"::varchar(100)                       as custodian_id
-     , r.json:"MstrAcct Number"::varchar(100)                   as master_account_number
+     , right(r.json:"MstrAcct Number"::varchar(100),8)          as master_account_number
      , right(r.json:"Master Account Name", 8)::varchar(100)     as master_account_name
      , try_to_date(as_char(r.json:"Business Date"), 'YYYYMMDD') as business_date
      , right(r.json:"Account ID", 8)::varchar(100)              as account_number
@@ -32,9 +32,9 @@ select r.json:"H4 H5"::varchar(100)                             as h4_h5
      , r.json:"VersMrkr #3"::varchar(100)                       as versmrkr_3
      , r.json:"Bank Sweep IBF"::decimal(15, 2)                  as bank_sweep_interest_bearing_feature
      ,case
-          when master_account_number = '08051423'
+          when right(master_account_number,8) = '08051423'
                then 'swag'
-          when master_account_number = '08355335'
+          when right(master_account_number,8) = '08355335'
                then 'mps'
           else 'mps'
           end                                                   as firm_source

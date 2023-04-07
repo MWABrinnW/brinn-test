@@ -1,6 +1,6 @@
 
 select
-    securitysymbol                  as security_symbol
+     securitysymbol                 as security_symbol
     ,securitytype                   as security_type
     ,securitydesc1                  as security_description_1
     ,securitydesc2                  as security_description_2

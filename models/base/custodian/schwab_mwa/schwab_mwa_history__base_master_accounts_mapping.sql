@@ -1,5 +1,5 @@
 select
-    right(master_account_id, 8)                 as master_account_id
+     right(master_account_id, 8)                as master_account_number
     ,account_id                                 as account_number
     ,'mwa'                                      as firm_source
     ,effective_date                             as effective_date

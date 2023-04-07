@@ -1,7 +1,7 @@
 select
     recordtype                 as record_type
   , custodian                  as custodian
-  , mstracctnumber             as master_account_number
+  , right(mstracctnumber,8)    as master_account_number
   , masteraccountname          as master_account_name
   , businessdate               as business_date
   , accountid                  as account_number

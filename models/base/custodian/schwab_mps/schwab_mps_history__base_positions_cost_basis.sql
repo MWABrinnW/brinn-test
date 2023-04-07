@@ -1,7 +1,7 @@
 select
     recordtype                 as record_type
   , custodian                  as custodian
-  , mstracctnumber             as master_account_number
+  , right(mstracctnumber,8)    as master_account_number
   , masteraccountname          as master_account_name
   , businessdate               as business_date
   , accountid                  as account_number
@@ -40,9 +40,9 @@ select
   , cm                         as cm
   , princpaydownfactor         as princ_pay_down_factor
     ,case
-        when master_account_number = '08051423'
+        when right(master_account_number,8) = '08051423'
             then 'swag'
-        when master_account_number = '08355335'
+        when right(master_account_number,8) = '08355335'
             then 'mps'
         else 'mps'
         end                    as firm_source

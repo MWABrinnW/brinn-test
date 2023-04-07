@@ -53,9 +53,9 @@ select r.json:"H2 H3"::varchar(100)                                       as h2_
      , r.json:"Factor"::decimal(15, 12)                                   as factor
      , try_to_date(to_char(r.json:"Factor Date"), 'YYYYMMDD')::date       as factor_date
      ,case
-          when master_account_number = '08051423'
+          when right(master_account_number,8) = '08051423'
                then 'swag'
-          when master_account_number = '08355335'
+          when right(master_account_number,8) = '08355335'
                then 'mps'
           else 'mps'
           end                                                             as firm_source

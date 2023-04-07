@@ -1,7 +1,7 @@
 
 select 
     custodianid                                 as custodian_id
-    ,masteraccountnumber::varchar(25)           as master_account_number
+    ,right(masteraccountnumber::varchar(25), 8) as master_account_number
     ,masteraccountname                          as master_account_name
     ,businessdate::date                         as business_date
     ,accountid                                  as account_number

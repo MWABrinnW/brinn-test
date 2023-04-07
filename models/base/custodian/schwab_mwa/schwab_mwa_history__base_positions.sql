@@ -1,6 +1,6 @@
 
 select
-    securitysymbol                  as security_symbol
+     securitysymbol                 as security_symbol
     ,accountnumber                  as account_number
     ,accounttype                    as account_type
     ,longshort                      as long_short
