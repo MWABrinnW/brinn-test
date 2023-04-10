@@ -1,0 +1,41 @@
+version: 2
+
+sources:
+  - name: schwab_mwa
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    schema: schwab_mwa_history
+    loaded_at_field: record_datetime
+    tables:
+      - name: accounts
+      - name: customer
+      - name: positions
+      - name: positions_cost_basis
+      - name: securities
+      - name: tax_lots
+      - name: transactions
+      - name: master_accounts_mapping
+      - name: referral_fees_prior_quarter
+      - name: referral_fees_current_quarter
+      - name: referral_fees_advisor_network
+      - name: master_account_relationships
+      - name: sec
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        columns:
+          - name: _id
+          - name: json
+          - name: effective_date
+          - name: _created_at
+      - name: rps_d1
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        columns:
+          - name: _id
+          - name: json
+          - name: effective_date
+          - name: _created_at
+      - name: rps_d2
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        columns:
+          - name: _id
+          - name: json
+          - name: effective_date
+          - name: _created_at

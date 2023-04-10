@@ -1,0 +1,34 @@
+version: 2
+
+sources:
+  - name: lpl_network
+    description: ""
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    loaded_at_field: _created_at
+    tables:
+      - name: accountext
+        description: "This file represents all brokerage, advisory and direct business accounts associated with your organization. Each account is uniquely represented by a numeric account key which is distinct from brokerage and sponsor account numbers."
+      - name: accountparticipantext
+        description: "The Account Participant file represents client information on individuals identified as participants (i.e. owners) on LPL Financial accounts under Rep IDs associated with your organization."
+      - name: client
+        description: "The Client File represents clients associated with Rep IDs that belong to your organization. The Client File data is sourced from Client Groups and does not include User-Defined or Household Groups."
+      - name: commissionsecurity
+        description: "The records in the Commission Security file contain only those securities which are referenced in the Commission Transaction file. All securities which appear in the Commission Transaction file should have an entry in this file"
+      - name: commissiontransactionext
+        description: "The Commission Transaction file contains records which are the basis for LPL Financial payouts. Types of transactions include receipts, trails, adjustments, and bonus transactions."
+      - name: position
+        description: "The records in this file represent the positions held in the accounts which are presented in the Account File. Note that the frequency with which the position data is updated depends on where the account is held. Brokerage account positions are updated daily, whereas direct account positions may be fully refreshed only after month-end."
+      - name: positionsecurity
+        description: "The records in the Position Security file contain only those securities which are referenced in the Position file. All securities which appear in the Position file should have an entry in this file. The records in the Position Security File may also be used to cross-reference securities in the Transaction Activity file."
+      - name: reference
+        description: "The Reference File contains descriptions for the various codes within the other LPL Financial Data Feed files. This file contains all possible scenarios and is not specific to an Institution. This file replicates what will be seen in ClientWorks."
+      - name: rep
+        description: "The Rep File contains basic information on each Rep ID that belongs to your organization. Please note that blocked secondary IDs are included in the file. If you desire to suppress these IDs, please use the flag ISBlockedSecondaryRepID."
+      - name: repiar
+        description: "The Rep IAR File contains information regarding the Investment Advisor Registration for each Rep ID that belongs to your organization."
+      - name: repinsurance
+        description: "The Rep Insurance File contains information on the life insurance appointments for each Rep ID that belongs to your organization."
+      - name: replicense
+        description: "The Rep License File contains information on the FINRA licenses for each Rep ID that belongs to your organization."
+      - name: transactionactivityext
+        description: "The Transaction Activity file contains account activity records for accounts under Rep IDs that belong to your organization. Types of transactions include deposits/withdrawals, dividends/interest, buys/sells and redemptions. Activity is limited to what is available via ClientWorks."
