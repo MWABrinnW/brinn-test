@@ -1,3 +1,6 @@
+version: 2
+
+sources:
   - name: schwab_mps
     description: ""
     database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
