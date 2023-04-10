@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: portfoliocenter_tcea
+    description: ""
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    schema: portfoliocenter_tcea_history
+    tables:
+      - name: fa_accounts_history
+        description: ""
+      - name: fa_holdings_history
+        description: ""

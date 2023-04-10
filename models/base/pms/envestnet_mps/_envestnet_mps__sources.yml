@@ -1,0 +1,148 @@
+version: 2
+
+sources:
+  - name: envestnet_mps
+    description: ""
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    schema: envestnet_mps_history
+    tables:
+      - name: account_fee_schedule_fee_component
+        description: ""
+      - name: account_fee_schedule_fee_filter
+        description: ""
+      - name: account_fee_schedule_fee_rate
+        description: ""
+      - name: account_fee_schedule_fee_schedule
+        description: ""
+      - name: accountmaster_accounts
+        description: ""
+      - name: codes_account_history_type
+        description: ""
+      - name: codes_account_status
+        description: ""
+      - name: codes_annual_income
+        description: ""
+      - name: codes_asset_category
+        description: ""
+      - name: codes_assets_calculation_method
+        description: ""
+      - name: codes_billing_debit_method
+        description: ""
+      - name: codes_billing_mode
+        description: ""
+      - name: codes_commission_type
+        description: ""
+      - name: codes_contact_type
+        description: ""
+      - name: codes_country
+        description: ""
+      - name: codes_employment_status
+        description: ""
+      - name: codes_estimated_net_worth
+        description: ""
+      - name: codes_fee_component_type
+        description: ""
+      - name: codes_fee_filter
+        description: ""
+      - name: codes_fee_filter_type
+        description: ""
+      - name: codes_fund_family
+        description: ""
+      - name: codes_gics_sector
+        description: ""
+      - name: codes_instruction_type
+        description: ""
+      - name: codes_investable_assets
+        description: ""
+      - name: codes_investment_knowledge
+        description: ""
+      - name: codes_investment_objective_rank
+        description: ""
+      - name: codes_marital_status
+        description: ""
+      - name: codes_product_imr_status
+        description: ""
+      - name: codes_product_name
+        description: ""
+      - name: codes_product_status
+        description: ""
+      - name: codes_product_type
+        description: ""
+      - name: codes_registration_type
+        description: ""
+      - name: codes_relationship
+        description: ""
+      - name: codes_risk_scale
+        description: ""
+      - name: codes_risk_tolerance
+        description: ""
+      - name: codes_salutation
+        description: ""
+      - name: codes_sector
+        description: ""
+      - name: codes_service_request_type
+        description: ""
+      - name: codes_ssn_type
+        description: ""
+      - name: codes_style_type
+        description: ""
+      - name: codes_suitability_status
+        description: ""
+      - name: codes_tax_bracket
+        description: ""
+      - name: codes_tax_efficiency
+        description: ""
+      - name: codes_time_horizion
+        description: ""
+      - name: codes_trade_exchange
+        description: ""
+      - name: codes_transaction_mapping
+        description: ""
+      - name: codes_transaction_type
+        description: ""
+      - name: familymember_client_activity
+        description: ""
+      - name: familymember_client_restriction
+        description: ""
+      - name: familymember_contact
+        description: ""
+      - name: familymember_family
+        description: ""
+      - name: familymember_family_member
+        description: ""
+      - name: gainloss_gain_loss
+        description: ""
+      - name: hierarchy_advisor
+        description: ""
+      - name: hierarchy_branch
+        description: ""
+      - name: hierarchy_contact
+        description: ""
+      - name: hierarchy_enterprise
+        description: ""
+      - name: hierarchy_firm
+        description: ""
+      - name: hierarchy_rep_code
+        description: ""
+      - name: positions_positions
+        description: ""
+      - name: products_products
+        description: ""
+      - name: proposal_asset
+        description: ""
+      - name: proposal_investment
+        description: ""
+      - name: proposal_proposal
+        description: ""
+      - name: proposal_registration
+        description: ""
+      - name: proposal_registration_owner
+        description: ""
+      - name: proposal_solution
+        description: ""
+      - name: securitymaster_securities
+        description: ""
+      - name: taxlots_taxlots
+        description: ""
+      - name: transactions_transactions
+        description: ""

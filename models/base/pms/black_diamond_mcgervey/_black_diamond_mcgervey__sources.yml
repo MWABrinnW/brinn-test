@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: black_diamond_mcgervey
+    description: ""
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    schema: black_diamond_mcgervey_history
+    tables:
+      - name: accounts
+        description: ""
+      - name: client
+        description: ""
+      - name: portfolio
+        description: ""
+      - name: portfolio_group
+        description: ""
+      - name: relationship
+        description: ""
+      - name: target
+        description: ""
