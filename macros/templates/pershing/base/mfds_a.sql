@@ -1,7 +1,9 @@
 {%- macro mfds_a(src) -%}
 
 select
-trim(nullif(substring(content, 1, 2), '00'))::varchar(2) as transaction_code
+ 'pershing'                                                                             as custodian
+, {{ "'" ~ src.schema.split('_')[1] ~ "'" }}                                            as firm_source
+, trim(nullif(substring(content, 1, 2), '00'))::varchar(2) as transaction_code
 , trim(nullif(substring(content, 3, 1), '0'))::varchar(1) as record_id
 , nullif(nullif(trim(substring(content, 4, 6)), '000000'), '')::int as record_id_sequence_number
 , trim(nullif(substring(content, 10, 9), '000000000'))::varchar(9) as cusip_number

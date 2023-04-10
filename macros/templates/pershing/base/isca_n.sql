@@ -1,7 +1,9 @@
 {%- macro isca_n(src) -%}
 
 select
-trim(nullif(substring(content, 1, 1), '0'))::varchar(1) as record_indicator
+ 'pershing'                                                                             as custodian
+, {{ "'" ~ src.schema.split('_')[1] ~ "'" }}                                            as firm_source
+, trim(nullif(substring(content, 1, 1), '0'))::varchar(1) as record_indicator
 , nullif(nullif(trim(substring(content, 2, 6)), '000000'), '')::int as record_id_sequence_number
 , trim(nullif(substring(content, 8, 9), '000000000'))::varchar(9) as cusip_number
 -- , trim(nullif(substring(content, 17, 4), '0000'))::varchar(4) as not_used
