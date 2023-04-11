@@ -182,7 +182,7 @@ with cte_effective_dates as
    , cte_holdings as
     (
         select
-               'Morningstar HFW'                                                     as system_name
+               fa.system_name                                                  as system_name
              , coalesce(gl.system_details, h.system_details)                   as system_details 
              , fa.financial_account_number                                     as financial_account_number
              , fa.financial_account_number_clean                               as financial_account_number_clean
@@ -208,6 +208,9 @@ with cte_effective_dates as
              , coalesce(gl.effective_date, h.effective_date)                   as effective_date
              , fa.month_end_date                                               as month_end_date
              , null                                                            as source_filename
+             , nvl(fa.system_name,'') || '|' || 
+                nvl(fa.internal_financial_account_number,'') || 
+                '|' || b.effective_date                                        as key_financial_account_holdings
         from cte_holdings_base b
         join cte_fa fa 
             on b.financial_account_number = fa.financial_account_number
