@@ -365,6 +365,9 @@ with cte_effective_dates as
              , j.record_date
              , j.record_datetime
              , j.custodian                             as source_system_custodian
+             , nvl(j.system_name,'') || '|' || 
+                nvl(j.internal_financial_account_number,'') || 
+                '|' || j.effective_date                                        as key_financial_account
         from cte_joined j
     )
    

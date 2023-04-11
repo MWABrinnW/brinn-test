@@ -14,4 +14,5 @@ select
     ,effective_date
     ,record_datetime
     ,source_file
+    ,dense_rank() over(partition by effective_date order by record_datetime desc) as rn
 from {{ source('tpg_hfw', 'holdings') }}
