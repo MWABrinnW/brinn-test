@@ -11,7 +11,7 @@ with tmp_rep_codes as
 )
 ,tmp_rep_codes_map as
 (
-    select distinct
+    {# select distinct
          regexp_substr(advisor_code, '^[^ ]+') as rep_code
         ,office_location
         ,status
@@ -19,7 +19,12 @@ with tmp_rep_codes as
     from {{ref('aux__base_custodian_codes_master_list')}}
     where true
         and custodian ilike '%td%'
-        and office_location not ilike 'tbd'
+        and office_location not ilike 'tbd' #}
+
+    select
+        rep_code
+        ,firm
+    from {{ ref('tda_rep_codes') }}
 )
 ,tmp_all_codes as
 (
@@ -35,8 +40,8 @@ select
     ,b.file_count
     ,b.min_effective_date as datalake_min_effective_date
     ,b.max_effective_date as datalake_max_effective_date
-    ,c.office_location      as map_office_location
-    ,c.description          as map_description
+    {# ,c.office_location      as map_office_location
+    ,c.description          as map_description #}
 from tmp_all_codes a
 left join tmp_rep_codes b
     on a.rep_code = b.rep_code
