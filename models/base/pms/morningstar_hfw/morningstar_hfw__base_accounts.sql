@@ -1,5 +1,8 @@
 select
-    trim(name)                           as account_name
+  'morningstar'                          as pms
+  , 'hfw'                                as pms_location
+  , 'mwa'                                as firm_source
+  , trim(name)                           as account_name
   , trim(current_custodian)              as account_custodian
   , trim(client_account_type)            as account_type
   , coalesce(account_number, name)       as account_number

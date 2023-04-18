@@ -1,7 +1,10 @@
 {% set src = source('black_diamond_ap4', 'accounts') %}
 
 select
-    a.json:AccountNumber::string             as accountnumber
+  'black_diamond'                            as pms
+  , 'ap4'                                    as pms_location
+  , 'mwa'                                    as firm_source
+  , a.json:AccountNumber::string             as accountnumber
   , a.json:AccountCategory::string           as accountcategory
   , a.json:AccountRegistrationType::string   as accountregistrationtype
   , a.json:AccountSubCategory::string        as accountsubcategory
@@ -36,11 +39,10 @@ select
   , a.json:Style:Name::string                as stylename
   , a.json:TaxStatus::string                 as taxstatus
   , a.effective_date
-  , a.record_date
-  , a.record_datetime
   , a.record_id
   , {{ col_is_head(reference=src, reference_date_col='effective_date', source_date_col='a.effective_date') }}
   , {{ col_is_current(date_col='a.effective_date') }}
+  , a.record_datetime as _source_loaded_at
 from {{src}}                                                      a
    , lateral flatten(input => parse_json(a.json:Tags), outer => true) t_cais
    , lateral flatten(input => parse_json(a.json:Tags), outer => true) aum

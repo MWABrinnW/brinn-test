@@ -8,7 +8,7 @@ sources:
     tables:
       - name: as_of_value_by_account_3679_history
         description: ""
-      - name: asset_query_1809_history
+      - name: as_of_value_by_asset_1809_history
         description: ""
       - name: audit_all_accounts_4213_history
         description: ""
