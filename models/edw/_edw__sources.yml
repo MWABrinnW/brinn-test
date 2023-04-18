@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: edw_mwa
+    description: "Enterprise data warehouse"
+    database: "{{ var('db_edw_src', env_var('DBT_DB_EDW_SRC', 'edw')) }}"
+    schema: mwa
+    tags: ['edw', 'mwa']
+    loaded_at_field: record_datetime
+    tables:
+      - name: financial_account_daily
+        description: "Replicated from dw1/edw.dbo.financial_account_daily"
+      - name: financial_account_monthly
+        description: "Replicated from dw1/edw.dbo.financial_account_monthly"
+      - name: account_holdings_daily
+        description: "Replicated from dw1/edw.dbo.account_holdings_daily"
+      - name: account_holdings_monthly
+        description: "Replicated from dw1/edw.dbo.account_holdings_monthly"
