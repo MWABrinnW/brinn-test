@@ -17,7 +17,7 @@ select
 , trim(nullif(substring(content, 82, 20), '00000000000000000000'))::varchar(20) as security_description_line_4
 , trim(nullif(substring(content, 102, 20), '00000000000000000000'))::varchar(20) as security_description_line_5
 , trim(nullif(substring(content, 122, 2), '00'))::varchar(2) as user_cusip_identifier
-, YYYYDDD_to_date(nullif(substring(content, 124, 7), '0000000'))::date as price_purge_date
+, {{target.schema}}.YYYYDDD_to_date(nullif(substring(content, 124, 7), '0000000'))::date as price_purge_date
 , trim(nullif(substring(content, 131, 1), '0'))::varchar(1) as taxable_indicator
 , trim(nullif(substring(content, 132, 1), '0'))::varchar(1) as literally_x
 ,{{ col_is_head(reference=src) }}
