@@ -40,6 +40,11 @@ select
   , try_to_date(approveddate, 'MM/DD/YYYY')                 as approved_date
   , isadvisorformcomplete::int                              as is_advisor_form_complete
   , isblockedsecondaryrepid::int                            as is_blocked_secondary_rep_id
+  , institutionid::varchar(100)                             as institution_id
+  , institutionname::varchar(200)                           as institution_name
+  , firmid::varchar(50)                                     as firm_id
+  , branchcrd::varchar(100)                                 as branch_crd
+  , parentorgid::varchar(50)                                as parent_org_id
   , {{ col_is_head(reference=source('lpl_network', 'rep')) }}
   , {{ col_is_current(date_col='effective_date') }}
   , effective_date::date                                    as effective_date
