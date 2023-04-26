@@ -245,4 +245,62 @@ where true
           custom_condition = 'a.effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
     ) }}
 
+union all
+
+select EFFECTIVE_DATE     as effective_date
+     , 'fidelity'           as custodian
+     , 'mwa'                as firm_source
+     , CGF_ACCOUNT_NUMBER as account_number
+     , CGF_ACCOUNT_NUMBER as account_number_formatted
+     , G_NUMBER           as custodian_link           -- branch/firm/gnumber? primary g number but how?
+     , null                 as custodian_link_detail
+     , null                 as account_type_source_code --account_classification or registration_type
+     , null                 as opened_date
+     , null                 as account_title
+     , FIRST_NAME         as first_name
+     , MIDDLE_NAME        as middle_name
+     , LAST_NAME          as last_name
+     , null                 as irs_id
+     , null                 as irs_id_type
+     , date_of_birth      as birth_date
+     , null                 as email_address
+     , null                 as phone
+     , null                 as cost_basis_method_mutual_funds
+     , null                 as cost_basis_method_non_mutual_funds
+     , null                 as is_taxable
+     , null                 as is_fee_authorized
+     , null                 as is_prime_broker
+     , null                 as restrictions_source_code
+     , case
+           when ADDRESS_LINE_3 is not null then concat_ws(', ', ADDRESS_LINE_1, ADDRESS_LINE_2, ADDRESS_LINE_3)
+           when ADDRESS_LINE_2 is not null then concat_ws(', ', ADDRESS_LINE_1, ADDRESS_LINE_2)
+           when ADDRESS_LINE_1 is not null then ADDRESS_LINE_1
+    end                     as mailing_address_street
+     , CITY               as mailing_address_city
+     , STATE              as mailing_address_state
+     , ZIP                as mailing_address_zip
+     , null                 as mailing_address_country
+     , case
+           when ADDRESS_LINE_3 is not null then concat_ws(', ', ADDRESS_LINE_1, ADDRESS_LINE_2, ADDRESS_LINE_3)
+           when ADDRESS_LINE_2 is not null then concat_ws(', ', ADDRESS_LINE_1, ADDRESS_LINE_2)
+           when ADDRESS_LINE_1 is not null then ADDRESS_LINE_1
+    end                     as legal_address_street
+     , CITY               as legal_address_city
+     , STATE              as legal_address_state
+     , ZIP                as legal_address_zip
+     , null                 as legal_address_country
+    , {{ col_is_head(reference=ref('fidelity_mwa_history__vw_cgf_acct'), source_date_col='a.effective_date') }}
+    , {{ col_is_current(date_col='a.effective_date') }}
+     , _SOURCE_LOADED_AT  as _source_loaded_at
+     , _source_loaded_at  as _created_at
+from {{ ref('fidelity_mwa_history__vw_cgf_acct') }}
+where true
+    {{ incremental_date_filter(
+          source_col_name = 'a.effective_date',
+          target_col_name = 'effective_date',
+          do_lookback = false,
+          do_new = false,
+          custom_condition_only = true,
+          custom_condition = 'a.effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
+    ) }}
 {%- endif -%}

@@ -72,3 +72,43 @@ sources:
           - name: record_date
           - name: record_datetime
           - name: source_file
+      - name: cgf_acct
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
+      - name: cgf_trns
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
+      - name: cgf_prc
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
+      - name: cgf_pos
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
+      - name: cgf_bal
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
