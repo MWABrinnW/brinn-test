@@ -18,7 +18,7 @@ with cte_users as
 
 -- add latest phone number assigned to each email address
 select
-    u.*
+    u.* exclude is_head
     ,apn.number
     ,apn.source
     ,apn.number_type
@@ -26,6 +26,7 @@ select
     ,apn.capability
     ,apn.assignee_ext_number
     ,apn.assignee_type
+    ,row_number() over(partition by lower(u.email) order by apn.number_type) as rn
     ,{{ col_is_head(reference=ref('zoom_mwa__base_account_phone_numbers'), reference_date_col='_created_at', source_date_col='apn._created_at') }}
 from cte_users_with_id u
 join {{ ref('zoom_mwa__base_account_phone_numbers') }} apn

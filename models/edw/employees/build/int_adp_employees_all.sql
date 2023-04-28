@@ -1,5 +1,8 @@
 select
-     e.* rename home_organizational_units_cost_num                                      as cost_num
+     e.*
+     exclude associate_work_phone
+     rename home_organizational_units_cost_num                                          as cost_num
+    ,coalesce(replace(zoom.number, '+1', ''), e.associate_work_phone)                   as associate_work_phone
     ,coalesce(lm_old.location_code, lm_new.location_code)                               as location_code
     ,coalesce(lm_old.accounting_id, lm_new.accounting_id)                               as accounting_id
     ,coalesce(lm_old.accounting_id_description, lm_new.accounting_id_description)       as accounting_id_description
@@ -155,5 +158,8 @@ left join {{ ref('locations') }} lm_old
 left join {{ ref('locations') }} lm_new
     on coalesce(lh.current_code, e.position_cost_num_location_code) = lm_new.accounting_id
     and lm_new.active = 1
+left join {{ ref('zoom_mwa__base_user_phone_assignments') }} zoom
+    on lower(e.associate_work_email) = lower(zoom.email)
+    and zoom.rn = 1
 where true
   and nvl(e.is_deleted,0) = 0
