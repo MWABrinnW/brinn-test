@@ -27,17 +27,17 @@
 select
     case
         when (select count(*) from {{ this }}) = 0
-            then 1
+            then 1 -- no records in table
         when (select top 1 1
               from {{ src }}
               where record_datetime > (select max(_created_at) from {{ this }})
               ) = 1
-            then 1
-        else 0
+            then 1 -- new records in source compared to destination
+        else 0 -- no need to insert anything new
         end
 {%- endset -%}
 
-{# Execute the query to determine if new data is ready. 1=yes 0=no#}
+{# Execute the query to determine if new data is ready. 1=yes 0=no #}
 {%- if execute and table_exists -%}
   {{ dbt_utils.log_info(this.identifier ~ ' | compiling')}}
   {%- set result = dbt_utils.get_single_value(qry_check_for_new_data) -%}
@@ -47,17 +47,19 @@ select
 {%- endif -%}
 
 {%- if result == 0 and flags.FULL_REFRESH == false and table_exists -%}
+{# Run a simple query with no results because nothing needs inserted #}
   select *
   from {{ this }}
   limit 0
 {%- else -%}
-
+{# Insert new data #}
 with cte_effective_dates_out_of_date as
 (
   select distinct effective_date
   from {{ src }}
   {% if table_exists -%}
   where record_datetime > (select nvl(max(_created_at), dateadd(d, -1, record_datetime)) from {{ this }})
+  or effective_date not in (select distinct effective_date from {{ this }})
   {% else -%}
   where true
   {% endif -%}
@@ -159,8 +161,8 @@ with cte_effective_dates_out_of_date as
 
 select
     a.effective_date
-  , 'fidelity'                                                 as custodian
-  , 'mwa'                                                      as firm_source
+  , custodian                                                  as custodian
+  , firm_source                                                as firm_source
   , a.account_custodial                                        as account_number
   , a.account_custodial_formatted                              as account_number_formatted
 
@@ -216,8 +218,9 @@ select
   , la.country_name                                            as legal_address_country
   , {{ col_is_head(reference=ref('fidelity_mwa_history__vw_nabase_101_account'), source_date_col='a.effective_date') }}
   , {{ col_is_current(date_col='a.effective_date') }}
-  , a._source_loaded_at::timestamp                             as _source_loaded_at
   , current_timestamp()::timestamp                             as _created_at
+  , a._source_loaded_at::timestamp                             as _source_loaded_at
+  , a._source_file                                             as _source_file
 from {{ ref('fidelity_mwa_history__vw_nabase_101_account') }} a
 left join cte_mailing_address ma
    on a.effective_date = ma.effective_date
@@ -245,62 +248,4 @@ where true
           custom_condition = 'a.effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
     ) }}
 
-union all
-
-select EFFECTIVE_DATE     as effective_date
-     , 'fidelity'           as custodian
-     , 'mwa'                as firm_source
-     , CGF_ACCOUNT_NUMBER as account_number
-     , CGF_ACCOUNT_NUMBER as account_number_formatted
-     , G_NUMBER           as custodian_link           -- branch/firm/gnumber? primary g number but how?
-     , null                 as custodian_link_detail
-     , null                 as account_type_source_code --account_classification or registration_type
-     , null                 as opened_date
-     , null                 as account_title
-     , FIRST_NAME         as first_name
-     , MIDDLE_NAME        as middle_name
-     , LAST_NAME          as last_name
-     , null                 as irs_id
-     , null                 as irs_id_type
-     , date_of_birth      as birth_date
-     , null                 as email_address
-     , null                 as phone
-     , null                 as cost_basis_method_mutual_funds
-     , null                 as cost_basis_method_non_mutual_funds
-     , null                 as is_taxable
-     , null                 as is_fee_authorized
-     , null                 as is_prime_broker
-     , null                 as restrictions_source_code
-     , case
-           when ADDRESS_LINE_3 is not null then concat_ws(', ', ADDRESS_LINE_1, ADDRESS_LINE_2, ADDRESS_LINE_3)
-           when ADDRESS_LINE_2 is not null then concat_ws(', ', ADDRESS_LINE_1, ADDRESS_LINE_2)
-           when ADDRESS_LINE_1 is not null then ADDRESS_LINE_1
-    end                     as mailing_address_street
-     , CITY               as mailing_address_city
-     , STATE              as mailing_address_state
-     , ZIP                as mailing_address_zip
-     , null                 as mailing_address_country
-     , case
-           when ADDRESS_LINE_3 is not null then concat_ws(', ', ADDRESS_LINE_1, ADDRESS_LINE_2, ADDRESS_LINE_3)
-           when ADDRESS_LINE_2 is not null then concat_ws(', ', ADDRESS_LINE_1, ADDRESS_LINE_2)
-           when ADDRESS_LINE_1 is not null then ADDRESS_LINE_1
-    end                     as legal_address_street
-     , CITY               as legal_address_city
-     , STATE              as legal_address_state
-     , ZIP                as legal_address_zip
-     , null                 as legal_address_country
-    , {{ col_is_head(reference=ref('fidelity_mwa_history__vw_cgf_acct'), source_date_col='a.effective_date') }}
-    , {{ col_is_current(date_col='a.effective_date') }}
-     , _SOURCE_LOADED_AT  as _source_loaded_at
-     , _source_loaded_at  as _created_at
-from {{ ref('fidelity_mwa_history__vw_cgf_acct') }}
-where true
-    {{ incremental_date_filter(
-          source_col_name = 'a.effective_date',
-          target_col_name = 'effective_date',
-          do_lookback = false,
-          do_new = false,
-          custom_condition_only = true,
-          custom_condition = 'a.effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
-    ) }}
 {%- endif -%}
