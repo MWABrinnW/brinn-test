@@ -1,48 +1,50 @@
-
 select
-    recordtype
-    ,custodian
-    ,mstracctnumber
-    ,masteraccountname
-    ,businessdate
-    ,accountid
-    ,securitytype
-    ,prodcode
-    ,prodcatgcode
-    ,taxcode
-    ,tickersymbol
-    ,cusip
-    ,schwabsecnbr
-    ,itemissueid
-    ,isin
-    ,sedol
-    ,optionsdisplaysymbol
-    ,underlyingtickersymbol
-    ,underlyingcusip
-    ,underlyingschwabnbr
-    ,underlyingitmissid
-    ,underlyingisin
-    ,underlyingsedol
-    ,currentquantity
-    ,ls
-    ,currentmarketvalue
-    ,accruedinterest
-    ,costbasisunamortized
-    ,costpershare
-    ,adjcostbasisamortized
-    ,adjcostpershare
-    ,urgl
-    ,cb
-    ,ct
-    ,at
-    ,cf
-    ,originalface
-    ,dflottselct
-    ,cm
-    ,princpaydownfactor
-    ,case when effective_date::date = (select max(effective_date::date) from {{ source('schwab_mwa', 'positions_cost_basis') }}) then 1 else 0 end as is_current
-    ,effective_date::date           as effective_date
-    ,record_datetime::timestamp                 as record_datetime
-    ,record_datetime::timestamp                 as _source_loaded_at
-    ,record_date::date              as record_date
+    recordtype                 as record_type
+  , 'schwab'                   as custodian
+  , 'mwa'                      as firm_source
+  , custodian                  as custodian
+  , right(mstracctnumber,8)    as master_account_number
+  , masteraccountname          as master_account_name
+  , businessdate               as business_date
+  , accountid                  as account_number
+  , securitytype               as security_type
+  , prodcode                   as prod_code
+  , prodcatgcode               as prod_category_code
+  , taxcode                    as tax_code
+  , tickersymbol               as ticker_symbol
+  , cusip                      as cusip
+  , schwabsecnbr               as schwab_sec_nbr
+  , itemissueid                as item_issue_id
+  , isin                       as isin
+  , sedol                      as sedol
+  , optionsdisplaysymbol       as option_display_symbol
+  , underlyingtickersymbol     as underlying_ticker_symbol
+  , underlyingcusip            as underlying_cusip
+  , underlyingschwabnbr        as underlying_schwab_nbr
+  , underlyingitmissid         as underlying_itmissid
+  , underlyingisin             as underlying_isin
+  , underlyingsedol            as underlying_sedol
+  , currentquantity            as current_quantity
+  , ls                         as ls
+  , currentmarketvalue         as current_market_value
+  , accruedinterest            as accrued_interest
+  , costbasisunamortized       as cost_basis_unamortized
+  , costpershare               as costpershare
+  , adjcostbasisamortized      as adj_cost_basis_amortized
+  , adjcostpershare            as adj_cost_per_share
+  , urgl                       as unrealized_gain_loss
+  , cb                         as cost_basis
+  , ct                         as ct
+  , at                         as at
+  , cf                         as cf
+  , originalface               as original_face
+  , dflottselct                as df_lott_select
+  , cm                         as cm
+  , princpaydownfactor         as princ_pay_down_factor
+  , effective_date::date       as effective_date
+  , {{ col_is_head(reference=source('schwab_mwa', 'positions_cost_basis')) }}
+  , {{ col_is_current(date_col='effective_date') }}
+  , record_datetime::timestamp as record_datetime
+  , record_date::date          as record_date
+  , record_datetime::timestamp as _source_loaded_at
 from {{ source('schwab_mwa', 'positions_cost_basis') }}

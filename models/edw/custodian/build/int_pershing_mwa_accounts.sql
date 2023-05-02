@@ -615,13 +615,13 @@ select
   , disposition_method_for_mutual_funds
   , disposition_method_for_all_other_security_types
   , disposition_method_for_stocks_in_dividend_reinvestment
-  , is_head
+  , {{ col_is_head(reference='cte_accounts_all') }}
+  , {{ col_is_current(date_col='effective_date') }}
   , current_timestamp()::timestamp as _created_at
   , _source_loaded_at::timestamp as _source_loaded_at
   , _source_file
+  , row_number() over(partition by effective_date, account_number order by order_preference, delta_ordinal) as rn
 from cte_accounts_all
 where true
 qualify row_number() over(partition by effective_date, account_number order by order_preference, delta_ordinal) = 1
 order by effective_date
-
-

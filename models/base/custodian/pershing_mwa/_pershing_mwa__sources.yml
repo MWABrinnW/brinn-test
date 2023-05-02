@@ -1,0 +1,148 @@
+version: 2
+
+sources:
+  - name: pershing_mwa
+    description: ""
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    schema: pershing_mwa
+    tables:
+      - name: accf
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/jag4nkm523vulr5qa38ug1ywlv41iler)"
+        columns:
+          - name: content
+          - name: effective_date
+          - name: _source_file
+          - name: _created_at
+      - name: acct
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/jag4nkm523vulr5qa38ug1ywlv41iler)"
+        columns:
+          - name: content
+          - name: effective_date
+          - name: _source_file
+          - name: _created_at
+      - name: actv
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/54zwxg9aujoo6r2lq3mhgmzmshbsbvn6)"
+        columns:
+          - name: content
+          - name: effective_date
+          - name: _source_file
+          - name: _created_at
+      - name: asps
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/xcp3ryn91rm5kjw9rx8782pc8nvhhkrg)"
+        columns:
+          - name: content
+          - name: effective_date
+          - name: _source_file
+          - name: _created_at
+      - name: caps
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/43lz4wwxgcwwk17wzaaxoa2v2skh0hzn)"
+        columns:
+          - name: content
+          - name: effective_date
+          - name: _source_file
+          - name: _created_at
+      - name: capt
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/43lz4wwxgcwwk17wzaaxoa2v2skh0hzn)"
+        columns:
+          - name: content
+          - name: effective_date
+          - name: _source_file
+          - name: _created_at
+      - name: fund
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/kqgxw2dogta8mayyyjsqmsvneejyvl3c)"
+        columns:
+          - name: content
+          - name: effective_date
+          - name: _source_file
+          - name: _created_at
+      - name: gact
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/9z38heshwydpqa1wkgi2f2e2cau818oo)"
+        columns:
+          - name: content
+          - name: effective_date
+          - name: _source_file
+          - name: _created_at
+      - name: gcus
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/2ftrdfoe5ziyyknbjjclt3ttx83o4e09)"
+        columns:
+          - name: content
+          - name: effective_date
+          - name: _source_file
+          - name: _created_at
+      - name: gsde
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/yiz2q6karpazpjndskbt150rqvccz9tf)"
+        columns:
+          - name: content
+          - name: effective_date
+          - name: _source_file
+          - name: _created_at
+      - name: gtde
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/yiz2q6karpazpjndskbt150rqvccz9tf)"
+        columns:
+          - name: content
+          - name: effective_date
+          - name: _source_file
+          - name: _created_at
+      - name: gtol
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/p9k4ynlaf89phl8x3cwtda56yh1o4vcq)"
+        columns:
+          - name: content
+          - name: effective_date
+          - name: _source_file
+          - name: _created_at
+      - name: hhld
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/wt9pn3zr4i02kl7l9bqx0d7ppa9sizbw)"
+        columns:
+          - name: content
+          - name: effective_date
+          - name: _source_file
+          - name: _created_at
+      - name: hldr
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/y8hc7rqqszm69dg6dy1t3jp6n4bn409i)"
+        columns:
+          - name: content
+          - name: effective_date
+          - name: _source_file
+          - name: _created_at
+      - name: isca
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/8a1ycubkd362ufkza16c75fk282wygy4)"
+        columns:
+          - name: content
+          - name: effective_date
+          - name: _source_file
+          - name: _created_at
+      - name: isrc
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/o3sl8u7wicu1sy8ld0dkm5k5i1m27z0f)"
+        columns:
+          - name: content
+          - name: effective_date
+          - name: _source_file
+          - name: _created_at
+      - name: mfds
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/if7ce5fdpkjk8opzbw884abq8bf2vpwq)"
+        columns:
+          - name: content
+          - name: effective_date
+          - name: _source_file
+          - name: _created_at
+      - name: mftd
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/cusqbyryty8jn8b71ek8r04ynbs05ts8)"
+        columns:
+          - name: content
+          - name: effective_date
+          - name: _source_file
+          - name: _created_at
+      - name: potl
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/5r60472ofyozdqlku165s50r7m0c5p6o)"
+        columns:
+          - name: content
+          - name: effective_date
+          - name: _source_file
+          - name: _created_at
+      - name: ptld
+        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/r8p2juog0sotm22auaz8qtucftjipflq)"
+        columns:
+          - name: content
+          - name: effective_date
+          - name: _source_file
+          - name: _created_at

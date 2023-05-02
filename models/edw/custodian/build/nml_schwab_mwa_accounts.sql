@@ -3,8 +3,8 @@ select
   , 'schwab'::varchar(50)                                          as custodian
   , cf.firm                                                        as firm
   , a.firm_source::varchar(50)                                     as firm_source
-  , a.account_id::varchar(50)                                      as account_number
-  , a.account_id::varchar(50)                                      as account_number_formatted
+  , a.account_number::varchar(50)                                  as account_number
+  , a.account_number::varchar(50)                                  as account_number_formatted
 
   , a.master_account_number::varchar(50)                           as custodian_link
   , 'master'::varchar(50)                                          as custodian_link_detail

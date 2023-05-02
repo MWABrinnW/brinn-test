@@ -27,17 +27,17 @@
 select
     case
         when (select count(*) from {{ this }}) = 0
-            then 1
+            then 1 -- no records in table
         when (select top 1 1
               from {{ src }}
               where record_datetime > (select max(_created_at) from {{ this }})
               ) = 1
-            then 1
-        else 0
+            then 1 -- new records in source compared to destination
+        else 0 -- no need to insert anything new
         end
 {%- endset -%}
 
-{# Execute the query to determine if new data is ready. 1=yes 0=no#}
+{# Execute the query to determine if new data is ready. 1=yes 0=no #}
 {%- if execute and table_exists -%}
   {{ dbt_utils.log_info(this.identifier ~ ' | compiling')}}
   {%- set result = dbt_utils.get_single_value(qry_check_for_new_data) -%}
@@ -47,17 +47,19 @@ select
 {%- endif -%}
 
 {%- if result == 0 and flags.FULL_REFRESH == false and table_exists -%}
+{# Run a simple query with no results because nothing needs inserted #}
   select *
   from {{ this }}
   limit 0
 {%- else -%}
-
+{# Insert new data #}
 with cte_effective_dates_out_of_date as
 (
   select distinct effective_date
   from {{ src }}
   {% if table_exists -%}
   where record_datetime > (select nvl(max(_created_at), dateadd(d, -1, record_datetime)) from {{ this }})
+  or effective_date not in (select distinct effective_date from {{ this }})
   {% else -%}
   where true
   {% endif -%}
@@ -159,8 +161,8 @@ with cte_effective_dates_out_of_date as
 
 select
     a.effective_date
-  , 'fidelity'                                                 as custodian
-  , 'swag'                                                     as firm_source
+  , custodian                                                  as custodian
+  , firm_source                                                as firm_source
   , a.account_custodial                                        as account_number
   , a.account_custodial_formatted                              as account_number_formatted
 
@@ -216,8 +218,9 @@ select
   , la.country_name                                            as legal_address_country
   , {{ col_is_head(reference=ref('fidelity_swag_history__vw_nabase_101_account'), source_date_col='a.effective_date') }}
   , {{ col_is_current(date_col='a.effective_date') }}
-  , a._source_loaded_at::timestamp                             as _source_loaded_at
   , current_timestamp()::timestamp                             as _created_at
+  , a._source_loaded_at::timestamp                             as _source_loaded_at
+  , a._source_file                                             as _source_file
 from {{ ref('fidelity_swag_history__vw_nabase_101_account') }} a
 left join cte_mailing_address ma
    on a.effective_date = ma.effective_date

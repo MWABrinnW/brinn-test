@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: portfoliocenter_roseland
+    description: ""
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    schema: portfoliocenter_roseland_history
+    tables:
+      - name: financial_accounts
+        description: ""
+      - name: holdings_monthly
+        description: ""

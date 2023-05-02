@@ -1,5 +1,7 @@
 select
-    trim(substring(content, 1, 7))                                 as quarter
+    'schwab'                                                       as custodian
+  , 'mwa'                                                          as firm_source
+  , trim(substring(content, 1, 7))                                 as quarter
   , trim(substring(content, 9, 10))::date                          as report_run_date
   , trim(substring(content, 20, 10))::date                         as account_balance_as_of_date
   , substring(content, 31, 8)                                      as network_master

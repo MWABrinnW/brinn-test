@@ -1,14 +1,16 @@
 {%- macro isca_e(src) -%}
 
 select
-trim(nullif(substring(content, 1, 1), '0'))::varchar(1) as record_indicator
+ 'pershing'                                                                             as custodian
+, {{ "'" ~ src.schema.split('_')[1] ~ "'" }}                                            as firm_source
+, trim(nullif(substring(content, 1, 1), '0'))::varchar(1) as record_indicator
 , nullif(nullif(trim(substring(content, 2, 6)), '000000'), '')::int as record_id_sequence_number
 , trim(nullif(substring(content, 8, 9), '000000000'))::varchar(9) as cusip_number
 -- , trim(nullif(substring(content, 17, 4), '0000'))::varchar(4) as not_used
-, signed_to_numeric(nullif(nullif(trim(substring(content, 21, 18)), '000000000000000000'), '')) / power(10, 09)::number as expanded_first_call_price_for_fixed_income_or_strike
-, signed_to_numeric(nullif(nullif(trim(substring(content, 39, 18)), '000000000000000000'), '')) / power(10, 09)::number as expanded_first_par_call_price_for_fixed_income_or_exercise
-, signed_to_numeric(nullif(nullif(trim(substring(content, 57, 18)), '000000000000000000'), '')) / power(10, 09)::number as expanded_put_price
-, signed_to_numeric(nullif(nullif(trim(substring(content, 75, 18)), '000000000000000000'), '')) / power(10, 09)::number as expanded_second_premium_call_price
+, {{target.schema}}.signed_to_numeric(nullif(nullif(trim(substring(content, 21, 18)), '000000000000000000'), '')) / power(10, 09)::number as expanded_first_call_price_for_fixed_income_or_strike
+, {{target.schema}}.signed_to_numeric(nullif(nullif(trim(substring(content, 39, 18)), '000000000000000000'), '')) / power(10, 09)::number as expanded_first_par_call_price_for_fixed_income_or_exercise
+, {{target.schema}}.signed_to_numeric(nullif(nullif(trim(substring(content, 57, 18)), '000000000000000000'), '')) / power(10, 09)::number as expanded_put_price
+, {{target.schema}}.signed_to_numeric(nullif(nullif(trim(substring(content, 75, 18)), '000000000000000000'), '')) / power(10, 09)::number as expanded_second_premium_call_price
 , trim(nullif(substring(content, 93, 32), '00000000000000000000000000000000'))::varchar(32) as name_of_the_issuer_of_the_security
 , trim(nullif(substring(content, 125, 3), '000'))::varchar(3) as issuing_currency
 , trim(nullif(substring(content, 128, 1), '0'))::varchar(1) as globally_locked_security_indicator

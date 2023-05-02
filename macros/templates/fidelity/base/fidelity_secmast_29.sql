@@ -2,6 +2,8 @@
 select
     RECORD_TYPE                                                  as RECORD_TYPE
   , RECORD_NUMBER                                                as RECORD_NUMBER
+  , 'fidelity'                                                                             as custodian
+  , {{ "'" ~ src.identifier.split('_')[1].lower() ~ "'" }}                                 as firm_source
   , SECURITY_TYPE                                                as SECURITY_TYPE
   , LIMITED_PARTNERSHIP_INDICATOR                                as LIMITED_PARTNERSHIP_INDICATOR
   , MASTER_LIMITED_PARTNERSHIP_INDICATOR                         as MASTER_LIMITED_PARTNERSHIP_INDICATOR

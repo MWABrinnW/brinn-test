@@ -2,6 +2,8 @@
 select
     ACCOUNT_CUSTODIAL
   , ACCOUNT_CUSTODIAL_FORMATTED
+  , 'fidelity'                                                                             as custodian
+  , {{ "'" ~ src.identifier.split('_')[1].lower() ~ "'" }}                                 as firm_source
   , RECORD_NUMBER                                                                                                 as RECORD_NUMBER
   , POSITION_DELTA_INDICATOR                                                                                      as POSITION_DELTA_INDICATOR
   , FIRM                                                                                                          as FIRM

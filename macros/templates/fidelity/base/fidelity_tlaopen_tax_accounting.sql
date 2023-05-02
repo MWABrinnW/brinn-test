@@ -3,6 +3,8 @@ select
     ACCOUNT_CUSTODIAL
     ,ACCOUNT_CUSTODIAL_FORMATTED
     ,RECORD_NUMBER
+    , 'fidelity'                                                                             as custodian
+    , {{ "'" ~ src.identifier.split('_')[1].lower() ~ "'" }}                                 as firm_source
     ,TAS_DELTA_INDICATOR
     ,BRANCH
     ,ACCOUNT_NUMBER

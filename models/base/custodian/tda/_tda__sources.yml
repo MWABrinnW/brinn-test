@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: tda
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    schema: tda
+    loaded_at_field: _created_at
+    tables:
+      - name: cbl
+        description: Cost basis
+      - name: pos
+        description: Positions
+      - name: pri
+        description: Security prices
+      - name: sec
+        description: Securities
+      - name: trd
+        description: Account demographics delta file
+      - name: trf
+        description: Account demographics full file. This is not delivered on a schedule and is by request only.
+      - name: trn
+        description: Transactions
+      - name: accounts_balances
+        description: File from TDA VEO (website) that shows all accounts and associated rep code.

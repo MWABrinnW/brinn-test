@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: tamarac_emerson
+    description: ""
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    schema: tamarac_emerson_history
+    tables:
+      - name: accounts
+        description: ""
+      - name: assets
+        description: ""
+      - name: clients
+        description: ""
+      - name: households
+        description: ""

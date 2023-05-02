@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: tamarac_nashville
+    description: ""
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    schema: tamarac_nashville_history
+    tables:
+      - name: assets
+        description: ""
+      - name: financial_accounts
+        description: ""

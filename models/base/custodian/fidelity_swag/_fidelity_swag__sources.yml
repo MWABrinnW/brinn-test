@@ -1,0 +1,74 @@
+version: 2
+
+sources:
+  - name: fidelity_swag
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    schema: fidelity_swag_history
+    loaded_at_field: record_datetime
+    tables:
+      - name: acctbald
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
+      - name: actvyd
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
+      - name: nabase
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
+      - name: positd
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
+      - name: secmast
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
+      - name: tlaopen_tax_accounting
+        description: ""
+      - name: tlaopendelta
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
+      - name: tlaopenfull
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file
+      - name: trdrev_td
+        description: ""
+        columns:
+          - name: content
+          - name: effective_date
+          - name: record_date
+          - name: record_datetime
+          - name: source_file

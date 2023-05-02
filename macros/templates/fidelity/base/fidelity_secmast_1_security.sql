@@ -2,6 +2,8 @@
 select
     RECORD_TYPE                                                                                                      as RECORD_TYPE
   , RECORD_NUMBER                                                                                                    as RECORD_NUMBER
+  , 'fidelity'                                                                             as custodian
+  , {{ "'" ~ src.identifier.split('_')[1].lower() ~ "'" }}                                 as firm_source
   , RECORD_STATUS_CODE                                                                                               as RECORD_STATUS_CODE
   , CUSIP                                                                                                            as CUSIP
   , SYMBOL                                                                                                           as SYMBOL

@@ -1,8 +1,15 @@
 
 select
-    clientid::int                       as client_id
-  , repid                               as rep_id
+    'lpl'                               as custodian
   , subscriberid::varchar(5)            as subscriber_id
+  , case
+        when subscriberid::varchar(5) in ('R5TC','42LN','7PCM','86JN','86YM','G44R','G9CN','H01M','LH7H','V0TK')
+            THEN 'swag'
+        else
+            'network'
+        end::varchar(50)                as firm_source
+  , clientid::int                       as client_id
+  , repid                               as rep_id
   , ssntin                              as ssn_tin
   , isssn                               as is_ssn
   , to_date(birthdate, 'MM/DD/YYYY')    as birth_date

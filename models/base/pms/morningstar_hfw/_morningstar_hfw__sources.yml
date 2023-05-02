@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: morningstar_hfw
+    description: ""
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    schema: morningstar_hfw
+    tables:
+      - name: aum
+        description: ""
+      - name: gain_loss
+        description: ""
+      - name: accounts
+        description: ""
+      - name: clients
+        description: ""
+  - name: tpg_hfw
+    description: ""
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    schema: tpg_hfw
+    tables:
+      - name: holdings
+        description: ""

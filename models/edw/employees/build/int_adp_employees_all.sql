@@ -1,17 +1,20 @@
 select
-     e.* rename home_organizational_units_cost_num  as cost_num
-    ,lm.location_code                               as location_code
-    ,lm.accounting_id                               as accounting_id
-    ,lm.accounting_id_description                   as accounting_id_description
-    ,lm.location_name                               as location_name
-    ,lm.legal_name                                  as location_legal_name
-    ,lm.location_city                               as location_city
-    ,lm.location_state                              as location_state
-    ,lm.region_name                                 as location_region_name
-    ,lm.market_name                                 as location_market_name
-    ,lm.division                                    as location_division
-    ,lm.acquisition_name                            as location_acquisition_name
-    ,lm.acquisition_type                            as location_acquisition_type
+     e.*
+     exclude associate_work_phone
+     rename home_organizational_units_cost_num                                          as cost_num
+    ,coalesce(replace(zoom.number, '+1', ''), e.associate_work_phone)                   as associate_work_phone
+    ,coalesce(lm_old.location_code, lm_new.location_code)                               as location_code
+    ,coalesce(lm_old.accounting_id, lm_new.accounting_id)                               as accounting_id
+    ,coalesce(lm_old.accounting_id_description, lm_new.accounting_id_description)       as accounting_id_description
+    ,coalesce(lm_old.location_name, lm_new.location_name)                               as location_name
+    ,coalesce(lm_old.legal_name, lm_new.legal_name)                                     as location_legal_name
+    ,coalesce(lm_old.location_city, lm_new.location_city)                               as location_city
+    ,coalesce(lm_old.location_state, lm_new.location_state)                             as location_state
+    ,coalesce(lm_old.region_name, lm_new.region_name)                                   as location_region_name
+    ,coalesce(lm_old.market_name, lm_new.market_name)                                   as location_market_name
+    ,coalesce(lm_old.division, lm_new.division)                                         as location_division
+    ,coalesce(lm_old.acquisition_name, lm_new.acquisition_name)                         as location_acquisition_name
+    ,coalesce(lm_old.acquisition_type, lm_new.acquisition_type)                         as location_acquisition_type
 
     , case
           when e.occupational_classifications_class ilike '%advisor%'
@@ -149,11 +152,14 @@ from {{ ref('int_adp_employees_initial_supplemented') }} e
 left join {{ ref('locations_cost_center_history') }} lh
     on e.position_cost_num_location_code = lh.old_code
     and e.effective_at::date between nvl(lh.start_date, coalesce(e.associate_final_termination_date, e.effective_at::date)) and nvl(lh.end_date, coalesce(e.associate_final_termination_date, e.effective_at::date))
-left join {{ ref('locations') }} lm
-    on coalesce(lh.current_code, e.position_cost_num_location_code) = case
-                                                                        when lh.current_code is not null then lm.location_code
-                                                                        else lm.accounting_id
-                                                                        end
-    and lm.active = 1
+left join {{ ref('locations') }} lm_old
+    on coalesce(lh.current_code, e.position_cost_num_location_code) = lm_old.location_code
+    and lm_old.active = 1
+left join {{ ref('locations') }} lm_new
+    on coalesce(lh.current_code, e.position_cost_num_location_code) = lm_new.accounting_id
+    and lm_new.active = 1
+left join {{ ref('zoom_mwa__base_user_phone_assignments') }} zoom
+    on lower(e.associate_work_email) = lower(zoom.email)
+    and zoom.rn = 1
 where true
   and nvl(e.is_deleted,0) = 0

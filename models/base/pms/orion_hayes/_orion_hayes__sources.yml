@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: orion_hayes
+    description: ""
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    schema: orion_hayes_report_history
+    tables:
+      - name: as_of_value_by_account_3679_history
+        description: ""
+      - name: as_of_value_by_asset_1809_history
+        description: ""
+      - name: audit_all_accounts_4213_history
+        description: ""
+      - name: audit_all_accounts_19206_history
+        description: ""
