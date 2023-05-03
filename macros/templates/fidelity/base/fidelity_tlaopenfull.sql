@@ -4,7 +4,7 @@ select
   , ACCOUNT_CUSTODIAL_FORMATTED
   , RECORD_NUMBER                                                                                       as RECORD_NUMBER
   , 'fidelity'                                                                             as custodian
-  , {{ "'" ~ src.identifier.split('_')[1].lower() ~ "'" }}                                 as firm_source
+  , {{ "'" ~ src ~ "'" }}                                 as firm_source
   , TAS_DELTA_INDICATOR                                                                                 as TAS_DELTA_INDICATOR
   , BRANCH                                                                                              as BRANCH
   , ACCOUNT_NUMBER                                                                                      as ACCOUNT_NUMBER
@@ -136,5 +136,5 @@ select
   , effective_date
   , _source_loaded_at, _source_loaded_at::date as record_date, _source_loaded_at::timestamp as record_datetime
   , _source_file
-from {{ src }}
+from {{ ref('fidelity_' ~ src ~ '_history__vw_raw_tlaopenfull') }}
 {%- endmacro -%}

@@ -3,7 +3,7 @@ select
     ACCOUNT_CUSTODIAL
   , ACCOUNT_CUSTODIAL_FORMATTED
   , 'fidelity'                                                                             as custodian
-  , {{ "'" ~ src.identifier.split('_')[1].lower() ~ "'" }}                                 as firm_source
+  , {{ "'" ~ src ~ "'" }}                                 as firm_source
   , RECORD_TYPE                                                           as RECORD_TYPE
   , RECORD_NUMBER                                                         as RECORD_NUMBER
   , FIRM                                                                  as FIRM
@@ -37,5 +37,5 @@ select
   , effective_date
   , _source_loaded_at, _source_loaded_at::date as record_date, _source_loaded_at::timestamp as record_datetime
   , _source_file
-from {{ src }}
+from {{ ref('fidelity_' ~ src ~ '_history__vw_raw_nabase_113_business') }}
 {%- endmacro -%}

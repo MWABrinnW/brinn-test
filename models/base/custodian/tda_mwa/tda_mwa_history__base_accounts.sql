@@ -1,3 +1,3 @@
 select *
-from {{ ref('tda__accounts') }}
+from {{ ref('tda__int_accounts') }}
 where rep_code_firm = 'mwa'

@@ -11,7 +11,7 @@ select
   , transactionid                                           as transaction_id
   , subscriberid                                            as subscriber_id
   , accountid::int                                          as account_id
-  , lplaccountno::text(50)                                  as lpl_account_no
+  , lplaccountno::text(50)                                  as account_number
   , primaryrepid                                            as primary_rep_id
   , primaryrepname                                          as primary_rep_name
   , payeerepid                                              as payee_rep_id

@@ -9,7 +9,7 @@ select
             'network'
         end::varchar(50)                                    as firm_source
   , accountid::int                                          as account_id
-  , lplaccountno::int                                       as lpl_account_no
+  , lplaccountno::int                                       as account_number
   , repid::text(100)                                        as rep_id
   , firstname::text(100)                                    as first_name
   , middlename::text(100)                                   as middle_name

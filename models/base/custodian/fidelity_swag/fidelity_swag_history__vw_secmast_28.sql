@@ -1,1 +1,1 @@
-{{ fidelity_secmast_28(ref('fidelity_swag_history__vw_raw_secmast_28')) }}
+{{ fidelity_secmast_28('swag') }}

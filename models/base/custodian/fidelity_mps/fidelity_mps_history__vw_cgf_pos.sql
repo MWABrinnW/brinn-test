@@ -1,1 +1,1 @@
-{{ fidelity_cgf_pos(source('fidelity_mps', 'cgf_pos')) }}
+{{ fidelity_cgf_pos('mps') }}

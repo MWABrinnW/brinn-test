@@ -56,3 +56,4 @@ select
      , {{ col_is_current(date_col='effective_date') }}
      , _created_at::timestamp                                        as _source_loaded_at
 from {{ source('schwab_mwa', 'rps_d1') }} r
+where true

@@ -10,7 +10,7 @@ select
         end::varchar(50)                       as firm_source
   , accountid::text(100)                       as account_id
   , clientid::text(100)                        as client_id
-  , lplaccountno::text(100)                    as lpl_account_no
+  , lplaccountno::text(100)                    as account_number
   , sponsorname::varchar(100)                  as sponsor_name
   , sponsoraccountno::text(100)                as sponsor_account_no
   , accountclasscode::varchar(10)              as account_class_code

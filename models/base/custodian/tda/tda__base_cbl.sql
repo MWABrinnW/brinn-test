@@ -1,5 +1,6 @@
 select
-    json:c1::varchar(100)      as custodial_id
+    'tda'                      as custodian
+  , json:c1::varchar(100)      as custodial_id
   , json:c2::date              as business_date
   , json:c3::varchar(100)      as account_number
   , json:c4::varchar(100)      as account_type
@@ -28,7 +29,7 @@ select
   , _rep_code::varchar(10)     as _rep_code
   , _file_type::varchar(100)   as _file_type
   , _source_file::varchar(100) as _source_file 
-  , _created_at::timestamp     as _created_at
+  , _created_at::timestamp     as _source_loaded_at
   , {{ col_is_head(reference=source('tda', 'cbl')) }}
   , {{ col_is_current(date_col='effective_date') }}
 from {{ source('tda', 'cbl') }} a

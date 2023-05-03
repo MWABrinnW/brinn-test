@@ -47,11 +47,12 @@ select
   , a.legal_address_country::varchar(200)             as legal_address_country
   , a.is_head::int                                    as is_head
   , a.is_current::int                                 as is_current
-  , a._source_loaded_at::timestamp                    as _source_loaded_at
   , a._created_at::timestamp                          as _created_at
-from {{ ref('int_fidelity_mwa_accounts') }} a
+  , a._source_loaded_at::timestamp                    as _source_loaded_at
+  , a._source_file                                    as _source_file
+from {{ ref('int_fidelity_mps_accounts') }} a
 left join {{ ref('custodian_firms') }} cf
-  on a.firm_source = cf.firm_source
+    on a.firm_source = cf.firm_source
 left join {{ ref('custodian_mappings') }}            r
     on r.custodian = 'fidelity'
     and r.field = 'restriction'

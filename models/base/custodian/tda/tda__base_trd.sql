@@ -1,5 +1,6 @@
 select
-    json:c1::varchar(100)       as company_name
+    'tda'                      as custodian
+  , json:c1::varchar(100)       as company_name
   , json:c2::varchar(100)       as last_name
   , json:c3::varchar(100)       as first_name
   , json:c4::varchar(100)       as street
@@ -40,7 +41,7 @@ select
   , _rep_code::varchar(10)      as _rep_code
   , _file_type::varchar(100)    as _file_type
   , _source_file::varchar(100)  as _source_file 
-  , _created_at::timestamp      as _created_at
+  , _created_at::timestamp      as _source_loaded_at
   , {{ col_is_head(reference=source('tda', 'trd')) }}
   , {{ col_is_current(date_col='effective_date') }}
 from {{ source('tda', 'trd') }} a

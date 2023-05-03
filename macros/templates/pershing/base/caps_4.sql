@@ -1,7 +1,9 @@
 {%- macro caps_4(src) -%}
 
 select
-trim(nullif(substring(content, 1, 3), '000'))::varchar(3) as introducing_broker_dealer_ibd_number
+ 'pershing'                                                                             as custodian
+, {{ "'" ~ src.schema.split('_')[1] ~ "'" }}                                            as firm_source
+, trim(nullif(substring(content, 1, 3), '000'))::varchar(3) as introducing_broker_dealer_ibd_number
 , trim(nullif(substring(content, 4, 1), '0'))::varchar(1) as record_id
 , trim(nullif(substring(content, 5, 3), '000'))::varchar(3) as currency_code
 , signed_to_numeric(nullif(nullif(trim(substring(content, 8, 18)), '000000000000000000'), '')) / power(10, 03)::number as currency_amount_of_revenue

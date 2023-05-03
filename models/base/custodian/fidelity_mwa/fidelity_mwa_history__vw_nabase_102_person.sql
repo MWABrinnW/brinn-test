@@ -1,1 +1,1 @@
-{{ fidelity_nabase_102_person(ref('fidelity_mwa_history__vw_raw_nabase_102_person')) }}
+{{ fidelity_nabase_102_person('mwa') }}

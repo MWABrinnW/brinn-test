@@ -1,6 +1,7 @@
 {{ config(materialized = 'view') }}
 select
-    company_name::varchar(100)                        as company_name
+    'tda'                                             as custodian
+  , company_name::varchar(100)                        as company_name
   , last_name::varchar(100)                           as last_name
   , first_name::varchar(100)                          as first_name
   , street::varchar(100)                              as street
@@ -41,14 +42,15 @@ select
   , _rep_code                                         as _rep_code
   , _file_type                                        as _file_type
   , _source_file                                      as _source_file
-  , _created_at                                       as _source_loaded_at
+  , _source_loaded_at                                 as _source_loaded_at
 from {{ ref('tda__base_trf') }}
 where true
 
 union all
 
 select
-    company_name::varchar(100)                        as company_name
+    'tda'                                             as custodian
+  , company_name::varchar(100)                        as company_name
   , last_name::varchar(100)                           as last_name
   , first_name::varchar(100)                          as first_name
   , street::varchar(100)                              as street
@@ -89,7 +91,7 @@ select
   , _rep_code                                         as _rep_code
   , _file_type                                        as _file_type
   , _source_file                                      as _source_file
-  , _created_at                                       as _source_loaded_at
+  , _source_loaded_at                                 as _source_loaded_at
 from {{ ref('tda__base_trd') }}
 where true
 

@@ -8,14 +8,17 @@
 {# Set the upstream normalized models here and dbt will use them dynamically below #}
 {%-
     set source_models = [
-         'nml_schwab_mwa_accounts',
-         'nml_schwab_mps_accounts',
-         'nml_fidelity_mwa_accounts',
-         'nml_fidelity_mps_accounts',
-         'nml_fidelity_swag_accounts',
-         'nml_lpl_network_accounts',
-         'nml_pershing_mwa_accounts',
-         'nml_pershing_mps_accounts'
+          'nml_fidelity_mps_cash'
+         ,'nml_fidelity_mwa_cash'
+         ,'nml_fidelity_swag_cash'
+         ,'nml_schwab_mps_cash'
+         ,'nml_schwab_mwa_cash'
+         ,'nml_schwab_swag_cash'
+         ,'nml_pershing_mwa_cash'
+         ,'nml_pershing_mps_cash'
+         ,'nml_tda_mwa_cash'
+         ,'nml_tda_mps_cash'
+         ,'nml_tda_swag_cash'
     ]
 -%}
 
@@ -41,24 +44,29 @@ with cte_max_created_at as
     {%- set parts = nml_model.split('_') -%}
     {%- set custodian = parts[1] -%}
     {%- set firm_source = parts[2] -%}
-    select distinct effective_date
+    select distinct effective_date, {{"'" ~ nml_model ~ "'"}} as model_source
     from {{ ref(nml_model) }}
-    where _created_at > nvl((select max(_created_at) from cte_max_created_at), dateadd(d, -1, _created_at))
-        {%- if table_exists and is_incremental() -%}
-        or effective_date > (select max(effective_date) from {{ this }} where custodian = '{{custodian}}' and firm_source = '{{firm_source}}' )
+    -- Capture effective dates where source timestamp is newer than destination max timestamp.
+    -- This should account for a historical date that was reloaded because the _created_at would
+    -- evaluate as newer than the max timestamp in destination.
+    where _source_loaded_at > nvl((select max(_created_at) from cte_max_created_at), dateadd(d, -1, _source_loaded_at))
+        {%- if table_exists and is_incremental() %}
+        -- Capture effective dates where source custodian-firm does not exist in destination
+        or effective_date not in (select distinct effective_date from {{ this }} where custodian = '{{custodian}}' and firm_source = '{{firm_source}}')
         {%- endif -%}
 
     {%- if not loop.last %}
-    
+
     union
 
     {% endif -%}
     {%- endfor %}
 )
-,cte_accounts as
+,cte_cash as
 (
     {% for nml_model in source_models -%}
-    select * exclude _created_at
+    select *
+        , row_number() over(partition by effective_date, custodian, account_number order by firm_source) as rn
     from {{ ref(nml_model) }}
     where true
         {{ incremental_date_filter(
@@ -71,7 +79,7 @@ with cte_max_created_at as
         ) }}
 
     {%- if not loop.last %}
-    
+
     union all
 
     {% endif -%}
@@ -79,4 +87,5 @@ with cte_max_created_at as
 )
 
 select *, current_timestamp()::timestamp as _created_at
-from cte_accounts
+from cte_cash
+where rn = 1

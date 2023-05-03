@@ -4,7 +4,7 @@ select
     ,ACCOUNT_CUSTODIAL_FORMATTED
     ,RECORD_NUMBER
     , 'fidelity'                                                                             as custodian
-    , {{ "'" ~ src.identifier.split('_')[1].lower() ~ "'" }}                                 as firm_source
+    , {{ "'" ~ src ~ "'" }}                                 as firm_source
     ,TAS_DELTA_INDICATOR
     ,BRANCH
     ,ACCOUNT_NUMBER
@@ -58,11 +58,11 @@ select
     ,LOT_RECEIVED_DATE
     ,YTD_NON_QUALIFIED_STATED_INTEREST_AMOUNT
     ,DTNUM
-  , {{ col_is_head(reference=src) }}
+  , {{ col_is_head(reference=source('fidelity_' ~ src, 'tlaopen_tax_accounting')) }}
   , {{ col_is_current(date_col='effective_date') }}
   , effective_date
   , effective_date_original
   , record_datetime                                                                         as _source_loaded_at
   , source_file                                                                             as _source_file
-from {{ src }}
+from {{ source('fidelity_' ~ src, 'tlaopen_tax_accounting') }}
 {%- endmacro -%}

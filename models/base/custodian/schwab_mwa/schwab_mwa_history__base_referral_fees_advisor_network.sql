@@ -5,7 +5,7 @@ select
   , trim(substring(content, 10, 8))        as trader_fee_account
   , trim(substring(content, 19, 10))::date as transaction_date
   , substring(content, 30, 8)              as fa_master
-  , substring(content, 39, 8)              as client_acount
+  , substring(content, 39, 8)              as account_number
   , trim(substring(content, 48, 30))       as client_name
   , trim(substring(content, 79, 15))       as transaction_type
   , case when trim(substring(content, 112, 15)) = '' then null else trim(substring(content, 112, 15)) end::decimal(15,2)      as management_fee_amount

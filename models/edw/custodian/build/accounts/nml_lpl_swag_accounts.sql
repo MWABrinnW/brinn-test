@@ -1,14 +1,14 @@
 select
     a.effective_date::date                          as effective_date
-  , 'lpl'::varchar(50)                              as custodian
+  , a.custodian::varchar(50)                        as custodian
   , cf.firm                                         as firm
   , a.firm_source                                   as firm_source
-  , a.lpl_account_no::varchar(50)                   as account_number
-  , a.lpl_account_no::varchar(50)                   as account_number_formatted
+  , a.account_number::varchar(50)                   as account_number
+  , a.account_number::varchar(50)                   as account_number_formatted
   , a.subscriber_id::varchar(50)                    as custodian_link
-  , 'subscriber id'::varchar(50)                    as custodian_link_detail
+  , 'subscriber_id'::varchar(50)                    as custodian_link_detail
   , a.rep_id::varchar(50)                           as rep_link
-  , 'rep id'::varchar(50)                           as rep_link_detail
+  , 'rep_id'::varchar(50)                           as rep_link_detail
   , a.institution_type::varchar(75)                 as account_type_source_code
   , ar.definition::varchar(200)                     as account_type_source_definition
   , ar.normalized::varchar(200)                     as account_type
@@ -54,8 +54,9 @@ select
   , null::varchar(200)                              as legal_address_country
   , a.is_head::int                                  as is_head
   , a.is_current::int                               as is_current
-  , a._source_loaded_at::timestamp                  as _source_loaded_at
   , a._source_loaded_at::timestamp                  as _created_at
+  , a._source_loaded_at::timestamp                  as _source_loaded_at
+  , a._source_file                                  as _source_file
 from {{ ref('lpl_network__base_accounts') }}     a
     -- left join lpl_network__base_account_participants ap
 --           on a.account_id = ap.account_id
@@ -65,9 +66,12 @@ left join {{ ref('custodian_firms') }} cf
     on a.firm_source = cf.firm_source
 left join {{ ref('lpl_network__base_clients') }} c
     on a.client_id = c.client_id
+    and a.subscriber_id = c.subscriber_id
     and a.effective_date = c.effective_date
 left join {{ ref('custodian_mappings') }} ar
-    on ar.custodian = 'lpl'
-    and ar.field = 'account_registration'
+    on a.custodian = ar.custodian
     and a.institution_type = ar.source
+    and ar.field = 'account_registration'
 where true
+    and a.firm_source = 'swag'
+qualify row_number() over(partition by a.effective_date, a.custodian, a.firm_source, a.account_number order by iff(a.open_date is not null, 0, 1) asc) = 1

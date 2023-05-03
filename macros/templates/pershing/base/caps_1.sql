@@ -1,7 +1,9 @@
 {%- macro caps_1(src) -%}
 
 select
-trim(nullif(substring(content, 1, 3), '000'))::varchar(3) as introducing_broker_dealer_ibd_number
+ 'pershing'                                                                             as custodian
+, {{ "'" ~ src.schema.split('_')[1] ~ "'" }}                                            as firm_source
+, trim(nullif(substring(content, 1, 3), '000'))::varchar(3) as introducing_broker_dealer_ibd_number
 , trim(nullif(substring(content, 4, 1), '0'))::varchar(1) as record_id
 , try_to_date(nullif(substring(content, 5, 8), '00000000'), 'YYYYMMDD')::date as trade_date
 , trim(nullif(substring(content, 13, 6), '000000'))::varchar(6) as trade_reference_number
