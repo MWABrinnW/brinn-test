@@ -37,7 +37,7 @@ models:
       - name: _created_at
 
 
-  - name: tda__accounts
+  - name: tda__base_accounts
     description: >
       This table represents the tda account feed in its entirety.
       With other custodial feeds we know when an account is delinked because it no longer feeds in the files we are sent.
