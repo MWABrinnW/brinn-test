@@ -200,6 +200,9 @@ models:
 
       zoom:
         +tags: ['zoom']
+        +grants:
+          select: "{{ ['db_it_r'] if target.name in ['prod','test'] else []}}"
+
         
 
 # [INTERMEDIATE]
