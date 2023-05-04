@@ -17,7 +17,7 @@ select
     ,advisor_nonadvisor
     ,class
     ,position_region_name
-    ,position_location_name
+    ,position_location_name                 as position_market_name
     ,position_department_name
     ,work_site_location_name
     ,reporting_office

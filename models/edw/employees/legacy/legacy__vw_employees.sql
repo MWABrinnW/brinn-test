@@ -26,7 +26,7 @@ select
   , emp.position_manager_name                as manager_name
   , emp.position_manager_position_id         as manager_position_id
   , emp.position_region_name                 as position_region_name
-  , emp.position_location_name               as position_location_name
+  , emp.position_location_name               as position_market_name
   , emp.position_department_name             as position_department_name
   , emp.position_work_site_location_name     as work_site_location_name
   , emp.position_work_site_address_city      as work_site_address_city
