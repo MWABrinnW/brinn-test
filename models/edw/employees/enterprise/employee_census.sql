@@ -39,7 +39,7 @@ select
   , em.advisor_nonadvisor                                                                                as advisor_nonadvisor
   , em.occupational_classifications_class                                                                as class
   , em.position_region_name                                                                              as position_region_name
-  , em.position_market_name                                                                              as position_market_name
+  , em.position_location_name                                                                            as position_location_name
   , em.position_department_name                                                                          as position_department_name
   , em.position_work_site_location_name                                                                  as work_site_location_name
   , em.reporting_office                                                                                  as reporting_office
@@ -149,7 +149,7 @@ select
   , le.report_month_end                    as month_end_date
   , date_trunc(month, le.report_month_end) as first_day_of_month
   , last_day(le.report_month_end)          as last_day_of_month
-  , null::timestamp                        as effective_at
+  , le.report_month_end::timestamp         as effective_at
   , 1                                      as is_month_end
   , 0                                      as is_head
 from {{ ref('edw_legacy__base_employee_reporting_history') }} le

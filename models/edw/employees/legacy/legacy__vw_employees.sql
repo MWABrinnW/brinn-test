@@ -19,14 +19,14 @@ select
   , emp.employment_status                    as employment_status
   , emp.position_title                       as title
   , emp.job_function_code                    as job_function_code
-  , emp.position_eeo_class                   as position_class
+  , emp.position_class                       as position_class
   , emp.advisor_nonadvisor                   as advisor_nonadvisor
   , emp.position_worker_type                 as worker_type
   , emp.position_company_code                as company_code
   , emp.position_manager_name                as manager_name
   , emp.position_manager_position_id         as manager_position_id
   , emp.position_region_name                 as position_region_name
-  , emp.position_market_name                 as position_market_name
+  , emp.position_location_name               as position_market_name
   , emp.position_department_name             as position_department_name
   , emp.position_work_site_location_name     as work_site_location_name
   , emp.position_work_site_address_city      as work_site_address_city

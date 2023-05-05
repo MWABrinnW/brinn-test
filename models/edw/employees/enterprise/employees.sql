@@ -21,13 +21,13 @@ select
   , emp.position_work_site_address_line1
   , emp.position_work_site_address_line2
   , emp.position_work_site_address_line3
-  , emp.position_eeo_class
+  , emp.occupational_classifications_class as position_class
   , emp.position_worker_type
   , emp.position_company_code
   , emp.position_manager_name
   , emp.position_manager_position_id
   , emp.position_region_name
-  , emp.position_market_name
+  , emp.position_location_name
   , emp.position_department_name
   , emp.position_work_site_location_name
   , emp.position_work_site_address_city
@@ -43,9 +43,11 @@ select
   , emp.data_last_refreshed_date
   , emp.accounting_id
   , emp.source
+  , emp.position_start_date
   , emp.title_change_reason
 from {{ ref('int_adp_employees_all') }} emp
 where true
   and right(lower(emp.position_id),1) <> 'n'
+  and emp.position_primary_job_indicator = 1
   and emp.is_head = 1
   and nvl(emp.is_deleted,0) = 0

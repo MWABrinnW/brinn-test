@@ -51,7 +51,7 @@ select
   , e.position_region_name                      as position_region_name
   , e.position_region_description               as position_region_description
   , e.position_cost_num_market_code             as position_market_code
-  , e.position_market_name                      as position_market_name
+  , e.position_location_name                    as position_market_name
   , e.home_organizational_units_department_code as position_department_code
   , e.position_department_name                  as position_department_name
   , e.position_manager_position_id              as position_manager_id
