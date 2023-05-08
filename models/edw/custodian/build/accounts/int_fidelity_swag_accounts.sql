@@ -158,6 +158,105 @@ with cte_effective_dates_out_of_date as
           custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
     ) }}
 )
+,cte_account as
+(
+  select
+      a.effective_date
+    , a.custodian
+    , a.firm_source
+    , a.account_custodial
+    , a.account_custodial_formatted
+    , a.registration_type
+    , a.establish_date
+    , a.irs_no
+    , a.irs_code
+    , a.birth_date
+    , a.cost_basis_disposal_method_code
+    , a.fee_authorization_code
+    , a.prime_broker_indicator
+    , a.restriction_code_partial
+    , a._source_loaded_at
+    , a._source_file
+    , case
+        when b.account_custodial is not null
+          then b.fixed_format_business_trust_name_1
+        else 
+          nullif(
+            replace(
+              regexp_replace(
+                case
+                    -- when all match (use 1)
+                    when concat(p.fixed_format_first_name_1, p.fixed_format_middle_name_1, p.fixed_format_last_name_1) =
+                          concat(p.fixed_format_first_name_2, p.fixed_format_middle_name_2, p.fixed_format_last_name_2)
+                        and concat(p.fixed_format_first_name_1, p.fixed_format_middle_name_1, p.fixed_format_last_name_1) =
+                            concat(p.fixed_format_first_name_3, p.fixed_format_middle_name_3, p.fixed_format_last_name_3)
+                        then concat_ws(' '
+                        , nvl(fixed_format_first_name_1, '')
+                        , nvl(fixed_format_middle_name_1, '')
+                        , nvl(fixed_format_last_name_1, '')
+                        )
+                    -- when 1 matches 2 (use 1 & 3)
+                    when concat(p.fixed_format_first_name_1, p.fixed_format_middle_name_1, p.fixed_format_last_name_1) =
+                          concat(p.fixed_format_first_name_2, p.fixed_format_middle_name_2, p.fixed_format_last_name_2)
+                        then concat_ws(' '
+                        , nvl(p.fixed_format_first_name_1, '')
+                        , nvl(p.fixed_format_middle_name_1, '')
+                        , nvl(p.fixed_format_last_name_1, '')
+                        , iff(p.fixed_format_last_name_3 is not null, '&', '')
+                        , nvl(p.fixed_format_first_name_3, '')
+                        , nvl(p.fixed_format_middle_name_3, '')
+                        , nvl(p.fixed_format_last_name_3, '')
+                        )
+                    -- when 1 matches 3 or when 2 matches 3  (use 1 & 2)
+                    when concat(p.fixed_format_first_name_1, p.fixed_format_middle_name_1, p.fixed_format_last_name_1) =
+                          concat(p.fixed_format_first_name_3, p.fixed_format_middle_name_3, p.fixed_format_last_name_3)
+                        or concat(p.fixed_format_first_name_2, p.fixed_format_middle_name_2, p.fixed_format_last_name_2) =
+                            concat(p.fixed_format_first_name_3, p.fixed_format_middle_name_3, p.fixed_format_last_name_3)
+                        then concat_ws(' '
+                        , nvl(p.fixed_format_first_name_1, '')
+                        , nvl(p.fixed_format_middle_name_1, '')
+                        , nvl(p.fixed_format_last_name_1, '')
+                        , iff(p.fixed_format_last_name_2 is not null, '&', '')
+                        , nvl(p.fixed_format_first_name_2, '')
+                        , nvl(p.fixed_format_middle_name_2, '')
+                        , nvl(p.fixed_format_last_name_2, '')
+                        )
+                    else concat_ws(' '
+                        , nvl(p.fixed_format_first_name_1, '')
+                        , nvl(p.fixed_format_middle_name_1, '')
+                        , nvl(p.fixed_format_last_name_1, '')
+                        , case
+                              when p.fixed_format_last_name_3 is not null then ','
+                              when p.fixed_format_last_name_2 is not null then '&'
+                              else '' end
+                        , nvl(p.fixed_format_first_name_2, '')
+                        , nvl(p.fixed_format_middle_name_2, '')
+                        , nvl(p.fixed_format_last_name_2, '')
+                        , iff(p.fixed_format_last_name_3 is not null, '&', '')
+                        , nvl(p.fixed_format_first_name_3, '')
+                        , nvl(p.fixed_format_middle_name_3, '')
+                        , nvl(p.fixed_format_last_name_3, '')
+                        )
+                    end,
+              '(\\s{2,})', ' '), ' ,', ','), '')::varchar(200)       
+          end                                                     as account_title
+    from {{ ref('fidelity_swag_history__vw_nabase_101_account') }} a
+    left join {{ ref('fidelity_swag_history__vw_nabase_102_business') }} b
+      on a.effective_date = b.effective_date
+      and a.account_custodial = b.account_custodial
+    left join {{ ref('fidelity_swag_history__vw_nabase_102_person') }} p
+      on a.effective_date = p.effective_date
+      and a.account_custodial = p.account_custodial
+    where true
+    {{ incremental_date_filter(
+          source_col_name = 'a.effective_date',
+          target_col_name = 'a.effective_date',
+          do_lookback = false,
+          do_new = false,
+          custom_condition_only = true,
+          custom_condition = 'a.effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
+    ) }}
+)
 
 select
     a.effective_date
@@ -171,7 +270,7 @@ select
   , a.registration_type                                        as account_type_source_code --account_classification or registration_type
   , a.establish_date                                           as opened_date
 
-  , null                                                       as account_title
+  , a.account_title                                            as account_title
   , c.fixed_name_format_first                                  as first_name
   , c.fixed_name_format_middle                                 as middle_name
   , c.fixed_name_format_last                                   as last_name
@@ -221,7 +320,7 @@ select
   , current_timestamp()::timestamp                             as _created_at
   , a._source_loaded_at::timestamp                             as _source_loaded_at
   , a._source_file                                             as _source_file
-from {{ ref('fidelity_swag_history__vw_nabase_101_account') }} a
+from cte_account a
 left join cte_mailing_address ma
    on a.effective_date = ma.effective_date
    and a.account_custodial = ma.account_custodial
