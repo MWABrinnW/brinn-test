@@ -277,6 +277,12 @@ models:
         ref:
           +schema: ref
 
+      reporting:
+        +tags: ['reporting']
+        +schema: enterprise
+        +grants:
+          select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod','test'] else []}}"
+
       reports:
         +tags: ['report', 'reports']
         +schema: reports
