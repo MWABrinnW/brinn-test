@@ -16,3 +16,11 @@ sources:
         description: "Replicated from dw1/edw.dbo.account_holdings_daily"
       - name: account_holdings_monthly
         description: "Replicated from dw1/edw.dbo.account_holdings_monthly"
+
+  - name: reporting_int
+    description: Reporting team internal schema
+    database: reporting
+    schema: int
+    tags: ['reporting']
+    tables:
+      - name: vw_testing_locations_all_info
