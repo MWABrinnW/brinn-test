@@ -6,7 +6,7 @@ select
 , trim(nullif(substring(content, 1, 2), '00'))::varchar(2) as transaction_code
 , trim(nullif(substring(content, 3, 1), '0'))::varchar(1) as record_indicator_value
 , nullif(nullif(trim(substring(content, 4, 8)), '00000000'), '')::int as record_id_sequence_number
-, trim(nullif(substring(content, 12, 9), '000000000'))::varchar(9) as pershing_account_number
+, trim(nullif(substring(content, 12, 9), '000000000'))::varchar(9) as account_number
 , trim(nullif(substring(content, 21, 1), '0'))::varchar(1) as portfolio_account_type
 , trim(nullif(substring(content, 22, 9), '000000000'))::varchar(9) as cusip_number
 , trim(nullif(substring(content, 31, 4), '0000'))::varchar(4) as reserved_for_future_use

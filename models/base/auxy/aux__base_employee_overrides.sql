@@ -108,4 +108,5 @@ select
   , position_market_name::varchar(100)                        as position_market_name
   , reporting_office::varchar(100)                            as reporting_office
   , title_change_reason::varchar(100)                         as title_change_reason
+  , _created_at::timestamp                                    as _created_at
 from {{ source('aux', 'employee_overrides') }}

@@ -1,5 +1,6 @@
 select
-    json:c1::varchar(100)      as advisor_rep_code
+    'tda'                      as custodian
+  , json:c1::varchar(100)      as advisor_rep_code
   , json:c2::date              as file_date
   , json:c3::varchar(100)      as account_number
   , json:c4::varchar(100)      as transaction_code
@@ -23,7 +24,7 @@ select
   , _rep_code::varchar(10)     as _rep_code
   , _file_type::varchar(100)   as _file_type
   , _source_file::varchar(100) as _source_file 
-  , _created_at::timestamp     as _created_at
+  , _created_at::timestamp     as _source_loaded_at
   , {{ col_is_head(reference=source('tda', 'trn')) }}
   , {{ col_is_current(date_col='effective_date') }}
 from {{ source('tda', 'trn') }} a

@@ -1,5 +1,3 @@
-{%- set ref_workers = ref('adp_history__workers') -%}
-
 select
     w.associate_oid
   , w.employee_id
@@ -114,7 +112,7 @@ select
   , case when w._created_at::date = last_day(w._created_at::date) then 1 else 0 end as is_month_end
   , w.is_head
   , w._created_at
-from {{ref_workers}}           w
+from {{ ref('adp_history__workers') }}           w
 left join {{ ref('adp_status_change_reasons') }} sc
     on w.status_change_code = sc.code
 where true

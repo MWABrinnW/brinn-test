@@ -1,7 +1,9 @@
 {%- macro caps_5(src) -%}
 
 select
-trim(nullif(substring(content, 1, 3), '000'))::varchar(3) as introducing_broker_dealer_ibd_number
+ 'pershing'                                                                             as custodian
+, {{ "'" ~ src.schema.split('_')[1] ~ "'" }}                                            as firm_source
+, trim(nullif(substring(content, 1, 3), '000'))::varchar(3) as introducing_broker_dealer_ibd_number
 , trim(nullif(substring(content, 4, 1), '0'))::varchar(1) as record_id
 , trim(nullif(substring(content, 5, 6), '000000'))::varchar(6) as option_root_id
 , try_to_date(nullif(substring(content, 11, 6), '000000'), 'YYMMDD')::date as expiration_date

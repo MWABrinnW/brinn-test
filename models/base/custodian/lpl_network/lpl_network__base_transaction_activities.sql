@@ -11,7 +11,7 @@ select
   , accountid::int                                          as account_id
   , accountlocationcode                                     as account_location_code
   , to_date(transactiondate, 'MM/DD/YYYY')                  as transaction_date
-  , lplaccountno::text(50)                                  as lpl_account_no
+  , lplaccountno::text(50)                                  as account_number
   , sponsoraccountno::text(50)                              as sponsor_account_no
   , sponsorcode                                             as sponsor_code
   , accountname                                             as account_name

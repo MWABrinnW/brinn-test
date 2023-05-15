@@ -7,7 +7,7 @@ seeds:
       show: true
     config:
       enabled: true
-      tags: custodian
+      tags: ['custodial', 'custodian']
       schema: tda
       grants:
         select: "{{ ['db_custodial_r'] if target.name in ['prod','test'] else []}}"

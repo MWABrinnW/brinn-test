@@ -1,4 +1,8 @@
-{{ config(materialized='table', schema='ref', grants = {'select': ['db_edw_general_mwa_r']}) }}
+{{ config(
+  materialized='table',
+  schema='ref',
+  grants = {'select': ['db_edw_general_mwa_r']}
+) }}
 
 with cte_dates as
 (

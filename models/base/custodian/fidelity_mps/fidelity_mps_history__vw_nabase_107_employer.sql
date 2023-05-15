@@ -1,1 +1,1 @@
-{{ fidelity_nabase_107_employer(ref('fidelity_mps_history__vw_raw_nabase_107_employer')) }}
+{{ fidelity_nabase_107_employer('mps') }}

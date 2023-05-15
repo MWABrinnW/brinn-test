@@ -11,7 +11,7 @@ select
   , case
         when trim(substring(content, 70, 10)) = '' then null
         else trim(substring(content, 70, 10)) end::date            as termination_date
-  , substring(content, 81, 8)                                      as client_account
+  , substring(content, 81, 8)                                      as account_number
   , trim(substring(content, 90, 30))                               as client_name
   , trim(substring(content, 134, 10))                              as billed_not_billed
   , case

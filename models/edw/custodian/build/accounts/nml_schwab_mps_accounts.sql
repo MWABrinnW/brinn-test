@@ -7,7 +7,7 @@ select
   , a.account_number::varchar(50)                                  as account_number_formatted
 
   , a.master_account_number::varchar(50)                           as custodian_link
-  , 'master'::varchar(50)                                          as custodian_link_detail
+  , 'master_number'::varchar(50)                                   as custodian_link_detail
   , null::varchar(50)                                              as rep_link
   , null::varchar(50)                                              as rep_link_detail
     -- ,lower(customer_type)                   as registration_type -- (inv,trust,org)
@@ -71,8 +71,9 @@ select
   , null::varchar(50)                                              as legal_address_country
   , a.is_head::int                                                 as is_head
   , a.is_current::int                                              as is_current
-  , a._source_loaded_at::timestamp                                 as _source_loaded_at
   , a._source_loaded_at::timestamp                                 as _created_at
+  , a._source_loaded_at::timestamp                                 as _source_loaded_at
+  , null::varchar(200)                                             as _source_file
 from {{ ref('schwab_mps_history__base_accounts') }} a
 left join {{ ref('custodian_firms') }} cf
     on a.firm_source = cf.firm_source
@@ -80,3 +81,5 @@ left join {{ ref('custodian_mappings') }}           ar
     on ar.custodian = 'schwab'
     and ar.field = 'account_registration'
     and a.account_registration = ar.source
+where true
+    and a.firm_source = 'mps'

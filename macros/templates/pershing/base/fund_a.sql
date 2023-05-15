@@ -1,7 +1,9 @@
 {%- macro fund_a(src) -%}
 
 select
-trim(nullif(substring(content, 1, 1), '0'))::varchar(1) as record_indicator_value
+ 'pershing'                                                                             as custodian
+, {{ "'" ~ src.schema.split('_')[1] ~ "'" }}                                            as firm_source
+, trim(nullif(substring(content, 1, 1), '0'))::varchar(1) as record_indicator_value
 , nullif(nullif(trim(substring(content, 2, 6)), '000000'), '')::int as id_sequence_number
 , trim(nullif(substring(content, 8, 9), '000000000'))::varchar(9) as account_number
 , trim(nullif(substring(content, 17, 3), '000'))::varchar(3) as investment_professional_ip_number

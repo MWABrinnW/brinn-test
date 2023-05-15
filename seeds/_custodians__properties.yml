@@ -1,0 +1,19 @@
+version: 2
+
+seeds:
+  - name: custodians
+    description: List of custodians by firm source.
+    docs:
+      show: true
+    config:
+      enabled: true
+      tags: ['custodial', 'custodian']
+      database: |
+        {%- if  target.name == "dev" -%} edw_test
+        {%- elif target.name == "prod"  -%} edw
+        {%- elif target.name == "test"  -%} edw_test
+        {%- else -%} edw_test
+        {%- endif -%}
+      schema: ref
+      grants:
+        select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod','test'] else []}}"

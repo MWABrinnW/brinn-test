@@ -9,7 +9,7 @@ select
   , null::varchar(50)                                              as custodian_link
   , null::varchar(50)                                              as custodian_link_detail
   , a.investment_professional_ip_number::varchar(50)               as rep_link
-  , 'ip number'::varchar(50)                                       as rep_link_detail
+  , 'ip_number'::varchar(50)                                       as rep_link_detail
   , a.registration_type::varchar(50)                               as account_type_source_code
   , ar.definition::varchar(50)                                     as account_type_source_definition
   , ar.normalized::varchar(50)                                     as account_type -- (ira rollover, etc)
@@ -60,8 +60,9 @@ select
   , legal_address_country::varchar(50)                             as legal_address_country
   , a.is_head::int                                                 as is_head
   , {{ col_is_current(date_col='a.effective_date') }}
-  , a._source_loaded_at::timestamp                                 as _source_loaded_at
   , a._source_loaded_at::timestamp                                 as _created_at
+  , a._source_loaded_at::timestamp                                 as _source_loaded_at
+  , a._source_file                                                 as _source_file
 from {{ ref('int_pershing_mwa_accounts') }} a
 left join {{ ref('custodian_firms') }} cf
     on a.firm_source = cf.firm_source

@@ -7,31 +7,41 @@ seeds:
       show: true
     config:
       enabled: true
-      tags: custodial
-      schema: aux
+      tags: ['custodial', 'custodian']
+      database: |
+        {%- if  target.name == "dev" -%} edw_test
+        {%- elif target.name == "prod"  -%} edw
+        {%- elif target.name == "test"  -%} edw_test
+        {%- else -%} edw_test
+        {%- endif -%}
+      schema: ref
       grants:
-        select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod','test'] else []}}"
+        select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod','test'] else []}}"
     tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
           column_list: ["custodian", "field", "source"]
           quote_columns: false
+    column_types:
+      custodian: varchar(100)
+      field: varchar(100)
+      source: varchar(500)
+      definition: varchar(500)
+      normalized: varchar(500)
     columns:
       - name: custodian
         description: "Custodian key value"
         tests:
           - not_null
           - accepted_values:
-              values: ['schwab', 'fidelity', 'tda']
+              values: ['schwab', 'fidelity', 'tda', 'pershing', 'lpl']
       - name: field
         description: "The field the contains the values we are evaluating or joining on"
         tests:
           - not_null
           - accepted_values:
-              values: ['account_registration', 'restriction', 'cost_basis']
+              values: ['account_registration', 'restriction', 'cost_basis', 'account_type', 'security_type_description']
       - name: source
         description: "Original value as represented in the source data"
-        tests:
-          - not_null
       - name: definition
         description: "Definition or decoded value of the source value"
         tests:

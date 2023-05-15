@@ -9,7 +9,7 @@ select
         end::varchar(50)                                    as firm_source
   , repid                                                   as rep_id
   , accountid                                               as account_id
-  , lplaccountno                                            as lpl_account_no
+  , lplaccountno                                            as account_number
   , securityid                                              as security_id
   , price                                                   as price
   , quantity                                                as quantity

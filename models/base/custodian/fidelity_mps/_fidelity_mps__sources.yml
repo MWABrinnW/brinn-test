@@ -73,7 +73,7 @@ sources:
           - name: record_datetime
           - name: source_file
       - name: cgf_acct
-        description: ""
+        description: "Fidelity Charitable Gift Fund (CGF) - Owner information"
         columns:
           - name: content
           - name: effective_date
@@ -81,7 +81,7 @@ sources:
           - name: record_datetime
           - name: source_file
       - name: cgf_trns
-        description: ""
+        description: "Fidelity Charitable Gift Fund (CGF) - Transactions for each account"
         columns:
           - name: content
           - name: effective_date
@@ -89,7 +89,7 @@ sources:
           - name: record_datetime
           - name: source_file
       - name: cgf_prc
-        description: ""
+        description: "Fidelity Charitable Gift Fund (CGF) - Price information"
         columns:
           - name: content
           - name: effective_date
@@ -97,7 +97,7 @@ sources:
           - name: record_datetime
           - name: source_file
       - name: cgf_pos
-        description: ""
+        description: "Fidelity Charitable Gift Fund (CGF) - Closing values for each position"
         columns:
           - name: content
           - name: effective_date
@@ -105,7 +105,7 @@ sources:
           - name: record_datetime
           - name: source_file
       - name: cgf_bal
-        description: ""
+        description: "Fidelity Charitable Gift Fund (CGF) - Other balance and money source information"
         columns:
           - name: content
           - name: effective_date
