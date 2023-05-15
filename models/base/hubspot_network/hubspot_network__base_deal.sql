@@ -135,6 +135,8 @@ select
 	, a.json:PROPERTY_HS_USER_IDS_OF_ALL_OWNERS::text(500)                    as property_hs_user_ids_of_all_owners
 	, a.json:PROPERTY_HS_ALL_OWNER_IDS::text(500)                             as property_hs_all_owner_ids
 	, a.json:PROPERTY_HS_ALL_COLLABORATOR_OWNER_IDS::text(500)                as property_hs_all_collaborator_owner_ids
+  , a.json:PROPERTY_MARINER_TA::text(500)                                   as property_mariner_ta
+  , a.json:PROPERTY_MARINER_ORF_RECRUITING_FEE::text(500)                   as property_mariner_orf_recruiting_fee
 
   , a.effective_at::timestamp                                               as effective_at
   , a._created_at::timestamp                                                as _created_at
