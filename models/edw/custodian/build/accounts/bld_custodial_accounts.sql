@@ -52,10 +52,16 @@ with cte_max_created_at as
     -- This should account for a historical date that was reloaded because the _created_at would
     -- evaluate as newer than the max timestamp in destination.
     where _created_at > nvl((select max(_created_at) from cte_max_created_at), dateadd(d, -1, _created_at))
-        {%- if table_exists and is_incremental() %}
-        -- Capture effective dates where source custodian-firm does not exist in destination
-        or effective_date not in (select distinct effective_date from {{ this }} where custodian = '{{custodian}}' and firm_source = '{{firm_source}}')
-        {%- endif -%}
+
+
+    {%- if table_exists and is_incremental() %}
+
+    union
+
+    select distinct effective_date, {{"'" ~ nml_model ~ "'"}} as model_source
+    from {{ ref(nml_model) }}
+    where effective_date not in (select distinct effective_date from {{ this }} where replace(custodian,'-','') = '{{custodian}}' and firm_source = '{{firm_source}}')
+    {%- endif -%}
 
     {%- if not loop.last %}
 
