@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: copilot
+    description: ""
+    database: "{{ var('db_devops_src', env_var('DBT_DB_DEVOPS_SRC', 'devops')) }}"
+    schema: fixflyer_options
+    tables:
+      - name: copilot_orders_allocations
+        description: ""
+      - name: copilot_positions
+        description: ""
+      - name: groups_raw
+        description: "Raw groups data from copilot"
+      - name: models_raw
+        description: "Raw models data from copilot"
+      - name: restrictions_raw
+        description: "Raw security restrictions data from copilot"

@@ -173,6 +173,16 @@ models:
           {%- endif -%}
         +grants:
           select: "{{ ['integration_dm'] if target.name in ['prod','test'] else []}}"
+      
+      options_reporting:
+        +tags: ['options_reporting']
+        +database: |
+          {%- if target.name == "prod"  -%} devops
+          {%- elif target.name == "test"  -%} devops_test
+          {%- else -%} target.database
+          {%- endif -%}
+        +grants:
+          select: "{{ ['engineering', 'integration_dm'] if target.name in ['prod','test'] else []}}"
 
       pms:
         +tags: ['pms']
