@@ -137,6 +137,8 @@ with cte_employees_all           as
           , w.hire_details
           , w.source
           , w.title_change_reason
+          , w.job_id
+          , w.bu_allocation
           , w.associate_legal_name_first
           , w.associate_legal_name_middle
           , w.associate_legal_name_last
@@ -260,6 +262,8 @@ with cte_employees_all           as
           , w.hire_details
           , w.source
           , w.title_change_reason
+          , w.job_id
+          , w.bu_allocation
           , w.associate_legal_name_first
           , w.associate_legal_name_middle
           , w.associate_legal_name_last
@@ -418,6 +422,16 @@ with cte_employees_all           as
                                 e.title_change_reason))::text = 'nullme' then null
             else coalesce(eo_posid.title_change_reason, eo_empid.title_change_reason, eo_assid.title_change_reason,
                           e.title_change_reason) end                                                                   as title_change_reason
+      , case
+            when lower(coalesce(eo_posid.job_id, eo_empid.job_id, eo_assid.job_id,
+                                e.job_id))::text = 'nullme' then null
+            else coalesce(eo_posid.job_id, eo_empid.job_id, eo_assid.job_id,
+                          e.job_id) end                                                                                as job_id
+      , case
+            when lower(coalesce(eo_posid.bu_allocation, eo_empid.bu_allocation, eo_assid.bu_allocation,
+                                e.bu_allocation))::text = 'nullme' then null
+            else coalesce(eo_posid.bu_allocation, eo_empid.bu_allocation, eo_assid.bu_allocation,
+                          e.bu_allocation) end                                                                         as bu_allocation
       , case
             when lower(coalesce(eo_posid.associate_legal_name_first, eo_empid.associate_legal_name_first,
                                 eo_assid.associate_legal_name_first, e.associate_legal_name_first))::text = 'nullme' then null
@@ -1031,6 +1045,8 @@ with cte_employees_all           as
         , eo.hire_details
         , eo.source
         , eo.title_change_reason
+        , eo.job_id
+        , eo.bu_allocation
         , eo.associate_legal_name_first
         , eo.associate_legal_name_middle
         , eo.associate_legal_name_last
@@ -1192,6 +1208,8 @@ with cte_employees_all           as
         , e.hire_details
         , e.source
         , e.title_change_reason
+        , e.job_id
+        , e.bu_allocation
         , e.associate_legal_name_first
         , e.associate_legal_name_middle
         , e.associate_legal_name_last

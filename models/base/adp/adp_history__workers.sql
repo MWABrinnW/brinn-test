@@ -41,6 +41,8 @@ select
   , worker.hire_details
   , worker.source
   , worker.title_change_reason
+  , worker.job_id
+  , worker.bu_allocation
   , case when assignment.payroll_file_number = '' then null else assignment.payroll_file_number end as payroll_file_number
   , assignment.position_company_code
   , assignment.position_id

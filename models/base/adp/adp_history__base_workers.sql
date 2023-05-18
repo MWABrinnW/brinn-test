@@ -40,10 +40,97 @@ select
   , JSON:workerDates.originalHireDate::date                                                                         as original_hire_date
   , JSON:workerDates.rehireDate::date                                                                               as rehire_date
   , JSON:workerDates.terminationDate::date                                                                          as final_termination_date
-  , JSON:customFieldGroup.stringFields[0].stringValue::string                                                       as reporting_office
-  , JSON:customFieldGroup.stringFields[1].stringValue::string                                                       as hire_details
-  , JSON:customFieldGroup.stringFields[2].stringValue::string                                                       as source
-  , JSON:customFieldGroup.stringFields[3].stringValue::string                                                       as title_change_reason
+  , case
+      when JSON:customFieldGroup.stringFields[0].nameCode:codeValue = 'Reporting Office'
+            then JSON:customFieldGroup.stringFields[0].stringValue::string
+      when JSON:customFieldGroup.stringFields[1].nameCode:codeValue = 'Reporting Office'
+            then JSON:customFieldGroup.stringFields[1].stringValue::string
+      when JSON:customFieldGroup.stringFields[2].nameCode:codeValue = 'Reporting Office'
+            then JSON:customFieldGroup.stringFields[2].stringValue::string
+      when JSON:customFieldGroup.stringFields[3].nameCode:codeValue = 'Reporting Office'
+            then JSON:customFieldGroup.stringFields[3].stringValue::string
+      when JSON:customFieldGroup.stringFields[4].nameCode:codeValue = 'Reporting Office'
+            then JSON:customFieldGroup.stringFields[4].stringValue::string
+      when JSON:customFieldGroup.stringFields[5].nameCode:codeValue = 'Reporting Office'
+            then JSON:customFieldGroup.stringFields[5].stringValue::string
+      else null
+      end::varchar(200)                                                                                             as reporting_office
+  , case
+      when JSON:customFieldGroup.stringFields[0].nameCode:codeValue = 'Hire Details'
+            then JSON:customFieldGroup.stringFields[0].stringValue::string
+      when JSON:customFieldGroup.stringFields[1].nameCode:codeValue = 'Hire Details'
+            then JSON:customFieldGroup.stringFields[1].stringValue::string
+      when JSON:customFieldGroup.stringFields[2].nameCode:codeValue = 'Hire Details'
+            then JSON:customFieldGroup.stringFields[2].stringValue::string
+      when JSON:customFieldGroup.stringFields[3].nameCode:codeValue = 'Hire Details'
+            then JSON:customFieldGroup.stringFields[3].stringValue::string
+      when JSON:customFieldGroup.stringFields[4].nameCode:codeValue = 'Hire Details'
+            then JSON:customFieldGroup.stringFields[4].stringValue::string
+      when JSON:customFieldGroup.stringFields[5].nameCode:codeValue = 'Hire Details'
+            then JSON:customFieldGroup.stringFields[5].stringValue::string
+      else null
+      end::varchar(200)                                                                                             as hire_details
+  , case
+      when JSON:customFieldGroup.stringFields[0].nameCode:codeValue = 'Source'
+            then JSON:customFieldGroup.stringFields[0].stringValue::string
+      when JSON:customFieldGroup.stringFields[1].nameCode:codeValue = 'Source'
+            then JSON:customFieldGroup.stringFields[1].stringValue::string
+      when JSON:customFieldGroup.stringFields[2].nameCode:codeValue = 'Source'
+            then JSON:customFieldGroup.stringFields[2].stringValue::string
+      when JSON:customFieldGroup.stringFields[3].nameCode:codeValue = 'Source'
+            then JSON:customFieldGroup.stringFields[3].stringValue::string
+      when JSON:customFieldGroup.stringFields[4].nameCode:codeValue = 'Source'
+            then JSON:customFieldGroup.stringFields[4].stringValue::string
+      when JSON:customFieldGroup.stringFields[5].nameCode:codeValue = 'Source'
+            then JSON:customFieldGroup.stringFields[5].stringValue::string
+      else null
+      end::varchar(200)                                                                                             as source
+  , case
+      when JSON:customFieldGroup.stringFields[0].nameCode:codeValue = 'Title Change Reason'
+            then JSON:customFieldGroup.stringFields[0].stringValue::string
+      when JSON:customFieldGroup.stringFields[1].nameCode:codeValue = 'Title Change Reason'
+            then JSON:customFieldGroup.stringFields[1].stringValue::string
+      when JSON:customFieldGroup.stringFields[2].nameCode:codeValue = 'Title Change Reason'
+            then JSON:customFieldGroup.stringFields[2].stringValue::string
+      when JSON:customFieldGroup.stringFields[3].nameCode:codeValue = 'Title Change Reason'
+            then JSON:customFieldGroup.stringFields[3].stringValue::string
+      when JSON:customFieldGroup.stringFields[4].nameCode:codeValue = 'Title Change Reason'
+            then JSON:customFieldGroup.stringFields[4].stringValue::string
+      when JSON:customFieldGroup.stringFields[5].nameCode:codeValue = 'Title Change Reason'
+            then JSON:customFieldGroup.stringFields[5].stringValue::string
+      else null
+      end::varchar(200)                                                                                             as title_change_reason
+  , case
+      when JSON:customFieldGroup.stringFields[0].nameCode:codeValue = 'Job ID'
+            then JSON:customFieldGroup.stringFields[0].stringValue::string
+      when JSON:customFieldGroup.stringFields[1].nameCode:codeValue = 'Job ID'
+            then JSON:customFieldGroup.stringFields[1].stringValue::string
+      when JSON:customFieldGroup.stringFields[2].nameCode:codeValue = 'Job ID'
+            then JSON:customFieldGroup.stringFields[2].stringValue::string
+      when JSON:customFieldGroup.stringFields[3].nameCode:codeValue = 'Job ID'
+            then JSON:customFieldGroup.stringFields[3].stringValue::string
+      when JSON:customFieldGroup.stringFields[4].nameCode:codeValue = 'Job ID'
+            then JSON:customFieldGroup.stringFields[4].stringValue::string
+      when JSON:customFieldGroup.stringFields[5].nameCode:codeValue = 'Job ID'
+            then JSON:customFieldGroup.stringFields[5].stringValue::string
+      else null
+      end::varchar(200)                                                                                             as job_id
+  , case
+      when JSON:customFieldGroup.stringFields[0].nameCode:codeValue = 'BU Allocation'
+            then JSON:customFieldGroup.stringFields[0].stringValue::string
+      when JSON:customFieldGroup.stringFields[1].nameCode:codeValue = 'BU Allocation'
+            then JSON:customFieldGroup.stringFields[1].stringValue::string
+      when JSON:customFieldGroup.stringFields[2].nameCode:codeValue = 'BU Allocation'
+            then JSON:customFieldGroup.stringFields[2].stringValue::string
+      when JSON:customFieldGroup.stringFields[3].nameCode:codeValue = 'BU Allocation'
+            then JSON:customFieldGroup.stringFields[3].stringValue::string
+      when JSON:customFieldGroup.stringFields[4].nameCode:codeValue = 'BU Allocation'
+            then JSON:customFieldGroup.stringFields[4].stringValue::string
+      when JSON:customFieldGroup.stringFields[5].nameCode:codeValue = 'BU Allocation'
+            then JSON:customFieldGroup.stringFields[5].stringValue::string
+      else null
+      end::varchar(200)                                                                                             as bu_allocation
+
   , case
         when record_datetime::timestamp =
              (select max(record_datetime::timestamp) from {{ source('adp', 'worker_json_history') }}) then 1
@@ -107,8 +194,10 @@ select
         else workassignments_0_terminationdate end                                                               as final_termination_date
   , customfieldgroup_stringfields_0_stringvalue                                                                  as reporting_office
   , customfieldgroup_stringfields_1_stringvalue                                                                  as hire_details
-  , null                                                                                                         as source
-  , null                                                                                                         as title_change_reason
+  , null::varchar(200)                                                                                           as source
+  , null::varchar(200)                                                                                           as title_change_reason
+  , null::varchar(200)                                                                                           as job_id
+  , null::varchar(200)                                                                                           as bu_allocation
   , case
         when record_datetime::timestamp =
              (select max(record_datetime::timestamp) from {{ source('adp', 'worker_json_history') }}) then 1

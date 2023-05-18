@@ -13,6 +13,8 @@ select
     ,hire_details
     ,source
     ,title_change_reason
+    ,job_id
+    ,bu_allocation
     ,associate_legal_name_first
     ,associate_legal_name_middle
     ,associate_legal_name_last
