@@ -45,6 +45,8 @@ select
   , emp.source
   , emp.position_start_date
   , emp.title_change_reason
+  , emp.job_id
+  , emp.bu_allocation
 from {{ ref('int_adp_employees_all') }} emp
 where true
   and right(lower(emp.position_id),1) <> 'n'

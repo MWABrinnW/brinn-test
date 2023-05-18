@@ -69,6 +69,8 @@ select
   , em.position_start_date                                                                               as position_start_date
   , em.source                                                                                            as source
   , em.title_change_reason                                                                               as title_change_reason
+  , em.job_id                                                                                            as job_id
+  , em.bu_allocation                                                                                     as bu_allocation
   , em.month_end_date                                                                                    as month_end_date
   , date_trunc(month, em.effective_at::date)                                                             as first_day_of_month
   , em.month_end_date                                                                                    as last_day_of_month
