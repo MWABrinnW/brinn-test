@@ -148,6 +148,8 @@ select
   , le.position_start_date                 as position_start_date
   , be.source                              as source
   , be.title_change_reason                 as title_change_reason
+  , null::varchar(200)                     as job_id
+  , null::varchar(200)                     as bu_allocation
   , le.report_month_end                    as month_end_date
   , date_trunc(month, le.report_month_end) as first_day_of_month
   , last_day(le.report_month_end)          as last_day_of_month
