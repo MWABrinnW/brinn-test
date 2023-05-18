@@ -325,52 +325,54 @@ with cte_effective_dates as
     )
    , cte_fa as
     (
-        select j.record_id
-             , j.system_name
-             , j.system_details
-             , j.financial_account_number
-             , j.financial_account_number_clean
-             , j.internal_financial_account_number
-             , j.internal_household_number
-             , j.registrant_name
-             , j.financial_account_name
-             , j.household_name
-             , j.location_code
-             , j.location_name
-             , j.type_of_account
-             , j.custodian
-             , j.model_investment_strategy
-             , j.client_manager
-             , j.fee_schedule
-             , j.erisa
-             , j.account_active
-             , j.aum_classification_status
-             , j.discretion_status
-             , j.proxy_voting_status
-             , j.cost_basis_disposal_method
-             , j.prime_broker_enabled
-             , j.current_value
-             , j.account_open_date
-             , j.closed_date
-             , j.as_of_date
-             , case
-                   when j.closed_date is not null then 'Exclude'
-                   when j.account_active = 0 then 'Exclude'
-                   when j.aum_classification_status = 'Data Aggregation / Reporting Only' then 'Exclude'
-                   when source_filename is null then 'Exclude'
-                   else 'Include' end                  as aum_status
-             , j.effective_date
-             , j.month_end_date
-             , j.source_filename
-             , j.record_date
-             , j.record_datetime
-             , j.custodian                             as source_system_custodian
-             , nvl(j.system_name,'') || '|' || 
-                nvl(j.internal_financial_account_number,'') || 
-                '|' || j.effective_date                                        as key_financial_account
+      select j.record_id                                                    as record_id
+            , j.system_name                                                 as system_name
+            , j.system_details                                              as system_details
+            , j.financial_account_number                                    as financial_account_number
+            , j.financial_account_number_clean                              as financial_account_number_clean
+            , j.internal_financial_account_number                           as internal_financial_account_number
+            , j.internal_household_number                                   as internal_household_number
+            , j.registrant_name                                             as registrant_name
+            , coalesce(sf.account_name, j.financial_account_name)           as financial_account_name
+            , coalesce(sf.household_name, j.household_name)                 as household_name
+            , coalesce(sf.household_location_code, j.location_code)         as location_code
+            , coalesce(sf.location, j.location_name)                        as location_name
+            , j.type_of_account                                             as type_of_account
+            , coalesce(sf.custodian, j.custodian)                           as custodian
+            , coalesce(sf.investment_strategy, j.model_investment_strategy) as model_investment_strategy
+            , coalesce(sf.client_manager, j.client_manager)                 as client_manager
+            , coalesce(sf.fee_schedule, j.fee_schedule)                     as fee_schedule
+            , coalesce(sf.is_erisa, j.erisa)                                   as erisa
+            , coalesce(sf.is_active, j.account_active)                      as account_active
+            , coalesce(sf.aum_classification, j.aum_classification_status)  as aum_classification_status
+            , j.discretion_status                                           as discretion_status
+            , j.proxy_voting_status                                         as proxy_voting_status
+            , j.cost_basis_disposal_method                                  as cost_basis_disposal_method
+            , j.prime_broker_enabled                                        as prime_broker_enabled
+            , j.current_value                                               as current_value
+            , coalesce(sf.opened_date, j.account_open_date)                 as account_open_date
+            , coalesce(sf.closed_date, j.closed_date)                       as closed_date
+            , j.as_of_date                                                  as as_of_date
+            , case
+                  when j.closed_date is not null then 'Exclude'
+                  when j.account_active = 0 then 'Exclude'
+                  when j.aum_classification_status = 'Data Aggregation / Reporting Only' then 'Exclude'
+                  when source_filename is null then 'Exclude'
+                  else 'Include' end                                        as aum_status
+            , j.effective_date                                              as effective_date
+            , j.month_end_date                                              as month_end_date
+            , j.source_filename                                             as source_filename
+            , j.record_date                                                 as record_date
+            , j.record_datetime                                             as record_datetime
+            , j.custodian                                                   as source_system_custodian
+            , nvl(j.system_name, '') || '|' ||
+                  nvl(j.internal_financial_account_number, '') ||
+                  '|' || j.effective_date                                       as key_financial_account
         from cte_joined j
+        left join {{ ref("int_salesforce_compass_accounts")}} sf
+            on j.financial_account_number = sf.account_number
+            and j.effective_date = sf.effective_at::date
     )
    
-
 select *
 from cte_fa
