@@ -89,16 +89,14 @@ with cte_effective_dates as
         select customeraccountnumber
              , customername
              , customertypedesc
-             , sum(iff(customeraccountnumber = '019-AKRON-00', fairvalue, null)) over () as akron_val
-             , iff(customeraccountnumber = '019-CLEAR-00', 150e6 - akron_val,
-                   fairvalue)                                                            as fairvalue -- Logic from Alteryx, caps sum of 2 accounts at $150M
+             , fairvalue                               as fairvalue
              , parvalue
              , effective_date
              , record_datetime
              , source_file
-             , 'TPG HFW'                                                                 as system_name
-             , 'DATALAKE.TPG_HFW.VW_ACCOUNTS'                                            as system_details
-             , substring(customeraccountnumber, 1, 3)                                    as internal_household_number
+             , 'TPG HFW'                               as system_name
+             , 'DATALAKE.TPG_HFW.VW_ACCOUNTS'          as system_details
+             , substring(customeraccountnumber, 1, 3)  as internal_household_number
              , row_number() over (PARTITION BY customeraccountnumber, effective_date order by record_datetime desc) as rn
         from {{ ref("tpg_hfw__vw_accounts") }}
         where effective_date in (
