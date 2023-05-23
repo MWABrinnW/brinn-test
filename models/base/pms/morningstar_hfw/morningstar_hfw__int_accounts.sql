@@ -340,7 +340,10 @@ with cte_effective_dates as
             , coalesce(sf.investment_strategy, j.model_investment_strategy) as model_investment_strategy
             , coalesce(sf.client_manager, j.client_manager)                 as client_manager
             , coalesce(sf.fee_schedule, j.fee_schedule)                     as fee_schedule
-            , coalesce(sf.is_erisa, j.erisa)                                   as erisa
+            , coalesce(case
+                    when sf.is_erisa = 1 then 'Yes'
+                    when sf.is_erisa = 0 then 'No'
+                    end, j.erisa)                                    as erisa
             , coalesce(sf.is_active, j.account_active)                      as account_active
             , coalesce(sf.aum_classification, j.aum_classification_status)  as aum_classification_status
             , j.discretion_status                                           as discretion_status
