@@ -11,7 +11,7 @@ select
     , ei.registration_type_c                              as registration_type_id
     , regtype.name                                        as registration_type
     , try_to_boolean(regtype.is_qualified_c)::int         as is_qualified
-    , ei.custodian_c                                      as custodian
+    , cust.name                                           as custodian
     , case
         when ei.closing_date_c is not null
             then 0
@@ -77,6 +77,11 @@ left join {{ ref('salesforce_compass__base_mh_location_c') }} as loc
     on ei.household_c = loc.id
     and ei.effective_at::date = loc.effective_at::date
     and loc.is_latest = 1
+left join {{ ref('salesforce_compass__base_custodian_c') }} as cust
+    on ei.custodian_c = cust.id
+    and ei.effective_at::date = cust.effective_at::date
+    and cust.is_latest = 1
+    and cust.is_deleted = false
 where true
     and ei.is_latest = 1
     
