@@ -8,8 +8,8 @@ select
         else
             'network'
         end::varchar(50)                                    as firm_source
-  , repid                                                   as rep_id
-  , state                                                   as state
+  , repid::varchar(200)                                     as rep_id
+  , state::varchar(200)                                     as state
   , isstateregistered::int                                  as is_state_registered
   , isiarregistered::int                                    as is_iar_registered
   , to_date(approveddate, 'MM/DD/YYYY')                     as approved_date

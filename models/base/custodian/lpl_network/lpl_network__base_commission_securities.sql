@@ -8,19 +8,19 @@ select
         else
             'network'
         end::varchar(50)                                    as firm_source
-  , securityid                                              as security_id
-  , securitysourcecode                                      as security_source_code
-  , ttssecurityid                                           as tts_security_id
-  , cusip                                                   as cusip
-  , securitydescription                                     as security_description
-  , producttypecode                                         as product_type_code
-  , sponsorid                                               as sponsor_id
-  , sponsorname                                             as sponsor_name
-  , symbol                                                  as symbol
-  , shareclasscode                                          as share_class_code
-  , securitysourcename                                      as security_source_name
-  , sponsorcode                                             as sponsor_code
-  , securitytypecode                                        as security_type_code
+  , securityid::varchar(200)                                as security_id
+  , securitysourcecode::varchar(200)                        as security_source_code
+  , ttssecurityid::varchar(200)                             as tts_security_id
+  , cusip::varchar(200)                                     as cusip
+  , securitydescription::varchar(200)                       as security_description
+  , producttypecode::varchar(200)                           as product_type_code
+  , sponsorid::varchar(200)                                 as sponsor_id
+  , sponsorname::varchar(200)                               as sponsor_name
+  , symbol::varchar(200)                                    as symbol
+  , shareclasscode::varchar(200)                            as share_class_code
+  , securitysourcename::varchar(200)                        as security_source_name
+  , sponsorcode::varchar(200)                               as sponsor_code
+  , securitytypecode::varchar(200)                          as security_type_code
   , {{ col_is_head(reference=source('lpl_network', 'commissionsecurity')) }}
   , {{ col_is_current(date_col='effective_date') }}
   , effective_date::date                                    as effective_date

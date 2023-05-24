@@ -48,8 +48,8 @@ select
   , accountnickname::text(100)                 as account_nickname
   , secondaryrepid::text(100)                  as secondary_rep_id
   , referralrepid::text(100)                   as referral_rep_id
-  , accountmarketvalue::text(100)              as account_market_value
-  , networkedaccountmarketvalue::text(100)     as networked_account_market_value
+  , accountmarketvalue::decimal(17,2)          as account_market_value
+  , networkedaccountmarketvalue::decimal(17,2) as networked_account_market_value
   , accountlocationcode::text(100)             as account_location_code
   , accountsocialcode::text(100)               as account_social_code
   , investmentobjectivecode::text(100)         as investment_objective_code

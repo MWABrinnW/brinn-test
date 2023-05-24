@@ -11,10 +11,10 @@ select
   , accountid                                               as account_id
   , lplaccountno                                            as account_number
   , securityid                                              as security_id
-  , price                                                   as price
-  , quantity                                                as quantity
-  , positionvalue                                           as position_value
-  , positionvaluedate                                       as position_value_date
+  , price::decimal(22,6)                                    as price
+  , quantity::decimal(22,6)                                 as quantity
+  , positionvalue::decimal(22,6)                            as position_value
+  , positionvaluedate::date                                 as position_value_date
   , sponsoraccountno                                        as sponsor_account_no
   , sponsorcode                                             as sponsor_code
   , sponsorname                                             as sponsor_name

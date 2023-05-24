@@ -9,27 +9,27 @@ select
             'network'
         end::varchar(50)                                    as firm_source
   , accountid::int                                          as account_id
-  , accountlocationcode                                     as account_location_code
+  , accountlocationcode::varchar(200)                       as account_location_code
   , to_date(transactiondate, 'MM/DD/YYYY')                  as transaction_date
   , lplaccountno::text(50)                                  as account_number
   , sponsoraccountno::text(50)                              as sponsor_account_no
-  , sponsorcode                                             as sponsor_code
-  , accountname                                             as account_name
-  , accounttype                                             as account_type
-  , activitydescription                                     as activity_description
+  , sponsorcode::varchar(200)                               as sponsor_code
+  , accountname::varchar(200)                               as account_name
+  , accounttype::varchar(200)                               as account_type
+  , activitydescription::varchar(200)                       as activity_description
   , quantity::decimal(20, 5)                                as quantity
   , price::decimal(20, 5)                                   as price
   , amount::decimal(20, 2)                                  as amount
-  , creditdebitindicator                                    as credit_debit_indicator
+  , creditdebitindicator::varchar(200)                      as credit_debit_indicator
   , securityid::text(50)                                    as security_id
-  , assetclasscode                                          as asset_class_code
-  , sponsorname                                             as sponsor_name
-  , cusip                                                   as cusip
-  , symbol                                                  as symbol
-  , securitydescription                                     as security_description
+  , assetclasscode::varchar(200)                            as asset_class_code
+  , sponsorname::varchar(200)                               as sponsor_name
+  , cusip::varchar(200)                                     as cusip
+  , symbol::varchar(200)                                    as symbol
+  , securitydescription::varchar(200)                       as security_description
   , orderno::text(50)                                       as order_no
-  , effectivedate                                           as effectivedate
-  , sourceorder                                             as source_order
+  , effectivedate::date                                     as effectivedate
+  , sourceorder::varchar(200)                               as source_order
   , {{ col_is_head(reference=source('lpl_network', 'transactionactivityext')) }}
   , {{ col_is_current(date_col='effective_date') }}
   , effective_date::date                                    as effective_date
