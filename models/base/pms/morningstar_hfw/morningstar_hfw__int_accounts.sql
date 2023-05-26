@@ -377,4 +377,4 @@ with cte_effective_dates as
     )
    
 select *
-from cte_fa
+from cte_joined
