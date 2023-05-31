@@ -89,7 +89,9 @@ with cte_effective_dates as
         select customeraccountnumber
              , customername
              , customertypedesc
-             , fairvalue                               as fairvalue
+             , sum(iff(customeraccountnumber = '019-AKRON-00', fairvalue, null)) over () as akron_val
+             , iff(customeraccountnumber = '019-CLEAR-00', 150e6 - akron_val,
+                   fairvalue)                                                            as fairvalue -- Logic from Alteryx, caps sum of 2 accounts at $150M
              , parvalue
              , effective_date
              , record_datetime
