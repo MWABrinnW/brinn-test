@@ -373,6 +373,7 @@ with cte_effective_dates as
         left join {{ ref("int_salesforce_compass_accounts")}} sf
             on j.financial_account_number = sf.account_number
             and j.effective_date = sf.effective_at::date
+            and sf.is_latest = 1
     )
    
 select *
