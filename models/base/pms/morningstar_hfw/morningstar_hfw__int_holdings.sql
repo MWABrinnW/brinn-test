@@ -3,8 +3,8 @@ with cte_effective_dates as
         select distinct effective_date
         from {{ ref('morningstar_hfw__base_gain_loss')}}
         where true
-            and effective_date >= '2/1/2023'
-            {# and effective_date >= '3/1/2023' #}
+            {# and effective_date >= '2/1/2023' #}
+            and effective_date >= '5/20/2023'  -- narrow effective date for efficient dev testing
     )
    , cte_cusip_validate as
     (
@@ -13,7 +13,7 @@ with cte_effective_dates as
              , SECURITY_TYPE_DESCRIPTION
              , ISSUE_ENTRY_DATE
              , effective_date
-             , row_number() over (partition by ticker order by ISSUE_ENTRY_DATE desc) as rn_ticker
+             , row_number() over (partition by ticker, effective_date order by ISSUE_ENTRY_DATE desc) as rn_ticker
         from {{ ref('cusip_history__base_issues') }} -- Grant suggested using this dataset instead of Security_Master from Alteryx
         where true
           and issue_status = 'A' -- assuming this stands for Active, might need to remove this (ticker = MDT is blocked by this)
@@ -56,7 +56,7 @@ with cte_effective_dates as
                    replace(gl.account_number, '  ', ' '))   as financial_account_number
              , gl.security_name
              , gl.symbol_cusip
-             , coalesce(c.cusip, gl.SYMBOL_CUSIP)        as cusip_mapped
+             , coalesce(c.cusip, gl.SYMBOL_CUSIP)        as cusip_mapped  -- a single symbol can map to various cusip values (ex. JPO -> 46656C103, 465938405)
              , gl.acquisition_date
              , gl.short_term_unrealized_gl
              , gl.long_term_unrealized_gl
@@ -163,6 +163,7 @@ with cte_effective_dates as
                                     from cte_effective_dates
                                 )
             and overlap_account_number is null
+            and rn = 1
     )
    , cte_holdings_base as
     (
