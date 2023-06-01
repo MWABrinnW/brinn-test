@@ -3,8 +3,8 @@ with cte_effective_dates as
         select distinct effective_date
         from {{ ref('morningstar_hfw__base_gain_loss')}}
         where true
-            {# and effective_date >= '2/1/2023' #}
-            and effective_date >= '5/20/2023'  -- narrow effective date for efficient dev testing
+            and effective_date >= '2/1/2023'  -- excluding pre 202302, not all dataset were being collected consistently
+            {# and effective_date >= '5/20/2023'  -- narrow effective date for efficient dev testing #}
     )
    , cte_cusip_validate as
     (
