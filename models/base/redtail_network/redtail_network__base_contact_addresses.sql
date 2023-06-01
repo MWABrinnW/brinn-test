@@ -27,5 +27,5 @@ select
   , c._source_file                                as _source_file
 from {{ ref('redtail_network__base_contacts') }}                      c
    , lateral flatten(input => parse_json(c.addresses), outer => true) add
-where c.is_head = 1
+where true
   and array_size(c.addresses) > 0
