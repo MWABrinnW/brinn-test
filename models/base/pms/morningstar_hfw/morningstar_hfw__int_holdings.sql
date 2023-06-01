@@ -1,3 +1,9 @@
+{# NOTE
+    
+    This DBT model is to slow for production.  This SQL is copied into the Alteryx flow directly and run from there.  
+    
+#}
+
 with cte_effective_dates as
     (
         select distinct effective_date

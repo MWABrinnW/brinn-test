@@ -84,4 +84,3 @@ left join {{ ref('salesforce_compass__base_custodian_c') }} as cust
     and cust.is_deleted = false
 where true
     and ei.is_latest = 1
-    
