@@ -214,6 +214,8 @@ models:
           select: "{{ ['db_it_r'] if target.name in ['prod','test'] else []}}"
         
 
+        
+
 # [INTERMEDIATE]
     intermediate:
       +materialized: view
@@ -244,6 +246,17 @@ models:
           +schema: enterprise
           +grants:
             select: "{{ ['db_custodial_r'] if target.name in ['prod','test'] else []}}"
+
+      pms:
+        +tags: ['pms', 'pms-master']
+        build:
+          +schema: build
+          +grants:
+            select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod','test'] else []}}"
+        enterprise:
+          +schema: enterprise
+          +grants:
+            select: "{{ ['db_pms_r'] if target.name in ['prod','test'] else []}}"
 
       employees:
         +tags: ['employees', 'associates']
