@@ -1,10 +1,16 @@
+{# NOTE
+    
+    This DBT model is to slow for production.  This SQL is copied into the Alteryx flow directly and run from there.  
+    
+#}
+
 with cte_effective_dates as
     (
         select distinct effective_date
         from {{ ref('morningstar_hfw__base_gain_loss')}}
         where true
-            and effective_date >= '2/1/2023'
-            {# and effective_date >= '3/1/2023' #}
+            and effective_date >= '2/1/2023'  -- excluding pre 202302, not all dataset were being collected consistently
+            {# and effective_date >= '5/20/2023'  -- narrow effective date for efficient dev testing #}
     )
    , cte_cusip_validate as
     (
@@ -13,7 +19,7 @@ with cte_effective_dates as
              , SECURITY_TYPE_DESCRIPTION
              , ISSUE_ENTRY_DATE
              , effective_date
-             , row_number() over (partition by ticker order by ISSUE_ENTRY_DATE desc) as rn_ticker
+             , row_number() over (partition by ticker, effective_date order by ISSUE_ENTRY_DATE desc) as rn_ticker
         from {{ ref('cusip_history__base_issues') }} -- Grant suggested using this dataset instead of Security_Master from Alteryx
         where true
           and issue_status = 'A' -- assuming this stands for Active, might need to remove this (ticker = MDT is blocked by this)
@@ -56,7 +62,7 @@ with cte_effective_dates as
                    replace(gl.account_number, '  ', ' '))   as financial_account_number
              , gl.security_name
              , gl.symbol_cusip
-             , coalesce(c.cusip, gl.SYMBOL_CUSIP)        as cusip_mapped
+             , coalesce(c.cusip, gl.SYMBOL_CUSIP)        as cusip_mapped  -- a single symbol can map to various cusip values (ex. JPO -> 46656C103, 465938405)
              , gl.acquisition_date
              , gl.short_term_unrealized_gl
              , gl.long_term_unrealized_gl
@@ -163,6 +169,7 @@ with cte_effective_dates as
                                     from cte_effective_dates
                                 )
             and overlap_account_number is null
+            and rn = 1
     )
    , cte_holdings_base as
     (
@@ -182,35 +189,36 @@ with cte_effective_dates as
    , cte_holdings as
     (
         select
-               fa.system_name                                                  as system_name
-             , coalesce(gl.system_details, h.system_details)                   as system_details 
-             , fa.financial_account_number                                     as financial_account_number
-             , fa.financial_account_number_clean                               as financial_account_number_clean
-             , fa.internal_financial_account_number                            as internal_financial_account_number
-             , fa.internal_household_number                                    as internal_household_number
-             , fa.financial_account_name                                       as financial_account_name
-             , fa.location_code                                                as location_code
-             , fa.location_name                                                as location_name
-             , fa.custodian                                                    as custodian
-             , fa.aum_classification_status                                    as aum_classification_status
-             , fa.discretion_status                                            as discretion_status
-             , fa.proxy_voting_status                                          as proxy_voting_status
-             , coalesce(c.cusip, gl.cusip_mapped, h.cusip)                     as cusip
-             , coalesce(c.ticker, gl.cusip_mapped, c.ticker)                   as ticker
-             , regexp_replace(coalesce(gl.security_name, h.cusipdescription), '[™®]', '') --regex excludes Trademark and Registered symbols
-             , coalesce(c.security_type_description, h.holdingtypedesc)        as security_type
-             , coalesce(gl.market_value, h.sum_fairvalue)                      as market_value
-             , coalesce(gl.quantity, h.sum_parvalue)                           as units_shares
-             , coalesce(gl.price, h.marketpriceaod)                            as price
-             , coalesce(gl.unit_cost * gl.quantity, h.purchaseprice * h.sum_parvalue) as cost_basis
-             , coalesce(gl.effective_date, h.effective_date)                   as as_of_date
-             , fa.aum_status                                                   as aum_status
-             , coalesce(gl.effective_date, h.effective_date)                   as effective_date
-             , fa.month_end_date                                               as month_end_date
-             , null                                                            as source_filename
-             , nvl(fa.system_name,'') || '|' || 
-                nvl(fa.internal_financial_account_number,'') || 
-                '|' || b.effective_date                                        as key_financial_account_holdings
+              fa.system_name                                                         as system_name
+            , coalesce(gl.system_details, h.system_details)                          as system_details
+            , fa.financial_account_number                                            as financial_account_number
+            , fa.financial_account_number_clean                                      as financial_account_number_clean
+            , fa.internal_financial_account_number                                   as internal_financial_account_number
+            , coalesce(sf.household_id, fa.internal_household_number)                as internal_household_number
+            , coalesce(sf.account_name, fa.financial_account_name)                   as financial_account_name
+            , coalesce(sf.household_location_code, fa.location_code)                 as location_code
+            , coalesce(sf.location, fa.location_name)                                as location_name
+            , coalesce(sf.custodian, fa.custodian)                                   as custodian
+            , coalesce(sf.aum_classification, fa.aum_classification_status)          as aum_classification_status
+            , fa.discretion_status                                                   as discretion_status
+            , fa.proxy_voting_status                                                 as proxy_voting_status
+            , coalesce(c.cusip, gl.cusip_mapped, h.cusip)                            as cusip
+            , coalesce(c.ticker, gl.cusip_mapped, c.ticker)                          as ticker
+            , regexp_replace(coalesce(gl.security_name, h.cusipdescription), '[™®]',
+                            '') --regex excludes Trademark and Registered symbols
+            , coalesce(c.security_type_description, h.holdingtypedesc)               as security_type
+            , coalesce(gl.market_value, h.sum_fairvalue)                             as market_value
+            , coalesce(gl.quantity, h.sum_parvalue)                                  as units_shares
+            , coalesce(gl.price, h.marketpriceaod)                                   as price
+            , coalesce(gl.unit_cost * gl.quantity, h.purchaseprice * h.sum_parvalue) as cost_basis
+            , coalesce(gl.effective_date, h.effective_date)                          as as_of_date
+            , fa.aum_status                                                          as aum_status
+            , coalesce(gl.effective_date, h.effective_date)                          as effective_date
+            , fa.month_end_date                                                      as month_end_date
+            , null                                                                   as source_filename
+            , nvl(fa.system_name, '') || '|' ||
+            nvl(fa.internal_financial_account_number, '') ||
+            '|' || b.effective_date                                                  as key_financial_account_holdings
         from cte_holdings_base b
         join cte_fa fa 
             on b.financial_account_number = fa.financial_account_number
@@ -228,6 +236,9 @@ with cte_effective_dates as
             on b.cusip = c.CUSIP
             and b.effective_date = c.effective_date
             and c.rn_ticker = 1
+        left join {{ ref("int_salesforce_compass_accounts")}} sf
+            on b.financial_account_number = sf.account_number
+            and b.effective_date = sf.effective_at::date
     )
 
 select *
