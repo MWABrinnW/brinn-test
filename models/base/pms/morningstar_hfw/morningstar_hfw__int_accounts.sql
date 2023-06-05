@@ -283,8 +283,7 @@ with cte_effective_dates as
                   else hfw.EFFECTIVE_AT::date end                                               as as_of_date
             , null                                                                              as aum_status     -- calculated in next cte
             , b.effective_date                                                                  as effective_date
-            , dateadd(day, -1,
-                  date_from_parts(year(current_date), month(current_date), 1))                  as month_end_date -- last day of previous month
+            , last_day(b.effective_date)                                                        as month_end_date -- last day of previous month
             , case
                   when olap.client_name is not null then m_acc._source_file
                   when t_acc.effective_date is not null then t_acc.SOURCE_FILE
