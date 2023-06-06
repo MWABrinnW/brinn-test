@@ -16,3 +16,5 @@ sources:
         description: "Raw models data from copilot"
       - name: restrictions_raw
         description: "Raw security restrictions data from copilot"
+      - name: copilot_accounts
+        description: ""
