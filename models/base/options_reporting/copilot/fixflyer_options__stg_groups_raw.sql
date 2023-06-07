@@ -35,7 +35,7 @@ select
   , a.value:startDate::date              as startdate
   , a.value:taxLotReliefMethod::string   as taxlotreliefmethod
   , a.value:taxable::boolean             as taxable
-  , {{ col_is_head(reference=source('copilot', 'copilot_positions'), source_date_col='gr.record_datetime', reference_date_col='record_datetime') }}
+  , {{ col_is_head(reference=source('copilot', 'groups_raw'), source_date_col='gr.record_datetime', reference_date_col='record_datetime') }}
   , gr.record_date                       as record_date
   , gr.record_datetime                   as record_datetime
 from {{ source('copilot', 'groups_raw') }}                 gr

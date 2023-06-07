@@ -15,7 +15,7 @@ select
   , v.value:notes::string                                                    as notes
   , to_timestamp_tz(v.value:lastModified::string,
                     'YYYY-MM-DDTHH24:MI:SS.FF3TZHTZM')                       as lastmodified
-  , {{ col_is_head(reference=source('copilot', 'copilot_positions'), source_date_col='r.record_datetime', reference_date_col='record_datetime') }}
+  , {{ col_is_head(reference=source('copilot', 'restrictions_raw'), source_date_col='r.record_datetime', reference_date_col='record_datetime') }}
   , r.record_date                                                            as record_date
   , r.record_datetime                                                        as record_datetime
 from {{ source('copilot', 'restrictions_raw') }}              r

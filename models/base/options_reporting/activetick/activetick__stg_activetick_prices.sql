@@ -75,7 +75,7 @@ select
   , r.value:columns.sic::string                                 as stock_sic_code
   , r.value:columns.sok::string                                 as stock_sik_code
   , r.value:columns.pex::string                                 as stock_primary_exchange
-  , {{ col_is_head(reference=source('copilot', 'copilot_positions'), source_date_col='p.record_datetime', reference_date_col='record_datetime') }}
+  , {{ col_is_head(reference=source('activetick', 'activetick_prices'), source_date_col='p.record_datetime', reference_date_col='record_datetime') }}
   , p.record_date
   , p.record_datetime
 from {{ source('activetick', 'activetick_prices') }}      p

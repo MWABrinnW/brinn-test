@@ -20,7 +20,7 @@ select
   , r.value:accountNumber::string                                                       as accountnumber
   , r.value:custodian::string                                                           as custodian
   , r.value:householdId::string                                                         as householdid
-  , {{ col_is_head(reference=source('copilot', 'copilot_positions'), source_date_col='a.record_datetime', reference_date_col='record_datetime') }}
+  , {{ col_is_head(reference=source('copilot', 'copilot_accounts'), source_date_col='a.record_datetime', reference_date_col='record_datetime') }}
   , a.record_date
   , a.record_datetime
 from {{ source('copilot', 'copilot_accounts') }}                  a

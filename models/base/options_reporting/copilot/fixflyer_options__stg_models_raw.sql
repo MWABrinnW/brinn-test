@@ -17,7 +17,7 @@ select
   , c.value:cusip::string               as cusip
   , c.value:updated::boolean            as updated
   , c.value:lastModified::TIMESTAMP_NTZ as lastmodified
-  , {{ col_is_head(reference=source('copilot', 'copilot_positions'), source_date_col='r.record_datetime', reference_date_col='record_datetime') }}
+  , {{ col_is_head(reference=source('copilot', 'models_raw'), source_date_col='r.record_datetime', reference_date_col='record_datetime') }}
   , r.record_date                       as record_date
   , r.record_datetime                   as record_datetime
 from {{ source('copilot', 'models_raw') }}                 r

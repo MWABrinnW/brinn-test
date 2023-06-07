@@ -133,7 +133,7 @@ select
   , a.value:order.fixedIncome.yield::number(19, 6)                                        as fixedincome_yield
   , a.value:order.fixedIncome.originalFace::number(19, 6)                                 as fixedincome_originalface
   , a.value:order.fixedIncome.principal::number(19, 6)                                    as fixedincome_principal
-  , {{ col_is_head(reference=source('copilot', 'copilot_positions'), source_date_col='oa.record_datetime', reference_date_col='record_datetime') }}
+  , {{ col_is_head(reference=source('copilot', 'copilot_orders_allocations'), source_date_col='oa.record_datetime', reference_date_col='record_datetime') }}
   , oa.record_date
   , oa.record_datetime
 from {{ source('copilot', 'copilot_orders_allocations') }}                                            oa
