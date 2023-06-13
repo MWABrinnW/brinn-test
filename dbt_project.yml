@@ -197,6 +197,11 @@ models:
       ring_central:
         +tags: ['ring_central']
 
+      rise:
+        +tags: ['rise']
+        +grants:
+          select: "{{ ['engineering', 'datamanagement', 'reporting'] if target.name in ['prod','test'] else []}}"
+
       salesforce_compass:
         +grants:
           select: "{{ ['db_crm_mwa_r'] if target.name in ['prod','test'] else []}}"
