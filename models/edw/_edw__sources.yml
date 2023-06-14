@@ -23,4 +23,4 @@ sources:
     schema: int
     tags: ['reporting']
     tables:
-      - name: vw_testing_locations_all_info
+      - name: vw_locations_all_info
