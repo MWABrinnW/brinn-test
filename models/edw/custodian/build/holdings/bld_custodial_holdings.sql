@@ -66,15 +66,6 @@ with cte_max_created_at as
     from {{ this }}
     group by 1,2
 )
-,cte_max_effective_date as
-(
-    select 
-          replace(custodian,'-','')                     as custodian
-        , firm_source                                   as firm_source
-        , nvl(max(effective_date),'1900-01-01'::date)   as effective_date
-    from {{ this }}
-    group by 1,2
-)
 ,cte_effective_dates_out_of_date as
 (
     {% for nml_model in source_models_holdings -%}
@@ -120,18 +111,8 @@ with cte_max_created_at as
         where effective_date >= current_date() - {{ var('custodial_lookback', 30) }}
         group by 1, 2
         )
-    select effective_date, model_source, _source_loaded_at
-    from (
-        select effective_date, {{"'" ~ nml_model ~ "'"}} as model_source, max(_source_loaded_at) as _source_loaded_at
-        from {{ ref(nml_model) }}
-        where effective_date >= current_date() - {{ var('custodial_lookback', 30) }}
-        group by 1, 2
-        )
     {#  Capture effective dates where source timestamp is newer than destination max timestamp.
         This should account for a historical date that was reloaded because the _created_at would
-        evaluate as newer than the max timestamp in destination. -#}
-    where true
-        and (_source_loaded_at > nvl((select max(_created_at) from cte_max_created_at), dateadd(d, -1, _source_loaded_at))
         evaluate as newer than the max timestamp in destination. -#}
     where true
         and (_source_loaded_at > nvl((select max(_created_at) from cte_max_created_at), dateadd(d, -1, _source_loaded_at))
