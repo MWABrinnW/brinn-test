@@ -1,7 +1,9 @@
 {{
     config(
         materialized='incremental',
-        unique_key='custodian'
+        unique_key='effective_date',
+        incremental_strategy='delete+insert',
+        on_schema_change='sync_all_columns'
     )
 }}
 -- depends_on: {{ ref('tda__base_accounts') }}

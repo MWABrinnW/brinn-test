@@ -36,7 +36,7 @@ vars:
   offset: 0
   dev_day_filter: 7
   incremental_mode: lookback
-  lookback_custodial: 30
+  lookback_custodial: 14
 
 on-run-start:
   - "{{ create_schemas() if target.name in ['prod','test'] }}"
@@ -328,12 +328,6 @@ models:
           +schema: enterprise
         ref:
           +schema: ref
-
-      reporting:
-        +tags: ['reporting']
-        +schema: enterprise
-        +grants:
-          select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod','test'] else []}}"
 
       reports:
         +tags: ['report', 'reports']
