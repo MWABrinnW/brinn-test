@@ -44,6 +44,13 @@ on-run-end:
   - "{{ grant_usage_on_schemas_where_select() if target.name in ['prod','test'] }}"
 
 models:
+  ## see docs: https://docs.elementary-data.com/
+  elementary:
+    ## elementary models will be created in the schema '<your_schema>_elementary'
+    +schema: "elementary"
+    ## To disable elementary for dev, uncomment this:
+    enabled: "{{ target.name in ['prod', 'test'] }}"
+
   data_engineering:
     +persist_docs:
       relation: true
