@@ -202,11 +202,23 @@ models:
         +grants:
           select: "{{ ['engineering', 'datamanagement', 'reporting'] if target.name in ['prod','test'] else []}}"
 
+      salesforce_adviceperiod:
+        +tags: ['crm', 'salesforce']
+        +grants:
+          select: "{{ ['db_crm_mwa_r'] if target.name in ['prod','test'] else []}}"
+
       salesforce_compass:
+        +tags: ['crm', 'salesforce']
+        +grants:
+          select: "{{ ['db_crm_mwa_r'] if target.name in ['prod','test'] else []}}"
+
+      salesforce_corbenic:
+        +tags: ['crm', 'salesforce']
         +grants:
           select: "{{ ['db_crm_mwa_r'] if target.name in ['prod','test'] else []}}"
 
       salesforce_msec:
+        +tags: ['crm', 'salesforce', 'msec']
         +grants:
           select: "{{ ['db_crm_msec_r'] if target.name in ['prod','test'] else []}}"
 

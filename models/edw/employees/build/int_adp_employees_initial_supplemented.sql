@@ -24,6 +24,8 @@ select
   case
     when (select count(*) from {{ this }}) = 0
         then 1
+    when (select max(_created_at) from {{ ref('aux__base_employee_overrides') }}) > (select max(_created_at) from {{ this }})
+        then 1
     when (select top 1 1
           from {{ src }}
           where _created_at > (select max(_created_at) from {{ this }})
