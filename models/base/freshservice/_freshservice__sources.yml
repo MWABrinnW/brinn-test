@@ -1,0 +1,120 @@
+version: 2
+
+sources:
+  - name: freshservice
+    description: ""
+    database: "fivetran"
+    loaded_at_field: _fivetran_synced
+    tables:
+    - name: agent_department
+      description: ""
+    - name: agent_role
+      description: ""
+    - name: announcement
+      description: ""
+    - name: announcement_relation
+      description: ""
+    - name: asset
+      description: ""
+    - name: asset_component
+      description: ""
+    - name: asset_type
+      description: ""
+    - name: associated_asset
+      description: ""
+    - name: associated_attachment
+      description: ""
+    - name: associated_change
+      description: ""
+    - name: change
+      description: ""
+    - name: change_approvers
+      description: ""
+    - name: change_risk_matrix
+      description: ""
+    - name: change_type_matrix
+      description: ""
+    - name: change_workflow
+      description: ""
+    - name: contract
+      description: ""
+    - name: contract_type
+      description: ""
+    - name: conversation
+      description: ""
+    - name: department
+      description: ""
+    - name: department_domain
+      description: ""
+    - name: fivetran_audit
+      description: ""
+    - name: location
+      description: ""
+    - name: note
+      description: ""
+    - name: notify_email
+      description: ""
+    - name: problem
+      description: ""
+    - name: product
+      description: ""
+    - name: project
+      description: ""
+    - name: project_membership
+      description: ""
+    - name: project_task
+      description: ""
+    - name: project_task_priority
+      description: ""
+    - name: project_task_status
+      description: ""
+    - name: project_task_type
+      description: ""
+    - name: purchase_order
+      description: ""
+    - name: purchase_order_item
+      description: ""
+    - name: release
+      description: ""
+    - name: role
+      description: ""
+    - name: service_category
+      description: ""
+    - name: service_group
+      description: ""
+    - name: service_item
+      description: ""
+    - name: service_user
+      description: ""
+    - name: software
+      description: ""
+    - name: software_installation
+      description: ""
+    - name: solution_article
+      description: ""
+    - name: solution_article_feature
+      description: ""
+    - name: solution_category
+      description: ""
+    - name: solution_folder
+      description: ""
+    - name: solution_folder_approval
+      description: ""
+    - name: solution_folder_relation_id
+      description: ""
+    - name: task
+      description: ""
+    - name: ticket
+      description: ""
+    - name: ticket_email
+      description: ""
+    - name: ticket_item
+      description: ""
+    - name: ticket_tag
+      description: ""
+    - name: time_entry
+      description: ""
+    - name: user_group
+      description: ""
+    - name: vendor
+      description: ""

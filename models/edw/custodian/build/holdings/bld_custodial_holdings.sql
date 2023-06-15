@@ -57,22 +57,37 @@ with cte_max_created_at as
     select null::timestamp as _created_at
     {%- endif -%}
 )
+,cte_max_effective_date as
+(
+    select 
+          replace(custodian,'-','')                     as custodian
+        , firm_source                                   as firm_source
+        , nvl(max(effective_date),'1900-01-01'::date)   as effective_date
+    from {{ this }}
+    group by 1,2
+)
 ,cte_effective_dates_out_of_date as
 (
     {% for nml_model in source_models_holdings -%}
     {%- set parts = nml_model.split('_') -%}
     {%- set custodian = parts[1] -%}
     {%- set firm_source = parts[2] -%}
-    select distinct effective_date
-    from {{ ref(nml_model) }}
+    select effective_date, model_source, _source_loaded_at
+    from (
+        select effective_date, {{"'" ~ nml_model ~ "'"}} as model_source, max(_source_loaded_at) as _source_loaded_at
+        from {{ ref(nml_model) }}
+        where effective_date >= current_date() - {{ var('custodial_lookback', 30) }}
+        group by 1, 2
+        )
     {#  Capture effective dates where source timestamp is newer than destination max timestamp.
         This should account for a historical date that was reloaded because the _created_at would
-        evaluate as newer than the max timestamp in destination. #}
-    where _source_loaded_at > nvl((select max(_created_at) from cte_max_created_at), dateadd(d, -1, _source_loaded_at))
+        evaluate as newer than the max timestamp in destination. -#}
+    where true
+        and (_source_loaded_at > nvl((select max(_created_at) from cte_max_created_at), dateadd(d, -1, _source_loaded_at))
         {%- if table_exists and is_incremental() %}
-        {# Capture effective dates where source custodian-firm does not exist in destination #}
-        or effective_date > (select nvl(max(effective_date),'1900-01-01'::date) from {{ this }} where custodian = '{{custodian}}' and firm_source = '{{firm_source}}' )
-        {%- endif -%}
+        {# Capture effective dates where source custodian-firm does not exist in destination -#}
+        or effective_date > (select effective_date from cte_max_effective_date where custodian = '{{custodian}}' and firm_source = '{{firm_source}}')
+        {%- endif -%})
 
     {%- if not loop.last %}
 
@@ -88,16 +103,22 @@ with cte_max_created_at as
     {%- set parts = nml_model.split('_') -%}
     {%- set custodian = parts[1] -%}
     {%- set firm_source = parts[2] -%}
-    select distinct effective_date
-    from {{ ref(nml_model) }}
+    select effective_date, model_source, _source_loaded_at
+    from (
+        select effective_date, {{"'" ~ nml_model ~ "'"}} as model_source, max(_source_loaded_at) as _source_loaded_at
+        from {{ ref(nml_model) }}
+        where effective_date >= current_date() - {{ var('custodial_lookback', 30) }}
+        group by 1, 2
+        )
     {#  Capture effective dates where source timestamp is newer than destination max timestamp.
         This should account for a historical date that was reloaded because the _created_at would
-        evaluate as newer than the max timestamp in destination. #}
-    where _source_loaded_at > nvl((select max(_created_at) from cte_max_created_at), dateadd(d, -1, _source_loaded_at))
+        evaluate as newer than the max timestamp in destination. -#}
+    where true
+        and (_source_loaded_at > nvl((select max(_created_at) from cte_max_created_at), dateadd(d, -1, _source_loaded_at))
         {%- if table_exists and is_incremental() %}
-        {# Capture effective dates where source custodian-firm does not exist in destination #}
-        or effective_date > (select nvl(max(effective_date),'1900-01-01'::date) from {{ this }} where custodian = '{{custodian}}' and firm_source = '{{firm_source}}' )
-        {%- endif -%}
+        {# Capture effective dates where source custodian-firm does not exist in destination -#}
+        or effective_date > (select effective_date from cte_max_effective_date where custodian = '{{custodian}}' and firm_source = '{{firm_source}}')
+        {%- endif -%})
 
     {%- if not loop.last %}
 

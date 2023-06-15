@@ -36,6 +36,7 @@ vars:
   offset: 0
   dev_day_filter: 7
   incremental_mode: lookback
+  lookback_custodial: 30
 
 on-run-start:
   - "{{ create_schemas() if target.name in ['prod','test'] }}"
@@ -149,6 +150,11 @@ models:
           +tags: ['mwa']
           +grants:
             select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod','test'] else []}}"
+
+      freshservice:
+        +tags: ['freshservice']
+        +grants:
+          select: "{{ ['db_it_r'] if target.name in ['prod','test'] else []}}"
 
       hubspot_network:
         +tags: ['hubspot', 'network', 'hubspot_network']

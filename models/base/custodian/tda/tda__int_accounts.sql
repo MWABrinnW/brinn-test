@@ -1,7 +1,13 @@
-{{ config(materialized = 'table') }}
+{{
+    config(
+        materialized='incremental',
+        unique_key='custodian'
+    )
+}}
 -- depends_on: {{ ref('tda__base_accounts') }}
 -- depends_on: {{ ref('tda__base_pos') }}
 -- depends_on: {{ ref('dates') }}
+
 
 with cte_accounts as
 (
@@ -12,7 +18,14 @@ with cte_accounts as
         ,row_number() over(partition by account_number, effective_date order by case when _file_type = 'TRF' then 1 else 0 end desc, _source_loaded_at desc) as rn
         ,row_number() over(partition by account_number order by case when _file_type = 'TRF' then 1 else 0 end desc, _source_loaded_at desc) as rn_account
     from {{ ref('tda__base_accounts') }}
+    {% if is_incremental() %}
     where true
+        -- Check if the upstream model has newer data. If not then we don't need to waste time processing
+        and (
+            select max(_source_loaded_at)
+            from {{ ref('tda__base_accounts') }}
+            ) > (select max(_created_at) from {{ this }})
+    {% endif %}
     qualify row_number() over(partition by account_number, effective_date order by case when _file_type = 'TRF' then 1 else 0 end desc, _source_loaded_at desc) = 1
     order by 1,3,2
 )
@@ -46,7 +59,6 @@ with cte_accounts as
         and ds.date_key = acc.effective_date
     where 1=1
         and a.rn = 1
-        {# and a.rn_account = 1 #}
         and ds.date_key >= a.min_effective_date
 )
 ,cte_positions_summary as
@@ -64,6 +76,7 @@ with cte_accounts as
 (
     select
           s.date_key                                                  as effective_date
+        , d.custodian                                                 as custodian
         , s.account_number                                            as account_number
         , d.advisor_id                                                as advisor_id
         , d.account_type                                              as account_type
@@ -156,6 +169,7 @@ with cte_accounts as
 (
     select 
           p.effective_date
+        , p.custodian
         , p.account_number
         , p.account_type
         , p.rep_code_firm
@@ -171,11 +185,12 @@ with cte_accounts as
         on p.effective_date = sa.effective_date
         and p.account_number = sa.account_number
     where sa.account_number is null
-    {{ dbt_utils.group_by(n=9) }}
+    {{ dbt_utils.group_by(n=10) }}
 )
 
 select
       effective_date
+    , custodian
     , account_number
     , advisor_id
     , account_type
@@ -234,6 +249,7 @@ union all
 
 select
       p.effective_date                                              as effective_date
+    , p.custodian                                                   as custodian
     , p.account_number                                              as account_number
     , p._rep_code                                                   as advisor_id
     , p.account_type                                                as account_type
