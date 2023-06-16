@@ -8,17 +8,17 @@ select
 , trim(nullif(substring(content, 8, 9), '000000000'))::varchar(9) as cusip_number
 -- , trim(nullif(substring(content, 17, 3), '000'))::varchar(3) as not_used
 , trim(nullif(substring(content, 20, 1), '0'))::varchar(1) as etf_indicator
-, {{target.schema}}.signed_to_numeric(nullif(nullif(trim(substring(content, 21, 9)), '000000000'), '')) / power(10, 04)::number as bid_price
-, {{target.schema}}.signed_to_numeric(nullif(nullif(trim(substring(content, 30, 9)), '000000000'), '')) / power(10, 04)::number as ask_price
-, {{target.schema}}.signed_to_numeric(nullif(nullif(trim(substring(content, 39, 9)), '000000000'), '')) / power(10, 04)::number as previous_day_price
-, {{target.schema}}.signed_to_numeric(nullif(nullif(trim(substring(content, 48, 9)), '000000000'), '')) / power(10, 04)::number as latest_price
-, {{target.schema}}.signed_to_numeric(nullif(nullif(trim(substring(content, 57, 9)), '000000000'), '')) / power(10, 04)::number as end_of_month_price
+, {{target.database}}.{{target.schema}}.signed_to_numeric(nullif(nullif(trim(substring(content, 21, 9)), '000000000'), '')) / power(10, 04)::number as bid_price
+, {{target.database}}.{{target.schema}}.signed_to_numeric(nullif(nullif(trim(substring(content, 30, 9)), '000000000'), '')) / power(10, 04)::number as ask_price
+, {{target.database}}.{{target.schema}}.signed_to_numeric(nullif(nullif(trim(substring(content, 39, 9)), '000000000'), '')) / power(10, 04)::number as previous_day_price
+, {{target.database}}.{{target.schema}}.signed_to_numeric(nullif(nullif(trim(substring(content, 48, 9)), '000000000'), '')) / power(10, 04)::number as latest_price
+, {{target.database}}.{{target.schema}}.signed_to_numeric(nullif(nullif(trim(substring(content, 57, 9)), '000000000'), '')) / power(10, 04)::number as end_of_month_price
 , nullif(nullif(trim(substring(content, 66, 13)), '0000000000000'), '')::int as round_lot_quantity
 , trim(nullif(substring(content, 79, 1), '0'))::varchar(1) as dividend_reinvestment_eligibility_indicator
-, {{target.schema}}.YYYYDDD_to_date(nullif(substring(content, 80, 7), '0000000'))::date as previous_price_date
-, {{target.schema}}.YYYYDDD_to_date(nullif(substring(content, 87, 7), '0000000'))::date as latest_price_date
-, {{target.schema}}.YYYYDDD_to_date(nullif(substring(content, 94, 7), '0000000'))::date as end_of_month_price_date
-, {{target.schema}}.YYYYDDD_to_date(nullif(substring(content, 101, 7), '0000000'))::date as record_date
+, {{target.database}}.{{target.schema}}.YYYYDDD_to_date(nullif(substring(content, 80, 7), '0000000'))::date as previous_price_date
+, {{target.database}}.{{target.schema}}.YYYYDDD_to_date(nullif(substring(content, 87, 7), '0000000'))::date as latest_price_date
+, {{target.database}}.{{target.schema}}.YYYYDDD_to_date(nullif(substring(content, 94, 7), '0000000'))::date as end_of_month_price_date
+, {{target.database}}.{{target.schema}}.YYYYDDD_to_date(nullif(substring(content, 101, 7), '0000000'))::date as record_date
 , trim(nullif(substring(content, 108, 1), '0'))::varchar(1) as fundvest_indicator
 , trim(nullif(substring(content, 109, 3), '000'))::varchar(3) as country_code
 , trim(nullif(substring(content, 112, 4), '0000'))::varchar(4) as standard

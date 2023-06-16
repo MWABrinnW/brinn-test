@@ -1,8 +1,0 @@
-version: 2
-
-sources:
-  - name: information_schema
-    database: "{{ env_var('DBT_DB_DATALAKE_SRC', 'datalake') }}"
-    schema: information_schema
-    tables:
-      - name: tables

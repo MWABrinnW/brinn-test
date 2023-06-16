@@ -11,7 +11,7 @@ select
 , trim(nullif(substring(content, 8, 9), '000000000'))::varchar(9) as stock_symbol
 , trim(nullif(substring(content, 17, 40), '0000000000000000000000000000000000000000'))::varchar(40) as security_description
 , to_number(nullif(nullif(trim(substring(content, 57, 9)), '000000000'), '')) / power(10, 04)::number as cents_per_share
-, signed_to_numeric(nullif(nullif(trim(substring(content, 66, 7)), '0000000'), '')) / power(10, 02)::number as discount_percent
+, {{target.database}}.{{target.schema}}.signed_to_numeric(nullif(nullif(trim(substring(content, 66, 7)), '0000000'), '')) / power(10, 02)::number as discount_percent
 , trim(nullif(substring(content, 73, 2), '00'))::varchar(2) as paycode
 , trim(nullif(substring(content, 75, 9), '000000000'))::varchar(9) as master_client_mnemonic
 , trim(nullif(substring(content, 84, 1), '0'))::varchar(1) as institutionalretail_indicator

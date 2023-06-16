@@ -12,7 +12,7 @@ select
 , trim(nullif(substring(content, 32, 15), '000000000000000'))::varchar(15) as account_number_at_fund
 , try_to_date(nullif(substring(content, 47, 8), '00000000'), 'YYYYMMDD')::date as date_received
 , try_to_date(nullif(substring(content, 55, 8), '00000000'), 'YYYYMMDD')::date as as_of_date
-, signed_to_numeric(nullif(nullif(trim(substring(content, 63, 12)), '000000000000'), '')) / power(10, 02)::number as amount_of_transaction
+, {{target.database}}.{{target.schema}}.signed_to_numeric(nullif(nullif(trim(substring(content, 63, 12)), '000000000000'), '')) / power(10, 02)::number as amount_of_transaction
 -- , trim(nullif(substring(content, 75, 5), '00000'))::varchar(5) as not_used
 , trim(nullif(substring(content, 80, 4), '0000'))::varchar(4) as activity_codes
 , trim(nullif(substring(content, 84, 30), '000000000000000000000000000000'))::varchar(30) as description

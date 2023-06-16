@@ -40,21 +40,29 @@ vars:
 
 on-run-start:
   - "{{ create_schemas() if target.name in ['prod','test'] }}"
-on-run-end: 
+on-run-end:
   - "{{ grant_usage_on_schemas_where_select() if target.name in ['prod','test'] }}"
 
 models:
   ## see docs: https://docs.elementary-data.com/
   elementary:
-    ## elementary models will be created in the schema '<your_schema>_elementary'
     +schema: "elementary"
-    ## To disable elementary for dev, uncomment this:
+    +grants:
+      select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
     enabled: "{{ target.name in ['prod', 'test'] }}"
 
   data_engineering:
     +persist_docs:
       relation: true
       columns: true
+
+    # By default models will go in the datalake db
+    +database: |
+      {%- if  target.name == "dev" -%} datalake_test
+      {%- elif target.name == "prod"  -%} datalake
+      {%- elif target.name == "test"  -%} datalake_test
+      {%- else -%} datalake_test
+      {%- endif -%}
 
 # [BASE]
     base:
@@ -74,7 +82,7 @@ models:
       alteryx_gallery:
         +tags: ['alteryx']
         +grants:
-          select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod','test'] else []}}"          
+          select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod','test'] else []}}"
 
       auxy:
         +tags: ['aux']
@@ -143,7 +151,14 @@ models:
           +grants:
             select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod','test'] else []}}"
 
-      data_engineering:
+      dbt:
+        +tags: ['dbt']
+        +database: "{{ target.database }}"
+        +schema: "{{ target.schema }} "
+        +grants:
+          select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+
+      de:
         +tags: ['de']
         +grants:
           select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
@@ -186,7 +201,7 @@ models:
           {%- endif -%}
         +grants:
           select: "{{ ['integration_dm'] if target.name in ['prod','test'] else []}}"
-      
+
       options_reporting:
         +tags: ['options_reporting']
         +database: |
@@ -206,7 +221,7 @@ models:
         +tags: ['redtail', 'network']
         +grants:
           select: "{{ ['db_crm_mps_r'] if target.name in ['prod','test'] else []}}"
-      
+
       ring_central:
         +tags: ['ring_central']
 
@@ -242,19 +257,6 @@ models:
         +tags: ['zoom']
         +grants:
           select: "{{ ['db_it_r'] if target.name in ['prod','test'] else []}}"
-        
-
-        
-
-# [INTERMEDIATE]
-    intermediate:
-      +materialized: view
-      +tags: ['intermediate']
-
-# [NORMAL]
-    normal:
-      +materialized: view
-      +tags: ['normal']
 
 # [EDW]
     edw:
@@ -342,9 +344,31 @@ models:
         +grants:
           select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod','test'] else []}}"
 
-# [MARTS]
-    marts:
-      engineering:
-        +grants:
-          select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+seeds:
+  data_engineering:
+    # By default seeds will go into datalake.aux
+    +database: |
+      {%- if  target.name == "dev" -%} datalake_test
+      {%- elif target.name == "prod"  -%} datalake
+      {%- elif target.name == "test"  -%} datalake_test
+      {%- else -%} datalake_test
+      {%- endif -%}
+    +schema: aux
 
+    datalake:
+      +database: |
+        {%- if  target.name == "dev" -%} datalake_test
+        {%- elif target.name == "prod"  -%} datalake
+        {%- elif target.name == "test"  -%} datalake_test
+        {%- else -%} datalake_test
+        {%- endif -%}
+      +schema: aux  
+
+    edw:
+      +database: |
+        {%- if  target.name == "dev" -%} edw_test
+        {%- elif target.name == "prod"  -%} edw
+        {%- elif target.name == "test"  -%} edw_test
+        {%- else -%} edw_test
+        {%- endif -%}
+      +schema: ref

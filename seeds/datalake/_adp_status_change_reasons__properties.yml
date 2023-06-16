@@ -8,6 +8,5 @@ seeds:
     config:
       enabled: true
       tags: ['associates', 'employees']
-      schema: aux
       grants:
         select: "{{ ['db_hr_mwa_r'] if target.name in ['prod','test'] else []}}"

@@ -11,6 +11,6 @@
 
 select * 
     , table_schema||table_name as unique_key
-from {{ ref('base_tables') }}
+from {{ ref('dim_information_schema_sources') }}
 
 {%- endsnapshot -%}

@@ -12,8 +12,8 @@ select
 , trim(nullif(substring(content, 39, 8), '00000000'))::varchar(8) as fund_manager
 , try_to_date(nullif(substring(content, 47, 8), '00000000'), 'YYYYMMDD')::date as last_sweep_date
 , nullif(nullif(trim(substring(content, 55, 8)), '00000000'), '')::int as last_update_date
-, signed_to_numeric(nullif(nullif(trim(substring(content, 63, 13)), '0000000000000'), '')) / power(10, 03)::number as principal
-, signed_to_numeric(nullif(nullif(trim(substring(content, 76, 11)), '00000000000'), '')) / power(10, 02)::number as accrued_dividend
+, {{target.database}}.{{target.schema}}.signed_to_numeric(nullif(nullif(trim(substring(content, 63, 13)), '0000000000000'), '')) / power(10, 03)::number as principal
+, {{target.database}}.{{target.schema}}.signed_to_numeric(nullif(nullif(trim(substring(content, 76, 11)), '00000000000'), '')) / power(10, 02)::number as accrued_dividend
 , trim(nullif(substring(content, 87, 5), '00000'))::varchar(5) as group_number
 -- , trim(nullif(substring(content, 92, 3), '000'))::varchar(3) as not_used
 , trim(nullif(substring(content, 95, 1), '0'))::varchar(1) as omnibus_account_indicator
