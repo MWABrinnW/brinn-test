@@ -22,6 +22,7 @@ select
   , a.json:Custodian::string                 as custodian
   , a.json:DataProvider::string              as dataprovider
   , a.json:Discretionary::boolean            as discretionary
+  , erisa.value:Value::varchar(100)          as erisa
   , a.json:ExternalBillingAccountID::string  as externalbillingaccountid
   , a.json:HistoryStartDate::date            as historystartdate
   , a.json:Id::string                        as id
@@ -46,6 +47,9 @@ select
 from {{src}}                                                      a
    , lateral flatten(input => parse_json(a.json:Tags), outer => true) t_cais
    , lateral flatten(input => parse_json(a.json:Tags), outer => true) aum
+   , lateral flatten(input => parse_json(a.json:Tags), outer => true) erisa
 where true
   and t_cais.value:Name::varchar(100) = 'CAIS'
   and aum.value:Name::varchar(100) = 'AUM / AUA / RO'
+  and erisa.value:Name::varchar(100) = 'ERISA'
+  
