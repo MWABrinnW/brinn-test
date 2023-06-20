@@ -10,3 +10,5 @@ sources:
         description: "Contact records from redtail"
       - name: contact_udfs
         description: "User defined contact fields from redtail"
+      - name: contact_keywords
+        description: "User defined contact keywords from redtail"
