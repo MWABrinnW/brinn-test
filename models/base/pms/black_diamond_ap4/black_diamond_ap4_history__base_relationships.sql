@@ -5,8 +5,9 @@ SELECT
     , 'ap4' as pms_location
     , 'mwa' AS firm_source
     , EFFECTIVE_DATE                             AS EFFECTIVE_DATE
-    , JSON:Relationship.ID::string               as RELATIONSHIP_ID
+    , JSON:Relationship.ID::string               AS RELATIONSHIP_ID
     , JSON:Relationship.Name::string             AS RELATIONSHIP_NAME
+    , JSON:Relationship.ClientTypeID::string     AS RELATIONSHIP_CLIENT_TYPE_ID
     , account.value:HistoryStartDate::date       AS HISTORY_START_DATE
     , account.value:ClosedDate::date             AS RELATIONSHIP_TERMINATION_DATE
     , account.value:Relationship::string         AS RELATIONSHIP_DISPLAY_NAME
