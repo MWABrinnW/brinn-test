@@ -176,7 +176,7 @@ models:
       freshservice:
         +tags: ['freshservice']
         +grants:
-          select: "{{ ['db_it_r'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['db_it_r', 'reporting'] if target.name in ['prod','test'] else []}}"
 
       hubspot_network:
         +tags: ['hubspot', 'network', 'hubspot_network']
