@@ -10,6 +10,7 @@
   {% set schema_grants = {} %}
   {% if execute %}
     {% for node in graph.nodes.values() | selectattr("resource_type", "equalto", "model") %}
+      {% if node.unique_id in selected_resources %}
       {% set grants = node.config.get('grants') %}
       {% set select_roles = grants['select'] if grants else [] %}
       {% if select_roles %}
@@ -19,6 +20,7 @@
         {% else %}
           {% do schema_grants.update({database_schema: set(select_roles)}) %}
         {% endif %}
+      {% endif %}
       {% endif %}
     {% endfor %}
   {% endif %}
