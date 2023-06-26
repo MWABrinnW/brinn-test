@@ -1,6 +1,7 @@
 select
-    json:id::int                              as udf_id
+    json:id::int                              as id
   , json:keyword_id::int                      as keyword_id
+  , json:contact_id::int                      as contact_id
   , json:name::varchar(200)                   as name
   , json:deleted::int                         as is_deleted
   , json:created_at::timestamp                as created_at
