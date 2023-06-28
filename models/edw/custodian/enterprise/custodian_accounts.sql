@@ -4,9 +4,9 @@ with cte_dates as
     from {{ ref('dates') }}
     where is_market_day = 1 
         and date_key between 
-            (select min(effective_date) from {{ ref('bld_custodial_holdings') }}) 
+            (select min(effective_date) from {{ ref('bld_custodian_holdings') }}) 
             and 
-            (select max(effective_date) from {{ ref('bld_custodial_holdings') }})
+            (select max(effective_date) from {{ ref('bld_custodian_holdings') }})
 )
 ,cte_custodians_spined as
 (
@@ -66,7 +66,7 @@ select
     , ca._source_loaded_at
     {# , ca._source_file #}
 from cte_custodians_spined c
-left join {{ ref('bld_custodial_accounts') }} ca
+left join {{ ref('bld_custodian_accounts') }} ca
     on c.custodian = ca.custodian
     and c.firm_source = ca.firm_source
     and c.effective_date = ca.effective_date

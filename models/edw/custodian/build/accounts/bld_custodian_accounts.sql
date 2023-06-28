@@ -103,7 +103,7 @@ with cte_max_created_at as
         , account_number_formatted
         , cash_value
         , money_market_value
-    from {{ ref('bld_custodial_cash_balances') }}
+    from {{ ref('bld_custodian_cash_balances') }}
     where true
         {{ incremental_date_filter(
             source_col_name='effective_date',
@@ -126,7 +126,7 @@ with cte_max_created_at as
         , sum(nvl(market_value,0))                                              as total_value
         , sum(case when nvl(is_cash,0) = 0 then nvl(market_value,0) else 0 end) as holdings_value
         , sum(case when nvl(is_cash,0) = 1 then nvl(market_value,0) else 0 end) as cash_value
-    from {{ ref('bld_custodial_holdings') }}
+    from {{ ref('bld_custodian_holdings') }}
     where true
         {{ incremental_date_filter(
             source_col_name='effective_date',
