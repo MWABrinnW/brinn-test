@@ -106,6 +106,10 @@ models:
 
       custodian:
         +tags: ['custodian', 'custodial']
+        fidelity:
+          +tags: ['fidelity']
+          +grants:
+            select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod','test'] else []}}"
         fidelity_mps:
           +tags: ['fidelity', 'mps']
           +grants:

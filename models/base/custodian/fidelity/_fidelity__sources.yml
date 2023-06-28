@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: fidelity
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    schema: fidelity
+    loaded_at_field: _created_at
+    tables:
+      - name: gnums
+        description: "G number report from Fidelity Wealthscape"
+        columns:
+          - name: json
+          - name: effective_date
+          - name: _created_at
+          - name: _source_file
+          - name: _row_number
+          - name: _checksum
