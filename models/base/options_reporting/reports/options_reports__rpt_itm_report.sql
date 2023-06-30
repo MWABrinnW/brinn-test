@@ -20,17 +20,10 @@ select
   , prd.last_trade_price
   , prd."10_day_avg_price"
   , prd.dividend_ex_date
+  , prd.dividend_amount
   , (div0(prd.last_trade_price, prd."10_day_avg_price") - 1) * 100 as "unrealized_gain_%"
   , po.record_datetime
 from {{ ref('fixflyer_options__stg_copilot_positions') }} po
-left join (
-              select
-                  copi_symbol
-                , dividend_ex_date
-              from {{ ref('activetick__stg_activetick_prices') }}
-              where is_head = 1
-          )                                               pr
-          on po.security_id = pr.copi_symbol
 left join (
               select
                   accountid
@@ -52,6 +45,7 @@ left join (
               select
                   copi_symbol
                 , dividend_ex_date
+                , dividend_amount
                 , close_price
                 , last_trade_price
                 , previous_close
