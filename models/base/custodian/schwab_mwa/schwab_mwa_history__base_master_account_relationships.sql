@@ -11,4 +11,6 @@ select
   ,{{ col_is_head(reference=source('schwab_mwa', 'master_account_relationships')) }}
   ,{{ col_is_current(date_col='effective_date') }}
   , _record_datetime::timestamp     as _source_loaded_at
+  , _source_file::text(200)         as _source_file
+  , null::text(200)                 as _checksum
 from {{ source('schwab_mwa', 'master_account_relationships') }}

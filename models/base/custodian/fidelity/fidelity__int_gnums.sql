@@ -1,5 +1,6 @@
 select
       a.effective_date
+    , 'fidelity'                  as custodian
     , a.firm_source
     , a.account_number_formatted
     , a.account_number
@@ -32,5 +33,5 @@ where true
         or (gnum_source = 'SECONDARY_GNUM_7' and gnum_source_desc = 'SECONDARY_GNUM_NAME_7')
         or (gnum_source = 'SECONDARY_GNUM_8' and gnum_source_desc = 'SECONDARY_GNUM_NAME_8')
         or (gnum_source = 'SECONDARY_GNUM_9' and gnum_source_desc = 'SECONDARY_GNUM_NAME_9')
-        or (gnum_source = 'SECONDARY_GNUM_10' and gnum_source_desc = 'SECONDARY_GNUM_NAME_1')
+        or (gnum_source = 'SECONDARY_GNUM_10' and gnum_source_desc = 'SECONDARY_GNUM_NAME_10')
     )

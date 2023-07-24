@@ -28,7 +28,10 @@ sources:
       - name: hfw_tpg_mstar_overlap
         description: Supplemental mapping for HFW accounts that exist in both Morningstar and TPG.
       - name: custodian_codes_master_list
-        description: Dataset is maintained by Amanda Green and team to catalog custodian masters/gnumbers/rep codes/etc.
+        description: "Custodian codes master list meant to catalog custodian masters/gnumbers/rep codes/etc (box file id: 490214713493)."
 
       - name: vault
         description: Collection of various files and sources stored as json for schema on read.
+
+      - name: custodian_codes
+        description: "Custodian codes master list (box file id: 490214713493)"
