@@ -3,7 +3,7 @@ select
   , case
         when _source_file ilike '%0001183388%'
             then 'mwa'
-        when _source_file ilike 'PLACEHOLDER'
+        when _source_file ilike '%0001192287%'
             then 'mps'
         when _source_file ilike '%0001192288%'
             then 'swag'
