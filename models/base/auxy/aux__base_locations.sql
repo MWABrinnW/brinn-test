@@ -28,3 +28,4 @@ select
   , _created_at::timestamp                       as _created_at
 from {{ source('aux', 'locations') }}
 where json:dataset = 'locations'
+    and json:location_code::text is not null
