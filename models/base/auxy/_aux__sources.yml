@@ -35,3 +35,7 @@ sources:
 
       - name: custodian_codes
         description: "Custodian codes master list (box file id: 490214713493)"
+
+      - name: tda_account_mappings
+        description: TDA account to Schwab account number mappings from the TDA to Schwab merger.
+        

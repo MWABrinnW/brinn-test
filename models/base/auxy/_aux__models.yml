@@ -45,7 +45,7 @@ models:
         description: Type of acquisition (ex. Advisor lift-out, Firm purchase, Significant hire, Greenfield, Tax Acquisition),
       - name: _created_at
         description: Datetime representing when the record was loaded into the table from the source file.
- 
+
   - name: aux__base_locations_cost_center_history
     config:
       tags: ['locations']
@@ -85,3 +85,8 @@ models:
       grants:
         select: "{{ ['db_pms_mwa_r'] if target.name in ['prod','test'] else []}}"
 
+  - name: aux__stg_tda_account_mappings
+    config:
+      tags: ['tda', 'schwab']
+      grants:
+        select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod','test'] else []}}"

@@ -282,6 +282,10 @@ models:
           +schema: enterprise
           +grants:
             select: "{{ ['db_custodial_r'] if target.name in ['prod','test'] else []}}"
+        ref:
+          +schema: ref
+          +grants:
+            select: "{{ ['db_custodial_r'] if target.name in ['prod','test'] else []}}"
 
       pms:
         +tags: ['pms', 'pms-master']
@@ -292,7 +296,7 @@ models:
         enterprise:
           +schema: enterprise
           +grants:
-            select: "{{ ['db_pms_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod','test'] else []}}"
 
       employees:
         +tags: ['employees', 'associates']
