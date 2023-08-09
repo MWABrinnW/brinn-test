@@ -1,7 +1,7 @@
 select
     a.effective_date                      as effective_date
   , a.custodian                           as custodian
-  , a.firm_source                         as firm_source
+  , cc.firm_source                        as firm_source
   , a.account_number_formatted            as account_number_formatted
   , a.account_number                      as account_number
   , a.gnum                                as link
@@ -31,9 +31,8 @@ select
   , max(cc._source_loaded_at)
     over(partition by 1=1)                as _map_loaded_at
 from {{ ref('fidelity__int_gnums') }}  a
-left join {{ ref('int_custodian_codes') }} cc
+left join {{ ref('aux__stg_custodian_links') }} cc
           on a.custodian = cc.custodian
-              and a.firm_source = cc.firm_source
               and upper(a.gnum) = upper(cc.link)
 
 union all
@@ -41,7 +40,7 @@ union all
 select
     a.effective_date                      as effective_date
   , a.custodian                           as custodian
-  , a.firm_source                         as firm_source
+  , cc.firm_source                        as firm_source
   , a.account_number                      as account_number_formatted
   , a.account_number                      as account_number
   , a.fa_master_account_number            as link
@@ -67,9 +66,8 @@ select
   , max(cc._source_loaded_at)
     over(partition by 1=1)                as _map_loaded_at
 from {{ ref('schwab_mwa_history__base_master_account_relationships') }} a
-left join {{ ref('int_custodian_codes') }}                                  cc
+left join {{ ref('aux__stg_custodian_links') }}                                  cc
           on a.custodian = cc.custodian
-              and a.firm_source = cc.firm_source
               and upper(a.fa_master_account_number) = upper(cc.link)
 qualify row_number() over (partition by a.effective_date
     , a.firm_source
@@ -82,7 +80,7 @@ union all
 select
     a.effective_date                      as effective_date
   , a.custodian                           as custodian
-  , a.firm_source                         as firm_source
+  , cc.firm_source                        as firm_source
   , a.account_number                      as account_number_formatted
   , a.account_number                      as account_number
   , a.fa_master_account_number            as link
@@ -108,9 +106,8 @@ select
   , max(cc._source_loaded_at)
     over(partition by 1=1)                as _map_loaded_at
 from {{ ref('schwab_mps_history__base_master_account_relationships') }} a
-left join {{ ref('int_custodian_codes') }}                                  cc
+left join {{ ref('aux__stg_custodian_links') }}                                  cc
           on a.custodian = cc.custodian
-              and a.firm_source = cc.firm_source
               and upper(a.fa_master_account_number) = upper(cc.link)
 qualify row_number() over (partition by a.effective_date
     , a.firm_source
@@ -123,7 +120,7 @@ union all
 select
     a.effective_date                      as effective_date
   , a.custodian                           as custodian
-  , a.firm_source                         as firm_source
+  , cc.firm_source                        as firm_source
   , a.account_number                      as account_number_formatted
   , a.account_number                      as account_number
   , a.master_account_number               as clink
@@ -149,9 +146,8 @@ select
   , max(cc._source_loaded_at)
     over(partition by 1=1)                as _map_loaded_at
 from {{ ref('schwab_mwa_history__base_master_accounts_mapping') }} a
-left join {{ ref('int_custodian_codes') }}                             cc
+left join {{ ref('aux__stg_custodian_links') }}                             cc
           on a.custodian = cc.custodian
-              and a.firm_source = cc.firm_source
               and upper(a.master_account_number) = upper(cc.link)
 where a.master_account_number not in (
                                 select
@@ -192,7 +188,7 @@ select
   , max(cc._source_loaded_at)
     over(partition by 1=1)                as _map_loaded_at
 from {{ ref('tda__int_accounts') }}    a
-left join {{ ref('int_custodian_codes') }} cc
+left join {{ ref('aux__stg_custodian_links') }} cc
           on a.custodian = cc.custodian
               and a.rep_code_firm = cc.firm_source
               and upper(a._rep_code) = upper(cc.link)
@@ -202,7 +198,7 @@ union all
 select
     a.effective_date                      as effective_date
   , a.custodian                           as custodian
-  , a.firm_source                         as firm_source
+  , cc.firm_source                        as firm_source
   , a.account_number                      as account_number_formatted
   , a.account_number                      as account_number
   , a.investment_professional_ip_number   as link
@@ -228,9 +224,8 @@ select
   , max(cc._source_loaded_at)
     over(partition by 1=1)                as _map_loaded_at
 from {{ ref('int_pershing_mwa_accounts') }} a
-left join {{ ref('int_custodian_codes') }}      cc
+left join {{ ref('aux__stg_custodian_links') }}      cc
           on a.custodian = cc.custodian
-              and a.firm_source = cc.firm_source
               and upper(a.investment_professional_ip_number) = upper(cc.link)
 
 union all
@@ -238,7 +233,7 @@ union all
 select
     a.effective_date                      as effective_date
   , a.custodian                           as custodian
-  , a.firm_source                         as firm_source
+  , cc.firm_source                        as firm_source
   , a.account_number                      as account_number_formatted
   , a.account_number                      as account_number
   , a.investment_professional_ip_number   as link
@@ -264,7 +259,6 @@ select
   , max(cc._source_loaded_at)
     over(partition by 1=1)                as _map_loaded_at
 from {{ ref('int_pershing_mps_accounts') }} a
-left join {{ ref('int_custodian_codes') }}      cc
+left join {{ ref('aux__stg_custodian_links') }}      cc
           on a.custodian = cc.custodian
-              and a.firm_source = cc.firm_source
               and upper(a.investment_professional_ip_number) = upper(cc.link)

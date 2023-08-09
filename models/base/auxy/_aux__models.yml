@@ -90,3 +90,9 @@ models:
       tags: ['tda', 'schwab']
       grants:
         select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod','test'] else []}}"
+  - name: aux__stg_custodian_links
+    config:
+      tags: ['custodian']
+      grants:
+        select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod','test'] else []}}"
+

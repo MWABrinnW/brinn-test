@@ -1,9 +1,7 @@
-{{ config(enabled=false) }}
+{{ config(enabled=true) }}
 
 with cte_custodian_links as
 (
-    -- JOIN with fa master to get location_code
-    -- JOIN with fa master to get advisor name
     select *
     from {{ ref('custodian_account_links') }}
     where is_head = 1
@@ -12,22 +10,35 @@ with cte_custodian_links as
 ,cte_accounts as
 (
     select
-        __custodian_key, firm_source, account_number
-        ,location_code, advisor_email
+        case
+            when custodian ilike '%schwab%'
+                then 'schwab'
+            when custodian ilike '%fidel%'
+                then 'fidelity'
+            when custodian ilike '%lpl%'
+                then 'lpl'
+            when custodian ilike '%pershing%'
+                then 'pershing'
+            when custodian ilike '%tda%'
+                or custodian ilike '%ameritrade%'
+                then 'tda'
+            else ''
+            end::text(100)                                              as __custodian_key
+        , financial_account_number_clean as account_number
+        , location_code
         , case
-            when advisor ilike any ('%test%rep%', '%demo%')
+            when client_manager ilike any ('%test%rep%', '%demo%')
                 then null
-            else advisor
+            else client_manager
             end as advisor
-    from {{ ref('mwa__vw_financial_accounts_daily')}}
-    where effective_date = '6/30/2023'
-        and is_active = 1
+    from {{ ref('legacy__vw_financial_accounts_daily')}}
+    where is_head = 1
 )
 ,cte_mapped as
 (
     select
         a.*
-        ,b.location_code as location_code_mapped, b.advisor as advisor_mapped, b.advisor_email as advisor_email_mapped
+        ,b.location_code as location_code_mapped, b.advisor as advisor_mapped
         ,case when b.__custodian_key is not null then 1 else 0 end as is_mapped
     from cte_custodian_links a
     left join cte_accounts b
@@ -59,7 +70,6 @@ with cte_custodian_links as
         ,case when cnt_advisor = 1 then 1 else 0 end        as is_advisor_one_to_one
         ,case when cnt_locations = 1 then max(location_code_mapped) else null end as location_code_derived
         ,case when cnt_advisor = 1 then max(advisor_mapped) else null end as advisor_derived
-        ,case when cnt_advisor = 1 then max(advisor_email_mapped) else null end as advisor_email_derived
         ,max(_source_loaded_at::timestamp)                  as _feed_loaded_at
         ,max(_map_loaded_at)                                as _map_loaded_at
     from cte_mapped
@@ -70,32 +80,31 @@ with cte_custodian_links as
     union all
 
     select
-        custodian                                   as custodian
-        , firm_source                               as firm_source
-        , link                                      as link
-        , link_type                                 as link_type
-        , link_subtype                              as link_subtype
-        ,null::text(200)                            as link_description
-        , null::text(200)                           as link_subtype_detail
-        ,description                                as description
-        ,notes                                      as notes
-        ,0::int                                     as exists_in_feed
-        ,1::int                                     as exists_in_map
-        ,has_trading_authority                      as has_trading_authority
-        ,location_code                              as location_code
-        ,advisor_email                              as advisor_email
-        ,null::int                                  as cnt_accounts
-        ,null::int                                  as cnt_mapped
-        ,null::int                                  as cnt_locations
-        ,null::int                                  as cnt_advisor
-        ,null::int                                  as is_location_one_to_one
-        ,null::int                                  as is_advisor_one_to_one
-        ,null::text(200)                            as location_code_derived
-        ,null::text(200)                            as advisor_derived
-        ,null::text(200)                            as advisor_email_derived
-        ,null::timestamp                            as _feed_loaded_at
-        ,_source_loaded_at                          as _map_loaded_at
-    from {{ ref('int_custodian_codes') }}
+        custodian                                    as custodian
+        , firm_source                                as firm_source
+        , link                                       as link
+        , link_type                                  as link_type
+        , link_subtype                               as link_subtype
+        , null::text(200)                            as link_description
+        , null::text(200)                            as link_subtype_detail
+        , description                                as description
+        , notes                                      as notes
+        , 0::int                                     as exists_in_feed
+        , 1::int                                     as exists_in_map
+        , has_trading_authority                      as has_trading_authority
+        , location_code                              as location_code
+        , advisor_email                              as advisor_email
+        , null::int                                  as cnt_accounts
+        , null::int                                  as cnt_mapped
+        , null::int                                  as cnt_locations
+        , null::int                                  as cnt_advisor
+        , null::int                                  as is_location_one_to_one
+        , null::int                                  as is_advisor_one_to_one
+        , null::text(200)                            as location_code_derived
+        , null::text(200)                            as advisor_derived
+        , null::timestamp                            as _feed_loaded_at
+        , _source_loaded_at                          as _map_loaded_at
+    from {{ ref('aux__stg_custodian_links') }}
     where link not in (select distinct link from cte_custodian_links)
 
     order by custodian, link
@@ -116,7 +125,7 @@ select
     , l.office_name
     , a.advisor_email
     , a.location_code_derived
-    , a.advisor_email_derived
+    , a.advisor_derived
     , a.exists_in_feed
     , a.exists_in_map
     , a.cnt_accounts

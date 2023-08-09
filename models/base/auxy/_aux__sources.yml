@@ -33,8 +33,8 @@ sources:
       - name: vault
         description: Collection of various files and sources stored as json for schema on read.
 
-      - name: custodian_codes
-        description: "Custodian codes master list (box file id: 490214713493)"
+      - name: custodian_links
+        description: "Custodian links master list (box file id: 1255316443171)."
 
       - name: tda_account_mappings
         description: TDA account to Schwab account number mappings from the TDA to Schwab merger.
