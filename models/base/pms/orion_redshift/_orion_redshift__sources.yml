@@ -3,8 +3,7 @@ version: 2
 sources:
   - name: orion
     description: ""
-    # database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
-    database: datalake_dev
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: orion
     tables:
       - name: stg_vw_account
