@@ -209,9 +209,10 @@ models:
       options_reporting:
         +tags: ['options_reporting']
         +database: |
-          {%- if target.name == "prod"  -%} devops
+          {%- if  target.name == "dev" -%} devops_test
+          {%- elif target.name == "prod"  -%} devops
           {%- elif target.name == "test"  -%} devops_test
-          {%- else -%} target.database
+          {%- else -%} devops_test
           {%- endif -%}
         +grants:
           select: "{{ ['engineering', 'integration_dm'] if target.name in ['prod','test'] else []}}"

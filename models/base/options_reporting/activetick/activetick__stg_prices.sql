@@ -1,8 +1,8 @@
 select
-    r.value:s::string                                           as symbol
-  , r.value:st::string                                          as status
-  , r.value:copi_symbol::string                                 as copi_symbol
-  , r.value:columns.s::string                                   as feed_source_code
+    r.value:s::text(200)                                        as symbol
+  , r.value:st::text(200)                                       as status
+  , r.value:copi_symbol::text(200)                              as copi_symbol
+  , r.value:columns.s::text(200)                                as feed_source_code
   , r.value:columns.pc::number(19, 6)                           as previous_close
   , r.value:columns.op::number(19, 6)                           as open_price
   , r.value:columns.cl::number(19, 6)                           as close_price
@@ -18,9 +18,9 @@ select
   , r.value:columns.pop::number(19, 6)                          as pre_market_open_price
   , r.value:columns.el::number(19, 6)                           as extended_hours_last_price
   , r.value:columns.ecl::number(19, 6)                          as extended_hours_close_price
-  , r.value:columns.bex::string                                 as bid_exchange
-  , r.value:columns.aex::string                                 as ask_exchange
-  , r.value:columns.lex::string                                 as last_trade_exchange
+  , r.value:columns.bex::text(200)                              as bid_exchange
+  , r.value:columns.aex::text(200)                              as ask_exchange
+  , r.value:columns.lex::text(200)                              as last_trade_exchange
   , r.value:columns.lco                                         as last_trade_conditions
   , r.value:columns.qco                                         as quote_condition
   , r.value:columns.sbtm::timestamp_ntz                         as session_begin_time
@@ -64,17 +64,17 @@ select
   , try_to_number(r.value:columns.ap50::varchar(100), 19, 6)    as "50_day_avg_price"
   , try_to_number(r.value:columns.ap100::varchar(100), 19, 6)   as "100_day_avg_price"
   , try_to_number(r.value:columns.ap200::varchar(100), 19, 6)   as "200_day_avg_price"
-  , r.value:columns.divtype::string                             as dividend_type
+  , r.value:columns.divtype::text(200)                          as dividend_type
   , try_to_number(r.value:columns.divamt::varchar(100), 19, 6)  as dividend_amount
   , try_to_date(r.value:columns.divdecldt::varchar(100))        as dividend_declared_date
   , try_to_date(r.value:columns.divexdt::varchar(100))          as dividend_ex_date
   , try_to_date(r.value:columns.divrecdt::varchar(100))         as dividend_record_date
   , try_to_date(r.value:columns.divpaydt::varchar(100))         as dividend_payable_date
-  , r.value:columns.sd::string                                  as company_short_description
-  , r.value:columns.ld::string                                  as company_long_description
-  , r.value:columns.sic::string                                 as stock_sic_code
-  , r.value:columns.sok::string                                 as stock_sik_code
-  , r.value:columns.pex::string                                 as stock_primary_exchange
+  , r.value:columns.sd::text(200)                               as company_short_description
+  , r.value:columns.ld::text(200)                               as company_long_description
+  , r.value:columns.sic::text(200)                              as stock_sic_code
+  , r.value:columns.sok::text(200)                              as stock_sik_code
+  , r.value:columns.pex::text(200)                              as stock_primary_exchange
   , {{ col_is_head(reference=source('activetick', 'activetick_prices'), source_date_col='p.record_datetime', reference_date_col='record_datetime') }}
   , p.record_date
   , p.record_datetime

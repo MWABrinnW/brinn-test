@@ -1,19 +1,19 @@
 select
-    po.account_id
-  , ac.accountnumber                                               as account_number
-  , ac.name                                                        as account_name
-  , gr.name                                                        as group_name
-  , po.security_id
-  , regexp_substr(po.security_id, '\\D+')::string                  as underlying_security
-  , to_date(regexp_substr(po.security_id, '\\d+'), 'YYMMDD')       as expiration_date
-  , regexp_substr(po.security_id, '\\D', 6)::string                as put_call
-  , to_number(regexp_substr(po.security_id, '\\d{8}', 6)) / 1000   as strike_price
+    po.account_id                                                    as account_id
+  , ac.account_number                                                as account_number
+  , ac.account_name                                                  as account_name
+  , ac.group_name                                                    as group_name
+  , po.security_id                                                   as security_id
+  , regexp_substr(po.security_id, '\\D+')::text(200)                 as underlying_security
+  , to_date(regexp_substr(po.security_id, '\\d+'), 'YYMMDD')         as expiration_date
+  , regexp_substr(po.security_id, '\\D', 6)::text(200)               as put_call
+  , to_number(regexp_substr(po.security_id, '\\d{8}', 6)) / 1000     as strike_price
   , prd.previous_close
   , iff(
                 regexp_substr(po.security_id, '\\D', 6) = 'P',
-                (div0(to_number(regexp_substr(po.security_id, '\\d{8}', 6)) / 1000, prd.previous_close) - 1) * -1,
+                ( div0(to_number(regexp_substr(po.security_id, '\\d{8}', 6)) / 1000, prd.previous_close) - 1 ) * -1,
                 div0(to_number(regexp_substr(po.security_id, '\\d{8}', 6)) / 1000, prd.previous_close) - 1
-        )                                                          as otm
+        )                                                            as otm
   , po.unrealized_pnl
   , po.quantity
   , prd.close_price
@@ -21,39 +21,17 @@ select
   , prd."10_day_avg_price"
   , prd.dividend_ex_date
   , prd.dividend_amount
-  , (div0(prd.last_trade_price, prd."10_day_avg_price") - 1) * 100 as "unrealized_gain_%"
-  , po.record_datetime
-from {{ ref('fixflyer_options__stg_copilot_positions') }} po
-left join (
-              select
-                  accountid
-                , accountnumber
-                , name
-              from {{ ref('fixflyer_options__stg_copilot_accounts') }}
-              where is_head = 1
-          )                                               ac
-          on po.account_id = ac.accountid
-left join (
-              select
-                  groupid
-                , name
-              from {{ ref('fixflyer_options__stg_groups_raw') }}
-              where is_head = 1
-          )                                               gr
-          on po.group_id = gr.groupid
-left join (
-              select
-                  copi_symbol
-                , dividend_ex_date
-                , dividend_amount
-                , close_price
-                , last_trade_price
-                , previous_close
-                , "10_day_avg_price"
-              from {{ ref('activetick__stg_activetick_prices') }}
-              where is_head = 1
-          )                                               prd
-          on regexp_substr(po.security_id, '\\D+') = prd.copi_symbol
+  , ( div0(prd.last_trade_price, prd."10_day_avg_price") - 1 ) * 100 as "unrealized_gain_%"
+  , po._created_at                                                   as _created_at
+from {{ ref('fixflyer_options__stg_positions') }} po
+left join {{ ref('fixflyer_options__int_accounts') }} ac
+    on po.account_id = ac.account_id
+    and ac.is_head = 1 and ac.is_latest = 1
+left join {{ ref('activetick__stg_prices') }} prd
+    on regexp_substr(po.security_id, '\\D+') = prd.copi_symbol
+    and prd.is_head = 1
 where true
-  and po.product = '5'
   and po.is_head = 1
+  and po.is_latest = 1
+  and po.product = 5
+order by po.account_id, po.security_id

@@ -6,15 +6,17 @@ sources:
     database: "{{ var('db_devops_src', env_var('DBT_DB_DEVOPS_SRC', 'devops')) }}"
     schema: fixflyer_options
     tables:
-      - name: copilot_orders_allocations
+      - name: allocations
         description: ""
-      - name: copilot_positions
+      - name: positions
         description: ""
-      - name: groups_raw
+      - name: groups
         description: "Raw groups data from copilot"
-      - name: models_raw
+      - name: models
         description: "Raw models data from copilot"
-      - name: restrictions_raw
+      - name: restrictions
         description: "Raw security restrictions data from copilot"
-      - name: copilot_accounts
+      - name: accounts
         description: ""
+      - name: sod_salesforce_accounts
+        description: "Salesforce estate item table."
