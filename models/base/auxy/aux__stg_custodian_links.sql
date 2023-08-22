@@ -11,6 +11,7 @@ select
   , json:LOCATION_CODE::text(200)       as location_code
   , json:LOCATION_CODE_NOTES::text(200) as location_code_notes
   , json:ADVISOR_EMAIL::text(200)       as advisor_email
+  , nvl(json:IS_DECEASED::int,0)        as is_deceased
   , json:HAS_TRADING_AUTHORITY::int     as has_trading_authority
   , json:DEACTIVATED_DATE::date         as deactivated_date
   , json:_box_file_id::text(100)        as _box_file_id

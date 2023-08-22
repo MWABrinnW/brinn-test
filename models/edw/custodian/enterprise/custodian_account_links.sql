@@ -17,6 +17,7 @@ select
   , cc.advisor_email                      as advisor_email
   , cc.description                        as description
   , cc.notes                              as notes
+  , cc.is_deceased                        as is_deceased
   , cc.has_trading_authority              as has_trading_authority
   , case 
       when cc.link is not null
@@ -52,6 +53,7 @@ select
   , cc.advisor_email                      as advisor_email
   , cc.description                        as description
   , cc.notes                              as notes
+  , cc.is_deceased                        as is_deceased
   , cc.has_trading_authority              as has_trading_authority
   , case 
       when cc.link is not null
@@ -92,6 +94,7 @@ select
   , cc.advisor_email                      as advisor_email
   , cc.description                        as description
   , cc.notes                              as notes
+  , cc.is_deceased                        as is_deceased
   , cc.has_trading_authority              as has_trading_authority
   , case 
       when cc.link is not null
@@ -132,6 +135,7 @@ select
   , cc.advisor_email                      as advisor_email
   , cc.description                        as description
   , cc.notes                              as notes
+  , cc.is_deceased                        as is_deceased
   , cc.has_trading_authority              as has_trading_authority
   , case 
       when cc.link is not null
@@ -174,6 +178,7 @@ select
   , cc.advisor_email                      as advisor_email
   , cc.description                        as description
   , cc.notes                              as notes
+  , cc.is_deceased                        as is_deceased
   , cc.has_trading_authority              as has_trading_authority
   , case 
       when cc.link is not null
@@ -210,6 +215,7 @@ select
   , cc.advisor_email                      as advisor_email
   , cc.description                        as description
   , cc.notes                              as notes
+  , cc.is_deceased                        as is_deceased
   , cc.has_trading_authority              as has_trading_authority
   , case 
       when cc.link is not null
@@ -245,6 +251,7 @@ select
   , cc.advisor_email                      as advisor_email
   , cc.description                        as description
   , cc.notes                              as notes
+  , cc.is_deceased                        as is_deceased
   , cc.has_trading_authority              as has_trading_authority
   , case 
       when cc.link is not null

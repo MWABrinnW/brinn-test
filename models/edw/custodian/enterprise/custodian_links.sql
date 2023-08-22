@@ -7,6 +7,16 @@ with cte_custodian_links as
     where is_head = 1
         and link is not null
 )
+,cte_dates as
+(
+    select
+          custodian
+        , link
+        , min(effective_date) as earliest_date
+        , max(effective_date) as latest_date
+    from {{ ref('custodian_account_links') }}
+    group by 1,2
+)
 ,cte_accounts as
 (
     select
@@ -59,6 +69,7 @@ with cte_custodian_links as
         ,notes                                              as notes
         ,1::int                                             as exists_in_feed
         ,exists_in_map                                      as exists_in_map
+        ,is_deceased                                        as is_deceased
         ,has_trading_authority                              as has_trading_authority
         ,location_code                                      as location_code
         ,advisor_email                                      as advisor_email
@@ -74,7 +85,7 @@ with cte_custodian_links as
         ,max(_map_loaded_at)                                as _map_loaded_at
     from cte_mapped
     group by custodian, firm_source, link_type, link_subtype, link_subtype_detail, link, link_description
-        , description, notes, exists_in_map, has_trading_authority
+        , description, notes, exists_in_map, is_deceased, has_trading_authority
         , location_code, advisor_email
 
     union all
@@ -91,6 +102,7 @@ with cte_custodian_links as
         , notes                                      as notes
         , 0::int                                     as exists_in_feed
         , 1::int                                     as exists_in_map
+        , is_deceased                                as is_deceased
         , has_trading_authority                      as has_trading_authority
         , location_code                              as location_code
         , advisor_email                              as advisor_email
@@ -132,10 +144,27 @@ select
     , a.cnt_mapped
     , a.cnt_locations
     , a.cnt_advisor
+    , a.is_deceased
     , a.has_trading_authority
+    , ''::text(2000)
+            || nvl(case
+                    when a.exists_in_feed = 1 and a.exists_in_map = 0
+                        then '; Not in mapping file' end, '')
+            --|| nvl(case
+            --        when a.exists_in_feed = 0 and a.exists_in_map = 1
+            --            then '; Not in data feeds' end, '')
+            || nvl(case
+                    when nvl(a.firm_source,'') = ''
+                        then '; Mapping file is missing FIRM_SOURCE' end, '')
+                                                                    as exception_notes
+    , d.earliest_date
+    , d.latest_date
     , a._feed_loaded_at
     , a._map_loaded_at
 from cte_summary a
 left join edw.enterprise.locations_active l
     on a.location_code = l.location_code
+left join cte_dates d
+    on a.custodian = d.custodian
+    and a.link = d.link
 order by a.custodian, a.firm_source, a.link
