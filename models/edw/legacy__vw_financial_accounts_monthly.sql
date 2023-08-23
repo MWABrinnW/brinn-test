@@ -1,5 +1,5 @@
 {{ config(
-  grants = {'+select': ['db_edw_client_mwa_r']}
+  grants = {'+select': ['db_edw_client_mwa_r', 'reporting']}
 ) }}
 
 select

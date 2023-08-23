@@ -233,7 +233,7 @@ models:
       rise:
         +tags: ['rise']
         +grants:
-          select: "{{ ['engineering', 'datamanagement', 'reporting'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['engineering', 'datamanagement', 'reporting', 'integration_reporting'] if target.name in ['prod','test'] else []}}"
 
       salesforce_adviceperiod:
         +tags: ['crm', 'salesforce']
