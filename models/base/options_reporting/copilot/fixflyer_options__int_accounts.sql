@@ -1,5 +1,5 @@
 select
-    , g.group_name
+      g.group_name
     , g.group_type
     , g.group_description
     , g.group_id
