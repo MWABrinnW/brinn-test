@@ -1,4 +1,4 @@
-
+{{ config(enabled=false) }}
 select
     'schwab'                   as custodian
   , accountnumber              as account_number

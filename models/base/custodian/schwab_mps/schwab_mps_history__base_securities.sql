@@ -1,4 +1,4 @@
-
+{{ config(enabled=false) }}
 select
      'schwab'                       as custodian
     ,securitysymbol                 as security_symbol

@@ -1,4 +1,4 @@
-
+{{ config(enabled=false) }}
 select
    'schwab'                    as custodian
   , 'mwa'                      as firm_source
