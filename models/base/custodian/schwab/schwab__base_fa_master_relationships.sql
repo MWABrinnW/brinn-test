@@ -28,6 +28,7 @@ select
   , {{ col_is_current(date_col='effective_date') }}
   , a._created_at                                   as _source_loaded_at
   , a._source_file                                  as _source_file
+  , null::text(200)                                 as _md5
 from {{ source('schwab', 'fam') }} a
 left join {{ ref('aux__stg_custodian_links') }} cl
     on '0' || fa_master_account_number = cl.link
