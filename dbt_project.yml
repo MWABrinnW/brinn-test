@@ -130,6 +130,10 @@ models:
           +tags: ['lpl', 'network', 'mps']
           +grants:
             select: "{{ ['db_custodial_mps_r'] if target.name in ['prod','test'] else []}}"
+        schwab:
+          +tags: ['schwab']
+          +grants:
+            select: "{{ ['db_custodial_r'] if target.name in ['prod','test'] else []}}"
         schwab_mps:
           +tags: ['schwab', 'mps']
           +grants:

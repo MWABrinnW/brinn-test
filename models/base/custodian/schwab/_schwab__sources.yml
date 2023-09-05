@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: schwab
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    schema: schwab
+    loaded_at_field: _created_at
+    tables:
+      - name: acc
+        description: "[Account information file](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+      - name: sec
+        description: "[Securities file](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+      - name: rps
+        description: "[Cash and positions file](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+      - name: trn
+        description: "[Transactions file](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+      - name: ult
+      - name: uln
+      - name: upn
+      - name: upt
+      - name: fam
+      - name: tcf
+        description: "Trade confirms file"
+      - name: mxr
+        description: "TDA account mapping file"
+      - name: referral_fees_prior_quarter
+      - name: referral_fees_current_quarter
+      - name: referral_fees_advisor_network

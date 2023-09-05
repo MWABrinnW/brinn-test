@@ -1,16 +1,11 @@
 select 
        'schwab'                                                      as custodian
-     , r.json:"H2 H3"::varchar(100)                                  as h2_h3
+     , 'mps'                                                         as firm_source
+     , null::text(200)                                               as firm
+     , null::text(200)                                               as record_type
      , r.json:"Custdian ID"::varchar(100)                            as custodian_id
      , right(r.json:"MstrAcct Number", 8)::varchar(100)              as master_account_number
      , r.json:"Master Account Name"::varchar(100)                    as master_account_name
-     ,case
-          when right(master_account_number,8) = '08051423'
-               then 'swag'
-          when right(master_account_number,8) = '08355335'
-               then 'mps'
-          else 'mps'
-          end                                                        as firm_source
      , try_to_date(r.json:"Business Date"::varchar(100), 'YYYYMMDD') as business_date
      , right(r.json:"Account ID", 8)::varchar(100)                   as account_number
      , r.json:"Prod Code"::varchar(100)                              as product_code
@@ -50,16 +45,91 @@ select
      , r.json:"Quantity Settled"::decimal(15, 5)                     as quantity_settled
      , r.json:"Quantity Unsettled/Long"::decimal(15, 5)              as quantity_unsettled_long
      , r.json:"Quantity Unsettled/Short"::decimal(15, 5)             as quantity_unsettled_short
-     , r.json:"VersMrkr #1"::varchar(100)                            as versmrkr_1
+     --, r.json:"VersMrkr #1"::varchar(100)                            as versmrkr_1
      , r.json:"TIPS Factor"::decimal(18, 9)                          as tips_factor
      , r.json:"Asset Backed Factor"::decimal(15, 12)                 as asset_backed_factor
-     , r.json:"VersMrkr #2"::varchar(100)                            as versmrkr_2
+     --, r.json:"VersMrkr #2"::varchar(100)                            as versmrkr_2
      , r.json:"Closing Price Unfactored"::decimal(16, 5)             as closing_price_unfactored
      , r.json:"Factor"::decimal(15, 12)                              as factor
      , try_to_date(r.json:"Factor Date"::varchar(100), 'YYYYMMDD')   as factor_date
+     , right(r.json:"MstrAcct Number"::varchar(100), 8)              as master_number
      , effective_date::date                                          as effective_date
      , {{ col_is_head(reference=source('schwab_mps', 'rps_d1')) }}
      , {{ col_is_current(date_col='effective_date') }}
      , _created_at::timestamp                                        as _source_loaded_at
+     , null::text(200)                                               as _source_file
 from {{ source('schwab_mps', 'rps_d1') }} r
-where true
+where 1=1
+    and effective_date < (select min(effective_date) from {{ ref('schwab__base_positions') }})
+
+union all
+
+select
+    custodian
+  , firm_source
+  , firm
+  , record_type
+  , custodian_id
+  , master_account_number
+  , master_account_name
+  , business_date
+  , account_number
+  , product_code
+  , product_category_code
+  , tax_code
+  , legacy_security_type
+  , ticker_symbol
+  , industry_ticker_symbol
+  , cusip
+  , schwab_security_number
+  , item_issue_id
+  , rule_set_suffix_id
+  , isin
+  , sedol
+  , options_display_symbol
+  , security_description_line_1
+  , security_description_line_2
+  , security_description_line_3
+  , security_description_line_4
+  , underlying_ticker_symbol
+  , underlying_industry_ticker_symbol
+  , underlying_cusip
+  , underlying_schwab_security_number
+  , underlying_item_issue_id
+  , underlying_rule_set_suffix_id
+  , underlying_isin
+  , underlying_sedol
+  , money_market_code
+  , dividend_reinvest
+  , capital_gains_reinvest
+  , closing_price
+  , security_price_update_date
+  , quantity_settled_and_unsettled
+  , long_short_indicator
+  , market_value_settled_and_unsettled
+  , accounting_rule_code
+  , quantity_settled
+  , quantity_unsettled_long
+  , quantity_unsettled_short
+  --, version_marker_1
+  , tips_factor
+  , asset_backed_factor
+  --, version_marker_2
+  , closing_price_unfactored
+  , factor
+  , factor_date
+  , master_number
+  , effective_date
+  , is_head
+  , is_current
+  , _source_loaded_at
+  , _source_file
+from {{ ref('schwab__base_positions') }}
+where 1=1
+    and firm_source = 'mps'
+    and rn = 1
+    and (
+        (nvl(is_from_tda_migration,0) in (0,1) and effective_date >= '9/1/2023')
+        or
+        (nvl(is_from_tda_migration,0) = 0 and effective_date < '9/1/2023')
+    )

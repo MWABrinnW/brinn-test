@@ -14,6 +14,11 @@ select
   , nvl(json:IS_DECEASED::int,0)        as is_deceased
   , json:HAS_TRADING_AUTHORITY::int     as has_trading_authority
   , json:DEACTIVATED_DATE::date         as deactivated_date
+  , case
+      when notes ilike '%tda%migration%'
+        then 1
+      else 0
+      end                               as is_from_tda_migration
   , json:_box_file_id::text(100)        as _box_file_id
   , null::text(100)                     as _box_sheet_name
   , _created_at::timestamp              as _source_loaded_at

@@ -1,7 +1,8 @@
 select 
        'schwab'                                                           as custodian
      , 'mwa'                                                              as firm_source
-     , r.json:"H2 H3"::varchar(100)                                       as h2_h3
+     , null::text(200)                                                    as firm
+     , null::text(200)                                                    as record_type
      , r.json:"Custdian ID"::varchar(100)                                 as custodian_id
      , right(r.json:"MstrAcct Number", 8)::varchar(100)                   as master_account_number
      , r.json:"Master Account Name"::varchar(100)                         as master_account_name
@@ -55,8 +56,88 @@ select
      , r.json:"Closing Price Unfactored"::decimal(16, 5)                  as closing_price_unfactored
      , r.json:"Factor"::decimal(15, 12)                                   as factor
      , try_to_date(to_char(r.json:"Factor Date"), 'YYYYMMDD')::date       as factor_date
+     , right(r.json:"MstrAcct Number", 8)::varchar(100)                   as master_number
      , effective_date::date                                               as effective_date
      , {{ col_is_head(reference=source('schwab_mwa', 'sec')) }}
      , {{ col_is_current(date_col='effective_date') }}
      , _created_at::timestamp                                             as _source_loaded_at
+     , null::text(200)                                                    as _source_file
 from {{ source('schwab_mwa', 'sec') }} r
+where 1=1
+    and effective_date < (select min(effective_date) from {{ ref('schwab__base_securities') }})
+
+union all
+
+select
+    custodian
+  , firm_source
+  , firm
+  , record_type
+  , custodian_id
+  , master_account_number
+  , master_account_name
+  , business_date
+  , product_code
+  , product_category_code
+  , tax_code
+  , legacy_security_type
+  , ticker_symbol
+  , industry_ticker_symbol
+  , cusip
+  , schwab_security_number
+  , re_org_schwab_internal_security_number
+  , item_issue_id
+  , rule_set_suffix
+  , isin
+  , sedol
+  , options_display_symbol
+  , security_description_line_1
+  , security_description_line_2
+  , security_description_line_3
+  , security_description_line_4
+  , underlying_ticker_symbol
+  , underlying_industry_ticker_symbol
+  , underlying_cusip
+  , underlying_schwab_security_number
+  , underlying_item_issue_id
+  , underlying_rule_set_suffix_id
+  , underlying_isin
+  , underlying_sedol
+  , money_market_code
+  , last_update_date
+  , sweep_fund_indicator
+  , closing_price
+  , security_price_update_date
+  , security_valuation_unit
+  , option_root_symbol
+  , option_expiration_date
+  , option_call_or_put_code
+  , strike_price_amount
+  , interest_rate
+  , maturity_date
+  , tips_factor
+  , asset_backed_factor
+  , face_value_amount
+  , issuer_state
+  , version_marker_number
+  , schwab_proprietary_indicator
+  , schwab_one_source_indicator
+  , version_marker_2
+  , closing_price_unfactored
+  , factor
+  , factor_date
+  , master_number
+  , effective_date
+  , is_head
+  , is_current
+  , _source_loaded_at
+  , _source_file
+from {{ ref('schwab__base_securities') }}
+where 1=1
+    and firm_source = 'mwa'
+    and rn = 1
+    and (
+        (nvl(is_from_tda_migration,0) in (0,1) and effective_date >= '9/1/2023')
+        or
+        (nvl(is_from_tda_migration,0) = 0 and effective_date < '9/1/2023')
+    )

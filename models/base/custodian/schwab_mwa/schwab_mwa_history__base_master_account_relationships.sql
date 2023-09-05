@@ -1,16 +1,4 @@
-select
-   'schwab'                         as custodian
-  , 'mwa'                           as firm_source
-  , '0' || fa_master_account_number as fa_master_account_number
-  , fa_master_account_description   as fa_master_account_description
-  , fa_rep_name                     as fa_rep_name
-  , sub_account_number              as account_number
-  , sub_account_name                as account_name
-  , sub_account_tax_id_number       as account_tax_id_number
-  , effective_date                  as effective_date
-  ,{{ col_is_head(reference=source('schwab_mwa', 'master_account_relationships')) }}
-  ,{{ col_is_current(date_col='effective_date') }}
-  , _record_datetime::timestamp     as _source_loaded_at
-  , _source_file::text(200)         as _source_file
-  , null::text(200)                 as _checksum
-from {{ source('schwab_mwa', 'master_account_relationships') }}
+select *
+from {{ ref('schwab__base_fa_master_relationships') }}
+where 1=1
+  and firm = 'mwa'
