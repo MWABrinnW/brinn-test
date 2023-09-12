@@ -32,13 +32,13 @@ select
         else trim(substring(content, 169, 12)) end::decimal(12, 2) as fees_due_for_household
   , left(a._source_file, 8)                                        as master_number
   , a.effective_date::date                                         as effective_date
-  , {{ col_is_head(reference=source('schwab', 'referral_fees_current_quarter')) }}
+  , {{ col_is_head(reference=source('schwab', 'referral_fees_prior_quarter')) }}
   , {{ col_is_current(date_col='effective_date') }}
   , a._created_at::timestamp                                       as _source_loaded_at
   , a._source_file::varchar(100)                                   as _source_file
-from {{ source('schwab', 'referral_fees_current_quarter') }} a
-left join {{ ref('aux__stg_custodian_links') }} cl
-    on left(a._source_file, 8) = cl.link
-    and cl.custodian = 'schwab'
-left join {{ ref('custodian_firms') }} cf
-    on cl.firm_source = cf.firm_source
+from {{ source('schwab', 'referral_fees_prior_quarter') }} a
+left join {{ ref('aux__stg_custodian_links') }}            cl
+          on left(a._source_file, 8) = cl.link
+              and cl.custodian = 'schwab'
+left join {{ ref('custodian_firms') }}                     cf
+          on cl.firm_source = cf.firm_source

@@ -23,6 +23,27 @@ sources:
         description: "Trade confirms file"
       - name: mxr
         description: "TDA account mapping file"
+
+      - name: acc_accounts
+        description: "[Account information file](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+      - name: sec_securities
+        description: "[Securities file](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+      - name: rps_cash
+        description: "[Cash and positions file](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+      - name: rps_positions
+        description: "[Cash and positions file](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+      - name: trn_transactions
+        description: "[Transactions file](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+      - name: ult_open_lots_taxable
+      - name: uln_open_lots_nontaxable
+      - name: upt_open_positions_taxable
+      - name: upn_open_positions_nontaxable
+      - name: fam_fa_master_relationships
+      - name: tcf_trades
+        description: "Trade confirms file"
+      - name: mxr_tda_account_mappings
+        description: "TDA account mapping file"
+
       - name: referral_fees_prior_quarter
       - name: referral_fees_current_quarter
       - name: referral_fees_advisor_network

@@ -37,6 +37,7 @@ vars:
   dev_day_filter: 7
   incremental_mode: lookback
   lookback_custodial: 14
+  custodial_lookback: 14
 
 on-run-start:
   - "{{ create_schemas() if target.name in ['prod','test'] }}"
@@ -132,8 +133,12 @@ models:
             select: "{{ ['db_custodial_mps_r'] if target.name in ['prod','test'] else []}}"
         schwab:
           +tags: ['schwab']
-          +grants:
-            select: "{{ ['db_custodial_r'] if target.name in ['prod','test'] else []}}"
+          stg:
+            +grants:
+              select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+          base:
+            +grants:
+              select: "{{ ['db_custodial_r'] if target.name in ['prod','test'] else []}}"
         schwab_mps:
           +tags: ['schwab', 'mps']
           +grants:
@@ -375,7 +380,7 @@ seeds:
         {%- elif target.name == "test"  -%} datalake_test
         {%- else -%} datalake_test
         {%- endif -%}
-      +schema: aux  
+      +schema: aux
 
     edw:
       +database: |

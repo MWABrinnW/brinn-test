@@ -1,7 +1,7 @@
 select
     a.effective_date::date                                         as effective_date
   , 'schwab'::varchar(50)                                          as custodian
-  , cf.firm                                                        as firm
+  , a.firm::varchar(50)                                            as firm
   , a.firm_source::varchar(50)                                     as firm_source
   , a.account_number::varchar(50)                                  as account_number
   , a.account_number::varchar(50)                                  as account_number_formatted
@@ -15,15 +15,15 @@ select
   , ar.definition::varchar(50)                                     as account_type_source_definition
   , ar.normalized::varchar(50)                                     as account_type -- (ira rollover, etc)
 
-  , a.date_opened::date                                            as opened_date
+  , a.date_opened_established::date                                as opened_date
   , a.account_title_line_1::varchar(200)                           as account_title
-  , a.tax_payer_first_name::varchar(200)                           as first_name
-  , a.tax_payer_middle_name::varchar(200)                          as middle_name
-  , a.tax_payer_last_name::varchar(200)                            as last_name
+  , a.taxpayer_first_name::varchar(200)                            as first_name
+  , a.taxpayer_middle_name::varchar(200)                           as middle_name
+  , a.taxpayer_last_name::varchar(200)                             as last_name
 
-  , replace(a.ssn_tin, '-', '')::varchar(20)                       as irs_id
+  , replace(a.social_security_number_ssntax_id_number_tin, '-', '')::varchar(20) as irs_id
   , case
-        when left(a.ssn_tin, 1) = '9'
+        when left(a.social_security_number_ssntax_id_number_tin, 1) = '9'
             then 'tin'
         else 'ssn'
         end::varchar(10)                                           as irs_id_type
@@ -74,12 +74,11 @@ select
   , a._source_loaded_at::timestamp                                 as _created_at
   , a._source_loaded_at::timestamp                                 as _source_loaded_at
   , null::varchar(200)                                             as _source_file
-from {{ ref('schwab_mps_history__base_accounts') }} a
-left join {{ ref('custodian_firms') }} cf
-    on a.firm_source = cf.firm_source
+from {{ ref('schwab__base_accounts') }} a
 left join {{ ref('custodian_mappings') }}           ar
     on ar.custodian = 'schwab'
     and ar.field = 'account_registration'
     and a.account_registration = ar.source
 where true
     and a.firm_source = 'mps'
+    and a.rn = 1
