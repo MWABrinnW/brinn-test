@@ -204,28 +204,6 @@ models:
       morningstar:
         +tags: ['morningstar']
 
-      moxy:
-        +tags: ['moxy']
-        +database: |
-          {%- if  target.name == "dev" -%} devops_test
-          {%- elif target.name == "prod"  -%} devops
-          {%- elif target.name == "test"  -%} devops_test
-          {%- else -%} devops_test
-          {%- endif -%}
-        +grants:
-          select: "{{ ['integration_dm'] if target.name in ['prod','test'] else []}}"
-
-      options_reporting:
-        +tags: ['options_reporting']
-        +database: |
-          {%- if  target.name == "dev" -%} devops_test
-          {%- elif target.name == "prod"  -%} devops
-          {%- elif target.name == "test"  -%} devops_test
-          {%- else -%} devops_test
-          {%- endif -%}
-        +grants:
-          select: "{{ ['engineering', 'integration_dm'] if target.name in ['prod','test'] else []}}"
-
       pms:
         +tags: ['pms']
         +grants:
@@ -235,9 +213,6 @@ models:
         +tags: ['redtail', 'network']
         +grants:
           select: "{{ ['db_crm_mps_r'] if target.name in ['prod','test'] else []}}"
-
-      ring_central:
-        +tags: ['ring_central']
 
       rise:
         +tags: ['rise']
@@ -271,6 +246,30 @@ models:
         +tags: ['zoom']
         +grants:
           select: "{{ ['db_it_r'] if target.name in ['prod','test'] else []}}"
+
+# [DEVOPS]
+
+    devops:
+      +tags: ['devops']
+      +database: |
+        {%- if  target.name == "dev" -%} devops_test
+        {%- elif target.name == "prod"  -%} devops
+        {%- elif target.name == "test"  -%} devops_test
+        {%- else -%} devops_test
+        {%- endif -%}
+      +grants:
+        +select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+
+      activetick:
+        +tags: ['activetick']
+      lifi:
+        +tags: ['lifi']
+      moxy:
+        +tags: ['moxy']
+        +enabled: false
+      options:
+        +tags: ['options', 'options_reporting']
+
 
 # [EDW]
     edw:

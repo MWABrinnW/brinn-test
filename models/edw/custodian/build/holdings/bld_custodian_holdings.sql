@@ -59,12 +59,19 @@ with cte_max_created_at as
 )
 ,cte_max_effective_date as
 (
+    {%- if table_exists and is_incremental() -%}
     select 
           replace(custodian,'-','')                     as custodian
         , firm_source                                   as firm_source
         , nvl(max(effective_date),'1900-01-01'::date)   as effective_date
     from {{ this }}
     group by 1,2
+    {%- else -%}
+    select
+          null::text(100) as custodian
+        , null::text(100) as firm_source
+        , null::date      as effective_date
+    {%- endif -%}
 )
 ,cte_effective_dates_out_of_date as
 (
@@ -76,7 +83,7 @@ with cte_max_created_at as
     from (
         select effective_date, {{"'" ~ nml_model ~ "'"}} as model_source, max(_source_loaded_at) as _source_loaded_at
         from {{ ref(nml_model) }}
-        where effective_date >= current_date() - {{ var('custodial_lookback', 30) }}
+        where effective_date >= current_date() - {{ var('lookback_custodial', 30) }}
         group by 1, 2
         )
     where true
@@ -108,7 +115,7 @@ with cte_max_created_at as
     from (
         select effective_date, {{"'" ~ nml_model ~ "'"}} as model_source, max(_source_loaded_at) as _source_loaded_at
         from {{ ref(nml_model) }}
-        where effective_date >= current_date() - {{ var('custodial_lookback', 30) }}
+        where effective_date >= current_date() - {{ var('lookback_custodial', 30) }}
         group by 1, 2
         )
     {#  Capture effective dates where source timestamp is newer than destination max timestamp.
