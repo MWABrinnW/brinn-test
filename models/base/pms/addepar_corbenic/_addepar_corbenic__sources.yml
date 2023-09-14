@@ -8,3 +8,4 @@ sources:
     tables:
       - name: accounts
       - name: holdings
+      - name: revenue_billing
