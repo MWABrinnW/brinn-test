@@ -12,7 +12,10 @@ with custodian_accounts as
     where 1=1
         and is_head = 1
         and custodian in ('schwab', 'fidelity')
-        and link in ('08261207', 'G14279989')
+        and link in (
+            '08261207', 'G14279989'
+            ,'08261207', '08220807', '08220445' -- TDA migrated schwab accounts
+        )
     order by custodian, link, account_number
 )
 ,crm_accounts as
