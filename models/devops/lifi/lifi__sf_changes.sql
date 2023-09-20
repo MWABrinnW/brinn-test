@@ -93,6 +93,11 @@ with cte_links as
         select account_number
         from cte_salesforce
     )
+    , cte_exclusions as
+    ( 
+        select account_number
+        from {{ ref('aux__base_lifi_exclusions') }}
+    )
    , cte_final as
     (
         select a.account_number                                              as account_number
@@ -158,8 +163,10 @@ with cte_links as
                            on a.account_number = f.account_number
                  left join cte_links l
                            on a.account_number = l.account_number and l.rn = 1
+                 left join cte_exclusions ex
+                           on a.account_number = ex.account_number
         where true
+            and ex.account_number is null
     )
 select *
 from cte_final
-where account_number not in ('646164135', '646204412', '646286370', '647612618', '647866571', '649210218', '649291129', '649395080', '649513458', '656234934', '656257367', '656518166', '656519271', '676071275')

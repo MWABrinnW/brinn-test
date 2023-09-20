@@ -38,4 +38,6 @@ sources:
 
       - name: tda_account_mappings
         description: TDA account to Schwab account number mappings from the TDA to Schwab merger.
+      - name: lifi_exclusions
+        description: Accounts that we want to exclude from daily LIFI updates.
         
