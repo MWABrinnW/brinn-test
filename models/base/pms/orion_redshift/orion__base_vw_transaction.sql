@@ -57,6 +57,6 @@ select
   , a._created_at                                               as _created_at
   , a._source_file                                              as _source_file
   , a._checksum                                                 as _checksum
-from {{ source('orion', 'stg_vw_transaction') }} a
+from {{ source('orion', 'vw_transaction') }} a
 join {{ ref('orion__base_vw_clientinfo') }}      ci
      on a._client::int = ci.pkalclient
