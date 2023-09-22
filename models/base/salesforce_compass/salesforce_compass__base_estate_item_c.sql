@@ -216,6 +216,8 @@ select
   , a.json:ROLLOVER_C:: BOOLEAN                               as rollover_c
   , a.json:ANNUITY_MATURITY_DATE_C:: DATE                     as annuity_maturity_date_c
   , a.json:TAX_PAYMENT_AUTHORIZATION_FORM_C:: BOOLEAN         as tax_payment_authorization_form_c
+  , a.json:TDA_LEGACY_ACCOUNT_C::varchar(200)                 as tda_legacy_account_c
+  , a.json:TDA_LEGACY_ACCOUNT_NUMBER_C::varchar(200)          as tda_legacy_account_number_c
   , a.json:_FIVETRAN_DELETED:: BOOLEAN                        as _fivetran_deleted
 
   , a.effective_at::timestamp                                 as effective_at
