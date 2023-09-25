@@ -56,6 +56,7 @@ models:
     +persist_docs:
       relation: true
       columns: true
+    +dbt-osmosis: "_{parent}__models.yml"
 
     # By default models will go in the datalake db
     +database: |
@@ -89,6 +90,7 @@ models:
         +tags: ['aux']
         +grants:
           select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+        +dbt-osmosis: "_aux__models.yml"
 
       cais:
         +tags: ['cais', 'mwa']
@@ -175,6 +177,7 @@ models:
         +tags: ['de']
         +grants:
           select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+        +dbt-osmosis: "_de__models.yml"
 
       edw_legacy:
         +tags: ['edw', 'employees', 'associates']
@@ -280,6 +283,7 @@ models:
         {%- elif target.name == "test"  -%} edw_test
         {%- else -%} edw_test
         {%- endif -%}
+      +dbt-osmosis: "_{model}.yml"
 
       custodian:
         +tags: ['custodian', 'custodial', 'custodian-master']
