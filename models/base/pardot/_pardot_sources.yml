@@ -1,0 +1,331 @@
+version: 2
+
+sources:
+  - name: pardot
+    database: fivetran
+    description: ""
+    schema: pardot
+    tables:
+      - name: campaign
+        columns:
+          - name: id
+          - name: name
+          - name: cost
+          - name: _fivetran_deleted
+          - name: _fivetran_synced
+
+      - name: campaign_tag
+        columns:
+          - name: campaign_id
+          - name: tag_id
+          - name: _fivetran_synced
+
+      - name: email
+        columns:
+          - name: id
+          - name: list_email_id
+          - name: name
+          - name: subject
+          - name: prospect_id
+          - name: list_id
+          - name: created_by_id
+          - name: campaign_id
+          - name: client_type
+          - name: created_at
+          - name: _fivetran_synced
+
+      - name: email_tag
+        columns:
+          - name: email_id
+          - name: tag_id
+          - name: _fivetran_synced
+
+      - name: fivetran_audit
+        columns:
+          - name: id
+          - name: message
+          - name: update_started
+          - name: update_id
+          - name: schema
+          - name: table
+          - name: start
+          - name: done
+          - name: rows_updated_or_inserted
+          - name: status
+          - name: progress
+          - name: _fivetran_synced
+
+      - name: list
+        columns:
+          - name: id
+          - name: name
+          - name: is_public
+          - name: is_dynamic
+          - name: title
+          - name: description
+          - name: is_crm_visible
+          - name: created_at
+          - name: updated_at
+          - name: _fivetran_synced
+
+      - name: list_email
+        columns:
+          - name: id
+          - name: campaign_id
+          - name: created_by_id
+          - name: updated_by_id
+          - name: email_template_id
+          - name: tracker_domain_id
+          - name: client_type
+          - name: subject
+          - name: name
+          - name: html_message
+          - name: text_message
+          - name: is_deleted
+          - name: is_paused
+          - name: is_sent
+          - name: operational_email
+          - name: created_at
+          - name: sent_at
+          - name: updated_at
+          - name: _fivetran_synced
+
+      - name: list_membership
+        columns:
+          - name: id
+          - name: list_id
+          - name: prospect_id
+          - name: opted_out
+          - name: created_at
+          - name: updated_at
+          - name: _fivetran_deleted
+          - name: _fivetran_synced
+
+      - name: list_tag
+        columns:
+          - name: list_id
+          - name: tag_id
+          - name: _fivetran_synced
+
+      - name: opportunity
+        columns:
+          - name: id
+          - name: name
+          - name: value
+          - name: probability
+          - name: type
+          - name: stage
+          - name: status
+          - name: created_at
+          - name: updated_at
+          - name: closed_at
+          - name: campaign_id
+          - name: _fivetran_synced
+
+      - name: opportunity_prospect
+        columns:
+          - name: opportunity_id
+          - name: prospect_id
+          - name: updated_at
+          - name: _fivetran_synced
+
+      - name: prospect
+        columns:
+          - name: id
+          - name: campaign_id
+          - name: user_id
+          - name: salutation
+          - name: first_name
+          - name: last_name
+          - name: email
+          - name: password
+          - name: company
+          - name: website
+          - name: job_title
+          - name: department
+          - name: country
+          - name: address_one
+          - name: address_two
+          - name: city
+          - name: state
+          - name: territory
+          - name: zip
+          - name: phone
+          - name: fax
+          - name: source
+          - name: annual_revenue
+          - name: employees
+          - name: industry
+          - name: years_in_business
+          - name: comments
+          - name: notes
+          - name: score
+          - name: grade
+          - name: is_permanently_deleted
+          - name: last_activity_at
+          - name: recent_interaction
+          - name: crm_lead_fid
+          - name: crm_contact_fid
+          - name: crm_owner_fid
+          - name: crm_account_fid
+          - name: crm_last_sync
+          - name: crm_url
+          - name: prospect_account_id
+          - name: is_do_not_email
+          - name: is_do_not_call
+          - name: opted_out
+          - name: is_reviewed
+          - name: is_starred
+          - name: created_at
+          - name: updated_at
+          - name: _fivetran_deleted
+          - name: custom_contact_record_type
+          - name: custom_salesforce_fid
+          - name: custom_marketing_owner
+          - name: _fivetran_synced
+          - name: custom_digital_marketing_opt_out_retirement_
+          - name: custom_digital_marketing_opt_out_asset_management_
+          - name: custom_digital_marketing_campaigns_wealth_
+          - name: custom_digital_marketing_opt_out_wealth_
+          - name: custom_digital_marketing_options_wealth_
+          - name: custom_marketing_record_type
+          - name: custom_birthdate
+          - name: custom_tags
+          - name: custom_age
+          - name: custom_force_sync
+          - name: custom_marketing_account
+          - name: custom_digital_marketing_options_retirement_
+          - name: custom_type_of_retiree_quiz_
+          - name: custom_digital_marketing_campaigns_retirement_
+          - name: custom_drip_campaign_list
+          - name: custom_college
+          - name: custom_date_of_death
+          - name: custom_lead_source_wealth_
+          - name: custom_are_you_a_
+          - name: custom_wealth_contact_lifecycle
+          - name: custom_contact_notes
+          - name: custom_digital_marketing_options_river_point_
+          - name: custom_retirement_contact_lifecycle
+          - name: custom_investment_objectives
+          - name: custom_current_client
+          - name: custom_have_children_you_claim_as_dependents
+          - name: custom_aware_of_the_impact_of_tcja
+          - name: custom_who_prepares_your_taxes
+          - name: custom_age_range
+          - name: custom_tax_bracket
+          - name: custom_any_questions_or_concerns_we_could_answer
+          - name: custom_nickname
+          - name: custom_original_oppty_stage
+          - name: custom_years_until_retirement
+
+      - name: prospect_account
+        columns:
+          - name: id
+          - name: name
+          - name: custom_type
+          - name: custom_assigned_to
+          - name: custom_created_at
+          - name: custom_updated_at
+          - name: _fivetran_synced
+
+      - name: prospect_tag
+        columns:
+          - name: prospect_id
+          - name: tag_id
+          - name: _fivetran_synced
+
+      - name: tag
+        columns:
+          - name: id
+          - name: name
+          - name: created_at
+          - name: updated_at
+          - name: _fivetran_synced
+
+      - name: user
+        columns:
+          - name: id
+          - name: email
+          - name: first_name
+          - name: last_name
+          - name: job_title
+          - name: role
+          - name: account
+          - name: created_at
+          - name: updated_at
+          - name: _fivetran_synced
+
+      - name: user_tag
+        columns:
+          - name: user_id
+          - name: tag_id
+          - name: _fivetran_synced
+
+      - name: visit
+        columns:
+          - name: id
+          - name: visitor_id
+          - name: prospect_id
+          - name: visitor_page_view_count
+          - name: first_visitor_page_view_at
+          - name: last_visitor_page_view_at
+          - name: duration_in_seconds
+          - name: campaign_parameter
+          - name: medium_parameter
+          - name: source_parameter
+          - name: content_parameter
+          - name: term_parameter
+          - name: created_at
+          - name: updated_at
+          - name: _fivetran_synced
+
+      - name: visitor
+        columns:
+          - name: id
+          - name: prospect_id
+          - name: page_view_count
+          - name: ip_address
+          - name: campaign_parameter
+          - name: medium_parameter
+          - name: source_parameter
+          - name: content_parameter
+          - name: term_parameter
+          - name: created_at
+          - name: updated_at
+          - name: hostname
+          - name: _fivetran_synced
+
+      - name: visitor_activity
+        columns:
+          - name: id
+          - name: prospect_id
+          - name: visitor_id
+          - name: email_id
+          - name: opportunity_id
+          - name: visit_id
+          - name: campaign_id
+          - name: type
+          - name: type_name
+          - name: details
+          - name: list_email_id
+          - name: email_template_id
+          - name: form_id
+          - name: form_handler_id
+          - name: site_search_query_id
+          - name: landing_page_id
+          - name: paid_search_ad_id
+          - name: multivariate_test_variation_id
+          - name: visitor_page_view_id
+          - name: file_id
+          - name: custom_redirect_id
+          - name: created_at
+          - name: _fivetran_synced
+
+      - name: visitor_page_view
+        columns:
+          - name: id
+          - name: url
+          - name: title
+          - name: visit_id
+          - name: created_at
+          - name: _fivetran_synced

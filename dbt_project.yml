@@ -207,6 +207,11 @@ models:
       morningstar:
         +tags: ['morningstar']
 
+      pardot:
+        +tags: ['pardot']
+        +grants:
+          select: "{{ ['db_crm_mwa_r'] if target.name in ['prod','test'] else []}}"
+
       pms:
         +tags: ['pms']
         +grants:
