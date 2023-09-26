@@ -1,0 +1,10 @@
+version: 1
+
+sources:
+  - name: fourforty
+    description: ""
+    database: "{{ var('db_devops_src', env_var('DBT_DB_DEVOPS_SRC', 'devops')) }}"
+    schema: fourforty
+    tables:
+      - name: orders_and_allocations
+        description: ""
