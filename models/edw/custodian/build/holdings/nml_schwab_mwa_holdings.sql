@@ -50,4 +50,6 @@ left join {{ ref('custodian_mappings') }}      cmsd
 where true
     and p.firm_source = 'mwa'
     and p.rn = 1
-qualify row_number() over(partition by p.effective_date, p.account_number, p.cusip order by nvl(pcb.cost_basis_unamortized_cost_basis_amount,0) desc) = 1
+qualify row_number() over(
+    partition by p.effective_date, p.account_number, coalesce(p.cusip, ticker), source_account_type
+    order by nvl(pcb.cost_basis_unamortized_cost_basis_amount,0) desc) = 1
