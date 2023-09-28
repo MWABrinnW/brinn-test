@@ -1,3 +1,5 @@
+-- depends_on: {{ ref('schwab__stg_accounts') }}
+
 select
     effective_date              as effective_date
   , 'schwab'                    as custodian

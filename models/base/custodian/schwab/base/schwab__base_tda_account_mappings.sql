@@ -1,3 +1,5 @@
+-- depends_on: {{ ref('schwab__stg_tda_account_mappings') }}
+
 select
     a.custodian
   , cl.firm_source

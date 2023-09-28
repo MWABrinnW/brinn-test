@@ -1,3 +1,5 @@
+-- depends_on: {{ ref('schwab__stg_transactions') }}
+
 select
     a.custodian
   , cl.firm_source

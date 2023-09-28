@@ -57,7 +57,7 @@ with cte_max_created_at as
     select null::timestamp as _created_at
     {%- endif -%}
 )
-,cte_max_effective_date as
+{# ,cte_max_effective_date as
 (
     {%- if table_exists and is_incremental() -%}
     select 
@@ -71,6 +71,16 @@ with cte_max_created_at as
           null::text(100) as custodian
         , null::text(100) as firm_source
         , null::date      as effective_date
+    {%- endif -%}
+) #}
+,cte_destination_effective_dates as
+(
+    {%- if table_exists and is_incremental() -%}
+    select distinct effective_date
+    from {{ this }}
+    where effective_date >= current_date() - {{ var('lookback_custodial', 30) }}
+    {%- else -%}
+    select null::date      as effective_date
     {%- endif -%}
 )
 ,cte_effective_dates_out_of_date as
@@ -88,44 +98,20 @@ with cte_max_created_at as
         )
     where true
         and (
-    {#  Capture effective dates where source timestamp is newer than destination max timestamp.
-        This should account for a historical date that was reloaded because the _created_at would
-        evaluate as newer than the max timestamp in destination. -#}
+        -- Capture effective dates where source timestamp is newer than destination max timestamp.
+        -- ~~This should account for a historical date that was reloaded because the _created_at would
+        -- evaluate as newer than the max timestamp in destination.~~
+        -- If a custodian is loaded after the first build for an effective_date, we would still
+        -- expect for it to get picked up because the _source_loaded_at should be greater
+        -- than the max(_created_at) of the destination ({{this}}).
         _source_loaded_at > nvl((select max(_created_at) from cte_max_created_at), dateadd(d, -1, _source_loaded_at))
         {%- if table_exists and is_incremental() %}
-        {# Capture effective dates where source custodian-firm does not exist in destination -#}
-        or effective_date > nvl((select effective_date from cte_max_effective_date where custodian = '{{custodian}}' and firm_source = '{{firm_source}}'), '1900-01-01'::date)
-        {%- endif -%})
 
-    {%- if not loop.last %}
+        -- Capture effective dates where source custodian-firm does not exist in destination -
+        -- or effective_date > nvl((select effective_date from cte_max_effective_date where custodian = '{{custodian}}' and firm_source = '{{firm_source}}'), '1900-01-01'::date)
 
-    union
-
-    {% endif -%}
-    {%- endfor %}
-
-    union
-
-    {# ADD CASH #}
-    {% for nml_model in source_models_cash -%}
-    {%- set parts = nml_model.split('_') -%}
-    {%- set custodian = parts[1] -%}
-    {%- set firm_source = parts[2] -%}
-    select effective_date, model_source, _source_loaded_at
-    from (
-        select effective_date, {{"'" ~ nml_model ~ "'"}} as model_source, max(_source_loaded_at) as _source_loaded_at
-        from {{ ref(nml_model) }}
-        where effective_date >= current_date() - {{ var('lookback_custodial', 30) }}
-        group by 1, 2
-        )
-    {#  Capture effective dates where source timestamp is newer than destination max timestamp.
-        This should account for a historical date that was reloaded because the _created_at would
-        evaluate as newer than the max timestamp in destination. -#}
-    where true
-        and (_source_loaded_at > nvl((select max(_created_at) from cte_max_created_at), dateadd(d, -1, _source_loaded_at))
-        {%- if table_exists and is_incremental() %}
-        {# Capture effective dates where source custodian-firm does not exist in destination -#}
-        or effective_date > nvl((select effective_date from cte_max_effective_date where custodian = '{{custodian}}' and firm_source = '{{firm_source}}'), '1900-01-01'::date)
+        -- Detect effective dates that exist in the source but not destination.
+        or effective_date not in (select effective_date from cte_destination_effective_dates)
         {%- endif -%})
 
     {%- if not loop.last %}

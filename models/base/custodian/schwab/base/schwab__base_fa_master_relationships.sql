@@ -1,3 +1,5 @@
+-- depends_on: {{ ref('schwab__stg_fa_master_relationships') }}
+
 select
     a.custodian
   , cl.firm_source
