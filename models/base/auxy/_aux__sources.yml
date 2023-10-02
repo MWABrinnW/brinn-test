@@ -40,4 +40,6 @@ sources:
         description: TDA account to Schwab account number mappings from the TDA to Schwab merger.
       - name: lifi_exclusions
         description: Accounts that we want to exclude from daily LIFI updates.
-        
+      - name: custodian_mappings
+        tags: ['custodian', 'custodial']
+        description: "[Mapping file](https://marinerholdingsllc.app.box.com/file/1310490455898) used to resolve custodian codes to the custodian definition and normalize to a Mariner value."
