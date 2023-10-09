@@ -1,0 +1,22 @@
+version: 2
+
+exposures:
+
+  - name: lifi_updater
+    label: LIFI Daily Updates
+    type: application
+    maturity: high
+    tags: ["lifi", "recon"]
+    url: ""
+    description: >
+      The daily process for toggling LIFI in the Salesforce Compass estate item.
+      The LIFI flag drives eligibility in Perform and Moxy and is critical for the
+      daily reconciliation process.
+
+    depends_on:
+      - ref('lifi__sf_changes')
+      - ref('lifi__sf_changes_summary')
+
+    owner:
+      name: Engineering
+      email: engineering@marinerwealth.com
