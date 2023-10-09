@@ -1,3 +1,5 @@
+{{config(enabled=false)}}
+
 select
     effective_date
     ,null as record_id
