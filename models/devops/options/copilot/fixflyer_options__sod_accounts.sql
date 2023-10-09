@@ -10,14 +10,17 @@ with custodian_accounts as
       , null::text(200) as account_type
     from {{ ref('custodian_account_links') }}
     where 1=1
-        and is_head = 1
+        --and is_head = 1
+        and is_current = 1
         and custodian in ('schwab', 'fidelity')
         and link in (
-            '08261207', 'G14279989'
+            '08261207' -- schwab options master
+            ,'G14279989' -- fidelity options G#
             ,'08261207', '08220807', '08220445' -- TDA migrated schwab accounts
         )
     order by custodian, link, account_number
 )
+-- add a hard fail here if custodian_accounts data is not up to date
 ,crm_accounts as
 (
         -- add effective_date in stg model
@@ -55,7 +58,7 @@ select
       effective_date                            as effective_date
     , account_number                            as "account_No"
     , iff(account_name is null, account_number,
-      account_name || ' - ' || account_number)  as "account_Name" 
+      account_name || ' - ' || account_number)  as "account_Name"
     , upper(custodian)                          as "custodian"
     , ''::text(200)                             as "description"
     , ''::text(200)                             as "notes"
@@ -74,7 +77,7 @@ select
     , null::text(200)                           as "portfolioCode3"
     , account_type                              as "accountType"
     , 'data@mariner,api@mariner,dev@mariner' ||
-        ',adam@mariner' || 
+        ',adam@mariner' ||
         ',brett@mariner' ||
         ',tanner@mariner' ||
         ',austin@mariner' ||

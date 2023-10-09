@@ -1,0 +1,52 @@
+version: 2
+models:
+  - name: fixflyer_options__sod_positions
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: CUSTODIANCODE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT
+        description: ''
+        data_type: VARCHAR
+      - name: SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: QUANTITY
+        description: ''
+        data_type: NUMBER
+      - name: UNITCOST
+        description: ''
+        data_type: NUMBER
+      - name: TOTALCOST
+        description: ''
+        data_type: NUMBER
+      - name: PRICE
+        description: ''
+        data_type: NUMBER
+      - name: LOTDATE
+        description: ''
+        data_type: NUMBER
+      - name: LOTNUM
+        description: ''
+        data_type: VARCHAR
+      - name: UNSUPERVISED
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIPLOOKUP
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: PREFERRED
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITYID
+        description: ''
+        data_type: VARCHAR

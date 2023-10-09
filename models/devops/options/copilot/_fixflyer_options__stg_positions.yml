@@ -1,0 +1,109 @@
+version: 2
+models:
+  - name: fixflyer_options__stg_positions
+    columns:
+      - name: ACCOUNT_ID
+        description: ''
+        data_type: NUMBER
+      - name: POSITION_ID
+        description: ''
+        data_type: NUMBER
+      - name: SECURITY_ID
+        description: ''
+        data_type: VARCHAR
+      - name: MARKET_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: QUANTITY
+        description: ''
+        data_type: NUMBER
+      - name: PRICE
+        description: ''
+        data_type: NUMBER
+      - name: CURRENT_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: AVERAGE_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: CURRENT_FX_RATE
+        description: ''
+        data_type: NUMBER
+      - name: CUST_ID
+        description: ''
+        data_type: NUMBER
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: DAY_PNL
+        description: ''
+        data_type: NUMBER
+      - name: GROUP_ID
+        description: ''
+        data_type: VARCHAR
+      - name: INDUSTRY
+        description: ''
+        data_type: VARCHAR
+      - name: ISSUE
+        description: ''
+        data_type: VARCHAR
+      - name: LAST_MODIFIED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: ACCOUNT_PERCENT
+        description: ''
+        data_type: NUMBER
+      - name: PARENT_GROUP_ID
+        description: ''
+        data_type: NUMBER
+      - name: PREVIOUS_CLOSE
+        description: ''
+        data_type: NUMBER
+      - name: PRODUCT
+        description: ''
+        data_type: VARCHAR
+      - name: REALIZED_PNL
+        description: ''
+        data_type: NUMBER
+      - name: SECTOR
+        description: ''
+        data_type: VARCHAR
+      - name: SLEEVE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: SLEEVE_PERCENT
+        description: ''
+        data_type: NUMBER
+      - name: SLEEVE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: TOTAL_PNL
+        description: ''
+        data_type: NUMBER
+      - name: UNREALIZED_PNL
+        description: ''
+        data_type: NUMBER
+      - name: IS_UNSUPERVISED
+        description: ''
+        data_type: NUMBER
+      - name: AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: SEC_ID_SRC
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_LATEST
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: _URI
+        description: ''
+        data_type: VARCHAR

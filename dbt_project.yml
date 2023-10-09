@@ -170,12 +170,6 @@ models:
         +grants:
           select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
 
-      de:
-        +tags: ["de"]
-        +grants:
-          select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
-        +dbt-osmosis: "_de__models.yml"
-
       edw_legacy:
         +tags: ["edw", "employees", "associates"]
 
@@ -201,18 +195,10 @@ models:
         +grants:
           select: "{{ ['db_hr_talent_r'] if target.name in ['prod','test'] else []}}"
 
-      morningstar:
-        +tags: ["morningstar"]
-
       pardot:
         +tags: ["pardot"]
         +grants:
           select: "{{ ['db_crm_mwa_r'] if target.name in ['prod','test'] else []}}"
-
-      pms:
-        +tags: ["pms"]
-        +grants:
-          select: "{{ ['db_pms_mwa_r'] if target.name in ['prod','test'] else []}}"
 
       redtail_network:
         +tags: ["redtail", "network"]
@@ -244,9 +230,6 @@ models:
         +grants:
           select: "{{ ['db_crm_msec_r'] if target.name in ['prod','test'] else []}}"
 
-      vault:
-        +tags: ["vault"]
-
       zoom:
         +tags: ["zoom"]
         +grants:
@@ -264,6 +247,7 @@ models:
         {%- endif -%}
       +grants:
         +select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+      +dbt-osmosis: "_{model}.yml"
 
       activetick:
         +tags: ["activetick"]
@@ -346,18 +330,6 @@ models:
           +schema: ref
           +grants:
             select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod','test'] else []}}"
-
-      trade_blotter:
-        +tags: ["trade_blotter"]
-        +enabled: false
-        build:
-          +schema: build
-          +grants:
-            select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
-        enterprise:
-          +schema: enterprise
-        ref:
-          +schema: ref
 
       reports:
         +tags: ["report", "reports"]

@@ -1,0 +1,24 @@
+version: 2
+
+exposures:
+
+  - name: copilot_sod
+    label: Copilot start of day accounts and positions
+    type: application
+    maturity: medium
+    tags: ["copilot", "options"]
+    url: ""
+    description: >
+      The SOD process for uploading accounts and tax lot level positionst to copilot.
+
+      The SOD process generates csv files using the accounts and positions models.
+      And then uploads using the copilot API.
+
+    depends_on:
+      - ref('fixflyer_options__sod_accounts')
+      - ref('fixflyer_options__sod_positions')
+      - ref('fixflyer_options__sod_positions_exceptions')
+
+    owner:
+      name: engineering
+      email: engineering@marinerwealth.com

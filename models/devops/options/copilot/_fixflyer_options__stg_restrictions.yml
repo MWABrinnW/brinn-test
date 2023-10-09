@@ -1,0 +1,58 @@
+version: 2
+models:
+  - name: fixflyer_options__stg_restrictions
+    columns:
+      - name: RESTRICTION_START_DATE
+        description: ''
+        data_type: DATE
+      - name: RESTRICTION_END_DATE
+        description: ''
+        data_type: DATE
+      - name: IS_ENABLED
+        description: ''
+        data_type: NUMBER
+      - name: RESTRICTION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTID
+        description: ''
+        data_type: VARCHAR
+      - name: USERID
+        description: ''
+        data_type: VARCHAR
+      - name: RESTRICTION_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITY_ID
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT
+        description: ''
+        data_type: VARCHAR
+      - name: NOTES
+        description: ''
+        data_type: VARCHAR
+      - name: LAST_MODIFIED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_LATEST
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: _URI
+        description: ''
+        data_type: VARCHAR

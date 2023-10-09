@@ -8,15 +8,202 @@ sources:
     tables:
       - name: allocations
         description: ""
+        columns:
+          - name: JSON
+            data_type: VARIANT
+            description: ''
+          - name: _URI
+            data_type: VARCHAR
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
       - name: positions
         description: ""
+        columns:
+          - name: JSON
+            data_type: VARIANT
+            description: ''
+          - name: _URI
+            data_type: VARCHAR
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
       - name: groups
         description: "Raw groups data from copilot"
+        columns:
+          - name: JSON
+            data_type: VARIANT
+            description: ''
+          - name: _URI
+            data_type: VARCHAR
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
       - name: models
         description: "Raw models data from copilot"
+        columns:
+          - name: JSON
+            data_type: VARIANT
+            description: ''
+          - name: _URI
+            data_type: VARCHAR
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
       - name: restrictions
         description: "Raw security restrictions data from copilot"
+        columns:
+          - name: JSON
+            data_type: VARIANT
+            description: ''
+          - name: _URI
+            data_type: VARCHAR
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
       - name: accounts
-        description: ""
+        description: "Raw account data from copilot"
+        columns:
+          - name: JSON
+            data_type: VARIANT
+            description: ''
+          - name: _URI
+            data_type: VARCHAR
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
       - name: sod_salesforce_accounts
-        description: "Salesforce estate item table."
+        description: "Salesforce estate item table used for SOD accounts."
+        columns:
+          - name: ID
+            data_type: VARCHAR
+            description: ''
+          - name: TRADING_SYSTEM__C
+            data_type: VARCHAR
+            description: ''
+          - name: IDENTIFIER__C
+            data_type: VARCHAR
+            description: ''
+          - name: NAME
+            data_type: VARCHAR
+            description: ''
+          - name: STATUS__C
+            data_type: VARCHAR
+            description: ''
+          - name: OPENINGDATE__C
+            data_type: VARCHAR
+            description: ''
+          - name: HOUSEHOLD__C
+            data_type: VARCHAR
+            description: ''
+          - name: AUM_CLASSIFICATION__C
+            data_type: VARCHAR
+            description: ''
+          - name: SUBADVISOR_DATE_OPENED__C
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNTIDORION__C
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TYPE__C
+            data_type: VARCHAR
+            description: ''
+          - name: ATTRIBUTES_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: ATTRIBUTES_URL
+            data_type: VARCHAR
+            description: ''
+          - name: REGISTRATION_TYPE__R_ATTRIBUTES_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: REGISTRATION_TYPE__R_ATTRIBUTES_URL
+            data_type: VARCHAR
+            description: ''
+          - name: REGISTRATION_TYPE__R_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: CUSTODIAN__R_ATTRIBUTES_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: CUSTODIAN__R_ATTRIBUTES_URL
+            data_type: VARCHAR
+            description: ''
+          - name: CUSTODIAN__R_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: MODEL_ON_ACCOUNT__R_ATTRIBUTES_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: MODEL_ON_ACCOUNT__R_ATTRIBUTES_URL
+            data_type: VARCHAR
+            description: ''
+          - name: MODEL_ON_ACCOUNT__R_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: HOUSEHOLD__R_ATTRIBUTES_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: HOUSEHOLD__R_ATTRIBUTES_URL
+            data_type: VARCHAR
+            description: ''
+          - name: HOUSEHOLD__R_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: HOUSEHOLD__R_CLIENT_MANAGER__R_ATTRIBUTES_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: HOUSEHOLD__R_CLIENT_MANAGER__R_ATTRIBUTES_URL
+            data_type: VARCHAR
+            description: ''
+          - name: HOUSEHOLD__R_CLIENT_MANAGER__R_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: SUBADVISOR__R_ATTRIBUTES_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: SUBADVISOR__R_ATTRIBUTES_URL
+            data_type: VARCHAR
+            description: ''
+          - name: SUBADVISOR__R_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: HOUSEHOLD__R_CLIENT_MANAGER__R
+            data_type: VARCHAR
+            description: ''
+          - name: MODEL_ON_ACCOUNT__R
+            data_type: VARCHAR
+            description: ''
+          - name: REGISTRATION_TYPE__R
+            data_type: VARCHAR
+            description: ''
+          - name: SUBADVISOR__R
+            data_type: VARCHAR
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
