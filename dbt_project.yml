@@ -200,6 +200,11 @@ models:
         +grants:
           select: "{{ ['db_crm_mwa_r'] if target.name in ['prod','test'] else []}}"
 
+      pms:
+        +tags: ["pms"]
+        +grants:
+          select: "{{ ['db_pms_mwa_r'] if target.name in ['prod','test'] else []}}"
+
       redtail_network:
         +tags: ["redtail", "network"]
         +grants:
