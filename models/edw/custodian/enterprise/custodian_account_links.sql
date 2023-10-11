@@ -19,7 +19,7 @@ select
   , cc.notes                              as notes
   , cc.is_deceased                        as is_deceased
   , cc.has_trading_authority              as has_trading_authority
-  , case 
+  , case
       when cc.link is not null
         then 1
       else 0
@@ -55,7 +55,7 @@ select
   , cc.notes                              as notes
   , cc.is_deceased                        as is_deceased
   , cc.has_trading_authority              as has_trading_authority
-  , case 
+  , case
       when cc.link is not null
         then 1
       else 0
@@ -96,7 +96,7 @@ select
   , cc.notes                              as notes
   , cc.is_deceased                        as is_deceased
   , cc.has_trading_authority              as has_trading_authority
-  , case 
+  , case
       when cc.link is not null
         then 1
       else 0
@@ -112,13 +112,13 @@ from {{ ref('schwab__base_master_accounts_mapping') }} a
 left join {{ ref('aux__stg_custodian_links') }}        cc
           on a.custodian = cc.custodian
               and upper(a.master_account_number) = upper(cc.link)
-where a.master_account_number not in (
-                                select
-                                    fa_master_account_number
-                                from {{ ref('schwab__base_fa_master_relationships') }}
-                                where fa_master_account_number is not null
-                                group by 1
-                            )
+left join {{ ref('schwab__base_fa_master_relationships') }} fam
+          on a.effective_date = fam.effective_date
+              and a.account_number = fam.account_number
+              and a.master_account_number = fam.fa_master_account_number
+where 1=1
+  --exclude record if it's already represented by FAM file
+  and fam.account_number is null
 
 union all
 
@@ -139,7 +139,7 @@ select
   , cc.notes                              as notes
   , cc.is_deceased                        as is_deceased
   , cc.has_trading_authority              as has_trading_authority
-  , case 
+  , case
       when cc.link is not null
         then 1
       else 0
@@ -176,7 +176,7 @@ select
   , cc.notes                              as notes
   , cc.is_deceased                        as is_deceased
   , cc.has_trading_authority              as has_trading_authority
-  , case 
+  , case
       when cc.link is not null
         then 1
       else 0
@@ -212,7 +212,7 @@ select
   , cc.notes                              as notes
   , cc.is_deceased                        as is_deceased
   , cc.has_trading_authority              as has_trading_authority
-  , case 
+  , case
       when cc.link is not null
         then 1
       else 0
