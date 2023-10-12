@@ -12,8 +12,11 @@ select
 -- , trim(nullif(substring(content, 34, 1), '0'))::varchar(1) as not_used
 , trim(nullif(substring(content, 35, 9), '000000000'))::varchar(9) as underlying_cusip_number
 , trim(nullif(substring(content, 44, 2), '00'))::varchar(2) as country_code
--- , trim(nullif(substring(content, 46, 2), '00'))::varchar(2) as not_used_2
-, trim(nullif(substring(content, 48, 3), '000'))::varchar(3) as investment_professional_ip_of_record_number
+, case
+  when effective_date < '2023-10-01'
+    then trim(nullif(substring(content, 48, 3), '000'))
+  else trim(nullif(substring(content, 47, 4), '0000'))
+  end::varchar(4) as investment_professional_ip_of_record_number
 , trim(nullif(substring(content, 51, 3), '000'))::varchar(3) as introducing_broker_dealer_ibd_number
 , trim(nullif(substring(content, 54, 1), '0'))::varchar(1) as currencysecurity_indicator
 , trim(nullif(substring(content, 55, 3), '000'))::varchar(3) as issue_currency

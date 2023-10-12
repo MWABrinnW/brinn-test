@@ -9,8 +9,11 @@ select
 , trim(nullif(substring(content, 12, 9), '000000000'))::varchar(9) as account_number
 , trim(nullif(substring(content, 21, 3), '000'))::varchar(3) as introducing_broker_dealer_ibd_number
 -- , trim(nullif(substring(content, 24, 1), '0'))::varchar(1) as not_used
-, trim(nullif(substring(content, 25, 3), '000'))::varchar(3) as investment_professional_ip_number
--- , trim(nullif(substring(content, 28, 1), '0'))::varchar(1) as not_used_2
+, case
+  when effective_date < '2023-10-01'
+    then trim(nullif(substring(content, 25, 3), '000'))
+  else trim(nullif(substring(content, 25, 4), '0000'))
+  end::varchar(4) as investment_professional_ip_number
 , trim(nullif(substring(content, 29, 10), '0000000000'))::varchar(10) as account_short_name
 -- , trim(nullif(substring(content, 39, 2), '00'))::varchar(2) as not_used_3
 , trim(nullif(substring(content, 41, 1), '0'))::varchar(1) as address_1_transaction_code

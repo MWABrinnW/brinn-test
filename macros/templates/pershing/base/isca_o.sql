@@ -12,7 +12,8 @@ select
 , nullif(nullif(trim(substring(content, 40, 8)), '00000000'), '')::int as oas_treasury_effectiveupdate_date
 , to_number(nullif(nullif(trim(substring(content, 48, 15)), '000000000000000'), '')) / power(10, 03)::number as minimum_piece
 , to_number(nullif(nullif(trim(substring(content, 63, 15)), '000000000000000'), '')) / power(10, 03)::number as minimum_increment
--- , trim(nullif(substring(content, 78, 54), '000000000000000000000000000000000000000000000000000000'))::varchar(54) as not_used_2
+, nullif(nullif(trim(substring(content, 78, 8)), '00000000'), '')::int as issue_date_of_security
+-- , trim(nullif(substring(content, 86, 46), '0000000000000000000000000000000000000000000000'))::varchar(54) as not_used_2
 , trim(nullif(substring(content, 132, 1), '0'))::varchar(1) as literally_x
 ,{{ col_is_head(reference=src) }}
 ,{{ col_is_current(date_col='effective_date') }}

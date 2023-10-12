@@ -23,9 +23,11 @@ select
 , trim(nullif(substring(content, 106, 15), '000000000000000'))::varchar(15) as update_user_id
 , trim(nullif(substring(content, 121, 32), '00000000000000000000000000000000'))::varchar(32) as group_name
 , trim(nullif(substring(content, 153, 64), '0000000000000000000000000000000000000000000000000000000000000000'))::varchar(64) as for_pershing_internal_use_only
--- , trim(nullif(substring(content, 217, 100), '0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'))::varchar(100) as not_used_2
-, trim(nullif(substring(content, 317, 3), '000'))::varchar(3) as investment_professional_ip_of_record
--- , trim(nullif(substring(content, 320, 1), '0'))::varchar(1) as not_used_3
+, case
+  when effective_date < '2023-10-01'
+    then trim(nullif(substring(content, 317, 3), '000'))
+  else trim(nullif(substring(content, 317, 4), '0000'))
+  end::varchar(4) as investment_professional_ip_of_record
 , trim(nullif(substring(content, 321, 9), '000000000'))::varchar(9) as account_number
 , trim(nullif(substring(content, 330, 3), '000'))::varchar(3) as office_number
 -- , trim(nullif(substring(content, 333, 1), '0'))::varchar(1) as not_used_4
@@ -38,7 +40,6 @@ select
 , trim(nullif(substring(content, 369, 1), '0'))::varchar(1) as annual_statement
 , trim(nullif(substring(content, 370, 1), '0'))::varchar(1) as tranche
 , trim(nullif(substring(content, 371, 1), '0'))::varchar(1) as trade_date_or_settlement_date
--- , trim(nullif(substring(content, 372, 128), '00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'))::varchar(128) as not_used_6
 , trim(nullif(substring(content, 500, 1), '0'))::varchar(1) as literally_x
 ,{{ col_is_head(reference=src) }}
 ,{{ col_is_current(date_col='effective_date') }}

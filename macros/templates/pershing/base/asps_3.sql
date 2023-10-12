@@ -5,7 +5,11 @@ select
 , {{ "'" ~ src.schema.split('_')[1] ~ "'" }}                                            as firm_source
 , trim(nullif(substring(content, 1, 1), '0'))::varchar(1) as record_indicator_value
 , trim(nullif(substring(content, 2, 9), '000000000'))::varchar(9) as account_number
-, trim(nullif(substring(content, 11, 3), '000'))::varchar(3) as investment_professional_ip_of_record
+, case
+  when effective_date < '2023-10-01'
+    then trim(nullif(substring(content, 11, 3), '000'))
+  else trim(nullif(substring(content, 129, 4), '0000'))
+  end::varchar(4) as investment_professional_ip_of_record
 , trim(nullif(substring(content, 14, 13), '0000000000000'))::varchar(13) as subscription_products_reference_number
 , trim(nullif(substring(content, 27, 13), '0000000000000'))::varchar(13) as investment_code
 , trim(nullif(substring(content, 40, 30), '000000000000000000000000000000'))::varchar(30) as underlying_fund_description
@@ -14,7 +18,6 @@ select
 , to_number(nullif(nullif(trim(substring(content, 100, 6)), '000000'), '')) / power(10, 03)::number as guaranteed_rate
 , try_to_date(nullif(substring(content, 106, 8), '00000000'), 'MMDDYYYY')::date as maturity_date
 , to_number(nullif(nullif(trim(substring(content, 114, 6)), '000000'), '')) / power(10, 03)::number as investment_percentage
--- , trim(nullif(substring(content, 120, 13), '0000000000000'))::varchar(13) as not_used
 ,{{ col_is_head(reference=src) }}
 ,{{ col_is_current(date_col='effective_date') }}
 , effective_date::date as effective_date

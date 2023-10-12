@@ -12,8 +12,11 @@ select
 , trim(nullif(substring(content, 31, 4), '0000'))::varchar(4) as reserved_for_future_use
 , trim(nullif(substring(content, 35, 3), '000'))::varchar(3) as introducing_broker_dealer_ibd_number
 , trim(nullif(substring(content, 38, 1), '0'))::varchar(1) as reserved_for_future_use_2
-, trim(nullif(substring(content, 39, 3), '000'))::varchar(3) as investment_professional_ip_number
-, trim(nullif(substring(content, 42, 1), '0'))::varchar(1) as reserved_for_future_use_3
+, case
+  when effective_date < '2023-10-01'
+    then trim(nullif(substring(content, 39, 3), '000'))
+  else trim(nullif(substring(content, 39, 4), '0000'))
+  end::varchar(4) as investment_professional_ip_number
 , try_to_date(nullif(substring(content, 43, 8), '00000000'), 'YYYYMMDD')::date as process_date
 , trim(nullif(substring(content, 51, 12), '000000000000'))::varchar(12) as record_id
 , try_to_date(nullif(substring(content, 63, 8), '00000000'), 'YYYYMMDD')::date as trade_date

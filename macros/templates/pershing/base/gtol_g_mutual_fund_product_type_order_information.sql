@@ -74,11 +74,13 @@ select
 , trim(nullif(substring(content, 1054, 1), '0'))::varchar(1) as liquidity_indicator
 , trim(nullif(substring(content, 1055, 4), '0000'))::varchar(4) as liquidity_type
 , trim(nullif(substring(content, 1059, 40), '0000000000000000000000000000000000000000'))::varchar(40) as firm_designated_identifier_fdid
--- , trim(nullif(substring(content, 1099, 125), '00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'))::varchar(125) as not_used_3
 , nullif(nullif(trim(substring(content, 1224, 4)), '0000'), '')::int as pershing_internal_version_number
 , trim(nullif(substring(content, 1228, 18), '000000000000000000'))::varchar(18) as order_identifier
-, trim(nullif(substring(content, 1246, 3), '000'))::varchar(3) as investment_professional_ip_of_record
--- , trim(nullif(substring(content, 1249, 1), '0'))::varchar(1) as reserved_3
+, case
+  when effective_date < '2023-10-01'
+    then trim(nullif(substring(content, 1246, 3), '000'))
+  else trim(nullif(substring(content, 1246, 4), '0000'))
+  end::varchar(4) as investment_professional_ip_of_record
 , trim(nullif(substring(content, 1250, 1), '0'))::varchar(1) as literally_x
 ,{{ col_is_head(reference=src) }}
 ,{{ col_is_current(date_col='effective_date') }}

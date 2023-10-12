@@ -12,7 +12,9 @@ select
 , trim(nullif(substring(content, 26, 32), '00000000000000000000000000000000'))::varchar(32) as master_client_name
 , trim(nullif(substring(content, 58, 40), '0000000000000000000000000000000000000000'))::varchar(40) as for_pershing_internal_use_only
 , trim(nullif(substring(content, 98, 20), '00000000000000000000'))::varchar(20) as pershing_internal_order_reference_number
--- , trim(nullif(substring(content, 118, 16), '0000000000000000'))::varchar(16) as not_used
+, trim(nullif(substring(content, 118, 4), '0000'))::varchar(4) as expanded_investment_professional_ip_number
+, trim(nullif(substring(content, 122, 4), '0000'))::varchar(4) as expanded_from_investment_professional_ip_number
+-- , trim(nullif(substring(content, 126, 8), '00000000'))::varchar(8) as not_used
 ,{{ col_is_head(reference=src) }}
 ,{{ col_is_current(date_col='effective_date') }}
 , effective_date::date as effective_date

@@ -89,13 +89,22 @@ select
 , to_number(nullif(nullif(trim(substring(content, 477, 18)), '000000000000000000'), '')) / power(10, 09)::number as base_currency_exchange_rate
 , trim(nullif(substring(content, 495, 1), '0'))::varchar(1) as base_currency_multiplydivide_code
 -- , trim(nullif(substring(content, 496, 10), '0000000000'))::varchar(10) as not_used_9
-, trim(nullif(substring(content, 506, 3), '000'))::varchar(3) as primary_execution_investment_professional
--- , trim(nullif(substring(content, 509, 1), '0'))::varchar(1) as not_used_10
-, trim(nullif(substring(content, 510, 3), '000'))::varchar(3) as investment_professional_2_override
--- , trim(nullif(substring(content, 513, 1), '0'))::varchar(1) as not_used_11
+, case
+  when effective_date < '2023-10-01'
+    then trim(nullif(substring(content, 506, 3), '000'))
+  else trim(nullif(substring(content, 506, 4), '0000'))
+  end::varchar(4) as primary_execution_investment_professional
+, case
+  when effective_date < '2023-10-01'
+    then trim(nullif(substring(content, 510, 3), '000'))
+  else trim(nullif(substring(content, 510, 4), '0000'))
+  end::varchar(4) as investment_professional_2_override
 , to_number(nullif(nullif(trim(substring(content, 514, 18)), '000000000000000000'), '')) / power(10, 09)::number as investment_professional_2_percentage
-, trim(nullif(substring(content, 532, 3), '000'))::varchar(3) as investment_professional_3_override
--- , trim(nullif(substring(content, 535, 1), '0'))::varchar(1) as not_used_12
+, case
+  when effective_date < '2023-10-01'
+    then trim(nullif(substring(content, 532, 3), '000'))
+  else trim(nullif(substring(content, 532, 4), '0000'))
+  end::varchar(4) as investment_professional_3_override
 , to_number(nullif(nullif(trim(substring(content, 536, 18)), '000000000000000000'), '')) / power(10, 09)::number as investment_professional_3_percentage
 -- , trim(nullif(substring(content, 554, 5), '00000'))::varchar(5) as not_used_13
 , trim(nullif(substring(content, 559, 1), '0'))::varchar(1) as security_type_code
