@@ -147,7 +147,12 @@ with cte_accounts as
     -- Cleanup the symbol value for scenarios where there is not ticker or cusip.
     -- This can happen for something like a private limited partnership.
     -- Equities have max length of 10 for symbol in copilot.
-    , left(replace(replace(replace(a.symbol, '-',''),'  ',' '),' ',''),10) as symbol
+    , case
+        when product in ('FI')
+            then left(replace(replace(a.symbol,'-',''),' ',''),10)
+        else
+            a.symbol
+        end::text(200)                       as symbol
     , a.units_shares                         as quantity
     , a.cost_per_share                       as unitCost
     , a.cost_basis                           as totalCost

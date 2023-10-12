@@ -26,7 +26,7 @@ with custodian_accounts as
         -- add effective_date in stg model
     select
         replace(upper(Identifier__c), '-', '')              as account_number
-        , name                                              as account_name
+        , replace(name,'"','')                              as account_name
         , null::text(200)                                   as model_name
         , Registration_Type__r_Name                         as account_type
         , accountidorion__c                                 as orion_account_id
