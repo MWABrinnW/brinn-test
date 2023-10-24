@@ -148,7 +148,7 @@ with cte_accounts as
     -- This can happen for something like a private limited partnership.
     -- Equities have max length of 10 for symbol in copilot.
     , case
-        when product in ('FI')
+        when product in ('FI','EQ')
             then left(replace(replace(a.symbol,'-',''),' ',''),10)
         else
             a.symbol
