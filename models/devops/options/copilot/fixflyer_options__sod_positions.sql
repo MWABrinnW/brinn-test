@@ -27,6 +27,8 @@ with cte_accounts as
     , null::text(200)                             as cusip
     , 'N'                                         as preferred
     , 4622::text                                  as securityid
+    , null::text(200)                             as security_type_description
+    , null::text(200)                             as fund_type
     , null::text(200)                             as product_type
     , null::text(200)                             as product_type_source_code
     , null::text(200)                             as product_type_source_definition
@@ -64,6 +66,8 @@ with cte_accounts as
         , null::text(200)                           as cusip
         , 'N'                                       as preferred
         , 4622::text                                as securityid
+        , null::text(200)                           as security_type_description
+        , null::text(200)                           as fund_type
         , null::text(200)                           as product_type
         , null::text(200)                           as product_type_source_code
         , null::text(200)                           as product_type_source_definition
@@ -81,6 +85,21 @@ with cte_accounts as
         and is_cash = 1
     group by all
 )
+,cte_securities as
+(
+    select
+        cusip, ticker_symbol, security_type_description, fund_type
+        , row_number() over(partition by cusip order by iff(security_type_description is not null, 0, 1) asc, issue_entry_date desc) as rn_cusip
+        , row_number() over(partition by ticker_symbol order by iff(security_type_description is not null, 0, 1) asc, issue_entry_date desc) as rn_ticker
+    from {{ ref('cusip_history__base_issues') }}
+    where 1=1
+        and is_head = 1
+        {# and (
+            cusip in (select distinct cusip from cte_tax_lots)
+            or ticker_symbol in (select distinct ticker from cte_tax_lots)
+        ) #}
+    order by ticker_symbol, cusip
+)
 ,cte_tax_lots as
 (
     -- These are the tax lots from the custodians.
@@ -91,6 +110,12 @@ with cte_accounts as
     , case
             when a.is_cash = 1
                 then 'CASH'
+
+            -- CUSIP DATA
+            when s.cusip is not null and s.security_type_description in ('Anticipation Notes', 'Asset Backed', 'Certificate of Deposit', 'Collateralized Debt Corporate', 'GO', 'Medium Term Note', 'Mortgage Backed', 'Note', 'Prerefunded', 'Refunding', 'Reinsured', 'Secondarily Insured Municipal', 'U.S. Government', 'Unrefunded', 'Warrant', 'Zero Coupon')
+                then 'FI'
+            when s.cusip is not null and s.security_type_description in ('Common Equity', 'Exchange Traded Fund', 'Depositary Receipt')
+                then 'EQ'
 
             -- SCHWAB
             when a.custodian = 'schwab'
@@ -131,10 +156,10 @@ with cte_accounts as
                 then case
                     when a.product_type_source_definition ilike 'option - %'
                         then 'OPT'
-                    when a.product_type_source_definition ilike '%mutual fund%'
-                        then 'MUT'
                     when a.product_type_source_definition ilike '%equity - %'
                         then 'EQ'
+                    when a.product_type_source_definition ilike '%mutual fund%'
+                        then 'MUT'
                     when a.product_type_source_definition ilike any ('%units - %', 'debt - ')
                         then 'FI'
                     else 'FI'
@@ -164,6 +189,8 @@ with cte_accounts as
     , a.cusip                                as cusip
     , 'N'::text(1)                           as preferred
     , a.security_id_source                   as securityId
+    , s.security_type_description
+    , s.fund_type
     , a.product_type
     , a.product_type_source_code
     , a.product_type_source_definition
@@ -175,6 +202,9 @@ with cte_accounts as
         on a.effective_date = v.effective_date
             and upper(a.custodian) = upper(v."custodian")
             and upper(a.account_number) = upper(v."account_No")
+    left join cte_securities                         s
+        on a.cusip = s.cusip
+        and s.rn_cusip = 1
     where 1 = 1
         --and a.is_head = 1
         and a.is_current = 1
@@ -207,6 +237,8 @@ with cte_accounts as
         , cusip
         , preferred
         , securityid
+        , null::text(200)                           as security_type_description
+        , null::text(200)                           as fund_type
         , null::text(200)                           as product_type
         , null::text(200)                           as product_type_source_code
         , null::text(200)                           as product_type_source_definition
