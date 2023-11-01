@@ -35,6 +35,10 @@ vars:
   dev_day_filter: 7
   incremental_mode: lookback
   lookback_custodial: 14
+  disable_run_results: "{{ target.name not in ['prod','test'] }}"
+  disable_tests_results: "{{ target.name not in ['prod','test'] }}"
+  disable_dbt_invocation_autoupload: "{{ target.name not in ['prod','test'] }}"
+  disable_dbt_artifacts_autoupload: "{{ target.name not in ['prod','test'] }}"
 
 on-run-start:
   - "{{ create_schemas() if target.name in ['prod','test'] }}"
@@ -46,7 +50,7 @@ models:
   elementary:
     +schema: "elementary"
     +grants:
-      select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+      select: ['engineering']
     enabled: "{{ target.name in ['prod', 'test'] }}"
 
   data_engineering:
