@@ -19,6 +19,7 @@ select
   , c.value:lastModified::TIMESTAMP_NTZ             as last_modified_at
   , {{ col_is_head(reference=source('copilot', 'models'), source_date_col='m._created_at', reference_date_col='_created_at') }}
   , case when m._created_at = b.max_created_at then 1 else 0 end as is_latest
+  , dt.prior_market_date                            as effective_date
   , m._created_at                                   as _created_at
   , m._source_file                                  as _source_file
   , m._uri                                          as _uri
@@ -32,4 +33,7 @@ from {{ source('copilot', 'models') }}                 m
                )                                          b
      on m._created_at::date = b._created_date::date
          and m._created_at = b.max_created_at
+    left join {{ ref('dates' )}} dt
+      on m._created_at::date = dt.date_key
    , lateral flatten(input => m.json, path => 'contents') c
+where 1=1

@@ -22,6 +22,8 @@ select
   , a.json:sleeves                                                                           as sleeves
   , {{ col_is_head(reference=source('copilot', 'accounts'), source_date_col='a._created_at', reference_date_col='_created_at') }}
   , case when a._created_at = b.max_created_at then 1 else 0 end                             as is_latest
+  -- Derive effective date based on record created date
+  , dt.prior_market_date                                                                     as effective_date
   , a._created_at                                                                            as _created_at
   , a._source_file                                                                           as _source_file
   , a._uri                                                                                   as _uri
@@ -35,3 +37,6 @@ from {{ source('copilot', 'accounts') }}                  a
                )                                          b
      on a._created_at::date = b._created_date::date
          and a._created_at = b.max_created_at
+    left join {{ ref('dates' )}} dt
+      on a._created_at::date = dt.date_key
+where 1=1

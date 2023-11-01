@@ -30,7 +30,8 @@ select
   , p.json:amount::number(19, 6)                                                         as amount
   , p.json:secIdSrc::text(200)                                                           as sec_id_src
   , {{ col_is_head(reference=source('copilot', 'positions'), source_date_col='p._created_at::date', reference_date_col='_created_at::date') }}
-  , case when b.account_id is not null then 1 else 0 end                                                 as is_latest
+  , case when b.account_id is not null then 1 else 0 end                                 as is_latest
+  , dt.prior_market_date                                                                 as effective_date
   , p._created_at                                                                        as _created_at
   , p._source_file                                                                       as _source_file
   , p._uri                                                                               as _uri
@@ -46,5 +47,7 @@ from {{ source('copilot', 'positions') }}                      p
      on p._created_at::date = b._created_date::date
          and p._created_at::timestamp = b.max_created_at::timestamp
          and p.json:accountId::int = b.account_id
+    left join {{ ref('dates' )}} dt
+      on p._created_at::date = dt.date_key
 where 1=1
 order by p._created_at, p.json:accountId::int, p.json:positionId::int

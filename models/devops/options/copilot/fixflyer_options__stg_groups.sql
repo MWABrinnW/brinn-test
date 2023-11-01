@@ -37,6 +37,7 @@ select
   , try_to_boolean(a.value:taxable::text)::int        as is_taxable
   , {{ col_is_head(reference=source('copilot', 'groups'), source_date_col='g._created_at', reference_date_col='_created_at') }}
   , case when g._created_at = b.max_created_at then 1 else 0 end as is_latest
+  , dt.prior_market_date                              as effective_date
   , g._created_at                                     as _created_at
   , g._source_file                                    as _source_file
   , g._uri                                            as _uri
@@ -50,4 +51,7 @@ from {{ source('copilot', 'groups') }}                   g
                )                                          b
      on g._created_at::date = b._created_date::date
          and g._created_at = b.max_created_at
+    left join {{ ref('dates' )}} dt
+      on g._created_at::date = dt.date_key
    , lateral flatten(input => g.json, path => 'accounts') a
+where 1=1

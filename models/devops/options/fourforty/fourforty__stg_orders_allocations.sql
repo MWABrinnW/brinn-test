@@ -33,5 +33,9 @@ select
   , to_date(record_date, 'MM/DD/YYYY HH12:MI:SS AM')                    as record_date
   , to_timestamp_ntz(record_datetime, 'MM/DD/YYYY HH12:MI:SS AM')       as record_datetime
   , _created_at                                                         as _created_at
+  , {{ col_is_head(
+        reference=source('fourforty', 'orders_and_allocations'),
+        source_date_col="to_date(trade_date, 'YYYY-MM-DD')",
+         reference_date_col="to_date(trade_date, 'YYYY-MM-DD')") }}
 from {{ source('fourforty', 'orders_and_allocations') }}
 

@@ -17,6 +17,7 @@ select
                     'YYYY-MM-DDTHH24:MI:SS.FF3TZHTZM')                         as last_modified_at
   , {{ col_is_head(reference=source('copilot', 'restrictions'), source_date_col='r._created_at', reference_date_col='_created_at') }}
   , case when r._created_at = b.max_created_at then 1 else 0 end               as is_latest
+  , dt.prior_market_date                                                       as effective_date
   , r._created_at                                                              as _created_at
   , r._source_file                                                             as _source_file
   , r._uri                                                                     as _uri
@@ -30,3 +31,6 @@ from {{ source('copilot', 'restrictions') }}              r
                )                                          b
      on r._created_at::date = b._created_date::date
          and r._created_at = b.max_created_at
+    left join {{ ref('dates' )}} dt
+      on r._created_at::date = dt.date_key
+where 1=1

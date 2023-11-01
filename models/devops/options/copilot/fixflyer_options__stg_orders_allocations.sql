@@ -31,7 +31,7 @@ select
   , alloc.json:senderCompId::text(200)                                                   as sender_comp_id
   , alloc.json:messageType::text(200)                                                    as message_type
   , alloc.json:messageSequenceNo::text(200)                                              as message_sequence_no
-  
+
   -- MEMBERS
   , m.value:allocId::text(200)                                                           as member_alloc_id
   , m.value:indivAllocId::text(200)                                                      as member_indiv_alloc_id
@@ -139,6 +139,7 @@ select
   , alloc.json:order.fixedIncome.principal::number(19, 6)                                as order_fixedincome_principal
   , {{ col_is_head(reference=source('copilot', 'allocations'), source_date_col='alloc._created_at', reference_date_col='_created_at') }}
   , case when alloc._created_at = b.max_created_at then 1 else 0 end                     as is_latest
+  , dt.prior_market_date                                                                 as effective_date
   , alloc._created_at                                                                    as _created_at
   , alloc._source_file                                                                   as _source_file
   , alloc._uri                                                                           as _uri
@@ -152,5 +153,8 @@ from {{ source('copilot', 'allocations') }}                                     
                )                                          b
      on alloc._created_at::date = b._created_date::date
          and alloc._created_at = b.max_created_at
+    left join {{ ref('dates' )}} dt
+      on alloc._created_at::date = dt.date_key
    , lateral flatten(input => alloc.json, path => 'memberList', outer => true, mode => 'array')     m
    , lateral flatten(input => alloc.json, path => 'order', outer => true, mode => 'array')          o
+where 1=1
