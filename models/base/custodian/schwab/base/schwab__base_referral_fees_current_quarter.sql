@@ -1,3 +1,5 @@
+{{ config(tags=["referral_fees"]) }}
+
 select
     'schwab'                                                       as custodian
   , cl.firm_source                                                 as firm_source
@@ -17,19 +19,19 @@ select
   , trim(substring(content, 134, 10))                              as billed_not_billed
   , case
         when trim(substring(content, 121, 12)) = '' then null
-        else trim(substring(content, 121, 12)) end::decimal(12, 2) as account_daily_balance
+        else trim(substring(content, 121, 12)) end::decimal(16, 2) as account_daily_balance
   , case
         when trim(substring(content, 145, 4)) = '' then null
         else trim(substring(content, 145, 4)) end::int             as count_of_accounts_within_household
   , case
         when trim(substring(content, 150, 12)) = '' then null
-        else trim(substring(content, 150, 12)) end::decimal(10, 2) as household_ave_billable_assets
+        else trim(substring(content, 150, 12)) end::decimal(16, 2) as household_ave_billable_assets
   , case
         when trim(substring(content, 163, 5)) = '' then null
         else trim(substring(content, 163, 5)) end::decimal(5, 4)   as blended_tiered_rate
   , case
         when trim(substring(content, 169, 12)) = '' then null
-        else trim(substring(content, 169, 12)) end::decimal(12, 2) as fees_due_for_household
+        else trim(substring(content, 169, 12)) end::decimal(16, 2) as fees_due_for_household
   , left(a._source_file, 8)                                        as master_number
   , a.effective_date::date                                         as effective_date
   , {{ col_is_head(reference=source('schwab', 'referral_fees_current_quarter')) }}

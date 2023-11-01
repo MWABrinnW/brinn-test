@@ -1,0 +1,62 @@
+version: 2
+models:
+  - name: rev_referral_fees
+    description: >
+      Referral fees currently uses three sources - Schwab SAN1, Schwab SAN2, and Fidelity WAS.
+      These sources are unioned together to create rev_referral_fees.
+
+      Schwab SAN1 (Coral Gables): Delivered via SFTP (master# 08365016) from Scwhab and requires low translation for rev_referral_fees.
+
+      Schwab SAN2: Delivered via SFTP (master# 08365016) from Schwab and requires blending with an adjustments file (PDF).
+
+      Fidelity WAS: This file is manually downloaded from Fidelity Wealthscape and requires low tranformation for rev_referral_fees.
+
+    columns:
+      - name: YEARMO
+        description: ''
+        data_type: NUMBER
+      - name: QUARTER_END_DATE
+        description: ''
+        data_type: DATE
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: REFERRAL_PARTY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: REFERRAL_RATE
+        description: ''
+        data_type: NUMBER
+      - name: REFERRAL_FEE_ORIGINAL
+        description: ''
+        data_type: NUMBER
+      - name: ADJUSTMENTS
+        description: ''
+        data_type: NUMBER
+      - name: REFERRAL_FEE
+        description: ''
+        data_type: NUMBER
+      - name: IS_PERIOD_LATEST
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR

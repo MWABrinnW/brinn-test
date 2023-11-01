@@ -43,3 +43,7 @@ sources:
       - name: custodian_mappings
         tags: ['custodian', 'custodial']
         description: "[Mapping file](https://marinerholdingsllc.app.box.com/file/1310490455898) used to resolve custodian codes to the custodian definition and normalize to a Mariner value."
+      - name: referral_fees_san_adjustments
+        description: Adjustment records for Schwab referral fees.
+      - name: referral_fees_lock_dates
+        description: Instructions for which date to use for the final referral fees files. Only related to SAN2 right now.

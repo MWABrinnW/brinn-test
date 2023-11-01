@@ -112,3 +112,10 @@ sources:
           - name: record_date
           - name: record_datetime
           - name: source_file
+
+      - name: referral_fees_was
+        description: "Fidelity WAS referral fees downloaded from the wealthscape site. [Link](https://wealthcentral.advisorchannel.com/ssc/singlecontainer/wc/channel/app/reports/billing)."
+        columns:
+          - name: json
+          - name: _created_at
+          - name: _source_file

@@ -340,6 +340,18 @@ models:
           +grants:
             select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod','test'] else []}}"
 
+      referral_fees:
+        +enabled: true
+        +tags: ["revenue", "referral_fees"]
+        build:
+          +schema: build
+          +grants:
+            select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+        enterprise:
+          +schema: enterprise
+          +grants:
+            select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod','test'] else []}}"
+
       reports:
         +tags: ["report", "reports"]
         +schema: reports

@@ -1,3 +1,5 @@
+{{ config(tags=["referral_fees"]) }}
+
 select
     'schwab'                                                       as custodian
   , cl.firm_source                                                 as firm_source
@@ -11,7 +13,7 @@ select
   , trim(substring(content, 79, 15))                               as transaction_type
   , case
         when trim(substring(content, 112, 15)) = '' then null
-        else trim(substring(content, 112, 15)) end::decimal(15, 2) as management_fee_amount
+        else trim(substring(content, 112, 15)) end::decimal(16, 2) as management_fee_amount
   , case
         when trim(substring(content, 112, 15)) = '' then null
         else trim(substring(content, 112, 15)) end::decimal(5, 2)  as fee_percent

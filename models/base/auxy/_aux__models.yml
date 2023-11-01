@@ -96,3 +96,9 @@ models:
       grants:
         select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod','test'] else []}}"
 
+  - name: aux__base_referral_fees_san_adjustments
+    config:
+      tags: ['referral_fees']
+      grants:
+        select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod','test'] else []}}"
+

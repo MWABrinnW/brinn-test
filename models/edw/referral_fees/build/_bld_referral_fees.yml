@@ -1,0 +1,52 @@
+version: 2
+models:
+  - name: bld_referral_fees
+    columns:
+      - name: YEARMO
+        description: ''
+        data_type: NUMBER
+      - name: QUARTER_END_DATE
+        description: ''
+        data_type: DATE
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: REFERRAL_PARTY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: REFERRAL_RATE
+        description: ''
+        data_type: NUMBER
+      - name: REFERRAL_FEE_ORIGINAL
+        description: ''
+        data_type: NUMBER
+      - name: ADJUSTMENTS
+        description: ''
+        data_type: NUMBER
+      - name: REFERRAL_FEE
+        description: ''
+        data_type: NUMBER
+      - name: IS_PERIOD_LATEST
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
