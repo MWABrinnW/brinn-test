@@ -26,7 +26,7 @@ with custodian_accounts as
         -- add effective_date in stg model
     select
         replace(upper(Identifier__c), '-', '')              as account_number
-        , replace(name,'"','')                              as account_name
+        , replace(name,'','')                              as account_name
         , null::text(200)                                   as model_name
         , Registration_Type__r_Name                         as account_type
         , accountidorion__c                                 as orion_account_id
@@ -56,26 +56,26 @@ with custodian_accounts as
 
 select
       effective_date                            as effective_date
-    , account_number                            as "account_No"
+    , account_number                            as account_no
     , iff(account_name is null, account_number,
-      account_name || ' - ' || account_number)  as "account_Name"
-    , upper(custodian)                          as "custodian"
-    , ''::text(200)                             as "description"
-    , ''::text(200)                             as "notes"
-    , model_name                                as "model_Name"
-    , null::text(200)                           as "closing_Method"
-    , null::text(200)                           as "long_Term_Tax_Rate"
-    , null::text(200)                           as "short_Term_Tax_Rate"
-    , null::text(200)                           as "use_Account_Cash"
-    , null::text(200)                           as "cash_Reserve_Type"
-    , null::text(200)                           as "cash_Reserve"
-    , null::text(200)                           as "taxable"
-    , null::text(200)                           as "cashReserveExpiry"
-    , null::text(200)                           as "disableSleeves"
-    , account_number_formatted::text(200)       as "portfolioCode1"
-    , crm_id::text(200)                         as "portfolioCode2"
-    , null::text(200)                           as "portfolioCode3"
-    , account_type                              as "accountType"
+      account_name || ' - ' || account_number)  as account_name
+    , upper(custodian)                          as custodian
+    , ''::text(200)                             as description
+    , ''::text(200)                             as notes
+    , model_name                                as model_name
+    , null::text(200)                           as closing_method
+    , null::text(200)                           as long_term_tax_rate
+    , null::text(200)                           as short_term_tax_rate
+    , null::text(200)                           as use_account_cash
+    , null::text(200)                           as cash_reserve_type
+    , null::text(200)                           as cash_reserve
+    , null::text(200)                           as taxable
+    , null::text(200)                           as cashreserveexpiry
+    , null::text(200)                           as disablesleeves
+    , account_number_formatted::text(200)       as portfoliocode1
+    , crm_id::text(200)                         as portfoliocode2
+    , null::text(200)                           as portfoliocode3
+    , account_type                              as accounttype
     , 'data@mariner;api@mariner;dev@mariner' ||
         ';adam@mariner' ||
         ';brett@mariner' ||
@@ -83,6 +83,6 @@ select
         ';austin@mariner' ||
         ';robert@mariner' ||
         ';grant@mariner'
-        ::text(200)                             as "associated_Users"
+        ::text(200)                             as associated_Users
 from accounts
 where rn = 1
