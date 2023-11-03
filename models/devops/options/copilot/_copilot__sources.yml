@@ -207,3 +207,7 @@ sources:
           - name: _CREATED_AT
             data_type: TIMESTAMP_NTZ
             description: ''
+      - name: sod_accounts_history
+        description: "History of FixFlyer SOD accounts."
+      - name: sod_positions_history
+        description: "History of FixFlyer SOD positions."
