@@ -123,7 +123,7 @@ with cte_accounts as
                         -- Not sure if this is correct. Should others be included? SNAXX/SNOXX/etc
                         when a.ticker in ( 'SWGXX' )
                             then 'CASH'
-                        when a.product_type_source_definition ilike any ('EQUITY OPTION')
+                        when a.product_type_source_definition ilike any ('EQUITY OPTION', 'OPTION INDEX')
                             then 'OPT'
                         -- We're using the legacy security type becuase there are fewer values/rollups
                         -- to consider compared to the more granular product type.
