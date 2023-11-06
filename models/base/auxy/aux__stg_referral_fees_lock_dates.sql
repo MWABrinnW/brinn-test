@@ -1,3 +1,4 @@
+{{ config(tags=["referral_fees"]) }}
 select
       json:"quarter_end_date"::date             as quarter_end_date
     , json:"lock_date"::date                    as lock_date

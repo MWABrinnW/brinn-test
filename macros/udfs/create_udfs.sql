@@ -1,4 +1,6 @@
-{% macro create_udfs() %}
+{%- macro create_udfs() -%}
+
+{%- if execute -%}
 
 create schema if not exists {{target.schema}};
 
@@ -8,4 +10,6 @@ create schema if not exists {{target.schema}};
 {{ dbt_utils.log_info('Creating udf--> ' ~ target.schema ~ ' yyyyddd_to_date()')}}
 {{create_f_yyyyddd_to_date()}};
 
-{% endmacro %}
+{%- endif -%}
+
+{%- endmacro -%}

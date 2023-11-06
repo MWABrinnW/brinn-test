@@ -5,7 +5,7 @@ exposures:
   - name: copilot_sod
     label: Copilot start of day accounts and positions
     type: application
-    maturity: medium
+    maturity: high
     tags: ["copilot", "options"]
     url: ""
     description: >
@@ -20,5 +20,5 @@ exposures:
       - ref('fixflyer_options__sod_positions_exceptions')
 
     owner:
-      name: engineering
+      name: Engineering
       email: engineering@marinerwealth.com

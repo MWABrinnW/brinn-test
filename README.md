@@ -1,16 +1,18 @@
-Welcome to your new dbt project!
+**Mariner Data Engineering dbt Project**
 
-### Using the starter project
-
-Try running the following commands:
-- dbt run
-- dbt test
-
-### Resources:
+# Resources:
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [dbt community](http://community.getbdt.com/) to learn from other analytics engineers
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+- Review this [dbt-tips](https://github.com/erika-e/dbt-tips)
 
-# [dbt-osmosis](https://z3z1ma.github.io/dbt-osmosis/docs/intro)
+# Tooling
+## VS Code Extensions
+### [dbt Power User](https://github.com/AltimateAI/vscode-dbt-power-user)
+### [Better Jinja](https://github.com/samuelcolvin/jinjahtml-vscode)
+
+### [dbt-shortcuts](https://github.com/magnusfoldager/dbt-shortcuts)
+
+## Other Packages
+### [dbt-osmosis](https://z3z1ma.github.io/dbt-osmosis/docs/intro)
+
+# Approach
+- [Extracting schema and model names from the filename](https://discourse.getdbt.com/t/extracting-schema-and-model-names-from-the-filename/575)

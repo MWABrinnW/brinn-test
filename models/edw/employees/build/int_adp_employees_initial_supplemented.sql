@@ -38,19 +38,17 @@ select
 
 {# Execute the query to determine if new data is ready. 1=yes 0=no#}
 {%- if execute and table_exists -%}
-  {{ dbt_utils.log_info(this.identifier ~ ' | compiling')}}
   {%- set result = dbt_utils.get_single_value(qry_check_for_new_data) -%}
-  {{ dbt_utils.log_info(this.identifier ~ ' | ' ~ result)}}
 {%- else -%}
   {%- set result = 0 -%}
 {%- endif -%}
 
 {%- if result == 0 and flags.FULL_REFRESH == false and table_exists -%}
-  {{ dbt_utils.log_info(this.identifier ~ ' | full refresh false')}}
+  {# {{ dbt_utils.log_info(this.identifier ~ ' | full refresh false')}} #}
   select *
   from {{ this }}
 {%- else -%}
-  {{ dbt_utils.log_info(this.identifier ~ ' | full refresh true')}}
+  {# {{ dbt_utils.log_info(this.identifier ~ ' | full refresh true')}} #}
 with cte_employees_all           as
     (
         select *

@@ -1,9 +1,9 @@
 version: 2
 
 exposures:
-  
+
   - name: prime_broker_upsert
-    label: "Prime broker Salesforce upsert"
+    label: "Prime Broker Salesforce upsert"
     type: application
     maturity: high
     url:
