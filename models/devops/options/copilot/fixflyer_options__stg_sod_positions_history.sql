@@ -8,7 +8,7 @@ select
   , unitcost::decimal(19, 6)                         as unitcost
   , totalcost::decimal(19, 6)                        as totalcost
   , price::decimal(19, 6)                            as price
-  , lotdate::date                                    as lotdate
+  , lotdate::int                                     as lotdate
   , lotnum::text(200)                                as lotnum
   , unsupervised::text(200)                          as unsupervised
   , cusiplookup::text(200)                           as cusiplookup
