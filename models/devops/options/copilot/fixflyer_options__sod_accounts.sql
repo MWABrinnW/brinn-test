@@ -43,7 +43,7 @@ with custodian_accounts as
         , a.account_number
         , a.account_number_formatted
         , a.link
-        , replace(coalesce(c.account_name, a.account_name),'"','') as account_name
+        , regexp_replace(replace(coalesce(c.account_name, a.account_name),'"',''), '\\s+',' ') as account_name
         , c.model_name
         , coalesce(c.account_type, a.account_type) as account_type
         , c.crm_id

@@ -10,3 +10,4 @@ scratch.sql
 analyses/scratch/
 edr_target/
 .env
+*.code-workspace
