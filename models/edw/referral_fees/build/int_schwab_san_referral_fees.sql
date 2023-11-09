@@ -49,7 +49,7 @@ select
         * (household_fees))::decimal(17,2)                              as referral_fee_original
     , (percentage_of_total
         * (household_fees + nvl(adj.amount,0)))::decimal(17,2)          as referral_fee
-    , nvl(adj.amount,0)                                                 as adjustments
+    , (nvl(referral_fee,0) - nvl(referral_fee_original,0))::decimal(17,2) as adjustments
     , max(a.effective_date) over(partition by to_char(dt.quarter_end_date, 'YYYYMM')::int) as period_max_effective_date
     , case when a.effective_date = period_max_effective_date
         then 1
