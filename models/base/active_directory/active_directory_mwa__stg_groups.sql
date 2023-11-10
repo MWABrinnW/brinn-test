@@ -105,11 +105,12 @@ select
   , wwwhomepage
   , url
   , usercertificate
-  , record_datetime::timestamp   as record_datetime
+  , record_datetime::timestamp   as _created_at
   , record_date::date            as record_date
-  , case
-        when record_datetime::timestamp =
-             (select max(record_datetime::timestamp) from {{ source('active_directory_mwa', 'groups_history') }})
-            then 1
-        else 0 end               as is_current
+  , {{ col_is_head(
+      reference=source('active_directory_mwa', 'groups_history'),
+      reference_date_col='record_datetime::timestamp',
+      source_date_col='record_datetime::timestamp'
+      ) }}
 from {{ source('active_directory_mwa', 'groups_history') }}
+qualify row_number() over(partition by record_date::date, distinguishedname, dn order by whenchanged::timestamp desc, record_datetime::timestamp desc) = 1

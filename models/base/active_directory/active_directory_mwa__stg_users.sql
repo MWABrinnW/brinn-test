@@ -206,13 +206,13 @@ select
   , url
   , x121address
   , usercertificate
-  , record_datetime::timestamp                             as record_datetime
+  , record_datetime::timestamp                             as _created_at
   , record_date::date                                      as record_date
   , case when useraccountcontrol = '512' then 1 else 0 end as is_active
-  , case
-        when record_datetime::timestamp =
-             (select max(record_datetime::timestamp) from {{ source('active_directory_mwa', 'user_history') }})
-            then 1
-        else 0 end                                         as is_current
+  , row_number() over(partition by record_date::date, distinguishedname order by whenchanged::timestamp desc, record_datetime::timestamp desc) as rn
+  , {{ col_is_head(
+      reference=source('active_directory_mwa', 'user_history'),
+      reference_date_col='record_datetime::timestamp',
+      source_date_col='record_datetime::timestamp'
+      ) }}
 from {{ source('active_directory_mwa', 'user_history') }}
-limit 500
