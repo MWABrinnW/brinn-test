@@ -403,5 +403,5 @@ select
         and b.billcreateddate >= current_date() - 185
         {%- endif %}
         {%- if is_incremental() %}
-        and b.createddate > nvl((select max(bill_createddate) from orion__billing), b.createddate - interval '1 day')
+        and b.createddate > nvl((select max(bill_createddate) from {{ this }}), b.createddate - interval '1 day')
         {%- endif %}

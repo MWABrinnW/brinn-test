@@ -53,9 +53,9 @@
     from {{ this }}
     limit 0
 {%- else -%}
-    {{ dbt_utils.log_info(this ~ " | Dates to refresh") }}
     {# The results told us there is fresh data to load or refresh. #}
     {%- if results is not none -%}
+    {{ dbt_utils.log_info(this ~ " | Dates to refresh") }}
     {%- do results.print_table() -%}
     {%- endif -%}
     select
