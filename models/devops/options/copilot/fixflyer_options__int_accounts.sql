@@ -27,6 +27,7 @@ select
 
     , g.group_cust_id
 
+    , a.effective_date
     , a.is_head
     , a.is_head_for_day
     , a._created_at
