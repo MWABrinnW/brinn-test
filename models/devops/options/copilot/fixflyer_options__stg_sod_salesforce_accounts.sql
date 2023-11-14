@@ -34,6 +34,5 @@ select
   , model_on_account__r ::TEXT(200)                            as model_on_account__r
   , registration_type__r ::TEXT(200)                           as registration_type__r
   , subadvisor__r ::TEXT(200)                                  as subadvisor__r
-    -- is_head --is_latest
-  , _created_at::timestamp as _created_at
+  , _created_at::timestamp                                     as _created_at
 from {{ source('copilot', 'sod_salesforce_accounts') }}

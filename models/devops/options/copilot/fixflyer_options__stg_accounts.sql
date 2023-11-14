@@ -20,23 +20,31 @@ select
   , a.json:cashReserve                                                                       as cash_reserve
   , a.json:percentOrValue                                                                    as percent_or_value
   , a.json:sleeves                                                                           as sleeves
-  , {{ col_is_head(reference=source('copilot', 'accounts'), source_date_col='a._created_at', reference_date_col='_created_at') }}
-  , case when a._created_at = b.max_created_at then 1 else 0 end                             as is_latest
+  , case
+    when a._created_at || a._uri in
+      (select max(_created_at || _uri) from {{ source('copilot', 'accounts') }} group by _uri)
+    then 1
+    else 0
+    end::int                                                                                 as is_head
+  , case when a._created_at = b.max_created_at then 1 else 0 end::int                        as is_head_for_day
   -- Derive effective date based on record created date
   , dt.prior_market_date                                                                     as effective_date
   , a._created_at                                                                            as _created_at
   , a._source_file                                                                           as _source_file
   , a._uri                                                                                   as _uri
+  , {{ parse_flyer_env(col='a._uri') }}
 from {{ source('copilot', 'accounts') }}                  a
      left join (
                    select
-                       _created_at::date   as _created_date
+                     _uri
+                     , _created_at::date   as _created_date
                      , max(_created_at)    as max_created_at
                    from {{ source('copilot', 'accounts') }}
-                   group by 1
+                   group by 1, 2
                )                                          b
      on a._created_at::date = b._created_date::date
          and a._created_at = b.max_created_at
+         and a._uri = b._uri
     left join {{ ref('dates' )}} dt
       on a._created_at::date = dt.date_key
 where 1=1

@@ -32,7 +32,7 @@ Get-Content "$env_file" | ForEach-Object {
         # Check if the variable name is valid
         if ($name -match "^\w+$") {
             # Set the environment variable in the current session
-            Set-Variable -Name $name -Value $value
+            Set-Item Env:$($name) "$value"
             Write-Host "Loaded $name=$value"
         }
         else {

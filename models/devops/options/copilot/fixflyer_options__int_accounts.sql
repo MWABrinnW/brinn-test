@@ -28,13 +28,16 @@ select
     , g.group_cust_id
 
     , a.is_head
-    , a.is_latest
+    , a.is_head_for_day
     , a._created_at
+    , a._uri
+    , a._env
 from {{ ref('fixflyer_options__stg_accounts') }} a
 left join {{ ref('fixflyer_options__stg_groups') }} g
     on a._created_at::date = g._created_at::date
     and a.account_id = g.account_id
-    and g.is_latest = 1
+    and g.is_head_for_day = 1
+    and a._env = g._env
 where 1=1
-    and a.is_latest = 1
+    and a.is_head_for_day = 1
 

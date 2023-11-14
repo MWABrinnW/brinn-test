@@ -76,13 +76,16 @@ select
     , crm_id::text(200)                         as portfoliocode2
     , null::text(200)                           as portfoliocode3
     , account_type                              as accounttype
-    , 'data@mariner;api@mariner;dev@mariner' ||
-        ';adam@mariner' ||
-        ';brett@mariner' ||
+    , 'api@mariner' ||
+        ';data@mariner' ||
+        ';grant@mariner' ||
         ';tanner@mariner' ||
         ';austin@mariner' ||
-        ';robert@mariner' ||
-        ';grant@mariner'
+        ';allen@mariner' ||
+        ';sharedblotter@mariner' ||
+        ';adam@mariner' ||
+        ';brett@mariner' ||
+        ';robert@mariner'
         ::text(200)                             as associated_Users
 from accounts
 where rn = 1
