@@ -69,6 +69,16 @@ select
     , null::text(200)                           as use_account_cash
     , null::text(200)                           as cash_reserve_type
     , null::text(200)                           as cash_reserve
+    , 'api@mariner' ||
+        ';data@mariner' ||
+        ';grant@mariner' ||
+        ';tanner@mariner' ||
+        ';austin@mariner' ||
+        ';sharedblotter@mariner' ||
+        ';adam@mariner' ||
+        ';brett@mariner' ||
+        ';robert@mariner'
+        ::text(200)                             as associated_Users
     , null::text(200)                           as taxable
     , null::text(200)                           as cashreserveexpiry
     , null::text(200)                           as disablesleeves
@@ -76,16 +86,5 @@ select
     , crm_id::text(200)                         as portfoliocode2
     , null::text(200)                           as portfoliocode3
     , account_type                              as accounttype
-    , 'api@mariner' ||
-        ';data@mariner' ||
-        ';grant@mariner' ||
-        ';tanner@mariner' ||
-        ';austin@mariner' ||
-        ';allen@mariner' ||
-        ';sharedblotter@mariner' ||
-        ';adam@mariner' ||
-        ';brett@mariner' ||
-        ';robert@mariner'
-        ::text(200)                             as associated_Users
 from accounts
 where rn = 1
