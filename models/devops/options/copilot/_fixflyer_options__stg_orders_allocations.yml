@@ -8,9 +8,9 @@ models:
       - name: USER_ID
         description: ''
         data_type: VARCHAR
-      - name: TRADING_SESSION_ID
+      - name: TRADING_SESSION_DATE
+        data_type: DATE
         description: ''
-        data_type: VARCHAR
       - name: CLIENT_ORDER_ID
         description: ''
         data_type: VARCHAR
@@ -407,9 +407,9 @@ models:
       - name: IS_HEAD
         description: ''
         data_type: NUMBER
-      - name: IS_LATEST
+      - name: EFFECTIVE_DATE
+        data_type: DATE
         description: ''
-        data_type: NUMBER
       - name: _CREATED_AT
         description: ''
         data_type: TIMESTAMP_NTZ
@@ -419,3 +419,6 @@ models:
       - name: _URI
         description: ''
         data_type: VARCHAR
+      - name: _ENV
+        data_type: VARCHAR
+        description: ''

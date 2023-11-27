@@ -209,5 +209,148 @@ sources:
             description: ''
       - name: sod_accounts_history
         description: "History of FixFlyer SOD accounts."
+        columns:
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: ACCOUNT_NO
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: CUSTODIAN
+            data_type: VARCHAR
+            description: ''
+          - name: DESCRIPTION
+            data_type: VARCHAR
+            description: ''
+          - name: NOTES
+            data_type: VARCHAR
+            description: ''
+          - name: MODEL_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: CLOSING_METHOD
+            data_type: VARCHAR
+            description: ''
+          - name: LONG_TERM_TAX_RATE
+            data_type: VARCHAR
+            description: ''
+          - name: SHORT_TERM_TAX_RATE
+            data_type: VARCHAR
+            description: ''
+          - name: USE_ACCOUNT_CASH
+            data_type: VARCHAR
+            description: ''
+          - name: CASH_RESERVE_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: CASH_RESERVE
+            data_type: VARCHAR
+            description: ''
+          - name: TAXABLE
+            data_type: VARCHAR
+            description: ''
+          - name: CASHRESERVEEXPIRY
+            data_type: VARCHAR
+            description: ''
+          - name: DISABLESLEEVES
+            data_type: VARCHAR
+            description: ''
+          - name: PORTFOLIOCODE1
+            data_type: VARCHAR
+            description: ''
+          - name: PORTFOLIOCODE2
+            data_type: VARCHAR
+            description: ''
+          - name: PORTFOLIOCODE3
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNTTYPE
+            data_type: VARCHAR
+            description: ''
+          - name: ASSOCIATED_USERS
+            data_type: VARCHAR
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_LTZ
+            description: ''
       - name: sod_positions_history
         description: "History of FixFlyer SOD positions."
+        columns:
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: CUSTODIANCODE
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: PRODUCT
+            data_type: VARCHAR
+            description: ''
+          - name: SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: QUANTITY
+            data_type: NUMBER
+            description: ''
+          - name: UNITCOST
+            data_type: NUMBER
+            description: ''
+          - name: TOTALCOST
+            data_type: NUMBER
+            description: ''
+          - name: PRICE
+            data_type: NUMBER
+            description: ''
+          - name: LOTDATE
+            data_type: NUMBER
+            description: ''
+          - name: LOTNUM
+            data_type: VARCHAR
+            description: ''
+          - name: UNSUPERVISED
+            data_type: VARCHAR
+            description: ''
+          - name: CUSIPLOOKUP
+            data_type: VARCHAR
+            description: ''
+          - name: CUSIP
+            data_type: VARCHAR
+            description: ''
+          - name: PREFERRED
+            data_type: VARCHAR
+            description: ''
+          - name: SECURITYID
+            data_type: VARCHAR
+            description: ''
+          - name: SECURITY_TYPE_DESCRIPTION
+            data_type: VARCHAR
+            description: ''
+          - name: FUND_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: PRODUCT_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: PRODUCT_TYPE_SOURCE_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: PRODUCT_TYPE_SOURCE_DEFINITION
+            data_type: VARCHAR
+            description: ''
+          - name: LEGACY_PRODUCT_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: LEGACY_PRODUCT_TYPE_SOURCE_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: LEGACY_PRODUCT_TYPE_SOURCE_DEFINITION
+            data_type: VARCHAR
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_LTZ
+            description: ''

@@ -17,15 +17,21 @@ models:
       - name: ACCOUNT_ID
         description: ''
         data_type: VARCHAR
-      - name: CUSTID
-        description: ''
+      - name: CUST_ID
         data_type: VARCHAR
-      - name: USERID
         description: ''
+      - name: USER_ID
         data_type: VARCHAR
+        description: ''
       - name: RESTRICTION_TYPE
         description: ''
         data_type: VARCHAR
+      - name: EXTERNAL_RESTRICTION
+        data_type: VARCHAR
+        description: ''
+      - name: RESTRICTION_MAPPING
+        data_type: VARCHAR
+        description: ''
       - name: SECURITY_ID
         description: ''
         data_type: VARCHAR
@@ -44,9 +50,12 @@ models:
       - name: IS_HEAD
         description: ''
         data_type: NUMBER
-      - name: IS_LATEST
-        description: ''
+      - name: IS_HEAD_FOR_DAY
         data_type: NUMBER
+        description: ''
+      - name: EFFECTIVE_DATE
+        data_type: DATE
+        description: ''
       - name: _CREATED_AT
         description: ''
         data_type: TIMESTAMP_NTZ
@@ -56,3 +65,6 @@ models:
       - name: _URI
         description: ''
         data_type: VARCHAR
+      - name: _ENV
+        data_type: VARCHAR
+        description: ''

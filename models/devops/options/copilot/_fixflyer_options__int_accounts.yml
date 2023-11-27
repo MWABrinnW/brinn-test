@@ -80,12 +80,21 @@ models:
       - name: GROUP_CUST_ID
         description: ''
         data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        data_type: DATE
+        description: ''
       - name: IS_HEAD
         description: ''
         data_type: NUMBER
-      - name: IS_LATEST
-        description: ''
+      - name: IS_HEAD_FOR_DAY
         data_type: NUMBER
+        description: ''
       - name: _CREATED_AT
         description: ''
         data_type: TIMESTAMP_NTZ
+      - name: _URI
+        data_type: VARCHAR
+        description: ''
+      - name: _ENV
+        data_type: VARCHAR
+        description: ''

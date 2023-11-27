@@ -1,5 +1,5 @@
 select
-      g.group_name
+    g.group_name
     , g.group_type
     , g.group_description
     , g.group_id
@@ -33,12 +33,11 @@ select
     , a._created_at
     , a._uri
     , a._env
-from {{ ref('fixflyer_options__stg_accounts') }} a
-left join {{ ref('fixflyer_options__stg_groups') }} g
+from {{ ref('fixflyer_options__stg_accounts') }} as a
+left join {{ ref('fixflyer_options__stg_groups') }} as g
     on a._created_at::date = g._created_at::date
     and a.account_id = g.account_id
     and g.is_head_for_day = 1
     and a._env = g._env
-where 1=1
+where 1 = 1
     and a.is_head_for_day = 1
-

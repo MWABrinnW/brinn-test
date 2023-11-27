@@ -7,13 +7,11 @@ nocolor = False
 # Or run 'sqlfluff dialects'
 dialect = snowflake
 # One of [raw|jinja|python|placeholder]
-templater = dbt
+templater = jinja
 # Comma separated list of rules to check, default to all
 rules = all
 # Comma separated list of rules to exclude, or None
 exclude_rules = None
-# The depth to recursively parse to (0 for unlimited)
-recurse = 0
 # Below controls SQLFluff output, see max_line_length for SQL output
 output_line_length = 80
 # Number of passes to run before admitting defeat
@@ -53,7 +51,7 @@ processes = 1
 # Max line length is set by default to be in line with the dbt style guide.
 # https://github.com/dbt-labs/corp/blob/main/dbt_style_guide.md
 # Set to zero or negative to disable checks.
-max_line_length = 100
+max_line_length = 130
 
 [sqlfluff:indentation]
 # See https://docs.sqlfluff.com/en/stable/layout.html#configuring-indent-locations
@@ -78,7 +76,7 @@ trailing_comments = before
 # Layout configuration
 # See https://docs.sqlfluff.com/en/stable/layout.html#configuring-layout-and-spacing
 [sqlfluff:layout:type:comma]
-spacing_before = touch
+spacing_before = align
 line_position = leading
 
 [sqlfluff:layout:type:end_of_file]
@@ -107,7 +105,7 @@ spacing_before = touch
 
 [sqlfluff:layout:type:casting_operator]
 spacing_before = touch
-spacing_after = touch:inline
+spacing_after = touch
 
 [sqlfluff:layout:type:slice]
 spacing_before = touch
@@ -122,20 +120,20 @@ spacing_within = touch
 line_position = leading
 
 [sqlfluff:layout:type:object_reference]
-spacing_within = touch:inline
+spacing_within = touch
 
 [sqlfluff:layout:type:numeric_literal]
-spacing_within = touch:inline
+spacing_within = touch
 
 [sqlfluff:layout:type:sign_indicator]
-spacing_after = touch:inline
+spacing_after = touch
 
 [sqlfluff:layout:type:function_name]
-spacing_within = touch:inline
-spacing_after = touch:inline
+spacing_within = touch
+spacing_after = touch
 
 [sqlfluff:layout:type:array_type]
-spacing_within = touch:inline
+spacing_within = touch
 
 [sqlfluff:layout:type:typed_array_literal]
 spacing_within = touch
@@ -144,20 +142,20 @@ spacing_within = touch
 spacing_within = touch
 
 [sqlfluff:layout:type:struct_type]
-spacing_within = touch:inline
+spacing_within = touch
 
 [sqlfluff:layout:type:bracketed_arguments]
-spacing_before = touch:inline
+spacing_before = touch
 
 [sqlfluff:layout:type:typed_struct_literal]
 spacing_within = touch
 
 [sqlfluff:layout:type:semi_structured_expression]
-spacing_within = touch:inline
-spacing_before = touch:inline
+spacing_within = touch
+spacing_before = touch
 
 [sqlfluff:layout:type:array_accessor]
-spacing_before = touch:inline
+spacing_before = touch
 
 [sqlfluff:layout:type:colon]
 spacing_before = touch
@@ -221,6 +219,7 @@ unwrap_wrapped_queries = True
 
 [sqlfluff:templater:jinja]
 apply_dbt_builtins = True
+load_macros_from_path = macros
 
 # Some rules can be configured directly from the config common to other rules
 [sqlfluff:rules]
@@ -291,6 +290,8 @@ aliasing = explicit
 [sqlfluff:rules:aliasing.column]
 # Aliasing preference for columns
 aliasing = explicit
+alignment = align
+align_subquery = True
 
 [sqlfluff:rules:aliasing.length]
 min_alias_length = None
@@ -374,8 +375,8 @@ force_enable = False
 
 [sqlfluff:rules:layout.long_lines]
 # Line length
-ignore_comment_lines = False
-ignore_comment_clauses = False
+ignore_comment_lines = True
+ignore_comment_clauses = True
 
 [sqlfluff:rules:layout.select_targets]
 wildcard_policy = single

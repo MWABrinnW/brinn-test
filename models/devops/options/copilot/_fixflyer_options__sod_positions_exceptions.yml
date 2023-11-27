@@ -1,0 +1,43 @@
+version: 2
+models:
+  - name: fixflyer_options__sod_positions_exceptions
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: CUSTODIANCODE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT
+        description: ''
+        data_type: VARCHAR
+      - name: SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: 'Committee on Uniform Securities Identification Procedures. A CUSIP number identifies most securities'
+        data_type: VARCHAR
+      - name: QUANTITY
+        description: ''
+        data_type: NUMBER
+      - name: UNITCOST
+        description: ''
+        data_type: NUMBER
+      - name: TOTALCOST
+        description: ''
+        data_type: NUMBER
+      - name: PRICE
+        description: ''
+        data_type: NUMBER
+      - name: LOTDATE
+        description: ''
+        data_type: NUMBER
+      - name: EXCEPTION_DETAIL
+        description: ''
+        data_type: VARCHAR
+      - name: IS_EXCEPTION
+        description: ''
+        data_type: NUMBER

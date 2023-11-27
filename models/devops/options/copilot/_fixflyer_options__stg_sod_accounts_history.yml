@@ -1,6 +1,6 @@
 version: 2
 models:
-  - name: fixflyer_options__sod_accounts
+  - name: fixflyer_options__stg_sod_accounts_history
     columns:
       - name: EFFECTIVE_DATE
         description: ''
@@ -28,10 +28,10 @@ models:
         data_type: VARCHAR
       - name: LONG_TERM_TAX_RATE
         description: ''
-        data_type: VARCHAR
+        data_type: NUMBER
       - name: SHORT_TERM_TAX_RATE
         description: ''
-        data_type: VARCHAR
+        data_type: NUMBER
       - name: USE_ACCOUNT_CASH
         description: ''
         data_type: VARCHAR
@@ -39,9 +39,6 @@ models:
         description: ''
         data_type: VARCHAR
       - name: CASH_RESERVE
-        description: ''
-        data_type: VARCHAR
-      - name: ASSOCIATED_USERS
         description: ''
         data_type: VARCHAR
       - name: TAXABLE
@@ -65,3 +62,15 @@ models:
       - name: ACCOUNTTYPE
         description: ''
         data_type: VARCHAR
+      - name: ASSOCIATED_USERS
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_HEAD_FOR_DAY
+        description: ''
+        data_type: NUMBER
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
