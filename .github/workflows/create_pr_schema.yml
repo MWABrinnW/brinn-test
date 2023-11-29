@@ -1,0 +1,45 @@
+name: Deploy PR DBT Models to Temp Schema in Snowflake
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+env:
+  DBT_USER: ${{ vars.DBT_USER }}
+  DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
+  DBT_HOST: ${{ vars.DBT_HOST }}
+  DBT_STATE: ${{ vars.DB_PROD_ARTIFACTS }}
+  DBT_DEFER: True
+  DBT_PROFILES_DIR: ${{ vars.DBT_PROFILES_DIR }}
+
+
+jobs:
+  run:
+    if: github.event.pull_request.draft == false
+    runs-on: self-hosted
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      # https://paulfry999.medium.com/v0-4-pre-chatgpt-how-to-create-ci-cd-pipelines-for-dbt-core-88e68ab506dd
+      # https://www.vantage-ai.com/blog/how-to-use-slim-ci-with-dbt-core
+      # https://www.datafold.com/blog/accelerating-dbt-core-ci-cd-with-github-actions-a-step-by-step-guide
+
+      - name: Set up env, create schema, and build artifacts
+        env:
+          # set PR_NUM here that is passed to DBT Profile as part of the schema.
+          PR_NUM: ${{ github.event.number }}
+        run: |
+          python -m venv .\utilities\.venv
+          .\utilities\.venv\Scripts\Activate.ps1
+          pip install -r requirements-ci.txt
+          dbt deps
+          dbt build --target ci --select state:modified.body+ state:modified.persisted_descriptions+ state:modified.relation+ state:modified.macros+ state:modified.contract+

@@ -9,4 +9,4 @@ seeds:
       enabled: true
       tags: ['associates', 'employees']
       grants:
-        select: "{{ ['db_hr_mwa_r'] if target.name in ['prod','test'] else []}}"
+        select: "{{ ['db_hr_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"

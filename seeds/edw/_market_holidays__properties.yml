@@ -8,7 +8,7 @@ seeds:
     config:
       enabled: true
       grants:
-        select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod','test'] else []}}"
+        select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
     columns:
       - name: market_holiday
         tests:

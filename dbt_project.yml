@@ -35,15 +35,15 @@ vars:
   dev_day_filter: 7
   incremental_mode: lookback
   lookback_custodial: 14
-  disable_run_results: "{{ target.name not in ['prod','test'] }}"
-  disable_tests_results: "{{ target.name not in ['prod','test'] }}"
-  disable_dbt_invocation_autoupload: "{{ target.name not in ['prod','test'] }}"
-  disable_dbt_artifacts_autoupload: "{{ target.name not in ['prod','test'] }}"
+  disable_run_results: "{{ target.name not in ['prod', 'test'] }}"
+  disable_tests_results: "{{ target.name not in ['prod', 'test'] }}"
+  disable_dbt_invocation_autoupload: "{{ target.name not in ['prod', 'test'] }}"
+  disable_dbt_artifacts_autoupload: "{{ target.name not in ['prod', 'test'] }}"
 
 on-run-start:
-  - "{{ create_schemas() if target.name in ['prod','test'] }}"
+  - "{{ create_schemas() if target.name in ['prod', 'test', 'ci'] }}"
 on-run-end:
-  - "{{ grant_usage_on_schemas_where_select() if target.name in ['prod','test'] }}"
+  - "{{ grant_usage_on_schemas_where_select() if target.name in ['prod', 'test'] }}"
 
 models:
   ## see docs: https://docs.elementary-data.com/
@@ -75,104 +75,104 @@ models:
       active_directory:
         +tags: ["active_directory", "hr", "employees", "associates"]
         +grants:
-          select: "{{ ['db_hr_gen_r', 'db_it_r'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['db_hr_gen_r', 'db_it_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       adp:
         +tags: ["adp", "hr", "employees", "associates"]
         +grants:
-          select: "{{ ['db_hr_assoc_r'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['db_hr_assoc_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       alteryx_gallery:
         +tags: ["alteryx"]
         +grants:
-          select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       auxy:
         +tags: ["aux"]
         +grants:
-          select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
         +dbt-osmosis: "_aux__models.yml"
 
       cais:
         +tags: ["cais", "mwa"]
         +grants:
-          select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       culture_amp:
         +tags: ["culture_amp", "hr"]
         +grants:
-          select: "{{ ['db_hr_assoc_r'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['db_hr_assoc_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       cusip:
         +tags: ["cusip"]
         +grants:
-          select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       custodian:
         +tags: ["custodian", "custodial"]
         fidelity:
           +tags: ["fidelity"]
           +grants:
-            select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
         fidelity_mps:
           +tags: ["fidelity", "mps"]
           +grants:
-            select: "{{ ['db_custodial_mps_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_custodial_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         fidelity_swag:
           +tags: ["fidelity", "swag"]
           +grants:
-            select: "{{ ['db_custodial_mps_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_custodial_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         fidelity_msec:
           +tags: ["fidelity", "msec"]
           +grants:
-            select: "{{ ['db_custodial_msec_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_custodial_msec_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         fidelity_mwa:
           +tags: ["fidelity", "mwa"]
           +grants:
-            select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         lpl_network:
           +tags: ["lpl", "network", "mps"]
           +grants:
-            select: "{{ ['db_custodial_mps_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_custodial_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         schwab:
           +tags: ["schwab"]
           stg:
             +grants:
-              select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+              select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
           base:
             +grants:
-              select: "{{ ['db_custodial_r'] if target.name in ['prod','test'] else []}}"
+              select: "{{ ['db_custodial_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         schwab_mps:
           +tags: ["schwab", "mps"]
           +grants:
-            select: "{{ ['db_custodial_mps_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_custodial_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         schwab_mwa:
           +tags: ["schwab", "mwa"]
           +grants:
-            select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         tda:
           +tags: ["tda", "mwa", "mps", "network"]
           +grants:
-            select: "{{ ['db_custodial_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_custodial_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         tda_mwa:
           +tags: ["tda", "mwa"]
           +grants:
-            select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         pershing_mps:
           +tags: ["pershing", "mps"]
           +grants:
-            select: "{{ ['db_custodial_mps_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_custodial_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         pershing_mwa:
           +tags: ["pershing", "mwa"]
           +grants:
-            select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       dbt:
         +tags: ["dbt"]
         +database: "{{ target.database }}"
         +schema: "{{ target.schema }} "
         +grants:
-          select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       edw_legacy:
         +tags: ["edw", "employees", "associates"]
@@ -182,67 +182,67 @@ models:
         mwa:
           +tags: ["mwa"]
           +grants:
-            select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       freshservice:
         +tags: ["freshservice"]
         +grants:
-          select: "{{ ['db_it_r', 'reporting'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['db_it_r', 'reporting'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       hubspot_network:
         +tags: ["hubspot", "network", "hubspot_network"]
         +grants:
-          select: "{{ ['db_crm_mps_r'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['db_crm_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       icims:
         +tags: ["icims", "hr"]
         +grants:
-          select: "{{ ['db_hr_talent_r'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['db_hr_talent_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       pardot:
         +tags: ["pardot"]
         +grants:
-          select: "{{ ['db_crm_mwa_r'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['db_crm_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       pms:
         +tags: ["pms"]
         +grants:
-          select: "{{ ['db_pms_mwa_r'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       redtail_network:
         +tags: ["redtail", "network"]
         +grants:
-          select: "{{ ['db_crm_mps_r'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['db_crm_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       rise:
         +tags: ["rise"]
         +grants:
-          select: "{{ ['engineering', 'datamanagement', 'reporting', 'integration_reporting'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['engineering', 'datamanagement', 'reporting', 'integration_reporting'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       salesforce_adviceperiod:
         +tags: ["crm", "salesforce"]
         +grants:
-          select: "{{ ['db_crm_mwa_r'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['db_crm_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       salesforce_compass:
         +tags: ["crm", "salesforce"]
         +grants:
-          select: "{{ ['db_crm_mwa_r'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['db_crm_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       salesforce_corbenic:
         +tags: ["crm", "salesforce"]
         +grants:
-          select: "{{ ['db_crm_mwa_r'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['db_crm_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       salesforce_msec:
         +tags: ["crm", "salesforce", "msec"]
         +grants:
-          select: "{{ ['db_crm_msec_r'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['db_crm_msec_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       zoom:
         +tags: ["zoom"]
         +grants:
-          select: "{{ ['db_it_r'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['db_it_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
     # [DEVOPS]
 
@@ -255,7 +255,7 @@ models:
         {%- else -%} devops_test
         {%- endif -%}
       +grants:
-        +select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+        +select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
       +dbt-osmosis: "_{model}.yml"
 
       activetick:
@@ -283,62 +283,62 @@ models:
         build:
           +schema: build
           +grants:
-            select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
         enterprise:
           +schema: enterprise
           +grants:
-            select: "{{ ['db_edw_client_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_edw_client_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         ref:
           +schema: ref
           +grants:
-            select: "{{ ['db_edw_client_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_edw_client_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       pms:
         +tags: ["pms", "pms-master"]
         build:
           +schema: build
           +grants:
-            select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
         # enterprise:
         #   +schema: enterprise
         #   +grants:
-        #     select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod','test'] else []}}"
+        #     select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       employees:
         +tags: ["employees", "associates"]
         build:
           +schema: build
           +grants:
-            select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
         enterprise:
           +schema: enterprise
           +grants:
-            select: "{{ ['db_hr_assoc_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_hr_assoc_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
           employees:
             +grants:
-              select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod','test'] else []}}"
+              select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
           employee_census:
             +grants:
-              select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod','test'] else []}}"
+              select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         legacy:
           +schema: legacy
           +grants:
-            select: "{{ ['db_hr_assoc_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_hr_assoc_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       locations:
         +tags: ["locations"]
         build:
           +schema: build
           +grants:
-            select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
         enterprise:
           +schema: enterprise
           +grants:
-            select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         ref:
           +schema: ref
           +grants:
-            select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       referral_fees:
         +enabled: true
@@ -346,17 +346,17 @@ models:
         build:
           +schema: build
           +grants:
-            select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
         enterprise:
           +schema: enterprise
           +grants:
-            select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod','test'] else []}}"
+            select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       reports:
         +tags: ["report", "reports"]
         +schema: reports
         +grants:
-          select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod','test'] else []}}"
+          select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
 seeds:
   data_engineering:

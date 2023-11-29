@@ -77,28 +77,28 @@ models:
     config:
       tags: ['hfw']
       grants:
-        select: "{{ ['db_pms_mwa_r'] if target.name in ['prod','test'] else []}}"
+        select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
   - name: aux__base_hfw_tpg_mstar_overlap
     config:
       tags: ['hfw']
       grants:
-        select: "{{ ['db_pms_mwa_r'] if target.name in ['prod','test'] else []}}"
+        select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
   - name: aux__stg_tda_account_mappings
     config:
       tags: ['tda', 'schwab']
       grants:
-        select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod','test'] else []}}"
+        select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
   - name: aux__stg_custodian_links
     config:
       tags: ['custodian']
       grants:
-        select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod','test'] else []}}"
+        select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
-  - name: aux__base_referral_fees_san_adjustments
+  - name: aux__stg_referral_fees_san_adjustments
     config:
       tags: ['referral_fees']
       grants:
-        select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod','test'] else []}}"
+        select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
 

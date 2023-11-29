@@ -10,7 +10,7 @@ seeds:
       tags: ['custodial', 'custodian', 'tda']
       schema: tda
       grants:
-        select: "{{ ['db_custodial_r'] if target.name in ['prod','test'] else []}}"
+        select: "{{ ['db_custodial_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
     columns:
       - name: rep_code
         description: "TDA rep code"
