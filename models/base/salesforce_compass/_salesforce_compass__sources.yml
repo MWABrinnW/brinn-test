@@ -371,6 +371,12 @@ sources:
           - name: effective_at
           - name: _created_at
 
+      - name: arapitem_c
+        columns:
+          - name: json
+          - name: effective_at
+          - name: _created_at
+
   - name: salesforce_compass_fivetran
     description: ""
     database: fivetran
