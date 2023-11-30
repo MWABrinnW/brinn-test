@@ -407,6 +407,9 @@ models:
       - name: IS_HEAD
         description: ''
         data_type: NUMBER
+      - name: IS_HEAD_FOR_DAY
+        data_type: NUMBER
+        description: ''
       - name: EFFECTIVE_DATE
         data_type: DATE
         description: ''

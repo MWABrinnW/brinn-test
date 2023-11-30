@@ -21,9 +21,11 @@ select
 
   , coalesce(sec.symbol,
             sec.floor_trading_symbol,
+            sec.option_symbol_id_occ,
             t.cusip)                             as symbol
   , coalesce(sec.symbol,
-            sec.floor_trading_symbol)            as ticker
+            sec.floor_trading_symbol,
+            sec.option_symbol_id_occ)            as ticker
   , t.cusip                                      as cusip
   -------------------------------------------------------------------------------------------
   -- We'll normalize the transaction type later.
@@ -33,8 +35,8 @@ select
   , null::text(200)                              as transaction_type_4_source_code
   , null::text(200)                              as transaction_type_5_source_code
   -------------------------------------------------------------------------------------------
-  , t.entry_date                                 as transaction_date
-  , null::date                                   as settlement_date
+  , t.trade_date                                 as transaction_date
+  , t.entry_date                                 as settlement_date
   , t.run_date                                   as entry_date
   , t.bookkeeping_quantity::decimal(22, 5)       as units_shares
   , t.price                                      as price
@@ -45,7 +47,7 @@ select
   , sec.factored_price                           as closing_price
   , sec.unfactored_price                         as closing_price_unfactored
   , sec.current_factor_amount                    as factor
-  , sec.current_factor_date                      as factor_date
+  , sec.current_factor_date::date                as factor_date
   , case
         when t.buy_sell_code is not null
             then 1
@@ -60,7 +62,7 @@ select
   , case
         when t.bookkeeping_amount > 0
             then 'debit'
-        else 'credit' end                        as debit_credit_indicator
+        else 'credit' end::text(200)             as debit_credit_indicator
   , null::timestamp_tz                           as trade_executed_at
   , null::date                                   as ex_dividend_date
   , case
@@ -119,3 +121,4 @@ left join {{ ref('custodian_mappings') }}                        cmpt
 --                  and cmtst.field = 'transaction_subtype'
 --                  and t.key_code = cmtst.source
 where 1=1
+  and ( t.buy_sell_code is null or ( t.buy_sell_code is not null and t.trade_type = 'T' ) )

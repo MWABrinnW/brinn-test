@@ -36,7 +36,11 @@ select
   , t.transaction_date               as transaction_date
   , t.settlement_date                as settlement_date
   , t.trade_date                     as entry_date
-  , t.quantity::decimal(22, 5)       as units_shares
+  , case
+        when lower(t.action_code) in ('scc', 'spc', 'sco', 'spo', 'sell')
+            then t.quantity * -1
+        else t.quantity
+    end::decimal(22, 5)              as units_shares
   , t.price                          as price
   , t.gross_amount                   as gross_amount
 

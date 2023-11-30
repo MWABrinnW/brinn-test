@@ -26,6 +26,9 @@ select
   , case
         when nvl(OPTION_RIGHTS_WTS_EXPIRE_DATE, '') in ('', '0000', '000000', '00000000') then null::date
         else to_date(OPTION_RIGHTS_WTS_EXPIRE_DATE, 'YYYYMMDD') end::date                                            as OPTION_RIGHTS_WTS_EXPIRE_DATE
+  , case -- for use in option_symbol_id_occ, renaming allows us to use "cleaned" version of OPTION_RIGHTS_WTS_EXPIRE_DATE
+        when nvl(OPTION_RIGHTS_WTS_EXPIRE_DATE, '') in ('', '0000', '000000', '00000000') then null::date
+        else to_date(OPTION_RIGHTS_WTS_EXPIRE_DATE, 'YYYYMMDD') end::date                                            as OPTION_RIGHTS_WTS_EXPIRE_DATE_NEW
   , DISTRIBUTION_FREQUENCY_CODE                                                                                      as DISTRIBUTION_FREQUENCY_CODE
   , SECURITY_SHORT_NAME                                                                                              as SECURITY_SHORT_NAME
   , case
@@ -260,6 +263,9 @@ select
   , case
         when nvl(STRIKE_PRICE, '') = '' then null::number(18, 5)
         else STRIKE_PRICE::int * .00001 end::number(18, 5)                                                           as STRIKE_PRICE
+  , case -- for use in option_symbol_id_occ, renaming allows us to use "cleaned" version of STRIKE_PRICE
+        when nvl(STRIKE_PRICE, '') = '' then null::number(18, 5)
+        else STRIKE_PRICE::int * .00001 end::number(18, 5)                                                           as STRIKE_PRICE_NEW
   , WORTHLESS_SECURITY_INDICATOR                                                                                     as WORTHLESS_SECURITY_INDICATOR
   , INTEREST_POSTING_CODE                                                                                            as INTEREST_POSTING_CODE
   , case
@@ -269,6 +275,12 @@ select
         when nvl(LAST_CHANGED_DATE, '') in ('', '0000', '000000', '00000000') then null::date
         else to_date(LAST_CHANGED_DATE, 'YYMMDD') end::date                                                          as LAST_CHANGED_DATE
   , MONEY_MARKET_FUND_DESIGNATION                                                                                    as MONEY_MARKET_FUND_DESIGNATION
+  , concat(
+        rpad(OPTION_CONTRACT_ID, 6, ' '), 
+        to_varchar(OPTION_RIGHTS_WTS_EXPIRE_DATE_NEW, 'YYMMDD'),
+        OPTION_CALL_PUT_INDICATOR,
+        replace(to_varchar(round(STRIKE_PRICE_NEW, 3), 'FM00000.000'), '.')
+    )                                                                                                                as OPTION_SYMBOL_ID_OCC
   , is_head
   , is_current
   , effective_date

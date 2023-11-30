@@ -1,0 +1,109 @@
+version: 2
+models:
+  - name: fourforty__stg_orders_allocations
+    columns:
+      - name: RECORD_ID
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE_ALLOCATION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE_ORDER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: TRADE_DATE
+        description: ''
+        data_type: DATE
+      - name: SETTLE_DATE
+        description: ''
+        data_type: DATE
+      - name: ASSET_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE_SECURITY_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE_SECURITY_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_SIDE
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_EFFECT
+        description: ''
+        data_type: VARCHAR
+      - name: UNITS
+        description: ''
+        data_type: NUMBER
+      - name: UNIT_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: PRINCIPAL
+        description: ''
+        data_type: NUMBER
+      - name: INTEREST
+        description: ''
+        data_type: NUMBER
+      - name: COMMISSION
+        description: ''
+        data_type: NUMBER
+      - name: FEES
+        description: ''
+        data_type: NUMBER
+      - name: NET
+        description: ''
+        data_type: NUMBER
+      - name: FINANCIAL_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTER_PARTY
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM
+        description: ''
+        data_type: VARCHAR
+      - name: VENUE
+        description: ''
+        data_type: VARCHAR
+      - name: PLATFORM
+        description: ''
+        data_type: VARCHAR
+      - name: TRADER
+        description: ''
+        data_type: VARCHAR
+      - name: TRADE_START_UTC
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: TRADE_END_UTC
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: SOURCE_TRADE_DATETIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: SOURCE_TRADE_TZ
+        description: ''
+        data_type: VARCHAR
+      - name: RECORD_DATE
+        description: ''
+        data_type: DATE
+      - name: RECORD_DATETIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER

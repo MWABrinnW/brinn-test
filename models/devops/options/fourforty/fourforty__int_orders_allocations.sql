@@ -31,7 +31,10 @@ select
         when lower(broker_name) != lower(custodian) then 1
         else 0
         end::int                                                                             as is_trade_away
-  , units                                                                                    as units_shares
+  , case 
+        when lower(buy_sell) = 'sell' then units * -1
+        else units 
+    end                                                                                      as units_shares
   , unit_price                                                                               as price
   , principal                                                                                as principal
   , interest                                                                                 as interest

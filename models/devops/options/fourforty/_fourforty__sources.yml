@@ -8,3 +8,106 @@ sources:
     tables:
       - name: orders_and_allocations
         description: ""
+        columns:
+          - name: RECORD_ID
+            data_type: VARCHAR
+            description: ''
+          - name: ALLOCATION_ID
+            data_type: VARCHAR
+            description: ''
+          - name: ORDER_ID
+            data_type: VARCHAR
+            description: ''
+          - name: TRADE_DATE
+            data_type: VARCHAR
+            description: ''
+          - name: SETTLE_DATE
+            data_type: VARCHAR
+            description: ''
+          - name: ASSET_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: CUSIP
+            data_type: VARCHAR
+            description: ''
+          - name: TICKER
+            data_type: VARCHAR
+            description: ''
+          - name: SOURCE_SECURITY_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: SOURCE_SECURITY_DESCRIPTION
+            data_type: VARCHAR
+            description: ''
+          - name: ORDER_SIDE
+            data_type: VARCHAR
+            description: ''
+          - name: ORDER_EFFECT
+            data_type: VARCHAR
+            description: ''
+          - name: UNITS
+            data_type: VARCHAR
+            description: ''
+          - name: UNIT_PRICE
+            data_type: VARCHAR
+            description: ''
+          - name: PRINCIPAL
+            data_type: VARCHAR
+            description: ''
+          - name: INTEREST
+            data_type: VARCHAR
+            description: ''
+          - name: COMMISSION
+            data_type: VARCHAR
+            description: ''
+          - name: FEES
+            data_type: VARCHAR
+            description: ''
+          - name: NET
+            data_type: VARCHAR
+            description: ''
+          - name: FINANCIAL_ACCOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: CUSTODIAN
+            data_type: VARCHAR
+            description: ''
+          - name: COUNTER_PARTY
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM
+            data_type: VARCHAR
+            description: ''
+          - name: VENUE
+            data_type: VARCHAR
+            description: ''
+          - name: PLATFORM
+            data_type: VARCHAR
+            description: ''
+          - name: TRADER
+            data_type: VARCHAR
+            description: ''
+          - name: TRADE_START_UTC
+            data_type: VARCHAR
+            description: ''
+          - name: TRADE_END_UTC
+            data_type: VARCHAR
+            description: ''
+          - name: SOURCE_TRADE_DATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: SOURCE_TRADE_TZ
+            data_type: VARCHAR
+            description: ''
+          - name: RECORD_DATE
+            data_type: VARCHAR
+            description: ''
+          - name: RECORD_DATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
