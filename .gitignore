@@ -11,3 +11,4 @@ analyses/scratch/
 edr_target/
 .env
 *.code-workspace
+package-lock.yml

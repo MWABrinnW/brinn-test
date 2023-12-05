@@ -1,7 +1,7 @@
 packages:
 
   - package: elementary-data/elementary
-    version: 0.8.0
+    version: 0.12.2
     ## Docs: https://docs.elementary-data.com
 
   - package: dbt-labs/audit_helper

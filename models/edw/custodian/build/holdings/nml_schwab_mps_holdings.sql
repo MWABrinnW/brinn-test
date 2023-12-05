@@ -1,19 +1,27 @@
 select
-     p.effective_date                                           as effective_date
-    ,p.custodian                                                as custodian
-    ,p.firm                                                     as firm
-    ,p.firm_source                                              as firm_source
-    ,p.account_number                                           as account_number
-    ,p.account_number                                           as account_number_formatted
-    ,p.cusip                                                    as cusip
-    ,case
+    p.effective_date                                            as effective_date
+  , p.custodian                                                 as custodian
+  , p.firm                                                      as firm
+  , p.firm_source                                               as firm_source
+  , p.account_number                                            as account_number
+  , p.account_number                                            as account_number_formatted
+  , p.cusip                                                     as cusip
+  , case
         when p.ticker_symbol is null and p.cusip is null
             and cmsd.definition not in ('Put Option', 'Call Option')
             then p.schwab_security_number
         else p.ticker_symbol
         end                                                     as ticker
-  , 0::int                                                      as is_cash
-  , 0::int                                                      as is_sweep
+  , case
+        when p.ticker_symbol in ('SWGXX')
+            then 1
+        else 0
+        end::int                                                as is_cash
+  , case
+        when p.ticker_symbol in ('SWGXX')
+            then 1
+        else 0
+        end::int                                                as is_sweep
   , rtrim(ltrim(regexp_replace(concat_ws(' '
                              , nvl(p.security_description_line_1, '')
                              , nvl(p.security_description_line_2, '')
@@ -36,20 +44,21 @@ select
   , p.is_current                                                as is_current
   , p._source_loaded_at                                         as _source_loaded_at
   , null::varchar(200)                                          as _source_file
-from {{ ref('schwab__base_positions') }}   p
-left join {{ ref('schwab__base_cost_basis') }} pcb
+from {{ ref('schwab__base_positions') }} as p
+left join {{ ref('schwab__base_cost_basis') }} as pcb
     on p.effective_date = pcb.effective_date
     and p.firm_source = pcb.firm_source
     and pcb.rn = 1
     and p.account_number = pcb.account_number
     and p.cusip = pcb.cusip
-left join {{ ref('custodian_mappings') }}      cmsd
+left join {{ ref('custodian_mappings') }} as cmsd
     on p.custodian = cmsd.custodian
     and cmsd.field = 'security_type_description'
     and p.legacy_security_type = cmsd.source
 where true
     and p.firm_source = 'mps'
     and p.rn = 1
-qualify row_number() over(
-    partition by p.effective_date, p.account_number, coalesce(p.cusip, ticker), source_account_type
-    order by nvl(pcb.cost_basis_unamortized_cost_basis_amount,0) desc) = 1
+qualify row_number() over (
+    partition by p.effective_date , p.account_number , coalesce(p.cusip , ticker) , source_account_type
+    order by coalesce(pcb.cost_basis_unamortized_cost_basis_amount , 0) desc
+) = 1

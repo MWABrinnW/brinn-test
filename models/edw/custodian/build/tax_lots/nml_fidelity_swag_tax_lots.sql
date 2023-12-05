@@ -32,10 +32,15 @@ select
   , t.lot_received_date                                                      as entry_date_source
 
   , case
-     when t.product_code = 'SEMYM'
+     when t.product_code = 'SEMYM' or sf.ticker is not null
           then 1
      else 0
      end::int                                                                as is_cash
+  , case
+      when sf.ticker is not null
+        then 1
+      else 0
+      end::int                                                               as is_sweep
   , case
         when t.long_short_code ilike 'S'
             then 1
@@ -80,4 +85,8 @@ left join {{ ref('custodian_mappings') }}     cmsd
           on t.custodian = cmsd.custodian
                and cmsd.field = 'legacy_product_type'
                and t.product_code = cmsd.source
+left join {{ ref('int_fidelity_swag_account_sweep_fund') }} sf
+          on t.effective_date = sf.effective_date
+          and t.account_custodial = sf.account_number
+          and s.symbol = sf.ticker
 where 1 = 1

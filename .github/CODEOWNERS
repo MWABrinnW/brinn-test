@@ -1,0 +1,6 @@
+# This is a comment.
+# Below, * matches all files in the repository.
+# Users below will be automatically requested for review
+# when someone changes any file in the repository.
+
+* @grantith

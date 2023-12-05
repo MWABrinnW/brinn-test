@@ -29,7 +29,16 @@ select
     -- Date the source system entered the lot.
   , t.original_purchase_date::date                  as entry_date_source
 
-  , null::int                                       as is_cash
+  , case
+      when t.symbol_ticker = 'SWGXX'
+        then 1
+      else 0
+      end::int                                      as is_cash
+  , case
+      when t.symbol_ticker = 'SWGXX'
+        then 1
+      else 0
+      end::int                                      as is_sweep
   , case
         when t.long_short_indicator ilike 'S'
             then 1

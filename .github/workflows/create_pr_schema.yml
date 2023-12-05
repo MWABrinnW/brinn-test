@@ -8,6 +8,7 @@ on:
       - opened
       - reopened
       - synchronize
+      - ready_for_review
 
 env:
   DBT_USER: ${{ vars.DBT_USER }}

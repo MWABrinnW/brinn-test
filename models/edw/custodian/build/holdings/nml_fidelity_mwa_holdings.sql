@@ -6,17 +6,21 @@ select
   , p.account_custodial                     as account_number
   , p.account_custodial_formatted           as account_number_formatted
   , p.cusip                                 as cusip
-  , case 
+  , case
       when p.security_description_line_1 = 'Option'
         then p.option_symbol_id
-      else p.symbol                                
+      else p.symbol
       end                                   as ticker
   , case
-        when p.product_code in ('SEMYM')
-            then 1
-        else 0
-        end::int                            as is_cash
-  , 0::int                                  as is_sweep
+     when p.product_code = 'SEMYM' or sf.ticker is not null
+          then 1
+     else 0
+     end::int                               as is_cash
+  , case
+      when sf.ticker is not null
+        then 1
+      else 0
+      end::int                              as is_sweep
   , rtrim(ltrim(regexp_replace(concat_ws(' '
                              , nvl(p.security_description_line_1, '')
                              , nvl(p.security_description_line_2, '')
@@ -60,4 +64,8 @@ left join (
     on p.effective_date = cb.effective_date
     and p.account_custodial = cb.account_custodial
     and p.cusip = cb.cusip
+left join {{ ref('int_fidelity_mwa_account_sweep_fund') }} sf
+    on p.effective_date = sf.effective_date
+    and p.account_custodial = sf.account_number
+    and p.symbol = sf.ticker
 where true

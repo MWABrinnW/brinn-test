@@ -6,7 +6,12 @@ Write-Host "Using $env_file"
 
 # Check if the file exists
 if (-Not (Test-Path $env_file)) {
-    Write-Error "The file $env_file does not exist."
+    Write-Warning "The file $env_file does not exist. Defaulting to .env.dev"
+    $env_file = '.env.dev'
+    if (-Not (Test-Path $env_file)) {
+        Write-Error "Env file not found."
+        exit 1
+    }
     return
 }
 
@@ -33,7 +38,11 @@ Get-Content "$env_file" | ForEach-Object {
         if ($name -match "^\w+$") {
             # Set the environment variable in the current session
             Set-Item Env:$($name) "$value"
-            Write-Host "Loaded $name=$value"
+            if ($name -like "*pass*") {
+                Write-Host "Loaded $name=***MASKED***"
+            } else {
+                Write-Host "Loaded $name=$value"
+            }
         }
         else {
             Write-Warning "Ignored invalid environment variable name: $name"
@@ -44,4 +53,6 @@ Get-Content "$env_file" | ForEach-Object {
     }
 }
 
-Get-ChildItem env:* | sort-object name | Where-Object -property name -like "DBT*"
+Get-ChildItem env:* | sort-object name | Where-Object {($_.name -like "DBT*") -and ($_.name -notlike "*pass*")}
+
+Write-Host "`nLoaded from $env_file"
