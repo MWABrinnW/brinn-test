@@ -19,7 +19,7 @@ select
   , commission::number(19, 6)                                           as commission
   , fees::number(19, 6)                                                 as fees
   , net::number(19, 6)                                                  as net
-  , financial_account::text(200)                                        as financial_account
+  , trim(financial_account)::text(200)                                  as financial_account
   , custodian::text(200)                                                as custodian
   , counter_party::text(200)                                            as counter_party
   , firm::text(200)                                                     as firm

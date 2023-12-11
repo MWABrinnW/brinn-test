@@ -91,6 +91,7 @@ left join
                       t.account_number = a.account_number
                   and t.effective_date = a.effective_date
                   and t.custodian = a.custodian
+                  and t.firm_source = a.firm_source
 -- Security type
 left join {{ ref('custodian_mappings') }}                        cmpt
           on

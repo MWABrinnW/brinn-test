@@ -17,6 +17,7 @@ env:
   DBT_STATE: ${{ vars.DB_PROD_ARTIFACTS }}
   DBT_DEFER: True
   DBT_PROFILES_DIR: ${{ vars.DBT_PROFILES_DIR }}
+  PR_NUM: ${{ github.event.number }}
 
 
 jobs:
@@ -34,13 +35,21 @@ jobs:
       # https://www.vantage-ai.com/blog/how-to-use-slim-ci-with-dbt-core
       # https://www.datafold.com/blog/accelerating-dbt-core-ci-cd-with-github-actions-a-step-by-step-guide
 
-      - name: Set up env, create schema, and build artifacts
-        env:
-          # set PR_NUM here that is passed to DBT Profile as part of the schema.
-          PR_NUM: ${{ github.event.number }}
+      - name: Set up environment
+        shell: pwsh
         run: |
           python -m venv .\utilities\.venv
           .\utilities\.venv\Scripts\Activate.ps1
           pip install -r requirements-ci.txt
+
+      - name: dbt deps
+        shell: pwsh
+        run: |
+          .\utilities\.venv\Scripts\Activate.ps1
           dbt deps
+
+      - name: dbt run
+        shell: pwsh
+        run: |
+          .\utilities\.venv\Scripts\Activate.ps1
           dbt build --target ci --select state:modified.body+ state:modified.persisted_descriptions+ state:modified.relation+ state:modified.macros+ state:modified.contract+

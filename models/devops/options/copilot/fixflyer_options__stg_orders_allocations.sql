@@ -11,6 +11,7 @@ select
     a.json:allocId::text(200)                                                           as alloc_id
     , a.json:userId::text(200)                                                          as user_id
     , a.json:tradingSessionId::text(200)                                                as trading_session_id
+    , to_date(a.json:tradingSessionId::text , 'YYYYMMDD')                               as trading_session_date
     , a.json:clientOrderId::text(200)                                                   as client_order_id
     , a.json:origClientOrderId::text(200)                                               as original_client_order_id
     , a.json:allocTransType::text(200)                                                  as transaction_type

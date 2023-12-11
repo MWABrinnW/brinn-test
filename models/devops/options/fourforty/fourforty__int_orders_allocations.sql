@@ -14,10 +14,10 @@ select
   , source_security_type                                                                     as source_security_type
   , source_security_description                                                              as source_security_description
   , case
-        when order_side = 'BUY' and order_effect = 'LONG' then 'buy'
-        when order_side = 'BUY' and order_effect = 'COVER' then 'buy'
-        when order_side = 'SELL' and order_effect = 'LONG' then 'sell'
-        when order_side = 'SELL' and order_effect = 'SHORT' then 'sell'
+        when order_side = 'BUY' and order_effect = 'LONG' then 'BUY'
+        when order_side = 'BUY' and order_effect = 'COVER' then 'BUY'
+        when order_side = 'SELL' and order_effect = 'LONG' then 'SELL'
+        when order_side = 'SELL' and order_effect = 'SHORT' then 'SELL'
         else null
         end::text(200)                                                                       as buy_sell
   , case

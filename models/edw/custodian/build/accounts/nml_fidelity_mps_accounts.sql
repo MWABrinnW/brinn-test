@@ -13,7 +13,7 @@ select
   , ar.normalized::varchar(50)                        as account_type -- (ira rollover, etc)
   , ar.definition::varchar(50)                        as account_type_source_definition
   , a.account_type_source_code::varchar(50)           as account_type_source_code
-  , a.opened_date::date                               as date_opened
+  , a.opened_date::date                               as opened_date
 
   , a.account_title::varchar(200)                     as account_title
   , a.first_name::varchar(200)                        as first_name

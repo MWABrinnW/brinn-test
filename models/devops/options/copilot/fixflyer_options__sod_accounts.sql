@@ -16,6 +16,7 @@ with custodian_accounts as
         and link in (
             '08261207' -- schwab options master
             ,'G14279989' -- fidelity options G#
+            ,'G26998441' -- fidelity options brokeragelink
             ,'08261207', '08220807', '08220445' -- TDA migrated schwab accounts
         )
     order by custodian, link, account_number
