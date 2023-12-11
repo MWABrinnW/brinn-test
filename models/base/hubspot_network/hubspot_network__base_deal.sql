@@ -137,6 +137,10 @@ select
 	, a.json:PROPERTY_HS_ALL_COLLABORATOR_OWNER_IDS::text(500)                as property_hs_all_collaborator_owner_ids
   , a.json:PROPERTY_MARINER_TA::text(500)                                   as property_mariner_ta
   , a.json:PROPERTY_MARINER_ORF_RECRUITING_FEE::text(500)                   as property_mariner_orf_recruiting_fee
+  , a.json:PROPERTY_BROKERAGE_529_PLANS::text(500)                          as property_brokerage_529_plans
+  , a.json:PROPERTY_BROKERAGE_ALTS_STRUCTURED_NOTES_REITS::text(500)        as property_brokerage_alts_structured_notes_reits
+  , a.json:PROPERTY_BROKERAGE_ANNUITY::text(500)                            as property_brokerage_annuity
+  , a.json:PROPERTY_BROKERAGE_BROKERAGE_DIRECT_BUSINESS::text(500)          as property_brokerage_brokerage_direct_business
 
   , a.effective_at::timestamp                                               as effective_at
   , a._created_at::timestamp                                                as _created_at
