@@ -60,7 +60,7 @@ select
   , cl.is_deceased                                                               as is_deceased
   , cl.is_from_tda_migration                                                     as is_from_tda_migration
   , effective_date                                                               as effective_date
-  , row_number() over(partition by a.effective_date, item_issue_id
+  , row_number() over(partition by a.effective_date, nullif(trim(substring(content, 178, 10)), '')::text(200), cl.firm_source
                     order by case
                         when master_number = '08438162' -- orion
                             then 1

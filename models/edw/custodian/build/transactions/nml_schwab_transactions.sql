@@ -110,4 +110,4 @@ left join {{ ref('custodian_mappings') }}                        cmpt
 --                  and cmtst.field = 'transaction_subtype'
 --                  and t.key_code = cmtst.source
 where 1 = 1
-      and t.rn = 1
+      and t.rn_firm_source = 1

@@ -1,0 +1,101 @@
+version: 2
+
+models:
+  - name: schwab__stg_cash
+    description: Schwab cash file.
+    columns:
+      - name: custodian
+        description: ""
+      - name: firm_source
+        description: ""
+      - name: firm
+        description: ""
+      - name: record_type
+        description: "Identifies the record type (Header, Detail, Trailer) & Count (D1, D2)"
+      - name: custodian_id
+        description: "Custodian ID"
+      - name: master_account_number
+        description: "Identifies the Master Account Number."
+      - name: master_account_name
+        description: "Identifies the Master Account by Name."
+      - name: business_date
+        description: "Business date for this transaction"
+      - name: account_number
+        description: "End-client account number at Schwab."
+      - name: account_title_line_1
+        description: "May contain name, company or trust information, depending on account type."
+      - name: account_title_line_2
+        description: "May contain name, company or trust information, depending on account type."
+      - name: account_title_line_3
+        description: "May contain name, company or trust information, depending on account type."
+      - name: account_registration
+        description: "Registration at Schwab (Testamentary Trust, Living Trust, etc.) FEE, HOLD, JT, SIMPL, I401K, OMNI"
+      - name: account_type
+        description: "Type of account (Brokerage, Schwab One, IRA, etc.) SCHWAB ONE, QUALIFIED RETIREMENT PLAN, BROKERAGE"
+      - name: net_credit_or_debit_settled_unsettled
+        description: "The amount of money on deposit in the cash account. If negative, the client owes Schwab this amount. Includes unsettled and settled cash account balances. Equivalent to SchwabLink \"Cash01\""
+      - name: margin_balance_settled_unsettled
+        description: "The balance of the margin account taking into consideration settled and unsettled Transactions. The amount can be either a credit or a debit.  Equivalent to SchwabLink \"Cash03\""
+      - name: total_available_to_pay
+        description: "The amount of money that can be withdrawn from a margin account. Total Available to Pay = Cash/MMF balance and Available to Borrow Balance. Equivalent to SchwabLink \"Cash04\""
+      - name: margin_buying_power
+        description: "The maximum value of additional marginable securities that may be invested in, without deposit in equity in the margin account. Equivalent to SchwabLink \"Cash05\""
+      - name: money_market_funds_settled_unsettled
+        description: "The amount of money currently invested in money market funds at Schwab. Equivalent to SchwabLink \"Cash07\""
+      - name: mtd_margin_interest
+        description: "Indicates the amount of interest that has accrued on the margin debit from the beginning of the interest period based on settled amount. Equivalent to SchwabLink \"Cash09\""
+      - name: daily_margin_interest
+        description: "The amount of margin interest accrued in the account today based on the previous business days debit balance based on settled amount. Equivalent to SchwabLink \"Cash10\""
+      - name: equity_excluding_options
+        description: "The dollar value of securities in the margin account less any amount owed to Schwab plus any cash in the margin account. Equivalent to SchwabLink \"Cash11\""
+      - name: equity_percentage
+        description: "The equity in the margin account divided by the market value of positions held. Equivalent to SchwabLink \"Cash12\""
+      - name: market_value_long
+        description: "The market value of security positions held in the margin account, excluding options and non-marginable securities. Equivalent to SchwabLink \"Cash13\""
+      - name: market_value_short
+        description: "Total market value of all securities excluding options held short. Equivalent to SchwabLink \"Cash14\""
+      - name: equity_including_options
+        description: "The dollar value of securities in the margin account less any amount owed to Schwab plus any cash in the margin account. Margin Equity + Margin Option MVL + Margin Option MVS. Equivalent to SchwabLink \"Cash15\""
+      - name: option_requirements
+        description: "Total equity requirement to maintain the current option position. Do not use (always zero). Equivalent to SchwabLink \"Cash16\""
+      - name: month_end_dividend_payout
+        description: "Total dividends to be mailed out at the end of the month. Equivalent to SchwabLink \"Cash17\""
+      - name: maintenance_call
+        description: "Total amount required to maintain the account at Schwabs minimum equity level. Equivalent to Schwablink \"Cash18\""
+      - name: mvl_cash_account_excluding_options
+        description: "Total market value of all securities excluding options held long in the Cash account. Equivalent to SchwabLink \"Cash19\""
+      - name: net_market_value_positions_only
+        description: "Net (long minus short) market value of all securities (including options) held in both the Cash Account and the Margin Account. Equivalent to PCRA Cash19."
+      - name: net_market_value_positions_plus_cash_and_money_market
+        description: "Equal to \"Net Market Value (Positions Only)\" above, plus uninvested cash and sweep money market. Equivalent to PCRA Cash20."
+      - name: cash_balance_settled_only
+        description: "Amount or value of cash in the Cash accounting pool. Settled only."
+      - name: cash_margin_balance_settled_only
+        description: "Amount or value of cash in the Margin accounting pool. Settled only."
+      - name: version_marker_3
+        description: "Indicates the version number associated with the fields immediately following this marker."
+      - name: bank_sweep_interest_bearing_feature
+        description: "Dollar amount of the bank sweep IBF. For accounts with the bank sweep IBF, subtract this value from 'Net Credit or Debit  Settled & Unsettled' to get uninvested cash."
+      - name: master_number
+        description: ""
+      - name: is_deceased
+        description: ""
+      - name: is_from_tda_migration
+        description: ""
+      - name: effective_date
+        description: ""
+      - name: RN
+        data_type: NUMBER
+        description: ''
+      - name: IS_HEAD
+        data_type: NUMBER
+        description: ''
+      - name: IS_CURRENT
+        data_type: NUMBER
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        data_type: TIMESTAMP_NTZ
+        description: ''
+      - name: _SOURCE_FILE
+        data_type: VARCHAR
+        description: ''

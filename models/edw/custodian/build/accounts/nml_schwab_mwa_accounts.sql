@@ -10,10 +10,10 @@ select
   , 'master_number'::varchar(50)                                   as custodian_link_detail
   , null::varchar(50)                                              as rep_link
   , null::varchar(50)                                              as rep_link_detail
-    -- ,lower(customer_type)                   as registration_type -- (inv,trust,org)
-  , a.account_registration::varchar(50)                            as account_type_source_code
-  , ar.definition::varchar(50)                                     as account_type_source_definition
+    -- ,lower(customer_type)                   as account_type -- (inv,trust,org)
   , ar.normalized::varchar(50)                                     as account_type -- (ira rollover, etc)
+  , ar.definition::varchar(50)                                     as account_type_source_definition
+  , a.account_registration::varchar(50)                            as account_type_source_code
 
   , a.date_opened_established::date                                as opened_date
   , a.account_title_line_1::varchar(200)                           as account_title

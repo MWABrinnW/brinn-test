@@ -112,7 +112,7 @@ with cte_accounts as
             end::text(200)                          as product
         , a.ticker                                  as ticker
         , null::text(200)                           as cusip
-        , sum(a.units_shares)                       as quantity
+        , sum(a.quantity)                           as quantity
         , 1.0000::decimal(20,5)                     as price
         , sum(a.market_value)                       as lot_cost
         , 1.0000::decimal(20,5)                     as current_price
@@ -239,7 +239,7 @@ with cte_accounts as
                 a.symbol
             end::text(200)                       as ticker
         , a.cusip                                as cusip
-        , a.units_shares                         as quantity
+        , a.quantity                             as quantity
         , a.cost_per_share                       as price
         , a.cost_basis                           as lot_cost
         , a.current_price                        as current_price

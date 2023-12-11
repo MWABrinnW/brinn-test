@@ -136,6 +136,7 @@ models:
             select: "{{ ['db_custodial_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         schwab:
           +tags: ["schwab"]
+          +dbt-osmosis: "_{model}.yml"
           stg:
             +grants:
               select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"

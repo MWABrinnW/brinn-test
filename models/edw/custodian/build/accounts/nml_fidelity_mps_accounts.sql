@@ -10,9 +10,9 @@ select
   , a.custodian_link_detail::varchar(50)              as custodian_link_detail
   , null::varchar(50)                                 as rep_link
   , null::varchar(50)                                 as rep_link_detail
-  , a.account_type_source_code::varchar(50)           as account_type_source_code
-  , ar.definition::varchar(50)                        as account_type_source_definition
   , ar.normalized::varchar(50)                        as account_type -- (ira rollover, etc)
+  , ar.definition::varchar(50)                        as account_type_source_definition
+  , a.account_type_source_code::varchar(50)           as account_type_source_code
   , a.opened_date::date                               as date_opened
 
   , a.account_title::varchar(200)                     as account_title

@@ -1,0 +1,208 @@
+version: 2
+models:
+  - name: schwab__base_securities
+    columns:
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM
+        description: ''
+        data_type: VARCHAR
+      - name: RECORD_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN_ID
+        description: ''
+        data_type: VARCHAR
+      - name: MASTER_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: MASTER_ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: BUSINESS_DATE
+        description: ''
+        data_type: DATE
+      - name: PRODUCT_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_CATEGORY_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: TAX_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: LEGACY_SECURITY_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: TICKER_SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: INDUSTRY_TICKER_SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: SCHWAB_SECURITY_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: RE_ORG_SCHWAB_INTERNAL_SECURITY_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ITEM_ISSUE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: RULE_SET_SUFFIX
+        description: ''
+        data_type: VARCHAR
+      - name: ISIN
+        description: ''
+        data_type: VARCHAR
+      - name: SEDOL
+        description: ''
+        data_type: VARCHAR
+      - name: OPTIONS_DISPLAY_SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITY_DESCRIPTION_LINE_1
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITY_DESCRIPTION_LINE_2
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITY_DESCRIPTION_LINE_3
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITY_DESCRIPTION_LINE_4
+        description: ''
+        data_type: VARCHAR
+      - name: UNDERLYING_TICKER_SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: UNDERLYING_INDUSTRY_TICKER_SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: UNDERLYING_CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: UNDERLYING_SCHWAB_SECURITY_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: UNDERLYING_ITEM_ISSUE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: UNDERLYING_RULE_SET_SUFFIX_ID
+        description: ''
+        data_type: VARCHAR
+      - name: UNDERLYING_ISIN
+        description: ''
+        data_type: VARCHAR
+      - name: UNDERLYING_SEDOL
+        description: ''
+        data_type: VARCHAR
+      - name: MONEY_MARKET_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: LAST_UPDATE_DATE
+        description: ''
+        data_type: DATE
+      - name: SWEEP_FUND_INDICATOR
+        description: ''
+        data_type: VARCHAR
+      - name: CLOSING_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: SECURITY_PRICE_UPDATE_DATE
+        description: ''
+        data_type: DATE
+      - name: SECURITY_VALUATION_UNIT
+        description: ''
+        data_type: NUMBER
+      - name: OPTION_ROOT_SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: OPTION_EXPIRATION_DATE
+        description: ''
+        data_type: DATE
+      - name: OPTION_CALL_OR_PUT_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: STRIKE_PRICE_AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: INTEREST_RATE
+        description: ''
+        data_type: NUMBER
+      - name: MATURITY_DATE
+        description: ''
+        data_type: DATE
+      - name: TIPS_FACTOR
+        description: ''
+        data_type: NUMBER
+      - name: ASSET_BACKED_FACTOR
+        description: ''
+        data_type: NUMBER
+      - name: FACE_VALUE_AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: ISSUER_STATE
+        description: ''
+        data_type: VARCHAR
+      - name: VERSION_MARKER_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: SCHWAB_PROPRIETARY_INDICATOR
+        description: ''
+        data_type: VARCHAR
+      - name: SCHWAB_ONE_SOURCE_INDICATOR
+        description: ''
+        data_type: VARCHAR
+      - name: VERSION_MARKER_2
+        description: ''
+        data_type: VARCHAR
+      - name: CLOSING_PRICE_UNFACTORED
+        description: ''
+        data_type: NUMBER
+      - name: FACTOR
+        description: ''
+        data_type: NUMBER
+      - name: FACTOR_DATE
+        description: ''
+        data_type: DATE
+      - name: MASTER_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: IS_DECEASED
+        description: ''
+        data_type: NUMBER
+      - name: IS_FROM_TDA_MIGRATION
+        description: ''
+        data_type: NUMBER
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: RN
+        description: ''
+        data_type: NUMBER
+      - name: RN_FIRM_SOURCE
+        data_type: NUMBER
+        description: ''
+      - name: RN_GLOBAL
+        data_type: NUMBER
+        description: ''
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR

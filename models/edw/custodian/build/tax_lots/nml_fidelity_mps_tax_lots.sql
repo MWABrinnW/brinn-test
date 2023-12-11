@@ -18,7 +18,7 @@ select
       when t.long_short_code ilike 'S'
         then -1 * t.lot_quantity
       else t.lot_quantity
-      end::decimal(22,5)                                                     as units_shares
+      end::decimal(22,5)                                                     as quantity
   , (t.current_cost_unadjusted_wash / t.lot_quantity)::decimal(20, 5)        as cost_per_share
   , t.current_cost_unadjusted_wash                                           as cost_basis
     -- Closing price on the day of lot purchase.

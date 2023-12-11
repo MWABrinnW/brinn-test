@@ -60,7 +60,7 @@ select
   , cl.is_deceased                                                               as is_deceased
   , cl.is_from_tda_migration                                                     as is_from_tda_migration
   , effective_date                                                               as effective_date
-  , dense_rank() over(partition by a.effective_date, account_number
+  , dense_rank() over(partition by a.effective_date, account_number, cl.firm_source
                     order by case
                         when master_number = '08438162' -- orion
                             then 1
@@ -74,7 +74,7 @@ select
                             then 5
                         else 6
                         end asc, a.master_number
-                    )                                                            as rn
+                    )                                                           as rn
   , {{ col_is_head(reference=source('schwab', 'ult')) }}
   , {{ col_is_current(date_col='effective_date') }}
   , _created_at                                                                  as _source_loaded_at

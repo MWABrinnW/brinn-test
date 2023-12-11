@@ -1,5 +1,3 @@
-{{ config(enabled=true) }}
-
 with cte_custodian_links as
 (
     select *

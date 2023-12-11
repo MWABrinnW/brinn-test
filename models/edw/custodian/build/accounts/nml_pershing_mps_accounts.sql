@@ -10,9 +10,9 @@ select
   , null::varchar(50)                                              as custodian_link_detail
   , a.investment_professional_ip_number::varchar(50)               as rep_link
   , 'ip_number'::varchar(50)                                       as rep_link_detail
-  , a.registration_type::varchar(50)                               as account_type_source_code
-  , ar.definition::varchar(50)                                     as account_type_source_definition
   , ar.normalized::varchar(50)                                     as account_type -- (ira rollover, etc)
+  , ar.definition::varchar(50)                                     as account_type_source_definition
+  , a.registration_type::varchar(50)                               as account_type_source_code
 
   , a.date_account_opened::date                                    as opened_date
   , a.account_title::varchar(200)                                  as account_title

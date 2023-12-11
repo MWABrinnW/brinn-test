@@ -1,0 +1,31 @@
+version: 2
+models:
+  - name: schwab__base_master_accounts_mapping
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: MASTER_ACCOUNT_NUMBER
+        description: 'Identifies the master account number associated with creating this record.'
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: 'End-client account number at Schwab.'
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR

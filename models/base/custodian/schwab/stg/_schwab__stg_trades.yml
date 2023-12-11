@@ -1,0 +1,148 @@
+version: 2
+
+models:
+  - name: schwab__stg_trades
+    description: Schwab trades file.
+    columns:
+      - name: custodian
+        description: ""
+      - name: firm_source
+        description: ""
+      - name: firm
+        description: ""
+      - name: record_type
+        description: "Record Type"
+      - name: business_date
+        description: "Business Date"
+      - name: master_account_number
+        description: "Master Account Number"
+      - name: ACCOUNT_NUMBER
+        data_type: VARCHAR
+        description: ''
+      - name: trade_date
+        description: "Trade Date"
+      - name: settlement_date
+        description: "Settlement Date"
+      - name: action
+        description: "Action"
+      - name: cancel
+        description: "Cancel field is populated for cancelled trades only, otherwise, space-filled."
+      - name: symbol
+        description: "Symbol"
+      - name: cusip
+        description: "CUSIP"
+      - name: schwab_internal_security_number
+        description: "Schwab Internal Security Number"
+      - name: trace_symbol
+        description: "TRACE Symbol"
+      - name: security_description
+        description: "Security Description"
+      - name: account_type
+        description: "Account Type"
+      - name: quantity
+        description: "Quantity"
+      - name: price
+        description: "Price"
+      - name: principal
+        description: "Principal"
+      - name: total_amount
+        description: "Total Amount"
+      - name: step_in_fee
+        description: "Step In Fee"
+      - name: schwab_commission
+        description: "Schwab Commission"
+      - name: executing_broker_commission
+        description: "Executing Broker Commission"
+      - name: prime_broker_fee
+        description: "Prime Broker Fee"
+      - name: transaction_fee
+        description: "Transaction Fee"
+      - name: broker_service_fee
+        description: "Broker Service Fee"
+      - name: exchange_processing_fee
+        description: "Exchange Processing Fee"
+      - name: order_handling_fee
+        description: "Order Handling Fee"
+      - name: other_fees
+        description: "Other Fees"
+      - name: other_fees_description
+        description: "Other Fees Description"
+      - name: accrued_interest
+        description: "Accrued Interest"
+      - name: state_tax
+        description: "State Tax"
+      - name: tax_description
+        description: "Tax Description"
+      - name: executing_broker_markup_or_markdown
+        description: |
+          Executing Broker Markup or Markdown
+          If the trade is a buy or cancelled buy, the value provided is treated as a Markup, and if the trade is a sale or a cancelled sale, the value provided is treated as a Markdown.
+      - name: research_fee
+        description: "Research Fee"
+      - name: account_name_address_1
+        description: "Account Name/Address 1"
+      - name: account_name_address_2
+        description: "Account Name/Address 2"
+      - name: account_name_address_3
+        description: "Account Name/Address 3"
+      - name: account_name_address_4
+        description: "Account Name/Address 4"
+      - name: account_name_address_5
+        description: "Account Name/Address 5"
+      - name: account_name_address_6
+        description: "Account Name/Address 6"
+      - name: account_title_1
+        description: "Account Title 1"
+      - name: account_title_2
+        description: "Account Title 2"
+      - name: account_title_3
+        description: "Account Title 3"
+      - name: unused_field_4
+        description: "Unused Field 4"
+      - name: unused_field_5
+        description: "Unused Field 5"
+      - name: messages_break_indicator
+        description: "Messages Break Indicator"
+      - name: message_1
+        description: "Message 1"
+      - name: message_2
+        description: "Message 2"
+      - name: message_3
+        description: "Message 3"
+      - name: message_4
+        description: "Message 4"
+      - name: message_5
+        description: "Message 5"
+      - name: message_6
+        description: "Message 6"
+      - name: message_7
+        description: "Message 7"
+      - name: master_number
+        description: ""
+      - name: is_deceased
+        description: ""
+      - name: is_from_tda_migration
+        description: ""
+      - name: effective_date
+        description: ""
+      - name: RN
+        data_type: NUMBER
+        description: ''
+      - name: RN_FIRM
+        data_type: NUMBER
+        description: ''
+      - name: RN_GLOBAL
+        data_type: NUMBER
+        description: ''
+      - name: IS_HEAD
+        data_type: NUMBER
+        description: ''
+      - name: IS_CURRENT
+        data_type: NUMBER
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        data_type: TIMESTAMP_NTZ
+        description: ''
+      - name: _SOURCE_FILE
+        data_type: VARCHAR
+        description: ''

@@ -5,7 +5,7 @@
     on_schema_change='sync_all_columns'
 )}}
 
-{# Set the upstream holdings models here and dbt will use them dynamically below 
+{# Set the upstream holdings models here and dbt will use them dynamically below
     These models show the holdings/positions from custodians normalized. #}
 {%-
     set source_models_holdings = [
@@ -25,8 +25,8 @@
     ]
 -%}
 
-{#  Set the upstream cash models here and dbt will use them dynamically below 
-    These cash models are needed for sources that show cash outside of the 
+{#  Set the upstream cash models here and dbt will use them dynamically below
+    These cash models are needed for sources that show cash outside of the
     positions data. #}
 {%-
     set source_models_cash = [
@@ -41,17 +41,9 @@
     ]
 -%}
 
-{# Check if table exists in the database. If it doesn't we can't run the query to check for new data without failing #}
-{%- set source_relation = adapter.get_relation(
-      database=this.database,
-      schema=this.schema,
-      identifier=this.name) -%}
-
-{%- set table_exists=source_relation is not none -%}
-
 with cte_max_created_at as
 (
-    {%- if table_exists and is_incremental() -%}
+    {%- if is_incremental() -%}
     select max(_created_at) as _created_at from {{ this }}
     {%- else -%}
     select null::timestamp as _created_at
@@ -59,8 +51,8 @@ with cte_max_created_at as
 )
 {# ,cte_max_effective_date as
 (
-    {%- if table_exists and is_incremental() -%}
-    select 
+    {%- if is_incremental() -%}
+    select
           replace(custodian,'-','')                     as custodian
         , firm_source                                   as firm_source
         , nvl(max(effective_date),'1900-01-01'::date)   as effective_date
@@ -75,7 +67,7 @@ with cte_max_created_at as
 ) #}
 ,cte_destination_effective_dates as
 (
-    {%- if table_exists and is_incremental() -%}
+    {%- if is_incremental() -%}
     select distinct effective_date
     from {{ this }}
     where effective_date >= current_date() - {{ var('lookback_custodial', 30) }}
@@ -105,7 +97,7 @@ with cte_max_created_at as
         -- expect for it to get picked up because the _source_loaded_at should be greater
         -- than the max(_created_at) of the destination ({{this}}).
         _source_loaded_at > nvl((select max(_created_at) from cte_max_created_at), dateadd(d, -1, _source_loaded_at))
-        {%- if table_exists and is_incremental() %}
+        {%- if is_incremental() %}
 
         -- Capture effective dates where source custodian-firm does not exist in destination -
         -- or effective_date > nvl((select effective_date from cte_max_effective_date where custodian = '{{custodian}}' and firm_source = '{{firm_source}}'), '1900-01-01'::date)
@@ -155,23 +147,34 @@ with cte_max_created_at as
         , firm_source                   as firm_source
         , account_number                as account_number
         , account_number_formatted      as account_number_formatted
-        , null::varchar(50)             as cusip
-        , '_CASH_'::varchar(50)         as ticker
+        , '_CASH_'::text(200)           as symbol
+        , '_CASH_'::text(200)           as ticker
+        , null::text(200)               as cusip
+        , 'CASH'::text(200)             as security_name_source
         , 1::int                        as is_cash
         , 1::int                        as is_sweep
-        , 'CASH'::varchar(200)          as source_security_name
-        , cash_value::decimal(15, 2)    as market_value
-        , null::decimal(19, 9)          as units_shares
-        , null::decimal(19, 9)          as price
-        , null::decimal(19, 9)          as price_unfactored
-        , null::decimal(19, 9)          as factor
-        , null::decimal(19, 9)          as cost_basis
-        , null::varchar(100)            as security_type
-        , null::varchar(100)            as source_security_type
-        , null::varchar(100)            as source_security_type_code
-        , null::varchar(100)            as account_type
-        , null::varchar(100)            as source_account_type
-        , null::varchar(100)            as source_account_type_code
+        , total_cash_value::decimal(15, 2) as market_value
+        , null::decimal(20, 5)          as units_shares
+        , null::decimal(20, 5)          as quantity
+        , null::decimal(20, 5)          as quantity_settled
+        , null::decimal(20, 5)          as quantity_unsettled
+        , null::decimal(20, 5)          as price
+        , null::decimal(20, 5)          as price_unfactored
+        , null::decimal(20, 5)          as factor
+        , null::decimal(20, 5)          as cost_basis
+        , null::text(200)               as security_id_source
+        , null::text(200)               as underlying_ticker
+        , null::text(200)               as underlying_cusip
+        , null::text(200)               as underlying_security_id_source
+        , null::text(200)               as product_type
+        , null::text(200)               as product_type_source_definition
+        , null::text(200)               as product_type_source_code
+        , null::text(200)               as account_type
+        , null::text(200)               as account_type_source
+        , null::text(200)               as account_type_source_code
+        , null::text(200)               as isin
+        , null::text(200)               as sedol
+        , null::variant                 as extra_fields
         , is_head                       as is_head
         , is_current                    as is_current
         , _source_loaded_at             as _source_loaded_at
@@ -192,10 +195,94 @@ with cte_max_created_at as
     union all
 
     {% endif -%}
-    {%- endfor %}   
+    {%- endfor %}
 )
 
-select 
-    *
+select
+      h.effective_date
+    , h.custodian
+    , h.firm
+    , h.firm_source
+    , h.account_number
+    , h.account_number_formatted
+    , coalesce(h.symbol, h.ticker, h.cusip) as symbol
+    , h.ticker
+    , h.cusip
+    , coalesce(s.product_name, h.security_name_source) as security_name
+    , case
+        when s.product_type is not null
+            then s.product_type
+        when h.product_type_source_definition ilike any ('EQUITY OPTION', 'OPTION INDEX', 'option - %')
+            then 'Option'
+        else null
+        end::text(200)      as security_type
+    , h.security_name_source
+
+    , h.is_cash
+    , h.is_sweep
+    , h.market_value
+    , h.units_shares
+    , h.quantity
+    , h.quantity_settled
+    , h.quantity_unsettled
+    , h.price
+    , h.price_unfactored
+    , h.factor
+    , h.cost_basis
+
+    , s.is_13f
+    , s.asset_category
+    , s.asset_class
+    , s.cusip_security_type
+    , s.cusip_fund_type
+    , s.cusip_income_type
+
+    , h.underlying_ticker
+    , h.underlying_cusip
+    , h.underlying_security_id_source
+
+    , h.product_type
+    , h.product_type_source_definition
+    , h.product_type_source_code
+    , h.account_type
+    , h.account_type_source
+    , h.account_type_source_code
+
+    , h.security_id_source
+    , h.isin
+    , h.sedol
+    , h.extra_fields
+    , h.is_head
+    , h.is_current
+    , dense_rank() over (partition by h.effective_date, h.custodian, h.account_number, h.firm_source
+        order by case
+            when h.firm_source = 'mwa'
+                then 1
+            when h.firm_source = 'mps'
+                then 2
+            when h.firm_source = 'swag'
+                then 3
+            when h.firm_source = 'network'
+                then 4
+            else 5
+            end asc
+        )                            as rn_firm_source
+    , dense_rank() over (partition by h.effective_date, h.custodian, h.account_number
+        order by case
+            when h.firm_source = 'mwa'
+                then 1
+            when h.firm_source = 'mps'
+                then 2
+            when h.firm_source = 'swag'
+                then 3
+            when h.firm_source = 'network'
+                then 4
+            else 5
+            end asc
+        )                            as rn_global
+    , h._source_loaded_at
+    , h._source_file
     , current_timestamp()::timestamp as _created_at
-from cte_holdings
+from cte_holdings h
+left join {{ ref('bld_securities') }} s
+    on h.cusip = s.cusip

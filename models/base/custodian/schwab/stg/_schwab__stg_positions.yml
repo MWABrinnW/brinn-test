@@ -1,0 +1,146 @@
+version: 2
+
+models:
+  - name: schwab__stg_positions
+    description: Schwab positions file.
+    columns:
+      - name: custodian
+        description: ""
+      - name: firm_source
+        description: ""
+      - name: firm
+        description: ""
+      - name: record_type
+        description: "Identifies the record type (Header, Detail, Trailer) & Count (D1, D2)"
+      - name: custodian_id
+        description: "Custodian ID"
+      - name: master_account_number
+        description: "Identifies the Master Account Number."
+      - name: master_account_name
+        description: "Identifies the Master Account by Name."
+      - name: business_date
+        description: "Business date for this record"
+      - name: account_number
+        description: "End-client account number at Schwab."
+      - name: product_code
+        description: "Further defines Product Category Code.   Identifies type of security (e.g. Common Stock, GNMA, Unit Trust, Mutual Fund, etc.) FNM, FMC, COM, BMU, CDO, MMS (there are several dozen)"
+      - name: product_category_code
+        description: |
+          Highest level of security classification.
+          DEBT - Includes all fixed income
+          DERV - (Derivatives) Options, Warrants
+          EQTY - Equity/Stock (Common, Preferred, ADR, MLP, REIT)
+          O - (Other)  Includes all types of mutual funds.
+      - name: tax_code
+        description: "A security type classification related to the tax status of the security."
+      - name: legacy_security_type
+        description: "These security type codes are considered obsolete and are provided only for backwards compatibility. Interface developers are encouraged instead to use the Product Code, Product Category Code, And Tax Code because these codes offer greater specificity and will always match Schwab's broker dealer system."
+      - name: ticker_symbol
+        description: "An arrangement of characters (usually letters) representing a particular security listed on an exchange or otherwise traded publicly which may have been modified by Schwab.  MAI2Z, COL2Z or DPB1Z"
+      - name: industry_ticker_symbol
+        description: "This field will match the Ticker Symbol field in most cases. MAIVX, COLFX or PTEBX"
+      - name: cusip
+        description: "Committee on Uniform Securities Identification Procedures. A CUSIP number identifies most securities."
+      - name: schwab_security_number
+        description: "Inernal Schwab security identifier"
+      - name: item_issue_id
+        description: "Unique internal Schwab security identifier when combined with following field \"Rule Set Suffix ID\""
+      - name: rule_set_suffix_id
+        description: "Combine with prior field  \"Item Issue ID\" to yield a unique identifier."
+      - name: isin
+        description: "International Securities Identification Number. A unique international code which identifies a securities issue."
+      - name: sedol
+        description: "The Stock Exchange Daily Official List number, a code used by the London Stock Exchange to identify foreign stocks."
+      - name: options_display_symbol
+        description: "Schwab formatted symbol for Options on confirms and statements."
+      - name: security_description_line_1
+        description: "Full Name of the Security"
+      - name: security_description_line_2
+        description: "Full Name of the Security"
+      - name: security_description_line_3
+        description: "Full Name of the Security"
+      - name: security_description_line_4
+        description: "Full Name of the Security"
+      - name: underlying_ticker_symbol
+        description: "An arrangement of characters (usually letters) representing a particular parent security listed on an exchange or otherwise traded publicly."
+      - name: underlying_industry_ticker_symbol
+        description: "This field will match the Underlying Ticker Symbol field in most cases."
+      - name: underlying_cusip
+        description: "Committee on Uniform Securities Identification Procedures. A CUSIP number identifies most securities. Underlying CUSIP being specific to the parent security."
+      - name: underlying_schwab_security_number
+        description: "Internal Schwab parent security identifier."
+      - name: underlying_item_issue_id
+        description: "Unique internal Schwab parent security identifier when combined with following fields"
+      - name: underlying_rule_set_suffix_id
+        description: "Combine with prior field to yield a unique parent identifier."
+      - name: underlying_isin
+        description: "International Securities Identification Number. A unique international code which identifies a parent securities issue."
+      - name: underlying_sedol
+        description: "The Stock Exchange Daily Official List number, a code used by the London Stock Exchange to identify foreign stocks. Underlying SEDOL being specific to the parent SEDOL."
+      - name: money_market_code
+        description: "Unique code to identify Schwab money market products."
+      - name: dividend_reinvest
+        description: "Indicates whether dividends are reinvested for this security. Blank means there is no explicit instruction specified by the customer, and by default cash dividends will not be reinvested."
+      - name: capital_gains_reinvest
+        description: "Indicates whether capital gains are reinvested for this security. Blank means there is no explicit instruction specified by the customer, and by default capital gains distributions will not be reinvested."
+      - name: closing_price
+        description: |
+          Closing price in Schwab systems.
+          OBSOLETE field, use \"Closing Price - Unfactored.\"
+      - name: security_price_update_date
+        description: "Last Security Price Update Date"
+      - name: quantity_settled_and_unsettled
+        description: "Total number of shares as-of the business date based on trade date."
+      - name: long_short_indicator
+        description: "Indicates whether \"Quantity (Settled and Unsettled)\" is long or short."
+      - name: market_value_settled_and_unsettled
+        description: "Position market value as-of the business date based on trade date."
+      - name: accounting_rule_code
+        description: "Identifies the type of account associated with the position. Previously account type was only Cash or Margin. (Margin previously included Margin, Short and When Issued) CASH, MARGIN, WHEN ISSUED, SHORT"
+      - name: quantity_settled
+        description: "Total number of settled shares"
+      - name: quantity_unsettled_long
+        description: "Total number of unsettled shares held long"
+      - name: quantity_unsettled_short
+        description: "Total number of unsettled shares held short"
+      - name: version_marker_1
+        description: "Indicates the version number associated with the fields immediately following this marker."
+      - name: tips_factor
+        description: |
+          The inflation factor associated with Treasury Inflation-Protected Securities. Use this value to calculate the \"clean\" price.  This data element, if available, is also included in the Security Description fields. For securities that are not TIPS (Product Code not equal to \"TIP\") then this field will be zero-filled.
+          OBSOLETE field, use \"Factor.\"
+      - name: asset_backed_factor
+        description: |
+          The security's current factor. This data element, if available, is also included in the Security Description fields. For securities without a factor this field will be zero-filled.
+          OBSOLETE field, use \"Factor.\"
+      - name: version_marker_2
+        description: "Indicates the version number associated with the fields immediately following this marker."
+      - name: closing_price_unfactored
+        description: "Closing price in Schwab systems. For securities where a factor applies, the value provided does not reflect the factor. Multiply by the Factor  value in the next field for a factored price."
+      - name: factor
+        description: "The security's current factor. For securities without a factor, the factor value will default to 1. Applies to TIPS, asset-backed securities, and other securities where a factor exists."
+      - name: factor_date
+        description: "The date associated with the Factor value provided in the previous field."
+      - name: master_number
+        description: ""
+      - name: is_deceased
+        description: ""
+      - name: is_from_tda_migration
+        description: ""
+      - name: effective_date
+        description: ""
+      - name: RN
+        data_type: NUMBER
+        description: ''
+      - name: IS_HEAD
+        data_type: NUMBER
+        description: ''
+      - name: IS_CURRENT
+        data_type: NUMBER
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        data_type: TIMESTAMP_NTZ
+        description: ''
+      - name: _SOURCE_FILE
+        data_type: VARCHAR
+        description: ''

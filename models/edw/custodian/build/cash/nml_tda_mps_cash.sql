@@ -8,7 +8,7 @@ select
     ,sum(case when a.symbol = 'Cash'
             then a.amount
         else 0
-        end)::decimal(15,2)                 as cash_value
+        end)::decimal(15,2)                 as total_cash_value
     ,sum(case when a.security_type = 'MF'
             then a.amount
         else 0

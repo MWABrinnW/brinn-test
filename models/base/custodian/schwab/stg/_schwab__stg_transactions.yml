@@ -1,0 +1,290 @@
+version: 2
+
+models:
+  - name: schwab__stg_transactions
+    description: Schwab transactions file.
+    columns:
+      - name: custodian
+        description: ""
+      - name: firm_source
+        description: ""
+      - name: firm
+        description: ""
+      - name: record_type
+        description: "Identifies the record type (Header, Detail, Trailer) & Count (D1, D2)"
+      - name: custodian_id
+        description: "Custodian ID"
+      - name: master_account_number
+        description: "Identifies the Master Account Number."
+      - name: master_account_name
+        description: "Identifies the Master Account by Name."
+      - name: business_date
+        description: "Business date for this transaction"
+      - name: account_number
+        description: "End-client account number at Schwab"
+      - name: account_title_line_1
+        description: "May contain name, company or trust information, depending on account type."
+      - name: account_title_line_2
+        description: "May contain name, company or trust information, depending on account type."
+      - name: account_title_line_3
+        description: "May contain name, company or trust information, depending on account type."
+      - name: account_registration
+        description: "Registration at Schwab (Testamentary Trust, Living Trust, etc.) FEE, HOLD, JT, SIMPL, I401K, OMNI"
+      - name: account_type
+        description: "Type of account (Brokerage, Schwab One, IRA, etc.) SCHWAB ONE, QUALIFIED RETIREMENT PLAN, BROKERAGE"
+      - name: product_code
+        description: "Further defines Product Category Code.   Identifies type of security (e.g. Common Stock, GNMA, Unit Trust, Mutual Fund, etc.) FNM, FMC, COM, BMU, CDO, COM, MMS (there are several dozen)"
+      - name: product_category_code
+        description: |
+          Highest level of security classification.
+          DEBT - Includes all fixed income
+          DERV - (Derivatives) Options, Warrants
+          EQTY - Equity/Stock (Common, Preferred, ADR, MLP, REIT)
+          O - (Other)  Includes all types of mutual funds.
+      - name: tax_code
+        description: "Determines where security payments appear on tax forms."
+      - name: legacy_security_type
+        description: "These security type codes are considered obsolete and are provided only for backwards compatibility. Interface developers are encouraged instead to use the Product Code, Product Category Code, And Tax Code because these codes offer greater specificity and will always match Schwab's broker dealer system"
+      - name: ticker_symbol
+        description: "An arrangement of characters (usually letters) representing a particular security listed on an exchange or otherwise traded publicly which may have been modified by Schwab. MAI2Z, COL2Z, DPBIZ"
+      - name: industry_ticker_symbol
+        description: "This field will match the Ticker Symbol field in most cases   MAIVX, COLFX, PTEBX"
+      - name: cusip
+        description: "Committee on Uniform Securities Identification Procedures. A CUSIP number identifies most securities"
+      - name: schwab_security_number
+        description: "Internal Schwab security identifier"
+      - name: item_issue_id
+        description: "Unique internal Schwab security identifier when combined with the following field \"Rule Set Suffix ID\"."
+      - name: rule_set_suffix_id
+        description: "Combine with prior field \"Item Issue ID\" to yield a unique identifier."
+      - name: isin
+        description: "International Securities Identification Number. A unique international code which identifies a securities issue"
+      - name: sedol
+        description: "The Stock Exchange Daily Official List number, a code used by the London Stock Exchange to identify foreign stocks"
+      - name: options_display_symbol
+        description: "Schwab formatted symbol for Options on confirms and statements."
+      - name: underlying_ticker_symbol
+        description: "An arrangement of characters (usually letters) representing a particular parent security listed on an exchange or otherwise traded publicly"
+      - name: underlying_industry_ticker_symbol
+        description: "This field will match the Underlying Ticker Symbol field in most cases"
+      - name: underlying_cusip
+        description: "Committee on Uniform Securities Identification Procedures. A CUSIP number identifies most securities. Underlying CUSIP being specific to the parent security."
+      - name: underlying_schwab_security_number
+        description: "Internal Schwab parent security identifier"
+      - name: underlying_item_issue_id
+        description: "Unique internal Schwab parent security identifier when combined with following fields"
+      - name: underlying_rule_set_suffix_id
+        description: "Combine with prior field to yield a unique parent identifier"
+      - name: underlying_isin
+        description: "International Securities Identification Number. A unique international code which identifies a parent securities issue"
+      - name: underlying_sedol
+        description: "The Stock Exchange Daily Official List number, a code used by the London Stock Exchange to identify foreign stocks. Underlying SEDOL being specific to the parent SEDOL."
+      - name: money_market_code
+        description: "Unique code to identify Schwab money market products."
+      - name: transaction_type_code
+        description: |
+          Specifies the highest-level transaction type:
+          FC = Funds Cashiering,
+          IC = Issue Cashiering,
+          TR = Trade
+      - name: transaction_sub_type_code
+        description: |
+          Specifies the transaction sub-type:
+          DV = Dividend,
+          FC = Misc. Funds Cashiering,
+          FE = Fee,
+          FI = Funds In,
+          FO = Funds Out,
+          IC = Regular Issue Cashiering,
+          IN = Interest,
+          JR = Journal,
+          RD = Reinvest Dividend,
+          RO = Reorganization,
+          TA = TOA,
+          TR = Regular Trade,
+          UC = Unclassified,
+          WD = Withdrawal,
+          WH = Misc. Withholding,
+          WI = Interest Withholding,
+      - name: transaction_category
+        description: "Matches the transaction filtering options available on SchwabAdvisorCenter.com"
+      - name: transaction_source_code
+        description: "Lowest-level transaction type. Regular trades will have the value, \"TRADE,\" refer to \"Action Code\" field below for trade details. See \"Transaction Source Codes.\""
+      - name: transaction_source_code_description
+        description: "Provides a short text description of the source code"
+      - name: transaction_detail_description
+        description: "Provides a detailed text description of the transaction"
+      - name: action_code
+        description: "For trades only. Populated for all regular trades. Not just used for options trades. Examples: BUY, SELL, BCC, SCC, BPC, SPC, BCO, SCO, BPO, SCO."
+      - name: transaction_cancel_code
+        description: |
+          Indicates a cancelled transaction. Y - Yes N - No
+      - name: trade_date
+        description: "The date the trade was executed. NOTE: This field is not the same as the \"Transaction Date\" in Schwab's legacy transaction files. To match the Transaction Date in the legacy files, use 'Transaction Date' instead."
+      - name: settlement_date
+        description: "The expected trade settlement date."
+      - name: transaction_date
+        description: "The actual date the transaction is to be recognized. The effective date of the transaction. This will be identical to the trade date in most cases. This date can, however, be different from trade date in rare instances, for example, if the trade was processed through a foreign exchange with a holiday schedule that differs from domestic exchanges."
+      - name: ex_dividend_date
+        description: "if applicable"
+      - name: quantity
+        description: "Number of units relevant to a record."
+      - name: price
+        description: "Amount or value per unit or Quantity of a record."
+      - name: gross_amount
+        description: "Total amount or value of a trade record before deductions (Gross Amount = [Quantity * Price] + [Other Credits])"
+      - name: debit_credit_indicator
+        description: "Resolves direction and method of a record (In vs. Out and Cash vs. Trade/Exchange) CREDIT, DEBIT, LONG, SHORT"
+      - name: net_amount
+        description: "Final amount or value of a record (Net Amount = Gross Amount - [All Fees and Withholdings]). May be zero for non-trade activity. Provides a negative sign for sell transactions. Interfaces may want to use absolute value instead."
+      - name: commission
+        description: "Amount or value of fee type - Commission"
+      - name: exchange_processing_fee
+        description: "Amount or value of fee type -  Exchange Processing. Formerly SEC fee."
+      - name: broker_service_fee
+        description: "Amount or value of fee type - Broker Service. Formerly Handling fee."
+      - name: prime_broker_fee
+        description: "Amount or value of fee type - Prime Broker."
+      - name: trade_away_fee
+        description: "Amount or value of fee type - Trade Away."
+      - name: redemption_fee
+        description: "Amount or value of fee type -  Redemption."
+      - name: other_fee
+        description: "Amount or value of fee type - Other."
+      - name: federal_tefra_withholding
+        description: "Valued for trades only."
+      - name: state_tax_withholding
+        description: "Only used for Hawaii and New Mexico. All other tax withholding is done with specific source codes in separate transactions"
+      - name: state_receiving_tax
+        description: "State in which state tax implications due to transaction are implied. Note: The state provided in the transaction record will match the state in the address for the account in the build files and the Core Account Information file."
+      - name: accrued_interest
+        description: "Amount or value of interest relevant to a record"
+      - name: accounting_rule_code
+        description: "Identifies the type of account associated with the transaction. Previously account type was only Cash or Margin. (Margin previously included Margin, Short and When Issued) CASH, MARGIN, WHEN ISSUED, SHORT"
+      - name: order_source_code
+        description: "Code of the product or individual initiating trade."
+      - name: order_number
+        description: "The unique trade number assigned by Schwab for trade tracking purposes."
+      - name: trade_order_entry_time_stamp
+        description: "The date and time stamp when the Order is entered."
+      - name: trade_order_execution_time_stamp
+        description: "The date and time stamp when the Order is executed."
+      - name: broker_code
+        description: "The unique number assigned to each executing broker."
+      - name: broker_name
+        description: "Full name of executing broker"
+      - name: schwab_from_account
+        description: "Schwab account from which value is drawn in a defined transfer (i.e. Fees or Journals)."
+      - name: schwab_to_account
+        description: "Schwab account to which value is added in a defined transfer (i.e. Fees or Journals)."
+      - name: schwab1_check_number
+        description: "Number of check issued in recorded transaction."
+      - name: sweep_indicator
+        description: "Indicates a sweep transaction Y - Yes N - No"
+      - name: stock_exchange_code
+        description: "Identifies the exchange that executed the trade OTC = Over The Counter, OTHR =  Others, PB = Prime Broker, TA = Trade Away, CBOE = Chicago Board Options Exchange, AM =  American Stock Exchange"
+      - name: inter_class_exchange_code
+        description: "Indicates an interclass exchange for mutual funds Y - Yes N - No"
+      - name: distribution_rate
+        description: "Per share value of distribution. Used in combination with the Share Quantity to determine the total gross amount. Used for dividends, splits and spin offs"
+      - name: cash_in_lieu_share_quantity
+        description: "Number of shares used to calculate cash issued in place of share quantity on trades."
+      - name: dividend_interest_share_quantity
+        description: "Number of Shares in the account on Record Date."
+      - name: cash_in_lieu_rate
+        description: "Per share value of cash issued in lieu of shares on trades."
+      - name: asset_backed_factor
+        description: |
+          The security's current factor. This data element, if available, is also included in the Security Description fields. For securities without a factor this field will be zero-filled.
+          OBSOLETE field, use \"Factor.\"
+      - name: source_system
+        description: "Describes the Schwab system that created the transaction. IC - Integrated Cashiering, ML - MoneyLink, TO - Transfer of Accounts"
+      - name: journal_type
+        description: "Defines whether a journal transaction is for cash or stock. 01 - Cash  02 - Stock Space  - None (blank)"
+      - name: deposit_media
+        description: "Describes the form of deposit delivered to Schwab C - Check W - Wire J - Journal A - ACH (MoneyLink)"
+      - name: schwab_cashiering_unique_identifier
+        description: "Unique identifier generated by the Schwab Cashiering systems used to reconcile online requests with cashiering transactions in this file."
+      - name: recipient_maker_name_line_1
+        description: "For deposits this represents the Payee. For disbursements this represents the Payor."
+      - name: recipient_maker_name_line_2
+        description: "For deposits this represents the Payee. For disbursements this represents the Payor."
+      - name: recipient_maker_name_line_3
+        description: "For deposits this represents the Payee. For disbursements this represents the Payor."
+      - name: frequency
+        description: "Indicates the frequency of the disbursement. ONE-TIME, WEEKLY, MONTHLY, QUARTERLY, ANNUAL, SEMI-ANNUAL"
+      - name: disbursed_check_number
+        description: "This field may or may not be valued due to the account type."
+      - name: fed_reference_number
+        description: "Tracking number assigned by the Fed Bank for Fed wire transactions."
+      - name: recipient_maker_account_number
+        description: "For disbursements this represents the account number of the recipient of the payment. For deposits this represents the account number of the payee."
+      - name: bank_account_type
+        description: "Describes the type of account that is the source or destination of the funds. CHECKING, SAVINGS, UNKNOWN"
+      - name: bank_name_part_1
+        description: "Name of the Bank receiving or sending the funds."
+      - name: bank_name_part_2
+        description: "Name of the Bank receiving or sending the funds."
+      - name: bank_aba_number
+        description: "Unique account number assigned to sending or receiving bank."
+      - name: intermediary_name
+        description: "Name of the middle Bank assisting in the transfer of wired funds"
+      - name: transaction_check_memo_1
+        description: "Memo line printed on the actual check.  This only applies to check disbursements."
+      - name: transaction_check_memo_2
+        description: "Memo line printed on the actual check.  This only applies to check disbursements."
+      - name: retirement_federal_income_tax
+        description: "Amount of disbursement allocated to Federal tax."
+      - name: retirement_state_income_tax
+        description: "Amount of disbursement allocated to State tax."
+      - name: retirement_income_tax_state
+        description: "Two digit state code in which the state tax is being assessed."
+      - name: publication_time_stamp
+        description: "Use to match trade records with data found in the RGL files. Values are not meaningful except for trades."
+      - name: version_marker_1
+        description: "Indicates the version number associated with the fields immediately following this marker."
+      - name: tips_factor
+        description: |
+          The inflation factor associated with Treasury Inflation-Protected Securities. Use this value to calculate the \"clean\" price.  This data element, if available, is also included in the Security Description fields. For securities that are not TIPS (Product Code not equal to \"TIP\") then this field will be zero-filled.
+          OBSOLETE field, use \"Factor.\"
+      - name: closing_price
+        description: |
+          Closing price in Schwab systems.
+          OBSOLETE field, use \"Closing Price - Unfactored.\"
+      - name: version_marker_2
+        description: "Indicates the version number associated with the fields immediately following this marker."
+      - name: transaction_memo
+        description: |
+          Provides additional detail for some cashiering transactions on certain accounts.
+          Most accounts do not use this field.
+      - name: version_marker_3
+        description: "Indicates the version number associated with the fields immediately following this marker."
+      - name: closing_price_unfactored
+        description: "Closing price in Schwab systems. For securities where a factor applies, the value provided does not reflect the factor. Multiply by the Factor  value in the next field for a factored price."
+      - name: factor
+        description: "The security's current factor. For securities without a factor, the factor value will default to 1. Applies to TIPS, asset-backed securities, and other securities where a factor exists."
+      - name: factor_date
+        description: "The date associated with the Factor value provided in the previous field."
+      - name: master_number
+        description: ""
+      - name: is_deceased
+        description: ""
+      - name: is_from_tda_migration
+        description: ""
+      - name: effective_date
+        description: ""
+      - name: RN
+        data_type: NUMBER
+        description: ''
+      - name: IS_HEAD
+        data_type: NUMBER
+        description: ''
+      - name: IS_CURRENT
+        data_type: NUMBER
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        data_type: TIMESTAMP_NTZ
+        description: ''
+      - name: _SOURCE_FILE
+        data_type: VARCHAR
+        description: ''

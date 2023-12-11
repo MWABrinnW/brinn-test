@@ -8,42 +8,2451 @@ sources:
     tables:
       - name: acc
         description: "[Account information file](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        columns:
+          - name: CONTENT
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
       - name: sec
         description: "[Securities file](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        columns:
+          - name: CONTENT
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
       - name: rps
         description: "[Cash and positions file](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        columns:
+          - name: CONTENT
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
       - name: trn
         description: "[Transactions file](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        columns:
+          - name: CONTENT
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
       - name: ult
+        columns:
+          - name: CONTENT
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
       - name: uln
+        columns:
+          - name: CONTENT
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
       - name: upn
+        columns:
+          - name: CONTENT
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
       - name: upt
+        columns:
+          - name: CONTENT
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
       - name: fam
+        columns:
+          - name: FA_MASTER_ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: FA_MASTER_ACCOUNT_DESCRIPTION
+            data_type: VARCHAR
+            description: ''
+          - name: FA_REP_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: SUB_ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: SUB_ACCOUNT_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: SUB_ACCOUNT_TAX_ID_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
       - name: tcf
         description: "Trade confirms file"
+        columns:
+          - name: CONTENT
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
       - name: mxr
         description: "TDA account mapping file"
-
+        columns:
+          - name: CONTENT
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
       - name: acc_accounts
         description: "[Account information file](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        columns:
+          - name: CUSTODIAN
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM_SOURCE
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM
+            data_type: VARCHAR
+            description: ''
+          - name: RECORD_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: CUSTODIAN_ID
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_ACCOUNT_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: BUSINESS_DATE
+            data_type: DATE
+            description: ''
+          - name: ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TITLE_LINE_1
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TITLE_LINE_2
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TITLE_LINE_3
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_STATUS
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_REGISTRATION
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: TAXPAYER_TITLE
+            data_type: VARCHAR
+            description: ''
+          - name: TAXPAYER_FIRST_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: TAXPAYER_MIDDLE_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: TAXPAYER_LAST_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: TAXPAYER_SUFFIX
+            data_type: VARCHAR
+            description: ''
+          - name: TAX_WITHHOLD_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: PRIMARY_CONTACT
+            data_type: VARCHAR
+            description: ''
+          - name: ALIAS_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: MAILING_ADDRESS_LINE_1
+            data_type: VARCHAR
+            description: ''
+          - name: MAILING_ADDRESS_LINE_2
+            data_type: VARCHAR
+            description: ''
+          - name: MAILING_ADDRESS_LINE_3
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_MAILING_CITY
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_MAILING_STATE
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_MAILING_ZIP
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_MAILING_COUNTRY_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: EMAIL_ADDRESS
+            data_type: VARCHAR
+            description: ''
+          - name: PHONE
+            data_type: VARCHAR
+            description: ''
+          - name: BUSINESS_PHONE
+            data_type: VARCHAR
+            description: ''
+          - name: DATE_OPENED_ESTABLISHED
+            data_type: DATE
+            description: ''
+          - name: SCHWAB_BRANCH_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: SWEEP_STATUS_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_CASH_INSTRUCTIONS_CASH_ACCOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_CASH_INSTRUCTIONS_MARGIN_ACCOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: MARGIN_ACCOUNT_INDICATOR
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_RESTRICTIONS
+            data_type: VARCHAR
+            description: ''
+          - name: ADDITIONAL_MAILINGS
+            data_type: VARCHAR
+            description: ''
+          - name: NUMBER_OF_ADDITIONAL_MAILINGS
+            data_type: NUMBER
+            description: ''
+          - name: APPROVED_OPTION_LEVEL
+            data_type: VARCHAR
+            description: ''
+          - name: BENEFICIARY_ON_FILE_YN
+            data_type: VARCHAR
+            description: ''
+          - name: NUMBER_OF_BENEFICIARIES
+            data_type: NUMBER
+            description: ''
+          - name: PAYMENT_FEATURES_CHECKS
+            data_type: VARCHAR
+            description: ''
+          - name: PAYMENT_FEATURES_DEBIT_CARD
+            data_type: VARCHAR
+            description: ''
+          - name: PAYMENT_FEATURES_BILL_PAY
+            data_type: VARCHAR
+            description: ''
+          - name: UNDELIVERABLE_MAIL_FLAG
+            data_type: VARCHAR
+            description: ''
+          - name: FA_FEE_STATUS
+            data_type: VARCHAR
+            description: ''
+          - name: INTEREST_BEARING_FEATURE_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: INTEREST_BEARING_FEATURES_MONEY_MARKET_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: INTEREST_BEARING_FEATURES_TICKER_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: INTEREST_BEARING_FEATURES_ITEM_ISSUE_ID
+            data_type: VARCHAR
+            description: ''
+          - name: INTEREST_BEARING_FEATURES_RULE_SET_SUFFIX
+            data_type: VARCHAR
+            description: ''
+          - name: PROXY_VOTING_AUTHORITY
+            data_type: VARCHAR
+            description: ''
+          - name: PROXY_MAILING
+            data_type: VARCHAR
+            description: ''
+          - name: STATEMENT_PREFERENCES
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TAXABLE_INDICATOR
+            data_type: VARCHAR
+            description: ''
+          - name: DEFAULT_LOT_SELECTION_METHOD
+            data_type: VARCHAR
+            description: ''
+          - name: COST_METHOD
+            data_type: VARCHAR
+            description: ''
+          - name: COST_BASIS_METHOD_FOR_MUTUAL_FUNDS
+            data_type: VARCHAR
+            description: ''
+          - name: COST_BASIS_METHOD_NON_MUTUAL_FUNDS
+            data_type: VARCHAR
+            description: ''
+          - name: COST_BASIS_METHOD_DATE
+            data_type: DATE
+            description: ''
+          - name: VERSION_MARKER_NUMBER_1
+            data_type: VARCHAR
+            description: ''
+          - name: CUSTOMER_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: ORGANIZATION_PRIMARY_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: VERSION_MARKER_NUMBER_2
+            data_type: VARCHAR
+            description: ''
+          - name: RESTRICTION_REASON_CODE_1
+            data_type: VARCHAR
+            description: ''
+          - name: RESTRICTION_REASON_CODE_2
+            data_type: VARCHAR
+            description: ''
+          - name: RESTRICTION_REASON_CODE_3
+            data_type: VARCHAR
+            description: ''
+          - name: RESTRICTION_REASON_CODE_4
+            data_type: VARCHAR
+            description: ''
+          - name: RESTRICTION_REASON_CODE_5
+            data_type: VARCHAR
+            description: ''
+          - name: VERSION_MARKER_NUMBER_3
+            data_type: VARCHAR
+            description: ''
+          - name: SCHWAB_BANK_INVESTOR_CHECKING_ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: VERSION_MARKER_NUMBER_4
+            data_type: VARCHAR
+            description: ''
+          - name: SOCIAL_SECURITY_NUMBER_SSNTAX_ID_NUMBER_TIN
+            data_type: VARCHAR
+            description: ''
+          - name: VERSION_MARKER_NUMBER_5
+            data_type: VARCHAR
+            description: ''
+          - name: PRIME_BROKER_ENABLED_INDICATOR
+            data_type: VARCHAR
+            description: ''
+          - name: MANAGED_ACCOUNT_PLATFORM_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: MANAGED_ACCOUNT_MONEY_MANAGER
+            data_type: VARCHAR
+            description: ''
+          - name: MANAGED_ACCOUNT_INVESTMENT_STRATEGY
+            data_type: VARCHAR
+            description: ''
+          - name: VERSION_MARKER_NUMBER_5_2
+            data_type: VARCHAR
+            description: ''
+          - name: BANK_SWEEP_DISPLAY_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: IS_DECEASED
+            data_type: NUMBER
+            description: ''
+          - name: IS_FROM_TDA_MIGRATION
+            data_type: NUMBER
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: RN
+            data_type: NUMBER
+            description: ''
+          - name: IS_HEAD
+            data_type: NUMBER
+            description: ''
+          - name: IS_CURRENT
+            data_type: NUMBER
+            description: ''
+          - name: _SOURCE_LOADED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
       - name: sec_securities
         description: "[Securities file](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        columns:
+          - name: CUSTODIAN
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM_SOURCE
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM
+            data_type: VARCHAR
+            description: ''
+          - name: RECORD_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: CUSTODIAN_ID
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_ACCOUNT_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: BUSINESS_DATE
+            data_type: DATE
+            description: ''
+          - name: PRODUCT_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: PRODUCT_CATEGORY_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: TAX_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: LEGACY_SECURITY_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: TICKER_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: INDUSTRY_TICKER_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: CUSIP
+            data_type: VARCHAR
+            description: ''
+          - name: SCHWAB_SECURITY_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: RE_ORG_SCHWAB_INTERNAL_SECURITY_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: ITEM_ISSUE_ID
+            data_type: VARCHAR
+            description: ''
+          - name: RULE_SET_SUFFIX
+            data_type: VARCHAR
+            description: ''
+          - name: ISIN
+            data_type: VARCHAR
+            description: ''
+          - name: SEDOL
+            data_type: VARCHAR
+            description: ''
+          - name: OPTIONS_DISPLAY_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: SECURITY_DESCRIPTION_LINE_1
+            data_type: VARCHAR
+            description: ''
+          - name: SECURITY_DESCRIPTION_LINE_2
+            data_type: VARCHAR
+            description: ''
+          - name: SECURITY_DESCRIPTION_LINE_3
+            data_type: VARCHAR
+            description: ''
+          - name: SECURITY_DESCRIPTION_LINE_4
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_TICKER_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_INDUSTRY_TICKER_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_CUSIP
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_SCHWAB_SECURITY_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_ITEM_ISSUE_ID
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_RULE_SET_SUFFIX_ID
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_ISIN
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_SEDOL
+            data_type: VARCHAR
+            description: ''
+          - name: MONEY_MARKET_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: LAST_UPDATE_DATE
+            data_type: DATE
+            description: ''
+          - name: SWEEP_FUND_INDICATOR
+            data_type: VARCHAR
+            description: ''
+          - name: CLOSING_PRICE
+            data_type: NUMBER
+            description: ''
+          - name: SECURITY_PRICE_UPDATE_DATE
+            data_type: DATE
+            description: ''
+          - name: SECURITY_VALUATION_UNIT
+            data_type: NUMBER
+            description: ''
+          - name: OPTION_ROOT_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: OPTION_EXPIRATION_DATE
+            data_type: DATE
+            description: ''
+          - name: OPTION_CALL_OR_PUT_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: STRIKE_PRICE_AMOUNT
+            data_type: NUMBER
+            description: ''
+          - name: INTEREST_RATE
+            data_type: NUMBER
+            description: ''
+          - name: MATURITY_DATE
+            data_type: DATE
+            description: ''
+          - name: TIPS_FACTOR
+            data_type: NUMBER
+            description: ''
+          - name: ASSET_BACKED_FACTOR
+            data_type: NUMBER
+            description: ''
+          - name: FACE_VALUE_AMOUNT
+            data_type: NUMBER
+            description: ''
+          - name: ISSUER_STATE
+            data_type: VARCHAR
+            description: ''
+          - name: VERSION_MARKER_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: SCHWAB_PROPRIETARY_INDICATOR
+            data_type: VARCHAR
+            description: ''
+          - name: SCHWAB_ONE_SOURCE_INDICATOR
+            data_type: VARCHAR
+            description: ''
+          - name: VERSION_MARKER_2
+            data_type: VARCHAR
+            description: ''
+          - name: CLOSING_PRICE_UNFACTORED
+            data_type: NUMBER
+            description: ''
+          - name: FACTOR
+            data_type: NUMBER
+            description: ''
+          - name: FACTOR_DATE
+            data_type: DATE
+            description: ''
+          - name: MASTER_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: IS_DECEASED
+            data_type: NUMBER
+            description: ''
+          - name: IS_FROM_TDA_MIGRATION
+            data_type: NUMBER
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: RN
+            data_type: NUMBER
+            description: ''
+          - name: IS_HEAD
+            data_type: NUMBER
+            description: ''
+          - name: IS_CURRENT
+            data_type: NUMBER
+            description: ''
+          - name: _SOURCE_LOADED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
       - name: rps_cash
         description: "[Cash and positions file](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        columns:
+          - name: CUSTODIAN
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM_SOURCE
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM
+            data_type: VARCHAR
+            description: ''
+          - name: RECORD_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: CUSTODIAN_ID
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_ACCOUNT_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: BUSINESS_DATE
+            data_type: DATE
+            description: ''
+          - name: ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TITLE_LINE_1
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TITLE_LINE_2
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TITLE_LINE_3
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_REGISTRATION
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: NET_CREDIT_OR_DEBIT_SETTLED_UNSETTLED
+            data_type: NUMBER
+            description: ''
+          - name: MARGIN_BALANCE_SETTLED_UNSETTLED
+            data_type: NUMBER
+            description: ''
+          - name: TOTAL_AVAILABLE_TO_PAY
+            data_type: NUMBER
+            description: ''
+          - name: MARGIN_BUYING_POWER
+            data_type: NUMBER
+            description: ''
+          - name: MONEY_MARKET_FUNDS_SETTLED_UNSETTLED
+            data_type: NUMBER
+            description: ''
+          - name: MTD_MARGIN_INTEREST
+            data_type: NUMBER
+            description: ''
+          - name: DAILY_MARGIN_INTEREST
+            data_type: NUMBER
+            description: ''
+          - name: EQUITY_EXCLUDING_OPTIONS
+            data_type: NUMBER
+            description: ''
+          - name: EQUITY_PERCENTAGE
+            data_type: NUMBER
+            description: ''
+          - name: MARKET_VALUE_LONG
+            data_type: NUMBER
+            description: ''
+          - name: MARKET_VALUE_SHORT
+            data_type: NUMBER
+            description: ''
+          - name: EQUITY_INCLUDING_OPTIONS
+            data_type: NUMBER
+            description: ''
+          - name: OPTION_REQUIREMENTS
+            data_type: NUMBER
+            description: ''
+          - name: MONTH_END_DIVIDEND_PAYOUT
+            data_type: NUMBER
+            description: ''
+          - name: MAINTENANCE_CALL
+            data_type: NUMBER
+            description: ''
+          - name: MVL_CASH_ACCOUNT_EXCLUDING_OPTIONS
+            data_type: NUMBER
+            description: ''
+          - name: NET_MARKET_VALUE_POSITIONS_ONLY
+            data_type: NUMBER
+            description: ''
+          - name: NET_MARKET_VALUE_POSITIONS_PLUS_CASH_AND_MONEY_MARKET
+            data_type: NUMBER
+            description: ''
+          - name: CASH_BALANCE_SETTLED_ONLY
+            data_type: NUMBER
+            description: ''
+          - name: CASH_MARGIN_BALANCE_SETTLED_ONLY
+            data_type: NUMBER
+            description: ''
+          - name: VERSION_MARKER_3
+            data_type: VARCHAR
+            description: ''
+          - name: BANK_SWEEP_INTEREST_BEARING_FEATURE
+            data_type: NUMBER
+            description: ''
+          - name: MASTER_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: IS_DECEASED
+            data_type: NUMBER
+            description: ''
+          - name: IS_FROM_TDA_MIGRATION
+            data_type: NUMBER
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: RN
+            data_type: NUMBER
+            description: ''
+          - name: IS_HEAD
+            data_type: NUMBER
+            description: ''
+          - name: IS_CURRENT
+            data_type: NUMBER
+            description: ''
+          - name: _SOURCE_LOADED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
       - name: rps_positions
         description: "[Cash and positions file](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        columns:
+          - name: CUSTODIAN
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM_SOURCE
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM
+            data_type: VARCHAR
+            description: ''
+          - name: RECORD_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: CUSTODIAN_ID
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_ACCOUNT_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: BUSINESS_DATE
+            data_type: DATE
+            description: ''
+          - name: ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: PRODUCT_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: PRODUCT_CATEGORY_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: TAX_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: LEGACY_SECURITY_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: TICKER_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: INDUSTRY_TICKER_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: CUSIP
+            data_type: VARCHAR
+            description: ''
+          - name: SCHWAB_SECURITY_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: ITEM_ISSUE_ID
+            data_type: VARCHAR
+            description: ''
+          - name: RULE_SET_SUFFIX_ID
+            data_type: VARCHAR
+            description: ''
+          - name: ISIN
+            data_type: VARCHAR
+            description: ''
+          - name: SEDOL
+            data_type: VARCHAR
+            description: ''
+          - name: OPTIONS_DISPLAY_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: SECURITY_DESCRIPTION_LINE_1
+            data_type: VARCHAR
+            description: ''
+          - name: SECURITY_DESCRIPTION_LINE_2
+            data_type: VARCHAR
+            description: ''
+          - name: SECURITY_DESCRIPTION_LINE_3
+            data_type: VARCHAR
+            description: ''
+          - name: SECURITY_DESCRIPTION_LINE_4
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_TICKER_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_INDUSTRY_TICKER_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_CUSIP
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_SCHWAB_SECURITY_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_ITEM_ISSUE_ID
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_RULE_SET_SUFFIX_ID
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_ISIN
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_SEDOL
+            data_type: VARCHAR
+            description: ''
+          - name: MONEY_MARKET_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: DIVIDEND_REINVEST
+            data_type: VARCHAR
+            description: ''
+          - name: CAPITAL_GAINS_REINVEST
+            data_type: VARCHAR
+            description: ''
+          - name: CLOSING_PRICE
+            data_type: NUMBER
+            description: ''
+          - name: SECURITY_PRICE_UPDATE_DATE
+            data_type: DATE
+            description: ''
+          - name: QUANTITY_SETTLED_AND_UNSETTLED
+            data_type: NUMBER
+            description: ''
+          - name: LONG_SHORT_INDICATOR
+            data_type: VARCHAR
+            description: ''
+          - name: MARKET_VALUE_SETTLED_AND_UNSETTLED
+            data_type: NUMBER
+            description: ''
+          - name: ACCOUNTING_RULE_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: QUANTITY_SETTLED
+            data_type: NUMBER
+            description: ''
+          - name: QUANTITY_UNSETTLED_LONG
+            data_type: NUMBER
+            description: ''
+          - name: QUANTITY_UNSETTLED_SHORT
+            data_type: NUMBER
+            description: ''
+          - name: VERSION_MARKER_1
+            data_type: VARCHAR
+            description: ''
+          - name: TIPS_FACTOR
+            data_type: NUMBER
+            description: ''
+          - name: ASSET_BACKED_FACTOR
+            data_type: NUMBER
+            description: ''
+          - name: VERSION_MARKER_2
+            data_type: VARCHAR
+            description: ''
+          - name: CLOSING_PRICE_UNFACTORED
+            data_type: NUMBER
+            description: ''
+          - name: FACTOR
+            data_type: NUMBER
+            description: ''
+          - name: FACTOR_DATE
+            data_type: DATE
+            description: ''
+          - name: MASTER_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: IS_DECEASED
+            data_type: NUMBER
+            description: ''
+          - name: IS_FROM_TDA_MIGRATION
+            data_type: NUMBER
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: RN
+            data_type: NUMBER
+            description: ''
+          - name: IS_HEAD
+            data_type: NUMBER
+            description: ''
+          - name: IS_CURRENT
+            data_type: NUMBER
+            description: ''
+          - name: _SOURCE_LOADED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
       - name: trn_transactions
         description: "[Transactions file](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        columns:
+          - name: CUSTODIAN
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM_SOURCE
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM
+            data_type: VARCHAR
+            description: ''
+          - name: RECORD_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: CUSTODIAN_ID
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_ACCOUNT_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: BUSINESS_DATE
+            data_type: DATE
+            description: ''
+          - name: ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TITLE_LINE_1
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TITLE_LINE_2
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TITLE_LINE_3
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_REGISTRATION
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: PRODUCT_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: PRODUCT_CATEGORY_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: TAX_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: LEGACY_SECURITY_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: TICKER_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: INDUSTRY_TICKER_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: CUSIP
+            data_type: VARCHAR
+            description: ''
+          - name: SCHWAB_SECURITY_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: ITEM_ISSUE_ID
+            data_type: VARCHAR
+            description: ''
+          - name: RULE_SET_SUFFIX_ID
+            data_type: VARCHAR
+            description: ''
+          - name: ISIN
+            data_type: VARCHAR
+            description: ''
+          - name: SEDOL
+            data_type: VARCHAR
+            description: ''
+          - name: OPTIONS_DISPLAY_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_TICKER_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_INDUSTRY_TICKER_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_CUSIP
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_SCHWAB_SECURITY_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_ITEM_ISSUE_ID
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_RULE_SET_SUFFIX_ID
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_ISIN
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_SEDOL
+            data_type: VARCHAR
+            description: ''
+          - name: MONEY_MARKET_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: TRANSACTION_TYPE_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: TRANSACTION_SUB_TYPE_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: TRANSACTION_CATEGORY
+            data_type: VARCHAR
+            description: ''
+          - name: TRANSACTION_SOURCE_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: TRANSACTION_SOURCE_CODE_DESCRIPTION
+            data_type: VARCHAR
+            description: ''
+          - name: TRANSACTION_DETAIL_DESCRIPTION
+            data_type: VARCHAR
+            description: ''
+          - name: ACTION_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: TRANSACTION_CANCEL_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: TRADE_DATE
+            data_type: DATE
+            description: ''
+          - name: SETTLEMENT_DATE
+            data_type: DATE
+            description: ''
+          - name: TRANSACTION_DATE
+            data_type: DATE
+            description: ''
+          - name: EX_DIVIDEND_DATE
+            data_type: DATE
+            description: ''
+          - name: QUANTITY
+            data_type: NUMBER
+            description: ''
+          - name: PRICE
+            data_type: NUMBER
+            description: ''
+          - name: GROSS_AMOUNT
+            data_type: NUMBER
+            description: ''
+          - name: DEBIT_CREDIT_INDICATOR
+            data_type: VARCHAR
+            description: ''
+          - name: NET_AMOUNT
+            data_type: NUMBER
+            description: ''
+          - name: COMMISSION
+            data_type: NUMBER
+            description: ''
+          - name: EXCHANGE_PROCESSING_FEE
+            data_type: NUMBER
+            description: ''
+          - name: BROKER_SERVICE_FEE
+            data_type: NUMBER
+            description: ''
+          - name: PRIME_BROKER_FEE
+            data_type: NUMBER
+            description: ''
+          - name: TRADE_AWAY_FEE
+            data_type: NUMBER
+            description: ''
+          - name: REDEMPTION_FEE
+            data_type: NUMBER
+            description: ''
+          - name: OTHER_FEE
+            data_type: NUMBER
+            description: ''
+          - name: FEDERAL_TEFRA_WITHHOLDING
+            data_type: NUMBER
+            description: ''
+          - name: STATE_TAX_WITHHOLDING
+            data_type: NUMBER
+            description: ''
+          - name: STATE_RECEIVING_TAX
+            data_type: VARCHAR
+            description: ''
+          - name: ACCRUED_INTEREST
+            data_type: NUMBER
+            description: ''
+          - name: ACCOUNTING_RULE_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: ORDER_SOURCE_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: ORDER_NUMBER
+            data_type: NUMBER
+            description: ''
+          - name: TRADE_ORDER_ENTRY_TIME_STAMP
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: TRADE_ORDER_EXECUTION_TIME_STAMP
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: BROKER_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: BROKER_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: SCHWAB_FROM_ACCOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: SCHWAB_TO_ACCOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: SCHWAB1_CHECK_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: SWEEP_INDICATOR
+            data_type: VARCHAR
+            description: ''
+          - name: STOCK_EXCHANGE_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: INTER_CLASS_EXCHANGE_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: DISTRIBUTION_RATE
+            data_type: NUMBER
+            description: ''
+          - name: CASH_IN_LIEU_SHARE_QUANTITY
+            data_type: NUMBER
+            description: ''
+          - name: DIVIDEND_INTEREST_SHARE_QUANTITY
+            data_type: NUMBER
+            description: ''
+          - name: CASH_IN_LIEU_RATE
+            data_type: NUMBER
+            description: ''
+          - name: ASSET_BACKED_FACTOR
+            data_type: NUMBER
+            description: ''
+          - name: SOURCE_SYSTEM
+            data_type: VARCHAR
+            description: ''
+          - name: JOURNAL_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: DEPOSIT_MEDIA
+            data_type: VARCHAR
+            description: ''
+          - name: SCHWAB_CASHIERING_UNIQUE_IDENTIFIER
+            data_type: VARCHAR
+            description: ''
+          - name: RECIPIENT_MAKER_NAME_LINE_1
+            data_type: VARCHAR
+            description: ''
+          - name: RECIPIENT_MAKER_NAME_LINE_2
+            data_type: VARCHAR
+            description: ''
+          - name: RECIPIENT_MAKER_NAME_LINE_3
+            data_type: VARCHAR
+            description: ''
+          - name: FREQUENCY
+            data_type: VARCHAR
+            description: ''
+          - name: DISBURSED_CHECK_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: FED_REFERENCE_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: RECIPIENT_MAKER_ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: BANK_ACCOUNT_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: BANK_NAME_PART_1
+            data_type: VARCHAR
+            description: ''
+          - name: BANK_NAME_PART_2
+            data_type: VARCHAR
+            description: ''
+          - name: BANK_ABA_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: INTERMEDIARY_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: TRANSACTION_CHECK_MEMO_1
+            data_type: VARCHAR
+            description: ''
+          - name: TRANSACTION_CHECK_MEMO_2
+            data_type: VARCHAR
+            description: ''
+          - name: RETIREMENT_FEDERAL_INCOME_TAX
+            data_type: NUMBER
+            description: ''
+          - name: RETIREMENT_STATE_INCOME_TAX
+            data_type: NUMBER
+            description: ''
+          - name: RETIREMENT_INCOME_TAX_STATE
+            data_type: NUMBER
+            description: ''
+          - name: PUBLICATION_TIME_STAMP
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: VERSION_MARKER_1
+            data_type: VARCHAR
+            description: ''
+          - name: TIPS_FACTOR
+            data_type: NUMBER
+            description: ''
+          - name: CLOSING_PRICE
+            data_type: NUMBER
+            description: ''
+          - name: VERSION_MARKER_2
+            data_type: VARCHAR
+            description: ''
+          - name: TRANSACTION_MEMO
+            data_type: VARCHAR
+            description: ''
+          - name: VERSION_MARKER_3
+            data_type: VARCHAR
+            description: ''
+          - name: CLOSING_PRICE_UNFACTORED
+            data_type: NUMBER
+            description: ''
+          - name: FACTOR
+            data_type: NUMBER
+            description: ''
+          - name: FACTOR_DATE
+            data_type: DATE
+            description: ''
+          - name: MASTER_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: IS_DECEASED
+            data_type: NUMBER
+            description: ''
+          - name: IS_FROM_TDA_MIGRATION
+            data_type: NUMBER
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: RN
+            data_type: NUMBER
+            description: ''
+          - name: IS_HEAD
+            data_type: NUMBER
+            description: ''
+          - name: IS_CURRENT
+            data_type: NUMBER
+            description: ''
+          - name: _SOURCE_LOADED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
       - name: ult_open_lots_taxable
+        columns:
+          - name: CUSTODIAN
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM_SOURCE
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM
+            data_type: VARCHAR
+            description: ''
+          - name: RECORD_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: CUSTODIAN_ID
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_ACCOUNT_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: BUSINESS_DATE
+            data_type: DATE
+            description: ''
+          - name: ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: PRODUCT_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: PRODUCT_CATEGORY_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: TAX_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: SYMBOL_TICKER
+            data_type: VARCHAR
+            description: ''
+          - name: CUSIP
+            data_type: VARCHAR
+            description: ''
+          - name: SCHWAB_INTERNAL_ID
+            data_type: VARCHAR
+            description: ''
+          - name: ITEM_ISSUE_ID
+            data_type: VARCHAR
+            description: ''
+          - name: ISIN
+            data_type: VARCHAR
+            description: ''
+          - name: SEDOL
+            data_type: VARCHAR
+            description: ''
+          - name: OPTIONS_DISPLAY_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_TICKER_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_CUSIP
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_SCHWAB_INTERNAL_ID
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_ITEM_ISSUE_ID
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_ISIN
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_SEDOL
+            data_type: VARCHAR
+            description: ''
+          - name: CURRENT_QUANTITY
+            data_type: NUMBER
+            description: ''
+          - name: LONG_SHORT_INDICATOR
+            data_type: VARCHAR
+            description: ''
+          - name: TRANSACTION_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: CURRENT_MARKET_VALUE
+            data_type: NUMBER
+            description: ''
+          - name: ACCRUED_INTEREST_FIXED_INCOME
+            data_type: NUMBER
+            description: ''
+          - name: ACQUIRED_DATE
+            data_type: DATE
+            description: ''
+          - name: ORIGINAL_PURCHASE_DATE
+            data_type: DATE
+            description: ''
+          - name: ORIGINAL_PURCHASE_PRICE
+            data_type: NUMBER
+            description: ''
+          - name: YIELD_TO_MATURITY_FIXED_INCOME
+            data_type: NUMBER
+            description: ''
+          - name: COST_BASIS_UNAMORTIZED_COST_BASIS_AMOUNT
+            data_type: NUMBER
+            description: ''
+          - name: COST_PER_SHARE_SHARE_COST_AMOUNT
+            data_type: NUMBER
+            description: ''
+          - name: ADJUSTED_COST_BASIS_AMORTIZED_COST_BASIS_AMOUNT
+            data_type: NUMBER
+            description: ''
+          - name: ADJUSTED_COST_PER_SHARE
+            data_type: NUMBER
+            description: ''
+          - name: UNREALIZED_GAIN_LOSS_UGL
+            data_type: NUMBER
+            description: ''
+          - name: NUMBER_OF_DAYS_HELD
+            data_type: NUMBER
+            description: ''
+          - name: HOLDING_PERIOD_TERM
+            data_type: VARCHAR
+            description: ''
+          - name: COST_BASIS_FULLY_KNOWN
+            data_type: VARCHAR
+            description: ''
+          - name: COST_BASIS_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TAXABLE_INDICATOR
+            data_type: VARCHAR
+            description: ''
+          - name: CERTIFIED_INDICATOR
+            data_type: VARCHAR
+            description: ''
+          - name: ORIGINAL_FACE
+            data_type: NUMBER
+            description: ''
+          - name: ACCOUNT_LOT_SELECTION_METHOD_DEFAULT
+            data_type: VARCHAR
+            description: ''
+          - name: WASH_SALE_IMPACTED
+            data_type: VARCHAR
+            description: ''
+          - name: VERSION_MARKER_1
+            data_type: VARCHAR
+            description: ''
+          - name: DISALLOWED_LOSS
+            data_type: NUMBER
+            description: ''
+          - name: TRANSACTION_COST
+            data_type: NUMBER
+            description: ''
+          - name: TRANSACTION_COST_PER_SHARE
+            data_type: NUMBER
+            description: ''
+          - name: VERSION_MARKER_2
+            data_type: VARCHAR
+            description: ''
+          - name: ACQUISITION_TYPE_GIFT_OR_INHERITED
+            data_type: VARCHAR
+            description: ''
+          - name: ORIGINAL_COST_BASIS
+            data_type: NUMBER
+            description: ''
+          - name: VERSION_MARKER_3
+            data_type: VARCHAR
+            description: ''
+          - name: ADJUSTED_COST_INCLUDING_UNPAID_AMORTIZATION
+            data_type: NUMBER
+            description: ''
+          - name: MASTER_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: IS_DECEASED
+            data_type: NUMBER
+            description: ''
+          - name: IS_FROM_TDA_MIGRATION
+            data_type: NUMBER
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: RN
+            data_type: NUMBER
+            description: ''
+          - name: IS_HEAD
+            data_type: NUMBER
+            description: ''
+          - name: IS_CURRENT
+            data_type: NUMBER
+            description: ''
+          - name: _SOURCE_LOADED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
       - name: uln_open_lots_nontaxable
+        columns:
+          - name: CUSTODIAN
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM_SOURCE
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM
+            data_type: VARCHAR
+            description: ''
+          - name: RECORD_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: CUSTODIAN_ID
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_ACCOUNT_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: BUSINESS_DATE
+            data_type: DATE
+            description: ''
+          - name: ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: PRODUCT_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: PRODUCT_CATEGORY_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: TAX_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: SYMBOL_TICKER
+            data_type: VARCHAR
+            description: ''
+          - name: CUSIP
+            data_type: VARCHAR
+            description: ''
+          - name: SCHWAB_INTERNAL_ID
+            data_type: VARCHAR
+            description: ''
+          - name: ITEM_ISSUE_ID
+            data_type: VARCHAR
+            description: ''
+          - name: ISIN
+            data_type: VARCHAR
+            description: ''
+          - name: SEDOL
+            data_type: VARCHAR
+            description: ''
+          - name: OPTIONS_DISPLAY_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_TICKER_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_CUSIP
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_SCHWAB_INTERNAL_ID
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_ITEM_ISSUE_ID
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_ISIN
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_SEDOL
+            data_type: VARCHAR
+            description: ''
+          - name: CURRENT_QUANTITY
+            data_type: NUMBER
+            description: ''
+          - name: LONG_SHORT_INDICATOR
+            data_type: VARCHAR
+            description: ''
+          - name: TRANSACTION_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: CURRENT_MARKET_VALUE
+            data_type: NUMBER
+            description: ''
+          - name: ACCRUED_INTEREST_FIXED_INCOME
+            data_type: NUMBER
+            description: ''
+          - name: ACQUIRED_DATE
+            data_type: DATE
+            description: ''
+          - name: ORIGINAL_PURCHASE_DATE
+            data_type: DATE
+            description: ''
+          - name: ORIGINAL_PURCHASE_PRICE
+            data_type: NUMBER
+            description: ''
+          - name: YIELD_TO_MATURITY_FIXED_INCOME
+            data_type: NUMBER
+            description: ''
+          - name: COST_BASIS_UNAMORTIZED_COST_BASIS_AMOUNT
+            data_type: NUMBER
+            description: ''
+          - name: COST_PER_SHARE_SHARE_COST_AMOUNT
+            data_type: NUMBER
+            description: ''
+          - name: ADJUSTED_COST_BASIS_AMORTIZED_COST_BASIS_AMOUNT
+            data_type: NUMBER
+            description: ''
+          - name: ADJUSTED_COST_PER_SHARE
+            data_type: NUMBER
+            description: ''
+          - name: UNREALIZED_GAIN_LOSS_UGL
+            data_type: NUMBER
+            description: ''
+          - name: NUMBER_OF_DAYS_HELD
+            data_type: NUMBER
+            description: ''
+          - name: HOLDING_PERIOD_TERM
+            data_type: VARCHAR
+            description: ''
+          - name: COST_BASIS_FULLY_KNOWN
+            data_type: VARCHAR
+            description: ''
+          - name: COST_BASIS_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TAXABLE_INDICATOR
+            data_type: VARCHAR
+            description: ''
+          - name: CERTIFIED_INDICATOR
+            data_type: VARCHAR
+            description: ''
+          - name: ORIGINAL_FACE
+            data_type: NUMBER
+            description: ''
+          - name: ACCOUNT_LOT_SELECTION_METHOD_DEFAULT
+            data_type: VARCHAR
+            description: ''
+          - name: WASH_SALE_IMPACTED
+            data_type: VARCHAR
+            description: ''
+          - name: VERSION_MARKER_1
+            data_type: VARCHAR
+            description: ''
+          - name: DISALLOWED_LOSS
+            data_type: NUMBER
+            description: ''
+          - name: TRANSACTION_COST
+            data_type: NUMBER
+            description: ''
+          - name: TRANSACTION_COST_PER_SHARE
+            data_type: NUMBER
+            description: ''
+          - name: VERSION_MARKER_2
+            data_type: VARCHAR
+            description: ''
+          - name: ACQUISITION_TYPE_GIFT_OR_INHERITED
+            data_type: VARCHAR
+            description: ''
+          - name: ORIGINAL_COST_BASIS
+            data_type: NUMBER
+            description: ''
+          - name: VERSION_MARKER_3
+            data_type: VARCHAR
+            description: ''
+          - name: ADJUSTED_COST_INCLUDING_UNPAID_AMORTIZATION
+            data_type: NUMBER
+            description: ''
+          - name: MASTER_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: IS_DECEASED
+            data_type: NUMBER
+            description: ''
+          - name: IS_FROM_TDA_MIGRATION
+            data_type: NUMBER
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: RN
+            data_type: NUMBER
+            description: ''
+          - name: IS_HEAD
+            data_type: NUMBER
+            description: ''
+          - name: IS_CURRENT
+            data_type: NUMBER
+            description: ''
+          - name: _SOURCE_LOADED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
       - name: upt_open_positions_taxable
+        columns:
+          - name: CUSTODIAN
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM_SOURCE
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM
+            data_type: VARCHAR
+            description: ''
+          - name: RECORD_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: CUSTODIAN_ID
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_ACCOUNT_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: BUSINESS_DATE
+            data_type: DATE
+            description: ''
+          - name: ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: SECURITY_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: PRODUCT_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: PRODUCT_CATEGORY_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: TAX_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: SYMBOL_TICKER
+            data_type: VARCHAR
+            description: ''
+          - name: CUSIP
+            data_type: VARCHAR
+            description: ''
+          - name: SCHWAB_INTERNAL_ID
+            data_type: VARCHAR
+            description: ''
+          - name: ITEM_ISSUE_ID
+            data_type: VARCHAR
+            description: ''
+          - name: ISIN
+            data_type: VARCHAR
+            description: ''
+          - name: SEDOL
+            data_type: VARCHAR
+            description: ''
+          - name: OPTIONS_DISPLAY_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_TICKER_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_CUSIP
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_SCHWAB_INTERNAL_ID
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_ITEM_ISSUE_ID
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_ISIN
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_SEDOL
+            data_type: VARCHAR
+            description: ''
+          - name: CURRENT_QUANTITY
+            data_type: NUMBER
+            description: ''
+          - name: LONG_SHORT_INDICATOR
+            data_type: VARCHAR
+            description: ''
+          - name: CURRENT_MARKET_VALUE
+            data_type: NUMBER
+            description: ''
+          - name: ACCRUED_INTEREST_FIXED_INCOME
+            data_type: NUMBER
+            description: ''
+          - name: COST_BASIS_UNAMORTIZED_COST_BASIS_AMOUNT
+            data_type: NUMBER
+            description: ''
+          - name: COST_PER_SHARE_SHARE_COST_AMOUNT
+            data_type: NUMBER
+            description: ''
+          - name: ADJUSTED_COST_BASIS_AMORTIZED_COST_BASIS_AMOUNT
+            data_type: NUMBER
+            description: ''
+          - name: ADJUSTED_COST_PER_SHARE
+            data_type: NUMBER
+            description: ''
+          - name: UNREALIZED_GAIN_LOSS_UGL
+            data_type: NUMBER
+            description: ''
+          - name: COST_BASIS_FULLY_KNOWN
+            data_type: VARCHAR
+            description: ''
+          - name: COST_BASIS_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TAXABLE_INDICATOR
+            data_type: VARCHAR
+            description: ''
+          - name: CERTIFIED_INDICATOR
+            data_type: VARCHAR
+            description: ''
+          - name: ORIGINAL_FACE
+            data_type: NUMBER
+            description: ''
+          - name: ACCOUNT_LOT_SELECTION_METHOD_DEFAULT
+            data_type: VARCHAR
+            description: ''
+          - name: COST_METHOD
+            data_type: VARCHAR
+            description: ''
+          - name: PRINCIPAL_PAYDOWN_FACTOR
+            data_type: NUMBER
+            description: ''
+          - name: MASTER_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: IS_DECEASED
+            data_type: NUMBER
+            description: ''
+          - name: IS_FROM_TDA_MIGRATION
+            data_type: NUMBER
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: RN
+            data_type: NUMBER
+            description: ''
+          - name: IS_HEAD
+            data_type: NUMBER
+            description: ''
+          - name: IS_CURRENT
+            data_type: NUMBER
+            description: ''
+          - name: _SOURCE_LOADED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
       - name: upn_open_positions_nontaxable
+        columns:
+          - name: CUSTODIAN
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM_SOURCE
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM
+            data_type: VARCHAR
+            description: ''
+          - name: RECORD_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: CUSTODIAN_ID
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_ACCOUNT_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: BUSINESS_DATE
+            data_type: DATE
+            description: ''
+          - name: ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: SECURITY_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: PRODUCT_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: PRODUCT_CATEGORY_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: TAX_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: SYMBOL_TICKER
+            data_type: VARCHAR
+            description: ''
+          - name: CUSIP
+            data_type: VARCHAR
+            description: ''
+          - name: SCHWAB_INTERNAL_ID
+            data_type: VARCHAR
+            description: ''
+          - name: ITEM_ISSUE_ID
+            data_type: VARCHAR
+            description: ''
+          - name: ISIN
+            data_type: VARCHAR
+            description: ''
+          - name: SEDOL
+            data_type: VARCHAR
+            description: ''
+          - name: OPTIONS_DISPLAY_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_TICKER_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_CUSIP
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_SCHWAB_INTERNAL_ID
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_ITEM_ISSUE_ID
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_ISIN
+            data_type: VARCHAR
+            description: ''
+          - name: UNDERLYING_SEDOL
+            data_type: VARCHAR
+            description: ''
+          - name: CURRENT_QUANTITY
+            data_type: NUMBER
+            description: ''
+          - name: LONG_SHORT_INDICATOR
+            data_type: VARCHAR
+            description: ''
+          - name: CURRENT_MARKET_VALUE
+            data_type: NUMBER
+            description: ''
+          - name: ACCRUED_INTEREST_FIXED_INCOME
+            data_type: NUMBER
+            description: ''
+          - name: COST_BASIS_UNAMORTIZED_COST_BASIS_AMOUNT
+            data_type: NUMBER
+            description: ''
+          - name: COST_PER_SHARE_SHARE_COST_AMOUNT
+            data_type: NUMBER
+            description: ''
+          - name: ADJUSTED_COST_BASIS_AMORTIZED_COST_BASIS_AMOUNT
+            data_type: NUMBER
+            description: ''
+          - name: ADJUSTED_COST_PER_SHARE
+            data_type: NUMBER
+            description: ''
+          - name: UNREALIZED_GAIN_LOSS_UGL
+            data_type: NUMBER
+            description: ''
+          - name: COST_BASIS_FULLY_KNOWN
+            data_type: VARCHAR
+            description: ''
+          - name: COST_BASIS_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TAXABLE_INDICATOR
+            data_type: VARCHAR
+            description: ''
+          - name: CERTIFIED_INDICATOR
+            data_type: VARCHAR
+            description: ''
+          - name: ORIGINAL_FACE
+            data_type: NUMBER
+            description: ''
+          - name: ACCOUNT_LOT_SELECTION_METHOD_DEFAULT
+            data_type: VARCHAR
+            description: ''
+          - name: COST_METHOD
+            data_type: VARCHAR
+            description: ''
+          - name: PRINCIPAL_PAYDOWN_FACTOR
+            data_type: NUMBER
+            description: ''
+          - name: MASTER_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: IS_DECEASED
+            data_type: NUMBER
+            description: ''
+          - name: IS_FROM_TDA_MIGRATION
+            data_type: NUMBER
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: RN
+            data_type: NUMBER
+            description: ''
+          - name: IS_HEAD
+            data_type: NUMBER
+            description: ''
+          - name: IS_CURRENT
+            data_type: NUMBER
+            description: ''
+          - name: _SOURCE_LOADED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
       - name: fam_fa_master_relationships
+        columns:
+          - name: CUSTODIAN
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM_SOURCE
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM
+            data_type: VARCHAR
+            description: ''
+          - name: FA_MASTER_ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: FA_MASTER_ACCOUNT_DESCRIPTION
+            data_type: VARCHAR
+            description: ''
+          - name: FA_REP_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TAX_ID_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: RN
+            data_type: NUMBER
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: IS_HEAD
+            data_type: NUMBER
+            description: ''
+          - name: IS_CURRENT
+            data_type: NUMBER
+            description: ''
+          - name: _SOURCE_LOADED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
+          - name: _MD5
+            data_type: VARCHAR
+            description: ''
       - name: tcf_trades
         description: "Trade confirms file"
+        columns:
+          - name: CUSTODIAN
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM_SOURCE
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM
+            data_type: VARCHAR
+            description: ''
+          - name: RECORD_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: BUSINESS_DATE
+            data_type: DATE
+            description: ''
+          - name: MASTER_ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: TRADE_DATE
+            data_type: DATE
+            description: ''
+          - name: SETTLEMENT_DATE
+            data_type: DATE
+            description: ''
+          - name: ACTION
+            data_type: VARCHAR
+            description: ''
+          - name: CANCEL
+            data_type: VARCHAR
+            description: ''
+          - name: SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: CUSIP
+            data_type: VARCHAR
+            description: ''
+          - name: SCHWAB_INTERNAL_SECURITY_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: TRACE_SYMBOL
+            data_type: VARCHAR
+            description: ''
+          - name: SECURITY_DESCRIPTION
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: QUANTITY
+            data_type: NUMBER
+            description: ''
+          - name: PRICE
+            data_type: NUMBER
+            description: ''
+          - name: PRINCIPAL
+            data_type: NUMBER
+            description: ''
+          - name: TOTAL_AMOUNT
+            data_type: NUMBER
+            description: ''
+          - name: STEP_IN_FEE
+            data_type: NUMBER
+            description: ''
+          - name: SCHWAB_COMMISSION
+            data_type: NUMBER
+            description: ''
+          - name: EXECUTING_BROKER_COMMISSION
+            data_type: NUMBER
+            description: ''
+          - name: PRIME_BROKER_FEE
+            data_type: NUMBER
+            description: ''
+          - name: TRANSACTION_FEE
+            data_type: NUMBER
+            description: ''
+          - name: BROKER_SERVICE_FEE
+            data_type: NUMBER
+            description: ''
+          - name: EXCHANGE_PROCESSING_FEE
+            data_type: NUMBER
+            description: ''
+          - name: ORDER_HANDLING_FEE
+            data_type: NUMBER
+            description: ''
+          - name: OTHER_FEES
+            data_type: NUMBER
+            description: ''
+          - name: OTHER_FEES_DESCRIPTION
+            data_type: NUMBER
+            description: ''
+          - name: ACCRUED_INTEREST
+            data_type: NUMBER
+            description: ''
+          - name: STATE_TAX
+            data_type: VARCHAR
+            description: ''
+          - name: TAX_DESCRIPTION
+            data_type: VARCHAR
+            description: ''
+          - name: EXECUTING_BROKER_MARKUP_OR_MARKDOWN
+            data_type: VARCHAR
+            description: ''
+          - name: RESEARCH_FEE
+            data_type: NUMBER
+            description: ''
+          - name: ACCOUNT_NAME_ADDRESS_1
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_NAME_ADDRESS_2
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_NAME_ADDRESS_3
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_NAME_ADDRESS_4
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_NAME_ADDRESS_5
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_NAME_ADDRESS_6
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TITLE_1
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TITLE_2
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_TITLE_3
+            data_type: VARCHAR
+            description: ''
+          - name: UNUSED_FIELD_4
+            data_type: VARCHAR
+            description: ''
+          - name: UNUSED_FIELD_5
+            data_type: VARCHAR
+            description: ''
+          - name: MESSAGES_BREAK_INDICATOR
+            data_type: VARCHAR
+            description: ''
+          - name: MESSAGE_1
+            data_type: VARCHAR
+            description: ''
+          - name: MESSAGE_2
+            data_type: VARCHAR
+            description: ''
+          - name: MESSAGE_3
+            data_type: VARCHAR
+            description: ''
+          - name: MESSAGE_4
+            data_type: VARCHAR
+            description: ''
+          - name: MESSAGE_5
+            data_type: VARCHAR
+            description: ''
+          - name: MESSAGE_6
+            data_type: VARCHAR
+            description: ''
+          - name: MESSAGE_7
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: IS_DECEASED
+            data_type: NUMBER
+            description: ''
+          - name: IS_FROM_TDA_MIGRATION
+            data_type: NUMBER
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: RN
+            data_type: NUMBER
+            description: ''
+          - name: IS_HEAD
+            data_type: NUMBER
+            description: ''
+          - name: IS_CURRENT
+            data_type: NUMBER
+            description: ''
+          - name: _SOURCE_LOADED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
       - name: mxr_tda_account_mappings
         description: "TDA account mapping file"
-
+        columns:
+          - name: CUSTODIAN
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM_SOURCE
+            data_type: VARCHAR
+            description: ''
+          - name: FIRM
+            data_type: VARCHAR
+            description: ''
+          - name: RECORD_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: TDA_REP_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: TDA_ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: MASTER_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: IS_DECEASED
+            data_type: NUMBER
+            description: ''
+          - name: IS_FROM_TDA_MIGRATION
+            data_type: NUMBER
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: RN
+            data_type: NUMBER
+            description: ''
+          - name: IS_HEAD
+            data_type: NUMBER
+            description: ''
+          - name: IS_CURRENT
+            data_type: NUMBER
+            description: ''
+          - name: _SOURCE_LOADED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
       - name: referral_fees_prior_quarter
+        columns:
+          - name: CONTENT
+            data_type: VARCHAR
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
+          - name: _MD5
+            data_type: VARCHAR
+            description: ''
       - name: referral_fees_current_quarter
+        columns:
+          - name: CONTENT
+            data_type: VARCHAR
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
+          - name: _MD5
+            data_type: VARCHAR
+            description: ''
       - name: referral_fees_advisor_network
+        columns:
+          - name: CONTENT
+            data_type: VARCHAR
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
+          - name: _MD5
+            data_type: VARCHAR
+            description: ''

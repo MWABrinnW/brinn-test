@@ -1,0 +1,64 @@
+version: 2
+models:
+  - name: schwab__base_referral_fees_advisor_network
+    columns:
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM
+        description: ''
+        data_type: VARCHAR
+      - name: NETWORK_MASTER
+        description: ''
+        data_type: VARCHAR
+      - name: TRADER_FEE_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: TRANSACTION_DATE
+        description: ''
+        data_type: DATE
+      - name: FA_MASTER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TRANSACTION_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: MANAGEMENT_FEE_AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: FEE_PERCENT
+        description: ''
+        data_type: NUMBER
+      - name: ADVISOR_NETWORK_PARTICIPATION_FEE
+        description: ''
+        data_type: NUMBER
+      - name: FEE_PAID_TO_ADVISOR
+        description: ''
+        data_type: NUMBER
+      - name: MASTER_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR

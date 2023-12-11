@@ -8,9 +8,9 @@ select a.effective_date       as effective_date
      , 'g_number'             as custodian_link_detail
      , null::varchar(50)      as rep_link
      , null::varchar(50)      as rep_link_detail
-     , null                   as account_type_source_code --account_classification or registration_type
-     , null::varchar(50)      as account_type_source_definition
      , null::varchar(50)      as account_type
+     , null::varchar(50)      as account_type_source_definition
+     , null                   as account_type_source_code --account_classification or account_type
      , null::date             as opened_date
      , null::varchar(200)     as account_title
      , a.first_name           as first_name

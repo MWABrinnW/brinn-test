@@ -22,17 +22,9 @@
     ]
 -%}
 
-{# Check if table exists in the database. If it doesn't we can't run the query to check for new data without failing #}
-{%- set source_relation = adapter.get_relation(
-      database=this.database,
-      schema=this.schema,
-      identifier=this.name) -%}
-
-{%- set table_exists=source_relation is not none -%}
-
 with cte_max_created_at as
 (
-    {%- if table_exists and is_incremental() -%}
+    {%- if is_incremental() -%}
     select max(_created_at) as _created_at from {{ this }}
     {%- else -%}
     select null::timestamp as _created_at
@@ -50,7 +42,7 @@ with cte_max_created_at as
     -- This should account for a historical date that was reloaded because the _created_at would
     -- evaluate as newer than the max timestamp in destination.
     where _source_loaded_at > nvl((select max(_created_at) from cte_max_created_at), dateadd(d, -1, _source_loaded_at))
-        {%- if table_exists and is_incremental() %}
+        {%- if is_incremental() %}
         -- Capture effective dates where source custodian-firm does not exist in destination
         or effective_date not in (select distinct effective_date from {{ this }} where custodian = '{{custodian}}' and firm_source = '{{firm_source}}')
         {%- endif -%}
@@ -66,7 +58,7 @@ with cte_max_created_at as
 (
     {% for nml_model in source_models -%}
     select *
-        , row_number() over(partition by effective_date, custodian, account_number order by firm_source) as rn
+        , row_number() over(partition by effective_date, custodian, account_number order by firm_source) as rn_firm_source
     from {{ ref(nml_model) }}
     where true
         {{ incremental_date_filter(
@@ -86,6 +78,20 @@ with cte_max_created_at as
     {%- endfor %}
 )
 
-select *, current_timestamp()::timestamp as _created_at
+select *
+    , row_number() over(partition by effective_date, custodian, account_number
+                    order by case
+                        when firm_source = 'mwa'
+                            then 1
+                        when firm_source = 'mps'
+                            then 2
+                        when firm_source = 'swag'
+                            then 3
+                        when firm_source = 'network'
+                            then 4
+                        else 5
+                        end asc
+                    )                as rn_global
+    , current_timestamp()::timestamp as _created_at
 from cte_cash
-where rn = 1
+where rn_firm_source = 1

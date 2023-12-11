@@ -1,0 +1,206 @@
+version: 2
+models:
+  - name: schwab__base_trades
+    columns:
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM
+        description: ''
+        data_type: VARCHAR
+      - name: RECORD_TYPE
+        description: 'Record Type'
+        data_type: VARCHAR
+      - name: BUSINESS_DATE
+        description: 'Business Date'
+        data_type: DATE
+      - name: MASTER_ACCOUNT_NUMBER
+        description: 'Master Account Number'
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: TRADE_DATE
+        description: 'Trade Date'
+        data_type: DATE
+      - name: SETTLEMENT_DATE
+        description: 'Settlement Date'
+        data_type: DATE
+      - name: ACTION
+        description: 'Action'
+        data_type: VARCHAR
+      - name: CANCEL
+        description: 'Cancel field is populated for cancelled trades only, otherwise, space-filled.'
+        data_type: VARCHAR
+      - name: SYMBOL
+        description: 'Symbol'
+        data_type: VARCHAR
+      - name: CUSIP
+        description: 'CUSIP'
+        data_type: VARCHAR
+      - name: SCHWAB_INTERNAL_SECURITY_NUMBER
+        description: 'Schwab Internal Security Number'
+        data_type: VARCHAR
+      - name: TRACE_SYMBOL
+        description: 'TRACE Symbol'
+        data_type: VARCHAR
+      - name: SECURITY_DESCRIPTION
+        description: 'Security Description'
+        data_type: VARCHAR
+      - name: ACCOUNT_TYPE
+        description: 'Account Type'
+        data_type: VARCHAR
+      - name: QUANTITY
+        description: 'Quantity'
+        data_type: NUMBER
+      - name: PRICE
+        description: 'Price'
+        data_type: NUMBER
+      - name: PRINCIPAL
+        description: 'Principal'
+        data_type: NUMBER
+      - name: TOTAL_AMOUNT
+        description: 'Total Amount'
+        data_type: NUMBER
+      - name: STEP_IN_FEE
+        description: 'Step In Fee'
+        data_type: NUMBER
+      - name: SCHWAB_COMMISSION
+        description: 'Schwab Commission'
+        data_type: NUMBER
+      - name: EXECUTING_BROKER_COMMISSION
+        description: 'Executing Broker Commission'
+        data_type: NUMBER
+      - name: PRIME_BROKER_FEE
+        description: 'Prime Broker Fee'
+        data_type: NUMBER
+      - name: TRANSACTION_FEE
+        description: 'Transaction Fee'
+        data_type: NUMBER
+      - name: BROKER_SERVICE_FEE
+        description: 'Broker Service Fee'
+        data_type: NUMBER
+      - name: EXCHANGE_PROCESSING_FEE
+        description: 'Exchange Processing Fee'
+        data_type: NUMBER
+      - name: ORDER_HANDLING_FEE
+        description: 'Order Handling Fee'
+        data_type: NUMBER
+      - name: OTHER_FEES
+        description: 'Other Fees'
+        data_type: NUMBER
+      - name: OTHER_FEES_DESCRIPTION
+        description: 'Other Fees Description'
+        data_type: NUMBER
+      - name: ACCRUED_INTEREST
+        description: 'Accrued Interest'
+        data_type: NUMBER
+      - name: STATE_TAX
+        description: 'State Tax'
+        data_type: VARCHAR
+      - name: TAX_DESCRIPTION
+        description: 'Tax Description'
+        data_type: VARCHAR
+      - name: EXECUTING_BROKER_MARKUP_OR_MARKDOWN
+        description: 'Executing Broker Markup or Markdown
+
+          If the trade is a buy or cancelled buy, the value provided is treated as a Markup, and if the trade is a sale or a cancelled sale, the value provided is treated as a Markdown.
+
+          '
+        data_type: VARCHAR
+      - name: RESEARCH_FEE
+        description: 'Research Fee'
+        data_type: NUMBER
+      - name: ACCOUNT_NAME_ADDRESS_1
+        description: 'Account Name/Address 1'
+        data_type: VARCHAR
+      - name: ACCOUNT_NAME_ADDRESS_2
+        description: 'Account Name/Address 2'
+        data_type: VARCHAR
+      - name: ACCOUNT_NAME_ADDRESS_3
+        description: 'Account Name/Address 3'
+        data_type: VARCHAR
+      - name: ACCOUNT_NAME_ADDRESS_4
+        description: 'Account Name/Address 4'
+        data_type: VARCHAR
+      - name: ACCOUNT_NAME_ADDRESS_5
+        description: 'Account Name/Address 5'
+        data_type: VARCHAR
+      - name: ACCOUNT_NAME_ADDRESS_6
+        description: 'Account Name/Address 6'
+        data_type: VARCHAR
+      - name: ACCOUNT_TITLE_1
+        description: 'Account Title 1'
+        data_type: VARCHAR
+      - name: ACCOUNT_TITLE_2
+        description: 'Account Title 2'
+        data_type: VARCHAR
+      - name: ACCOUNT_TITLE_3
+        description: 'Account Title 3'
+        data_type: VARCHAR
+      - name: UNUSED_FIELD_4
+        description: 'Unused Field 4'
+        data_type: VARCHAR
+      - name: UNUSED_FIELD_5
+        description: 'Unused Field 5'
+        data_type: VARCHAR
+      - name: MESSAGES_BREAK_INDICATOR
+        description: 'Messages Break Indicator'
+        data_type: VARCHAR
+      - name: MESSAGE_1
+        description: 'Message 1'
+        data_type: VARCHAR
+      - name: MESSAGE_2
+        description: 'Message 2'
+        data_type: VARCHAR
+      - name: MESSAGE_3
+        description: 'Message 3'
+        data_type: VARCHAR
+      - name: MESSAGE_4
+        description: 'Message 4'
+        data_type: VARCHAR
+      - name: MESSAGE_5
+        description: 'Message 5'
+        data_type: VARCHAR
+      - name: MESSAGE_6
+        description: 'Message 6'
+        data_type: VARCHAR
+      - name: MESSAGE_7
+        description: 'Message 7'
+        data_type: VARCHAR
+      - name: MASTER_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: IS_DECEASED
+        description: ''
+        data_type: NUMBER
+      - name: IS_FROM_TDA_MIGRATION
+        description: ''
+        data_type: NUMBER
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: RN
+        description: ''
+        data_type: NUMBER
+      - name: RN_FIRM_SOURCE
+        data_type: NUMBER
+        description: ''
+      - name: RN_GLOBAL
+        description: ''
+        data_type: NUMBER
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR

@@ -1,0 +1,52 @@
+version: 2
+models:
+  - name: schwab__stg_fa_master_relationships
+    columns:
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM
+        description: ''
+        data_type: VARCHAR
+      - name: FA_MASTER_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: FA_MASTER_ACCOUNT_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: FA_REP_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_TAX_ID_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: RN
+        description: ''
+        data_type: NUMBER
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: _MD5
+        description: ''
+        data_type: VARCHAR

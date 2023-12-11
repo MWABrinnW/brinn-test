@@ -5,7 +5,7 @@ select
     ,a.firm_source                            as firm_source
     ,left(a.account_number, 9)                as account_number
     ,left(a.account_number, 9)                as account_number_formatted
-    ,a.trade_date_liquidating_value::decimal(15,2)  as cash_value
+    ,a.trade_date_liquidating_value::decimal(15,2)  as total_cash_value
     ,null::decimal(15,2)                      as money_market_value
     ,null::decimal(15,2)                      as option_market_value
     ,null::decimal(15,2)                      as margin_equity_value

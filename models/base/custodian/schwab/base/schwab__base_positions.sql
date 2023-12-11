@@ -9,33 +9,33 @@ select
   , a.master_account_number
   , a.master_account_name
   , a.business_date
-  , a.account_number
-  , a.product_code
-  , a.product_category_code
-  , a.tax_code
-  , a.legacy_security_type
-  , a.ticker_symbol
-  , a.industry_ticker_symbol
-  , a.cusip
-  , a.schwab_security_number
-  , a.item_issue_id
-  , a.rule_set_suffix_id
-  , a.isin
-  , a.sedol
-  , a.options_display_symbol
-  , a.security_description_line_1
-  , a.security_description_line_2
-  , a.security_description_line_3
-  , a.security_description_line_4
-  , a.underlying_ticker_symbol
-  , a.underlying_industry_ticker_symbol
-  , a.underlying_cusip
-  , a.underlying_schwab_security_number
-  , a.underlying_item_issue_id
-  , a.underlying_rule_set_suffix_id
-  , a.underlying_isin
-  , a.underlying_sedol
-  , a.money_market_code
+  , nullif(a.account_number, '')                    as account_number
+  , nullif(a.product_code, '')                      as product_code
+  , nullif(a.product_category_code, '')             as product_category_code
+  , nullif(a.tax_code, '')                          as tax_code
+  , nullif(a.legacy_security_type, '')              as legacy_security_type
+  , nullif(a.ticker_symbol, '')                     as ticker_symbol
+  , nullif(a.industry_ticker_symbol, '')            as industry_ticker_symbol
+  , nullif(a.cusip, '')                             as cusip
+  , nullif(a.schwab_security_number, '')            as schwab_security_number
+  , nullif(a.item_issue_id, '')                     as item_issue_id
+  , nullif(a.rule_set_suffix_id, '')                as rule_set_suffix_id
+  , nullif(a.isin, '')                              as isin
+  , nullif(a.sedol, '')                             as sedol
+  , nullif(a.options_display_symbol, '')            as options_display_symbol
+  , nullif(a.security_description_line_1, '')       as security_description_line_1
+  , nullif(a.security_description_line_2, '')       as security_description_line_2
+  , nullif(a.security_description_line_3, '')       as security_description_line_3
+  , nullif(a.security_description_line_4, '')       as security_description_line_4
+  , nullif(a.underlying_ticker_symbol, '')          as underlying_ticker_symbol
+  , nullif(a.underlying_industry_ticker_symbol, '') as underlying_industry_ticker_symbol
+  , nullif(a.underlying_cusip, '')                  as underlying_cusip
+  , nullif(a.underlying_schwab_security_number, '') as underlying_schwab_security_number
+  , nullif(a.underlying_item_issue_id, '')          as underlying_item_issue_id
+  , nullif(a.underlying_rule_set_suffix_id, '')     as underlying_rule_set_suffix_id
+  , nullif(a.underlying_isin, '')                   as underlying_isin
+  , nullif(a.underlying_sedol, '')                  as underlying_sedol
+  , nullif(a.money_market_code, '')                 as money_market_code
   , a.dividend_reinvest
   , a.capital_gains_reinvest
   , a.closing_price
@@ -58,7 +58,51 @@ select
   , a.is_deceased
   , a.is_from_tda_migration
   , a.effective_date
-  , a.rn
+  , dense_rank() over (partition by a.effective_date, account_number, cl.firm_source
+    order by case
+                 when master_number = '08438162' -- orion
+                     then 1
+                 when master_number = '08109543' -- fixed income
+                     then 2
+                 when master_number = '08315101' -- non-orion
+                     then 3
+                 when master_number = '08355335' -- mps
+                     then 4
+                 when master_number = '08051423' -- swag
+                     then 5
+                 else 6
+        end asc, master_number asc
+    )                                               as rn
+  , dense_rank() over (partition by a.effective_date, account_number, cl.firm_source
+    order by case
+                 when master_number = '08438162' -- orion
+                     then 1
+                 when master_number = '08109543' -- fixed income
+                     then 2
+                 when master_number = '08315101' -- non-orion
+                     then 3
+                 when master_number = '08355335' -- mps
+                     then 4
+                 when master_number = '08051423' -- swag
+                     then 5
+                 else 6
+        end asc, master_number asc
+    )                                               as rn_firm_source
+  , dense_rank() over (partition by a.effective_date, account_number
+    order by case
+                 when master_number = '08438162' -- orion
+                     then 1
+                 when master_number = '08109543' -- fixed income
+                     then 2
+                 when master_number = '08315101' -- non-orion
+                     then 3
+                 when master_number = '08355335' -- mps
+                     then 4
+                 when master_number = '08051423' -- swag
+                     then 5
+                 else 6
+        end asc, master_number asc
+    )                                               as rn_global
   , {{ col_is_head(reference=source('schwab', 'rps_positions')) }}
   , {{ col_is_current(date_col='a.effective_date') }}
   , a._source_loaded_at

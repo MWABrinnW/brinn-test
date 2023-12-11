@@ -12,7 +12,7 @@
          ,'nml_schwab_mps_accounts'
          ,'nml_schwab_swag_accounts'
          ,'nml_fidelity_mwa_accounts'
-         ,'nml_fidelity_mps_accounts' 
+         ,'nml_fidelity_mps_accounts'
          ,'nml_fidelity_swag_accounts'
          ,'nml_pershing_mwa_accounts'
          ,'nml_pershing_mps_accounts'
@@ -24,17 +24,9 @@
     ]
 -%}
 
-{# Check if table exists in the database. If it doesn't we can't run the query to check for new data without failing #}
-{%- set source_relation = adapter.get_relation(
-      database=this.database,
-      schema=this.schema,
-      identifier=this.name) -%}
-
-{%- set table_exists=source_relation is not none -%}
-
 with cte_max_created_at as
 (
-    {%- if table_exists and is_incremental() -%}
+    {%- if is_incremental() -%}
     select max(_created_at) as _created_at from {{ this }}
     {%- else -%}
     select null::timestamp as _created_at
@@ -54,7 +46,7 @@ with cte_max_created_at as
     where _created_at > nvl((select max(_created_at) from cte_max_created_at), dateadd(d, -1, _created_at))
 
 
-    {%- if table_exists and is_incremental() %}
+    {%- if is_incremental() %}
 
     union
 
@@ -101,8 +93,8 @@ with cte_max_created_at as
         , firm_source
         , account_number
         , account_number_formatted
-        , cash_value
-        , money_market_value
+        , total_cash_value::decimal(20, 2)   as cash_value
+        , money_market_value::decimal(17, 2) as money_market_value
     from {{ ref('bld_custodian_cash_balances') }}
     where true
         {{ incremental_date_filter(
@@ -123,9 +115,15 @@ with cte_max_created_at as
         , firm_source
         , account_number
         , account_number_formatted
-        , sum(nvl(market_value,0))                                              as total_value
-        , sum(case when nvl(is_cash,0) = 0 then nvl(market_value,0) else 0 end) as holdings_value
-        , sum(case when nvl(is_cash,0) = 1 then nvl(market_value,0) else 0 end) as cash_value
+        , sum(nvl(market_value,0))::decimal(17, 2)  as total_value
+        , sum(case
+                when nvl(is_cash,0) = 0
+                then nvl(market_value,0)
+                else 0 end)::decimal(17, 2)         as holdings_value
+        , sum(case
+                when nvl(is_cash,0) = 1
+                then nvl(market_value,0)
+                else 0 end)::decimal(17, 2)         as cash_value
     from {{ ref('bld_custodian_holdings') }}
     where true
         {{ incremental_date_filter(
@@ -154,9 +152,9 @@ with cte_max_created_at as
         , a.rep_link_detail
         , h.total_value                         as total_value
         , h.cash_value                          as cash_value
-        , a.account_type_source_code
-        , a.account_type_source_definition
         , a.account_type
+        , a.account_type_source_definition
+        , a.account_type_source_code
         , a.opened_date
         , a.account_title
         , a.first_name
@@ -196,8 +194,21 @@ with cte_max_created_at as
         and a.account_number = h.account_number
 )
 
-select 
+select
     *
+    , row_number() over(partition by effective_date, custodian, firm_source, account_number order by _source_loaded_at desc) as rn_firm_source
+    , row_number() over(partition by effective_date, custodian, account_number
+                    order by case
+                        when firm_source = 'mwa'
+                            then 1
+                        when firm_source = 'mps'
+                            then 2
+                        when firm_source = 'swag'
+                            then 3
+                        when firm_source = 'network'
+                            then 4
+                        else 5
+                        end asc
+                    )                as rn_global
     , current_timestamp()::timestamp as _created_at
-    , row_number() over(partition by effective_date, custodian, firm_source, account_number order by _source_loaded_at desc) as rn
 from cte_accounts_with_values

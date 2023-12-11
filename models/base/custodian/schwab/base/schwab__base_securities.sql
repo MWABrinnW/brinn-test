@@ -62,7 +62,51 @@ select
   , a.is_deceased
   , a.is_from_tda_migration
   , a.effective_date
-  , a.rn
+  , row_number() over(partition by a.effective_date, a.item_issue_id, cl.firm_source
+                    order by case
+                        when a.master_number = '08438162' -- orion
+                            then 1
+                        when a.master_number = '08109543' -- fixed income
+                            then 2
+                        when a.master_number = '08315101' -- non-orion
+                            then 3
+                        when a.master_number = '08355335' -- mps
+                            then 4
+                        when a.master_number = '08051423' -- swag
+                            then 5
+                        else 6
+                        end asc, a.master_number asc
+                    )                                                            as rn
+  , row_number() over(partition by a.effective_date, a.item_issue_id, cl.firm_source
+                    order by case
+                        when a.master_number = '08438162' -- orion
+                            then 1
+                        when a.master_number = '08109543' -- fixed income
+                            then 2
+                        when a.master_number = '08315101' -- non-orion
+                            then 3
+                        when a.master_number = '08355335' -- mps
+                            then 4
+                        when a.master_number = '08051423' -- swag
+                            then 5
+                        else 6
+                        end asc
+                    )                                                  as rn_firm_source
+  , row_number() over(partition by a.effective_date, a.item_issue_id
+                    order by case
+                        when a.master_number = '08438162' -- orion
+                            then 1
+                        when a.master_number = '08109543' -- fixed income
+                            then 2
+                        when a.master_number = '08315101' -- non-orion
+                            then 3
+                        when a.master_number = '08355335' -- mps
+                            then 4
+                        when a.master_number = '08051423' -- swag
+                            then 5
+                        else 6
+                        end asc
+                    )                                                  as rn_global
   , {{ col_is_head(reference=source('schwab', 'sec_securities')) }}
   , {{ col_is_current(date_col='a.effective_date') }}
   , a._source_loaded_at
@@ -73,3 +117,5 @@ left join {{ ref('aux__stg_custodian_links') }} cl
               and cl.custodian = 'schwab'
 left join {{ ref('custodian_firms') }}          cf
           on cl.firm_source = cf.firm_source
+where 1=1
+    and is_head = 1

@@ -1,0 +1,324 @@
+version: 2
+models:
+  - name: schwab__base_tax_lots
+    columns:
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM
+        description: ''
+        data_type: VARCHAR
+      - name: RECORD_TYPE
+        description: 'Identifies whether a header, detail, or trailer record, and if a detail record, what type.'
+        data_type: VARCHAR
+      - name: CUSTODIAN_ID
+        description: 'Identifies Schwab as the source of the file.'
+        data_type: VARCHAR
+      - name: MASTER_ACCOUNT_NUMBER
+        description: 'Identifies the master account number associated with creating this record.'
+        data_type: VARCHAR
+      - name: MASTER_ACCOUNT_NAME
+        description: 'Identifies the master account name associated with creating this record.'
+        data_type: VARCHAR
+      - name: BUSINESS_DATE
+        description: 'Date for which data content is current.'
+        data_type: DATE
+      - name: ACCOUNT_NUMBER
+        description: 'End client account number at Schwab'
+        data_type: VARCHAR
+      - name: PRODUCT_CODE
+        description: 'Further defines Product Category Code.   Identifies type of security: FNM, FMC, COM, BMU, CDO, COM, MMS (there are several dozen)'
+        data_type: VARCHAR
+      - name: PRODUCT_CATEGORY_CODE
+        description: 'OBSOLETE Highest level of security classification. Identifies type of security.'
+        data_type: VARCHAR
+      - name: TAX_CODE
+        description: 'OBSOLETE Determines where security payments appear on tax forms.'
+        data_type: VARCHAR
+      - name: SYMBOL_TICKER
+        description: 'Ticker Symbol - Note that Ticker Symbols for institutional mutual fund share classes are not provided. The street symbol is provided regardless of share class.'
+        data_type: VARCHAR
+      - name: CUSIP
+        description: 'CUSIP'
+        data_type: VARCHAR
+      - name: SCHWAB_INTERNAL_ID
+        description: 'Schwab Security ID, also called Schwab Security Number'
+        data_type: VARCHAR
+      - name: ITEM_ISSUE_ID
+        description: 'Unique internal Schwab security identifier. If no data is available, the field will be blank.  NOTE:  This is highly unlikely to happen.'
+        data_type: VARCHAR
+      - name: ISIN
+        description: 'International Securities Identification Number.  A unique international code which identifies a securities issue.'
+        data_type: VARCHAR
+      - name: SEDOL
+        description: 'The Stock Exchange Daily Official List number; a code used by the London Stock Exchange to identify foreign stocks'
+        data_type: VARCHAR
+      - name: OPTIONS_DISPLAY_SYMBOL
+        description: 'A Schwab formatted version of the OCC series key.'
+        data_type: VARCHAR
+      - name: UNDERLYING_TICKER_SYMBOL
+        description: 'Ticker symbol representing a particular parent security.'
+        data_type: VARCHAR
+      - name: UNDERLYING_CUSIP
+        description: 'CUSIP specific to the parent security.'
+        data_type: VARCHAR
+      - name: UNDERLYING_SCHWAB_INTERNAL_ID
+        description: 'Underlying Schwab Security ID'
+        data_type: VARCHAR
+      - name: UNDERLYING_ITEM_ISSUE_ID
+        description: 'Unique internal Schwab parent security identifier.'
+        data_type: VARCHAR
+      - name: UNDERLYING_ISIN
+        description: 'International Securities Identification Number. A unique international code which identifies a parent securities issue.'
+        data_type: VARCHAR
+      - name: UNDERLYING_SEDOL
+        description: 'The Stock Exchange Daily Official List number, a code used by the London Stock Exchange to identify foreign stocks. Underlying SEDOL being specific to the parent SEDOL.'
+        data_type: VARCHAR
+      - name: CURRENT_QUANTITY
+        description: 'Number of shares currently open on the lot. If no data is available, the field will be zero-filled.  NOTE:  This is highly unlikely to happen if the lot is open.'
+        data_type: NUMBER
+      - name: LONG_SHORT_INDICATOR
+        description: 'Denotes whether shares are held long or short:
+
+          S = Short
+
+          L = Long
+
+          If no data is available, the field will be set to L.
+
+          '
+        data_type: VARCHAR
+      - name: TRANSACTION_CODE
+        description: 'Describes reason for the opening activity.
+
+          See tab \"Transaction Codes\" in this Workbook for values used exclusively in the Cost Basis Data files.
+
+          See Schwab B/D Core Data Files Technical Specifications for a list of additional codes in the tab \"Transaction Source Codes.\"
+
+          If no data is available, the field will be set to blank.
+
+          '
+        data_type: VARCHAR
+      - name: CURRENT_MARKET_VALUE
+        description: 'Identifies a position value as of the close of the prior business day.'
+        data_type: NUMBER
+      - name: ACCRUED_INTEREST_FIXED_INCOME
+        description: 'Interest that has accumulated between the most recent coupon payment and the current date of the file or the sale of the bond.  For non-fixed income securities, This field will have a zero value.
+
+          NOTE:  The interest accrued is through the file date, not the end of the month, unless it happens to be the last day of the month.
+
+          If no data is available, the field will be zero-filled.
+
+          Accrued interest does not reflect the interest accrued for the business day just ended. Value in files is one day behind.
+
+          '
+        data_type: NUMBER
+      - name: ACQUIRED_DATE
+        description: 'Date the security was acquired. This is generally the trade date on the purchase of a stock. If Acquired Date is unavailable, this field will be blank.
+
+          Use this field to match lots, not Original Purchase Date.
+
+          '
+        data_type: DATE
+      - name: ORIGINAL_PURCHASE_DATE
+        description: 'Field is necessary for VSP (Versus Purchase) processing. If Original Purchase Date is unknown, this field will be blank. If no data is available, the field will be set to blank.'
+        data_type: DATE
+      - name: ORIGINAL_PURCHASE_PRICE
+        description: 'Field is necessary for VSP (Versus Purchase) processing.  If Original Purchase Price is unknown, This field will have a zero value. If no data is available, the field will be zero-filled.'
+        data_type: NUMBER
+      - name: YIELD_TO_MATURITY_FIXED_INCOME
+        description: 'Amount or value of investment at time of maturity.  This field will have a zero value for short positions, asset backed securities, commercial paper and any fixed income security that is basic certified or uncertified. If no data is available, the field will be zero-filled.'
+        data_type: NUMBER
+      - name: COST_BASIS_UNAMORTIZED_COST_BASIS_AMOUNT
+        description: 'Cost basis is the original purchase price of a security including commissions or markups, and it is used in determining capital gains or losses.  If cost basis has been adjusted by a stock split or return of capital, it is reflected in this field for all non-fixed income securities.  If no data is available (when cost basis is unknown for the lot) or the cost is actually zero, the field will be zero-filled. To determine if zero is an actual value versus an unknown value, check the Cost Basis Type field or Cost Basis Fully Known field to verify that cost basis is known.'
+        data_type: NUMBER
+      - name: COST_PER_SHARE_SHARE_COST_AMOUNT
+        description: 'Total Cost of the security including commissions and/or fees divided by the number of shares purchased.  If no data is available (when cost basis is unknown for the lot) this field will be zero-filled.'
+        data_type: NUMBER
+      - name: ADJUSTED_COST_BASIS_AMORTIZED_COST_BASIS_AMOUNT
+        description: 'Also known as amortized cost basis.  Shows the cost basis amortized over the life of the lot since held at Schwab.  To be delivered only for fixed income securities, i.e. Security Type = "Fixed" or "ST Debt."   If no data is available (when cost basis is unknown for the lot) or the adjusted cost basis is actually zero, the field will be zero-filled. To determine if zero is an actual value versus an unknown value, check the cost basis type field or cost basis fully known field to verify that cost basis is known.'
+        data_type: NUMBER
+      - name: ADJUSTED_COST_PER_SHARE
+        description: 'Adjusted Cost Per Share.  Total adjusted cost of the lot including commissions and/or fees divided by the number of shares purchased.  Calculated after lot has been amortized.  If no data is available (when cost basis is unknown for the lot) this field will be zero-filled.'
+        data_type: NUMBER
+      - name: UNREALIZED_GAIN_LOSS_UGL
+        description: 'Fixed income:
+
+          Market Value - Adjusted Cost Basis;
+
+          Other securities:
+
+          Market Value - Cost Basis
+
+          If Cost Basis is unknown, this field will have a zero value.
+
+          '
+        data_type: NUMBER
+      - name: NUMBER_OF_DAYS_HELD
+        description: 'Standard Calendar arithmetic
+
+          Days held = Current Date - Acquired Date. If Acquired Date is unavailable, this field will have a zero value.
+
+          '
+        data_type: NUMBER
+      - name: HOLDING_PERIOD_TERM
+        description: 'An asset has a long-term holding period if it has been held, or is treated as having been held, for more than 1 year (calendar year plus 1 day):
+
+          L (= Long Term)
+
+          S (= Short Term)
+
+          If Number of Days Held is unknown, field will be set to S (Short Term).
+
+          '
+        data_type: VARCHAR
+      - name: COST_BASIS_FULLY_KNOWN
+        description: 'Indicates if cost basis is fully known:
+
+          T (= True when the lot has known cost basis)
+
+          F (= False when the lot has unknown cost basis)
+
+          If no data is available, the field will be set to F.
+
+          '
+        data_type: VARCHAR
+      - name: COST_BASIS_TYPE
+        description: 'The event origin of the cost basis:
+
+          A (= Advisor ) Cost Basis provided by a financial advisor.
+
+          B (= Back Office ) Cost Basis provided by a Schwab customer rep.
+
+          E (= End Customer) Cost Basis was provided by the customer.
+
+          F (= Trade) Cost Basis provided by Schwab systems.
+
+          T (= Third party) Cost Basis provided by a third party.
+
+          U (= Unknown) Lot has unknown Cost Basis.
+
+          If no data is available, the field will be set to blank.
+
+          '
+        data_type: VARCHAR
+      - name: ACCOUNT_TAXABLE_INDICATOR
+        description: "Account Taxable Indicator indicates whether Schwab will report taxes.\n Y = Account is tax reportable\n N = Account is non-tax reportable\n"
+        data_type: VARCHAR
+      - name: CERTIFIED_INDICATOR
+        description: 'Indicates whether there is a full set of Cost Basis data:
+
+          Y( = Certified) Deliver cost basis and adjusted cost basis data as appropriate.
+
+          N (= Not Certified) Deliver no cost basis data.
+
+          B (= Basic Certified) Deliver cost basis data only (no adjusted cost basis).
+
+          If no data is available, the field will be blank.
+
+          '
+        data_type: VARCHAR
+      - name: ORIGINAL_FACE
+        description: 'The par value of a mortgage-backed security at the time it is issued.  This field will have a zero value for non-fixed income securities. If no data is available, the field will be zero-filled.'
+        data_type: NUMBER
+      - name: ACCOUNT_LOT_SELECTION_METHOD_DEFAULT
+        description: 'Default lot selection method set for the account. Values can be one of the following:
+
+          FIFO -- First In, First Out
+
+          LIFO -- Last In, First Out
+
+          HCLOT -- Highest Cost Lot
+
+          LCLOT -- Lowest Cost Lot
+
+          BTAX -- Tax Lot Optimizer
+
+          If no data is available, the field will be blank.
+
+          '
+        data_type: VARCHAR
+      - name: WASH_SALE_IMPACTED
+        description: 'Indicates whether the lot was or was not impacted by a wash sale:
+
+          T = <True> - Indicates that the lot WAS impacted by a wash sale.
+
+          F = <False> - Indicates that the lot WAS NOT impacted by a wash sale.
+
+          If an account is not set up to track wash sales, this field will be blank.
+
+          If no data is available, the field will be blank.
+
+          '
+        data_type: VARCHAR
+      - name: VERSION_MARKER_1
+        description: 'Indicates the version number associated with the fields immediately following this marker.'
+        data_type: VARCHAR
+      - name: DISALLOWED_LOSS
+        description: 'Amount of disallowed loss applied to the cost basis of a lot due to a wash sale activity.'
+        data_type: NUMBER
+      - name: TRANSACTION_COST
+        description: 'The cost without the effect of wash sale processing.'
+        data_type: NUMBER
+      - name: TRANSACTION_COST_PER_SHARE
+        description: 'The cost per share based on the Transaction Cost.'
+        data_type: NUMBER
+      - name: VERSION_MARKER_2
+        description: 'Indicates the version number associated with the fields immediately following this marker.'
+        data_type: VARCHAR
+      - name: ACQUISITION_TYPE_GIFT_OR_INHERITED
+        description: 'The acquisition type of a lot.  Denotes if a lot was inherited or gifted:
+
+          \"I\" = Inherited
+
+          \"G\" = Gifted
+
+          Default if no data is available is blank [spaces].
+
+          '
+        data_type: VARCHAR
+      - name: ORIGINAL_COST_BASIS
+        description: 'The original cost basis is the original purchase price per share multiplied by the current quantity.  The original price per share has not been adjusted for items such as return of capital, wash sales, or amortization and accretion.  This field can be used to compare or reconcile original cost basis of fixed income to original cost basis tracked in  Portfolio Management Systems.  This field can be used to determine the original purchase price of any security before any adjustments.  The field will not include commissions for Corporate, Municipal and Agency bonds.'
+        data_type: NUMBER
+      - name: VERSION_MARKER_3
+        description: 'Indicates the version number associated with the fields immediately following this marker.'
+        data_type: VARCHAR
+      - name: ADJUSTED_COST_INCLUDING_UNPAID_AMORTIZATION
+        description: 'The adjusted cost basis that includes all applicable amortization/accretion adjustments accrued through today''s date. If no unpaid amortization exists, the field will be zero-filled. Use this field when the value is not zero. If zero, no unpaid amortization exists for this lot, and cost is provided in the field Original Cost Basis or Cost Basis (Unamortized Cost Basis Amount)."'
+        data_type: NUMBER
+      - name: MASTER_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: IS_DECEASED
+        description: ''
+        data_type: NUMBER
+      - name: IS_FROM_TDA_MIGRATION
+        description: ''
+        data_type: NUMBER
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: RN
+        description: ''
+        data_type: NUMBER
+      - name: RN_FIRM_SOURCE
+        data_type: NUMBER
+        description: ''
+      - name: RN_GLOBAL
+        data_type: NUMBER
+        description: ''
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR

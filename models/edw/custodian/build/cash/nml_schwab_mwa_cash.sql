@@ -4,7 +4,7 @@ select a.effective_date                                                         
      , a.firm_source                                                                      as firm_source
      , a.account_number                                                                   as account_number
      , a.account_number                                                                   as account_number_formatted
-     , (a.cash_margin_balance_settled_only + a.cash_balance_settled_only)::decimal(15, 2) as cash_value
+     , (a.cash_margin_balance_settled_only + a.cash_balance_settled_only)::decimal(15, 2) as total_cash_value
      , a.money_market_funds_settled_unsettled::decimal(15, 2)                             as money_market_value
      , a.equity_including_options::decimal(15, 2)                                         as option_market_value
      , a.cash_margin_balance_settled_only::decimal(15, 2)                                 as margin_equity_value

@@ -1,0 +1,181 @@
+version: 2
+
+models:
+  - name: schwab__stg_open_positions_nontaxable
+    description: "[Schwab open non-taxable positions](https://marinerholdingsllc.app.box.com/file/851240724913)"
+    columns:
+      - name: custodian
+        description: ""
+      - name: firm_source
+        description: ""
+      - name: firm
+        description: ""
+      - name: record_type
+        description: "Identifies whether a header, detail, or trailer record, and if a detail record, what type."
+      - name: custodian_id
+        description: "Identifies Schwab as the source of the file."
+      - name: master_account_number
+        description: "Identifies the master account number associated with creating this record."
+      - name: master_account_name
+        description: "Identifies the master account name associated with creating this record."
+      - name: business_date
+        description: "Date for which data content is current."
+      - name: account_number
+        description: "End client account number at Schwab."
+      - name: security_type
+        description: |
+          Identifies type of security:
+          Fixed
+          Deriv
+          Eqty/MF
+          Cash Eq
+          Futures
+          Forwards
+          Index
+          Option
+          ST Debt
+          If no data is available, the field will be blank.
+      - name: product_code
+        description: "Further defines Product Category Code.   Identifies type of security:FNM, FMC, COM, BMU, CDO, COM, MMS (there are several dozen)"
+      - name: product_category_code
+        description: "OBSOLETE Highest level of security classification. Identifies type of security."
+      - name: tax_code
+        description: "OBSOLETE Determines where security payments appear on tax forms."
+      - name: symbol_ticker
+        description: "Ticker Symbol - Note that Ticker Symbols for institutional mutual fund share classes are not provided. The street symbol is provided regardless of share class."
+      - name: cusip
+        description: "CUSIP"
+      - name: schwab_internal_id
+        description: "Schwab Security ID, also called Schwab Security Number."
+      - name: item_issue_id
+        description: "Unique internal Schwab security identifier. If no data is available, the field will be blank.  NOTE:  This is highly unlikely to happen."
+      - name: isin
+        description: "International Securities Identification Number.  A unique international code which identifies a securities issue."
+      - name: sedol
+        description: "The Stock Exchange Daily Official List number; a code used by the London Stock Exchange to identify foreign stocks."
+      - name: options_display_symbol
+        description: "A Schwab formatted version of the OCC series key."
+      - name: underlying_ticker_symbol
+        description: "Ticker symbol representing a particular parent security."
+      - name: underlying_cusip
+        description: "CUSIP specific to the parent security."
+      - name: underlying_schwab_internal_id
+        description: "Underlying Schwab Security ID."
+      - name: underlying_item_issue_id
+        description: "Unique internal Schwab parent security identifier."
+      - name: underlying_isin
+        description: "International Securities Identification Number. A unique international code which identifies a parent securities issue."
+      - name: underlying_sedol
+        description: "The Stock Exchange Daily Official List number, a code used by the London Stock Exchange to identify foreign stocks. Underlying SEDOL being specific to the parent SEDOL."
+      - name: current_quantity
+        description: "Number of shares that are open. If no data is available, the field will be zero-filled.  NOTE:  This is highly unlikely to happen if the lot is open."
+      - name: long_short_indicator
+        description: |
+          Denotes whether shares are held long or short:
+          S = Short
+          L = Long
+          If no data is available, the field will be set to L.
+      - name: current_market_value
+        description: "Identifies a position value as of the close of the prior business day."
+      - name: accrued_interest_fixed_income
+        description: |
+          Interest that has accumulated between the most recent coupon payment and the current date of the file or the sale of the bond.  For non-fixed income securities, this field will have a zero value.
+          The interest accrued is through the file date, not the end of the month, unless it happens to be the last day of the month.
+          If no data is available, the field will be zero-filled.
+          Accrued interest does not reflect the interest accrued for the business day just ended. Value in files is one day behind.
+      - name: cost_basis_unamortized_cost_basis_amount
+        description: |
+          Cost basis is the original purchase price of a security including commissions or markups, and it is used in determining capital gains or losses.  If cost basis has been adjusted by a stock split or return of capital, it is reflected in this field for all non-fixed income securities.
+          If no data is available (when cost basis unknown for some lots) or cost basis is actually zero, the field will be zero-filled. To determine if zero is an actual value versus an unknown value, check the cost basis type field or cost basis fully known field to verify that cost basis is known.
+      - name: cost_per_share_share_cost_amount
+        description: "Total Cost of the security including commissions and/or fees divided by the number of shares purchased.  If no data is available (when cost basis is unknown) this field will be zero-filled."
+      - name: adjusted_cost_basis_amortized_cost_basis_amount
+        description: |
+          Also known as amortized cost basis.  Shows the cost basis amortized over the life of the position since held at Schwab.  To be delivered only for fixed income securities, i.e. Security Type = \"Fixed\" or \"ST Debt\" .
+          If no data is available (when cost basis is unknown) or cost basis is actually zero, the field will be zero-filled.  To determine if zero is an actual value versus an unknown value, check the cost basis type field or cost basis fully known field to verify that cost basis is known.
+      - name: adjusted_cost_per_share
+        description: "Adjusted Cost Per Share.  Total adjusted cost of the security including commissions and/or fees divided by the number of shares purchased.  Calculated after position has been amortized.   If no data is available (when cost basis is unknown) this field will be zero-filled."
+      - name: unrealized_gain_loss_ugl
+        description: |
+          Fixed income:
+          Market Value - Adjusted Cost Basis;
+          Other securities:
+          Market Value - Cost Basis
+          If cost basis is unknown, this field will be zero-filled.
+      - name: cost_basis_fully_known
+        description: |
+          Indicates if cost basis is fully known:
+          T (= True when all lots have known cost basis)
+          F (= False when one or more lots has unknown cost basis)
+          If no data is available, the field will be set to F.
+      - name: cost_basis_type
+        description: |
+          The event origin of the cost basis:
+          Determined by the cost basis type of the lots that comprise the position with the following hierarchy:
+          U (= Unknown) At least one lot has unknown Cost Basis.
+          E (= End Customer) Cost Basis was provided by the customer.
+          T (= Third party) Cost Basis provided by a third party.
+          A (= Advisor ) Cost Basis provided by a financial advisor.
+          B (= Back Office ) Cost Basis provided by a Schwab customer rep.
+          F (= Trade) Cost Basis provided by Schwab systems.
+          If no data is available, the field will be blank.
+      - name: account_taxable_indicator
+        description: |
+          Account Taxable Indicator indicates whether Schwab will report taxes.
+           Y = Account is tax reportable
+           N = Account is non-tax reportable
+      - name: certified_indicator
+        description: |
+          The event origin of the cost basis:
+          Determined by the cost basis type of the lots that comprise the position with the following hierarchy:
+          U (= Unknown) At least one lot has unknown Cost Basis.
+          E (= End Customer) Cost Basis was provided by the customer.
+          T (= Third party) Cost Basis provided by a third party.
+          A (= Advisor ) Cost Basis provided by a financial advisor.
+          B (= Back Office ) Cost Basis provided by a Schwab customer rep.
+          F (= Trade) Cost Basis provided by Schwab systems.
+          If no data is available, the field will be blank.
+      - name: original_face
+        description: "The par value of a mortgage-backed security at the time it is issued. If no data is available, the field will be zero-filled."
+      - name: account_lot_selection_method_default
+        description: |
+          Default lot selection method set for the account. Values can be one of the following:
+          FIFO -- First In, First Out
+          LIFO -- Last In, First Out
+          HCLOT -- Highest Cost Lot
+          LCLOT -- Lowest Cost Lot
+          BTAX -- Tax Lot Optimizer
+          If no data is available, the field will be blank.
+      - name: cost_method
+        description: |
+          The costing method used for the position:
+          A (= Average)
+          I = (Identified lot)
+          If no data is available, the field will be blank.
+      - name: principal_paydown_factor
+        description: |
+          The portion of cash subtracted each month from the principal of a mortgage security divided by the original principal of the security.  This field will have a zero value for all securities except mortgage or asset backed fixed income securities.
+          If no data is available, the field will be zero-filled.
+      - name: master_number
+        description: ""
+      - name: is_deceased
+        description: ""
+      - name: is_from_tda_migration
+        description: ""
+      - name: effective_date
+        description: ""
+      - name: RN
+        data_type: NUMBER
+        description: ''
+      - name: IS_HEAD
+        data_type: NUMBER
+        description: ''
+      - name: IS_CURRENT
+        data_type: NUMBER
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        data_type: TIMESTAMP_NTZ
+        description: ''
+      - name: _SOURCE_FILE
+        data_type: VARCHAR
+        description: ''

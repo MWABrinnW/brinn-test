@@ -87,7 +87,7 @@ with cte_effective_dates_out_of_date as
           custom_condition_only = true,
           custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
     ) }}
-    
+
 )
 ,cte_legal_address as
 (
@@ -178,7 +178,7 @@ with cte_effective_dates_out_of_date as
     , case
         when b.account_custodial is not null
           then b.fixed_format_business_trust_name_1
-        else 
+        else
           nullif(
             replace(
               regexp_replace(
@@ -236,7 +236,7 @@ with cte_effective_dates_out_of_date as
                         , nvl(p.fixed_format_last_name_3, '')
                         )
                     end,
-              '(\\s{2,})', ' '), ' ,', ','), '')::varchar(200)       
+              '(\\s{2,})', ' '), ' ,', ','), '')::varchar(200)
           end                                                     as account_title
     from {{ ref('fidelity_mps_history__vw_nabase_101_account') }} a
     left join {{ ref('fidelity_mps_history__vw_nabase_102_business') }} b

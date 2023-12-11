@@ -1,0 +1,61 @@
+version: 2
+models:
+  - name: schwab__base_tda_account_mappings
+    columns:
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM
+        description: ''
+        data_type: VARCHAR
+      - name: RECORD_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: MASTER_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: TDA_REP_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: TDA_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: MASTER_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: IS_DECEASED
+        description: ''
+        data_type: NUMBER
+      - name: IS_FROM_TDA_MIGRATION
+        description: ''
+        data_type: NUMBER
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: RN
+        description: ''
+        data_type: NUMBER
+      - name: RN_FIRM_SOURCE
+        data_type: NUMBER
+        description: ''
+      - name: RN_GLOBAL
+        data_type: NUMBER
+        description: ''
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR

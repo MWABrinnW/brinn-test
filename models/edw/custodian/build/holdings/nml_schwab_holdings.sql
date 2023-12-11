@@ -61,7 +61,6 @@ left join {{ ref('custodian_mappings') }} as cmsd
     and p.legacy_security_type = cmsd.source
 where true
     and p.rn = 1
-qualify row_number() over (
-    partition by p.effective_date , p.account_number , coalesce(p.cusip , ticker) , source_account_type
-    order by coalesce(pcb.cost_basis_unamortized_cost_basis_amount , 0) desc
-) = 1
+qualify row_number() over(
+    partition by p.effective_date, p.account_number, p.cusip, ticker, p.item_issue_id, source_account_type
+    order by nvl(pcb.cost_basis_unamortized_cost_basis_amount,0) desc) = 1

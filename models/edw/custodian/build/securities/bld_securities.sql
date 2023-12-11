@@ -1,19 +1,35 @@
-{{config(enabled=false)}}
+{{config(
+    materialized='incremental',
+    unique_key='cusip',
+    incremental_strategy='delete+insert',
+    on_schema_change='sync_all_columns'
+)}}
 
-with cte_dates as
+with cte_check as
 (
-    select '10/25/2023'::date as effective_date
+  {%- if is_incremental() -%}
+  select
+    case
+      when (select max(_created_at) from {{ ref('cusip_history__base_issues') }}) > (select max(_created_at) from {{ this }})
+        then 1
+      when (select convert_timezone('America/Chicago', (max(createddate) || '+00')::timestamp_tz) from {{ ref('orion__base_vw_product') }}) > (select max(_created_at) from {{ this }})
+        then 1
+      else 0
+      end::int  as needs_update
+  {%- else -%}
+  select 0::int as needs_update
+  {%- endif -%}
 )
-, cte_cusips as
+
+,cte_cusips as
 (
     select
-        effective_date                            as effective_date
-      , coalesce(ticker_symbol, cusip)::text(200) as symbol
+        coalesce(ticker_symbol, cusip)::text(200) as symbol
       , ticker_symbol::text(200)                  as ticker
       , cusip::text(200)                          as cusip
       , isin::text(200)                           as isin
 
-      , issue_description::text(200)              as security_description
+      , issue_description::text(200)              as cusip_security_description
       , security_type_description::text(200)      as cusip_security_type
       , fund_type::text(200)                      as cusip_fund_type
       , income_type::text(200)                    as cusip_income_type
@@ -36,17 +52,88 @@ with cte_dates as
 
       , is_head                                   as is_head
       , is_current                                as is_current
-      , record_datetime                           as _source_loaded_at
-      , source_file::text(200)                    as _source_file
+      , _created_at                               as _source_loaded_at
+      , _source_file::text(200)                   as _source_file
     from {{ ref('cusip_history__base_issues') }}
     where 1 = 1
-      and effective_date in (
-                                select effective_date
-                                from cte_dates
-                            )
+      and is_head = 1
+      {%- if is_incremental() %}
+      and 1 = (select max(needs_update) from cte_check)
+      {%- endif -%}
+    qualify row_number() over(partition by cusip order by issue_entry_date desc) = 1
+    order by cusip
+)
+,cte_orion_securities as
+(
+  select
+      coalesce(p.ticker, p.cusip)::text(200)                         as symbol
+    , p.ticker::text(200)                                            as ticker
+    , p.cusip::text(200)                                             as cusip
+    , coalesce(p.productnameoverride, p.productname)::text(200)      as product_name
+    , p.producttypename::text(200)                                   as product_type_name
+    , ( pcat.categoryname || ' (' || pc.category || ')' )::text(200) as asset_category
+    , pc.description::text(200)                                      as asset_class
+    , p.clientname                                                   as orion_instance
+    , array_min([p._created_at, pt._created_at
+          , pc._created_at, pcat._created_at])                       as orion_loaded_at
+  from {{ ref('orion__base_vw_product') }}              p
+  left join {{ ref('orion__base_vw_producttype') }}     pt
+            on p.fkproducttype = pt.pkproducttype
+  left join {{ ref('orion__base_vw_productclass') }}    pc
+            on p._client = pc._client
+                and p.fkproductclass = pc.pkproductclass
+                and p.effective_date = pc.effective_date
+  left join {{ ref('orion__base_vw_productcategory') }} pcat
+            on pc._client = pcat._client
+                and pc.fkproductcategory = pcat.pkproductcategory
+                and pc.effective_date = pcat.effective_date
+  where 1 = 1
+      and p.is_head = 1
+      and nvl(p.cusip,'') <> ''
+      {%- if is_incremental() %}
+      and 1 = (select max(needs_update) from cte_check)
+      {%- endif -%}
+  qualify row_number() over(partition by p.cusip order by
+                            case
+                              when p._client = 568 then 1
+                              when p._client = 2102 then 2
+                              when p._client = 1945 then 3
+                              when p._client = 2623 then 4
+                              when p._client = 3394 then 5
+                              when p._client = 2878 then 6
+                              else 7 end) = 1
+  order by cusip
 )
 
--- get orion security names
--- get schwab/fidelity product types and normalization
--- get schwab/fidelity option symbols
--- get schwab/fidelity security names (prefer fidelity)
+select
+    a.symbol                            as symbol
+  , a.ticker                            as ticker
+  , a.cusip                             as cusip
+  , o.product_name                      as product_name
+  , o.product_type_name                 as product_type
+  , o.asset_category                    as asset_category
+  , o.asset_class                       as asset_class
+  , a.cusip_security_description        as cusip_security_description
+  , a.cusip_security_type               as cusip_security_type
+  , a.cusip_fund_type                   as cusip_fund_type
+  , a.cusip_income_type                 as cusip_income_type
+  , a.cusip_bond_form                   as cusip_bond_form
+  , a.maturity_date                     as maturity_date
+  , a.coupon_rate                       as coupon_rate
+  , a.closing_date                      as closing_date
+  , a.is_13f                            as is_13f
+  , a.where_traded                      as where_traded
+  , a.isin                              as isin
+  , a.us_cfi_code                       as us_cfi_code
+  , a.iso_cfi_code                      as iso_cfi_code
+  , a.cusip_issuer_num                  as cusip_issuer_num
+  , a.cusip_issue_num                   as cusip_issue_num
+  , a.cusip_issue_check                 as cusip_issue_check
+  , o.orion_instance                    as orion_instance_source
+  , o.orion_loaded_at::timestamp        as orion_loaded_at
+  , current_timestamp()::timestamp_ltz  as _created_at
+  , a._source_loaded_at                 as _source_loaded_at
+  , a._source_file                      as _source_file
+from cte_cusips                a
+left join cte_orion_securities o
+          on a.cusip = o.cusip

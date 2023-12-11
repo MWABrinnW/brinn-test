@@ -8,22 +8,23 @@ select
   , sub_account_number                              as account_number
   , trim(trim(sub_account_name, '"'))               as account_name
   , sub_account_tax_id_number                       as account_tax_id_number
-  , row_number() over(partition by a.effective_date, account_number
+  , row_number() over(partition by a.effective_date, account_number, cl.firm_source
                     order by case
-                        when fa_master_account_number = '08438162' -- orion
+                        when left(a._source_file,8) = '08438162' -- orion
                             then 1
-                        when fa_master_account_number = '08109543' -- fixed income
+                        when left(a._source_file,8) = '08109543' -- fixed income
                             then 2
-                        when fa_master_account_number = '08315101' -- non-orion
+                        when left(a._source_file,8) = '08315101' -- non-orion
                             then 3
-                        when fa_master_account_number = '08355335' -- mps
+                        when left(a._source_file,8) = '08355335' -- mps
                             then 4
-                        when fa_master_account_number = '08051423' -- swag
+                        when left(a._source_file,8) = '08051423' -- swag
                             then 5
                         else 6
-                        end asc, fa_master_account_number asc
+                        end asc
                     )                               as rn
   , effective_date                                  as effective_date
+  --, left(a._source_file,8)                          as master_number
   , {{ col_is_head(reference=source('schwab', 'fam')) }}
   , {{ col_is_current(date_col='effective_date') }}
   , a._created_at                                   as _source_loaded_at

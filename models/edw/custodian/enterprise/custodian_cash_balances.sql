@@ -1,4 +1,5 @@
-{{ config(enabled = false) }}
+{{ config(enabled=false) }}
+
 select
      effective_date
     ,custodian
@@ -6,13 +7,16 @@ select
     ,firm_source
     ,account_number
     ,account_number_formatted
-    ,cash_value
+    ,total_cash_value
     ,money_market_value
     ,option_market_value
     ,margin_equity_value
     ,{{ col_is_head(reference=ref('bld_custodian_cash_balances'), reference_date_col='effective_date', source_date_col='effective_date') }}
     ,{{ col_is_current(date_col='effective_date') }}
+    ,rn_firm_source
+    ,rn_global
     ,_source_file
     ,_source_loaded_at
     ,_created_at
 from {{ ref('bld_custodian_cash_balances') }}
+where 1=1

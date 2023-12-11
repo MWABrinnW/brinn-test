@@ -80,6 +80,8 @@ select
     , EFFECTIVE_DATE
     , {{ col_is_head(reference=source('cusip', 'allcmmaster_issue')) }}
     , {{ col_is_current(date_col='effective_date') }}
+    , record_datetime as _created_at
+    , source_file     as _source_file
     , RECORD_DATE
     , RECORD_DATETIME
     , SOURCE_FILE

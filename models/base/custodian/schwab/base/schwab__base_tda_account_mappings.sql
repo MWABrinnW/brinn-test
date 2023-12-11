@@ -13,7 +13,51 @@ select
   , a.is_deceased
   , a.is_from_tda_migration
   , a.effective_date
-  , a.rn
+  , row_number() over(partition by a.effective_date, account_number, cl.firm_source
+                    order by case
+                        when master_number = '08438162' -- orion
+                            then 1
+                        when master_number = '08109543' -- fixed income
+                            then 2
+                        when master_number = '08315101' -- non-orion
+                            then 3
+                        when master_number = '08355335' -- mps
+                            then 4
+                        when master_number = '08051423' -- swag
+                            then 5
+                        else 6
+                        end asc
+                    )                                                  as rn
+  , row_number() over(partition by a.effective_date, account_number, cl.firm_source
+                    order by case
+                        when master_number = '08438162' -- orion
+                            then 1
+                        when master_number = '08109543' -- fixed income
+                            then 2
+                        when master_number = '08315101' -- non-orion
+                            then 3
+                        when master_number = '08355335' -- mps
+                            then 4
+                        when master_number = '08051423' -- swag
+                            then 5
+                        else 6
+                        end asc
+                    )                                                  as rn_firm_source
+  , row_number() over(partition by a.effective_date, account_number
+                    order by case
+                        when master_number = '08438162' -- orion
+                            then 1
+                        when master_number = '08109543' -- fixed income
+                            then 2
+                        when master_number = '08315101' -- non-orion
+                            then 3
+                        when master_number = '08355335' -- mps
+                            then 4
+                        when master_number = '08051423' -- swag
+                            then 5
+                        else 6
+                        end asc
+                    )                                                  as rn_global
   , {{ col_is_head(reference=source('schwab', 'mxr_tda_account_mappings')) }}
   , {{ col_is_current(date_col='a.effective_date') }}
   , a._source_loaded_at

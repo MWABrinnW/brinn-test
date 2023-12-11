@@ -16,7 +16,7 @@ select
   , t.symbol_ticker                                 as ticker
   , t.cusip                                         as cusip
 
-  , t.current_quantity                              as units_shares
+  , t.current_quantity                              as quantity
   , t.cost_per_share_share_cost_amount              as cost_per_share
   , t.cost_basis_unamortized_cost_basis_amount      as cost_basis
 
@@ -86,4 +86,4 @@ left join {{ ref('custodian_mappings') }} cmsd
           and cmsd.field = 'legacy_product_type'
           and s.legacy_security_type = cmsd.source
 where 1 = 1
-  and t.rn = 1
+  and t.rn_firm_source = 1

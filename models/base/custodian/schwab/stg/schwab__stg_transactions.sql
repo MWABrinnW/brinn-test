@@ -119,7 +119,7 @@ select
   , cl.is_deceased                                                                              as is_deceased
   , cl.is_from_tda_migration                                                                    as is_from_tda_migration
   , effective_date                                                                              as effective_date
-  , dense_rank() over(partition by a.effective_date, account_number
+  , dense_rank() over(partition by a.effective_date, account_number, cl.firm_source
                     order by case
                         when master_number = '08438162' -- orion
                             then 1

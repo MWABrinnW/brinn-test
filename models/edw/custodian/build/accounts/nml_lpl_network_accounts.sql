@@ -9,9 +9,9 @@ select
   , 'subscriber_id'::varchar(50)                    as custodian_link_detail
   , a.rep_id::varchar(50)                           as rep_link
   , 'rep_id'::varchar(50)                           as rep_link_detail
-  , a.institution_type::varchar(75)                 as account_type_source_code
-  , ar.definition::varchar(200)                     as account_type_source_definition
   , ar.normalized::varchar(200)                     as account_type
+  , ar.definition::varchar(200)                     as account_type_source_definition
+  , a.institution_type::varchar(75)                 as account_type_source_code
   , a.open_date::date                               as opened_date
   , a.account_name::varchar(200)                    as account_title
   , c.first_name::varchar(200)                      as first_name

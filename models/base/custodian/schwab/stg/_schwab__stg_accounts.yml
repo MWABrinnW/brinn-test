@@ -1,0 +1,266 @@
+version: 2
+
+models:
+  - name: schwab__stg_accounts
+    description: Schwab account information file.
+    columns:
+      - name: custodian
+        description: ""
+      - name: firm_source
+        description: ""
+      - name: firm
+        description: ""
+      - name: record_type
+        description: Identifies whether a header, detail, or trailer record.
+      - name: custodian_id
+        description: Identifies Schwab as the source of the file
+      - name: master_account_number
+        description: Identifies the master account number associated with creating this record.
+      - name: master_account_name
+        description: Identifies the master account name associated with creating this record.
+      - name: business_date
+        description: Business date for this record.
+      - name: account_number
+        description: End-client account number at Schwab.
+      - name: account_title_line_1
+        description: Account title used for account registration.
+      - name: account_title_line_2
+        description: Account title used for account registration.
+      - name: account_title_line_3
+        description: Account title used for account registration.
+      - name: account_status
+        description: |
+          Indicates the status of the account
+          O = Open
+          C = Closed
+          I = Inactive
+      - name: account_registration
+        description: Registration at Schwab. For a full list of codes and definitions see the tab "Account Registration Codes."
+      - name: account_type
+        description: Type of account at Schwab. For a full list of codes and definitions see the tab "Account Type Codes."
+      - name: taxpayer_title
+        description: Indicates the Schwab taxpayer name on account. This field will be blank (spaces ) when the customer is not an individual person.
+      - name: taxpayer_first_name
+        description: Indicates the Schwab taxpayer name on account. This field will be blank (spaces ) when the customer is not an individual person.
+      - name: taxpayer_middle_name
+        description: Indicates the Schwab taxpayer name on account. This field will be blank (spaces ) when the customer is not an individual person.
+      - name: taxpayer_last_name
+        description: Indicates the Schwab taxpayer name on account. This field will be blank (spaces ) when the customer is not an individual person.
+      - name: taxpayer_suffix
+        description: Indicates the Schwab taxpayer name on account. This field will be blank (spaces ) when the customer is not an individual person.
+      - name: tax_withhold_code
+        description: Indicates the account tax code for reporting purposes
+      - name: primary_contact
+        description: Indicates the primary end-client contact for the account
+      - name: alias_name
+        description: Applicable only if additional names apply
+      - name: mailing_address_line_1
+        description: Concatenate mailing address lines 1-3 for complete address
+      - name: mailing_address_line_2
+        description: Concatenate mailing address lines 1-3 for complete address
+      - name: mailing_address_line_3
+        description: Concatenate mailing address lines 1-3 for complete address
+      - name: account_mailing_city
+        description: City of the Account's mailing address
+      - name: account_mailing_state
+        description: State of the Account's mailing address
+      - name: account_mailing_zip
+        description: Zip Code (9 for US, up to 10 for foreign) of the Account's Mailing Address
+      - name: account_mailing_country_code
+        description: Country Code of the primary account holder
+      - name: email_address
+        description: Email Address of the Primary Contact.
+      - name: phone
+        description: Client Telephone
+      - name: business_phone
+        description: Business Telephone
+      - name: date_opened_established
+        description: Date account opened at Schwab
+      - name: schwab_branch_code
+        description: Schwab Branch Code
+      - name: sweep_status_code
+        description: 1 for New, 2 for Auto Transfer, 3 for Manual Transfer, 4 for Close Pending (CLP) and 5 for closed.  TEF is an exception with codes of E, T, W, H, and K, respectively.
+      - name: account_cash_instructions_cash_account
+        description: For a full list of codes and definitions see the tab "Account Cash Instructions Codes"
+      - name: account_cash_instructions_margin_account
+        description: For a full list of codes and definitions see the tab "Account Cash Instructions Codes"
+      - name: margin_account_indicator
+        description: Set to yes when the account has the margin feature, otherwise no
+      - name: account_restrictions
+        description: |
+          Obsolete field. Use Restriction Reason Code fields below.
+          A = Abandoned Account
+          B = Blocked account due to Exception Reg.
+          C = Cash & Stock Up Front
+          D = Required Documents or Information Missing
+          L = Liquidations Only
+          M = Mail Undeliverable
+          P = No Activity Pending Receipt of Documentation
+          S = Student - Cash & Stock Up Front
+          T = Outgoing Transfer of Account in Progress
+          U = Unemployed - Cash & Stock Up Front
+          X = Closed per Internal Schwab Request
+          Z = Closed per Customer Request
+      - name: additional_mailings
+        description: Set to yes when the account has additional mailings, otherwise no
+      - name: number_of_additional_mailings
+        description: Identifies how many mailings are being sent to a 3rd party
+      - name: approved_option_level
+        description: |
+          0 = Covered Options
+          1 = Purchasing Options
+          2 = Creating Spreads
+          3 = Uncovered Option Writing
+      - name: beneficiary_on_file_yn
+        description: Set to yes when the account has information in the beneficiary field, otherwise no
+      - name: number_of_beneficiaries
+        description: Identifies how many beneficiaries are on the account. Does not include contingent beneficiaries. Primary beneficiaries only.
+      - name: payment_features_checks
+        description: Set to yes when the account has checks issued on the account, otherwise no
+      - name: payment_features_debit_card
+        description: Set to yes when the account has a debit card issued on the account, otherwise no
+      - name: payment_features_bill_pay
+        description: Set to yes when the account has billpay activated on the account, otherwise no
+      - name: undeliverable_mail_flag
+        description: Set to yes when the account has an 'M' restriction, otherwise no
+      - name: fa_fee_status
+        description: Indicates if client has given fee payment authorization to FA.
+      - name: interest_bearing_feature_code
+        description: |
+          Identifies the unique interest bearing value on the account depending on the interest bearing feature
+          BKOMS-Bank Sweep
+          S1INT-Schwab One Interest
+          SWEEP-Money Market Sweep fund
+      - name: interest_bearing_features_money_market_code
+        description: Unique code to identify Schwab money market products. This field may be blank if the interest bearing feature is not a mutual fund. For a full list of codes and definitions see the tab "Interest Bearing Feature Codes."
+      - name: interest_bearing_features_ticker_symbol
+        description: Symbol used to identify the sweep money market fund. This field may be blank if the interest bearing feature is not a mutual fund. For a full list of ticker symbols see the tab "Interest Bearing Feature Codes."
+      - name: interest_bearing_features_item_issue_id
+        description: Unique internal Schwab security identifier when combined with the following field (Rule Set Suffix ID).
+      - name: INTEREST_BEARING_FEATURES_RULE_SET_SUFFIX
+        data_type: VARCHAR
+        description: ''
+      - name: proxy_voting_authority
+        description: Indicates who will receive the proxy voting ballot - currently in Client Preferences application D, M, A
+      - name: proxy_mailing
+        description: Indicates if duplicate copy is mailed to client, IA, or neither. D, M, A, S, N
+      - name: statement_preferences
+        description: Displays the current statement type for the account. TTST, CMPT
+      - name: account_taxable_indicator
+        description: |
+          Account Taxable Indicator indicates whether Schwab will report taxes.
+           Y = Account is tax reportable
+           N = Account is non-tax reportable
+      - name: default_lot_selection_method
+        description: |
+          Default account level lot selection method:
+          FIFO -- First In, First Out
+          LIFO -- Last In, First Out
+          HCLOT -- Highest Cost Lot
+          LCLOT -- Lowest Cost Lot
+          BTAX -- Tax Lot Optimizer.
+      - name: cost_method
+        description: |
+          Default account level cost method
+          A = Average
+          I = Identified
+          M = Mixed
+          Blank = unknown
+          The value of Mixed results in Mutual Funds set as Average and all other securities set as Identified.
+      - name: cost_basis_method_for_mutual_funds
+        description: |
+          Default accounting method for mutual funds held in the account.
+          FIFO = first in, first out
+          LIFO = last in, first out
+          HCLOT = high cost
+          LCLOT = low cost
+          BTAX = Tax Lot Optimizer
+          AVG = Average
+      - name: cost_basis_method_non_mutual_funds
+        description: |
+          Default accounting method for securities other than mutual funds in the account.
+          FIFO = first in, first out
+          LIFO = last in, first out
+          HCLOT = high cost
+          LCLOT = low cost
+          BTAX = Tax Lot Optimizer
+      - name: cost_basis_method_date
+        description: Effective date for Cost Basis Method
+      - name: version_marker_number_1
+        description: Indicates the version number associated with the fields immediately following this marker.
+      - name: customer_type
+        description: |
+          Shows whether the customer is an individual person, a trust, or an organization. Possible values are "IND" (an individual person)
+          "TRUST" (a trust)
+          "ORG" (an organization, e.g. corporation)
+      - name: organization_primary_name
+        description: >
+          If Customer Type is a trust or organization ("TRUST" or "ORG" ) then this field will be populated with the name of the trust or organization associated with the account. If Customer Type is an individual person (IND) then this field will be blank (spaces.)
+      - name: version_marker_number_2
+        description: Indicates the version number associated with the fields immediately following this marker.
+      - name: restriction_reason_code_1
+        description: Indicates which restrictions apply to the account. May be blank (spaces).
+      - name: restriction_reason_code_2
+        description: Indicates which restrictions apply to the account. May be blank (spaces).
+      - name: restriction_reason_code_3
+        description: Indicates which restrictions apply to the account. May be blank (spaces).
+      - name: restriction_reason_code_4
+        description: Indicates which restrictions apply to the account. May be blank (spaces).
+      - name: restriction_reason_code_5
+        description: Indicates which restrictions apply to the account. May be blank (spaces).
+      - name: version_marker_number_3
+        description: Indicates the version number associated with the fields immediately following this marker.
+      - name: schwab_bank_investor_checking_account_number
+        description: Provides the Schwab Bank Investor Checking account number if one is associated with the broker/dealer account. This field will be blank (space-filled) unless the broker/dealer account is associated with an Investor Checking account.
+      - name: version_marker_number_4
+        description: Indicates the version number associated with the fields immediately following this marker.
+      - name: social_security_number_ssntax_id_number_tin
+        description: Provides the SSN/TIN that is associated with the account, formatted with two dashes for SSN and one dash for TIN. This field will be blank (space-filled) unles the client instructs Schwab to include the SSN/TIN in this file.
+      - name: version_marker_number_5
+        description: Indicates the version number associated with the fields immediately following this marker.
+      - name: prime_broker_enabled_indicator
+        description: |
+          Indicates whether the account is enabled for Prime Broker trading.
+           Y = Account is enabled for Prime Broker Trading
+           N = Account is not enabled for Prime Broker trading
+      - name: managed_account_platform_code
+        description: |
+          Identifies the Schwab Managed Account Platform. May be blank.
+          ACC = Managed Account Access
+          MAA = Managed Account Connection (formerly Affiliates)
+          MAM = Managed Account Marketplace
+          MAS = Managed Account Select
+          SMPF = Schwab Managed Portfolios - Mutual Funds
+          SMPS = Schwab Managed Portfolios - ETFs
+      - name: managed_account_money_manager
+        description: Identifies the Schwab Managed Account Money Manager. May be blank.
+      - name: managed_account_investment_strategy
+        description: Identifies the Schwab Managed Account Investment Strategy. May be blank.
+      - name: VERSION_MARKER_NUMBER_5_2
+        data_type: VARCHAR
+        description: ''
+      - name: bank_sweep_display_name
+        description: If the Interest Bearing Feature Code at offset 923-927  is 'BKOMS' then this field provides the full name of the bank sweep feature as displayed on other client-facing channels. If the Interest Bearing Feature Code is not 'BKOMS' then this field will be blank [space-filled].
+      - name: master_number
+        description: ""
+      - name: is_deceased
+        description: ""
+      - name: is_from_tda_migration
+        description: ""
+      - name: effective_date
+        description: ""
+      - name: RN
+        data_type: NUMBER
+        description: ''
+      - name: IS_HEAD
+        data_type: NUMBER
+        description: ''
+      - name: IS_CURRENT
+        data_type: NUMBER
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        data_type: TIMESTAMP_NTZ
+        description: ''
+      - name: _SOURCE_FILE
+        data_type: VARCHAR
+        description: ''

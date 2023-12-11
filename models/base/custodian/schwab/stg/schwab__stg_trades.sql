@@ -58,7 +58,7 @@ select
   , cl.is_deceased                                                              as is_deceased
   , cl.is_from_tda_migration                                                    as is_from_tda_migration
   , effective_date                                                              as effective_date
-  , dense_rank() over(partition by a.effective_date, account_number
+  , dense_rank() over(partition by a.effective_date, account_number, cl.firm_source
                     order by case
                         when master_number = '08438162' -- orion
                             then 1
@@ -73,6 +73,36 @@ select
                         else 6
                         end asc, master_number asc
                     )                                                           as rn
+  , dense_rank() over(partition by a.effective_date, account_number, cl.firm_source
+                    order by case
+                        when master_number = '08438162' -- orion
+                            then 1
+                        when master_number = '08109543' -- fixed income
+                            then 2
+                        when master_number = '08315101' -- non-orion
+                            then 3
+                        when master_number = '08355335' -- mps
+                            then 4
+                        when master_number = '08051423' -- swag
+                            then 5
+                        else 6
+                        end asc, master_number asc
+                    )                                                           as rn_firm
+  , dense_rank() over(partition by a.effective_date, account_number
+                    order by case
+                        when master_number = '08438162' -- orion
+                            then 1
+                        when master_number = '08109543' -- fixed income
+                            then 2
+                        when master_number = '08315101' -- non-orion
+                            then 3
+                        when master_number = '08355335' -- mps
+                            then 4
+                        when master_number = '08051423' -- swag
+                            then 5
+                        else 6
+                        end asc, master_number asc
+                    )                                                           as rn_global
   , {{ col_is_head(reference=source('schwab', 'tcf')) }}
   , {{ col_is_current(date_col='effective_date') }}
   , _created_at                                                                 as _source_loaded_at
