@@ -98,6 +98,11 @@ models:
         +grants:
           select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
+      cch_dau:
+        +tags: ["cch_dau"]
+        +grants:
+          select: "{{ ['db_crm_tax_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+
       culture_amp:
         +tags: ["culture_amp", "hr"]
         +grants:

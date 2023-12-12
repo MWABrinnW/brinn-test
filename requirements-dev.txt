@@ -1,3 +1,4 @@
 dbt-snowflake==1.7.0
 dbt-core==1.7.3
 dbt-osmosis==0.12.4
+sqlfluff==2.3.5

@@ -1,0 +1,153 @@
+version: 2
+models:
+  - name: fct_tax_invoice_subledger
+    columns:
+      - name: INVOICEMONYEAR
+        description: ''
+        data_type: VARCHAR
+      - name: INVOICEIDENT
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENTIDENT
+        description: ''
+        data_type: VARCHAR
+      - name: INVOICEDATETIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: REVERSEDDATETIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: INVOICENUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: STDWIPAMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: ADJUSTMENTAMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: TAXAMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: HOURS
+        description: ''
+        data_type: NUMBER
+      - name: PROGRESSBILLEDAMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: STATUSCODE
+        description: ''
+        data_type: VARCHAR
+      - name: CREATEDBYIDENT
+        description: ''
+        data_type: VARCHAR
+      - name: INVOICESTATUSNAME
+        description: ''
+        data_type: VARCHAR
+      - name: WIPIDENT
+        description: ''
+        data_type: VARCHAR
+      - name: SERVICECODEIDENT
+        description: ''
+        data_type: VARCHAR
+      - name: STAFFIDENT
+        description: ''
+        data_type: VARCHAR
+      - name: HOURS_2
+        description: ''
+        data_type: NUMBER
+      - name: STDAMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: TRANSACTIONDATE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: TIMEADJAMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: EXPENSEADJAMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: ADJAMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: BILLEDAMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: INVOICESTATUSCODE
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENTOFFICENAME
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENTID
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENTTYPE
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENTSTATUS
+        description: ''
+        data_type: VARCHAR
+      - name: ADDRESSLINE1
+        description: ''
+        data_type: VARCHAR
+      - name: CITYNAME
+        description: ''
+        data_type: VARCHAR
+      - name: STATEPROVINCECODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSTALCODE
+        description: ''
+        data_type: VARCHAR
+      - name: CATEGORYNAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACTUALS
+        description: ''
+        data_type: NUMBER
+  - name: fct_stg_data
+    columns:
+      - name: DATE OF INVOICE
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENT ID (KEY)
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENT ID
+        description: ''
+        data_type: VARCHAR
+      - name: STAFF ID
+        description: ''
+        data_type: VARCHAR
+      - name: STAFF NAME
+        description: ''
+        data_type: VARCHAR
+      - name: STAFF FIRST NAME
+        description: ''
+        data_type: VARCHAR
+      - name: STAFF LAST NAME
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCTION HOURS
+        description: ''
+        data_type: NUMBER
+      - name: PRODUCTION AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: BILLED HOURS
+        description: ''
+        data_type: NUMBER
+      - name: BILLED AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: SALES TAX
+        description: ''
+        data_type: NUMBER
+      - name: CUBE DEPARTMENT
+        description: ''
+        data_type: VARCHAR
+      - name: DEPARTMENT NAME
+        description: ''
+        data_type: VARCHAR

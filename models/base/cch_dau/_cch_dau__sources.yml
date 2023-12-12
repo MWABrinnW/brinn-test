@@ -1,0 +1,625 @@
+version: 2
+
+sources:
+  - name: cch_dau
+    description: Tables extracted from MH-SQL/SYSOPS CCH_ENT.
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+
+    tables:
+      - name: client
+        columns:
+          - name: CLIENTIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: CLIENTOFFICENAME
+            data_type: VARCHAR
+            description: ''
+          - name: CLIENTREGIONNAME
+            data_type: VARCHAR
+            description: ''
+          - name: CLIENTBUSINESSUNITNAME
+            data_type: VARCHAR
+            description: ''
+          - name: CLIENTID
+            data_type: VARCHAR
+            description: ''
+          - name: CLIENTIDSUBID
+            data_type: VARCHAR
+            description: ''
+          - name: PRIMARYCLIENTFLAG
+            data_type: VARCHAR
+            description: ''
+          - name: CLIENTSUBID
+            data_type: VARCHAR
+            description: ''
+          - name: CLIENTTYPE
+            data_type: VARCHAR
+            description: ''
+          - name: LINEOFBUSINESS
+            data_type: VARCHAR
+            description: ''
+          - name: CLIENTPRIMARYSERVICETYPE
+            data_type: VARCHAR
+            description: ''
+          - name: CLIENTSORTNAME
+            data_type: VARCHAR
+            description: ''
+          - name: RETURNGROUPNAME
+            data_type: VARCHAR
+            description: ''
+          - name: DELETEFLAG
+            data_type: VARCHAR
+            description: ''
+          - name: FISCALPERIOD
+            data_type: VARCHAR
+            description: ''
+          - name: CLIENTSTATUS
+            data_type: VARCHAR
+            description: ''
+          - name: CLIENTSTATUSDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: SHAREABLEFLAG
+            data_type: VARCHAR
+            description: ''
+          - name: ACQUIREDDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: CLIENTCLASS
+            data_type: VARCHAR
+            description: ''
+          - name: WEBPAGEURL
+            data_type: VARCHAR
+            description: ''
+          - name: CREATEDDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: LASTUPDATEDDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: SALUTATIONTEXT
+            data_type: VARCHAR
+            description: ''
+          - name: ATTENTIONTEXT
+            data_type: VARCHAR
+            description: ''
+          - name: CORRESPONDENCENAME
+            data_type: VARCHAR
+            description: ''
+          - name: SUBORDINATEDESCRIPTION
+            data_type: VARCHAR
+            description: ''
+          - name: FIRMMARKETINGMETHOD
+            data_type: VARCHAR
+            description: ''
+          - name: LASTACTIVEDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: TERMINATEDDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: LASTINACTIVEDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: LASTONHOLDDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: LASTLITIGATIONHOLDDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: CREATEDBYIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: LASTUPDATEDBYIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+      - name: clientaddress
+        columns:
+          - name: ADDRESSIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: ADDRESSIDENTCATEGORYTYPE
+            data_type: VARCHAR
+            description: ''
+          - name: EMPLOYEEPLANSUBENTITYTYPECODE
+            data_type: VARCHAR
+            description: ''
+          - name: REFERENCEIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: REFERENCEIDENTTYPE
+            data_type: VARCHAR
+            description: ''
+          - name: FIRMADDRESSTYPELABELNAME
+            data_type: VARCHAR
+            description: ''
+          - name: FIRMADDRESSTYPEDESCRIPTION
+            data_type: VARCHAR
+            description: ''
+          - name: ADDRESSLINE1
+            data_type: VARCHAR
+            description: ''
+          - name: ADDRESSLINE2
+            data_type: VARCHAR
+            description: ''
+          - name: ADDRESSLINE3
+            data_type: VARCHAR
+            description: ''
+          - name: CITYNAME
+            data_type: VARCHAR
+            description: ''
+          - name: POSTALCODE
+            data_type: VARCHAR
+            description: ''
+          - name: COUNTRYCODE
+            data_type: VARCHAR
+            description: ''
+          - name: PRIMARYADDRESSFLAG
+            data_type: VARCHAR
+            description: ''
+          - name: MAILINGADDRESSFLAG
+            data_type: VARCHAR
+            description: ''
+          - name: APTORSUITENUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: STATEPROVINCECODE
+            data_type: VARCHAR
+            description: ''
+          - name: CREATEDBYIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: LASTUPDATEDBYIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: CREATEDDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: LASTUPDATEDDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: INVOICEFLAG
+            data_type: VARCHAR
+            description: ''
+          - name: STATEMENTFLAG
+            data_type: VARCHAR
+            description: ''
+          - name: ISCLIENTCONTACTBILLINGADDRESSFLAG
+            data_type: VARCHAR
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+      - name: invoice
+        columns:
+          - name: INVOICEIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: CLIENTIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: ACCTPERDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: INVOICEDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: REVERSEDDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: INVOICENUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: STDWIPAMOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: ADJUSTMENTAMOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: TAXAMOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: HOURS
+            data_type: VARCHAR
+            description: ''
+          - name: TAXAPPAMOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: PROGRESSBILLEDAMOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: PROGRESSAPPLYAMOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: PROGRESSTAXAMOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: PROGRESSTAXAPPAMOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: STATUSCODE
+            data_type: VARCHAR
+            description: ''
+          - name: INVOICETYPECODE
+            data_type: VARCHAR
+            description: ''
+          - name: PAIDINFULLFLAG
+            data_type: VARCHAR
+            description: ''
+          - name: CREATEDDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: LASTUPDATEDDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: CREATEDBYIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: LASTUPDATEDBYIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: REASONNAME
+            data_type: VARCHAR
+            description: ''
+          - name: INVOICESTATUSNAME
+            data_type: VARCHAR
+            description: ''
+          - name: INVOICESTATUSDESCRIPTION
+            data_type: VARCHAR
+            description: ''
+          - name: INVOICENUMBERCODE
+            data_type: VARCHAR
+            description: ''
+          - name: INVOICEOFFICECODE
+            data_type: VARCHAR
+            description: ''
+          - name: BILLTHRUDATE
+            data_type: VARCHAR
+            description: ''
+          - name: CLIENTBILLINGFEEAGREEMENTNAME
+            data_type: VARCHAR
+            description: ''
+          - name: INVOICETEMPLATENAME
+            data_type: VARCHAR
+            description: ''
+          - name: INVOICETITLE
+            data_type: VARCHAR
+            description: ''
+          - name: BILLINGGROUPNAME
+            data_type: VARCHAR
+            description: ''
+          - name: SUBSIDIARYCLIENTIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: PROJECTIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: INVOICEOFFICENAME
+            data_type: VARCHAR
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+      - name: servicecode
+        columns:
+          - name: SERVICECODEIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: CATEGORYIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: CATEGORYNAME
+            data_type: VARCHAR
+            description: ''
+          - name: SUBCATEGORYIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: SUBCATEGORYNAME
+            data_type: VARCHAR
+            description: ''
+          - name: SERVICECODEID
+            data_type: VARCHAR
+            description: ''
+          - name: SERVICECODENAME
+            data_type: VARCHAR
+            description: ''
+          - name: CATEGORYID
+            data_type: VARCHAR
+            description: ''
+          - name: SUBCATEGORYID
+            data_type: VARCHAR
+            description: ''
+          - name: BILLABLETYPEFLAG
+            data_type: VARCHAR
+            description: ''
+          - name: TAXABLE
+            data_type: VARCHAR
+            description: ''
+          - name: INACTIVEFLAG
+            data_type: VARCHAR
+            description: ''
+          - name: DELETEFLAG
+            data_type: VARCHAR
+            description: ''
+          - name: SERVICECODETYPEFLAG
+            data_type: VARCHAR
+            description: ''
+          - name: MILEAGEUNITFLAG
+            data_type: VARCHAR
+            description: ''
+          - name: INCLUDEINBILLABLEPERCENTAGEFLAG
+            data_type: VARCHAR
+            description: ''
+          - name: BILLRATETYPE
+            data_type: VARCHAR
+            description: ''
+          - name: SURCHARGETYPE
+            data_type: VARCHAR
+            description: ''
+          - name: SURCHARGERATE
+            data_type: VARCHAR
+            description: ''
+          - name: SURCHARGEFLATAMOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: SURCHARGEPERCENT
+            data_type: VARCHAR
+            description: ''
+          - name: CREATEDBYIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: CREATEDDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: LASTUPDATEDBYIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: LASTUPDATEDDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: SERVICECODEDESCRIPTION
+            data_type: VARCHAR
+            description: ''
+          - name: SERVICECLASS
+            data_type: VARCHAR
+            description: ''
+          - name: STAFFBILLRATE
+            data_type: VARCHAR
+            description: ''
+          - name: ALTERNATESTAFFBILLRATE
+            data_type: VARCHAR
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+      - name: staff
+        columns:
+          - name: STAFFIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: STAFFOFFICENAME
+            data_type: VARCHAR
+            description: ''
+          - name: STAFFREGIONNAME
+            data_type: VARCHAR
+            description: ''
+          - name: STAFFBUSINESSUNITNAME
+            data_type: VARCHAR
+            description: ''
+          - name: STAFFDESCRIPTION
+            data_type: VARCHAR
+            description: ''
+          - name: STAFFIDENTIFIER
+            data_type: VARCHAR
+            description: ''
+          - name: STAFFNAME
+            data_type: VARCHAR
+            description: ''
+          - name: STAFFDEPARTMENT
+            data_type: VARCHAR
+            description: ''
+          - name: STAFFPOSITION
+            data_type: VARCHAR
+            description: ''
+          - name: STAFFREPORTINGMANAGERNAME
+            data_type: VARCHAR
+            description: ''
+          - name: REPORTNAME
+            data_type: VARCHAR
+            description: ''
+          - name: FIRMIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: FIRMNAME
+            data_type: VARCHAR
+            description: ''
+          - name: STAFFSTATUS
+            data_type: VARCHAR
+            description: ''
+          - name: DELETEFLAG
+            data_type: VARCHAR
+            description: ''
+          - name: CREATEDDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: LASTUPDATEDDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: LASTINACTIVEDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: STAFFFIRSTNAME
+            data_type: VARCHAR
+            description: ''
+          - name: STAFFMIDDLENAME
+            data_type: VARCHAR
+            description: ''
+          - name: STAFFLASTNAME
+            data_type: VARCHAR
+            description: ''
+          - name: STAFFSUFFIXCODE
+            data_type: VARCHAR
+            description: ''
+          - name: EMERGENCYCONTACTNAME
+            data_type: VARCHAR
+            description: ''
+          - name: EMERGENCYCONTACTRELATIONSHIP
+            data_type: VARCHAR
+            description: ''
+          - name: EMERGENCYCONTACTPHONE
+            data_type: VARCHAR
+            description: ''
+          - name: EMPLOYEENUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: REVIEWDATE
+            data_type: VARCHAR
+            description: ''
+          - name: HIRESALARY
+            data_type: VARCHAR
+            description: ''
+          - name: HIREDATE
+            data_type: VARCHAR
+            description: ''
+          - name: CURRENTSALARY
+            data_type: VARCHAR
+            description: ''
+          - name: STAFFUSERID
+            data_type: VARCHAR
+            description: ''
+          - name: USERLOGINENABLEDFLAG
+            data_type: VARCHAR
+            description: ''
+          - name: HIREDTYPENAME
+            data_type: VARCHAR
+            description: ''
+          - name: PAYTYPENAME
+            data_type: VARCHAR
+            description: ''
+          - name: HONORIFICCODE
+            data_type: VARCHAR
+            description: ''
+          - name: LASTACTIVEDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+      - name: uvw_productivity
+        columns:
+          - name: CLIENTIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: STAFFIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: SERVICECODEIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: PROJECTIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: WORKSTEPIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: TRANSACTIONDATE
+            data_type: VARCHAR
+            description: ''
+          - name: ALLHOURS
+            data_type: VARCHAR
+            description: ''
+          - name: BILLABLEHOURS
+            data_type: VARCHAR
+            description: ''
+          - name: NONBILLABLEHOURS
+            data_type: VARCHAR
+            description: ''
+          - name: TIMEAMOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: EXPENSEAMOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: SURCHARGEAMOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: STAFFSTATUS
+            data_type: VARCHAR
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+      - name: uvw_wipar02clientident
+        columns:
+          - name: WIPIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: CLIENTIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: SERVICECODEIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: INVOICEIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: STAFFIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: PROJECTIDENT
+            data_type: VARCHAR
+            description: ''
+          - name: HOURS
+            data_type: VARCHAR
+            description: ''
+          - name: STDAMOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: TRANSACTIONDATE
+            data_type: VARCHAR
+            description: ''
+          - name: TIMEADJAMOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: EXPENSEADJAMOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: ADJAMOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: SURCHARGEAMOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: TIMEBILLEDAMOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: EXPENSEBILLEDAMOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: BILLEDAMOUNT
+            data_type: VARCHAR
+            description: ''
+          - name: TIMECOST
+            data_type: VARCHAR
+            description: ''
+          - name: EXPENSECOST
+            data_type: VARCHAR
+            description: ''
+          - name: COST
+            data_type: VARCHAR
+            description: ''
+          - name: INVOICENUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: INVOICEDATETIME
+            data_type: VARCHAR
+            description: ''
+          - name: INVOICESTATUSCODE
+            data_type: VARCHAR
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
