@@ -1,0 +1,187 @@
+version: 2
+models:
+  - name: xcm__stg_task_detail
+    columns:
+      - name: _PK
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: TASK_ID
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: TASK_TYPE_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: PERIOD_END_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: PRIORITY
+        description: ''
+        data_type: VARCHAR
+      - name: TASK_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: ORIGINATING_LOCATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ASSIGNED_TO
+        description: ''
+        data_type: VARCHAR
+      - name: ASSIGNED_TO_EMAIL_ID
+        description: ''
+        data_type: VARCHAR
+      - name: AUDIT_PARTNER
+        description: ''
+        data_type: VARCHAR
+      - name: AUDIT_PARTNER_EMAIL_ID
+        description: ''
+        data_type: VARCHAR
+      - name: AUDIT_MANAGER
+        description: ''
+        data_type: VARCHAR
+      - name: AUDIT_MANAGER_EMAIL_ID
+        description: ''
+        data_type: VARCHAR
+      - name: TAX_PARTNER
+        description: ''
+        data_type: VARCHAR
+      - name: TAX_PARTNER_EMAIL_ID
+        description: ''
+        data_type: VARCHAR
+      - name: MANAGER
+        description: ''
+        data_type: VARCHAR
+      - name: MANAGER_EMAIL_ID
+        description: ''
+        data_type: VARCHAR
+      - name: RESPONSIBLE_PERSON
+        description: ''
+        data_type: VARCHAR
+      - name: RESPONSIBLE_PERSON_EMAIL_ID
+        description: ''
+        data_type: VARCHAR
+      - name: TAX_SENIOR
+        description: ''
+        data_type: VARCHAR
+      - name: TAX_SENIOR_EMAIL_ID
+        description: ''
+        data_type: VARCHAR
+      - name: AUDIT_SENIOR
+        description: ''
+        data_type: VARCHAR
+      - name: AUDIT_SENIOR_EMAIL_ID
+        description: ''
+        data_type: VARCHAR
+      - name: AUDIT_STAFF
+        description: ''
+        data_type: VARCHAR
+      - name: AUDIT_STAFF_EMAIL_ID
+        description: ''
+        data_type: VARCHAR
+      - name: TAX_STAFF
+        description: ''
+        data_type: VARCHAR
+      - name: TAX_STAFF_EMAIL_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: PRIMARY_TASK_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: SOFTWARE
+        description: ''
+        data_type: VARCHAR
+      - name: GROUP_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: GROUP_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: BRANCH_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LAST_EXTENSION_FILED_BY
+        description: ''
+        data_type: VARCHAR
+      - name: STATUS_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: PCAOB_OR_NON_PUBLIC
+        description: ''
+        data_type: VARCHAR
+      - name: LEVEL_OF_SERVICE
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION_OF_OTHER_SERVICE
+        description: ''
+        data_type: VARCHAR
+      - name: ENTITY_STRUCTURE
+        description: ''
+        data_type: VARCHAR
+      - name: FINANCIAL_STATEMENT_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: BASIS_OF_ACCOUNTING
+        description: ''
+        data_type: VARCHAR
+      - name: TASK_INDUSTRY
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION_OF_OTHER_INDUSTRY
+        description: ''
+        data_type: VARCHAR
+      - name: ENGAGEMENT_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: DUE_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: EXTERNAL_ID
+        description: ''
+        data_type: VARCHAR
+      - name: TASK_CATEGORY_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: TASK_CATEGORY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TASK_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: RETURN_ID
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTOM_FIELDS_PARSE
+        description: ''
+        data_type: VARCHAR
+      - name: ADVISOR_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: REGION
+        description: ''
+        data_type: VARCHAR
+      - name: BILLED_FEE
+        description: ''
+        data_type: VARCHAR
+      - name: ALLOCATED_FEE
+        description: ''
+        data_type: VARCHAR
+      - name: INVOICE_SENT
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ

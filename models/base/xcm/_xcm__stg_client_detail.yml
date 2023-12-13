@@ -1,0 +1,58 @@
+version: 2
+models:
+  - name: xcm__stg_client_detail
+    columns:
+      - name: _PK
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: FIRST_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: MIDDLE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LAST_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SUFFIX
+        description: ''
+        data_type: VARCHAR
+      - name: FULL_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: PHONE_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: EMAIL_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER_2
+        description: ''
+        data_type: VARCHAR
+      - name: ORIGINATING_LOCATION
+        description: ''
+        data_type: VARCHAR
+      - name: ACTIVE
+        description: ''
+        data_type: VARCHAR
+      - name: GROUP_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: GROUP_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: PRIMARY_TASK
+        description: ''
+        data_type: VARCHAR
+      - name: PERIOD_END_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ

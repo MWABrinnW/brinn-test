@@ -101,7 +101,7 @@ models:
       cch_dau:
         +tags: ["cch_dau"]
         +grants:
-          select: "{{ ['db_crm_tax_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+          select: "{{ ['db_billing_tax_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       culture_amp:
         +tags: ["culture_amp", "hr"]
@@ -244,6 +244,12 @@ models:
         +tags: ["crm", "salesforce", "msec"]
         +grants:
           select: "{{ ['db_crm_msec_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+
+      xcm:
+          +tags: ["tax","xcm"]
+          +dbt-osmosis: "_{model}.yml"
+          +grants:
+            select: "{{ ['db_crm_tax_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       zoom:
         +tags: ["zoom"]
