@@ -22,7 +22,7 @@ models:
         data_type: VARCHAR
       - name: PERIOD_END_DATE
         description: ''
-        data_type: VARCHAR
+        data_type: DATE
       - name: PRIORITY
         description: ''
         data_type: VARCHAR
@@ -130,7 +130,7 @@ models:
         data_type: VARCHAR
       - name: FINANCIAL_STATEMENT_DATE
         description: ''
-        data_type: VARCHAR
+        data_type: DATE
       - name: BASIS_OF_ACCOUNTING
         description: ''
         data_type: VARCHAR
@@ -145,7 +145,7 @@ models:
         data_type: VARCHAR
       - name: DUE_DATE
         description: ''
-        data_type: VARCHAR
+        data_type: DATE
       - name: EXTERNAL_ID
         description: ''
         data_type: VARCHAR

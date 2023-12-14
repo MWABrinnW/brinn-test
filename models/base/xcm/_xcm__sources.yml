@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: xcm
-    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}" 
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     description: ""
     schema: xcm
     tables:
