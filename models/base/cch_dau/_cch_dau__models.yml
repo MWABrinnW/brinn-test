@@ -1,6 +1,6 @@
 version: 2
 models:
-  - name: fct_tax_invoice_subledger
+  - name: cch_dau__fct_tax_invoice_subledger
     columns:
       - name: INVOICEMONYEAR
         description: ''
@@ -107,7 +107,7 @@ models:
       - name: ACTUALS
         description: ''
         data_type: NUMBER
-  - name: fct_stg_data
+  - name: cch_dau__fct_stg_data
     columns:
       - name: DATE OF INVOICE
         description: ''
