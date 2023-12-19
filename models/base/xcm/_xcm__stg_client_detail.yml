@@ -4,7 +4,10 @@ models:
     columns:
       - name: _PK
         description: ''
-        data_type: VARCHAR
+        data_type: NUMBER
+      - name: CLIENT_ID
+        data_type: NUMBER
+        description: ''
       - name: ACCOUNT_NUMBER
         description: ''
         data_type: VARCHAR

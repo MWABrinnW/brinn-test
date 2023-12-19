@@ -52,7 +52,7 @@ select
     , NULLIF(json:"taskCategoryName"::text(200) , '')                         as task_category_name
     , NULLIF(json:"taskType"::text(200) , '')                                 as task_type
     , NULLIF(json:"returnId"::text(200) , '')                                 as return_id
-    , NULLIF(json:"customFields"::text(200) , '')                             as custom_fields
+    , NULLIF(json:"customFields"::variant , '')                               as custom_fields
     , NULLIF(PARSE_JSON(custom_fields):"Advisor Name"::text(200) , '')        as advisor_name
     , NULLIF(PARSE_JSON(custom_fields):"Office Location"::text(200) , '')     as location_name
     , NULLIF(PARSE_JSON(custom_fields):"Region"::text(200) , '')              as region
@@ -69,6 +69,6 @@ select
     , TRY_TO_DATE(
         (PARSE_JSON(custom_fields):"Invoice Sent"::text(200)) , 'MM/DD/YYYY'
     )                                                                         as invoice_sent
-    , _created_at                                                             as _create_at
+    , _created_at                                                             as _created_at
 from
     {{ source('xcm', 'task_detail') }}

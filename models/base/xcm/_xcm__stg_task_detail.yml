@@ -4,19 +4,19 @@ models:
     columns:
       - name: _PK
         description: ''
-        data_type: VARCHAR
+        data_type: NUMBER
       - name: DESCRIPTION
         description: ''
         data_type: VARCHAR
       - name: TASK_ID
         description: ''
-        data_type: VARCHAR
+        data_type: NUMBER
       - name: CLIENT_NAME
         description: ''
         data_type: VARCHAR
       - name: CLIENT_ID
         description: ''
-        data_type: VARCHAR
+        data_type: NUMBER
       - name: TASK_TYPE_CODE
         description: ''
         data_type: VARCHAR
@@ -161,9 +161,9 @@ models:
       - name: RETURN_ID
         description: ''
         data_type: VARCHAR
-      - name: CUSTOM_FIELDS_PARSE
+      - name: CUSTOM_FIELDS
+        data_type: VARIANT
         description: ''
-        data_type: VARCHAR
       - name: ADVISOR_NAME
         description: ''
         data_type: VARCHAR
@@ -175,13 +175,13 @@ models:
         data_type: VARCHAR
       - name: BILLED_FEE
         description: ''
-        data_type: VARCHAR
+        data_type: NUMBER
       - name: ALLOCATED_FEE
         description: ''
-        data_type: VARCHAR
+        data_type: NUMBER
       - name: INVOICE_SENT
         description: ''
-        data_type: VARCHAR
+        data_type: DATE
       - name: _CREATED_AT
         description: ''
         data_type: TIMESTAMP_NTZ
