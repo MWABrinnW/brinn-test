@@ -29,22 +29,25 @@ with cte_tax_lots as (
                             and coalesce(ticker_symbol, 'blank') != 'SWGXX' -- exclude sweep positions which don't have any lots
                           group by all
                       )
-select coalesce(tl.effective_date, p.effective_date)                                       as effective_date
-     , coalesce(tl.account_number, p.account_number)                                       as account_number
-     , coalesce(tl.item_issue_id, p.item_issue_id)                                         as item_issue_id
-     , coalesce(tl.symbol_ticker, p.ticker_symbol)                                         as ticker
-     , coalesce(tl.cusip, p.cusip)                                                         as cusip
-     , tl.quantity::decimal(10, 2)                                                         as tax_lot_quantity
-     , p.quantity::decimal(10, 2)                                                          as position_quantity
-     , coalesce(tax_lot_quantity - position_quantity, tax_lot_quantity, position_quantity) as quantity_diff
+select coalesce(tl.effective_date, p.effective_date)    as effective_date
+     , coalesce(tl.account_number, p.account_number)    as account_number
+     , coalesce(tl.item_issue_id, p.item_issue_id)      as item_issue_id
+     , coalesce(tl.symbol_ticker, p.ticker_symbol)      as ticker
+     , coalesce(tl.cusip, p.cusip)                      as cusip
+     , p.security_description_line_1                    as position_description
+     , tl.quantity::decimal(10, 2)                      as tax_lot_quantity
+     , p.quantity::decimal(10, 2)                       as position_quantity
+     , coalesce(tax_lot_quantity - position_quantity, tax_lot_quantity,
+                position_quantity)                      as quantity_diff
      , case
            when tax_lot_quantity is null then 'Position without Tax Lots'
            when position_quantity is null then 'Tax Lot without Positions'
            when tax_lot_quantity != position_quantity then 'Position vs Tax Lot quantity mismatch'
-    end                                                                                    as explanation
-     , tl.market_value::decimal(10, 2)                                                     as tax_lot_value
-     , p.market_value::decimal(10, 2)                                                      as position_value
-     , coalesce(tax_lot_value - position_value, tax_lot_value, position_value)             as value_diff
+    end                                                 as explanation
+     , to_varchar(tl.market_value, '999,999,999,999')   as tax_lot_value
+     , to_varchar(p.market_value, '999,999,999,999')    as position_value
+     , to_varchar(coalesce(tl.market_value - p.market_value, tl.market_value, p.market_value),
+                  '999,999,999,999')                    as value_diff
 
 from cte_tax_lots tl
          full outer join cte_positions p
