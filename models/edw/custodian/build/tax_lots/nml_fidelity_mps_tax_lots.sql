@@ -7,11 +7,11 @@ select
   , t.account_custodial_formatted                                            as account_number_formatted
 
     -- Convenience lookup id.
-  , coalesce(s.symbol, t.option_symbol_id
+  , coalesce(s.symbol, s.option_symbol_id_occ
         , t.cusip
         , s.security_description_line_1
         , t.security_description_lines_1_6)::text(200)                       as symbol
-  , coalesce(s.symbol, s.option_symbol_id)::text(200)                        as ticker
+  , coalesce(s.symbol, s.option_symbol_id_occ)::text(200)                    as ticker
   , t.cusip::text(200)                                                       as cusip
 
   , case
