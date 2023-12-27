@@ -90,7 +90,7 @@ select
   , t.is_current                                 as is_current
   , t._source_loaded_at                          as _source_loaded_at
   , t._source_file                               as _source_file
-from {{ ref('fidelity_mwa_history__vw_actvyd_activity') }}       t
+from {{ ref('fidelity_mps_history__vw_actvyd_activity') }}       t
 left join {{ ref('custodian_accounts') }}                    a
           on
                       t.account_number = a.account_number
@@ -98,7 +98,7 @@ left join {{ ref('custodian_accounts') }}                    a
                   and t.custodian = a.custodian
                   and t.firm_source = a.firm_source
 -- Security attributes
-left join {{ref('fidelity_mwa_history__vw_secmast_1_security')}} sec
+left join {{ref('fidelity_mps_history__vw_secmast_1_security')}} sec
           on
                       sec.cusip = t.cusip -- is this the key we should use?
                   and t.trade_date = sec.effective_date

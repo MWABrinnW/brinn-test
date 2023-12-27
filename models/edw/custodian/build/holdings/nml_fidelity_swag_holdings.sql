@@ -19,7 +19,7 @@ select
     , coalesce(p.symbol , p.cusip)                as symbol
     , case
         when p.security_description_line_1 = 'Option'
-            then p.option_symbol_id
+            then s1.option_symbol_id_occ
         else p.symbol
     end                                           as ticker
     , p.cusip                                     as cusip

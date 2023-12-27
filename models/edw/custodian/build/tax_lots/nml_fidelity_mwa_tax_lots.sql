@@ -51,7 +51,7 @@ select
   , t.open_lot_identifier::text(200)                                         as lot_id_source
   , null::text(200)                                                          as security_id_source
 
-  , t.option_symbol_id::text(200)                                            as option_ticker
+  , s.option_symbol_id_occ::text(200)                                        as option_ticker
   , t.option_call_put_indicator::text(200)                                   as option_indicator
   , t.option_expiration_date::date                                           as option_expiration_date
   , t.option_strike_price::decimal(20, 5)                                    as option_strike_price
