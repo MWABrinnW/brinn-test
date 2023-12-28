@@ -1,0 +1,317 @@
+version: 2
+models:
+  - name: alteryx_gallery__app_infos
+    columns:
+      - name: CREATED_BY_DISPLAY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_BY_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: SERVICE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: FILE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: AUTHOR
+        description: ''
+        data_type: VARCHAR
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_BY
+        description: ''
+        data_type: VARCHAR
+      - name: IS_PUBLIC
+        description: ''
+        data_type: NUMBER
+      - name: RUN_DISABLED
+        description: ''
+        data_type: NUMBER
+      - name: SOURCE_APP_ID
+        description: ''
+        data_type: VARCHAR
+      - name: SUBSCRIPTION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: TOTAL_RUN_COUNT
+        description: ''
+        data_type: NUMBER
+      - name: IS_DELETED
+        description: ''
+        data_type: NUMBER
+      - name: ISREADYFORMIGRATION
+        description: ''
+        data_type: BOOLEAN
+      - name: PUBLISHEDREVISION
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+  - name: alteryx_gallery__base_app_infos
+    columns:
+      - name: SERVICE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: FILE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: AUTHOR
+        description: ''
+        data_type: VARCHAR
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_BY
+        description: ''
+        data_type: VARCHAR
+      - name: IS_PUBLIC
+        description: ''
+        data_type: NUMBER
+      - name: RUN_DISABLED
+        description: ''
+        data_type: NUMBER
+      - name: SOURCE_APP_ID
+        description: ''
+        data_type: VARCHAR
+      - name: SUBSCRIPTION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: TOTAL_RUN_COUNT
+        description: ''
+        data_type: NUMBER
+      - name: IS_DELETED
+        description: ''
+        data_type: NUMBER
+      - name: ISREADYFORMIGRATION
+        description: ''
+        data_type: BOOLEAN
+      - name: PUBLISHEDREVISION
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+  - name: alteryx_gallery__stg_workflows
+    columns:
+      - name: ID
+        description: ''
+        data_type: VARCHAR
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: FILE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_DATE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: PUBLISHED_VERSION_NUMBER
+        description: ''
+        data_type: NUMBER
+      - name: OWNER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: AUTHOR
+        description: ''
+        data_type: VARCHAR
+      - name: PACKAGE_WORKFLOW_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: EXECUTION_MODE
+        description: ''
+        data_type: VARCHAR
+      - name: IS_AMP
+        description: ''
+        data_type: NUMBER
+      - name: IS_PUBLIC
+        description: ''
+        data_type: NUMBER
+      - name: OTHERS_MAY_DOWNLOAD
+        description: ''
+        data_type: NUMBER
+      - name: COMMENTS
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: URL
+        description: ''
+        data_type: VARCHAR
+      - name: URL_TEXT
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+  - name: alteryx_gallery__base_usage_reports
+    columns:
+      - name: EVENT_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: SERVER_EVENT_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: DATA
+        description: ''
+        data_type: VARIANT
+      - name: DEVICE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: GUID
+        description: ''
+        data_type: VARCHAR
+      - name: IP_ADDRESS
+        description: ''
+        data_type: VARCHAR
+      - name: CORES
+        description: ''
+        data_type: NUMBER
+      - name: TYPE
+        description: ''
+        data_type: NUMBER
+      - name: IS_TRIAL
+        description: ''
+        data_type: NUMBER
+      - name: IS_PREVIEW
+        description: ''
+        data_type: NUMBER
+      - name: SERIAL_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: USER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: VERSION
+        description: ''
+        data_type: VARCHAR
+  - name: alteryx_gallery__stg_workflows_parsed
+    columns:
+      - name: ID
+        description: ''
+        data_type: VARCHAR
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_DATE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: OWNER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: EXECUTION_MODE
+        description: ''
+        data_type: VARCHAR
+      - name: IS_AMP
+        description: ''
+        data_type: NUMBER
+      - name: PUBLISHED_VERSION_NUMBER
+        description: ''
+        data_type: NUMBER
+      - name: TOOL
+        description: ''
+        data_type: VARCHAR
+      - name: TOOL_ID
+        description: ''
+        data_type: NUMBER
+      - name: PLUGIN
+        description: ''
+        data_type: VARCHAR
+      - name: X
+        description: ''
+        data_type: NUMBER
+      - name: Y
+        description: ''
+        data_type: NUMBER
+      - name: SOURCE_TABLES
+        description: ''
+        data_type: VARCHAR
+      - name: DESTINATION_TABLES
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE_QUERY
+        description: ''
+        data_type: VARCHAR
+      - name: BOX_FILE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE_BOX_FILE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: DESTINATION_BOX_FILE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: MACRO_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SELECT_FIELDS
+        description: ''
+        data_type: VARCHAR
+      - name: LEFT_JOIN_FIELDS
+        description: ''
+        data_type: VARCHAR
+      - name: RIGHT_JOIN_FIELDS
+        description: ''
+        data_type: VARCHAR
+  - name: alteryx_gallery__base_users
+    columns:
+      - name: ID
+        description: ''
+        data_type: VARCHAR
+      - name: DISPLAY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DOMAIN_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: ROLE
+        description: ''
+        data_type: VARCHAR
+      - name: FIRST_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LAST_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: IS_ACTIVE
+        description: ''
+        data_type: NUMBER
+      - name: IS_API_ENABLED
+        description: ''
+        data_type: NUMBER
+      - name: ADDED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: UDPATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: LAST_LOGIN_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: CAN_CREATE_COLLECTION
+        description: ''
+        data_type: NUMBER
+      - name: CAN_SCHEDULE
+        description: ''
+        data_type: NUMBER
+      - name: CAN_SET_PRIORITY
+        description: ''
+        data_type: NUMBER
+      - name: CAN_SET_WORKER_TAG
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ

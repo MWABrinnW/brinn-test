@@ -12,3 +12,4 @@ edr_target/
 .env
 *.code-workspace
 package-lock.yml
+.github/scripts/line-counts.ps1
