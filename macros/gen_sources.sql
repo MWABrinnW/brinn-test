@@ -1,7 +1,7 @@
 {% macro gen_sources(database_name, schema_name) %}
     {% set sql %}
 with "columns" as (
-	select '- name: ' || lower(column_name) || '\n            description: "'|| lower(column_name) || ' (snowflake data type: '|| lower(DATA_TYPE) || ')"'
+	select '- name: ' || lower(column_name) || '\n            description: "'|| lower(comment) || '"'
 
             as column_statement,
 		table_name,

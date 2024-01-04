@@ -290,6 +290,14 @@ models:
         {%- else -%} edw_test
         {%- endif -%}
       +dbt-osmosis: "_{model}.yml"
+
+      advisors:
+        +tags: ["advisors", "network"]
+        enterprise:
+          +schema: enterprise
+          +grants:
+            select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+
       custodian:
         +tags: ["custodian", "custodial", "custodian-master"]
         build:
