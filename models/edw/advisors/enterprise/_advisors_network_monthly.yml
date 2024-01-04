@@ -1,6 +1,6 @@
 version: 2
 models:
-  - name: advisors_network
+  - name: advisors_network_monthly
     columns:
       - name: advisor_active_ind
         description: "indicates if this advisor is active for the current month-end.  1=true, 0=false"
