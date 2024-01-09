@@ -40,7 +40,7 @@ from {{ ref('cch_dau__stg_uvw_wipar02clientident') }} as W
 full outer join {{ ref('cch_dau__stg_invoice') }} as I on W.InvoiceIdent = I.InvoiceIdent
 left join {{ ref('cch_dau__stg_client') }} as C on I.ClientIdent = C.ClientIdent
 left join {{ ref('cch_dau__stg_servicecode') }} as S on W.ServiceCodeIdent = S.ServiceCodeIdent
-left join {{ ref('cch_dau__stg_clientaddress') }} as A on C.ClientIdent = A.ReferenceIdent
+left join {{ ref('cch_dau__stg_clientaddress') }} as A on C.ClientIdent = A.ReferenceIdent AND A.PrimaryAddressFlag = 'T'
 where TO_CHAR(I.InvoiceDateTime , 'Mon-yy') like '%-23'
 
 group by
