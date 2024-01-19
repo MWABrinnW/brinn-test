@@ -1,0 +1,513 @@
+version: 2
+models:
+  - name: black_diamond_mcgervey_history__base_accounts
+    columns:
+      - name: PMS
+        description: ''
+        data_type: VARCHAR
+      - name: PMS_LOCATION
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_REGISTRATION_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_SUBCATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: AS_OF_DATE
+        description: ''
+        data_type: DATE
+      - name: BILLABLE
+        description: ''
+        data_type: BOOLEAN
+      - name: BILLING_ACCOUNT_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_END_DATE
+        description: ''
+        data_type: DATE
+      - name: BILLING_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_START_DATE
+        description: ''
+        data_type: DATE
+      - name: CLOSED_DATE
+        description: ''
+        data_type: DATE
+      - name: CUSTODIAL_ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: DATA_PROVIDER
+        description: ''
+        data_type: VARCHAR
+      - name: DISCRETIONARY
+        description: ''
+        data_type: BOOLEAN
+      - name: EXTERNAL_BILLING_ACCOUNT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: HISTORY_START_DATE
+        description: ''
+        data_type: DATE
+      - name: ID
+        description: ''
+        data_type: VARCHAR
+      - name: LAST_RECONCILE_DATE
+        description: ''
+        data_type: DATE
+      - name: LONG_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: MANAGER
+        description: ''
+        data_type: VARCHAR
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: OTHER_BILLING_METHOD
+        description: ''
+        data_type: VARCHAR
+      - name: PAY_BY_INVOICE
+        description: ''
+        data_type: BOOLEAN
+      - name: PERFORMANCE_START_DATE
+        description: ''
+        data_type: DATE
+      - name: START_DATE
+        description: ''
+        data_type: DATE
+      - name: SUPERVISED
+        description: ''
+        data_type: BOOLEAN
+      - name: TOTAL_EMV
+        description: ''
+        data_type: NUMBER
+      - name: STYLE
+        description: ''
+        data_type: VARCHAR
+      - name: TAX_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: REP_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: RECORD_ID
+        description: ''
+        data_type: NUMBER
+      - name: NOTES_1
+        description: ''
+        data_type: VARCHAR
+      - name: NOTES_1_2
+        description: ''
+        data_type: VARCHAR
+      - name: NOTES_2
+        description: ''
+        data_type: VARCHAR
+      - name: SELECT_ALTERNATIVES
+        description: ''
+        data_type: VARCHAR
+      - name: SELECT_EQUITIES
+        description: ''
+        data_type: VARCHAR
+      - name: SELECT_FIXED_INCOME
+        description: ''
+        data_type: VARCHAR
+      - name: SELECT_PROGRAM
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+  - name: black_diamond_mcgervey_history__base_account_fees
+    columns:
+      - name: PMS
+        description: ''
+        data_type: VARCHAR
+      - name: PMS_LOCATION
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: FEE_SCHEDULE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: FEE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: FEE_RATE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: RECORD_ID
+        description: ''
+        data_type: NUMBER
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+  - name: black_diamond_mcgervey_history__base_portfolio_groups
+    columns:
+      - name: PMS
+        description: ''
+        data_type: VARCHAR
+      - name: PMS_LOCATION
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: PORTFOLIO_GROUP_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ASPORTFOLIO_GROUP_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_ID
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+  - name: black_diamond_mcgervey_history__base_account_benchmarks
+    columns:
+      - name: PMS
+        description: ''
+        data_type: VARCHAR
+      - name: PMS_LOCATION
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: BENCHMARK_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: RECORD_ID
+        description: ''
+        data_type: NUMBER
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+  - name: black_diamond_mcgervey_history__base_holdings
+    columns:
+      - name: PMS
+        description: ''
+        data_type: VARCHAR
+      - name: PMS_LOCATION
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ID
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: ASSET_ID
+        description: ''
+        data_type: NUMBER
+      - name: AS_OF_DATE
+        description: ''
+        data_type: DATE
+      - name: ASSET_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ASSET_NAME_SHORT
+        description: ''
+        data_type: VARCHAR
+      - name: ISSUE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: PROVIDER_ISSUE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: CLASS_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: UNITS
+        description: ''
+        data_type: NUMBER
+      - name: MARKET_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: CASH
+        description: ''
+        data_type: BOOLEAN
+      - name: BILLABLE
+        description: ''
+        data_type: BOOLEAN
+      - name: ASSET_TAGS
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: DISCRETIONARY
+        description: ''
+        data_type: VARCHAR
+      - name: PRICE
+        description: ''
+        data_type: NUMBER
+      - name: PROXY_VOTING_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: RECORD_ID
+        description: ''
+        data_type: NUMBER
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+  - name: black_diamond_mcgervey_history__base_tax_lots
+    columns:
+      - name: PMS
+        description: ''
+        data_type: VARCHAR
+      - name: PMS_LOCATION
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: TAX_LOT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: DISPLAY_CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: ASSET_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ASSET_ID
+        description: ''
+        data_type: NUMBER
+      - name: TRADE_DATE
+        description: ''
+        data_type: DATE
+      - name: OPEN_DATE
+        description: ''
+        data_type: DATE
+      - name: EMV
+        description: ''
+        data_type: NUMBER
+      - name: UNITS
+        description: ''
+        data_type: NUMBER
+      - name: COST_BASIS
+        description: ''
+        data_type: NUMBER
+      - name: UNIT_COST
+        description: ''
+        data_type: NUMBER
+      - name: PRICE_FACTOR
+        description: ''
+        data_type: NUMBER
+      - name: PAYDOWN_FACTOR
+        description: ''
+        data_type: NUMBER
+      - name: CASH
+        description: ''
+        data_type: BOOLEAN
+      - name: RECORD_ID
+        description: ''
+        data_type: NUMBER
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+  - name: black_diamond_mcgervey_history__base_account_tags
+    columns:
+      - name: PMS
+        description: ''
+        data_type: VARCHAR
+      - name: PMS_LOCATION
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: TAG_NAME
+        description: ''
+        data_type: VARCHAR
+        tests:
+          - accepted_values:
+              name: unique_black_diamond_mcgervey_tag_name
+              values: ['Name']
+              config:
+                severity: warn
+      - name: TAG_VALUE
+        description: ''
+        data_type: VARCHAR
+      - name: RECORD_ID
+        description: ''
+        data_type: NUMBER
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+  - name: black_diamond_mcgervey_history__base_relationships
+    columns:
+      - name: PMS
+        description: ''
+        data_type: VARCHAR
+      - name: PMS_LOCATION
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: RELATIONSHIP_ID
+        description: ''
+        data_type: VARCHAR
+      - name: RELATIONSHIP_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: HISTORY_START_DATE
+        description: ''
+        data_type: DATE
+      - name: RELATIONSHIP_TERMINATION_DATE
+        description: ''
+        data_type: DATE
+      - name: RELATIONSHIP_DISPLAY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_ID
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_DISPLAY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_DISPLAY_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ

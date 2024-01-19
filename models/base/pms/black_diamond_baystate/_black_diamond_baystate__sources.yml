@@ -8,15 +8,127 @@ sources:
     tables:
       - name: accounts
         description: ""
+        columns:
+          - name: JSON
+            data_type: VARIANT
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: RECORD_DATE
+            data_type: DATE
+            description: ''
+          - name: RECORD_DATETIME
+            data_type: TIMESTAMP_LTZ
+            description: ''
+          - name: RECORD_ID
+            data_type: NUMBER
+            description: ''
       - name: client
         description: ""
+        columns:
+          - name: JSON
+            data_type: VARIANT
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: RECORD_DATE
+            data_type: DATE
+            description: ''
+          - name: RECORD_DATETIME
+            data_type: TIMESTAMP_LTZ
+            description: ''
+          - name: RECORD_ID
+            data_type: NUMBER
+            description: ''
       - name: portfolio
         description: ""
+        columns:
+          - name: JSON
+            data_type: VARIANT
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: RECORD_DATE
+            data_type: DATE
+            description: ''
+          - name: RECORD_DATETIME
+            data_type: TIMESTAMP_LTZ
+            description: ''
+          - name: RECORD_ID
+            data_type: NUMBER
+            description: ''
       - name: portfolio_group
         description: ""
+        columns:
+          - name: JSON
+            data_type: VARIANT
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: RECORD_DATE
+            data_type: DATE
+            description: ''
+          - name: RECORD_DATETIME
+            data_type: TIMESTAMP_LTZ
+            description: ''
+          - name: RECORD_ID
+            data_type: NUMBER
+            description: ''
       - name: relationship
         description: ""
+        columns:
+          - name: JSON
+            data_type: VARIANT
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: RECORD_DATE
+            data_type: DATE
+            description: ''
+          - name: RECORD_DATETIME
+            data_type: TIMESTAMP_LTZ
+            description: ''
+          - name: RECORD_ID
+            data_type: NUMBER
+            description: ''
       - name: target
         description: ""
+        columns:
+          - name: JSON
+            data_type: VARIANT
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: RECORD_DATE
+            data_type: DATE
+            description: ''
+          - name: RECORD_DATETIME
+            data_type: TIMESTAMP_LTZ
+            description: ''
+          - name: RECORD_ID
+            data_type: NUMBER
+            description: ''
       - name: transactions
         description: ""
+        columns:
+          - name: JSON
+            data_type: VARIANT
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''
+          - name: RECORD_DATE
+            data_type: DATE
+            description: ''
+          - name: RECORD_DATETIME
+            data_type: TIMESTAMP_LTZ
+            description: ''
+          - name: RECORD_ID
+            data_type: NUMBER
+            description: ''

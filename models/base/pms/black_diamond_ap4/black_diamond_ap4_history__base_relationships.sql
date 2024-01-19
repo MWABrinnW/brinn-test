@@ -1,26 +1,26 @@
 {% set src = source('black_diamond_ap4', 'relationship') %}
 
-SELECT 
-    'black_diamond' as pms
-    , 'ap4' as pms_location
-    , 'mwa' AS firm_source
-    , EFFECTIVE_DATE                             AS EFFECTIVE_DATE
-    , JSON:Relationship.ID::string               AS RELATIONSHIP_ID
-    , JSON:Relationship.Name::string             AS RELATIONSHIP_NAME
-    , JSON:Relationship.ClientTypeID::string     AS RELATIONSHIP_CLIENT_TYPE_ID
-    , account.value:HistoryStartDate::date       AS HISTORY_START_DATE
-    , account.value:ClosedDate::date             AS RELATIONSHIP_TERMINATION_DATE
-    , account.value:Relationship::string         AS RELATIONSHIP_DISPLAY_NAME
-    , portfolios.value:Id::string                AS PORTFOLIO_ID
-    , portfolios.value:Name::string              AS PORTFOLIO_NAME
-    , portfolios.value:DisplayName::string       AS PORTFOLIO_DISPLAY_NAME
-    , account.value:ExternalID::string           AS ACCOUNT_ID
-    , account.value:LongNumber::string           AS ACCOUNT_NUMBER
-    , account.value:AccountDisplayNumber::string AS ACCOUNT_DISPLAY_NUMBER
-    , account.value:DisplayName::string          AS ACCOUNT_NAME
+select
+    'black_diamond'                              as pms
+    , 'ap4'                                      as pms_location
+    , 'mwa'                                      as firm_source
+    , effective_date                             as effective_date
+    , json:Relationship.ID::string               as relationship_id
+    , json:Relationship.Name::string             as relationship_name
+    , json:Relationship.ClientTypeID::string     as relationship_client_type_id
+    , account.value:HistoryStartDate::date       as history_start_date
+    , account.value:ClosedDate::date             as relationship_termination_date
+    , account.value:Relationship::string         as relationship_display_name
+    , portfolios.value:Id::string                as portfolio_id
+    , portfolios.value:Name::string              as portfolio_name
+    , portfolios.value:DisplayName::string       as portfolio_display_name
+    , account.value:ExternalID::string           as account_id
+    , account.value:LongNumber::string           as account_number
+    , account.value:AccountDisplayNumber::string as account_display_number
+    , account.value:DisplayName::string          as account_name
     , {{ col_is_head(reference=src) }}
     , {{ col_is_current(date_col='effective_date') }}
-    , record_datetime as _source_loaded_at
-FROM {{ src }},
-     table (flatten(JSON, 'ReferencedEntities.Accounts')) AS account,
-     table (flatten(JSON, 'ReferencingPortfolios')) AS portfolios
+    , record_datetime                            as _source_loaded_at
+from {{ src }}
+, table(flatten(json , 'ReferencedEntities.Accounts')) as account
+, table(flatten(json , 'ReferencingPortfolios')) as portfolios
