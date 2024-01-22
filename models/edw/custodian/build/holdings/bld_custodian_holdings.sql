@@ -12,6 +12,7 @@
           'nml_fidelity_mps_holdings'
          ,'nml_fidelity_mwa_holdings'
          ,'nml_fidelity_swag_holdings'
+         ,'nml_fidelity_baystate_holdings'
          ,'nml_pershing_mps_holdings'
          ,'nml_pershing_mwa_holdings'
          ,'nml_schwab_mps_holdings'
@@ -258,26 +259,30 @@ select
         order by case
             when h.firm_source = 'mwa'
                 then 1
-            when h.firm_source = 'mps'
+            when h.firm_source = 'baystate'
                 then 2
-            when h.firm_source = 'swag'
+            when h.firm_source = 'mps'
                 then 3
-            when h.firm_source = 'network'
+            when h.firm_source = 'swag'
                 then 4
-            else 5
+            when h.firm_source = 'network'
+                then 5
+            else 6
             end asc
         )                            as rn_firm_source
     , dense_rank() over (partition by h.effective_date, h.custodian, h.account_number
         order by case
             when h.firm_source = 'mwa'
                 then 1
-            when h.firm_source = 'mps'
+            when h.firm_source = 'baystate'
                 then 2
-            when h.firm_source = 'swag'
+            when h.firm_source = 'mps'
                 then 3
-            when h.firm_source = 'network'
+            when h.firm_source = 'swag'
                 then 4
-            else 5
+            when h.firm_source = 'network'
+                then 5
+            else 6
             end asc
         )                            as rn_global
     , h._source_loaded_at

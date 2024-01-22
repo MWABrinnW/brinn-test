@@ -10,6 +10,7 @@
           'nml_fidelity_mps_tax_lots'
          ,'nml_fidelity_mwa_tax_lots'
          ,'nml_fidelity_swag_tax_lots'
+         ,'nml_fidelity_baystate_tax_lots'
          ,'nml_schwab_tax_lots'
     ]
 -%}

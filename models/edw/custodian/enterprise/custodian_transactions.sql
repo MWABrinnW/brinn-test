@@ -5,6 +5,7 @@
           'nml_fidelity_mwa_transactions'
          ,'nml_fidelity_mps_transactions'
          ,'nml_fidelity_swag_transactions'
+         ,'nml_fidelity_baystate_transactions'
          ,'nml_schwab_transactions'
     ]
 -%}

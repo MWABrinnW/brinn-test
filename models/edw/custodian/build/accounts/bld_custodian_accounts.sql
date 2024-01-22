@@ -11,6 +11,7 @@
           'nml_schwab_mwa_accounts'
          ,'nml_schwab_mps_accounts'
          ,'nml_schwab_swag_accounts'
+         ,'nml_fidelity_baystate_accounts'
          ,'nml_fidelity_mwa_accounts'
          ,'nml_fidelity_mps_accounts'
          ,'nml_fidelity_swag_accounts'
@@ -201,13 +202,15 @@ select
                     order by case
                         when firm_source = 'mwa'
                             then 1
-                        when firm_source = 'mps'
+                        when firm_source = 'baystate'
                             then 2
-                        when firm_source = 'swag'
+                        when firm_source = 'mps'
                             then 3
-                        when firm_source = 'network'
+                        when firm_source = 'swag'
                             then 4
-                        else 5
+                        when firm_source = 'network'
+                            then 5
+                        else 6
                         end asc
                     )                as rn_global
     , current_timestamp()::timestamp as _created_at
