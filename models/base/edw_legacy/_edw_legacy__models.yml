@@ -1,0 +1,130 @@
+version: 2
+models:
+  - name: edw_legacy__base_employee_reporting_history
+    columns:
+      - name: EMPLOYEE_REPORTING_ID
+        description: ''
+        data_type: VARCHAR
+      - name: REPORT_MONTH_END
+        description: ''
+        data_type: DATE
+      - name: POSITION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: LEGALNAME_FULL
+        description: ''
+        data_type: VARCHAR
+      - name: EMPLOYMENT_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: WORKER_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: BENEFITSGROUP_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: DATE_OF_HIRE
+        description: ''
+        data_type: DATE
+      - name: HIRE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: REPLACEMENT_BUDGET
+        description: ''
+        data_type: VARCHAR
+      - name: FINAL_TERMINATION_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: VOL_INVOL
+        description: ''
+        data_type: VARCHAR
+      - name: CHANGE_REASON
+        description: ''
+        data_type: VARCHAR
+      - name: COST_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: COST_NUMBER_LEGAL_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: COST_NUMBER_REGION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: COST_NUMBER_MARKET_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: COST_NUMBER_LOCATION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: COST_NUMBER_TEAM_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: COST_NUMBER_NATURAL_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: COST_NUMBER_SUB_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: ADVISOR_NONADVISOR
+        description: ''
+        data_type: VARCHAR
+      - name: CLASS
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_REGION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_MARKET_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_DEPARTMENT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_LOCATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TITLE
+        description: ''
+        data_type: VARCHAR
+      - name: YEARS_OF_SERVICE
+        description: ''
+        data_type: VARCHAR
+      - name: AGE_BAND
+        description: ''
+        data_type: VARCHAR
+      - name: GENDER
+        description: ''
+        data_type: VARCHAR
+      - name: FTE
+        description: ''
+        data_type: FLOAT
+      - name: IS_START
+        description: ''
+        data_type: NUMBER
+      - name: IS_END
+        description: ''
+        data_type: NUMBER
+      - name: IS_NEW
+        description: ''
+        data_type: NUMBER
+      - name: IS_TERM
+        description: ''
+        data_type: NUMBER
+      - name: INVOL_TERM
+        description: ''
+        data_type: NUMBER
+      - name: VOL_TERM
+        description: ''
+        data_type: NUMBER
+      - name: YEAR_END_SUMMARY
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_START_DATE
+        description: ''
+        data_type: DATE
+      - name: JOB_FUNCTION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: REPORTING_OFFICE
+        description: ''
+        data_type: VARCHAR

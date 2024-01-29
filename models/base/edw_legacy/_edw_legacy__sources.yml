@@ -8,3 +8,196 @@ sources:
     tables:
       - name: employee_reporting_history
         description: ""
+        columns:
+          - name: EMPLOYEE_REPORTING_ID
+            data_type: VARCHAR
+            description: ''
+          - name: REPORT_MONTH_END
+            data_type: VARCHAR
+            description: ''
+          - name: POSITION_ID
+            data_type: VARCHAR
+            description: ''
+          - name: LEGALNAME_FULL
+            data_type: VARCHAR
+            description: ''
+          - name: EMPLOYMENT_STATUS
+            data_type: VARCHAR
+            description: ''
+          - name: WORKER_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: BENEFITSGROUP_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: FT_PT_TEMP
+            data_type: VARCHAR
+            description: ''
+          - name: DATE_OF_HIRE
+            data_type: VARCHAR
+            description: ''
+          - name: HIRE_TYPE
+            data_type: VARCHAR
+            description: ''
+          - name: REPLACEMENT_BUDGET
+            data_type: VARCHAR
+            description: ''
+          - name: FINAL_TERMINATION_DATE
+            data_type: VARCHAR
+            description: ''
+          - name: VOL_INVOL
+            data_type: VARCHAR
+            description: ''
+          - name: CHANGE_REASON
+            data_type: VARCHAR
+            description: ''
+          - name: COST_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: COST_NUMBER_LEGAL_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: COST_NUMBER_REGION_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: COST_NUMBER_MARKET_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: COST_NUMBER_LOCATION_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: COST_NUMBER_TEAM_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: COST_NUMBER_NATURAL_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: COST_NUMBER_SUB_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: ADVISOR_NONADVISOR
+            data_type: VARCHAR
+            description: ''
+          - name: CLASS
+            data_type: VARCHAR
+            description: ''
+          - name: POSITION_REGION_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: POSITION_MARKET_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: POSITION_DEPARTMENT_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: POSITION_LOCATION_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: TITLE
+            data_type: VARCHAR
+            description: ''
+          - name: YEARS_OF_SERVICE
+            data_type: VARCHAR
+            description: ''
+          - name: AGE_BAND
+            data_type: VARCHAR
+            description: ''
+          - name: GENDER
+            data_type: VARCHAR
+            description: ''
+          - name: FTE
+            data_type: FLOAT
+            description: ''
+          - name: START
+            data_type: NUMBER
+            description: ''
+          - name: END
+            data_type: NUMBER
+            description: ''
+          - name: NEW
+            data_type: NUMBER
+            description: ''
+          - name: TERM
+            data_type: NUMBER
+            description: ''
+          - name: INVOL_TERM
+            data_type: NUMBER
+            description: ''
+          - name: VOL_TERM
+            data_type: NUMBER
+            description: ''
+          - name: YEAR_END_SUMMARY
+            data_type: VARCHAR
+            description: ''
+          - name: POSITION_START_DATE
+            data_type: VARCHAR
+            description: ''
+          - name: JOB_FUNCTION_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: REPORTING_OFFICE
+            data_type: VARCHAR
+            description: ''
+      - name: revenue_referral_fees
+        description: ''
+        columns:
+          - name: SYSTEM_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: SOURCE_FILE_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: STATEMENT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: STATEMENT_DATE
+            data_type: DATE
+            description: ''
+          - name: REVENUE_QUARTER
+            data_type: DATE
+            description: ''
+          - name: CLIENT_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: CLIENT_MANAGER
+            data_type: VARCHAR
+            description: ''
+          - name: FINANCIAL_ACCOUNT_NUMBER
+            data_type: VARCHAR
+            description: ''
+          - name: LOCATION_CODE
+            data_type: VARCHAR
+            description: ''
+          - name: LOCATION_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: REFERRAL_PARTY_NAME
+            data_type: VARCHAR
+            description: ''
+          - name: REFERRAL_PARTY_ID
+            data_type: VARCHAR
+            description: ''
+          - name: CLIENT_NET_FEE
+            data_type: NUMBER
+            description: ''
+          - name: REFERRAL_RATE
+            data_type: NUMBER
+            description: ''
+          - name: REFERRAL_FEE
+            data_type: NUMBER
+            description: ''
+          - name: KEY
+            data_type: VARCHAR
+            description: ''
+          - name: ID
+            data_type: VARCHAR
+            description: ''
+          - name: RECORD_DATETIME
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: RECORD_DATE
+            data_type: DATE
+            description: ''
+          - name: REFERRAL_RATE_OVERRIDE
+            data_type: NUMBER
+            description: ''
