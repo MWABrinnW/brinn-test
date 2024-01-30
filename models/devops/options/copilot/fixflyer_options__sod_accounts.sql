@@ -75,6 +75,7 @@ select
         ';grant@mariner' ||
         ';tanner@mariner' ||
         ';austin@mariner' ||
+        ';allen@mariner' ||
         ';sharedblotter@mariner' ||
         ';adam@mariner' ||
         ';brett@mariner' ||
