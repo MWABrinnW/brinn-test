@@ -370,7 +370,7 @@ models:
         enterprise:
           +schema: enterprise
           +grants:
-            select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
+            select: "{{ ['engineering', 'datamanagement', 'db_edw_revenue_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       reports:
         +tags: ["report", "reports"]
