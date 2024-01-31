@@ -9,3 +9,4 @@ sources:
       - name: accounts
       - name: holdings
       - name: revenue_billing
+      - name: bills
