@@ -1,8 +1,9 @@
 {% set src = source('black_diamond_houston', 'accounts') %}
 
 select
-    'black_diamond'                                                             as pms
-    , 'houston'                                                                 as pms_location
+    'black_diamond'                                                             as system_name
+    , 'houston'                                                                 as system_instance
+    , concat(system_name , '_' , system_instance)                               as system_key
     , 'mwa'                                                                     as firm_source
     , a.effective_date                                                          as effective_date
     , a.json:AccountNumber::string                                              as account_number

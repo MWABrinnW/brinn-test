@@ -116,60 +116,6 @@ models:
       - name: IS_CURRENT
         description: ''
         data_type: NUMBER
-      - name: PB
-        description: ''
-        data_type: VARCHAR
-      - name: TR
-        description: ''
-        data_type: VARCHAR
-      - name: WAS_ACCOUNT
-        description: ''
-        data_type: VARCHAR
-      - name: NOTES
-        description: ''
-        data_type: VARCHAR
-      - name: STATE2
-        description: ''
-        data_type: VARCHAR
-      - name: STRATEGY
-        description: ''
-        data_type: VARCHAR
-      - name: LOT
-        description: ''
-        data_type: VARCHAR
-      - name: R
-        description: ''
-        data_type: VARCHAR
-      - name: SI_CUSTODY
-        description: ''
-        data_type: VARCHAR
-      - name: ACCOUNT_REGISTRATION
-        description: ''
-        data_type: VARCHAR
-      - name: TD_ACCOUNT_NUMBER
-        description: ''
-        data_type: VARCHAR
-      - name: STONNINGTON_REFERRAL
-        description: ''
-        data_type: VARCHAR
-      - name: REGULATORY_ACCOUNT
-        description: ''
-        data_type: VARCHAR
-      - name: QB
-        description: ''
-        data_type: VARCHAR
-      - name: MWA_CONTRACT
-        description: ''
-        data_type: VARCHAR
-      - name: REST_NOTES
-        description: ''
-        data_type: VARCHAR
-      - name: SAN_ACCOUNT
-        description: ''
-        data_type: VARCHAR
-      - name: STATE
-        description: ''
-        data_type: VARCHAR
       - name: _SOURCE_LOADED_AT
         description: ''
         data_type: TIMESTAMP_LTZ
@@ -337,77 +283,12 @@ models:
       - name: TAG_NAME
         description: ''
         data_type: VARCHAR
-        tests:
-          - accepted_values:
-              name: unique_black_diamond_houston_tag_name
-              values: ['Account Comments', 'Account Registration', 'Active/Passive Form', 'Advisor Commission Split Code', 'Lot', 'MWA Contract', 'Notes', 'Notes 1', 'Notes 2', 'QB', 'R', 'PB', 'Regulatory Account', 'Rest Notes', 'SAN Account', 'SI Custody', 'Select Alternatives', 'Select Equities', 'Select Fixed Income', 'Select Program', 'Stonnington Referral', 'Strategy', 'State', 'State2', 'TD Account Number', 'TR', 'WAS Account']
-              config:
-                severity: warn
       - name: TAG_VALUE
         description: ''
         data_type: VARCHAR
       - name: RECORD_ID
         description: ''
         data_type: NUMBER
-      - name: IS_HEAD
-        description: ''
-        data_type: NUMBER
-      - name: IS_CURRENT
-        description: ''
-        data_type: NUMBER
-      - name: _SOURCE_LOADED_AT
-        description: ''
-        data_type: TIMESTAMP_LTZ
-  - name: black_diamond_houston_history__base_relationships
-    columns:
-      - name: PMS
-        description: ''
-        data_type: VARCHAR
-      - name: PMS_LOCATION
-        description: ''
-        data_type: VARCHAR
-      - name: FIRM_SOURCE
-        description: ''
-        data_type: VARCHAR
-      - name: EFFECTIVE_DATE
-        description: ''
-        data_type: DATE
-      - name: RELATIONSHIP_ID
-        description: ''
-        data_type: VARCHAR
-      - name: RELATIONSHIP_NAME
-        description: ''
-        data_type: VARCHAR
-      - name: HISTORY_START_DATE
-        description: ''
-        data_type: DATE
-      - name: RELATIONSHIP_TERMINATION_DATE
-        description: ''
-        data_type: DATE
-      - name: RELATIONSHIP_DISPLAY_NAME
-        description: ''
-        data_type: VARCHAR
-      - name: PORTFOLIO_ID
-        description: ''
-        data_type: VARCHAR
-      - name: PORTFOLIO_NAME
-        description: ''
-        data_type: VARCHAR
-      - name: PORTFOLIO_DISPLAY_NAME
-        description: ''
-        data_type: VARCHAR
-      - name: ACCOUNT_ID
-        description: ''
-        data_type: VARCHAR
-      - name: ACCOUNT_NUMBER
-        description: ''
-        data_type: VARCHAR
-      - name: ACCOUNT_DISPLAY_NUMBER
-        description: ''
-        data_type: VARCHAR
-      - name: ACCOUNT_NAME
-        description: ''
-        data_type: VARCHAR
       - name: IS_HEAD
         description: ''
         data_type: NUMBER
@@ -506,6 +387,232 @@ models:
       - name: _SOURCE_LOADED_AT
         description: ''
         data_type: TIMESTAMP_LTZ
+  - name: black_diamond_houston_history__base_relationships
+    columns:
+      - name: PMS
+        description: ''
+        data_type: VARCHAR
+      - name: PMS_LOCATION
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: RELATIONSHIP_ID
+        description: ''
+        data_type: VARCHAR
+      - name: RELATIONSHIP_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: HISTORY_START_DATE
+        description: ''
+        data_type: DATE
+      - name: RELATIONSHIP_TERMINATION_DATE
+        description: ''
+        data_type: DATE
+      - name: RELATIONSHIP_DISPLAY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_ID
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_DISPLAY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_DISPLAY_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+  - name: black_diamond_houston_history__base_bills
+    columns:
+      - name: PMS
+        description: ''
+        data_type: VARCHAR
+      - name: PMS_LOCATION
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: ADV_5D_CLIENT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_LONG_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_REGISTRATION
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: AS_OF_DATE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: ASSIGNED_TO
+        description: ''
+        data_type: VARCHAR
+      - name: ASSIGNMENT_LEVEL
+        description: ''
+        data_type: VARCHAR
+      - name: BILLABLE_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: BILLED_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: BILLING_ACCOUNT_CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_ACCOUNT_LONG_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_CONFIGURATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_RULE_APPLIED
+        description: ''
+        data_type: BOOLEAN
+      - name: BILLING_START_DATE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: CASH_AVAILABLE
+        description: ''
+        data_type: NUMBER
+      - name: CASH_AVAILABLE_DATE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: CASH_DIFFERENCE
+        description: ''
+        data_type: NUMBER
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: DAYS_HELD
+        description: ''
+        data_type: NUMBER
+      - name: DAYS_IN_PERIOD
+        description: ''
+        data_type: NUMBER
+      - name: EXTERNAL_ID
+        description: ''
+        data_type: VARCHAR
+      - name: FEE_SCHEDULE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: FEE_OR_REBATE_AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: LAST_AS_OF_DATE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: LAST_BILLED_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: LAST_FEE_REBATE_AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: LAST_JOB_ID
+        description: ''
+        data_type: VARCHAR
+      - name: MWA_CONTRACT
+        description: ''
+        data_type: VARCHAR
+      - name: MANAGER_NAME_INVOICES
+        description: ''
+        data_type: VARCHAR
+      - name: PB
+        description: ''
+        data_type: BOOLEAN
+      - name: PERIOD_END_DATE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: PORTFOLIO_DISPLAY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_GROUP
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: PREFERENTIAL_RETIREMENT
+        description: ''
+        data_type: BOOLEAN
+      - name: QB
+        description: ''
+        data_type: VARCHAR
+      - name: RATE_PERCENTAGE
+        description: ''
+        data_type: NUMBER
+      - name: RATE_BPS
+        description: ''
+        data_type: NUMBER
+      - name: RATE_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: REGULATORY_ACCOUNT
+        description: ''
+        data_type: BOOLEAN
+      - name: SAN_ACCOUNT
+        description: ''
+        data_type: BOOLEAN
+      - name: START_DATE_ADJ_EMV
+        description: ''
+        data_type: NUMBER
+      - name: STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: STONNINGTON_REFERRAL
+        description: ''
+        data_type: BOOLEAN
+      - name: STYLE
+        description: ''
+        data_type: VARCHAR
+      - name: TOTAL_PERIOD_FEE
+        description: ''
+        data_type: NUMBER
+      - name: WAS_ACCOUNT
+        description: ''
+        data_type: BOOLEAN
+      - name: WORKFLOW
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
   - name: black_diamond_houston_history__base_account_benchmarks
     columns:
       - name: PMS
