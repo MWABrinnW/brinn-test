@@ -1,0 +1,359 @@
+version: 2
+models:
+  - name: addepar_corbenic_history__base_accounts
+    columns:
+      - name: SYSTEM_NAME
+        data_type: VARCHAR
+        description: ''
+      - name: SYSTEM_INSTANCE
+        data_type: VARCHAR
+        description: ''
+      - name: SYSTEM_KEY
+        data_type: VARCHAR
+        description: ''
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: TOP_LEVEL_HOLDING_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: TOP_LEVEL_HOLDING_ACCOUNT_ENTITY_ID
+        description: ''
+        data_type: VARCHAR
+      - name: TOP_LEVEL_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: HOLDING_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: HOLDING_ACCOUNT_ENTITY_ID
+        description: ''
+        data_type: VARCHAR
+      - name: HOLDING_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: TOP_LEVEL_OWNER
+        description: ''
+        data_type: VARCHAR
+      - name: TOP_LEVEL_OWNER_ENTITY_ID
+        description: ''
+        data_type: VARCHAR
+      - name: TOP_LEVEL_OWNER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: INCEPTION_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: VALUE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCRUED_INCOME
+        description: ''
+        data_type: VARCHAR
+      - name: CWM_CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: CWM_ACCOUNT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: CWM_STRATEGY
+        description: ''
+        data_type: VARCHAR
+      - name: CWM_LEAD_ADVISOR
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENT_MANAGER
+        data_type: VARCHAR
+        description: ''
+      - name: CWM_SERVICE_ADVISOR
+        description: ''
+        data_type: VARCHAR
+      - name: CWM_NON_DISCRETIONARY
+        description: ''
+        data_type: VARCHAR
+      - name: CWM_CLOSED_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: CWM_CLOSED_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: BILL_FEE_SCHEDULE
+        description: ''
+        data_type: VARCHAR
+      - name: FEE_SCHEDULE_LEGACY
+        description: ''
+        data_type: VARCHAR
+      - name: BILL_FEE_SCHEDULE_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: BILL_FEE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_PAYMENT_METHOD
+        description: ''
+        data_type: VARCHAR
+      - name: BILL_TO_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: EXCLUDE_FROM_BILLING
+        description: ''
+        data_type: VARCHAR
+      - name: VIEW_ID
+        description: ''
+        data_type: VARCHAR
+      - name: JOB_ID
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: CWM_LINE_OF_BUSINESS
+        description: ''
+        data_type: VARCHAR
+      - name: CWM_ERISA_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _ID
+        data_type: NUMBER
+        description: ''
+      - name: _CREATED_AT
+        data_type: TIMESTAMP_NTZ
+        description: ''
+      - name: _SOURCE_FILE
+        data_type: VARCHAR
+        description: ''
+  - name: addepar_corbenic_history__base_holdings
+    columns:
+      - name: SYSTEM_NAME
+        data_type: VARCHAR
+        description: ''
+      - name: SYSTEM_INSTANCE
+        data_type: VARCHAR
+        description: ''
+      - name: SYSTEM_KEY
+        data_type: VARCHAR
+        description: ''
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: HOLDING_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: HOLDING_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: HOLDING_ACCOUNT_ENTITY_ID
+        description: ''
+        data_type: VARCHAR
+      - name: CWM_CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: TOP_LEVEL_HOLDING_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: TOP_LEVEL_HOLDING_ACCOUNT_ENTITY_ID
+        description: ''
+        data_type: VARCHAR
+      - name: TOP_LEVEL_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: TOP_LEVEL_OWNER
+        description: ''
+        data_type: VARCHAR
+      - name: TOP_LEVEL_OWNER_ENTITY_ID
+        description: ''
+        data_type: VARCHAR
+      - name: TOP_LEVEL_OWNER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: TICKER_SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITY
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITY_ENTITY_ID
+        description: ''
+        data_type: VARCHAR
+      - name: DISPLAY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CWM_ASSET_CLASS
+        description: ''
+        data_type: VARCHAR
+      - name: ASSET_CLASS
+        description: ''
+        data_type: VARCHAR
+      - name: ACTUAL_SECURITY_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: GICS_SECURITY_DESCRIPTION_INTERNAL_ONLY
+        description: ''
+        data_type: VARCHAR
+      - name: PRICE_USD
+        description: ''
+        data_type: VARCHAR
+      - name: QUANTITY
+        description: ''
+        data_type: VARCHAR
+      - name: VALUATION_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: VALUE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCRUED_INCOME
+        description: ''
+        data_type: VARCHAR
+      - name: ORIGINAL_COST_BASIS_USD
+        description: ''
+        data_type: VARCHAR
+      - name: CWM_NON_DISCRETIONARY
+        description: ''
+        data_type: VARCHAR
+      - name: CFI_VOTING_RIGHT
+        description: ''
+        data_type: VARCHAR
+      - name: CFI_ASSETS
+        description: ''
+        data_type: VARCHAR
+      - name: VIEW_ID
+        description: ''
+        data_type: VARCHAR
+      - name: JOB_ID
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _ID
+        data_type: NUMBER
+        description: ''
+      - name: _CREATED_AT
+        data_type: TIMESTAMP_NTZ
+        description: ''
+      - name: _SOURCE_FILE
+        data_type: VARCHAR
+        description: ''
+  - name: addepar_corbenic_history__base_bills
+    columns:
+      - name: SYSTEM_NAME
+        data_type: VARCHAR
+        description: ''
+      - name: SYSTEM_INSTANCE
+        data_type: VARCHAR
+        description: ''
+      - name: SYSTEM_KEY
+        data_type: VARCHAR
+        description: ''
+      - name: FIRM_SOURCE
+        data_type: VARCHAR
+        description: ''
+      - name: CWM_CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: CWM_LEAD_ADVISOR
+        description: ''
+        data_type: VARCHAR
+      - name: REFERRAL_FEE_PARTNER
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_ID
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_ASSETS_BILLED_ON
+        description: ''
+        data_type: NUMBER
+      - name: BILLING_BILL_TO
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_BILL_TO_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_DATE
+        description: ''
+        data_type: DATE
+      - name: BILLING_EFFECTIVE_RATE
+        description: ''
+        data_type: NUMBER
+      - name: BILLING_FEE_EXCLUSION
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_FEE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_FEE_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: BILLING_GROSS_FEE
+        description: ''
+        data_type: NUMBER
+      - name: BILLING_PRORATED_FEE
+        description: ''
+        data_type: NUMBER
+      - name: BILLING_SCHEDULE_INTERVAL
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_SCHEDULE_TIMING
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_SCHEDULE
+        description: ''
+        data_type: VARCHAR
+      - name: HOLDING_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_PAYMENT_METHOD
+        description: ''
+        data_type: VARCHAR
+      - name: INCEPTION_EVENT_DATE
+        description: ''
+        data_type: DATE
+      - name: OWNER
+        description: ''
+        data_type: VARCHAR
+      - name: VALUE
+        description: ''
+        data_type: NUMBER
+      - name: ENTITY_ID
+        description: ''
+        data_type: VARCHAR
+      - name: GROUPING
+        description: ''
+        data_type: VARCHAR
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: _ID
+        data_type: NUMBER
+        description: ''
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
