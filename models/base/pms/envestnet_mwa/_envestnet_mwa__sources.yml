@@ -16,6 +16,8 @@ sources:
         description: ""
       - name: accountmaster_accounts
         description: ""
+      - name: bills
+        description: ""
       - name: codes_account_pricing_tier
         description: ""
       - name: codes_account_status

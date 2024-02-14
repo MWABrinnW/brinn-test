@@ -1,7 +1,8 @@
 select
-    'envestnet' as pms
-    , 'mwa' as pms_location
-    , 'mwa' as firm_source
+    'envestnet'                                        as system_name
+    , 'manasquan'                                      as system_instance
+    , concat(system_name , '__' , system_instance)     as system_key
+    , 'mwa'                                            as firm_source
     , effective_date
     , record_type
     , marital_status_id
