@@ -15,9 +15,9 @@ exposures:
       And then uploads using the copilot API.
 
     depends_on:
-      - ref('fixflyer_options__sod_accounts')
-      - ref('fixflyer_options__sod_positions')
-      - ref('fixflyer_options__sod_positions_exceptions')
+      - ref('flyer__sod_accounts')
+      - ref('flyer__sod_positions')
+      - ref('flyer__sod_positions_exceptions')
 
     owner:
       name: Engineering

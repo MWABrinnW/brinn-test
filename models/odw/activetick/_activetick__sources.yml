@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: activetick
+    description: ""
+    database: "{{ var('db_raw', env_var('DBT_DB_RAW', 'raw')) }}"
+    schema: activetick
+    tables:
+      - name: snapshots
+        description: ""

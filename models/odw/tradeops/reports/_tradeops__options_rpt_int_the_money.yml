@@ -1,0 +1,66 @@
+version: 2
+models:
+  - name: tradeops__options_rpt_in_the_money
+    description: >
+      In The Money report for the options trading team.
+    columns:
+      - name: ACCOUNT_ID
+        description: ''
+        data_type: NUMBER
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: GROUP_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITY_ID
+        description: ''
+        data_type: VARCHAR
+      - name: UNDERLYING_SECURITY
+        description: ''
+        data_type: VARCHAR
+      - name: EXPIRATION_DATE
+        description: ''
+        data_type: DATE
+      - name: PUT_CALL
+        description: ''
+        data_type: VARCHAR
+      - name: STRIKE_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: PREVIOUS_CLOSE
+        description: ''
+        data_type: NUMBER
+      - name: OTM
+        description: ''
+        data_type: NUMBER
+      - name: UNREALIZED_PNL
+        description: ''
+        data_type: NUMBER
+      - name: QUANTITY
+        description: ''
+        data_type: NUMBER
+      - name: CLOSE_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: LAST_TRADE_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: 10_DAY_AVG_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: DIVIDEND_EX_DATE
+        description: ''
+        data_type: DATE
+      - name: DIVIDEND_AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: UNREALIZED_GAIN_%
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ

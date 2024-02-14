@@ -135,6 +135,10 @@ models:
           +tags: ["fidelity", "mwa"]
           +grants:
             select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        fidelity_baystate:
+          +tags: ["fidelity", "baystate"]
+          +grants:
+            select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         lpl_network:
           +tags: ["lpl", "network", "mps"]
           +grants:
@@ -256,15 +260,14 @@ models:
         +grants:
           select: "{{ ['db_it_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
-    # [DEVOPS]
-
-    devops:
-      +tags: ["devops"]
+    # [ODW]
+    odw:
+      +tags: ["devops","odw"]
       +database: |
-        {%- if  target.name == "dev" -%} devops_test
-        {%- elif target.name == "prod"  -%} devops
-        {%- elif target.name == "test"  -%} devops_test
-        {%- else -%} devops_test
+        {%- if  target.name == "dev" -%} {{target.database}}
+        {%- elif target.name == "prod"  -%} odw
+        {%- elif target.name == "test"  -%} odw_test
+        {%- else -%} odw_test
         {%- endif -%}
       +grants:
         +select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
@@ -272,13 +275,19 @@ models:
 
       activetick:
         +tags: ["activetick"]
-      lifi:
-        +tags: ["lifi"]
+      flyer:
+        +tags: ["flyer", "copilot"]
+      fourforty:
+        +tags: ["fourforty"]
       moxy:
         +tags: ["moxy"]
-        +enabled: false
-      options:
-        +tags: ["options", "options_reporting"]
+      tradeops:
+        +tags: ["trading", "tradeops"]
+        +grants:
+          +select: "{{ ['trading_options'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        lifi:
+          +grants:
+            select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
     # [EDW]
     edw:

@@ -1,0 +1,85 @@
+version: 2
+models:
+  - name: flyer__sod_positions_prep
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: 'End-client account number at Schwab.'
+        data_type: VARCHAR
+      - name: PRODUCT
+        description: ''
+        data_type: VARCHAR
+      - name: TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: 'CUSIP'
+        data_type: VARCHAR
+      - name: QUANTITY
+        description: ''
+        data_type: NUMBER
+      - name: PRICE
+        description: ''
+        data_type: NUMBER
+      - name: LOT_COST
+        description: ''
+        data_type: NUMBER
+      - name: CURRENT_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: IS_CASH
+        description: ''
+        data_type: NUMBER
+      - name: IS_SWEEP
+        description: ''
+        data_type: NUMBER
+      - name: LOT_DATE
+        description: ''
+        data_type: NUMBER
+      - name: LOT_NUM
+        description: ''
+        data_type: VARCHAR
+      - name: UNSUPERVISED
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIPLOOKUP
+        description: ''
+        data_type: VARCHAR
+      - name: PREFERRED
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITYID
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITY_TYPE_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: FUND_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE_SOURCE_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE_SOURCE_DEFINITION
+        description: ''
+        data_type: VARCHAR
+      - name: LEGACY_PRODUCT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: LEGACY_PRODUCT_TYPE_SOURCE_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: LEGACY_PRODUCT_TYPE_SOURCE_DEFINITION
+        description: ''
+        data_type: VARCHAR
+      - name: SRC
+        description: ''
+        data_type: VARCHAR

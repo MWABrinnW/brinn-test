@@ -1,0 +1,112 @@
+version: 2
+models:
+  - name: flyer__stg_sod_salesforce_accounts
+    columns:
+      - name: ID
+        description: ''
+        data_type: VARCHAR
+      - name: TRADING_SYSTEM__C
+        description: ''
+        data_type: VARCHAR
+      - name: IDENTIFIER__C
+        description: ''
+        data_type: VARCHAR
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: STATUS__C
+        description: ''
+        data_type: VARCHAR
+      - name: OPENINGDATE__C
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD__C
+        description: ''
+        data_type: VARCHAR
+      - name: AUM_CLASSIFICATION__C
+        description: ''
+        data_type: VARCHAR
+      - name: SUBADVISOR_DATE_OPENED__C
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNTIDORION__C
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_TYPE__C
+        description: ''
+        data_type: VARCHAR
+      - name: ATTRIBUTES_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ATTRIBUTES_URL
+        description: ''
+        data_type: VARCHAR
+      - name: REGISTRATION_TYPE__R_ATTRIBUTES_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: REGISTRATION_TYPE__R_ATTRIBUTES_URL
+        description: ''
+        data_type: VARCHAR
+      - name: REGISTRATION_TYPE__R_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN__R_ATTRIBUTES_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN__R_ATTRIBUTES_URL
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN__R_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: MODEL_ON_ACCOUNT__R_ATTRIBUTES_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: MODEL_ON_ACCOUNT__R_ATTRIBUTES_URL
+        description: ''
+        data_type: VARCHAR
+      - name: MODEL_ON_ACCOUNT__R_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD__R_ATTRIBUTES_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD__R_ATTRIBUTES_URL
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD__R_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD__R_CLIENT_MANAGER__R_ATTRIBUTES_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD__R_CLIENT_MANAGER__R_ATTRIBUTES_URL
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD__R_CLIENT_MANAGER__R_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SUBADVISOR__R_ATTRIBUTES_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: SUBADVISOR__R_ATTRIBUTES_URL
+        description: ''
+        data_type: VARCHAR
+      - name: SUBADVISOR__R_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD__R_CLIENT_MANAGER__R
+        description: ''
+        data_type: VARCHAR
+      - name: MODEL_ON_ACCOUNT__R
+        description: ''
+        data_type: VARCHAR
+      - name: REGISTRATION_TYPE__R
+        description: ''
+        data_type: VARCHAR
+      - name: SUBADVISOR__R
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ

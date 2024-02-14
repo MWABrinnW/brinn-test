@@ -1,0 +1,61 @@
+version: 2
+models:
+  - name: tradeops__lifi_changes
+    columns:
+      - name: ACCOUNT_NUMBER
+        description: 'End-client account number at Schwab.'
+        data_type: VARCHAR
+      - name: SF_ID
+        description: ''
+        data_type: VARCHAR
+      - name: IS_IN_ORION
+        description: ''
+        data_type: NUMBER
+      - name: IS_IN_SCHWAB
+        description: ''
+        data_type: NUMBER
+      - name: IS_IN_FIDELITY
+        description: ''
+        data_type: NUMBER
+      - name: IS_IN_CUSTODIAN
+        description: ''
+        data_type: NUMBER
+      - name: IS_IN_SALESFORCE
+        description: ''
+        data_type: NUMBER
+      - name: IS_SALESFORCE_SUBADVISOR
+        description: ''
+        data_type: NUMBER
+      - name: IS_SUBADVISOR_LIFI
+        description: ''
+        data_type: NUMBER
+      - name: IS_CUSTODIAN_LIFI
+        description: ''
+        data_type: NUMBER
+      - name: IS_SALESFORCE_LIFI
+        description: ''
+        data_type: NUMBER
+      - name: IS_LIFI
+        description: ''
+        data_type: NUMBER
+      - name: LIFI_REASON
+        description: ''
+        data_type: VARCHAR
+      - name: CHANGE_SUMMARY
+        description: ''
+        data_type: VARCHAR
+      - name: SALESFORCE_NEEDS_UPDATED
+        description: ''
+        data_type: NUMBER
+      - name: SF_CLOSED_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: SF_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: IS_LINKED_AT_ALL
+        description: ''
+        data_type: NUMBER
+      - name: CUSTODIAN_ACCOUNT_VALUE
+        description: ''
+        data_type: NUMBER

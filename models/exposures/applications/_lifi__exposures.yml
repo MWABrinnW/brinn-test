@@ -14,8 +14,8 @@ exposures:
       daily reconciliation process.
 
     depends_on:
-      - ref('lifi__sf_changes')
-      - ref('lifi__sf_changes_summary')
+      - ref('tradeops__lifi_changes')
+      - ref('tradeops__lifi_changes_summary')
 
     owner:
       name: Engineering

@@ -1,0 +1,37 @@
+version: 2
+
+sources:
+  - name: lifi
+    description: ""
+    database: "{{ var('db_raw', env_var('DBT_DB_RAW', 'raw')) }}"
+    tables:
+      - name: estate_item_temp_lifi
+        description: ""
+        columns:
+          - name: ID
+            data_type: VARCHAR
+            description: ''
+          - name: IDENTIFIER__C
+            data_type: VARCHAR
+            description: ''
+          - name: STATUS__C
+            data_type: VARCHAR
+            description: ''
+          - name: CLOSINGDATE__C
+            data_type: VARCHAR
+            description: ''
+          - name: SUBADVISOR__C
+            data_type: VARCHAR
+            description: ''
+          - name: LINKED_INDIVIDUAL_FIXED_INCOME__C
+            data_type: VARCHAR
+            description: ''
+          - name: CUSTODIAN__C
+            data_type: VARCHAR
+            description: ''
+          - name: ISDELETED
+            data_type: VARCHAR
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''

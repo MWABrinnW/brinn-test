@@ -131,6 +131,13 @@ select
   , a.cusip_issue_check                 as cusip_issue_check
   , o.orion_instance                    as orion_instance_source
   , o.orion_loaded_at::timestamp        as orion_loaded_at
+
+  , row_number() over(partition by a.ticker order by
+    case when o.orion_instance = 'Mariner, LLC' then 1 else 2 end
+    , case when where_traded = 'NYSE' then 1 else 2 end
+    , case when a.is_13f = 1 then 1 else 2 end
+  )                                     as rn_ticker
+
   , current_timestamp()::timestamp_ltz  as _created_at
   , a._source_loaded_at                 as _source_loaded_at
   , a._source_file                      as _source_file

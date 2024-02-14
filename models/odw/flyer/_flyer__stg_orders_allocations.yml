@@ -1,0 +1,448 @@
+version: 2
+models:
+  - name: flyer__stg_orders_allocations
+    columns:
+      - name: ALLOC_ID
+        description: ''
+        data_type: VARCHAR
+      - name: USER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: TRADING_SESSION_ID
+        data_type: VARCHAR
+        description: ''
+      - name: TRADING_SESSION_DATE
+        data_type: DATE
+        description: ''
+      - name: CLIENT_ORDER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORIGINAL_CLIENT_ORDER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: TRANSACTION_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: SHARES
+        description: ''
+        data_type: NUMBER
+      - name: AVERAGE_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: NUMBER_OF_ORDERS
+        description: ''
+        data_type: NUMBER
+      - name: NUMBER_OF_EXECUTIONS
+        description: ''
+        data_type: NUMBER
+      - name: SIDE
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITY_ID
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITY_ID_SRC
+        description: ''
+        data_type: VARCHAR
+      - name: NET_MONEY
+        description: ''
+        data_type: VARCHAR
+      - name: TOTAL_NUMBER_OF_ALLOCATIONS
+        description: ''
+        data_type: NUMBER
+      - name: NUMBER_OF_ALLOCATIONS
+        description: ''
+        data_type: NUMBER
+      - name: CURRENT_ALLOCATION_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_QAUNTITY
+        description: ''
+        data_type: NUMBER
+      - name: ACCRUED_INTEREST_RATE
+        description: ''
+        data_type: NUMBER
+      - name: CUST_ID
+        description: ''
+        data_type: VARCHAR
+      - name: USER_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: METHOD
+        description: ''
+        data_type: VARCHAR
+      - name: BEGIN_STRING
+        description: ''
+        data_type: VARCHAR
+      - name: ON_BEHALF_OF_COMP_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ON_BEHALF_OF_SUB_ID
+        description: ''
+        data_type: VARCHAR
+      - name: TARGET_COMP_ID
+        description: ''
+        data_type: VARCHAR
+      - name: SENDER_COMP_ID
+        description: ''
+        data_type: VARCHAR
+      - name: MESSAGE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: MESSAGE_SEQUENCE_NO
+        description: ''
+        data_type: VARCHAR
+      - name: MEMBER_ALLOC_ID
+        description: ''
+        data_type: VARCHAR
+      - name: MEMBER_INDIV_ALLOC_ID
+        description: ''
+        data_type: VARCHAR
+      - name: MEMBER_TRADING_SESSION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: MEMBER_USER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: MEMBER_CREATOR_ID
+        description: ''
+        data_type: VARCHAR
+      - name: MEMBER_CREATOR_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: MEMBER_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: MEMBER_QUANTITY
+        description: ''
+        data_type: NUMBER
+      - name: MEMBER_AVG_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: MEMBER_NET_MONEY
+        description: ''
+        data_type: NUMBER
+      - name: MEMBER_AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: MEMBER_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: MEMBER_ORIGINAL_ORDER_QTY
+        description: ''
+        data_type: NUMBER
+      - name: MEMBER_ORIGINAL_CLIENT_ORDER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: MEMBER_SEC_FEE
+        description: ''
+        data_type: NUMBER
+      - name: MEMBER_OTHER_FEE
+        description: ''
+        data_type: NUMBER
+      - name: MEMBER_SETTLEMENT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: MEMBER_ACCRUED_INTEREST_AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: MEMBER_PURCHASE_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: MEMBER_PRINCIPAL
+        description: ''
+        data_type: NUMBER
+      - name: MEMBER_COMM
+        description: ''
+        data_type: NUMBER
+      - name: MEMBER_COMM_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: MEMBER_ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: MEMBER_LOT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_BLOCK_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_AGGREGATED_CLIENT_ORDER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_SLEEVE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_CREATOR_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_CREATOR_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_INDIV_COUNT
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_AUTO_SLICE_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_CLIENT_ORDER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_USER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_TRADING_SESSION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_CUST_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_USER_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_TRADER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_TRADER_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_CUSTODIAL_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_SIDE
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_TIME_IN_FORCE
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_EXEC_INST
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_ORDER_QTY
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_STOP_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_HANDL_INST
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_EXPIRE_TIME
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_COMMISSION
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_MAX_FLOOR
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_RATIO_QTY
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_NO_LEGS
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_AVG_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_FILL_QTY
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_BEGIN_STRING
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_TARGET_COMP_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_SENDER_COMP_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_MESSAGE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_ON_BEHALF_OF_COMPID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_ON_BEHALF_OF_SUB_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_IS_VALID_SYMBOL
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_ASSET_CLASS
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_HAS_RESTAGE_FLAG
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_CURRENT_ORDER_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_SUBMITTED_BY
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_OPTION_CLIENT_ORD_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_OPTION_TRADING_SESSION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_OPTION_USER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_OPTION_STRIKE_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_OPTION_PUT_OR_CALL
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_OPTION_POSITION_EFFECT
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_OPTION_CUSTOMER_OR_FIRM
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_MUTUALFUND_CLIENT_OR_DID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_MUTUALFUND_TRADING_SESSION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_MUTUALFUND_USER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_MUTUALFUND_STATE
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_MUTUALFUND_AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_MUTUALFUND_ROUND
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_MUTUALFUND_DIVIDEND
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_MUTUALFUND_LONG_TERM_GAIN
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_MUTUALFUND_SHORT_TERM_GAIN
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_MUTUALFUND_INITIAL_OR_FULL
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_HAS_MUTUALFUND_FEE_INDICATOR
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_MUTUALFUND_LINK_QTY_PERCENT
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_MUTUALFUND_LINK_AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_FIXEDINCOME_CLIENT_ORDER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_FIXEDINCOME_TRADING_SESSION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_FIXEDINCOME_USER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_FIXEDINCOME_COUPON_RATE
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_FIXEDINCOME_SECURITY_DESC
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_FIXEDINCOME_PRICE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_FIXEDINCOME_ACCRUED_INTEREST_AMT
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_FIXEDINCOME_FACTOR
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_FIXEDINCOME_PRODUCT
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_FIXEDINCOME_YIELD
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_FIXEDINCOME_ORIGINALFACE
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_FIXEDINCOME_PRINCIPAL
+        description: ''
+        data_type: NUMBER
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: EFFECTIVE_DATE
+        data_type: DATE
+        description: ''
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: _URI
+        description: ''
+        data_type: VARCHAR
+      - name: TRADE_DATE
+        description: ''
+        data_type: DATE
+      - name: TRANSACTION_TIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: ORDER_TRADE_DATE
+        description: ''
+        data_type: DATE
+      - name: ORDER_TRANSACTION_TIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: ORDER_OPTION_MATURITY_DATE
+        description: ''
+        data_type: DATE
+      - name: TRADING_SESSION_DATE_2
+        data_type: DATE
+        description: ''
+      - name: CLIENT_ORDER_ID_2
+        data_type: VARCHAR
+        description: ''
+      - name: TRADE_DATE_2
+        data_type: DATE
+        description: ''
+      - name: TRANSACTION_TIME_2
+        data_type: TIMESTAMP_NTZ
+        description: ''
+      - name: ORDER_TRADE_DATE_2
+        data_type: DATE
+        description: ''
+      - name: ORDER_TRANSACTION_TIME_2
+        data_type: TIMESTAMP_NTZ
+        description: ''
+      - name: ORDER_OPTION_MATURITY_DATE_2
+        data_type: DATE
+        description: ''
+      - name: _ENV
+        data_type: VARCHAR
+        description: ''

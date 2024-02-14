@@ -1,0 +1,49 @@
+version: 2
+models:
+  - name: tradeops__options_rpt_trade_match
+    description: >
+      Options trade match report comparing internal (Copilot) trades to what the custodian records.
+      Produces a single dataset classifying each trade.
+
+      MATCHED: Exists internally (Copilot) and externally (custodian).
+
+      UNMATCHED-OMS: Exists internally but not externally.
+
+      UNMATCHED-EXTERNAL: Exists externally but not internally (we did not place the trade via internal system).
+    columns:
+      - name: TRADE_DATE
+        description: 'The date the trade was executed. NOTE: This field is not the same as the "Transaction Date" in Schwab''s legacy transaction files. To match the Transaction Date in the legacy files, use ''Transaction Date'' instead.'
+        data_type: DATE
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: 'End-client account number at Schwab'
+        data_type: VARCHAR
+      - name: SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: UNITS_INTERNAL
+        description: ''
+        data_type: NUMBER
+      - name: UNITS_EXTERNAL
+        description: ''
+        data_type: NUMBER
+      - name: PRICE_INTERNAL
+        description: ''
+        data_type: NUMBER
+      - name: PRICE_EXTERNAL
+        description: ''
+        data_type: NUMBER
+      - name: DIFF
+        description: ''
+        data_type: NUMBER
+      - name: MATCH_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: RESTRICTIONS_SOURCE_CODE
+        description: ''
+        data_type: VARCHAR
