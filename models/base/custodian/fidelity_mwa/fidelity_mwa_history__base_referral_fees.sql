@@ -1,5 +1,5 @@
 select
-      dt.year_quarternum                                        as yearmo
+      dt.yyyymm                                                 as yearmo
     , dt.quarter_end_date                                       as quarter_end_date
     , dt.quarter_end_date                                       as effective_date
     , 'fidelity'                                                as custodian
@@ -17,7 +17,7 @@ select
     , json:"Days in Period"::int                                as days_in_period
     , json:"Acc Total Fee"::decimal(15,2)                       as account_total_fee
     , json:"Months Remaining in Billing Cycle"::text            as months_remaining_in_billing_cycle
-    , max(dt.quarter_end_date) over(partition by dt.year_quarternum) as period_max_effective_date
+    , max(dt.quarter_end_date) over(partition by dt.yyyymm)     as period_max_effective_date
     , case when dt.quarter_end_date = period_max_effective_date
         then 1
         else 0
