@@ -8,10 +8,10 @@ with cte_dates as
 (
   select
       a.*
-    , case 
-        when h.market_holiday is not null 
-          then 1 
-        else 0 
+    , case
+        when h.market_holiday is not null
+          then 1
+        else 0
         end                   as is_holiday
   from {{ ref('base_dates') }} a
   left join {{ ref('market_holidays') }} h
@@ -40,12 +40,15 @@ with cte_dates as
     , day_of_week_name                                        as day_of_week_name
     , day_of_week_name_short                                  as day_of_week_name_short
     , day_of_month                                            as month_daynum
+    , day_of_month                                            as dm
     , day_of_year                                             as year_daynum
+    , day_of_year                                             as dy
     , week_start_date                                         as week_start_date
     , week_end_date                                           as week_end_date
     , prior_year_week_start_date                              as prior_year_week_start_date
     , prior_year_week_end_date                                as prior_year_week_end_date
     , week_of_year                                            as year_weeknum
+    , week_of_year                                            as wy
     , iso_week_start_date                                     as iso_week_start_date
     , iso_week_end_date                                       as iso_week_end_date
     , prior_year_iso_week_start_date                          as prior_year_iso_week_start_date
@@ -53,18 +56,32 @@ with cte_dates as
     , iso_week_of_year                                        as year_iso_weeknum
     , prior_year_week_of_year                                 as prior_year_weeknum
     , prior_year_iso_week_of_year                             as prior_year_iso_weeknum
-    , month_of_year                                           as year_monthnum
+    , month_of_year                                           as monthnum
+    , month_of_year                                           as my
     , month_name                                              as month_name
+    , month_name                                              as mmmm
     , month_name_short                                        as month_name_short
     , month_start_date                                        as month_start_date
     , month_end_date                                          as month_end_date
     , prior_year_month_start_date                             as prior_year_month_start_date
     , prior_year_month_end_date                               as prior_year_month_end_date
-    , to_char(quarter_end_date, 'YYYYMM')::int                as year_quarternum
+    , to_char(quarter_end_date, 'YYYYMM')::int                as year_monthnum
+    , to_char(quarter_end_date, 'YYYYMM')::int                as yyyymm
     , quarter_of_year                                         as quarternum
+    , quarter_of_year                                         as q
     , concat('Q', quarter_of_year)                            as quarter
+    , concat('Q', quarter_of_year)                            as qx
+    , concat(year_number, quarter)                            as year_quarter
+    , concat(year_number, quarter)                            as yyyyqx
+    , concat(quarter, year_number)                            as qxyyyy
+    , concat(quarter_of_year, 'Q', year_number)               as xqyyyy
     , quarter_start_date                                      as quarter_start_date
     , quarter_end_date                                        as quarter_end_date
+    , case
+        when date_day = quarter_end_date
+          then 1
+          else 0
+          end::int                                            as is_quarter_end
     , date_trunc(month, dateadd(month, -2, quarter_end_date)) as prior_quarter_start_date
     , dateadd(d, -1, quarter_start_date)                      as prior_quarter_end_date
     , year_number                                             as yearnum
