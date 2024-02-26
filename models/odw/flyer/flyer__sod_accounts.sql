@@ -30,6 +30,7 @@ with custodian_accounts as
         , replace(name,'','')                              as account_name
         , null::text(200)                                   as model_name
         , Registration_Type__r_Name                         as account_type
+        , HOUSEHOLD__R_CLIENT_MANAGER__R_NAME               as advisorname
         , accountidorion__c                                 as orion_account_id
         , Id                                                as crm_id
         , _created_at                                       as _created_at
@@ -45,6 +46,7 @@ with custodian_accounts as
         , a.account_number_formatted
         , a.link
         , regexp_replace(replace(coalesce(c.account_name, a.account_name),'"',''), '\\s+',' ') as account_name
+        , c.advisorname
         , c.model_name
         , coalesce(c.account_type, a.account_type) as account_type
         , c.crm_id
@@ -88,5 +90,6 @@ select
     , crm_id::text(200)                         as portfoliocode2
     , null::text(200)                           as portfoliocode3
     , account_type                              as accounttype
+    , advisorname::text(200)                    as advisorname
 from accounts
 where rn = 1

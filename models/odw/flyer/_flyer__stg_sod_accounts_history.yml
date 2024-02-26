@@ -3,74 +3,77 @@ models:
   - name: flyer__stg_sod_accounts_history
     columns:
       - name: EFFECTIVE_DATE
-        description: ''
+        description: ""
         data_type: DATE
       - name: ACCOUNT_NO
-        description: ''
+        description: ""
         data_type: VARCHAR
       - name: ACCOUNT_NAME
-        description: ''
+        description: ""
         data_type: VARCHAR
       - name: CUSTODIAN
-        description: ''
+        description: ""
         data_type: VARCHAR
       - name: DESCRIPTION
-        description: ''
+        description: ""
         data_type: VARCHAR
       - name: NOTES
-        description: ''
+        description: ""
         data_type: VARCHAR
       - name: MODEL_NAME
-        description: ''
+        description: ""
         data_type: VARCHAR
       - name: CLOSING_METHOD
-        description: ''
+        description: ""
         data_type: VARCHAR
       - name: LONG_TERM_TAX_RATE
-        description: ''
+        description: ""
         data_type: NUMBER
       - name: SHORT_TERM_TAX_RATE
-        description: ''
+        description: ""
         data_type: NUMBER
       - name: USE_ACCOUNT_CASH
-        description: ''
+        description: ""
         data_type: VARCHAR
       - name: CASH_RESERVE_TYPE
-        description: ''
+        description: ""
         data_type: VARCHAR
       - name: CASH_RESERVE
-        description: ''
+        description: ""
         data_type: VARCHAR
       - name: TAXABLE
-        description: ''
+        description: ""
         data_type: VARCHAR
       - name: CASHRESERVEEXPIRY
-        description: ''
+        description: ""
         data_type: VARCHAR
       - name: DISABLESLEEVES
-        description: ''
+        description: ""
         data_type: VARCHAR
       - name: PORTFOLIOCODE1
-        description: ''
+        description: ""
         data_type: VARCHAR
       - name: PORTFOLIOCODE2
-        description: ''
+        description: ""
         data_type: VARCHAR
       - name: PORTFOLIOCODE3
-        description: ''
+        description: ""
         data_type: VARCHAR
       - name: ACCOUNTTYPE
-        description: ''
+        description: ""
+        data_type: VARCHAR
+      - name: ADVISORNAME
+        description: ""
         data_type: VARCHAR
       - name: ASSOCIATED_USERS
-        description: ''
+        description: ""
         data_type: VARCHAR
       - name: IS_HEAD
-        description: ''
+        description: ""
         data_type: NUMBER
       - name: IS_HEAD_FOR_DAY
-        description: ''
+        description: ""
         data_type: NUMBER
       - name: _CREATED_AT
         data_type: TIMESTAMP_NTZ
-        description: ''
+        description: ""

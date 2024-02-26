@@ -19,6 +19,7 @@ select
     , a.portfoliocode2::text(200)           as portfoliocode2
     , a.portfoliocode3::text(200)           as portfoliocode3
     , a.accounttype::text(200)              as accounttype
+    , a.advisorname::text(200)              as advisorname
     , a.associated_users::text(600)         as associated_users
     , case
         when a.effective_date::date = (
