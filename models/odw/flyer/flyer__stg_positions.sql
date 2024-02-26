@@ -82,7 +82,7 @@ select
         || ' '
         || to_char(option_ex_date, 'YYMMDD')
         || option_type
-        || option_strike_price::int * 1000
+        || lpad(to_char((option_strike_price * 1000)::int), 8, '0')
         ::text(200)                                  as option_symbol
 
     , case
@@ -109,4 +109,6 @@ left join {{ ref('dates' ) }} as dt
     on a._created_at::date = dt.date_key
 where 1 = 1
     and _env = {{ "'" ~ flyer_env() ~ "'" }}
+    and product_type = 'OPT'
+    and _created_at::date = '2/26/2024'
 order by a._created_at , a.json:accountId::int , a.json:positionId::int
