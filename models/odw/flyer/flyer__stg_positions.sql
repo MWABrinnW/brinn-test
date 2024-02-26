@@ -38,6 +38,7 @@ select
     , a.json:parentGroupId::int                      as parent_group_id
     , a.json:previousClose::number(19 , 6)           as previous_close
     , a.json:product::text(200)                      as product
+    , {{ copilot_product_id_to_type('a.json:product::int') }}
     , a.json:realizedPnL::number(19 , 6)             as realized_pnl
     , a.json:sector::text(200)                       as sector
     , a.json:sleeveId::text(200)                     as sleeve_id
@@ -48,6 +49,42 @@ select
     , try_to_boolean(a.json:unsupervised::text)::int as is_unsupervised
     , a.json:amount::number(19 , 6)                  as amount
     , a.json:secIdSrc::text(200)                     as sec_id_src
+
+    , case
+        when product = 5
+            then regexp_substr(
+                a.json:securityId::text(200), '^(\\D+)(\\d{6,7})(C|P)(\\d+(\\.\\d+)?)', 1, 1, 'e', 1
+            )
+            else null
+            end::text(200)                           as option_ticker
+    , case
+        when product = 5
+            then try_to_date(regexp_substr(
+                a.json:securityId::text(200), '^(\\D+)(\\d{6,7})(C|P)(\\d+(\\.\\d+)?)', 1, 1, 'e', 2
+            ), 'YYMMDD')
+            else null
+            end::date                                as option_ex_date
+    , case
+        when product = 5
+            then regexp_substr(
+                    a.json:securityId::text(200), '^(\\D+)(\\d{6,7})(C|P)(\\d+(\\.\\d+)?)', 1, 1, 'e', 3
+                )
+            else null
+            end::text(200)                           as option_type
+    , case
+        when product = 5
+            then (regexp_substr(
+                a.json:securityId::text(200), '^(\\D+)(\\d{6,7})(C|P)(\\d+(\\.\\d+)?)', 1, 1, 'e', 4
+            )::int / 1000)
+            else null
+            end::decimal(20 , 2)                     as option_strike_price
+    , option_ticker
+        || ' '
+        || to_char(option_ex_date, 'YYMMDD')
+        || option_type
+        || option_strike_price::int * 1000
+        ::text(200)                                  as option_symbol
+
     , case
         when a._created_at = b.account_max_created_at and a._created_at::date = b.max_created_date
             then 1

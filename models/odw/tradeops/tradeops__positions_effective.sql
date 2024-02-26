@@ -8,6 +8,9 @@ with cte_positions as (
         , acc.account_number   as account_number
         , acc.account_name     as account_name
 
+        , a.product_type       as product_type
+        , a.option_symbol      as option_symbol
+
         , a.quantity           as quantity
         , a.position_id        as position_id
         , a.security_id        as security_id
@@ -36,6 +39,7 @@ with cte_positions as (
         , prev_close_price
         , bid_price
         , ask_price
+        , _created_at
     from {{ ref('activetick__stg_prices') }}
 )
 
@@ -88,17 +92,19 @@ select
     , a.account_number
     , a.account_name
     , a.position_id
-    , a.security_id                                                                           as ticker
+    , a.product_type                                                                          as product_type
+    , coalesce(a.option_symbol, a.security_id)                                                as ticker
     , coalesce(cusip_ticker.cusip, cusip.cusip)                                               as cusip
     , a.quantity                                                                              as actual_quantity
     , case
         when limi.security_id is not null
-            then greatest(limi.value, 0)
-        else 0
+            then coalesce(greatest(try_to_decimal(limi.value, 20, 3), 0), a.quantity)
+        else a.quantity
         end::decimal(20,3)                                                                    as restricted_quantity
     , pri.last_price                                                                          as last_price
     , pri.bid_price                                                                           as bid_price
     , pri.ask_price                                                                           as ask_price
+    , pri._created_at                                                                         as price_updated_at
     , coalesce(pri.prev_close_price , a.prev_close_price)                                     as prev_close_price
     , nullif(
         ''::varchar(2000)
@@ -115,7 +121,7 @@ select
                 then 'TARGET restriction; '
         end , '')
     , '')                                                                                     as restriction_details
-    , coalesce(tgt.value , omit.value , limi.value)                                           as value
+    , coalesce(tgt.value , omit.value , limi.value)::text(200)                                as value
     , case
         when omit_acct.account_id is not null
             then 1
@@ -138,7 +144,7 @@ select
             then 1
         else 0
     end::int                                                                                  as is_excluded
-    , a.last_modified_at
+    --, a.last_modified_at
     , a.is_head
     , a._created_at                                                                           as last_collected_at
     --, a._source_file

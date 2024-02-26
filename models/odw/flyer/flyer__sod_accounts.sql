@@ -58,20 +58,20 @@ with custodian_accounts as
 )
 
 select
-      effective_date                            as effective_date
-    , account_number                            as account_no
+      effective_date                                as effective_date
+    , account_number                                as account_no
     , iff(account_name is null, account_number,
-      account_name || ' - ' || account_number)  as account_name
-    , upper(custodian)                          as custodian
-    , ''::text(200)                             as description
-    , ''::text(200)                             as notes
-    , model_name                                as model_name
-    , null::text(200)                           as closing_method
-    , null::text(200)                           as long_term_tax_rate
-    , null::text(200)                           as short_term_tax_rate
-    , null::text(200)                           as use_account_cash
-    , null::text(200)                           as cash_reserve_type
-    , null::text(200)                           as cash_reserve
+      account_name || ' - ' || account_number)      as account_name
+    , upper(custodian)                              as custodian
+    , ''::text(200)                                 as description
+    , ''::text(200)                                 as notes
+    , model_name                                    as model_name
+    , null::text(200)                               as closing_method
+    , null::text(200)                               as long_term_tax_rate
+    , null::text(200)                               as short_term_tax_rate
+    , null::text(200)                               as use_account_cash
+    , null::text(200)                               as cash_reserve_type
+    , null::text(200)                               as cash_reserve
     , 'api@mariner' ||
         ';data@mariner' ||
         ';grant@mariner' ||
@@ -82,14 +82,14 @@ select
         ';adam@mariner' ||
         ';brett@mariner' ||
         ';robert@mariner'
-        ::text(200)                             as associated_Users
-    , null::text(200)                           as taxable
-    , null::text(200)                           as cashreserveexpiry
-    , null::text(200)                           as disablesleeves
-    , account_number_formatted::text(200)       as portfoliocode1
-    , crm_id::text(200)                         as portfoliocode2
-    , null::text(200)                           as portfoliocode3
-    , account_type                              as accounttype
-    , advisorname::text(200)                    as advisorname
+        ::text(200)                                 as associated_Users
+    , null::text(200)                               as taxable
+    , null::text(200)                               as cashreserveexpiry
+    , null::text(200)                               as disablesleeves
+    , account_number_formatted::text(200)           as portfoliocode1
+    , crm_id::text(200)                             as portfoliocode2
+    , null::text(200)                               as portfoliocode3
+    , account_type                                  as accounttype
+    , replace(advisorname, ' (EMP)', '')::text(200) as advisorname
 from accounts
 where rn = 1
