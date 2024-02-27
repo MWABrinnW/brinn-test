@@ -85,6 +85,9 @@ select
         || lpad(to_char((option_strike_price * 1000)::int), 8, '0')
         ::text(200)                                  as option_symbol
 
+
+    , b.max_created_date                             as max_created_date
+    , b.account_max_created_at                       as account_max_created_at
     , case
         when a._created_at = b.account_max_created_at and a._created_at::date = b.max_created_date
             then 1
@@ -109,6 +112,4 @@ left join {{ ref('dates' ) }} as dt
     on a._created_at::date = dt.date_key
 where 1 = 1
     and _env = {{ "'" ~ flyer_env() ~ "'" }}
-    and product_type = 'OPT'
-    and _created_at::date = '2/26/2024'
 order by a._created_at , a.json:accountId::int , a.json:positionId::int
