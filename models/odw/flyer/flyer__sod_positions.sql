@@ -1,6 +1,6 @@
 select
     effective_date                          as effective_date
-    , custodian                             as custodiancode
+    , upper(custodian)                      as custodiancode
     , account_number                        as account
     , product                               as product
     , ticker                                as symbol
