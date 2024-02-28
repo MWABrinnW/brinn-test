@@ -24,4 +24,4 @@ SELECT
   , _box_file_id::text(200)                      as _box_file_id
   , _box_file_name::text(200)                    as _box_file_name
   , _box_meta::variant                           as _box_meta
-from {{ src }} -- resolves to raw.sei.bills
+from {{ src }} -- resolves to raw.sei_manasquan.bills

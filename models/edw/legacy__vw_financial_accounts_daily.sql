@@ -39,3 +39,4 @@ select
   , {{ col_is_head(reference=source('edw_mwa', 'financial_account_daily')) }}
   , {{ col_is_current(date_col='effective_date') }}
 from {{ source('edw_mwa', 'financial_account_daily') }}
+qualify row_number() OVER (partition by id order by effective_date DESC) = 1

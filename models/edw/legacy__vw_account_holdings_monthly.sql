@@ -3,7 +3,7 @@
 ) }}
 
 select
-    system_name
+   system_name
   , system_details
   , financial_account_number
   , financial_account_number_clean
@@ -51,3 +51,4 @@ select
   , {{ col_is_current(date_col='effective_date') }}
 from {{ source('edw_mwa', 'account_holdings_monthly') }}
 where account_active = 1
+qualify row_number() OVER (partition by account_holdings_id order by effective_date DESC) = 1

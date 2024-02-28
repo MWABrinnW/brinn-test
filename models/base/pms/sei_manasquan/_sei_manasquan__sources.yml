@@ -4,7 +4,7 @@ sources:
   - name: sei
     description: sei manasquan pms
     database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
-    schema: sei
+    schema: sei_manasquan
     loader: sourced from box on a daily basis; after loaded, each billing file is moved to the archive file.
     loaded_at_field: _created_at represents the datetime each record is loaded to the source table.
 
