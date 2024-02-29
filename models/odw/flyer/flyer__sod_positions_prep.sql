@@ -176,9 +176,21 @@ with cte_accounts as
                     then 'FI'
                 when s.cusip is not null and s.security_type_description in ('Common Equity', 'Exchange Traded Fund', 'Depositary Receipt')
                     then 'EQ'
+                -- We can't use this because it doesn't reliably tag mutual funds.
+                -- Fund from cusip might tag some ETFs as a "Fund", for instance.
+                -- Example: ARGT
+                -- when s.cusip is not null and s.security_type_description = 'Fund'
+                --    then 'MUT'
+
+                -- This handles something like cusip=09261H305. But not all REIT are FI.
+                when a.custodian ilike 'fidelity'
+                    then case
+                        when a.product_type_source_definition ilike any ('%Units - REIT%') and len(a.ticker) >= 9
+                            then 'FI'
+                        end
 
                 -- SCHWAB
-                when a.custodian = 'schwab'
+                when a.custodian ilike 'schwab'
                     then case
                             -- Not sure if this is correct. Should others be included? SNAXX/SNOXX/etc
                             when a.ticker in ( 'SWGXX' )
@@ -186,7 +198,7 @@ with cte_accounts as
                             when a.product_type_source_definition ilike any ('EQUITY OPTION', 'OPTION INDEX')
                                 then 'OPT'
                             -- We're using the legacy security type becuase there are fewer values/rollups
-                            -- to consider compared to the more granular product type.
+                            -- to consider compared to the more granular product "product_type_source_definition".
                             when a.legacy_product_type_source_definition in ('Mutual Fund - Non-Taxable', 'Mutual Fund - Taxable')
                                 then 'MUT'
                             when a.legacy_product_type_source_definition in ('Certificate of Deposit'
@@ -196,6 +208,8 @@ with cte_accounts as
                                                             , 'Treasury Bill'
                                                             , 'Treasury Note')
                                 then 'FI'
+                            when a.product_type_source_definition ilike any ('%CLOSED END MUTUAL FUND%')
+                                then 'MUT'
                             when a.legacy_product_type_source_definition in ('Common Stock'
                                                             , 'Convertible Preferred Stock'
                                                             , 'Preferred Stock')
@@ -212,14 +226,14 @@ with cte_accounts as
                         end
 
                 -- FIDELITY
-                when a.custodian = 'fidelity'
+                when a.custodian ilike 'fidelity'
                     then case
                         when a.product_type_source_definition ilike 'option - %'
                             then 'OPT'
-                        when a.product_type_source_definition ilike '%equity - %'
-                            then 'EQ'
                         when a.product_type_source_definition ilike '%mutual fund%'
                             then 'MUT'
+                        when a.product_type_source_definition ilike '%equity - %'
+                            then 'EQ'
                         when a.product_type_source_definition ilike any ('%units - %', 'debt - ')
                             then 'FI'
                         else 'FI'
@@ -300,7 +314,7 @@ with cte_accounts as
         , is_cash
         , is_sweep
         , max(lot_date)                             as lot_date
-        , null::text(200)                           as source_lot_id
+        , null::text(200)                           as lot_num
         , unsupervised
         , cusiplookup
         , preferred
@@ -356,7 +370,64 @@ with cte_accounts as
     select *
     from cte_fidelity_money_market
 )
+,cte_product_mapping as
+(
+    -- We need to handle any tickers that are currently resolving to
+    -- more than one product. We can create an order of preference
+    -- and then make it available to apply to any tickers that
+    -- have more than one distinct product value.
 
-select *
-from cte_final
+    -- Note that this will override some positions that we _maybe_
+    -- wouldn't want to technically override. Cash-like mutual funds
+    -- like FDRXX are sweep positions for some accounts and not for others.
+    -- Originally, we would have some accounts upload with it tagged
+    -- as CASH and others as MUT, depending on the acccount-level
+    -- settings maintained at Fidelity.
+    -- See ref('int_fidelity_account_sweep_fund')
+    select
+        ticker, product, dense_rank() over(
+            partition by ticker
+            order by case
+                when product ilike 'cash' then 1
+                when product ilike 'opt' then 2
+                when product ilike 'mut'then 3
+                when product ilike 'eq' then 4
+                when product ilike 'fi' then 5
+                else 6 end) as rank
+    from cte_final
+    group by ticker, product
+)
+
+select
+      a.effective_date
+    , a.custodian
+    , a.account_number
+    , coalesce(pm.product, a.product) as product
+    , a.ticker
+    , a.cusip
+    , a.quantity
+    , a.price
+    , a.lot_cost
+    , a.current_price
+    , a.is_cash
+    , a.is_sweep
+    , a.lot_date
+    , a.lot_num
+    , a.unsupervised
+    , a.cusiplookup
+    , a.preferred
+    , a.securityid
+    , a.security_type_description
+    , a.fund_type
+    , a.product_type
+    , a.product_type_source_code
+    , a.product_type_source_definition
+    , a.legacy_product_type
+    , a.legacy_product_type_source_code
+    , a.legacy_product_type_source_definition
+    , a.src
+from cte_final a
+left join cte_product_mapping pm
+    on a.ticker = pm.ticker
+    and pm.rank = 1
 order by custodian, account_number, ticker
