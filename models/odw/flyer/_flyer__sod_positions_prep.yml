@@ -14,6 +14,8 @@ models:
       - name: PRODUCT
         description: ''
         data_type: VARCHAR
+        tests:
+          - not_null
       - name: TICKER
         description: ''
         data_type: VARCHAR
