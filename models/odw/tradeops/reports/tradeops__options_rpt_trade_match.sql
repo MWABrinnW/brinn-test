@@ -91,7 +91,7 @@ select
     , case
         when units_internal is null then 'Unmatched External'
         when units_external is null then 'Unmatched Internal'
-        when diff is not null and diff != 0 and diff / abs(int.internal_units) < 0.01
+        when diff is not null and diff != 0 and (DIV0(diff, abs(int.internal_units)) < 0.01 and int.internal_units != 0)
             -- 1% buffer on unit match
             then 'Trade Matched'
         when diff is not null and diff != 0 then 'Internal/External Discrepancy'
