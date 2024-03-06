@@ -1144,6 +1144,7 @@ with cte_employees_all           as
     from {{ ref('aux__base_employee_overrides') }} eo
     left join cte_final e
         on eo.position_id = e.position_id
+        and e.effective_at::date between nvl(eo.start_date::date, (select min(effective_at::date) from cte_dates)) and nvl(eo.end_date::date, (select max(effective_at::date) from cte_dates))
     cross join cte_dates d
     where true
         and eo.position_id is not null
