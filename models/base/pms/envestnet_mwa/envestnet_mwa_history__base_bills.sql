@@ -71,4 +71,4 @@ select
     , _box_file_id::text(200)                          as _box_file_id
     , _box_file_name::text(200)                        as _box_file_name
     , _box_meta                                        as _box_meta
-from {{ src }} limit 100
+from {{ src }}
