@@ -25,3 +25,5 @@ sources:
     tables:
       - name: vw_locations_all_info
       - name: vw_network_advisor_master_monthly
+      - name: historical_market_prices
+        description: Historical index performance.
