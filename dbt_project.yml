@@ -21,12 +21,17 @@ clean-targets: # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
-# [Configuring models]
-# Full documentation: https://docs.getdbt.com/docs/configuring-models
-
-# In this example config, we tell dbt to build all models in the example/ directory
-# as tables. These settings can be overridden in the individual model files
-# using the `{{ config(...) }}` macro.
+# Needed for package: get-select/dbt_snowflake_query_tags
+# https://github.com/get-select/dbt-snowflake-query-tags
+dispatch:
+  - macro_namespace: dbt
+    search_order:
+      - data_engineering
+      - dbt_snowflake_query_tags
+      - dbt
+query-comment:
+  comment: '{{ dbt_snowflake_query_tags.get_query_comment(node, extra={"run_started_at": builtins.run_started_at | string }) }}'
+  append: true # Snowflake removes prefixed comments.
 
 vars:
   dbt_date:time_zone: "America/Chicago"
@@ -45,6 +50,8 @@ on-run-start:
 on-run-end:
   - "{{ grant_usage_on_schemas_where_select() if target.name in ['prod', 'test'] }}"
 
+# [Configuring models]
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
 models:
   ## see docs: https://docs.elementary-data.com/
   elementary:
