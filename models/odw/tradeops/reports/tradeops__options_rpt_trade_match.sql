@@ -33,7 +33,7 @@ with internal as (
         and a.order_trade_date = acc._created_at::date
         and a._env = acc._env
     where 1 = 1
-        and a._env = {{ "'" ~ flyer_env() ~ "'" }}
+        and a._env = {{ "'" ~ copilot_env() ~ "'" }}
     group by all
 )
 

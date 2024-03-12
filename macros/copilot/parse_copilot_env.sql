@@ -1,4 +1,4 @@
-{% macro parse_flyer_env(col='_uri') -%}
+{% macro parse_copilot_env(col='_uri') -%}
 case
     when {{ col }} ilike '%mariner.flyerapps.net%'
         then 'prod'

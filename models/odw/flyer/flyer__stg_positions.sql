@@ -3,12 +3,12 @@ with cte_max as (
         _uri
         , json:accountId::int                                            as account_id
         , _created_at::date                                              as _created_date
-        , {{ parse_flyer_env(col='_uri') }}
+        , {{ parse_copilot_env(col='_uri') }}
         , max(_created_at::date) over (partition by json:accountId::int) as account_max_date
         , max(_created_at)                                               as account_max_created_at
         , max(_created_at::date) over (partition by _uri)                as max_created_date
     from {{ source('flyer', 'positions') }}
-    where _env = {{ "'" ~ flyer_env() ~ "'" }}
+    where _env = {{ "'" ~ copilot_env() ~ "'" }}
     group by 1 , 2 , 3
 )
 
@@ -102,7 +102,7 @@ select
     , a._created_at                                  as _created_at
     , a._source_file                                 as _source_file
     , a._uri                                         as _uri
-    , {{ parse_flyer_env(col='a._uri') }}
+    , {{ parse_copilot_env(col='a._uri') }}
 from {{ source('flyer', 'positions') }} as a
 left join cte_max as b
     on a._created_at::date = b._created_date::date
@@ -111,5 +111,5 @@ left join cte_max as b
 left join {{ ref('dates' ) }} as dt
     on a._created_at::date = dt.date_key
 where 1 = 1
-    and _env = {{ "'" ~ flyer_env() ~ "'" }}
+    and _env = {{ "'" ~ copilot_env() ~ "'" }}
 order by a._created_at , a.json:accountId::int , a.json:positionId::int

@@ -2,10 +2,10 @@ with cte_max_per_day as (
     select
         _uri
         , _created_at::date as _created_date
-        , {{ parse_flyer_env(col='_uri') }}
+        , {{ parse_copilot_env(col='_uri') }}
         , max(_created_at)  as _max_created_at_for_day
     from {{ source('flyer', 'accounts') }}
-    where _env = {{ "'" ~ flyer_env() ~ "'" }}
+    where _env = {{ "'" ~ copilot_env() ~ "'" }}
     group by all
 )
 
@@ -65,7 +65,7 @@ select
     , a._created_at                                    as _created_at
     , a._source_file                                   as _source_file
     , a._uri                                           as _uri
-    , {{ parse_flyer_env(col='a._uri') }}
+    , {{ parse_copilot_env(col='a._uri') }}
 from {{ source('flyer', 'accounts') }} as a
 left join cte_max as mx
     on a._uri = mx._uri
@@ -76,4 +76,4 @@ left join cte_max_per_day as mxpd
 left join {{ ref('dates' ) }} as dt
     on a._created_at::date = dt.date_key
 where 1 = 1
-    and _env = {{ "'" ~ flyer_env() ~ "'" }}
+    and _env = {{ "'" ~ copilot_env() ~ "'" }}

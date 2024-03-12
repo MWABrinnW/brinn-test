@@ -27,4 +27,4 @@ left join {{ ref('flyer__stg_accounts') }} as acc
     and acc.is_head_for_day = 1
 where 1 = 1
     and a.is_head = 1
-    and a._env = {{ "'" ~ flyer_env() ~ "'" }}
+    and a._env = {{ "'" ~ copilot_env() ~ "'" }}

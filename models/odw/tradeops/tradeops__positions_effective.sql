@@ -28,7 +28,7 @@ with cte_positions as (
         and acc.is_head_for_day = 1
     where 1 = 1
         and a.is_head = 1
-        and a._env = {{ "'" ~ flyer_env() ~ "'" }}
+        and a._env = {{ "'" ~ copilot_env() ~ "'" }}
     order by a.account_id , a.security_id
 )
 

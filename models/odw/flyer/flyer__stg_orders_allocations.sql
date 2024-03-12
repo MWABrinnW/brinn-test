@@ -2,10 +2,10 @@ with cte_max_per_day as (
     select
         _uri
         , to_date(json:tradingSessionId::text , 'YYYYMMDD') as trading_session_date
-        , {{ parse_flyer_env(col='_uri') }}
+        , {{ parse_copilot_env(col='_uri') }}
         , max(_created_at)                                  as max_created_at
     from {{ source('flyer', 'allocations') }}
-    where _env = {{ "'" ~ flyer_env() ~ "'" }}
+    where _env = {{ "'" ~ copilot_env() ~ "'" }}
     group by all
 )
 
@@ -19,7 +19,37 @@ select
     , a.json:clientOrderId::text(200)                                                   as client_order_id
     , a.json:origClientOrderId::text(200)                                               as original_client_order_id
     , a.json:allocTransType::text(200)                                                  as transaction_type
-    , a.json:symbol::text(200)                                                          as symbol
+    , a.json:securityType::text(200)                                                    as security_type
+    , case
+        when security_type = 'OPT'
+            then 1
+        else 0
+        end::int                                                                        as is_option
+    , to_date(a.json:order.option.maturityDate::varchar(100) , 'YYYYMMDD')              as order_option_maturity_date
+    , a.json:order.option.strikePrice::number(19 , 6)                                   as order_option_strike_price
+    , case
+        when a.json:order.option.putOrCall::int = 0
+            then 'P'
+        when a.json:order.option.putOrCall::int = 1
+            then 'C'
+        end::text(200)                                                                  as order_option_put_or_call
+    , a.json:order.option.positionEffect::text(200)                                     as order_option_position_effect
+    -- If security is an option we need to show the contract as the symbol and
+    -- not the underlying security.
+    , case
+        when is_option = 0
+            then a.json:symbol::text
+        else a.json:symbol::text
+            || ' '
+            || to_char(order_option_maturity_date, 'YYMMDD')
+            || order_option_put_or_call
+            || lpad(to_char((order_option_strike_price * 1000)::int), 8, '0')
+        end::text(200)                                                                  as symbol
+    , case
+        when is_option = 1
+            then a.json:symbol
+        else null
+        end::text(200)                                                                  as underlying_symbol
     , a.json:shares::number(19 , 6)                                                     as shares
     , a.json:avgPx::number(19 , 6)                                                      as average_price
     , a.json:noOrders::int                                                              as number_of_orders
@@ -100,6 +130,7 @@ select
     , a.json:order.commission::number(19 , 6)                                           as order_commission
     , a.json:order.maxFloor::number(19 , 6)                                             as order_max_floor
     , a.json:order.ratioQty::number(19 , 6)                                             as order_ratio_qty
+    , a.json:order.securityType::text(200)                                              as order_security_type
     , a.json:order.noLegs::text(200)                                                    as order_no_legs
     , a.json:order.avgPx::number(19 , 6)                                                as order_avg_price
     , a.json:order.fillQty::number(19 , 6)                                              as order_fill_qty
@@ -117,9 +148,6 @@ select
     , a.json:order.option.clientOrdId::text(200)                                        as order_option_client_ord_id
     , a.json:order.option.tradingSessionId::text(200)                                   as order_option_trading_session_id
     , a.json:order.option.userId::text(200)                                             as order_option_user_id
-    , a.json:order.option.strikePrice::number(19 , 6)                                   as order_option_strike_price
-    , a.json:order.option.putOrCall::text(200)                                          as order_option_put_or_call
-    , a.json:order.option.positionEffect::text(200)                                     as order_option_position_effect
     , a.json:order.option.customerOrFirm::text(200)                                     as order_option_customer_or_firm
     , a.json:order.mutualFund.clientOrdId::text(200)                                    as order_mutualfund_client_or_did
     , a.json:order.mutualFund.tradingSessionId::text(200)                               as order_mutualfund_trading_session_id
@@ -147,6 +175,7 @@ select
     , a.json:order.fixedIncome.yield::number(19 , 6)                                    as order_fixedincome_yield
     , a.json:order.fixedIncome.originalFace::number(19 , 6)                             as order_fixedincome_originalface
     , a.json:order.fixedIncome.principal::number(19 , 6)                                as order_fixedincome_principal
+
     , case
         when a._created_at = mxpd.max_created_at
             then 1
@@ -160,10 +189,9 @@ select
     , to_timestamp(a.json:transactTime::varchar(100) , 'YYYYMMDD-HH24:MI:SS.FF3')       as transaction_time
     , to_date(a.json:order.tradeDate::varchar(100) , 'YYYYMMDD')                        as order_trade_date
     , to_timestamp(a.json:order.transactTime::varchar(100) , 'YYYYMMDD-HH24:MI:SS.FF3') as order_transaction_time
-    , to_date(a.json:order.option.maturityDate::varchar(100) , 'YYYYMMDD')              as order_option_maturity_date
     , nullif(a.json:clientOrderId::text(200) , '')                                      as client_order_id
 
-    , {{ parse_flyer_env(col='a._uri') }}
+    , {{ parse_copilot_env(col='a._uri') }}
 from {{ source('flyer', 'allocations') }} as a
 left join cte_max_per_day as mxpd
     on a._uri = mxpd._uri
@@ -173,4 +201,4 @@ left join {{ ref('dates' ) }} as dt
 , lateral flatten(input => a.json , path => 'memberList' , outer => true , mode => 'array') as m
 , lateral flatten(input => a.json , path => 'order' , outer => true , mode => 'array')
 where 1 = 1
-    and _env = {{ "'" ~ flyer_env() ~ "'" }}
+    and _env = {{ "'" ~ copilot_env() ~ "'" }}

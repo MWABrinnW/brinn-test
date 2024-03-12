@@ -13,4 +13,4 @@ select
 from {{ ref('flyer__stg_groups') }} as a
 where 1 = 1
     and a.is_head = 1
-    and a._env = {{ "'" ~ flyer_env() ~ "'" }}
+    and a._env = {{ "'" ~ copilot_env() ~ "'" }}
