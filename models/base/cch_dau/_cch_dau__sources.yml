@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: cch_dau
     description: Tables extracted from MH-SQL/SYSOPS CCH_ENT.
-    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
 
     tables:
       - name: client
@@ -623,3 +623,4 @@ sources:
           - name: _CREATED_AT
             data_type: TIMESTAMP_NTZ
             description: ''
+      - name: artransaction
