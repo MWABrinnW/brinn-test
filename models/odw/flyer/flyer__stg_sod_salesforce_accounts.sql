@@ -30,7 +30,7 @@ select
     , subadvisor__r_attributes_type::TEXT(200)                  as subadvisor__r_attributes_type
     , subadvisor__r_attributes_url::TEXT(200)                   as subadvisor__r_attributes_url
     , subadvisor__r_name::TEXT(200)                             as subadvisor__r_name
-    , household__r_client_manager__r::TEXT(200)                 as household__r_client_manager__r
+    , Ownerid::TEXT(200)                                        as ownerid
     , model_on_account__r::TEXT(200)                            as model_on_account__r
     , registration_type__r::TEXT(200)                           as registration_type__r
     , subadvisor__r::TEXT(200)                                  as subadvisor__r

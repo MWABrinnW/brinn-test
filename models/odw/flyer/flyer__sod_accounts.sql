@@ -1,95 +1,114 @@
-with custodian_accounts as
-(
+with custodian_accounts as (
     select distinct
         effective_date
-      , custodian
-      , account_number
-      , account_number_formatted
-      , link
-      , null::text(200) as account_name
-      , null::text(200) as account_type
+        , custodian
+        , account_number
+        , account_number_formatted
+        , link
+        , null::text(200) as account_name
+        , null::text(200) as account_type
     from {{ ref('custodian_account_links') }}
-    where 1=1
-        --and is_head = 1
+    where 1 = 1
         and is_current = 1
-        and custodian in ('schwab', 'fidelity')
+        and custodian in ('schwab' , 'fidelity')
         and link in (
-            '08261207' -- schwab options master
-            ,'G14279989' -- fidelity options G#
-            ,'G26998441' -- fidelity options brokeragelink
-            ,'08261207', '08220807', '08220445' -- TDA migrated schwab accounts
+            -- schwab options master
+            '08261207'
+            -- fidelity options G#
+            , 'G14279989'
+            -- fidelity options brokeragelink
+            , 'G26998441'
+            -- TDA migrated schwab accounts
+            , '08261207' , '08220807' , '08220445'
         )
-    order by custodian, link, account_number
+    order by custodian , link , account_number
 )
--- add a hard fail here if custodian_accounts data is not up to date
-,crm_accounts as
-(
-        -- add effective_date in stg model
+
+-- TODO: add a hard fail here if custodian_accounts data is not up to date
+, crm_accounts as (
     select
-        replace(upper(Identifier__c), '-', '')              as account_number
-        , replace(name,'','')                              as account_name
-        , null::text(200)                                   as model_name
-        , Registration_Type__r_Name                         as account_type
-        , HOUSEHOLD__R_CLIENT_MANAGER__R_NAME               as advisorname
-        , accountidorion__c                                 as orion_account_id
-        , Id                                                as crm_id
-        , _created_at                                       as _created_at
-    from {{ ref('flyer__stg_sod_salesforce_accounts') }}
-    where _created_at = (select max(_created_at) from {{ ref('flyer__stg_sod_salesforce_accounts') }})
+        replace(upper(a.identifier__c) , '-' , '') as account_number
+        , replace(a.name , '' , '')                as account_name
+        , null::text(200)                          as model_name
+        , a.registration_type__r_name              as account_type
+        , a.household__r_client_manager__r_name    as advisorname
+        , a.accountidorion__c                      as orion_account_id
+        , a.id                                     as crm_id
+        , a._created_at                            as _created_at
+        , u.email                                  as advisoremail
+        , u.phone                                  as advisorphone
+    from {{ ref('flyer__stg_sod_salesforce_accounts') }} as a
+    left join {{ ref('salesforce_compass__base_user') }} as u
+        on a.ownerid = u.id and u.is_head = 1
+    where a._created_at = (select max(_created_at) from {{ ref('flyer__stg_sod_salesforce_accounts') }})
 )
-,accounts as
-(
+
+, accounts as (
     select
-          a.effective_date
-        , a.custodian
-        , a.account_number
-        , a.account_number_formatted
-        , a.link
-        , regexp_replace(replace(coalesce(c.account_name, a.account_name),'"',''), '\\s+',' ') as account_name
-        , c.advisorname
-        , c.model_name
-        , coalesce(c.account_type, a.account_type) as account_type
-        , c.crm_id
-        , c.orion_account_id
-        , row_number() over(partition by a.effective_date, a.custodian, a.account_number order by c.model_name) as rn
-    from custodian_accounts a
-    left join crm_accounts c
+        a.effective_date                            as effective_date
+        , a.custodian                               as custodian
+        , a.account_number                          as account_number
+        , a.account_number_formatted                as account_number_formatted
+        , a.link                                    as link
+        , regexp_replace(
+            replace(
+                coalesce(c.account_name , a.account_name)
+                , '"' , ''
+            ) , '\\s+' , ' '
+        )                                           as account_name
+        , c.advisorname                             as advisorname
+        , c.model_name                              as model_name
+        , coalesce(c.account_type , a.account_type) as account_type
+        , c.crm_id                                  as crm_id
+        , c.orion_account_id                        as orion_account_id
+        , row_number() over (
+            partition by a.effective_date , a.custodian , a.account_number order by c.model_name
+        )                                           as rn
+        , c.advisoremail                            as advisoremail
+        , c.advisorphone                            as advisorphone
+    from custodian_accounts as a
+    left join crm_accounts as c
         on a.account_number = c.account_number
 )
 
 select
-      effective_date                                as effective_date
-    , account_number                                as account_no
-    , iff(account_name is null, account_number,
-      account_name || ' - ' || account_number)      as account_name
-    , upper(custodian)                              as custodian
-    , ''::text(200)                                 as description
-    , ''::text(200)                                 as notes
-    , model_name                                    as model_name
-    , null::text(200)                               as closing_method
-    , null::text(200)                               as long_term_tax_rate
-    , null::text(200)                               as short_term_tax_rate
-    , null::text(200)                               as use_account_cash
-    , null::text(200)                               as cash_reserve_type
-    , null::text(200)                               as cash_reserve
-    , 'api@mariner' ||
-        ';data@mariner' ||
-        ';grant@mariner' ||
-        ';tanner@mariner' ||
-        ';austin@mariner' ||
-        ';allen@mariner' ||
-        ';sharedblotter@mariner' ||
-        ';adam@mariner' ||
-        ';brett@mariner' ||
-        ';robert@mariner'
-        ::text(200)                                 as associated_Users
-    , null::text(200)                               as taxable
-    , null::text(200)                               as cashreserveexpiry
-    , null::text(200)                               as disablesleeves
-    , account_number_formatted::text(200)           as portfoliocode1
-    , crm_id::text(200)                             as portfoliocode2
-    , null::text(200)                               as portfoliocode3
-    , account_type                                  as accounttype
-    , replace(advisorname, ' (EMP)', '')::text(200) as advisorname
+    effective_date                                                   as effective_date
+    , account_number                                                 as account_no
+    , iff(
+        account_name is null , account_number
+        , account_name || ' - ' || account_number
+    )                                                                as account_name
+    , upper(custodian)                                               as custodian
+    , ''::text(200)                                                  as description
+    , ''::text(200)                                                  as notes
+    , model_name
+    , null::text(200)                                                as closing_method
+    , null::text(200)                                                as long_term_tax_rate
+    , null::text(200)                                                as short_term_tax_rate
+    , null::text(200)                                                as use_account_cash
+    , null::text(200)                                                as cash_reserve_type
+    , null::text(200)                                                as cash_reserve
+    , 'api@mariner'
+    || ';data@mariner'
+    || ';grant@mariner'
+    || ';tanner@mariner'
+    || ';austin@mariner'
+    || ';allen@mariner'
+    || ';sharedblotter@mariner'
+    || ';adam@mariner'
+    || ';brett@mariner'
+    || ';robert@mariner'
+    ::text(200)                                                      as associated_users
+    , null::text(200)                                                as taxable
+    , null::text(200)                                                as cashreserveexpiry
+    , null::text(200)                                                as disablesleeves
+    , account_number_formatted::text(200)                            as portfoliocode1
+    , crm_id::text(200)                                              as portfoliocode2
+    , null::text(200)                                                as portfoliocode3
+    , account_type                                                   as accounttype
+    , replace(advisorname , ' (EMP)' , '')::text(200)                as advisorname
+    , advisoremail::text(200)                                        as advisoremail
+    , advisorphone::text(200)                                        as advisorphone
+    , 'https://marinercrm.lightning.force.com/' || crm_id::text(200) as advisorurl
 from accounts
 where rn = 1
