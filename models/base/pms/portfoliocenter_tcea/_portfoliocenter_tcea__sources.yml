@@ -10,3 +10,9 @@ sources:
         description: ""
       - name: fa_holdings_history
         description: ""
+  - name: portfoliocenter_tcea_raw
+    description: ""
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    schema: portfoliocenter_tcea
+    tables: 
+      - name: bills
