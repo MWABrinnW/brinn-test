@@ -107,8 +107,8 @@ select
     , null::text(200)                                                as portfoliocode3
     , account_type                                                   as accounttype
     , replace(advisorname , ' (EMP)' , '')::text(200)                as advisorname
-    , advisoremail::text(200)                                        as advisoremail
     , advisorphone::text(200)                                        as advisorphone
+    , advisoremail::text(200)                                        as advisoremail
     , 'https://marinercrm.lightning.force.com/' || crm_id::text(200) as advisorurl
 from accounts
 where rn = 1
