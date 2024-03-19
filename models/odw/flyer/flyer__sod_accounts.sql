@@ -65,10 +65,17 @@ with custodian_accounts as (
             partition by a.effective_date , a.custodian , a.account_number order by c.model_name
         )                                           as rn
         , c.advisoremail                            as advisoremail
-        , c.advisorphone                            as advisorphone
+        , replace(
+            coalesce(
+                zoom.number , c.advisorphone
+            ) , '+1' , ''
+        )                                           as advisorphone
     from custodian_accounts as a
     left join crm_accounts as c
         on a.account_number = c.account_number
+    left join {{ ref('zoom_mwa__base_user_phone_assignments') }} as zoom
+        on lower(c.advisoremail) = lower(zoom.email)
+        and zoom.rn = 1
 )
 
 select
