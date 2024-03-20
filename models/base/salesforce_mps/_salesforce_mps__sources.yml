@@ -1,0 +1,502 @@
+sources:
+  - name: salesforce_mps
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    tables:
+      - name: account
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: account_contact_role
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: account_feed
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: account_history
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: additional_number
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: address
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: asset
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: asset_feed
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: asset_history
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: asset_relationship
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: asset_relationship_feed
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: asset_relationship_history
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: associated_location
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: associated_location_history
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: campaign
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: campaign_feed
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: campaign_history
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: campaign_member
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: campaign_member_status
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: case
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: case_contact_role
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: case_status
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: case_team_member
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: case_team_role
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: case_team_template
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: case_team_template_member
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: case_team_template_record
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: category_data
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: category_node
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: category_node_localization
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: contact
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: contact_history
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: contact_point_address
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: contract
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: contract_contact_role
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: contract_line_item
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: contract_line_item_history
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: contract_status
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: customer
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: GROUP
+        quoting:
+          identifier: true
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: group_member
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: individual
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: lead
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: location
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: opportunity
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: opportunity_contact_role
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: opportunity_line_item
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: ORDER
+        quoting:
+          identifier: true
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: order_item
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: organization
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: partner
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: partner_role
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: period
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: user
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: user_account_team_member
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
