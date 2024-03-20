@@ -1,26 +1,30 @@
 select
-    a.json:LAST_MODIFIED_DATE::timestamp_tz as last_modified_date
-  , a.json:LAST_MODIFIED_BY_ID::text(900)   as last_modified_by_id
-  , a.json:CAMPAIGN_ID::text(900)           as campaign_id
-  , a.json:SYSTEM_MODSTAMP::timestamp_tz    as system_modstamp
-  , a.json:IS_DELETED::boolean              as is_deleted
-  , a.json:_FIVETRAN_DELETED::boolean       as _fivetran_deleted
-  , a.json:_FIVETRAN_SYNCED::timestamp_tz   as _fivetran_synced
-  , a.json:SORT_ORDER::number(38, 0)        as sort_order
-  , a.json:HAS_RESPONDED::boolean           as has_responded
-  , a.json:CREATED_DATE::timestamp_tz       as created_date
-  , a.json:IS_DEFAULT::boolean              as is_default
-  , a.json:CREATED_BY_ID::text(900)         as created_by_id
-  , a.json:ID::text(900)                    as id
-  , a.json:LABEL::text(3100)                as label
-  , a.effective_at::timestamp               as effective_at
-  , a._created_at::timestamp                as _created_at
+    'salesforce'::text(200)                               as system_name
+  , 'baystate'::text(200)                                 as system_instance
+  , concat(system_name, '__', system_instance)::text(200) as system_key
+  , 'mps'::text(200)                                      as firm_source
+  , a.json:LAST_MODIFIED_DATE::timestamp_tz               as last_modified_date
+  , a.json:LAST_MODIFIED_BY_ID::text(900)                 as last_modified_by_id
+  , a.json:CAMPAIGN_ID::text(900)                         as campaign_id
+  , a.json:SYSTEM_MODSTAMP::timestamp_tz                  as system_modstamp
+  , a.json:IS_DELETED::boolean                            as is_deleted
+  , a.json:_FIVETRAN_DELETED::boolean                     as _fivetran_deleted
+  , a.json:_FIVETRAN_SYNCED::timestamp_tz                 as _fivetran_synced
+  , a.json:SORT_ORDER::number(38, 0)                      as sort_order
+  , a.json:HAS_RESPONDED::boolean                         as has_responded
+  , a.json:CREATED_DATE::timestamp_tz                     as created_date
+  , a.json:IS_DEFAULT::boolean                            as is_default
+  , a.json:CREATED_BY_ID::text(900)                       as created_by_id
+  , a.json:ID::text(900)                                  as id
+  , a.json:LABEL::text(3100)                              as label
+  , a.effective_at::timestamp                             as effective_at
+  , a._created_at::timestamp                              as _created_at
   , {{ col_is_head(
     reference=source('salesforce_mps', 'campaign_member_status'),
     source_date_col='a.effective_at',
     reference_date_col='effective_at'
     ) }}
-  , case when b.rn = 1 then 1 else 0 end    as is_latest
+  , case when b.rn = 1 then 1 else 0 end                  as is_latest
 from {{ source('salesforce_mps', 'campaign_member_status') }} a
 left join (
     select

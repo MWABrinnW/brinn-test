@@ -1,25 +1,29 @@
 select
-    a.json:CREATED_BY_ID::text(900)           as created_by_id
-  , a.json:MEMBER_ID::text(900)               as member_id
-  , a.json:TEAM_ROLE_ID::text(900)            as team_role_id
-  , a.json:PARENT_ID::text(900)               as parent_id
-  , a.json:LAST_MODIFIED_DATE::timestamp_tz   as last_modified_date
-  , a.json:ID::text(900)                      as id
-  , a.json:TEAM_TEMPLATE_MEMBER_ID::text(900) as team_template_member_id
-  , a.json:LAST_MODIFIED_BY_ID::text(900)     as last_modified_by_id
-  , a.json:SYSTEM_MODSTAMP::timestamp_tz      as system_modstamp
-  , a.json:_FIVETRAN_SYNCED::timestamp_tz     as _fivetran_synced
-  , a.json:TEAM_TEMPLATE_ID::text(900)        as team_template_id
-  , a.json:CREATED_DATE::timestamp_tz         as created_date
-  , a.json:_FIVETRAN_DELETED::boolean         as _fivetran_deleted
-  , a.effective_at::timestamp                 as effective_at
-  , a._created_at::timestamp                  as _created_at
+    'salesforce'::text(200)                               as system_name
+  , 'baystate'::text(200)                                 as system_instance
+  , concat(system_name, '__', system_instance)::text(200) as system_key
+  , 'mps'::text(200)                                      as firm_source
+  , a.json:CREATED_BY_ID::text(900)                       as created_by_id
+  , a.json:MEMBER_ID::text(900)                           as member_id
+  , a.json:TEAM_ROLE_ID::text(900)                        as team_role_id
+  , a.json:PARENT_ID::text(900)                           as parent_id
+  , a.json:LAST_MODIFIED_DATE::timestamp_tz               as last_modified_date
+  , a.json:ID::text(900)                                  as id
+  , a.json:TEAM_TEMPLATE_MEMBER_ID::text(900)             as team_template_member_id
+  , a.json:LAST_MODIFIED_BY_ID::text(900)                 as last_modified_by_id
+  , a.json:SYSTEM_MODSTAMP::timestamp_tz                  as system_modstamp
+  , a.json:_FIVETRAN_SYNCED::timestamp_tz                 as _fivetran_synced
+  , a.json:TEAM_TEMPLATE_ID::text(900)                    as team_template_id
+  , a.json:CREATED_DATE::timestamp_tz                     as created_date
+  , a.json:_FIVETRAN_DELETED::boolean                     as _fivetran_deleted
+  , a.effective_at::timestamp                             as effective_at
+  , a._created_at::timestamp                              as _created_at
   , {{ col_is_head(
     reference=source('salesforce_mps', 'case_team_member'),
     source_date_col='a.effective_at',
     reference_date_col='effective_at'
     ) }}
-  , case when b.rn = 1 then 1 else 0 end      as is_latest
+  , case when b.rn = 1 then 1 else 0 end                  as is_latest
 from {{ source('salesforce_mps', 'case_team_member') }} a
 left join (
     select

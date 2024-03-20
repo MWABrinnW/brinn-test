@@ -1,5 +1,9 @@
 select
-    a.json:RECEIVES_INFO_EMAILS::boolean                        as receives_info_emails
+    'salesforce'::text(200)                                     as system_name
+  , 'baystate'::text(200)                                       as system_instance
+  , concat(system_name, '__', system_instance)::text(200)       as system_key
+  , 'mps'::text(200)                                            as firm_source
+  , a.json:RECEIVES_INFO_EMAILS::boolean                        as receives_info_emails
   , a.json:STATE::text(1100)                                    as state
   , a.json:PREFERENCES_ONLY_LLPERM_USER_ALLOWED::boolean        as preferences_only_llperm_user_allowed
   , a.json:PHONE::text(1000)                                    as phone

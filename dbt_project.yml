@@ -237,19 +237,29 @@ models:
           select: "{{ ['engineering', 'datamanagement', 'reporting', 'integration_reporting'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       salesforce_adviceperiod:
-        +tags: ["crm", "salesforce"]
+        +tags: ["crm", "salesforce", "mps", "adviceperiod"]
+        +grants:
+          select: "{{ ['db_crm_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+
+      salesforce_baystate:
+        +tags: ["crm", "salesforce", "baystate"]
         +grants:
           select: "{{ ['db_crm_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       salesforce_compass:
-        +tags: ["crm", "salesforce"]
+        +tags: ["crm", "salesforce", "compass", "mwa"]
         +grants:
           select: "{{ ['db_crm_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       salesforce_corbenic:
-        +tags: ["crm", "salesforce"]
+        +tags: ["crm", "salesforce", "corbenic"]
         +grants:
           select: "{{ ['db_crm_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+
+      salesforce_mps:
+        +tags: ["crm", "salesforce", "mps"]
+        +grants:
+          select: "{{ ['db_crm_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       salesforce_msec:
         +tags: ["crm", "salesforce", "msec"]

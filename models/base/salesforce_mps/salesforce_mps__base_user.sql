@@ -1,5 +1,9 @@
 select
-    a.json:_FIVETRAN_DELETED::boolean                                            as _fivetran_deleted
+    'salesforce'::text(200)                                                      as system_name
+  , 'baystate'::text(200)                                                        as system_instance
+  , concat(system_name, '__', system_instance)::text(200)                        as system_key
+  , 'mps'::text(200)                                                             as firm_source
+  , a.json:_FIVETRAN_DELETED::boolean                                            as _fivetran_deleted
   , a.json:LATITUDE::float                                                       as latitude
   , a.json:LANGUAGE_LOCALE_KEY::text(1000)                                       as language_locale_key
   , a.json:USER_PREFERENCES_DISABLE_SHARE_POST_EMAIL::boolean                    as user_preferences_disable_share_post_email

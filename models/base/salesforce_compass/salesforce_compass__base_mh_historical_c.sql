@@ -1,124 +1,124 @@
 select
-     id                                       
-    ,is_deleted                               
-    ,name                                     
-    ,created_date                             
-    ,created_by_id                            
-    ,last_modified_date                       
-    ,last_modified_by_id                      
-    ,system_modstamp                          
-    ,last_activity_date                       
-    ,last_viewed_date                         
-    ,last_referenced_date                     
-    ,estate_item_c                            
-    ,aum_c                                    
-    ,advisor_days_outstanding_c               
-    ,advisor_pending_end_date_c               
-    ,advisor_pending_start_date_c             
-    ,assigned_date_c                          
-    ,assigned_to_c                            
-    ,z_close_date_del_c                       
-    ,completed_date_c                         
-    ,completed_short_date_c                   
-    ,z_compliance_review_date_c_del_c         
-    ,z_compliance_review_notes_del_c          
-    ,z_current_value_c                        
-    ,z_custodial_firm_c                       
-    ,z_custodian_data_source_del_c            
-    ,z_custodian_notes_c                      
-    ,client_owner_name_c                      
-    ,client_c                                 
-    ,z_date_data_first_available_c            
-    ,z_estate_item_created_date_c             
-    ,z_estate_item_identifier_c               
-    ,z_estate_item_record_type_c              
-    ,z_fee_schedule_c                         
-    ,z_firm_c                                 
-    ,close_date_c                             
-    ,z_household_c                            
-    ,z_model_c                                
-    ,z_only_in_salesforce_c                   
-    ,z_operations_notes_estate_item_c         
-    ,ops_days_outstanding_c                   
-    ,compliance_review_date_c                 
-    ,z_orion_account_id_c                     
-    ,orion_days_outstanding_c                 
-    ,z_orion_house_id_c                       
-    ,orion_pending_end_date_c                 
-    ,orion_pending_start_date_c               
-    ,z_quarterback_c                          
-    ,z_recon_notes_estate_item_c              
-    ,recon_notes_c                            
-    ,z_stale_account_notes_c                  
-    ,z_stale_date_c                           
-    ,z_start_date_c                           
-    ,statement_hyperlink_c                    
-    ,statement_link_c                         
-    ,status_c                                 
-    ,unique_id_c                              
-    ,valuation_date_c                         
-    ,old_name_c                               
-    ,z_custodian_recon_period_c               
-    ,compliance_review_notes_c                
-    ,current_value_c                          
-    ,custodian_data_source_c                  
-    ,custodian_notes_c                        
-    ,custodian_recon_period_c                 
-    ,custodian_c                              
-    ,date_data_first_available_c              
-    ,estate_item_created_date_c               
-    ,estate_item_identifier_c                 
-    ,estate_item_operations_notes_c           
-    ,estate_item_record_type_c                
-    ,fee_schedule_c                           
-    ,model_c                                  
-    ,only_in_salesforce_c                     
-    ,orion_account_id_c                       
-    ,orion_house_id_c                         
-    ,partner_firm_c                           
-    ,zz_quarterback_c                         
-    ,stale_account_notes_c                    
-    ,stale_date_c                             
-    ,start_date_c                             
-    ,z_close_date_c                           
-    ,z_compliance_review_date_c_c             
-    ,z_compliance_review_notes_c              
-    ,z_custodian_data_source_c                
-    ,zz_custodial_firm_c                      
-    ,period_begin_date_c                      
-    ,period_end_date_c                        
-    ,sycamore_notes_c                         
-    ,fund_family_c                            
-    ,previous_recon_notes_c                   
-    ,z_fund_family_c                          
-    ,z_model_notes_c                          
-    ,z_model_recon_assignment_c               
-    ,z_model_data_source_c                    
-    ,z_model_as_of_date_c                     
-    ,z_custodian_recon_assignment_c           
-    ,z_estate_item_recon_assignment_c         
-    ,z_estate_item_data_source_c              
-    ,z_estate_item_reconciliation_frequency_c 
-    ,z_model_reconciliation_frequency_c       
-    ,z_model_primary_contact_c                
-    ,z_model_link_to_statements_c             
-    ,z_model_hyperlink_to_statements_c        
-    ,z_model_closed_to_new_investors_c        
-    ,z_model_lock_up_period_c                 
-    ,business_line_c                          
-    ,z_aum_classification_c                   
-    ,z_estate_item_owner_c                    
-    ,z_partner_firm_c                         
-    ,z_recon_notes_category_c                 
-    ,household_id_c                           
-    ,previously_assigned_to_c                 
-    ,z_data_source_c                          
-    ,final_reconciled_value_c                 
-    ,zestate_item_created_by_c                
-    ,only_in_salesforce_notes_c               
-    ,z_account_type_c                         
-    ,z_baa_type_c                             
-    ,mh_location_c                            
-    ,_fivetran_deleted                        
-    ,_fivetran_synced                         
+    id
+  , is_deleted
+  , name
+  , created_date
+  , created_by_id
+  , last_modified_date
+  , last_modified_by_id
+  , system_modstamp
+  , last_activity_date
+  , last_viewed_date
+  , last_referenced_date
+  , estate_item_c
+  , aum_c
+  , advisor_days_outstanding_c
+  , advisor_pending_end_date_c
+  , advisor_pending_start_date_c
+  , assigned_date_c
+  , assigned_to_c
+  , z_close_date_del_c
+  , completed_date_c
+  , completed_short_date_c
+  , z_compliance_review_date_c_del_c
+  , z_compliance_review_notes_del_c
+  , z_current_value_c
+  , z_custodial_firm_c
+  , z_custodian_data_source_del_c
+  , z_custodian_notes_c
+  , client_owner_name_c
+  , client_c
+  , z_date_data_first_available_c
+  , z_estate_item_created_date_c
+  , z_estate_item_identifier_c
+  , z_estate_item_record_type_c
+  , z_fee_schedule_c
+  , z_firm_c
+  , close_date_c
+  , z_household_c
+  , z_model_c
+  , z_only_in_salesforce_c
+  , z_operations_notes_estate_item_c
+  , ops_days_outstanding_c
+  , compliance_review_date_c
+  , z_orion_account_id_c
+  , orion_days_outstanding_c
+  , z_orion_house_id_c
+  , orion_pending_end_date_c
+  , orion_pending_start_date_c
+  , z_quarterback_c
+  , z_recon_notes_estate_item_c
+  , recon_notes_c
+  , z_stale_account_notes_c
+  , z_stale_date_c
+  , z_start_date_c
+  , statement_hyperlink_c
+  , statement_link_c
+  , status_c
+  , unique_id_c
+  , valuation_date_c
+  , old_name_c
+  , z_custodian_recon_period_c
+  , compliance_review_notes_c
+  , current_value_c
+  , custodian_data_source_c
+  , custodian_notes_c
+  , custodian_recon_period_c
+  , custodian_c
+  , date_data_first_available_c
+  , estate_item_created_date_c
+  , estate_item_identifier_c
+  , estate_item_operations_notes_c
+  , estate_item_record_type_c
+  , fee_schedule_c
+  , model_c
+  , only_in_salesforce_c
+  , orion_account_id_c
+  , orion_house_id_c
+  , partner_firm_c
+  , zz_quarterback_c
+  , stale_account_notes_c
+  , stale_date_c
+  , start_date_c
+  , z_close_date_c
+  , z_compliance_review_date_c_c
+  , z_compliance_review_notes_c
+  , z_custodian_data_source_c
+  , zz_custodial_firm_c
+  , period_begin_date_c
+  , period_end_date_c
+  , sycamore_notes_c
+  , fund_family_c
+  , previous_recon_notes_c
+  , z_fund_family_c
+  , z_model_notes_c
+  , z_model_recon_assignment_c
+  , z_model_data_source_c
+  , z_model_as_of_date_c
+  , z_custodian_recon_assignment_c
+  , z_estate_item_recon_assignment_c
+  , z_estate_item_data_source_c
+  , z_estate_item_reconciliation_frequency_c
+  , z_model_reconciliation_frequency_c
+  , z_model_primary_contact_c
+  , z_model_link_to_statements_c
+  , z_model_hyperlink_to_statements_c
+  , z_model_closed_to_new_investors_c
+  , z_model_lock_up_period_c
+  , business_line_c
+  , z_aum_classification_c
+  , z_estate_item_owner_c
+  , z_partner_firm_c
+  , z_recon_notes_category_c
+  , household_id_c
+  , previously_assigned_to_c
+  , z_data_source_c
+  , final_reconciled_value_c
+  , zestate_item_created_by_c
+  , only_in_salesforce_notes_c
+  , z_account_type_c
+  , z_baa_type_c
+  , mh_location_c
+  , _fivetran_deleted
+  , _fivetran_synced
 from {{ source('salesforce_compass_fivetran', 'mh_historical_c') }}

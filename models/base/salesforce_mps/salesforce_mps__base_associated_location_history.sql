@@ -1,23 +1,27 @@
 select
-    a.json:DATA_TYPE::text(1000)             as data_type
-  , a.json:_FIVETRAN_SYNCED::timestamp_tz    as _fivetran_synced
-  , a.json:CREATED_BY_ID::text(900)          as created_by_id
-  , a.json:NEW_VALUE::text(1600)             as new_value
-  , a.json:_FIVETRAN_DELETED::boolean        as _fivetran_deleted
-  , a.json:IS_DELETED::boolean               as is_deleted
-  , a.json:CREATED_DATE::timestamp_tz        as created_date
-  , a.json:OLD_VALUE::text(1600)             as old_value
-  , a.json:FIELD::text(1600)                 as field
-  , a.json:ID::text(900)                     as id
-  , a.json:ASSOCIATED_LOCATION_ID::text(900) as associated_location_id
-  , a.effective_at::timestamp                as effective_at
-  , a._created_at::timestamp                 as _created_at
+    'salesforce'::text(200)                               as system_name
+  , 'baystate'::text(200)                                 as system_instance
+  , concat(system_name, '__', system_instance)::text(200) as system_key
+  , 'mps'::text(200)                                      as firm_source
+  , a.json:DATA_TYPE::text(1000)                          as data_type
+  , a.json:_FIVETRAN_SYNCED::timestamp_tz                 as _fivetran_synced
+  , a.json:CREATED_BY_ID::text(900)                       as created_by_id
+  , a.json:NEW_VALUE::text(1600)                          as new_value
+  , a.json:_FIVETRAN_DELETED::boolean                     as _fivetran_deleted
+  , a.json:IS_DELETED::boolean                            as is_deleted
+  , a.json:CREATED_DATE::timestamp_tz                     as created_date
+  , a.json:OLD_VALUE::text(1600)                          as old_value
+  , a.json:FIELD::text(1600)                              as field
+  , a.json:ID::text(900)                                  as id
+  , a.json:ASSOCIATED_LOCATION_ID::text(900)              as associated_location_id
+  , a.effective_at::timestamp                             as effective_at
+  , a._created_at::timestamp                              as _created_at
   , {{ col_is_head(
     reference=source('salesforce_mps', 'associated_location_history'),
     source_date_col='a.effective_at',
     reference_date_col='effective_at'
     ) }}
-  , case when b.rn = 1 then 1 else 0 end     as is_latest
+  , case when b.rn = 1 then 1 else 0 end                  as is_latest
 from {{ source('salesforce_mps', 'associated_location_history') }} a
 left join (
     select

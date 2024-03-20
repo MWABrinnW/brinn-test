@@ -1,5 +1,9 @@
 select
-    a.json:MASTER_RECORD_ID::text(900)                     as master_record_id
+    'salesforce'::text(200)                                as system_name
+  , 'baystate'::text(200)                                  as system_instance
+  , concat(system_name, '__', system_instance)::text(200)  as system_key
+  , 'mps'::text(200)                                       as firm_source
+  , a.json:MASTER_RECORD_ID::text(900)                     as master_record_id
   , a.json:ID::text(900)                                   as id
   , a.json:HAS_OPTED_OUT_PROCESSING::boolean               as has_opted_out_processing
   , a.json:IS_DELETED::boolean                             as is_deleted
