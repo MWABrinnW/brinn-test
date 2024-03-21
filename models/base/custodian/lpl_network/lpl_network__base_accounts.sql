@@ -82,4 +82,5 @@ select
   , effective_date::date                       as effective_date
   , _created_at::timestamp                     as _source_loaded_at
   , _source_file::varchar(255)                 as _source_file
+  , valuationdate::date                        as valuationdate
 from {{ source('lpl_network', 'accountext') }}
