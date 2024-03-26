@@ -5,7 +5,7 @@
     {{create_f_get_fidelity_taxlots()}};
     {% endset %}
 
-    {{ dbt_utils.log_info('Creating function via create_f_get_fidelity_taxlots') }}
+    {{ log('Creating function via create_f_get_fidelity_taxlots', info=true) }}
     {%- set results = run_query(qry) -%}
 {%- endif -%}
 select 1 as _dummy

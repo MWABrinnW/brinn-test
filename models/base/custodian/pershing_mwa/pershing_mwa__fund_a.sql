@@ -1,2 +1,2 @@
--- depends_on: {{ ref('create_udfs_pershing') }}
+-- depends_on: {{ ref('pershing_udfs') }}
 {{ fund_a(source('pershing_mwa', 'fund')) }}

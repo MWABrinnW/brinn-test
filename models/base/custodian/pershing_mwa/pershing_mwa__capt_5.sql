@@ -1,2 +1,2 @@
--- depends_on: {{ ref('create_udfs_pershing') }}
+-- depends_on: {{ ref('pershing_udfs') }}
 {{ capt_5(source('pershing_mwa', 'capt')) }}

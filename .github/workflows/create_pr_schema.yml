@@ -68,4 +68,4 @@ jobs:
         shell: pwsh
         run: |
           .\utilities\.venv\Scripts\Activate.ps1
-          dbt build --target ci --select state:modified.body+ state:modified.persisted_descriptions+ state:modified.relation+ state:modified.macros+ state:modified.contract+
+          dbt build --target ci --select state:modified.body+1 state:modified.persisted_descriptions+1 state:modified.relation+1 state:modified.macros+1 state:modified.contract+1
