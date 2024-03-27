@@ -3,7 +3,7 @@
 select
     'black_diamond'                                   as system_name
     , 'houston'                                       as system_instance
-    , concat(system_name , '_' , system_instance)     as system_key
+    , concat(system_name , '__' , system_instance)    as system_key
     , 'mwa'                                           as firm_source
     , json:"ADV 5D - Client Type"::varchar(200)       as adv_5d_client_type
     , json:"Account Long Name"::varchar(200)          as account_long_name
@@ -56,5 +56,9 @@ select
     , json:"Total Period Fee"::decimal(20 , 5)        as total_period_fee
     , json:"WAS Account"::boolean                     as was_account
     , json:"Workflow"::varchar(200)                   as workflow
-    , _created_at                                     as _created_at
+    , _created_at::datetime                           as _created_at
+    , _box_file_id::text(200)                         as _box_file_id
+    , _box_meta::variant                              as _box_meta
+    , _box_file_name::varchar(200)                    as _box_file_name
+
 from {{ src }}
