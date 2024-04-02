@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: oracle
+    description: "Oracle Fusion"
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    tags: ["oracle_fusion"]
+    loaded_at_field: _created_at
+    tables:
+      - name: erp_general_ledger
+        description: "General Ledger dump"
+      - name: erp_general_ledger_exceptions
+        description: "Error file, not always available"
+      - name: hcm_employee_demographics
+        description: ""
+      - name: edm_accounting_id
+        description: ""
+      - name: edm_natural_account
+        description: ""
+      - name: edm_initiative
+        description: ""
+      - name: edm_legal_entity
+        description: ""
+      - name: edm_product
+        description: ""
+      - name: edm_team
+        description: ""

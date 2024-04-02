@@ -1,0 +1,75 @@
+version: 2
+models:
+  - name: edm__int_accounting_id
+    columns:
+      - name: LOCATION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: START_DATE
+        description: ''
+        data_type: VARCHAR
+        tests:
+          - not_null
+      - name: END_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: ACTIVE
+        description: ''
+        data_type: VARCHAR
+      - name: DIVISION
+        description: ''
+        data_type: VARCHAR
+      - name: LEGAL_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: REGION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: MARKET_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: OFFICE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_CITY
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_STATE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNTING_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNTING_ID_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: ACQUISITION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACQUISITION_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: GENERAL_ACCESS
+        description: ''
+        data_type: VARCHAR
+      - name: LEADER
+        description: ''
+        data_type: VARCHAR
+      - name: LEADER_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: VARCHAR
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR

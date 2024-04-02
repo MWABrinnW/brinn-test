@@ -58,7 +58,7 @@ models:
   elementary:
     +schema: "elementary"
     +grants:
-      select: ['engineering']
+      select: ["engineering"]
     enabled: "{{ target.name in ['prod', 'test'] }}"
 
   data_engineering:
@@ -69,10 +69,10 @@ models:
 
     # By default models will go in the datalake db
     +database: |
-      {%- if  target.name == "dev" -%} datalake_test
+      {%- if  target.name == "dev" -%} datalake_dev
       {%- elif target.name == "prod"  -%} datalake
-      {%- elif target.name == "test"  -%} datalake_test
-      {%- else -%} datalake_test
+      {%- elif target.name == "test"  -%} datalake_dev
+      {%- else -%} datalake_dev
       {%- endif -%}
 
     # [BASE]
@@ -194,6 +194,8 @@ models:
 
       edw_legacy:
         +tags: ["edw", "employees", "associates"]
+        +grants:
+          select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       emoney:
         +tags: ["emoney"]
@@ -211,6 +213,18 @@ models:
         +tags: ["hubspot", "network", "hubspot_network"]
         +grants:
           select: "{{ ['db_crm_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+
+      oracle_fusion:
+        +tags: ["oracle", "oracle_fusion"]
+        +database: |
+          {%- if  target.name == "dev" -%} oracle_fusion_dev
+          {%- elif target.name == "prod"  -%} oracle_fusion
+          {%- elif target.name == "test"  -%} oracle_fusion_dev
+          {%- else -%} oracle_fusion_dev
+          {%- endif -%}
+        +grants:
+          select: "{{ ['datamanagement', 'engineering', 'finance', 'db_hr_talent_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        +dbt-osmosis: "_{model}.yml"
 
       icims:
         +tags: ["icims", "hr"]
@@ -268,10 +282,10 @@ models:
           select: "{{ ['db_crm_msec_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       xcm:
-          +tags: ["tax","xcm"]
-          +dbt-osmosis: "_{model}.yml"
-          +grants:
-            select: "{{ ['db_crm_tax_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        +tags: ["tax", "xcm"]
+        +dbt-osmosis: "_{model}.yml"
+        +grants:
+          select: "{{ ['db_crm_tax_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       zoom:
         +tags: ["zoom"]
@@ -280,12 +294,12 @@ models:
 
     # [ODW]
     odw:
-      +tags: ["devops","odw"]
+      +tags: ["devops", "odw"]
       +database: |
         {%- if  target.name == "dev" -%} {{target.database}}
         {%- elif target.name == "prod"  -%} odw
-        {%- elif target.name == "test"  -%} odw_test
-        {%- else -%} odw_test
+        {%- elif target.name == "test"  -%} odw_dev
+        {%- else -%} odw_dev
         {%- endif -%}
       +grants:
         +select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
@@ -311,13 +325,12 @@ models:
     edw:
       +tags: ["edw"]
       +database: |
-        {%- if  target.name == "dev" -%} edw_test
+        {%- if  target.name == "dev" -%} edw_dev
         {%- elif target.name == "prod"  -%} edw
-        {%- elif target.name == "test"  -%} edw_test
-        {%- else -%} edw_test
+        {%- elif target.name == "test"  -%} edw_dev
+        {%- else -%} edw_dev
         {%- endif -%}
       +dbt-osmosis: "_{model}.yml"
-
       advisors:
         +tags: ["advisors", "network"]
         enterprise:
@@ -409,26 +422,26 @@ seeds:
   data_engineering:
     # By default seeds will go into datalake.aux
     +database: |
-      {%- if  target.name == "dev" -%} datalake_test
+      {%- if  target.name == "dev" -%} datalake_dev
       {%- elif target.name == "prod"  -%} datalake
-      {%- elif target.name == "test"  -%} datalake_test
-      {%- else -%} datalake_test
+      {%- elif target.name == "test"  -%} datalake_dev
+      {%- else -%} datalake_dev
       {%- endif -%}
     +schema: aux
     datalake:
       +database: |
-        {%- if  target.name == "dev" -%} datalake_test
+        {%- if  target.name == "dev" -%} datalake_dev
         {%- elif target.name == "prod"  -%} datalake
-        {%- elif target.name == "test"  -%} datalake_test
-        {%- else -%} datalake_test
+        {%- elif target.name == "test"  -%} datalake_dev
+        {%- else -%} datalake_dev
         {%- endif -%}
       +schema: aux
 
     edw:
       +database: |
-        {%- if  target.name == "dev" -%} edw_test
+        {%- if  target.name == "dev" -%} edw_dev
         {%- elif target.name == "prod"  -%} edw
-        {%- elif target.name == "test"  -%} edw_test
-        {%- else -%} edw_test
+        {%- elif target.name == "test"  -%} edw_dev
+        {%- else -%} edw_dev
         {%- endif -%}
       +schema: ref
