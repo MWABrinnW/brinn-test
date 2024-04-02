@@ -9,7 +9,7 @@ with custodian_accounts as (
         , null::text(200) as account_type
     from {{ ref('custodian_account_links') }}
     where 1 = 1
-        and is_current = 1
+        and is_head = 1
         and custodian in ('schwab' , 'fidelity')
         and link in (
             -- schwab options master
