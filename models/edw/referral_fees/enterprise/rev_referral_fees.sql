@@ -38,7 +38,7 @@ from {{ ref('bld_referral_fees') }} a
 left join {{ ref('aux__stg_referral_fees_lock_dates') }} b
     on a.quarter_end_date = b.quarter_end_date
     and a.referral_party_name = b.referral_party_name
-left join {{ ref('legacy__vw_financial_accounts_monthly') }} fam
+left join {{ source('edw_mwa', 'financial_account_monthly') }} fam
     on a.quarter_end_date = fam.month_end_date
     and a.account_number = fam.financial_account_number_clean
 left join {{ ref('dates') }} last_report
@@ -90,7 +90,7 @@ select
     , a._source_loaded_at
     , a._source_file
 from {{ ref('int_legacy_referral_fees') }} a
-left join {{ ref('legacy__vw_financial_accounts_monthly') }} fam
+left join {{ source('edw_mwa', 'financial_account_monthly') }} fam
     on a.quarter_end_date = fam.month_end_date
     and a.account_number = fam.financial_account_number_clean
 where a.quarter_end_date < '9/30/2023'
