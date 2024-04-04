@@ -49,8 +49,7 @@ with cte_accounts as
         , 'cte_schwab_cash--base_cash'                as src
     from {{ ref('schwab__base_cash') }}              a
     join cte_accounts                                v
-        on a.effective_date = v.effective_date
-            and upper(a.custodian) = upper(v.custodian)
+        on upper(a.custodian) = upper(v.custodian)
             and upper(a.account_number) = upper(v.account_No)
     where true
         and a.rn = 1
@@ -90,8 +89,7 @@ with cte_accounts as
         , 'cte_schwab_money_market--nml_schwab_holdings'  as src
     from {{ ref('nml_schwab_holdings') }} a
     join cte_accounts                     v
-        on a.effective_date = v.effective_date
-        and upper(a.custodian) = upper(v.custodian)
+        on upper(a.custodian) = upper(v.custodian)
         and a.account_number = v.account_no
     where 1=1
         and is_current = 1
@@ -136,8 +134,7 @@ with cte_accounts as
         , 'cte_fidelity_money_market--nml_fidelity_mwa_holdings' as src
     from {{ ref('nml_fidelity_mwa_holdings') }} a
     join cte_accounts                                v
-        on a.effective_date = v.effective_date
-            and upper(a.custodian) = upper(v.custodian)
+        on upper(a.custodian) = upper(v.custodian)
             and upper(a.account_number) = upper(v.account_No)
     where true
         --and is_head = 1
@@ -269,8 +266,7 @@ with cte_accounts as
         , 'cte_tax_lots--custodian_tax_lots'     as src
     from {{ ref('custodian_tax_lots') }}             a
     join cte_accounts                                v
-        on a.effective_date = v.effective_date
-            and upper(a.custodian) = upper(v.custodian)
+        on upper(a.custodian) = upper(v.custodian)
             and upper(a.account_number) = upper(v.account_No)
     left join cte_securities                         s
         on a.cusip = s.cusip
