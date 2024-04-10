@@ -44,6 +44,9 @@ vars:
   disable_tests_results: "{{ target.name not in ['prod', 'test'] }}"
   disable_dbt_invocation_autoupload: "{{ target.name not in ['prod', 'test'] }}"
   disable_dbt_artifacts_autoupload: "{{ target.name not in ['prod', 'test'] }}"
+  fivetran_platform_database: fivetran # default is your target.database
+  fivetran_platform_schema: fivetran_log # default is fivetran_log
+  fivetran_platform_using_destination_membership: false # this will disable only the destination membership logic
 
 on-run-start:
   - "{{ create_schemas() if target.name in ['prod', 'test', 'ci'] }}"
@@ -60,6 +63,25 @@ models:
     +grants:
       select: ["engineering"]
     enabled: "{{ target.name in ['prod', 'test'] }}"
+
+  fivetran_log:
+    +grants:
+      select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
+    +database: |
+      {%- if  target.name == "dev" -%} datalake_dev
+      {%- elif target.name == "prod"  -%} datalake
+      {%- elif target.name == "test"  -%} datalake_dev
+      {%- else -%} datalake_dev
+      {%- endif -%}
+    +schema: fivetran_log # leave blank for just the target_schema
+    staging:
+      +database: |
+        {%- if  target.name == "dev" -%} datalake_dev
+        {%- elif target.name == "prod"  -%} datalake
+        {%- elif target.name == "test"  -%} datalake_dev
+        {%- else -%} datalake_dev
+        {%- endif -%}
+      +schema: fivetran_log # leave blank for just the target_schema
 
   data_engineering:
     +persist_docs:
