@@ -1,0 +1,168 @@
+select
+    system_name                as system_name
+    , system_instance          as system_instance
+    , system_key               as system_key
+    , firm_source              as firm_source
+    , distinguishedname        as distinguished_name
+    , name                     as name
+    , canonicalname            as canonical_name
+    , employeenumber           as employee_number
+    , employeeid               as employee_id
+    , manager                  as manager
+    , cn                       as cn
+    , sn                       as sn
+    , displayname              as display_name
+    , givenname                as given_name
+    , description              as description
+    , objectclass              as object_class
+    , instancetype             as instance_type
+    , admincount               as admin_count
+    , lockedout                as is_locked_out
+    , accountlockouttime       as account_lockout_time
+    , lastlogon                as last_logon_at
+    , enabled                  as is_enabled
+    , deleted                  as is_deleted
+    , company                  as company
+    , office                   as office
+    , division                 as division
+    , department               as department
+    , title                    as title
+    , userprincipalname        as email
+    , ssosmtp                  as sso_smtp
+    , officephone              as office_phone
+    , whenchanged              as modified_at
+    , mobilephone              as mobile_phone
+    , primarygroup             as primary_group
+    , primarygroupid           as primary_group_id
+    , organization             as organization
+    , passwordexpired          as password_expired
+    , badpwdcount              as bad_pwd_count
+    , badpasswordtime          as bad_password_time
+    , lastbadpasswordattempt   as last_bad_password_attempt_at
+    , passwordlastset          as password_last_set_at
+    , msexchwhenmailboxcreated as msexchange_mailbox_created_at
+    , iscriticalsystemobject   as is_critical_system_object
+    , memberof                 as member_of
+    , samaccountname           as sam_account_name
+    , samaccounttype           as sam_account_type
+
+    , is_head                  as is_head
+    , _effective_at            as _effective_at
+    , _created_at              as _created_at
+    , _source_file             as _source_file
+from {{ ref('active_directory__stg_users') }}
+where rn_day = 1
+
+union all
+
+select
+    system_name              as system_name
+    , system_instance        as system_instance
+    , system_key             as system_key
+    , firm_source            as firm_source
+    , distinguishedname      as distinguished_name
+    , name                   as name
+    , canonicalname          as canonical_name
+    , null::text(200)        as employee_number
+    , null::text(200)        as employee_id
+    , null::text(200)        as manager
+    , cn                     as cn
+    , null::text(200)        as sn
+    , displayname            as display_name
+    , null::text(200)        as given_name
+    , description            as description
+    , objectclass            as object_class
+    , instancetype           as instance_type
+    , null::int              as admin_count
+    , lockedout              as is_locked_out
+    , accountlockouttime     as account_lockout_time
+    , lastlogon              as last_logon_at
+    , enabled                as is_enabled
+    , deleted                as is_deleted
+    , null::text(200)        as company
+    , null::text(200)        as office
+    , null::text(200)        as division
+    , null::text(200)        as department
+    , null::text(200)        as title
+    , userprincipalname      as email
+    , null::text(200)        as sso_smtp
+    , null::text(200)        as office_phone
+    , whenchanged            as modified_at
+    , null::text(200)        as mobile_phone
+    , primarygroup           as primary_group
+    , primarygroupid         as primary_group_id
+    , null::text(200)        as organization
+    , passwordexpired        as password_expired
+    , badpwdcount            as bad_pwd_count
+    , badpasswordtime        as bad_password_time
+    , lastbadpasswordattempt as last_bad_password_attempt_at
+    , passwordlastset        as password_last_set_at
+    , null::text(200)        as msexchange_mailbox_created_at
+    , iscriticalsystemobject as is_critical_system_object
+    , memberof               as member_of
+    , samaccountname         as sam_account_name
+    , samaccounttype         as sam_account_type
+
+    , is_head                as is_head
+    , _effective_at          as _effective_at
+    , _created_at            as _created_at
+    , _source_file           as _source_file
+from {{ ref('active_directory__stg_computers') }}
+where rn_day = 1
+
+union all
+
+select
+    system_name              as system_name
+    , system_instance        as system_instance
+    , system_key             as system_key
+    , firm_source            as firm_source
+    , distinguishedname      as distinguished_name
+    , name                   as name
+    , canonicalname          as canonical_name
+    , null::text(200)        as employee_number
+    , null::text(200)        as employee_id
+    , null::text(200)        as manager
+    , cn                     as cn
+    , null::text(200)        as sn
+    , displayname            as display_name
+    , null::text(200)        as given_name
+    , description            as description
+    , objectclass            as object_class
+    , instancetype           as instance_type
+    , null::int              as admin_count
+    , lockedout              as is_locked_out
+    , accountlockouttime     as account_lockout_time
+    , lastlogon              as last_logon_at
+    , enabled                as is_enabled
+    , deleted                as is_deleted
+    , null::text(200)        as company
+    , null::text(200)        as office
+    , null::text(200)        as division
+    , null::text(200)        as department
+    , null::text(200)        as title
+    , userprincipalname      as email
+    , null::text(200)        as sso_smtp
+    , null::text(200)        as office_phone
+    , whenchanged            as modified_at
+    , null::text(200)        as mobile_phone
+    , primarygroup           as primary_group
+    , primarygroupid         as primary_group_id
+    , null::text(200)        as organization
+    , passwordexpired        as password_expired
+    , badpwdcount            as bad_pwd_count
+    , badpasswordtime        as bad_password_time
+    , lastbadpasswordattempt as last_bad_password_attempt_at
+    , passwordlastset        as password_last_set_at
+    , null::text(200)        as msexchange_mailbox_created_at
+    , iscriticalsystemobject as is_critical_system_object
+    , memberof               as member_of
+    , samaccountname         as sam_account_name
+    , samaccounttype         as sam_account_type
+
+    , is_head                as is_head
+    , _effective_at          as _effective_at
+    , _created_at            as _created_at
+    , _source_file           as _source_file
+from {{ ref('active_directory__stg_service_accounts') }}
+where rn_day = 1

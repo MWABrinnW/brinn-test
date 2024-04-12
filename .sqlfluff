@@ -8,21 +8,21 @@ nocolor = False
 dialect = snowflake
 # One of [raw|jinja|python|placeholder]
 templater = jinja
-[sqlfluff:templater:dbt]
-project_dir = ./
-profiles_dir = ./
+; [sqlfluff:templater:dbt]
+; project_dir = ./
+; profiles_dir = ./
 ; profile =
 target = dev
 # Comma separated list of rules to check, default to all
 rules = all
 # Comma separated list of rules to exclude, or None
-exclude_rules = L034, AL09
+exclude_rules = L034,AL09,ST06
 # Below controls SQLFluff output, see max_line_length for SQL output
 output_line_length = 80
 # Number of passes to run before admitting defeat
 runaway_limit = 10
 # Ignore errors by category (one or more of the following, separated by commas: lexing,linting,parsing,templating)
-ignore = None
+ignore = templating
 # Warn only for rule codes (one of more rule codes, seperated by commas: e.g. LT01,LT02)
 # Also works for templating and parsing errors by using TMP or PRS
 warnings = ST06
