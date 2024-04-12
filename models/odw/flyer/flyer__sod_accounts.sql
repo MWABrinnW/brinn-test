@@ -105,6 +105,7 @@ select
     || ';adam@mariner'
     || ';brett@mariner'
     || ';robert@mariner'
+    || ';jacob@mariner'
     ::text(200)                                                      as associated_users
     , null::text(200)                                                as taxable
     , null::text(200)                                                as cashreserveexpiry
