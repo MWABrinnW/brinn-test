@@ -47,6 +47,9 @@ vars:
   fivetran_platform_database: fivetran # default is your target.database
   fivetran_platform_schema: fivetran_log # default is fivetran_log
   fivetran_platform_using_destination_membership: false # this will disable only the destination membership logic
+  github_source:
+    github_database: fivetran
+    github_schema: github 
 
 on-run-start:
   - "{{ create_schemas() if target.name in ['prod', 'test', 'ci'] }}"
@@ -63,6 +66,29 @@ models:
     +grants:
       select: ["engineering"]
     enabled: "{{ target.name in ['prod', 'test'] }}"
+
+  github_source:
+    +tags: ["github"]
+    +grants:
+      select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
+    +database: |
+      {%- if  target.name == "dev" -%} datalake_dev
+      {%- elif target.name == "prod"  -%} datalake
+      {%- elif target.name == "test"  -%} datalake_dev
+      {%- else -%} datalake_dev
+      {%- endif -%}
+    +schema: github # leave blank for just the target_schema
+  github:
+    +tags: ["github"]
+    +grants:
+      select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
+    +database: |
+      {%- if  target.name == "dev" -%} datalake_dev
+      {%- elif target.name == "prod"  -%} datalake
+      {%- elif target.name == "test"  -%} datalake_dev
+      {%- else -%} datalake_dev
+      {%- endif -%}
+    +schema: github # leave blank for just the target_schema
 
   fivetran_log:
     +grants:

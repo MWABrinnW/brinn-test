@@ -30,6 +30,10 @@ packages:
     version: [">=1.7.0", "<1.8.0"]
     ## https://github.com/fivetran/dbt_fivetran_log
 
+  - package: fivetran/github
+    version: [">=0.8.0", "<0.9.0"] 
+    ## https://github.com/fivetran/dbt_github 
+
   # - package: re-data/re_data
   #   version: [">=0.10.0", "<0.11.0"]
     # https://hub.getdbt.com/re-data/re_data/latest/
