@@ -1,26 +1,30 @@
 with cte_positions as (
     select
-        a.effective_date       as effective_date
-        , a.platform           as platform
-        , a.venue              as venue
-        , lower(acc.custodian) as custodian
-        , a.account_id         as account_id
-        , acc.account_number   as account_number
-        , acc.account_name     as account_name
+        a.effective_date        as effective_date
+        , a.platform            as platform
+        , a.venue               as venue
+        , lower(acc.custodian)  as custodian
+        , a.account_id          as account_id
+        , acc.account_number    as account_number
+        , acc.account_name      as account_name
 
-        , a.product_type       as product_type
-        , a.option_symbol      as option_symbol
+        , a.product_type        as product_type
+        , a.option_symbol       as option_symbol
+        , a.option_ticker       as option_ticker
+        , a.option_ex_date      as option_ex_date
+        , a.option_type         as option_type
+        , a.option_strike_price as option_strike_price
 
-        , a.quantity           as quantity
-        , a.position_id        as position_id
-        , a.security_id        as security_id
-        , a.current_price      as prev_close_price
-        , a.average_price      as average_price
-        , a.last_modified_at   as last_modified_at
+        , a.quantity            as quantity
+        , a.position_id         as position_id
+        , a.security_id         as security_id
+        , a.current_price       as prev_close_price
+        , a.average_price       as average_price
+        , a.last_modified_at    as last_modified_at
 
-        , a.is_head            as is_head
-        , a._created_at        as _created_at
-        , a._source_file       as _source_file
+        , a.is_head             as is_head
+        , a._created_at         as _created_at
+        , a._source_file        as _source_file
     from {{ ref('flyer__stg_positions') }} as a
     left join {{ ref('flyer__stg_accounts') }} as acc
         on a.effective_date = acc.effective_date
@@ -95,6 +99,11 @@ select
     , a.product_type                                                                          as product_type
     , coalesce(a.option_symbol, a.security_id)                                                as ticker
     , coalesce(cusip_ticker.cusip, cusip.cusip)                                               as cusip
+    , a.option_ticker                                                                         as option_ticker
+    , a.option_ex_date                                                                        as option_ex_date
+    , a.option_type                                                                           as option_type
+    , a.option_strike_price                                                                   as option_strike_price
+
     , a.quantity                                                                              as actual_quantity
     , case
         when limi.security_id is not null
@@ -148,30 +157,30 @@ select
     , a.is_head
     , a._created_at                                                                           as last_collected_at
     --, a._source_file
-from cte_positions as a
-left join cte_pricing as pri
+from cte_positions                      as a
+left join cte_pricing                   as pri
     on a.security_id = pri.ticker
-left join cte_restrictions as omit
+left join cte_restrictions              as omit
     on a.account_id = omit.account_id
     and a.security_id = omit.security_id
     and omit.type = 'OMIT'
-left join cte_restrictions as limi
+left join cte_restrictions              as limi
     on a.account_id = limi.account_id
     and a.security_id = limi.security_id
     and limi.type = 'LIMIT_COVERAGE'
-left join cte_restrictions as tgt
+left join cte_restrictions              as tgt
     on a.account_id = tgt.account_id
     and a.security_id = tgt.security_id
     and tgt.type = 'TARGET'
-left join cte_accounts_with_omit as omit_acct
+left join cte_accounts_with_omit        as omit_acct
     on a.account_id = omit_acct.account_id
-left join cte_accounts_with_omit as limit_acct
+left join cte_accounts_with_omit        as limit_acct
     on a.account_id = limit_acct.account_id
-left join cte_accounts_with_target as tgt_acct
+left join cte_accounts_with_target      as tgt_acct
     on a.account_id = tgt_acct.account_id
-left join {{ ref('bld_securities') }} cusip_ticker
+left join {{ ref('bld_securities') }}   as cusip_ticker
     on a.security_id = cusip_ticker.ticker
     and cusip_ticker.rn_ticker = 1
-left join {{ ref('bld_securities') }} cusip
+left join {{ ref('bld_securities') }}   as cusip
     on a.security_id = cusip.cusip
 where 1 = 1

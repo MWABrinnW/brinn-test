@@ -17,6 +17,11 @@ select
     , a.average_price                                      as avg_cost
     , a.last_modified_at                                   as last_modified_at
 
+    , a.option_ticker                                      as option_ticker
+    , a.option_ex_date                                     as option_ex_date
+    , a.option_type                                        as option_type
+    , a.option_strike_price                                as option_strike_price
+
     , a.is_head                                            as is_head
     , a._created_at                                        as last_collected_at
 from {{ ref('flyer__stg_positions') }} as a
