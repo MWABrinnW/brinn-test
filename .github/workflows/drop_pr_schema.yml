@@ -46,6 +46,6 @@ jobs:
         env:
           PR_NUM: ${{ github.event.number }}
         run: |
-          & python -m venv .\utilities\.venv
-          & dbt deps
-          & dbt run-operation drop_pr_schema --target=ci
+          .\utilities\.venv\Scripts\Activate.ps1
+          dbt deps
+          dbt run-operation drop_pr_schema --target=ci
