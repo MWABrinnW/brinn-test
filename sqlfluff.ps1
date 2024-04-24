@@ -13,7 +13,7 @@ if ($do -eq "fix") {
 
 if ($select.trim() -ne "") {
     Write-Host "select: [$select]"
-    $paths = @("models", "macros", "tests")
+    $paths = @("models", "tests")
     $files = @()
 
     if ($select -notlike "*.sql*") {
