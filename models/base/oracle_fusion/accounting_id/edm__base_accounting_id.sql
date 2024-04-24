@@ -5,11 +5,19 @@ with cte_accounting_id as (
 
 , cte_sector as (
     select
-        business_unit.name as business_unit
+        business_unit.name
+            as business_unit
         , business_unit.effective_date
         , coalesce(
             new_data.name , business_unit.name
         )                  as sector
+        , nullif(
+            greatest(
+                coalesce(business_unit.attr_10 , '1900-01-01')
+                , coalesce(new_data.attr_10 , '1900-01-01')
+            )
+            , '1900-01-01'
+        )::date            as org_effective_date
     from cte_accounting_id as business_unit
     left join cte_accounting_id as new_data
         on business_unit.name = new_data.parent
@@ -23,7 +31,16 @@ with cte_accounting_id as (
         business_unit
         , sector
         , cte_sector.effective_date
-        , coalesce(new_data.name , cte_sector.sector) as division
+        , coalesce(
+            new_data.name , cte_sector.sector
+        )       as division
+        , nullif(
+            greatest(
+                coalesce(cte_sector.org_effective_date , '1900-01-01')
+                , coalesce(new_data.attr_10 , '1900-01-01')
+            )
+            , '1900-01-01'
+        )::date as org_effective_date
     from cte_sector
     left join cte_accounting_id as new_data
         on cte_sector.sector = new_data.parent
@@ -37,7 +54,16 @@ with cte_accounting_id as (
         , sector
         , division
         , cte_division.effective_date
-        , coalesce(new_data.name , cte_division.division) as region
+        , coalesce(
+            new_data.name , cte_division.division
+        )       as region
+        , nullif(
+            greatest(
+                coalesce(cte_division.org_effective_date , '1900-01-01')
+                , coalesce(new_data.attr_10 , '1900-01-01')
+            )
+            , '1900-01-01'
+        )::date as org_effective_date
     from cte_division
     left join cte_accounting_id as new_data
         on cte_division.division = new_data.parent
@@ -52,7 +78,16 @@ with cte_accounting_id as (
         , division
         , region
         , cte_region.effective_date
-        , coalesce(new_data.name , cte_region.region) as market
+        , coalesce(
+            new_data.name , cte_region.region
+        )       as market
+        , nullif(
+            greatest(
+                coalesce(cte_region.org_effective_date , '1900-01-01')
+                , coalesce(new_data.attr_10 , '1900-01-01')
+            )
+            , '1900-01-01'
+        )::date as org_effective_date
     from cte_region
     left join cte_accounting_id as new_data
         on cte_region.region = new_data.parent
@@ -68,7 +103,16 @@ with cte_accounting_id as (
         , region
         , market
         , cte_market.effective_date
-        , coalesce(new_data.name , cte_market.market) as location
+        , coalesce(
+            new_data.name , cte_market.market
+        )       as location
+        , nullif(
+            greatest(
+                coalesce(cte_market.org_effective_date , '1900-01-01')
+                , coalesce(new_data.attr_10 , '1900-01-01')
+            )
+            , '1900-01-01'
+        )::date as org_effective_date
     from cte_market
     left join cte_accounting_id as new_data
         on cte_market.market = new_data.parent
@@ -78,7 +122,8 @@ with cte_accounting_id as (
 
 , cte_department as (
     select
-         new_data.name                                        as accounting_id
+        new_data.name
+            as accounting_id
         , new_data.is_enabled
         , new_data.end_date
         , new_data.attr_01::text(200)                        as location_code
@@ -91,16 +136,24 @@ with cte_accounting_id as (
         , new_data.attr_14::text(200)                        as leader_2
         , new_data.attr_15::text(200)                        as leader_2_email
         , new_data.attr_13::text(200)                        as hr_business_partner
-        , new_data.attr_06::int                              as is_greenfield
-        , new_data.attr_07::date                             as acquisition_start_month
-        , new_data.attr_11::date                             as inception_date
+        , new_data.attr_06::int  as is_greenfield
+        , new_data.attr_07::date as acquisition_start_month
+        , new_data.attr_11::date as inception_date
+        , nullif(
+            greatest(
+                coalesce(cte_location.org_effective_date , '1900-01-01')
+                , coalesce(new_data.attr_10 , '1900-01-01')
+            )
+            , '1900-01-01'
+        )::date                  as org_effective_date
+        , new_data.attr_16::text(200)                        as igo_segment
         , cte_location.business_unit
         , cte_location.sector
         , cte_location.division
         , cte_location.region
         , cte_location.market
         , cte_location.location
-        , new_data.description as department
+        , new_data.description  as department
         , cte_location.effective_date
         , new_data.is_head
         , new_data._created_at

@@ -2,6 +2,7 @@ with ranked_dates as (
     select
         location_code
         , is_enabled
+        , end_date
         , business_unit
         , sector
         , division
@@ -22,20 +23,22 @@ with ranked_dates as (
         , is_greenfield
         , acquisition_start_month
         , inception_date
+        , igo_segment
         , effective_date
         , is_head
         , _created_at
         , _source_file
         , ROW_NUMBER() over (partition by accounting_id order by effective_date desc) as row_num
         , MAX(effective_date) over ()                                                 as max_effective_date_across_all
-        , MIN(effective_date) over (partition by accounting_id)                       as start_date
+        , MIN(inception_date) over (partition by accounting_id)                       as min_inception_date
+        , MAX(org_effective_date) over (partition by accounting_id)                   as max_org_effective_date
     from {{ ref('edm__base_accounting_id') }}
 )
 
 select
     location_code
-    , start_date
-    , IFF(effective_date = max_effective_date_across_all , NULL , effective_date) as end_date
+    , nullif(greatest(coalesce(min_inception_date, '1900-01-01'), coalesce(max_org_effective_date, '1900-01-01')), '1900-01-01') as start_date
+    , end_date
     , is_enabled                                                                  as active
     , business_unit
     , sector
@@ -58,6 +61,7 @@ select
     , is_greenfield
     , acquisition_start_month
     , inception_date
+    , igo_segment
     , effective_date
     , is_head
     , _created_at

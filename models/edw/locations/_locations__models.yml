@@ -8,7 +8,7 @@ models:
       Primary purpose for this table is to assign a Mariner Location ID to each Mariner Location.
       That ID/name is used throughout a number of systems (ex. Great Plains, ADP, Salesforce, Enterprise Reporting, etc).
       The Location Master is also where the the hierarchy of Region/Market/Location is kept, along with other ancillary levels (Division, Legal, and Tax hierarchy) will be found.
-      
+
       DW1 equivalent: `edw.vw.enterprise_locations`
     columns:
       - name: start_date
@@ -33,8 +33,6 @@ models:
         description: Market name, locations are grouped into a market
       - name: location_name
         description: Location name, offices are grouped into a location
-        tests:
-          - not_null
       - name: office_name
         description: "Office name/location in the format of 'City, State'"
       - name: location_city

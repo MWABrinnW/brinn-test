@@ -17,9 +17,7 @@ select
     , coalesce(
         lm_old.location_name , lm_new.location_name
     )   as location_name
-    , coalesce(
-        lm_old.legal_name , lm_new.legal_name
-    )   as location_legal_name
+    , null as location_legal_name
     , coalesce(
         lm_old.location_city , lm_new.location_city
     )   as location_city
