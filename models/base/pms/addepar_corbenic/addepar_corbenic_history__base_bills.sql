@@ -1,7 +1,17 @@
+{% set src = source('addepar_corbenic', 'bills') %}
+
+with cte_max_created_at as (
+    select
+        _json:columns.bill_id as billing_id
+        , max(_created_at)    as _max_created_at
+    from {{ src }}
+    group by _json:columns.bill_id
+)
+
 select
     'addepar'                                                       as system_name
     , 'corbenic'                                                    as system_instance
-    , concat(system_name , '_' , system_instance)                   as system_key
+    , concat(system_name , '__' , system_instance)                  as system_key
     , 'mwa'                                                         as firm_source
     , _json:columns._custom_cwm_custodian_126441::text(200)         as cwm_custodian
     , _json:columns._custom_cwm_lead_advisor_136710::text(200)      as cwm_lead_advisor
@@ -28,7 +38,14 @@ select
     , _json:entity_id::text(200)                                    as entity_id
     , _json:grouping::text(200)                                     as grouping
     , _json:name::text(200)                                         as name
+    , case when _created_at = mca._max_created_at then 1
+        else 0
+    end                                                             as is_head
     , _id                                                           as _id
     , _created_at::datetime                                         as _created_at
+    , mca._max_created_at                                           as _max_created_at
     , _source_file::text(200)                                       as _source_file
-from {{ source('addepar_corbenic', 'bills') }}
+from {{ src }}
+left join cte_max_created_at as mca
+    on _json:columns.bill_id = mca.billing_id
+    and _created_at = mca._max_created_at
