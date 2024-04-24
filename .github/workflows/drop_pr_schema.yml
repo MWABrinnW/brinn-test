@@ -1,4 +1,4 @@
-name: Remove temp schema upon PR closure
+name: Drop PR Schema
 
 on:
   pull_request:
@@ -11,20 +11,41 @@ env:
   DBT_PROFILES_DIR: ${{ vars.DBT_PROFILES_DIR }}
 
 jobs:
-  pr_closed:
+  drop-pr-schema:
     runs-on: self-hosted
     steps:
       - name: checkout
         uses: actions/checkout@v4
 
+      - name: Get Python Version
+        id: get-python-version
+        shell: pwsh
+        run: |
+          $python_version = python -c "import platform; print(platform.python_version())"
+          echo "python version: $python_version"
+          echo "PYTHON_VERSION=$python_version" | Out-File -Append -FilePath $env:GITHUB_ENV
+          echo "python_version=$python_version" >> $GITHUB_ENV
+
+      - name: Cache venv
+        uses: actions/cache@v4
+        id: cache-venv
+        with:
+          path: ./utilities/.venv
+          key: dbt-venv-${{ runner.os }}-py${{ env.python_version }}-${{ hashFiles('requirements-ci.txt') }}
+
+      - name: Set up environment
+        shell: pwsh
+        run: |
+          python -m venv ./utilities/.venv
+          ./utilities/.venv/Scripts/Activate.ps1
+          echo "cache-hit: ${{ steps.cache-venv.outputs.cache-hit }}"
+          if ('${{ steps.cache-venv.outputs.cache-hit }}' -ne 'true') {pip install -r requirements-ci.txt} else {echo "Using cached venv"}
+
       - name: setup env and drop pr schema
         shell: pwsh
         env:
-          # set PR_NUM to pass to the python script
           PR_NUM: ${{ github.event.number }}
         run: |
           & python -m venv .\utilities\.venv
-          & .\utilities\.venv\Scripts\Activate.ps1
-          & pip install -r requirements-ci.txt
           & dbt deps
           & dbt run-operation drop_pr_schema --target=ci

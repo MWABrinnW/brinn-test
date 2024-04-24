@@ -1,4 +1,8 @@
-name: Deploy PR DBT Models to Temp Schema in Snowflake
+# https://paulfry999.medium.com/v0-4-pre-chatgpt-how-to-create-ci-cd-pipelines-for-dbt-core-88e68ab506dd
+# https://www.vantage-ai.com/blog/how-to-use-slim-ci-with-dbt-core
+# https://www.datafold.com/blog/accelerating-dbt-core-ci-cd-with-github-actions-a-step-by-step-guide
+
+name: Build PR Schema
 
 on:
   pull_request:
@@ -9,6 +13,14 @@ on:
       - reopened
       - synchronize
       - ready_for_review
+    paths:
+      - models/**
+      - tests/**
+      - macros/**
+      - snapshots/**
+      - seeds/**
+      - packages.yml
+      - requirements*
 
 env:
   DBT_USER: ${{ vars.DBT_USER }}
@@ -21,9 +33,9 @@ env:
 
 
 jobs:
-  run:
+  build-pr-schema:
     if: github.event.pull_request.draft == false
-    runs-on: self-hosted
+    runs-on: [self-hosted]
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
@@ -31,32 +43,29 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      # https://paulfry999.medium.com/v0-4-pre-chatgpt-how-to-create-ci-cd-pipelines-for-dbt-core-88e68ab506dd
-      # https://www.vantage-ai.com/blog/how-to-use-slim-ci-with-dbt-core
-      # https://www.datafold.com/blog/accelerating-dbt-core-ci-cd-with-github-actions-a-step-by-step-guide
+      - name: Get Python Version
+        id: get-python-version
+        shell: pwsh
+        run: |
+          $python_version = python -c "import platform; print(platform.python_version())"
+          echo "python version: $python_version"
+          echo "PYTHON_VERSION=$python_version" | Out-File -Append -FilePath $env:GITHUB_ENV
+          echo "python_version=$python_version" >> $GITHUB_ENV
 
-      - name: Cache Python virtual environment
-        uses: actions/cache@v3
+      - name: Cache venv
+        uses: actions/cache@v4
+        id: cache-venv
         with:
-          path: .\utilities\.venv
-          key: ${{ runner.os }}-venv-${{ hashFiles('**/requirements-ci.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-venv-
-
-      - name: Cache dbt dependencies
-        uses: actions/cache@v3
-        with:
-          path: .dbt
-          key: ${{ runner.os }}-dbt-deps-${{ hashFiles('**/dbt_project.yml') }}
-          restore-keys: |
-            ${{ runner.os }}-dbt-deps-
+          path: ./utilities/.venv
+          key: dbt-venv-${{ runner.os }}-py${{ env.python_version }}-${{ hashFiles('requirements-ci.txt') }}
 
       - name: Set up environment
         shell: pwsh
         run: |
-          python -m venv .\utilities\.venv
-          .\utilities\.venv\Scripts\Activate.ps1
-          pip install -r requirements-ci.txt
+          python -m venv ./utilities/.venv
+          ./utilities/.venv/Scripts/Activate.ps1
+          echo "cache-hit: ${{ steps.cache-venv.outputs.cache-hit }}"
+          if ('${{ steps.cache-venv.outputs.cache-hit }}' -ne 'true') {pip install -r requirements-ci.txt} else {echo "Using cached venv"}
 
       - name: dbt deps
         shell: pwsh
@@ -64,7 +73,7 @@ jobs:
           .\utilities\.venv\Scripts\Activate.ps1
           dbt deps
 
-      - name: dbt run
+      - name: dbt build
         shell: pwsh
         run: |
           .\utilities\.venv\Scripts\Activate.ps1

@@ -49,13 +49,17 @@ vars:
   fivetran_platform_using_destination_membership: false # this will disable only the destination membership logic
   github_source:
     github_database: fivetran
-    github_schema: github 
+    github_schema: github
 
 on-run-start:
   - "{{ create_schemas() if target.name in ['prod', 'test', 'ci'] }}"
   - "{{ has_children_in_scope(model_name='pershing_udfs', macro_name='create_pershing_udfs') }}"
 on-run-end:
   - "{{ grant_usage_on_schemas_where_select() if target.name in ['prod', 'test'] }}"
+
+tests:
+  +store_failures: true
+  +limit: 500
 
 # [Configuring models]
 # Full documentation: https://docs.getdbt.com/docs/configuring-models

@@ -1,7 +1,7 @@
 select
     effective_date                          as effective_date
     , upper(custodian)                      as custodiancode
-    , account_number                        as account
+    , account_number                        as account--noqa: RF04
     , product                               as product
     , ticker                                as symbol
     , quantity                              as quantity

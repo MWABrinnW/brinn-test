@@ -1,0 +1,57 @@
+name: Lint SQL
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+    paths:
+      - models/**/*sql
+      - tests/**/*sql
+      - macros/**/*sql
+      - snapshots/**/*sql
+      - seeds/**/*sql
+
+jobs:
+    lint-changed:
+        runs-on: [self-hosted]
+        concurrency:
+          group: ${{ github.workflow }}-${{ github.ref }}
+          cancel-in-progress: true
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v4
+
+          - name: Get Python Version
+            id: get-python-version
+            shell: pwsh
+            run: |
+              $python_version = python -c "import platform; print(platform.python_version())"
+              echo "python version: $python_version"
+              echo "PYTHON_VERSION=$python_version" | Out-File -Append -FilePath $env:GITHUB_ENV
+              echo "python_version=$python_version" >> $GITHUB_ENV
+
+          - name: Cache venv
+            uses: actions/cache@v4
+            id: cache-venv
+            with:
+              path: ./utilities/.venv
+              key: dbt-venv-${{ runner.os }}-py${{ env.python_version }}-${{ hashFiles('requirements-ci.txt') }}
+
+          - name: Setup just
+            uses: extractions/setup-just@v1
+
+          - name: Set up environment
+            shell: pwsh
+            run: |
+              python -m venv ./utilities/.venv
+              ./utilities/.venv/Scripts/Activate.ps1
+              echo "cache-hit: ${{ steps.cache-venv.outputs.cache-hit }}"
+              if ('${{ steps.cache-venv.outputs.cache-hit }}' -ne 'true') {pip install -r requirements-ci.txt} else {echo "Using cached venv"}
+
+          - name: Lint changed files
+            shell: pwsh
+            run: |
+              ./utilities/.venv/Scripts/Activate.ps1
+              just lint_changed

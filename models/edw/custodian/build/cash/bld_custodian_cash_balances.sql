@@ -81,19 +81,7 @@ with cte_max_created_at as
 
 select *
     , row_number() over(partition by effective_date, custodian, account_number
-                    order by case
-                        when firm_source = 'mwa'
-                            then 1
-                        when firm_source = 'baystate'
-                            then 2
-                        when firm_source = 'mps'
-                            then 3
-                        when firm_source = 'swag'
-                            then 4
-                        when firm_source = 'network'
-                            then 5
-                        else 6
-                        end asc
+                    order by {{ firm_source_rank() }}
                     )                as rn_global
     , current_timestamp()::timestamp as _created_at
 from cte_cash
