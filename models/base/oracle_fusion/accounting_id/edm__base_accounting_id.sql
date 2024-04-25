@@ -126,34 +126,34 @@ with cte_accounting_id as (
             as accounting_id
         , new_data.is_enabled
         , new_data.end_date
-        , new_data.attr_01::text(200)                        as location_code
-        , new_data.attr_02::text(200)                        as city
-        , new_data.attr_03::text(200)                        as state
-        , new_data.attr_04::text(200)                        as acquisition_type
-        , new_data.attr_05::text(200)                        as acquisition_name
-        , new_data.attr_08::text(200)                        as leader_1
-        , new_data.attr_09::text(200)                        as leader_1_email
-        , new_data.attr_14::text(200)                        as leader_2
-        , new_data.attr_15::text(200)                        as leader_2_email
-        , new_data.attr_13::text(200)                        as hr_business_partner
-        , new_data.attr_06::int  as is_greenfield
-        , new_data.attr_07::date as acquisition_start_month
-        , new_data.attr_11::date as inception_date
+        , new_data.attr_01::text(200)                   as location_code
+        , new_data.attr_02::text(200)                   as city
+        , new_data.attr_03::text(200)                   as state
+        , new_data.attr_04::text(200)                   as acquisition_type
+        , new_data.attr_05::text(200)                   as acquisition_name
+        , new_data.attr_08::text(200)                   as leader_1
+        , new_data.attr_09::text(200)                   as leader_1_email
+        , new_data.attr_14::text(200)                   as leader_2
+        , new_data.attr_15::text(200)                   as leader_2_email
+        , new_data.attr_13::text(200)                   as hr_business_partner
+        , new_data.attr_06::int                         as is_greenfield
+        , new_data.attr_07::date                        as acquisition_start_month
+        , new_data.attr_11::date                        as inception_date
         , nullif(
             greatest(
                 coalesce(cte_location.org_effective_date , '1900-01-01')
                 , coalesce(new_data.attr_10 , '1900-01-01')
             )
             , '1900-01-01'
-        )::date                  as org_effective_date
-        , new_data.attr_16::text(200)                        as igo_segment
+        )::date                                         as org_effective_date
+        , new_data.attr_16::text(200)                   as igo_segment
         , cte_location.business_unit
         , cte_location.sector
         , cte_location.division
-        , cte_location.region
-        , cte_location.market
+        , replace(cte_location.region , ' Region' , '') as region
+        , replace(cte_location.market , ' Market' , '') as market
         , cte_location.location
-        , new_data.description  as department
+        , new_data.description                          as department
         , cte_location.effective_date
         , new_data.is_head
         , new_data._created_at
