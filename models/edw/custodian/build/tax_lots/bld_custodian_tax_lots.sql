@@ -49,7 +49,7 @@ with cte_max_created_at as (
         -- Limit full build to 2024 onward. We shouldn't need to build all of history
         -- for tax lots.
         and effective_date >= '1/1/2024'
-        and _source_loaded_at >= coalesce((select _created_at from cte_max_created_at), dateadd(d, -1, _source_loaded_at))
+        --and _source_loaded_at >= coalesce((select _created_at from cte_max_created_at), dateadd(d, -1, _source_loaded_at))
         {{ incremental_date_filter(
             source_col_name='effective_date',
             target_col_name='effective_date',
