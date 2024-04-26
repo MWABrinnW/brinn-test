@@ -31,11 +31,25 @@
     ]
 -%}
 
-with cte_max_created_at as (
+with cte_destination_summary as (
     {% if is_incremental() -%}
-    select max(_created_at) as _created_at from {{ this }}
+    select effective_date, custodian, firm_source, max(_created_at) as _created_at, max(_source_loaded_at) as _source_loaded_at
+    from {{ this }}
+    where 1 = 1
+        and effective_date >= (current_date() - {{ var('lookback_custodial', 30) }})
+        {{ incremental_date_filter(
+            source_col_name='effective_date',
+            target_col_name='effective_date',
+            do_lookback = false,
+            do_new = false,
+            custom_condition_only = true,
+            custom_condition = '1=1'
+        ) }}
+    group by 1,2,3
+    order by 1,2,3
     {% else -%}
-    select null::timestamp as _created_at
+    select null::date as effective_date, null::text as custodian, null::text as firm_source
+        , null::timestamp as _created_at, null::timestamp as _source_loaded_at
     {% endif -%}
 )
 
@@ -43,19 +57,24 @@ with cte_max_created_at as (
 -- that should be considered for the incremental.
 , cte_fresh_sources as (
     {% for src_model in source_models -%}
-    select custodian, firm_source, effective_date
-    from {{ ref(src_model) }}
+    select a.custodian, a.firm_source, a.effective_date, {{"'" ~ src_model ~ "'"}} as model_source
+    from {{ ref(src_model) }} a
+    left join cte_destination_summary b
+        on a.effective_date = b.effective_date
+        and a.custodian = b.custodian
+        and a.firm_source = b.firm_source
     where 1=1
-        -- Limit full build to 2024 onward. We shouldn't need to build all of history
-        -- for tax lots.
-        and effective_date >= '1/1/2024'
-        --and _source_loaded_at >= coalesce((select _created_at from cte_max_created_at), dateadd(d, -1, _source_loaded_at))
+        and a.effective_date >= (current_date() - {{ var('lookback_custodial', 30) }})
         {{ incremental_date_filter(
-            source_col_name='effective_date',
+            source_col_name='a.effective_date',
             target_col_name='effective_date',
             do_lookback = false,
             do_new = false,
+            custom_condition_only = true,
+            custom_condition = '1=1'
         ) }}
+        and b.effective_date is null
+        and a.firm_source in ('mwa', 'mps', 'swag', 'network', 'baystate')
     group by all
 
     {%- if not loop.last %}
