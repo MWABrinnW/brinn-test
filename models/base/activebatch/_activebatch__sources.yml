@@ -1,0 +1,10 @@
+sources:
+  - name: activebatch
+    description: ""
+    database: "{{ var('db_raw', env_var('DBT_DB_RAW', 'raw')) }}"
+    schema: activebatch
+    tables:
+      - name: jobs
+        description: "Workflows, including plans, jobs, and references."
+      - name: executions
+        description: "Activebatch instances/job execution history."
