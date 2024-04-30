@@ -14,3 +14,4 @@ edr_target/
 *.code-workspace
 package-lock.yml
 .github/scripts/line-counts.ps1
+justfile.me

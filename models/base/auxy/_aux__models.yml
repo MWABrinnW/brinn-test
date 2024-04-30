@@ -78,27 +78,111 @@ models:
       tags: ['hfw']
       grants:
         select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
-
   - name: aux__base_hfw_tpg_mstar_overlap
     config:
       tags: ['hfw']
       grants:
         select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
-
   - name: aux__stg_tda_account_mappings
     config:
       tags: ['tda', 'schwab']
       grants:
         select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
   - name: aux__stg_custodian_links
+    description: >
+      Custodian link catalog intended to
+      1) Be comprehensive of all custodian links associated to accounts in Mariner data feeds.
+      2) Capture the firm entity (firm_source) associated with each custodian link.
     config:
       tags: ['custodian']
       grants:
         select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
+    tests:
+      - dbt_utils.mutually_exclusive_ranges:
+          lower_bound_column: coalesce(effective_start_date, '1900-01-01')
+          upper_bound_column: coalesce(effective_end_date, '2099-12-31')
+          partition_by: custodian, link
+          gaps: required
+          zero_length_range_allowed: true
+    columns:
+      - name: CUSTODIAN
+        description: 'Custodian name, lower-case, no spaces.'
+        data_type: VARCHAR
+      - name: LINK
+        description: >
+          'The custodian link value. Each custodian calls this something different and it functions specific to their platform. However, they all share similarities in that the value is associated to financial accounts and serves to "link" an account to a feed or certain access areas of a firm.'
 
+          Schwab - master number (type FA or SL)
+          Fidelity - G number (type primary or secondary)
+          Pershing - Investment professional number
+          LPL - Subscriber id and rep id
+          TDA - rep code
+        data_type: VARCHAR
+      - name: EFFECTIVE_START_DATE
+        description: 'When the link record first became effective. Null indicates all of history prior to the effective_end_date.'
+        data_type: DATE
+      - name: EFFECTIVE_END_DATE
+        description: 'When the link record became inactive. Null indicates all of time after the effective_start_date.'
+        data_type: DATE
+      - name: FIRM_SOURCE
+        description: 'Firm entity associated with the link value.'
+        data_type: VARCHAR
+      - name: LINK_TYPE
+        description: 'The type of link (i.e. master number or G number). Each custodian has different link types.'
+        data_type: VARCHAR
+      - name: LINK_SUBTYPE
+        description: 'Some custodians have primary, secondary, or other labels to indicate the type of link value.'
+        data_type: VARCHAR
+      - name: LINK_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: LINK_SUBTYPE_DETAIL
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: NOTES
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_CODE
+        description: 'Location code assigned to the link. This is not always 1 to 1.'
+        data_type: VARCHAR
+      - name: LOCATION_CODE_NOTES
+        description: ''
+        data_type: VARCHAR
+      - name: ADVISOR_EMAIL
+        description: 'For link values that are associated to a single advisor, this is their email address.'
+        data_type: VARCHAR
+      - name: IS_DECEASED
+        description: 'Is this a master/link designated for deceased clients.'
+        data_type: NUMBER
+      - name: HAS_TRADING_AUTHORITY
+        description: 'Does this link value enable trading activity?'
+        data_type: NUMBER
+      - name: ADDED_DATE
+        description: 'Manually maintained date to indicate when a link was added to the source spreadsheet.'
+        data_type: DATE
+      - name: ADDED_NOTES
+        description: 'Manually maintained text field that can include context about who or why a link was added to the source spreadsheet.'
+        data_type: VARCHAR
+      - name: DEACTIVATED_DATE
+        description: 'The date a link was deprecated or removed from service, if applicable.'
+        data_type: DATE
+      - name: IS_FROM_TDA_MIGRATION
+        description: 'Is the Schwab master (link) related to the TDA migration in September 2023.'
+        data_type: NUMBER
+      - name: _BOX_FILE_ID
+        description: 'The unique box file ID where the records are originally sourced.'
+        data_type: VARCHAR
+      - name: _BOX_SHEET_NAME
+        description: 'The name of the box file sheet where the records are originally sourced.'
+        data_type: VARCHAR
+      - name: _SOURCE_LOADED_AT
+        description: 'Time when the records were created in the source table.'
+        data_type: TIMESTAMP_NTZ
   - name: aux__stg_referral_fees_san_adjustments
     config:
       tags: ['referral_fees']
       grants:
         select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
-

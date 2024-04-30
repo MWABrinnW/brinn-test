@@ -1,3 +1,6 @@
+# Import the contents of another just file. The "?" represents optional and will not produce an error.  
+import? 'justfile.me'
+
 # Cross platform shebang:
 shebang := if os() == 'windows' {
   'pwsh.exe'
@@ -62,4 +65,3 @@ alias fc := fix_changed
 @lint_changed:
   ./sqlfluff.ps1 -do lint
 alias lc := lint_changed
-

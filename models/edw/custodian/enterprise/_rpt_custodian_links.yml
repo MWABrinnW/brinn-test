@@ -1,0 +1,91 @@
+version: 2
+models:
+  - name: rpt_custodian_links
+    config:
+      grants:
+        select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
+    columns:
+      - name: CUSTODIAN
+        description: 'Custodian name, lower-case, no spaces.'
+        data_type: VARCHAR
+      - name: LINK
+        description: 'Master number, G number, rep code, or equivalent.'
+        data_type: VARCHAR
+      - name: EFFECTIVE_START_DATE
+        description: 'When the link record first became effective. Null indicates all of history prior to the effective_end_date.'
+        data_type: DATE
+      - name: EFFECTIVE_END_DATE
+        description: 'When the link record became inactive. Null indicates all of time after the effective_start_date.'
+        data_type: DATE
+      - name: FIRM_SOURCE
+        description: 'Firm entity associated with the link value.'
+        data_type: VARCHAR
+      - name: LINK_TYPE
+        description: 'The type of link (i.e. master number or G number)'
+        data_type: VARCHAR
+      - name: LINK_SUBTYPE
+        description: 'Some custodians have primary, secondary, or other labels to indicate the type of link value.'
+        data_type: VARCHAR
+      - name: LINK_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: LINK_SUBTYPE_DETAIL
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: NOTES
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_CODE
+        description: 'Location code assigned to the link. This is not always 1 to 1.'
+        data_type: VARCHAR
+      - name: OFFICE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ADVISOR_EMAIL
+        description: 'For link values that are associated to a single advisor, this is their email address.'
+        data_type: VARCHAR
+      - name: ADVISOR_DERIVED
+        description: ''
+        data_type: VARCHAR
+      - name: EXISTS_IN_FEED
+        description: ''
+        data_type: NUMBER
+      - name: EXISTS_IN_MAP
+        description: ''
+        data_type: NUMBER
+      - name: CNT_ACCOUNTS
+        description: ''
+        data_type: NUMBER
+      - name: CNT_MAPPED
+        description: ''
+        data_type: NUMBER
+      - name: CNT_LOCATIONS
+        description: ''
+        data_type: NUMBER
+      - name: CNT_ADVISOR
+        description: ''
+        data_type: NUMBER
+      - name: IS_DECEASED
+        description: 'Is this a master/link designated for deceased clients.'
+        data_type: NUMBER
+      - name: HAS_TRADING_AUTHORITY
+        description: 'Does this link value enable trading activity?'
+        data_type: NUMBER
+      - name: EXCEPTION_NOTES
+        description: ''
+        data_type: VARCHAR
+      - name: EARLIEST_DATE
+        description: ''
+        data_type: DATE
+      - name: LATEST_DATE
+        description: ''
+        data_type: DATE
+      - name: _FEED_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _MAP_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ

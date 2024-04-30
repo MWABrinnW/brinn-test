@@ -33,5 +33,7 @@ from {{ source('schwab', 'fam_fa_master_relationships') }} as a
 left join {{ ref('aux__stg_custodian_links') }} as cl
     on a.fa_master_account_number = cl.link
     and cl.custodian = 'schwab'
+    and a.effective_date
+    between coalesce(cl.effective_start_date , a.effective_date) and coalesce(cl.effective_end_date , a.effective_date)
 left join {{ ref('custodian_firms') }} as cf
     on cl.firm_source = cf.firm_source
