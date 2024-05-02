@@ -57,7 +57,7 @@ with cte_destination_summary as (
 -- that should be considered for the incremental.
 , cte_fresh_sources as (
     {% for src_model in source_models -%}
-    select a.custodian, a.firm_source, a.effective_date, {{"'" ~ src_model ~ "'"}} as model_source
+    select a.custodian, a.firm_source, a.effective_date, {{"'" ~ src_model ~ "'"}} as model_source, max(a._source_loaded_at) as max_source_loaded_at, max(b._source_loaded_at) as dest_max_source_loaded_at
     from {{ ref(src_model) }} a
     left join cte_destination_summary b
         on a.effective_date = b.effective_date
@@ -73,8 +73,8 @@ with cte_destination_summary as (
             custom_condition_only = true,
             custom_condition = '1=1'
         ) }}
-        and b.effective_date is null
         and a.firm_source in ('mwa', 'mps', 'swag', 'network', 'baystate')
+        and (b.effective_date is null or a._source_loaded_at > b._source_loaded_at)
     group by all
 
     {%- if not loop.last %}

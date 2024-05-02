@@ -1,3 +1,5 @@
+{{ config(tags = ['custodian', 'copilot', 'options']) }}
+
 with cte_current as (
     select
         'current'                               as src
@@ -55,7 +57,7 @@ select
     , a.cnt_null_product                                                              as cnt_null_product
 from cte_current as a
 cross join cte_history_averaged as b
-where diff_cnt_accounts_percent > 2
-    or diff_cnt_percent > 2
-    or diff_value_percent > 3
+where diff_cnt_accounts_percent > .03
+    or diff_cnt_percent > .03
+    or diff_value_percent > .03
     or a.cnt_null_product > 0
