@@ -47,7 +47,7 @@ jobs:
           path: ./utilities/.venv
           key: dbt-venv-${{ runner.os }}-py${{ env.python_version }}-${{ hashFiles('requirements-ci.txt') }}
 
-      - name: Set up environment
+      - name: Install python requirements
         shell: pwsh
         run: |
           python -m venv ./utilities/.venv
@@ -55,11 +55,20 @@ jobs:
           echo "cache-hit: ${{ steps.cache-venv.outputs.cache-hit }}"
           if ('${{ steps.cache-venv.outputs.cache-hit }}' -ne 'true') {pip install -r requirements-ci.txt} else {echo "Using cached venv"}
 
+      - name: Cache dbt packages
+        uses: actions/cache@v4
+        id: cache-dbt-packages
+        with:
+          path: ./dbt_packages
+          key: dbt-packages-${{ runner.os }}-py${{ env.python_version }}-${{ hashFiles('packages.yml') }}
+
       - name: dbt deps
         shell: pwsh
         run: |
-          .\utilities\.venv\Scripts\Activate.ps1
-          dbt deps
+          python -m venv ./utilities/.venv
+          ./utilities/.venv/Scripts/Activate.ps1
+          echo "cache-hit: ${{ steps.cache-dbt-packages.outputs.cache-hit }}"
+          if ('${{ steps.cache-dbt-packages.outputs.cache-hit }}' -ne 'true') {dbt deps} else {echo "Using cached dbt packages"}
 
       - name: dbt build
         shell: pwsh
@@ -72,10 +81,14 @@ jobs:
         run: |
           Write-Host "Copying manifest.json to $($env:DBT_STATE)"
           Copy-Item "./target/manifest.json" -Destination "$($env:DBT_STATE)" -Force
-          Write-Host "Copying run_results.json to $($env:DBT_STATE)"
-          Copy-Item "./target/run_results.json" -Destination "$($env:DBT_STATE)" -Force
-          Write-Host "Copying sources.json to $($env:DBT_STATE)"
-          Copy-Item "./target/sources.json" -Destination "$($env:DBT_STATE)" -Force
+          if (Test-Path -Path "./target/run_results.json" -PathType leaf) {
+            Write-Host "Copying run_results.json to $($env:DBT_STATE)"
+            Copy-Item "./target/run_results.json" -Destination "$($env:DBT_STATE)" -Force
+            } else { Write-Host "run_results.json not found" }
+          if (Test-Path -Path "./target/sources.json" -PathType leaf) {
+            Write-Host "Copying sources.json to $($env:DBT_STATE)"
+            Copy-Item "./target/sources.json" -Destination "$($env:DBT_STATE)" -Force
+            } else { Write-Host "sources.json not found" }
 
 
       - name: dbt docs generate
