@@ -70,7 +70,7 @@ jobs:
           PR_NUM: ${{ github.event.number }}
         run: |
           .\utilities\.venv\Scripts\Activate.ps1
-          dbt run-operation drop_pr_schema
+          dbt run-operation drop_pr_schema --target=$env:DBT_TARGET
 
       - name: Delete the Docs
         run: |

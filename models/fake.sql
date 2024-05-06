@@ -1,2 +1,2 @@
 {{ config(enabled=false) }}
-select 1
+select 2

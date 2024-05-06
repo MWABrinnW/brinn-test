@@ -75,7 +75,7 @@ jobs:
         shell: pwsh
         run: |
           .\utilities\.venv\Scripts\Activate.ps1
-          dbt build --select state:modified.body+1 state:modified.persisted_descriptions+1 state:modified.relation+1 state:modified.macros+1 state:modified.contract+1 result:error
+          dbt build --target=$env:DBT_TARGET --select state:modified.body+1 state:modified.persisted_descriptions+1 state:modified.relation+1 state:modified.macros+1 state:modified.contract+1 result:error
 
       - name: upload dbt artifacts
         shell: pwsh
@@ -96,7 +96,7 @@ jobs:
         shell: pwsh
         run: |
           .\utilities\.venv\Scripts\Activate.ps1
-          dbt docs generate --no-compile
+          dbt docs generate --target=$env:DBT_TARGET --no-compile
 
       - name: Upload the docs
         shell: pwsh
