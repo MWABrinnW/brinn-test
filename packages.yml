@@ -1,5 +1,5 @@
 packages:
-
+  #
   - package: dbt-labs/codegen
     version: [">=0.12.1", "<0.13.0"]
     ## https://github.com/dbt-labs/dbt-codegen
@@ -31,10 +31,10 @@ packages:
     ## https://github.com/fivetran/dbt_fivetran_log
 
   - package: fivetran/github
-    version: [">=0.8.0", "<0.9.0"] 
-    ## https://github.com/fivetran/dbt_github 
+    version: [">=0.8.0", "<0.9.0"]
+    ## https://github.com/fivetran/dbt_github
 
   # - package: re-data/re_data
   #   version: [">=0.10.0", "<0.11.0"]
-    # https://hub.getdbt.com/re-data/re_data/latest/
-    # https://docs.getre.io/latest/docs/start_here
+  # https://hub.getdbt.com/re-data/re_data/latest/
+  # https://docs.getre.io/latest/docs/start_here

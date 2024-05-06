@@ -23,6 +23,9 @@ on:
       - requirements*
 
 env:
+  AWS_REGION: "us-east-2"
+  AWS_ROLE_ARN: "arn:aws:iam::436867865803:role/dbt-docs-github-actions"
+  DBT_DOCS_BUCKET: "dbt-docs.marinerapi.cloud"
   DBT_USER: ${{ vars.DBT_USER }}
   DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
   DBT_HOST: ${{ vars.DBT_HOST }}
@@ -34,6 +37,9 @@ env:
 
 jobs:
   build-pr-schema:
+    permissions:
+      contents: 'read'
+      id-token: 'write'
     if: github.event.pull_request.draft == false
     runs-on: [self-hosted]
     concurrency:
@@ -77,4 +83,17 @@ jobs:
         shell: pwsh
         run: |
           .\utilities\.venv\Scripts\Activate.ps1
-          dbt build --target ci --select state:modified.body+1 state:modified.persisted_descriptions+1 state:modified.relation+1 state:modified.macros+1 state:modified.contract+1
+          dbt build --target ci --select state:modified.body+1 state:modified.persisted_descriptions+1 state:modified.relation+1 state:modified.macros+1 state:modified.contract+1 result:error
+
+      - name: dbt docs generate
+        shell: pwsh
+        run: |
+          .\utilities\.venv\Scripts\Activate.ps1
+          dbt docs generate --no-compile --target ci
+
+      - name: Upload the docs
+        shell: pwsh
+        run: |
+          .\utilities\.venv\Scripts\Activate.ps1
+          $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
+          aws s3 sync target/ s3://${{ env.DBT_DOCS_BUCKET }}/${{ env.PR_NUM }}/ --delete

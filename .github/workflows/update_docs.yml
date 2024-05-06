@@ -1,8 +1,9 @@
-name: Drop PR Schema
+name: Build modified models and refresh docs
 
 on:
-  pull_request:
-    types: [ closed ]
+  push:
+    branches:
+      - main
 
 env:
   AWS_REGION: "us-east-2"
@@ -11,15 +12,21 @@ env:
   DBT_USER: ${{ vars.DBT_USER }}
   DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
   DBT_HOST: ${{ vars.DBT_HOST }}
+  DBT_STATE: ${{ vars.DB_PROD_ARTIFACTS }}
+  DBT_DEFER: True
   DBT_PROFILES_DIR: ${{ vars.DBT_PROFILES_DIR }}
-  PR_NUM: ${{ github.event.number }}
+  PR_NUM: prod
+
 
 jobs:
-  drop-pr-schema:
+  build-modified:
     permissions:
       contents: 'read'
       id-token: 'write'
-    runs-on: self-hosted
+    runs-on: [self-hosted]
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: false
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -48,17 +55,39 @@ jobs:
           echo "cache-hit: ${{ steps.cache-venv.outputs.cache-hit }}"
           if ('${{ steps.cache-venv.outputs.cache-hit }}' -ne 'true') {pip install -r requirements-ci.txt} else {echo "Using cached venv"}
 
-      - name: setup env and drop pr schema
+      - name: dbt deps
         shell: pwsh
-        env:
-          PR_NUM: ${{ github.event.number }}
         run: |
           .\utilities\.venv\Scripts\Activate.ps1
           dbt deps
-          dbt run-operation drop_pr_schema --target=ci
 
-      - name: Delete the Docs
+      - name: dbt build
+        shell: pwsh
+        run: |
+          .\utilities\.venv\Scripts\Activate.ps1
+          dbt build --target ci --select state:modified.body+1 state:modified.persisted_descriptions+1 state:modified.relation+1 state:modified.macros+1 state:modified.contract+1 result:error
+
+      - name: upload dbt artifacts
+        shell: pwsh
+        run: |
+          Write-Host "Copying manifest.json to $($env:DBT_STATE)"
+          Copy-Item "./target/manifest.json" -Destination "$($env:DBT_STATE)" -Force
+          Write-Host "Copying run_results.json to $($env:DBT_STATE)"
+          Copy-Item "./target/run_results.json" -Destination "$($env:DBT_STATE)" -Force
+          Write-Host "Copying sources.json to $($env:DBT_STATE)"
+          Copy-Item "./target/sources.json" -Destination "$($env:DBT_STATE)" -Force
+
+
+      - name: dbt docs generate
+        shell: pwsh
+        run: |
+          .\utilities\.venv\Scripts\Activate.ps1
+          dbt docs generate --no-compile --target ci
+
+      - name: Upload the docs
+        shell: pwsh
         run: |
           .\utilities\.venv\Scripts\Activate.ps1
           $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
-          aws s3 rm s3://${{ env.DBT_DOCS_BUCKET }}/${{ env.PR_NUM }} --recursive
+          aws s3 sync target/ s3://${{ env.DBT_DOCS_BUCKET }}/${{ env.PR_NUM }}/ --delete
+
