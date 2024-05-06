@@ -32,6 +32,7 @@ env:
   DBT_STATE: ${{ vars.DB_PROD_ARTIFACTS }}
   DBT_DEFER: True
   DBT_PROFILES_DIR: ${{ vars.DBT_PROFILES_DIR }}
+  DBT_TARGET: ci
   PR_NUM: ${{ github.event.number }}
 
 
@@ -92,13 +93,13 @@ jobs:
         shell: pwsh
         run: |
           .\utilities\.venv\Scripts\Activate.ps1
-          dbt build --target ci --select state:modified.body+1 state:modified.persisted_descriptions+1 state:modified.relation+1 state:modified.macros+1 state:modified.contract+1 result:error
+          dbt build --select state:modified.body+1 state:modified.persisted_descriptions+1 state:modified.relation+1 state:modified.macros+1 state:modified.contract+1 result:error
 
       - name: dbt docs generate
         shell: pwsh
         run: |
           .\utilities\.venv\Scripts\Activate.ps1
-          dbt docs generate --no-compile --target ci
+          dbt docs generate --no-compile
 
       - name: Upload the docs
         shell: pwsh

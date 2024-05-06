@@ -12,6 +12,7 @@ env:
   DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
   DBT_HOST: ${{ vars.DBT_HOST }}
   DBT_PROFILES_DIR: ${{ vars.DBT_PROFILES_DIR }}
+  DBT_TARGET: ci
   PR_NUM: ${{ github.event.number }}
 
 jobs:
@@ -69,7 +70,7 @@ jobs:
           PR_NUM: ${{ github.event.number }}
         run: |
           .\utilities\.venv\Scripts\Activate.ps1
-          dbt run-operation drop_pr_schema --target=ci
+          dbt run-operation drop_pr_schema
 
       - name: Delete the Docs
         run: |
