@@ -27,7 +27,7 @@ jobs:
         env:
           PR_NUM: ${{ github.event.number }}
         run: |
-          $drop_sql = "drop schema if exists $($env:SNOWSQL_DATABASE).$($env:PR_NUM);"
+          $drop_sql = "drop schema if exists $($env:SNOWSQL_DATABASE).PR_$($env:PR_NUM);"
           Write-Host $drop_sql
           snowsql -q "$drop_sql"
 
