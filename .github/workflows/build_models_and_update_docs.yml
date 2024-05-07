@@ -67,7 +67,6 @@ jobs:
       - name: dbt deps
         shell: pwsh
         run: |
-          python -m venv ./utilities/.venv
           ./utilities/.venv/Scripts/Activate.ps1
           echo "cache-hit: ${{ steps.cache-dbt-packages.outputs.cache-hit }}"
           if ('${{ steps.cache-dbt-packages.outputs.cache-hit }}' -ne 'true') {dbt deps} else {echo "Using cached dbt packages"}
@@ -125,10 +124,12 @@ jobs:
       - name: Install python requirements
         shell: pwsh
         run: |
-          python -m venv ./utilities/.venv
-          ./utilities/.venv/Scripts/Activate.ps1
           echo "cache-hit: ${{ steps.cache-venv.outputs.cache-hit }}"
-          if ('${{ steps.cache-venv.outputs.cache-hit }}' -ne 'true') {pip install -r requirements-ci.txt} else {echo "Using cached venv"}
+          if ('${{ steps.cache-venv.outputs.cache-hit }}' -ne 'true') {
+            python -m venv ./utilities/.venv
+            pip install -r requirements-ci.txt
+            ./utilities/.venv/Scripts/Activate.ps1
+            } else {echo "Using cached venv"}
 
       - name: Cache dbt packages
         uses: actions/cache@v4
@@ -140,7 +141,6 @@ jobs:
       - name: dbt deps
         shell: pwsh
         run: |
-          python -m venv ./utilities/.venv
           ./utilities/.venv/Scripts/Activate.ps1
           echo "cache-hit: ${{ steps.cache-dbt-packages.outputs.cache-hit }}"
           if ('${{ steps.cache-dbt-packages.outputs.cache-hit }}' -ne 'true') {dbt deps} else {echo "Using cached dbt packages"}
