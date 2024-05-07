@@ -8,11 +8,11 @@ env:
   AWS_REGION: "us-east-2"
   AWS_ROLE_ARN: "arn:aws:iam::436867865803:role/dbt-docs-github-actions"
   DBT_DOCS_BUCKET: "dbt-docs.marinerapi.cloud"
-  DBT_USER: ${{ vars.DBT_USER }}
-  DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
-  DBT_HOST: ${{ vars.DBT_HOST }}
-  DBT_PROFILES_DIR: ${{ vars.DBT_PROFILES_DIR }}
-  DBT_TARGET: ci
+  SNOWSQL_USER: ${{ vars.DBT_USER }}
+  SNOWSQL_PWD: ${{ secrets.DBT_PASSWORD }}
+  SNOWSQL_ACCOUNT: ${{ vars.DBT_HOST }}
+  SNOWSQL_DATABASE: DBT
+  SNOWSQL_SCHEMA: DBT
   PR_NUM: ${{ github.event.number }}
 
 jobs:
@@ -22,55 +22,14 @@ jobs:
       id-token: 'write'
     runs-on: self-hosted
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
-
-      - name: Get Python Version
-        id: get-python-version
-        shell: pwsh
-        run: |
-          $python_version = python -c "import platform; print(platform.python_version())"
-          echo "python version: $python_version"
-          echo "PYTHON_VERSION=$python_version" | Out-File -Append -FilePath $env:GITHUB_ENV
-          echo "python_version=$python_version" >> $GITHUB_ENV
-
-      - name: Cache venv
-        uses: actions/cache@v4
-        id: cache-venv
-        with:
-          path: ./utilities/.venv
-          key: dbt-venv-${{ runner.os }}-py${{ env.python_version }}-${{ hashFiles('requirements-ci.txt') }}
-
-      - name: Install python requirements
-        shell: pwsh
-        run: |
-          python -m venv ./utilities/.venv
-          ./utilities/.venv/Scripts/Activate.ps1
-          echo "cache-hit: ${{ steps.cache-venv.outputs.cache-hit }}"
-          if ('${{ steps.cache-venv.outputs.cache-hit }}' -ne 'true') {pip install -r requirements-ci.txt} else {echo "Using cached venv"}
-
-      - name: Cache dbt packages
-        uses: actions/cache@v4
-        id: cache-dbt-packages
-        with:
-          path: ./dbt_packages
-          key: dbt-packages-${{ runner.os }}-py${{ env.python_version }}-${{ hashFiles('packages.yml') }}
-
-      - name: dbt deps
-        shell: pwsh
-        run: |
-          python -m venv ./utilities/.venv
-          ./utilities/.venv/Scripts/Activate.ps1
-          echo "cache-hit: ${{ steps.cache-dbt-packages.outputs.cache-hit }}"
-          if ('${{ steps.cache-dbt-packages.outputs.cache-hit }}' -ne 'true') {dbt deps} else {echo "Using cached dbt packages"}
-
       - name: drop pr schema
         shell: pwsh
         env:
           PR_NUM: ${{ github.event.number }}
         run: |
-          .\utilities\.venv\Scripts\Activate.ps1
-          dbt run-operation drop_pr_schema --target=$env:DBT_TARGET
+          $drop_sql = "drop schema if exists $($env:SNOWSQL_DATABASE).$($env:PR_NUM);"
+          Write-Host $drop_sql
+          snowsql -q "$drop_sql"
 
       - name: Delete the Docs
         run: |
