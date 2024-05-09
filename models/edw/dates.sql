@@ -112,13 +112,19 @@ with cte_dates as (
 select
     *
     , last_value(case when is_market_day = 1 then date_key end) ignore nulls
-        over (order by date_key asc rows between unbounded preceding and 1 preceding)
+        over (order by
+            date_key asc
+        rows between unbounded preceding and 1 preceding)
         as prior_market_date
+    , max(case when is_market_day = 1 then date_key end)
+        over (partition by to_char(date_key , 'YYYYMM')::int)                    as month_last_market_date
+    , case
+        when date_key = month_last_market_date
+            then 1
+        else 0
+    end                                                                          as is_market_month_end
     , min(case when is_market_day = 1 then date_key end::date)
         over (partition by date_trunc('MONTH' , date_key) order by date_key asc)
-        as month_first_market_date
-    , max(case when is_market_day = 1 then date_key end::date)
-        over (partition by date_trunc('MONTH' , date_key) order by date_key desc)
-        as month_last_market_date
+                                                                                 as month_first_market_date
 from cte_flagged
 order by date_key
