@@ -5,7 +5,7 @@ select
   , 'mwa'                                               as firm_source
   , json:"Account Long Name"::varchar(200)              as account_long_name
   , json:"Account Name"::varchar(200)                   as account_name
-  , json:"Account Number"::number(20 , 5)               as account_number
+  , json:"Account Number"::varchar(200)                 as account_number
   , json:"Account State"::varchar(200)                  as account_state
   , json:"Account Value"::number(20 , 5)                as account_value
   , json:"Advisor Commission Split Code"::varchar(200)  as advisor_commission_split_code
