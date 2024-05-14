@@ -1,0 +1,10 @@
+sources:
+  - name: youtrack
+    description: ""
+    database: "{{ var('db_raw_dev', env_var('DBT_DB_RAW_DEV', 'raw')) }}"
+    schema: youtrack
+    tables:
+      - name: users
+        description: "Youtrack User data and related fields"
+      - name: issues
+        description: "Youtrack Issues history, and related fields"
