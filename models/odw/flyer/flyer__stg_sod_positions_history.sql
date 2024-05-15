@@ -1,7 +1,17 @@
+--depends_on: {{ ref('flyer__sod_positions') }}
+
+with cte as (
+    select
+        _created_at::date  as _created_date
+        , max(_created_at) as max_created_at
+    from {{ source('flyer', 'sod_positions_history') }}
+    group by 1
+)
+
 select
     a.effective_date::date                               as effective_date
     , a.custodiancode::text(200)                         as custodiancode
-    , a.account::text(200)                               as account
+    , a.account::text(200)                               as account-- noqa: RF04
     , a.product::text(200)                               as product
     , a.symbol::text(200)                                as symbol
     , a.quantity::decimal(19 , 6)                        as quantity
@@ -37,14 +47,8 @@ select
             then 1
         else 0
     end::int                                             as is_head_for_day
-    , _created_at::timestamp_ntz                         as created_at
+    , a._created_at::timestamp_ntz                       as created_at
 from {{ source('flyer', 'sod_positions_history') }} as a
-left join (
-    select
-        _created_at::date  as _created_date
-        , max(_created_at) as max_created_at
-    from {{ source('flyer', 'sod_positions_history') }}
-    group by 1
-) as b
+left join cte as b
     on a._created_at::date = b._created_date::date
     and a._created_at = b.max_created_at

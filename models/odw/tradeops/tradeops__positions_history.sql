@@ -1,3 +1,5 @@
+--depends_on: {{ ref('flyer__sod_positions') }}
+
 select
     a.effective_date                                       as effective_date
     , a.platform                                           as platform

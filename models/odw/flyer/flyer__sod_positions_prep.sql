@@ -23,8 +23,8 @@ with cte_accounts as (
         , '_SCHWAB_CASH'::text(200)                    as ticker
         , null::text(200)                              as cusip
         , a.cash_balance_settled_only::decimal(15 , 2) as quantity
-        , null::decimal(20 , 5)                        as price
-        , null::decimal(20 , 5)                        as lot_cost
+        , null::decimal(20 , 5)                        as cost_per_share
+        , null::decimal(20 , 5)                        as cost_basis
         , 1.0000                                       as current_price
         , 1::int                                       as is_cash
         , 1::int                                       as is_sweep
@@ -62,9 +62,9 @@ with cte_accounts as (
         , a.ticker                                       as ticker
         , a.cusip                                        as cusip
         , a.units_shares                                 as quantity
-        , a.price                                        as price
-        , a.units_shares                                 as lot_cost
-        , 1.0000                                         as current_price
+        , a.price                                        as cost_per_share
+        , a.price * a.units_shares                       as cost_basis
+        , a.price                                        as current_price
         , 1::int                                         as is_cash
         , 1::int                                         as is_sweep
         , 19000101::int                                  as lot_date
@@ -170,99 +170,45 @@ with cte_accounts as (
         , a.custodian                             as custodian
         , a.account_number                        as account_number
         , case
-            when a.is_cash = 1
-                then 'CASH'
-
-                -- [CUSIP DATA]
-            when s.cusip is not null
-                and s.security_type_description in (
-                    'Anticipation Notes'
-                    , 'Asset Backed'
-                    , 'Certificate of Deposit'
-                    , 'Collateralized Debt Corporate'
-                    , 'GO'
-                    , 'Medium Term Note'
-                    , 'Mortgage Backed'
-                    , 'Note'
-                    , 'Prerefunded'
-                    , 'Refunding'
-                    , 'Reinsured'
-                    , 'Secondarily Insured Municipal'
-                    , 'U.S. Government'
-                    , 'Unrefunded'
-                    , 'Warrant'
-                    , 'Zero Coupon'
-                )
-                then 'FI'
-
-                -- This is not reliable. Example: AEPGX
-                --when s.cusip is not null and s.security_type_description in ('Common Equity', 'Exchange Traded Fund', 'Depositary Receipt')
-                --    then 'EQ'
-
-                -- We can't use this because it doesn't reliably tag mutual funds.
-                -- Fund from cusip might tag some ETFs as a "Fund", for instance.
-                -- Example: ARGT
-                -- when s.cusip is not null and s.security_type_description = 'Fund'
-                --    then 'MUT'
-
-                -- This handles something like cusip=09261H305. But not all REIT are FI.
+            when a.is_cash = 1 then 'CASH'
+            -- FIDELITY --
             when a.custodian ilike 'fidelity'
-                and a.product_type_source_definition ilike any ('%Units - REIT%')
-                and len(a.ticker) >= 9
-                then 'FI'
-
-                -- [SCHWAB]
-            when a.custodian ilike 'schwab' and a.ticker in ('SWGXX')
-                -- Not sure if this is correct. Should others be included? SNAXX/SNOXX/etc
-                then 'CASH'
-                -- We're using the legacy security type becuase there are fewer values/rollups
-                -- to consider compared to the more granular product "product_type_source_definition".
+                then
+                    case
+                        -- exemptions that don't follow the other FI, OPT, and MUT ilike rules
+                        when a.product_type_source_definition in (
+                                'Debt - Certificate of Deposit' , 'Rights to Ownership - Warrants' , 'Equity - Preferred Stock'
+                            )
+                            then 'EQ'
+                        -- standard Fidelity logic
+                        when a.product_type_source_definition ilike 'debt%'
+                            then 'FI'
+                        when a.product_type_source_definition ilike 'option%'
+                            then 'OPT'
+                        when a.product_type_source_definition ilike '%mutual fund%'
+                            then 'MUT'
+                        else 'EQ'
+                    end
+            -- SCHWAB --
             when a.custodian ilike 'schwab'
-                and a.legacy_product_type_source_definition in ('Mutual Fund - Non-Taxable' , 'Mutual Fund - Taxable')
-                then 'MUT'
-            when a.custodian ilike 'schwab' and a.product_type_source_definition ilike any ('EQUITY OPTION' , 'OPTION INDEX')
-                then 'OPT'
-            when a.custodian ilike 'schwab' and a.legacy_product_type_source_definition in (
-                    'Certificate of Deposit'
-                    , 'Corporate Bond'
-                    , 'Government Bond'
-                    , 'Municipal Bond'
-                    , 'Treasury Bill'
-                    , 'Treasury Note'
-                )
-                then 'FI'
-            when a.custodian ilike 'schwab' and a.product_type_source_definition ilike any ('%CLOSED END MUTUAL FUND%')
-                then 'MUT'
-            when a.custodian ilike 'schwab' and a.legacy_product_type_source_definition in (
-                    'Common Stock'
-                    , 'Convertible Preferred Stock'
-                    , 'Preferred Stock'
-                )
-                then 'EQ'
-            when a.custodian ilike 'schwab' and a.legacy_product_type_source_definition ilike any ('real estate investment trust')
-                then 'EQ'
-            when a.custodian ilike 'schwab' and a.legacy_product_type_source_definition in (
-                    'Other Assets'
-                    , 'Reorganization'
-                    , 'UIT - Taxable'
-                    , 'Warrants'
-                    , 'GNMA, GNMA, FHLMC, Mortgage-pools, CMO''s, etc'
-                )
-                then 'FI'
-
-                -- [FIDELITY]
-            when a.custodian ilike 'fidelity' and a.product_type_source_definition ilike 'option - %'
-                then 'OPT'
-            when a.custodian ilike 'fidelity' and a.product_type_source_definition ilike '%mutual fund%'
-                then 'MUT'
-            when a.custodian ilike 'fidelity' and a.product_type_source_definition ilike '%equity - %'
-                then 'EQ'
-            when a.custodian ilike 'fidelity' and a.product_type_source_definition ilike any ('%units - %' , 'debt - ')
-                then 'FI'
-
-                -- [OTHER CUSTODIAN]
-            else
-                'FI'
+                then
+                    case
+                        -- exemptions that don't follow standard product_category_code rules
+                        when a.product_type_source_code in ('WAR' , 'PRD')
+                            then 'EQ'
+                        -- standard Schwab logic
+                        when a._extra_fields:product_category_code::text(200) = 'DEBT'
+                            then 'FI'
+                        when a._extra_fields:product_category_code::text(200) = 'DERV'
+                            then 'OPT'
+                        when a._extra_fields:product_category_code::text(200) = 'EQTY'
+                            then 'EQ'
+                        when a._extra_fields:product_category_code::text(200) = 'O'
+                            then 'MUT'
+                        else 'EQ'
+                    end
+            -- Other Custodians --
+            else 'EQ'
         end::text(200)                            as product
         -- Cleanup the symbol value for scenarios where there is not ticker or cusip.
         -- This can happen for something like a private limited partnership.
@@ -275,8 +221,8 @@ with cte_accounts as (
         end::text(200)                            as ticker
         , a.cusip                                 as cusip
         , a.quantity                              as quantity
-        , a.cost_per_share                        as price
-        , a.cost_basis                            as lot_cost
+        , a.cost_per_share                        as cost_per_share
+        , a.cost_basis                            as cost_basis
         , a.current_price                         as current_price
         , a.is_cash                               as is_cash
         , a.is_sweep                              as is_sweep
@@ -325,8 +271,8 @@ with cte_accounts as (
         , ticker
         , cusip
         , sum(quantity)                         as quantity
-        , price                                 as price
-        , sum(lot_cost)                         as lot_cost
+        , cost_per_share
+        , sum(cost_basis)                       as cost_basis
         , current_price
         , is_cash
         , is_sweep
@@ -427,8 +373,8 @@ select
     , a.ticker
     , a.cusip
     , a.quantity
-    , a.price
-    , a.lot_cost
+    , a.cost_per_share
+    , a.cost_basis
     , a.current_price
     , a.is_cash
     , a.is_sweep

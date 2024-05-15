@@ -11,9 +11,11 @@ if ($do -eq "fix") {
     $args = "$args --show-lint-violations"
 }
 
+# Only eval sql files in these paths.
+$paths = @("models", "tests", "snapshots")
+
 if ($select.trim() -ne "") {
     Write-Host "select: [$select]"
-    $paths = @("models", "tests")
     $files = @()
 
     if ($select -notlike "*.sql*") {
@@ -46,6 +48,12 @@ if ($select.trim() -ne "") {
     $files = & git diff --diff-filter=AMU --name-status $branch .
         | Select-String -Pattern ".*\.sql$"
         | ForEach-Object {$_ -replace '^[A-Z]\s+'}
+
+    # Exclude files not within expected sql paths
+    $files = $files | Where-Object {
+        $file = $_  # Store current file in a variable for clearer referencing
+        $paths | Where-Object { $file -like "$_*" }
+    }
 
     if ($files.count -gt 0) {
         Write-Host "Found $($files.count) files)"

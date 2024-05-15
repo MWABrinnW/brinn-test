@@ -5,8 +5,8 @@ select
     , product                               as product
     , ticker                                as symbol
     , quantity                              as quantity
-    , price                                 as unitcost
-    , lot_cost                              as totalcost
+    , cost_per_share                        as unitcost
+    , cost_basis                            as totalcost
     , current_price                         as price
     , lot_date                              as lotdate
     , lot_num                               as lotnum

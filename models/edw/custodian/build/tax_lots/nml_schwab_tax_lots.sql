@@ -14,15 +14,12 @@ select
         , t.cusip
         , s.security_description_line_1
         , cmpt.definition
-    )::text(200
-    )                                            as symbol
+    )::text(200)                                 as symbol
     , t.symbol_ticker                            as ticker
     , t.cusip                                    as cusip
-
     , t.current_quantity                         as quantity
     , t.cost_per_share_share_cost_amount         as cost_per_share
     , t.cost_basis_unamortized_cost_basis_amount as cost_basis
-
     , s.closing_price::decimal(20 , 5)           as current_price
     , t.current_market_value::decimal(20 , 5)    as current_value
 
@@ -72,7 +69,9 @@ select
     , t.is_current                               as is_current
     , t._source_loaded_at                        as _source_loaded_at
     , t._source_file::text(200)                  as _source_file
-    , null::variant                              as _extra_fields
+    , object_construct(
+        'product_category_code' , t.product_category_code
+    )                                            as _extra_fields
 from {{ ref('schwab__base_tax_lots') }} as t
 left join {{ ref('custodian_firms') }} as cf
     on t.firm_source = cf.firm_source
