@@ -71,7 +71,7 @@ select
     , t._source_file::text(200)                  as _source_file
     , object_construct(
         'product_category_code' , t.product_category_code
-    )                                            as _extra_fields
+    )::variant                                   as _extra_fields
 from {{ ref('schwab__base_tax_lots') }} as t
 left join {{ ref('custodian_firms') }} as cf
     on t.firm_source = cf.firm_source

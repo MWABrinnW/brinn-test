@@ -80,7 +80,7 @@ select
         'nigo_out_of_balance_exception_indicator' , try_to_boolean(t.nigo_out_of_balance_exception_indicator)::int
         , 'nigo_tech_short_exception_indicator' , try_to_boolean(t.nigo_tech_short_exception_indicator)::int
         , 'nigo_cost_exception_indicator' , try_to_boolean(t.nigo_cost_exception_indicator)::int
-    )                                                                                as _extra_fields
+    )::variant                                                                       as _extra_fields
 from {{ ref('fidelity_' ~ src ~ '_history__vw_tlaopen_tax_accounting') }}  t
 left join {{ ref('custodian_firms') }}                             cf
           on t.firm_source = cf.firm_source
