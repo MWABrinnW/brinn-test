@@ -21,6 +21,9 @@ jobs:
       contents: 'read'
       id-token: 'write'
     runs-on: self-hosted
+    concurrency:
+      group: pr-${{ github.event.number }}-${{ github.ref }}
+      cancel-in-progress: true
     steps:
       - name: drop pr schema
         shell: pwsh

@@ -21,13 +21,13 @@ env:
 
 
 jobs:
-  build-modified:
+  dbt-build:
     permissions:
       contents: 'read'
       id-token: 'write'
     runs-on: [self-hosted]
     concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}-build
+      group: deploy-dbt
       cancel-in-progress: false
     steps:
       - name: checkout
@@ -92,15 +92,13 @@ jobs:
             } else { Write-Host "sources.json not found" }
 
   dbt-docs:
-    if: github.event.pull_request.draft == false and ${{ always() }}
-    needs: build-modified
     permissions:
       contents: 'read'
       id-token: 'write'
     runs-on: [self-hosted]
     concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}-docs
-      cancel-in-progress: false
+      group: deploy-dbt-docs
+      cancel-in-progress: true
     steps:
       - name: checkout
         uses: actions/checkout@v4

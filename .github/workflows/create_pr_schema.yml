@@ -38,14 +38,13 @@ env:
 
 
 jobs:
-  build-pr-schema:
+  dbt-build:
     permissions:
       contents: 'read'
       id-token: 'write'
-    if: github.event.pull_request.draft == false
     runs-on: [self-hosted]
     concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}-build
+      group: pr-${{ github.event.number }}-${{ github.ref }}
       cancel-in-progress: true
     steps:
       - name: checkout
@@ -98,14 +97,14 @@ jobs:
           dbt build --target=$env:DBT_TARGET --select state:modified.body+1 state:modified.persisted_descriptions+1 state:modified.relation+1 state:modified.macros+1 state:modified.contract+1 result:error
 
   dbt-docs:
-    if: github.event.pull_request.draft == false and ${{ always() }}
-    needs: build-pr-schema
+    if: (needs.dbt-build.result == 'success' || needs.dbt-build.result == 'failure')
+    needs: dbt-build
     permissions:
       contents: 'read'
       id-token: 'write'
     runs-on: [self-hosted]
     concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}-docs
+      group: pr-${{ github.event.number }}-${{ github.ref }}
       cancel-in-progress: false
     steps:
       - name: checkout
