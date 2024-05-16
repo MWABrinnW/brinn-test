@@ -339,6 +339,11 @@ models:
         +grants:
           select: "{{ ['db_crm_tax_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
+      youtrack:
+        +tags: ["youtrack"]
+        +grants:
+          select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"      
+
       zoom:
         +tags: ["zoom"]
         +grants:
