@@ -27,7 +27,7 @@ select
     , (t.current_cost_unadjusted_wash / nullif(t.lot_quantity , 0))::decimal(20 , 5) as cost_per_share
     , t.current_cost_unadjusted_wash                                                 as cost_basis
     -- Closing price on the day of lot purchase.
-    , coalesce(t.closing_market_price, s.closing_market_price)::decimal(20, 5)       as current_price
+    , coalesce(s.closing_market_price, t.closing_market_price)::decimal(20, 5)       as current_price
     , t.lot_market_value                                                             as current_value
 
     -- Date the lot was acquired.
