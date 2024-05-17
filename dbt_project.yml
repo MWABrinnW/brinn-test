@@ -292,6 +292,21 @@ models:
         +tags: ["pms"]
         +grants:
           select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        black_diamond_ap4:
+          +grants:
+            select: "{{ ['db_pms_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        black_diamond_baystate:
+          +grants:
+            select: "{{ ['db_pms_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        black_diamond_mps:
+          +grants:
+            select: "{{ ['db_pms_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        envestnet_mps:
+          +grants:
+            select: "{{ ['db_pms_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        orion_mps:
+          +grants:
+            select: "{{ ['db_pms_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       redtail_network:
         +tags: ["redtail", "network"]
