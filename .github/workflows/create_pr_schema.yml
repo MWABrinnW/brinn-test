@@ -38,6 +38,7 @@ env:
 
 jobs:
   dbt-build:
+    if: (!contains(github.event.pull_request.labels.*.name, 'skip-ci'))
     permissions:
       contents: 'read'
       id-token: 'write'
@@ -96,7 +97,7 @@ jobs:
           dbt build --target=$env:DBT_TARGET --select state:modified.body+1 state:modified.persisted_descriptions+1 state:modified.relation+1 state:modified.macros+1 state:modified.contract+1 result:error
 
   dbt-docs:
-    if: (needs.dbt-build.result == 'success' || needs.dbt-build.result == 'failure')
+    if: ((needs.dbt-build.result == 'success' || needs.dbt-build.result == 'failure') && !contains(github.event.pull_request.labels.*.name, 'skip-ci'))
     needs: dbt-build
     permissions:
       contents: 'read'
