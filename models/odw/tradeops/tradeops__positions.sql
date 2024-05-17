@@ -12,6 +12,7 @@ select
     --, a.price              as price
     , a.current_price       as prev_close_price
     , a.average_price       as average_price
+    , a.quantity            as quantity
     , a.last_modified_at    as last_modified_at
 
     , a.option_ticker       as option_ticker
