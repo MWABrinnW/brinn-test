@@ -14,36 +14,42 @@ with cte_accounts as (
     -- appear in the tax lots dataset. However, money market funds
     -- (SNAXX) do appear in the tax lots data.
     -- Fidelity doesn't have a non-security cash position, instead
-    -- representing all cash within a MMF security position (FDRXX).
+    -- representing all cash within a MMF security position (like FDRXX).
     select
-        a.effective_date                               as effective_date
-        , a.custodian                                  as custodian
-        , a.account_number                             as account_number
-        , 'CASH'::text(200)                            as product
-        , '_SCHWAB_CASH'::text(200)                    as ticker
-        , null::text(200)                              as cusip
-        , a.cash_balance_settled_only::decimal(15 , 2) as quantity
-        , null::decimal(20 , 5)                        as cost_per_share
-        , null::decimal(20 , 5)                        as cost_basis
-        , 1.0000                                       as current_price
-        , 1::int                                       as is_cash
-        , 1::int                                       as is_sweep
-        , 19000101::int                                as lot_date
-        , null::text(200)                              as lot_num
-        , 'N'                                          as unsupervised
-        , 'N'                                          as cusiplookup
-        , 'N'                                          as preferred
-        , 4622::text                                   as securityid
-        , null::text(200)                              as security_type_description
-        , null::text(200)                              as fund_type
-        , null::text(200)                              as product_type
-        , null::text(200)                              as product_type_source_code
-        , null::text(200)                              as product_type_source_definition
-        , null::text(200)                              as legacy_product_type
-        , null::text(200)                              as legacy_product_type_source_code
-        , null::text(200)                              as legacy_product_type_source_definition
+        a.effective_date               as effective_date
+        , a.custodian                  as custodian
+        , a.account_number             as account_number
+        , 'CASH'::text(200)            as product
+        , '_CASH_'::text(200)          as ticker
+        , null::text(200)              as cusip
+        -- Formerly cash_balance_settled_only which did not include
+        -- necessary margin balances.
+        , (
+            a.net_credit_or_debit_settled_unsettled
+            + a.margin_balance_settled_unsettled
+        )::decimal(15 , 2
+        )                              as quantity
+        , null::decimal(20 , 5)        as cost_per_share
+        , null::decimal(20 , 5)        as cost_basis
+        , 1.0000                       as current_price
+        , 1::int                       as is_cash
+        , 1::int                       as is_sweep
+        , 19000101::int                as lot_date
+        , null::text(200)              as lot_num
+        , 'N'                          as unsupervised
+        , 'N'                          as cusiplookup
+        , 'N'                          as preferred
+        , 4622::text                   as securityid
+        , null::text(200)              as security_type_description
+        , null::text(200)              as fund_type
+        , null::text(200)              as product_type
+        , null::text(200)              as product_type_source_code
+        , null::text(200)              as product_type_source_definition
+        , null::text(200)              as legacy_product_type
+        , null::text(200)              as legacy_product_type_source_code
+        , null::text(200)              as legacy_product_type_source_definition
 
-        , 'cte_schwab_cash--base_cash'                 as src
+        , 'cte_schwab_cash--base_cash' as src
     from {{ ref('schwab__base_cash') }} as a
     inner join cte_accounts as v
         on a.effective_date = v.effective_date
@@ -139,8 +145,54 @@ with cte_accounts as (
         and upper(a.account_number) = upper(v.account_no)
     where 1 = 1
         and a.effective_date = (select max(effective_date) from cte_accounts)
+        -- This will include all cash positions and not just the single sweep position.
+        -- Robert A confirmed they want all Fidelity MMF tagged as cash so that
+        -- scenarios where an account holds cash positions in more than just the core
+        -- sweep they see that too.
         and a.is_cash = 1
     group by all
+)
+
+, cte_fidelity_cash as (
+    -- Fidelity cash is captured via MMF positions/holdings. We also need to capture
+    -- margin/credit balances that aren't/shouldn't be attributed to a particular holding
+    -- , I think...
+    select
+        a.effective_date                                   as effective_date
+        , a.custodian                                      as custodian
+        , a.account_custodial                              as account_number
+        , 'CASH'::text(200)                                as product
+        , '_CASH_'::text(200)                              as ticker
+        , null::text(200)                                  as cusip
+        , -(a.net_trade_date_balance)                      as quantity
+        , 1.0000::decimal(20 , 5)                          as price
+        , -(a.net_trade_date_balance)                      as lot_cost
+        , 1.0000::decimal(20 , 5)                          as current_price
+        , 1::int                                           as is_cash
+        , 0::int                                           as is_sweep
+        , 19000101::int                                    as lot_date
+        , null::text(200)                                  as lot_num
+        , 'N'                                              as unsupervised
+        , 'N'                                              as cusiplookup
+        , 'N'                                              as preferred
+        , 4622::text                                       as securityid
+        , null::text(200)                                  as security_type_description
+        , null::text(200)                                  as fund_type
+        , null::text(200)                                  as product_type
+        , null::text(200)                                  as product_type_source_code
+        , null::text(200)                                  as product_type_source_definition
+        , null::text(200)                                  as legacy_product_type
+        , null::text(200)                                  as legacy_product_type_source_code
+        , null::text(200)                                  as legacy_product_type_source_definition
+
+        , 'cte_fidelity_cash--vw_acctbald_account_balance' as src
+    from {{ ref('fidelity_mwa_history__vw_acctbald_account_balance') }} as a
+    inner join cte_accounts as v
+        on a.effective_date = v.effective_date
+        and upper(a.custodian) = upper(v.custodian)
+        and upper(a.account_custodial) = upper(v.account_no)
+    where 1 = 1
+        and abs(a.net_trade_date_balance) > 0
 )
 
 , cte_securities as (
@@ -332,6 +384,11 @@ with cte_accounts as (
     -- Fidelity's MMF which encompasses all account cash.
     select *
     from cte_fidelity_money_market
+
+    -- Fidelity margin/credit balances.
+    union all
+    select *
+    from cte_fidelity_cash
 )
 
 , cte_product_mapping as (
