@@ -16,8 +16,6 @@ sources:
         description: ""
       - name: accountmaster_accounts
         description: ""
-      - name: bills
-        description: ""
       - name: codes_account_pricing_tier
         description: ""
       - name: codes_account_status
@@ -164,3 +162,9 @@ sources:
         description: ""
       - name: transactions_transactions_test
         description: ""
+  - name: envestnet_mwa_raw
+    description: ""
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    schema: envestnet_mwa
+    tables:
+    - name: bills
