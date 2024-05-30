@@ -277,6 +277,10 @@ models:
         +grants:
           select: "{{ ['datamanagement', 'engineering', 'finance', 'db_hr_talent_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         +dbt-osmosis: "_{model}.yml"
+        epm:
+          +tags: ["epm"]
+          +grants:
+            select: "{{ ['db_oracle_epm_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       icims:
         +tags: ["icims", "hr"]

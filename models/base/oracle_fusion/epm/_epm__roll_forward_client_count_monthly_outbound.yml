@@ -1,0 +1,46 @@
+version: 2
+models:
+  - name: epm__roll_forward_client_count_monthly_outbound
+    columns:
+      - name: _ID
+        description: 'Unique identifier for each roll-forward record ex. 358a30f9-dd1d-4819-9a7b-58ee7d82610f'
+        data_type: VARCHAR
+      - name: LOCATION_CODE
+        description: 'Unique identifier associated with the Mariner location (ties to EDW Location Master)'
+        data_type: VARCHAR
+      - name: LOCATION_NAME
+        description: 'Name of the Location to which the Office belongs. For most Wealth locations, this will be geographically based.'
+        data_type: VARCHAR
+      - name: OFFICE_NAME
+        description: 'Unique name give to each Mariner Office; will have a 1:1 relationship with Mariner Location Code'
+        data_type: VARCHAR
+      - name: ACCOUNTING_ID
+        description: 'Lowest level consolidation of people in a working group.  A single physical office location, analogous to Department.'
+        data_type: VARCHAR
+      - name: DIVISION
+        description: 'Division under Mariner to which the Office belongs'
+        data_type: VARCHAR
+      - name: CLIENT_MANAGER
+        description: 'Client manager or primary advisor of the client NOTE: There is a normalization process'
+        data_type: VARCHAR
+      - name: EMPLOYEE_NUM
+        description: 'Employee Number for the client manager (ex. 002082) for W2 employees Redtail ID for 1099/Network/MPS employees Unknown or Advisor Team'
+        data_type: VARCHAR
+      - name: LEAD_SOURCE
+        description: 'Lead Source for the client, populated on integrated wealth clients only. Data not available for non-integrated locations.'
+        data_type: VARCHAR
+      - name: FLOWS_AND_MARKET_MODEL_STATUS
+        description: 'Integrated = both accounts and holdings available Non-integrated = no holdings info available No detail = plug records, no underlying detail'
+        data_type: VARCHAR
+      - name: MONTH_END_DATE
+        description: 'Calendar month end period associated with effective date'
+        data_type: DATE
+      - name: CHANGE_DESC
+        description: 'Contributing factor to the change in the monthly AUM value of assets'
+        data_type: VARCHAR
+      - name: VALUE
+        description: 'Monthly AUM client count change for the given factor/change description'
+        data_type: NUMBER
+      - name: RECORD_DATE
+        description: 'Date in which the record was loaded to the table'
+        data_type: DATE

@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: reporting_int
+    schema: int
+    description: "Internal reporting schema"
+    database: "{{ var('db_reporting_src', env_var('DBT_DB_REPORTING_SRC', 'reporting')) }}"
+    tags: ["reporting"]
+    # loaded_at_field: _created_at
+    tables:
+      - name: roll_forward_assets_monthly_transposed
+        description: "This table contains detailed month over month changes in AUM asset values for each unique combination of location code, client manager, and lead source. Data is transposed for EPM from the AUM roll-forward assets view, captured on a monthly basis."
+      - name: roll_forward_client_count_monthly_transposed
+        description: "This table contains detailed month over month changes in AUM asset values for each unique combination of location code, client manager, and lead source. Data is transposed for EPM from the AUM roll-forward assets view, captured on a monthly basis."
+
