@@ -1,11 +1,13 @@
 select
-    clientid
-  , effective_date
-  , record_datetime
-  , record_date
-  , asofdate
-  , assetvalue
-  , liabilityvalue
-  , investiblevalue
-  , {{ col_is_head(reference=source('emoney_mwa', 'emoney_mwa_net_worth_history'), reference_date_col='record_datetime', source_date_col='record_datetime') }}
-from {{ source('emoney_mwa', 'emoney_mwa_net_worth_history') }}
+    _data:clientid::text(200)                                          as clientid
+    , to_timestamp_ntz((_data:"amountasof"::text(200)) , 'YYYY-MM-DD') as amountasof
+    , _data:assetvalue::dec(20 , 2)                                    as assetvalue
+    , _data:liabilityvalue::dec(20 , 2)                                as liabilityvalue
+    , _data:investiblevalue::dec(20 , 2)                               as investiblevalue
+    , _created_at::date                                                as record_date
+    , _created_at::timestampntz                                        as record_datetime
+    , effective_date::date                                             as effective_date
+    , _created_at::timestampntz                                        as _created_at
+    , _source_file::text(200)                                          as _source_file
+    , _id::int                                                         as _id
+from {{ source('emoney_mwa','net_worth_history') }}
