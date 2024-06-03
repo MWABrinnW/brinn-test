@@ -1,0 +1,52 @@
+version: 2
+models:
+  - name: coa_natural_account
+    columns:
+      - name: SYSTEM_NAME
+        description: 'System information in which the data comes from (PMS, CRM, Financials, etc.)'
+        data_type: VARCHAR
+      - name: _5_NATURAL_ACCOUNT_ID
+        description: 'Natural Account ID portion of full account number'
+        data_type: VARCHAR
+      - name: NATURAL_ACCOUNT_NAME
+        description: 'Natural Account name/description'
+        data_type: VARCHAR
+      - name: IS_ENABLED
+        description: 'Indicates if this Natural Account is currently enabled in EDM'
+        data_type: NUMBER
+      - name: END_DATE
+        description: 'End Date for the Natural Account, represents when it will no longer be used'
+        data_type: DATE
+      - name: ACCOUNT_TYPE
+        description: 'Type of natural account'
+        data_type: VARCHAR
+      - name: FINANCIAL_CATEGORY
+        description: 'Financial category'
+        data_type: VARCHAR
+      - name: FINANCIAL_STATEMENT
+        description: 'Financial statement section (Income Statement or Operational Accounts)'
+        data_type: VARCHAR
+      - name: FINANCIAL_STATEMENT_CATEGORY
+        description: 'Financial statement category'
+        data_type: VARCHAR
+      - name: FINANCIAL_STATEMENT_SECTION
+        description: 'Financial statement section'
+        data_type: VARCHAR
+      - name: FINANCIAL_STATEMENT_LINE_ITEM_1
+        description: 'Financial statement line item 1'
+        data_type: VARCHAR
+      - name: FINANCIAL_STATEMENT_LINE_ITEM_2
+        description: 'Financial statement line item 2'
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: 'State of the data - Reporting period "as of" date'
+        data_type: DATE
+      - name: IS_HEAD
+        description: 'Indicates which records are the most recent (1=current, 0=historical)'
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: 'Date and time the record was internally created'
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: 'Name of the source file that the record was included on'
+        data_type: VARCHAR

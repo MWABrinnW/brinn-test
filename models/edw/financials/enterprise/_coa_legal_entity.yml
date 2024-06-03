@@ -1,0 +1,35 @@
+version: 2
+models:
+  - name: coa_legal_entity
+    columns:
+      - name: SYSTEM_NAME
+        description: System information in which the data comes from (PMS, CRM, Financials,
+          etc.)
+        data_type: VARCHAR
+      - name: _1_LEGAL_ENTITY_ID
+        description: Legal ID portion of account number
+        data_type: VARCHAR
+      - name: LEGAL_ENTITY_NAME
+        description: Legal entity name/description
+        data_type: VARCHAR
+      - name: IS_ENABLED
+        description: Indicates if this Legal Entity is currently enabled in EDM
+        data_type: NUMBER
+      - name: END_DATE
+        description: End Date for the Legal Entity, represents when it will no longer
+          be used
+        data_type: DATE
+      - name: EFFECTIVE_DATE
+        description: State of the data - Reporting period "as of" date
+        data_type: DATE
+      - name: IS_HEAD
+        description: Indicates which records are the most recent (1=current, 0=historical)
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: Date and time the record was internally created
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: Name of the source file that the record was included on
+        data_type: VARCHAR
+    description: 'This table/view contains the Legal Entity detail from the EDM module
+      in Oracle.  Legal Entity # is segment 1 of the full account number.  '

@@ -361,7 +361,7 @@ models:
       youtrack:
         +tags: ["youtrack"]
         +grants:
-          select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"      
+          select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       zoom:
         +tags: ["zoom"]
@@ -460,6 +460,13 @@ models:
           +schema: legacy
           +grants:
             select: "{{ ['db_hr_assoc_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+
+      financials:
+        +tags: ["financials"]
+        enterprise:
+          +schema: enterprise
+          +grants:
+            select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       locations:
         +tags: ["locations"]
