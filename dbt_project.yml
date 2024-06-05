@@ -287,6 +287,11 @@ models:
         +grants:
           select: "{{ ['db_hr_talent_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
+      morningstar:
+        +tags: ["morningstar"]
+        +grants:
+          select: "{{ ['db_edw_general_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+
       pardot:
         +tags: ["pardot"]
         +grants:
