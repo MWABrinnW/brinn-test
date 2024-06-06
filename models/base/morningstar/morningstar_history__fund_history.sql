@@ -50,7 +50,7 @@ select
     , midblend                             as midblend
     , midgrowth                            as midgrowth
     , midvalue                             as midvalue
-    , smallblen                            as smallblen
+    , smallblend                           as smallblend
     , smallgrowth                          as smallgrowth
     , smallvalue                           as smallvalue
     , netmargin                            as netmargin
