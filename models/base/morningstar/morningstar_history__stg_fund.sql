@@ -49,7 +49,7 @@ select
     , nullif(trim(_data:largevalue) , '')::dec(20 , 6)                         as largevalue
     , nullif(trim(_data:midblend) , '')::dec(20 , 6)                           as midblend
     , nullif(trim(_data:midgrowth) , '')::dec(20 , 6)                          as midgrowth
-    , nullif(trim(_data:midvaluev) , '')::dec(20 , 6)                          as midvaluev
+    , nullif(trim(_data:midvaluev) , '')::dec(20 , 6)                          as midvalue
     , nullif(trim(_data:smallblen) , '')::dec(20 , 6)                          as smallblen
     , nullif(trim(_data:smallgrowth) , '')::dec(20 , 6)                        as smallgrowth
     , nullif(trim(_data:smallvalue) , '')::dec(20 , 6)                         as smallvalue

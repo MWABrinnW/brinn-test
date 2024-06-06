@@ -49,7 +49,7 @@ select
     , largevalue                           as largevalue
     , midblend                             as midblend
     , midgrowth                            as midgrowth
-    , midvaluev                            as midvaluev
+    , midvalue                             as midvalue
     , smallblen                            as smallblen
     , smallgrowth                          as smallgrowth
     , smallvalue                           as smallvalue
