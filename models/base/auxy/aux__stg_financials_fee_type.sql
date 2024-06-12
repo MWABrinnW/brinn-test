@@ -1,3 +1,7 @@
+{{ config(
+    tags=["financials","billing"]
+) }}
+
 select
     json:"SYSTEM_KEY"::varchar(200)          as system_key
     , json:"FEE_TYPE"::varchar(200)          as fee_type

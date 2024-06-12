@@ -409,7 +409,7 @@ models:
             select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
       financials:
         +schema: financials
-        +tags: ["revenue","financials"]
+        +tags: ["revenue","financials","billing"]
         +dbt-osmosis: "_{parent}_models.yml"
         +grants:
           +select: "{{ ['db_odw_financials_r'] if target.name in ['prod', 'test', 'ci'] else []}}"

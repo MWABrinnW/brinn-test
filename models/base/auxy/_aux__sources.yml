@@ -50,4 +50,5 @@ sources:
       - name: rev_black_diamond_mcgervey
         description: revenue records for the black diamond mcgervey pms instance.
       - name: financials_fee_type
+        tags: ["financials","billing"]
         description: Reference data for mapping revenue category and billing frequency based on fee type 
