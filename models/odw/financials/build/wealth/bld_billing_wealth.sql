@@ -237,7 +237,7 @@ where true
     {% endif %}
 
 {% if target.name == 'prod' %}
-        and system_key in ('addepar__corbenic', 'salesforce_compass')
+        and sw.system_key in ('addepar__corbenic', 'salesforce_compass')
     {% endif %}
 order by
     system_name
