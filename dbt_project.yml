@@ -66,6 +66,12 @@ tests:
 models:
   ## see docs: https://docs.elementary-data.com/
   elementary:
+    +database: |
+      {%- if  target.name == "dev" -%} dbt
+      {%- elif target.name == "prod"  -%} dbt
+      {%- elif target.name == "test"  -%} dbt_dev
+      {%- else -%} dbt_dev
+      {%- endif -%}
     +schema: "elementary"
     +grants:
       select: ["engineering"]
@@ -401,6 +407,17 @@ models:
         lifi:
           +grants:
             select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
+      financials:
+        +schema: financials
+        +tags: ["revenue","financials"]
+        +dbt-osmosis: "_{parent}_models.yml"
+        +grants:
+          +select: "{{ ['db_odw_financials_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        build:
+          +schema: build
+          +grants:
+            select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod','test'] else []}}"
+
 
     # [EDW]
     edw:
@@ -419,12 +436,20 @@ models:
           +grants:
             select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
+      crm:
+        +tags: ["pms", "pms-master", "crm"]
+        build:
+          +schema: build
+          +grants:
+            select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
+
       custodian:
         +tags: ["custodian", "custodial", "custodian-master"]
         build:
           +schema: build
           +grants:
             select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
+
         enterprise:
           +schema: enterprise
           +grants:

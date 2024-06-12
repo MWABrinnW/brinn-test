@@ -16,7 +16,7 @@ target = dev
 # Comma separated list of rules to check, default to all
 rules = all
 # Comma separated list of rules to exclude, or None
-exclude_rules = L034,AL09,ST06
+exclude_rules = L034,AL09,ST06,RF04
 # Below controls SQLFluff output, see max_line_length for SQL output
 output_line_length = 80
 # Number of passes to run before admitting defeat

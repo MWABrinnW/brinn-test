@@ -1,7 +1,7 @@
 select
-    'tamarac' as pms
-    , 'state_college' as pms_location
-    , 'mwa' AS firm_source
+    'tamarac'                                                                       as pms
+    , 'state_college'                                                               as pms_location
+    , 'mwa'                                                                         as firm_source
     , effective_date
     , account__net_worth_category
     , account__ownership_type
@@ -182,7 +182,8 @@ select
     , upload_account_id
     , use_primary_household_address
     , zip
+    , row_number() over (partition by effective_date order by record_datetime desc) as rn
     , {{ col_is_head(reference=source('tamarac_state_college', 'financial_accounts')) }}
     , {{ col_is_current(date_col='effective_date') }}
-    , record_datetime as _source_loaded_at
+    , record_datetime                                                               as _source_loaded_at
 from {{ source('tamarac_state_college', 'financial_accounts') }}

@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: finance
+    description: "finance"
+    database: "{{env_var('DBT_DB_FINANCE_SRC', 'finance')}}"
+    schema: ext
+    tags: ['finance']
+    tables:
+      - name: vw_associate_accounting_code_reference
+        description: "Maintained by the Data Management and Goverance team"

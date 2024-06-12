@@ -1,0 +1,292 @@
+version: 2
+models:
+  - name: billing_wealth
+    columns:
+      - name: SYSTEM_NAME
+        description: "Source system the revenue, billing data is derived from (ex. Orion, Salesforce, Black Diamond, etc.)"
+        data_type: VARCHAR
+      - name: SYSTEM_INSTANCE
+        description: 'Which instance of the source system is the revenue data derived from?  Ex. MWA Orion, MPS Orion, AdvicePeriod Black Diamond, Houston Black Diamond, etc.)'
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
+        description: "Revenue source system: concat(system_name , '__' , system_instance)"
+        data_type: VARCHAR
+      - name: LOCATION_CODE
+        description: 'Mariner Location Code associated with the Mariner Office/Accounting ID (at the time the invoice was generated).  This is the Location Code for the advisor office, which is where the revenue gets booked.'
+        data_type: VARCHAR
+      - name: OFFICE_NAME
+        description: 'Mariner Office Name associated with the Location Code (at the time the invoice was generated).  This is the Office Name for the advisor office, which is where the revenue gets booked.'
+        data_type: VARCHAR
+      - name: CLIENT_LOCATION_CODE
+        description: 'A client can be assigned to one Mariner Office while their client manager may be in another Mariner Office.  Revenue is booked to the office of the advisor.  Sourced from Compass for integrated locations, will likely be hard-coded for non-integrated locations.  This location code can be joined to Location Master to get additional information.'
+        data_type: VARCHAR
+      - name: CLIENT_OFFICE_NAME
+        description: 'A client can be assigned to one Mariner Office while their client manager may be in another Mariner Office.  Revenue is booked to the office of the advisor.  Client Location Code is sourced from Compass for integrated locations, will likely be hard-coded for non-integrated locations.  This field will pull in the associated client Office Name from Location Master.'
+        data_type: VARCHAR
+      - name: INVOICE_CREATED_AT
+        description: 'Date and time the invoice was generated/billed to the customer'
+        data_type: TIMESTAMP_NTZ
+      - name: INVOICE_DATE
+        description: 'Date the invoice was generated/billed to the customer'
+        data_type: DATE
+      - name: REVENUE_PERIOD_END_DATE
+        description: 'End date of invoiced service period, date grain dependent on billing frequency'
+        data_type: DATE
+      - name: REVENUE_QUARTER_END_DATE
+        description: 'Quarter that the billed fees will be reported in.  Date format that represents the last calendar day of the quarter.'
+        data_type: DATE
+      - name: INVOICE_NUMBER_SOURCE
+        description: 'Unique number for the invoice record from the source system.  For Salesforce Compass, this is the Billing Statement Name from the Invoice Review object (ex. BR - 2534831).  This will differ from the Oracle invoice number.'
+        data_type: VARCHAR
+      - name: BILLING_STATEMENT_ID_SOURCE
+        description: 'Orion invoice number (for Salesforce records), internal billing statement ID for other systems (if available)'
+        data_type: VARCHAR
+      - name: BILLING_STATEMENT_ID_CRM
+        description: 'This will hold the 18-digit ID on the Invoice Review object in Salesforce Compass.  This information is only available on Compass billing records.'
+        data_type: VARCHAR
+      - name: INVOICE_STATUS
+        description: 'Status of the invoice (ex. Approved by Advisor, Fee Collected / Complete, Rejected, Fee Uncollectible - Written Off, etc.)'
+        data_type: VARCHAR
+      - name: IS_MID_CYCLE_INVOICE
+        description: 'Indicates if this invoice was created in the middle of a billing cycle'
+        data_type: NUMBER
+      - name: ACCOUNT_NUMBER
+        description: 'Financial account number excluding leading zeroes or hyphens within the number'
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: 'Financial account number that would be expected at the custodian (includes hyphens, leading zeroes, etc.).'
+        data_type: VARCHAR
+      - name: BILLING_ACCOUNT_NUMBER
+        description: 'Financial account number paying the fee'
+        data_type: VARCHAR
+      - name: ACCOUNT_ID_PMS
+        description: 'Internal number or identifier for the account from the source system (Orion Account ID, Hidden Portfolio Code, etc.)'
+        data_type: VARCHAR
+      - name: REGISTRANT_NAME
+        description: 'Name of the primary client associated with the financial account'
+        data_type: VARCHAR
+      - name: ACCOUNT_NAME
+        description: 'Financial account name from the external system'
+        data_type: VARCHAR
+      - name: TYPE_OF_ACCOUNT
+        description: 'Type of financial account'
+        data_type: VARCHAR
+      - name: CLIENT_ID_PMS
+        description: 'Internal number or identifier from the PMS or billing system associated with the household name (ex. Orion Household ID)'
+        data_type: VARCHAR
+      - name: AUM_CLASSIFICATION_STATUS
+        description: AUM classification or management identifier of the financial account''
+        data_type: VARCHAR
+      - name: MODEL_INVESTMENT_STRATEGY
+        description: 'Model name that the financial account is invested in'
+        data_type: VARCHAR
+      - name: CUSTODIAN
+        description: 'Custodian holding the financial account assets / funds'
+        data_type: VARCHAR
+      - name: BILLING_CUSTODIAN
+        description: 'Custodian where the Billing Account is held, which is the client financial account where the fees are paid from.'
+        data_type: VARCHAR
+      - name: PARTNER_FIRM
+        description: 'Current Partner Firm assignment of client. This is a Salesforce Compass field present on the Billing Statement/Invoice Review object.  Needed for GL roll-up.'
+        data_type: VARCHAR
+      - name: PARTNER_FIRM_ORIGINAL
+        description: 'Branch/Partner at the time of the bill generation, sourced from Salesforce Compass, Billing Statement - Original Partner Firm.'
+        data_type: VARCHAR
+      - name: CLIENT_MANAGER_SOURCE
+        description: 'Client manager name as it appears in the source billing system'
+        data_type: VARCHAR
+      - name: CLIENT_MANAGER_ORIGINAL_CRM
+        description: 'Original (when Billing Statement was created) Client Manager name'
+        data_type: VARCHAR
+      - name: CLIENT_MANAGER_PRIMARY
+        description: 'Client manager or primary advisor of the client'
+        data_type: VARCHAR
+      - name: CLIENT_MANAGER_TYPE
+        description: 'Type of advisor: W-2, 1099'
+        data_type: VARCHAR
+      - name: ASSOCIATE_ID
+        description: 'Employee number/ID for the client manager (ex. 000615)'
+        data_type: VARCHAR
+      - name: FEE_TYPE
+        description: 'Type of fee this record represents'
+        data_type: VARCHAR
+      - name: FEE_SCHEDULE_SOURCE
+        description: 'Rate(s) in which the account is billed.  This is the raw fee schedule value pulled from the source system.'
+        data_type: VARCHAR
+      - name: ASSETS_AS_OF_DATE
+        description: 'Date billable assets based on'
+        data_type: DATE
+      - name: FEE_CALCULATION_DATE
+        description: 'Date fees were calculated'
+        data_type: DATE
+      - name: EFFECTIVE_FEE_RATE
+        description: 'Fee rate percentage calculated using billable value, annualized'
+        data_type: NUMBER
+      - name: TOTAL_ACCOUNT_VALUE
+        description: 'Total account value, pulled from the invoice information'
+        data_type: NUMBER
+      - name: BILLABLE_VALUE
+        description: 'Value of the financial account in which the fee is calculated on'
+        data_type: NUMBER
+      - name: FEE_EXCLUDED_ASSETS
+        description: 'Value of the financial account which is non-billable'
+        data_type: NUMBER
+      - name: CLIENT_FEE_GROSS
+        description: 'Gross flat fee or fee calculated on billable value before any adjustments'
+        data_type: NUMBER
+      - name: CLIENT_FEE_REBATES
+        description: 'Any 40Act or NTF rebates applied to the account per ERISA'
+        data_type: NUMBER
+      - name: CLIENT_NET_CONTRIBUTION_FEE
+        description: 'Net charge or rebate to the client if contributions & distributions meet certain criteria, or new accounts, or accounts with flows of $100K or more'
+        data_type: NUMBER
+      - name: CLIENT_ADJUSTMENTS_FEE
+        description: 'Any other miscellaneous credits or debits to the fee'
+        data_type: NUMBER
+      - name: CLIENT_WRITE_OFF_FEE
+        description: 'The value of the fee that has been written off for various reasons'
+        data_type: NUMBER
+      - name: CLIENT_FEE_NET
+        description: 'The actual fee to be collected from the account'
+        data_type: NUMBER
+      - name: COLLECTION_DATE
+        description: 'Date in which the fee was actually collected'
+        data_type: DATE
+      - name: THIRD_PARTY_CALCULATION
+        description: 'Indicates if a 3rd party calculation was applied'
+        data_type: BOOLEAN
+      - name: BILLING_STYLE
+        description: 'Denotes whether the account is billed in arrears or advance'
+        data_type: VARCHAR
+      - name: BILLING_FREQUENCY
+        description: 'How frequent the client is billed (quarterly, monthly, etc.)'
+        data_type: VARCHAR
+      - name: BILLING_METHOD
+        description: 'Billing method for the invoice, ex. Automatic Deduction, Invoiced, Direct, Indirect'
+        data_type: VARCHAR
+      - name: BILL_ON_BALANCE_TYPE
+        description: 'What is the type of account balance used for generating the invoice (ex. average daily balance, end of month, etc.).'
+        data_type: VARCHAR
+      - name: PAYMENT_TERMS
+        description: 'Payment terms for this invoice, needed for cash application'
+        data_type: VARCHAR
+      - name: PAYMENT_METHOD_FEE
+        description: 'Tracks Advice Pay fees associated with billing'
+        data_type: VARCHAR
+      - name: ACCOUNT_CLASS
+        description: 'Valid values are: REV | Revenue (Wealth); FREIGHT | Freight; TAX | Tax; REC | Receivables; CHARGES | Late Charges; UNBILL | Unbilled Receivables; UNEARN | Unearned Revenue'
+        data_type: VARCHAR
+      - name: RECURRING_REVENUE
+        description: 'Indicates if this revenue is expected to be recurring (True/False)'
+        data_type: BOOLEAN
+      - name: IMPACTED_BY_FINANCIAL_MARKETS
+        description: 'Indicates if the fee is impacted by changes in AUM value (True/False)'
+        data_type: BOOLEAN
+      - name: COA_SEGMENT_1_LEGAL_ENTITY_ID
+        description: 'Legal ID portion of account number'
+        data_type: VARCHAR
+      - name: COA_SEGMENT_2_PRODUCT_ID
+        description: 'Product ID portion of account number'
+        data_type: VARCHAR
+      - name: COA_SEGMENT_3_ACCOUNTING_ID
+        description: 'Accounting ID that corresponds 1:1 with a location code.  This is the Accounting ID for the office of the advisor, which is where revenue gets booked.'
+        data_type: VARCHAR
+      - name: COA_SEGMENT_4_TEAM_ID
+        description: 'Team ID portion of account number'
+        data_type: VARCHAR
+      - name: COA_SEGMENT_5_NATURAL_ACCOUNT_ID
+        description: 'Natural Account ID portion of account number'
+        data_type: VARCHAR
+      - name: COA_SEGMENT_6_INITIATIVE_ID
+        description: 'Initiative ID portion of account number, new segment'
+        data_type: VARCHAR
+      - name: COA_SEGMENT_7_INTERCOMPANY_ID
+        description: 'Intercompany ID portion of account number'
+        data_type: VARCHAR
+      - name: COA_SEGMENT_8_FUTURE_ID
+        description: 'Future ID portion of account number, new segment'
+        data_type: VARCHAR
+      - name: COA_ACCOUNT_NUMBER
+        description: 'Full GL account number (segments concatenated): [Legal Entity]-[Product]-[Accounting ID]-[Team]-[Natural Account]-[Initiative]-[Intercompany]-[Future]'
+        data_type: VARCHAR
+      - name: REVENUE_CATEGORY
+        description: 'Business line category in which the revenue is attributed to'
+        data_type: VARCHAR
+      - name: REVENUE_TYPE
+        description: 'Type of revenue, derived field based on Fee Type.  Important for the GL.'
+        data_type: VARCHAR
+      - name: SYSTEM_NAME_CRM
+        description: 'Source system the CRM/client data is sourced or derived from (ex. Salesforce, Elements, Redtail, etc.)'
+        data_type: VARCHAR
+      - name: SYSTEM_INSTANCE_CRM
+        description: 'Which instance of the CRM source system is the client data sourced/derived from?  Ex. Salesforce Compass, Advice Period Elements, etc.'
+        data_type: VARCHAR
+      - name: SYSTEM_KEY_CRM
+        description: "CRM source system: concat(system_name_crm , '__' , system_instance_crm)"
+        data_type: VARCHAR
+      - name: ACCOUNT_ID_CRM
+        description: 'Unique identifier that ties the financial account to the respective CRM (for example, Salesforce 18 digit id for the Estate Item: a0B3c00000iMW64EAG)'
+        data_type: VARCHAR
+      - name: CLIENT_ID_CRM
+        description: 'Unique identifier that ties the household to the respective CRM (for example, Salesforce 18 digit id, sample: 0013c000020nOsJAAU, client/household identifier for other systems)'
+        data_type: VARCHAR
+      - name: CLIENT_ID_ORIGINAL_CRM
+        description: 'Original (when billing statement was created) unique identifier that ties the household to the respective CRM (for example, Salesforce 18 digit id, sample: 0013c000020nOsJAAU)'
+        data_type: VARCHAR
+      - name: CLIENT_ID_UNIQUE_COMPASS
+        description: 'Client/Household unique identifier that ties the household to Salesforce Compass (Unique ID, sample: A-00251583)'
+        data_type: VARCHAR
+      - name: CLIENT_NAME
+        description: 'Name of the client/household the financial account is a part of'
+        data_type: VARCHAR
+      - name: CLIENT_NAME_ORIGINAL_CRM
+        description: 'Original (when Billing Statement was created) Client/Household name'
+        data_type: VARCHAR
+      - name: CLIENT_LEAD_SOURCE
+        description: 'Lead Source for the client.  Required to determine natural account.'
+        data_type: VARCHAR
+      - name: CLIENT_KEY_TAGS_CRM
+        description: 'Tags on the Client object in Salesforce Compass.  A client can have 1 or more tags, selected from a drop-down list.'
+        data_type: VARCHAR
+      - name: TRANSACTION_TYPE
+        description: 'Invoice or Return.  Required field for Oracle.'
+        data_type: VARCHAR
+      - name: TRANSACTION_LINE_TYPE
+        description: 'Line, Tax, Freight and Charges (value is Line for Wealth revenue)'
+        data_type: VARCHAR
+      - name: TRANSACTION_LINE_QUANTITY
+        description: 'Default to 1 for all transactions, required field for Oracle.'
+        data_type: NUMBER
+      - name: CURRENCY_CODE
+        description: 'USD for all transactions, required field for Oracle.'
+        data_type: VARCHAR
+      - name: CURRENCY_CONVERSION_TYPE
+        description: 'User for all transactions, required field for Oracle.'
+        data_type: VARCHAR
+      - name: UNIT_SELLING_PRICE
+        description: 'Default to Net Revenue for all transactions, required field for Oracle.'
+        data_type: NUMBER
+      - name: IS_EXCLUDED
+        description: 'Indicates if this billing record should be excluded when sent to the general ledger in Oracle.'
+        data_type: NUMBER
+      - name: EXCLUDED_REASON
+        description: 'Reason for excluding from the feed to the general ledger in Oracle'
+        data_type: VARCHAR
+      - name: _INVOICE_KEY
+        description: 'System_Key + Invoice Date + Invoice Number Source'
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: 'DateTime in which the record was loaded to the table'
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: 'Helps identify where this record originated from (database schema and table, or source file name when data not available in SNF)'
+        data_type: VARCHAR
+      - name: _BOX_FILE_ID
+        description: 'Box file identifier in the source table'
+        data_type: VARCHAR
+      - name: _EXTRA_FIELDS
+        description: ''
+        data_type: VARIANT
+      - name: IS_LEGACY
+        description: 'Indicates if this billing record is sourced from legacy Revenue Master (EDW.vw.revenue_billing) for dates older than 2024 (1=true, 0=false). NOTE: Legacy billing records do not fully follow the normalization and/or business logic of our mastered Rev360 sources, but do allow for basic aggregation of revenue history for 2022 and 2023.'
+        data_type: NUMBER

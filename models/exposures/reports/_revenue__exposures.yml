@@ -1,0 +1,19 @@
+version: 2
+
+exposures:
+
+  - name: revenue_master
+    label: Revenue Master
+    type: application
+    maturity: low
+    tags: ["revenue"]
+    url: ""
+    description: >
+      The revenue master dataset.
+
+    depends_on:
+      - ref('billing_wealth')
+
+    owner:
+      name: Data Management
+      email: data.management@marinerwealth.com

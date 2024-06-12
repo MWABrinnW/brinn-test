@@ -1,8 +1,8 @@
 select
-    'addepar'                                     as system_name
-    , 'corbenic'                                  as system_instance
-    , concat(system_name , '_' , system_instance) as system_key
-    , 'mwa'                                       as firm_source
+    'addepar'                                      as system_name
+    , 'corbenic'                                   as system_instance
+    , concat(system_name , '__' , system_instance) as system_key
+    , 'mwa'                                        as firm_source
     , effective_date
     , position_id
     , holding_account_number
@@ -38,7 +38,7 @@ select
     , source_file
     , {{ col_is_head(reference=source('addepar_corbenic', 'holdings')) }}
     , {{ col_is_current(date_col='effective_date') }}
-    , _id                                         as _id
-    , record_datetime                             as _created_at
-    , source_file                                 as _source_file
+    , _id                                          as _id
+    , record_datetime                              as _created_at
+    , source_file                                  as _source_file
 from {{ source('addepar_corbenic', 'holdings') }}

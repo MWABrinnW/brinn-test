@@ -1,8 +1,8 @@
 select
-    'addepar'                                     as system_name
-    , 'corbenic'                                  as system_instance
-    , concat(system_name , '_' , system_instance) as system_key
-    , 'mwa'                                       as firm_source
+    'addepar'                                      as system_name
+    , 'corbenic'                                   as system_instance
+    , concat(system_name , '__' , system_instance) as system_key
+    , 'mwa'                                        as firm_source
     , effective_date
     , top_level_holding_account
     , top_level_holding_account_entity_id
@@ -31,7 +31,7 @@ select
             then 'William Velekei'
         when upper(trim(cwm_lead_advisor)) = 'HA'
             then 'House Account'
-    end                                           as client_manager
+    end                                            as client_manager
     , cwm_service_advisor
     , cwm_non_discretionary
     , cwm_closed_date
@@ -50,7 +50,7 @@ select
     , cwm_erisa_account
     , {{ col_is_head(reference=source('addepar_corbenic', 'accounts')) }}
     , {{ col_is_current(date_col='effective_date') }}
-    , _id                                         as _id
-    , record_datetime                             as _created_at
-    , source_file                                 as _source_file
+    , _id                                          as _id
+    , record_datetime                              as _created_at
+    , source_file                                  as _source_file
 from {{ source('addepar_corbenic', 'accounts') }}

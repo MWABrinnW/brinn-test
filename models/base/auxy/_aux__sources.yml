@@ -47,3 +47,7 @@ sources:
         description: Adjustment records for Schwab referral fees.
       - name: referral_fees_lock_dates
         description: Instructions for which date to use for the final referral fees files. Only related to SAN2 right now.
+      - name: rev_black_diamond_mcgervey
+        description: revenue records for the black diamond mcgervey pms instance.
+      - name: financials_fee_type
+        description: Reference data for mapping revenue category and billing frequency based on fee type 
