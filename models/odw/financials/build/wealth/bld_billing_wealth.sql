@@ -222,10 +222,10 @@ left join
     on sw.associate_id = cd.file_number
 left join {{ ref('locations') }} as loc
     on coalesce(sw.coa_segment_3_accounting_id , substr(cd.revenue_coding , 10 , 4)) = loc.accounting_id
-    and sw.invoice_date between loc.start_date and loc.end_date
+    and sw.invoice_date between loc.start_date and coalesce(loc.end_date , '2099-12-31')
 left join {{ ref('locations') }} as loc2
     on sw.client_location_code = loc2.location_code
-    and sw.invoice_date between loc2.start_date and loc2.end_date
+    and sw.invoice_date between loc2.start_date and coalesce(loc2.end_date , '2099-12-31')
 left join {{ ref('aux__stg_financials_fee_type') }} as fft
     on sw.system_key = fft.system_key
     and lower(sw.fee_type) = lower(fft.fee_type)
@@ -237,7 +237,7 @@ where true
     {% endif %}
 
 {% if target.name == 'prod' %}
-        and sw.system_key in ('addepar__corbenic', 'salesforce_compass')
+        and sw.system_key in ('addepar__corbenic', 'salesforce__compass')
     {% endif %}
 order by
     system_name

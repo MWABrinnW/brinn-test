@@ -100,12 +100,15 @@ select
     , b.cwm_lead_advisor::varchar(200)                                            as client_manager_source
     , null::varchar(200)                                                          as client_manager_original_crm
     , case
-        when a.cwm_lead_advisor = 'DG' then 'David Givler II'
-        when a.cwm_lead_advisor = 'BG' then 'Brad Griswold'
-        when a.cwm_lead_advisor = 'WV' then 'William Velekei'
-        when a.cwm_lead_advisor = 'MB' then 'Mark Borda'
-        when a.cwm_lead_advisor = 'HA' then 'House Accounts'
-        else a.cwm_lead_advisor
+        when trim(a.cwm_lead_advisor) = 'DG' then 'David Givler II'
+        when trim(a.cwm_lead_advisor) = 'BG' then 'Brad Griswold'
+        when trim(a.cwm_lead_advisor) = 'WV' then 'William Velekei'
+        when trim(a.cwm_lead_advisor) = 'MB' then 'Mark Borda'
+        when trim(a.cwm_lead_advisor) = 'SL' then 'Sean Linderman'
+        when trim(a.cwm_lead_advisor) = 'KB' then 'Katie Brown'
+        when trim(a.cwm_lead_advisor) = 'DM' then 'Dennis Morton'
+        when trim(a.cwm_lead_advisor) = 'HA' then 'House Accounts'
+        else trim(a.cwm_lead_advisor)
     end::varchar(200)                                                             as client_manager_primary
     , 'W-2'::varchar(200)                                                         as client_manager_type
     , case
@@ -113,6 +116,9 @@ select
         when trim(b.cwm_lead_advisor) = 'BG' then '002733'
         when trim(b.cwm_lead_advisor) = 'WV' then '002735'
         when trim(b.cwm_lead_advisor) = 'MB' then '002729'
+        when trim(a.cwm_lead_advisor) = 'SL' then null
+        when trim(a.cwm_lead_advisor) = 'KB' then null
+        when trim(a.cwm_lead_advisor) = 'DM' then null
         when trim(b.cwm_lead_advisor) = 'HA' then 'House Accounts'
         else trim(b.cwm_lead_advisor)
     end                                                                           as associate_id
