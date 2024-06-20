@@ -230,6 +230,7 @@ with cte_accounts as (
                         -- exemptions that don't follow the other FI, OPT, and MUT ilike rules
                         when a.product_type_source_definition in (
                                 'Debt - Certificate of Deposit' , 'Rights to Ownership - Warrants' , 'Equity - Preferred Stock'
+                                , 'Equity - Closed-End Mutual Fund - Taxable'
                             )
                             then 'EQ'
                         -- standard Fidelity logic
@@ -342,7 +343,6 @@ with cte_accounts as (
         , null::text(200)                       as legacy_product_type
         , null::text(200)                       as legacy_product_type_source_code
         , null::text(200)                       as legacy_product_type_source_definition
-
         , 'cte_schwab_mmf_rollup--cte_tax_lots' as src
     from cte_tax_lots
     where custodian ilike 'SCHWAB' and product_type_source_definition ilike 'SCHWAB NON-SWEEP MONEY MARKET FUNDS'
@@ -412,8 +412,8 @@ with cte_accounts as (
             order by case
                 when product ilike 'cash' then 1
                 when product ilike 'opt' then 2
-                when product ilike 'mut' then 3
-                when product ilike 'eq' then 4
+                when product ilike 'eq' then 3
+                when product ilike 'mut' then 4
                 when product ilike 'fi' then 5
                 else 6
             end
