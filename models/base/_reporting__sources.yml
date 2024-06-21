@@ -12,4 +12,3 @@ sources:
         description: "This table contains detailed month over month changes in AUM asset values for each unique combination of location code, client manager, and lead source. Data is transposed for EPM from the AUM roll-forward assets view, captured on a monthly basis."
       - name: roll_forward_client_count_monthly_transposed
         description: "This table contains detailed month over month changes in AUM asset values for each unique combination of location code, client manager, and lead source. Data is transposed for EPM from the AUM roll-forward assets view, captured on a monthly basis."
-

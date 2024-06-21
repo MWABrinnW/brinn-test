@@ -1,6 +1,6 @@
 with cte_dates as (
     select distinct effective_date
-    from {{ source('reporting_int', 'vw_network_advisor_master_monthly') }}
+    from {{ source('reporting_ext', 'vw_network_advisor_master_monthly') }}
     order by effective_date
 )
 
@@ -46,10 +46,13 @@ with cte_dates as (
 
 select
     a.*
-    , coalesce(lpl.email_address , redtail.email_address, lpl_all.email_address) as advisor_email
-    , {{ col_is_head(reference=source('reporting_int', 'vw_network_advisor_master_monthly'), source_date_col='a.effective_date') }}
-    , current_timestamp()                                 as _created_at
-from {{ source('reporting_int', 'vw_network_advisor_master_monthly') }} as a
+    , coalesce(lpl.email_address , redtail.email_address , lpl_all.email_address) as advisor_email
+    , {{ col_is_head(
+        reference=source('reporting_ext', 'vw_network_advisor_master_monthly')
+        , source_date_col='a.effective_date'
+        ) }}
+    , current_timestamp()                                                         as _created_at
+from {{ source('reporting_ext', 'vw_network_advisor_master_monthly') }} as a
 left join cte_lpl_emails as lpl
     on a.effective_date = lpl.effective_date
     and a.lpl_master_rep_id = lpl.rep_id
