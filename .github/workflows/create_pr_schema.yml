@@ -83,6 +83,16 @@ jobs:
           path: ./dbt_packages
           key: dbt-packages-${{ runner.os }}-py${{ env.python_version }}-${{ hashFiles('packages.yml') }}
 
+      - name: Set source DB vars
+        shell: pwsh
+        run: |
+          $labelExists = "${{ contains(github.event.pull_request.labels.*.name, 'use-dev-sources') }}"
+          if ($labelExists -eq 'true') {
+            echo "DBT_DB_RAW_SRC=raw_dev" | Out-File -Append -FilePath $env:GITHUB_ENV
+            echo "DBT_DB_DATALAKE_SRC=datalake_dev" | Out-File -Append -FilePath $env:GITHUB_ENV
+            echo "DBT_DB_EDW_SRC=edw_dev" | Out-File -Append -FilePath $env:GITHUB_ENV
+            }
+
       - name: dbt deps
         shell: pwsh
         run: |
@@ -94,7 +104,7 @@ jobs:
         shell: pwsh
         run: |
           .\utilities\.venv\Scripts\Activate.ps1
-          dbt build --target=$env:DBT_TARGET --select state:modified.body+1 state:modified.persisted_descriptions+1 state:modified.relation+1 state:modified.macros+1 state:modified.contract+1 result:error
+          dbt build --target=$env:DBT_TARGET --select state:modified.body+1 state:modified.persisted_descriptions+1 state:modified.macros+1 state:modified.contract+1 result:error
 
   dbt-docs:
     if: ((needs.dbt-build.result == 'success' || needs.dbt-build.result == 'failure') && !contains(github.event.pull_request.labels.*.name, 'skip-ci'))

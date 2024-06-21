@@ -13,6 +13,7 @@ env:
   SNOWSQL_ACCOUNT: ${{ vars.DBT_HOST }}
   SNOWSQL_DATABASE: DBT
   SNOWSQL_SCHEMA: DBT
+  SNOWSQL_ROLE: engineering
   PR_NUM: ${{ github.event.number }}
 
 jobs:
