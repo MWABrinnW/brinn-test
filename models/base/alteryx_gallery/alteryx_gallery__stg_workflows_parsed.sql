@@ -30,7 +30,7 @@ select
     , json:select_fields::text                     as select_fields
     , json:left_join_fields::text                  as left_join_fields
     , json:right_join_fields::text                 as right_join_fields
-from {{ source('alteryx_gallery', 'alteryx_workflows_parsed') }}
+from {{ source('alteryx_gallery_datalake', 'alteryx_workflows_parsed') }}
 where 1 = 1
     and _source_file ilike 'workflow_tools.json%'
 order by name

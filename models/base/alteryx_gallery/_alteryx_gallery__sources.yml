@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: alteryx_gallery
     description: Alteryx gallery data from mongodb.
-    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'RAW')) }}"
     schema: alteryx_gallery
     tables:
       - name: appinfos
@@ -30,6 +30,12 @@ sources:
           - name: _CREATED_AT
             data_type: TIMESTAMP_NTZ
             description: ''
+
+  - name: alteryx_gallery_datalake
+    description: Alteryx gallery data from mongodb.
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    schema: alteryx_gallery
+    tables:
       - name: alteryx_workflows_parsed
         description: 'Includes two datasets: 1) Global list of gallery workflows 2) Parsed contents of the workflows xml'
         columns:
