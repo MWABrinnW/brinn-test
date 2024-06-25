@@ -21,9 +21,9 @@ select
     , effective_at::timestampntz                              as effective_at
     , _created_at::timestampntz                               as _created_at
     , {{ col_is_head(
-    reference=source('salesforce_baystate', 'advisor_split_code_c'),
+    reference=source('salesforce_baystate', 'advisor_split_detail_c'),
     source_date_col='effective_at',
     reference_date_col='effective_at'
     ) }}
 
-from {{ source('salesforce_baystate', 'advisor_split_code_c') }}
+from {{ source('salesforce_baystate', 'advisor_split_detail_c') }}
