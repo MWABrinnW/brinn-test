@@ -17,7 +17,7 @@ select
     , attr09::text(200)            as attr_09
     , attr10::text(200)            as attr_10
     , effective_date::date         as effective_date
-    , {{ col_is_head(reference=source('oracle', 'edm_initiative')) }}
+    , {{ col_is_head(reference=source('oracle_edm', 'edm_initiative')) }}
     , _created_at::timestamp       as _created_at
     , _source_file::text(200)      as _source_file
-from {{ source('oracle', 'edm_initiative') }}
+from {{ source('oracle_edm', 'edm_initiative') }}

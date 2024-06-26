@@ -288,6 +288,19 @@ models:
           +grants:
             select: "{{ ['db_oracle_epm_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
+        accounting_id:
+          +tags: ["oracle-edm", "accounting_id"]
+        initiative:
+          +tags: ["oracle-edm", "initiative"]
+        legal_entity:
+          +tags: ["oracle-edm", "legal_entity"]
+        natural_account:
+          +tags: ["oracle-edm", "natural_account"]
+        product:
+          +tags: ["oracle-edm", "product"]
+        team:
+          +tags: ["oracle-edm", "team"]
+
       icims:
         +tags: ["icims", "hr"]
         +grants:
@@ -381,7 +394,7 @@ models:
 
     # [ODW]
     odw:
-      +tags: ["devops", "odw"]
+      +tags: ["devops",  "odw"]
       +database: |
         {%- if  target.name == "dev" -%} {{target.database}}
         {%- elif target.name == "prod"  -%} odw
@@ -392,6 +405,10 @@ models:
         +select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
       +dbt-osmosis: "_{model}.yml"
 
+      active_directory:
+        +tags: ["active_directory"]
+        +grants:
+          +select: "{{ ['db_it_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
       activetick:
         +tags: ["activetick"]
       flyer:

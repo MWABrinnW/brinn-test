@@ -29,6 +29,7 @@ select
     , u.title
     , u.email
     , u.sso_smtp
+    , u.street_address
     , u.office_phone
     , u.modified_at
     , u.mobile_phone
@@ -45,11 +46,20 @@ select
     , u.member_of
     , u.sam_account_name
     , u.sam_account_type
+    , u.physical_delivery_office_name
+    , u.city
+    , u.state
+    , u.postal_code
 
-    , m.employee_number    as manager_employeenumber
-    , m.email              as manager_email
-    , m.sam_account_name   as manager_samaccountname
-    , m.distinguished_name as manager_distinguishedname
+    , u.other_mobile[0]::text(200) as other_mobile
+    , u.date_of_start              as date_of_start
+    , u.date_of_birth              as date_of_birth
+    , u.admin_description          as admin_description
+
+    , m.employee_number            as manager_employeenumber
+    , m.email                      as manager_email
+    , m.sam_account_name           as manager_samaccountname
+    , m.distinguished_name         as manager_distinguishedname
 
     , u.is_head
     , u._effective_at
@@ -93,6 +103,7 @@ select
     , u.title                       as title
     , u.userprincipalname           as email
     , null::text(200)               as sso_smtp
+    , u.streetaddress               as street_address
     , u.telephonenumber             as office_phone
     , u.whenchanged                 as modified_at
     , null::text(200)               as mobile_phone
@@ -109,11 +120,20 @@ select
     , null::variant                 as member_of
     , u.samaccountname              as sam_account_name
     , u.samaccounttype              as sam_account_type
+    , u.physicaldeliveryofficename  as physical_delivery_office_name
+
+    , u.othermobile                 as other_mobile
+    , null::text(200)               as date_of_start
+    , null::text(200)               as date_of_birth
+    , u.admindescription            as admin_description
 
     , m.employeenumber              as manager_employeenumber
     , m.userprincipalname           as manager_email
     , m.samaccountname              as manager_samaccountname
     , m.distinguishedname           as manager_distinguishedname
+    , u.l                           as city
+    , u.st                          as state
+    , u.postalcode                  as postal_code
 
     , u.is_head                     as is_head
     , u._created_at                 as _effective_at

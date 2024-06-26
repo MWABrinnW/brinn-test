@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: oracle_hcm
+    schema: oracle
+    description: "Oracle Fusion HCM"
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    tags: ["oracle_fusion", "oracle_hcm"]
+    loaded_at_field: _created_at
+    tables:
+      - name: hcm_employee_demographics
+        description: ""
+

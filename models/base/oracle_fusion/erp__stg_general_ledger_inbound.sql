@@ -45,4 +45,4 @@ select
     , coalesce(gl_je_batch_id , '')
     || '_' || coalesce(gl_je_header_id , '')
     || '_' || coalesce(gl_je_line_id , '')                                               as _record_id
-from {{ source('oracle', 'erp_general_ledger') }}
+from {{ source('oracle_erp', 'erp_general_ledger') }}

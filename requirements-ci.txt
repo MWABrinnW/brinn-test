@@ -1,4 +1,4 @@
-dbt-snowflake==1.7.3
+dbt-snowflake==1.7.4
 dbt-core==1.7.14
 sqlfluff==3.0.6
 #

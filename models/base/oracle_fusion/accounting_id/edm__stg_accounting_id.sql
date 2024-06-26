@@ -1,5 +1,5 @@
 select
-    name::text(200)             as name
+    name::text(200)             as name--noqa:RF04
     , description::text(200)    as description
     , parent::text(200)         as parent
     , level::int                as level
@@ -37,7 +37,7 @@ select
     , attr_29::text(200)        as attr_29
     , attr_30::text(200)        as attr_30
     , effective_date::date      as effective_date
-    , {{ col_is_head(reference=source('oracle', 'edm_accounting_id')) }}
+    , {{ col_is_head(reference=source('oracle_edm', 'edm_accounting_id')) }}
     , _created_at::timestamp    as _created_at
     , _source_file::text(200)   as _source_file
-from {{ source('oracle', 'edm_accounting_id') }}
+from {{ source('oracle_edm', 'edm_accounting_id') }}

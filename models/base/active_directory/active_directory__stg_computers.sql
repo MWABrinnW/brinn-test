@@ -94,6 +94,11 @@ select
     , _data:"codePage"::int                                                                     as codepage
     , _data:"CompoundIdentitySupported"::variant                                                as compoundidentitysupported
 
+    , _data:"otherMobile"::variant                                                              as othermobile
+    , _data:"dateOfStart"::text(200)                                                            as dateofstart
+    , _data:"dateOfBirth"::text(200)                                                            as dateofbirth
+    , _data:"AdminDescription"::text(200)                                                       as admindescription
+
     , {{ col_is_head(
       reference=source('active_directory', 'computers'),
       reference_date_col='_created_at',

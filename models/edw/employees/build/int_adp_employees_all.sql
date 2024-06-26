@@ -2,43 +2,19 @@ select
     e.*
     exclude associate_work_phone
     rename home_organizational_units_cost_num as cost_num
-    , coalesce(
-        replace(zoom.number , '+1' , '') , e.associate_work_phone
-    )   as associate_work_phone
-    , coalesce(
-        lm_old.location_code , lm_new.location_code
-    )   as location_code
-    , coalesce(
-        lm_old.accounting_id , lm_new.accounting_id
-    )   as accounting_id
-    , coalesce(
-        lm_old.accounting_id_description , lm_new.accounting_id_description
-    )   as accounting_id_description
-    , coalesce(
-        lm_old.location_name , lm_new.location_name
-    )   as location_name
-    , null as location_legal_name
-    , coalesce(
-        lm_old.location_city , lm_new.location_city
-    )   as location_city
-    , coalesce(
-        lm_old.location_state , lm_new.location_state
-    )   as location_state
-    , coalesce(
-        lm_old.region_name , lm_new.region_name
-    )   as location_region_name
-    , coalesce(
-        lm_old.market_name , lm_new.market_name
-    )   as location_market_name
-    , coalesce(
-        lm_old.division , lm_new.division
-    )   as location_division
-    , coalesce(
-        lm_old.acquisition_name , lm_new.acquisition_name
-    )   as location_acquisition_name
-    , coalesce(
-        lm_old.acquisition_type , lm_new.acquisition_type
-    )   as location_acquisition_type
+    , coalesce(replace(zoom.number , '+1' , '') , e.associate_work_phone)           as associate_work_phone
+    , coalesce(lm_old.location_code , lm_new.location_code)                         as location_code
+    , coalesce(lm_old.accounting_id , lm_new.accounting_id)                         as accounting_id
+    , coalesce(lm_old.accounting_id_description , lm_new.accounting_id_description) as accounting_id_description
+    , coalesce(lm_old.location_name , lm_new.location_name)                         as location_name
+    , null                                                                          as location_legal_name
+    , coalesce(lm_old.location_city , lm_new.location_city)                         as location_city
+    , coalesce(lm_old.location_state , lm_new.location_state)                       as location_state
+    , coalesce(lm_old.region_name , lm_new.region_name)                             as location_region_name
+    , coalesce(lm_old.market_name , lm_new.market_name)                             as location_market_name
+    , coalesce(lm_old.division , lm_new.division)                                   as location_division
+    , coalesce(lm_old.acquisition_name , lm_new.acquisition_name)                   as location_acquisition_name
+    , coalesce(lm_old.acquisition_type , lm_new.acquisition_type)                   as location_acquisition_type
 
     , case
         when e.occupational_classifications_class ilike '%advisor%'
@@ -105,9 +81,9 @@ select
 
     -- Standardize the type of employee based on benefit code.
     , case
-        when e.position_benefits_group_code in ('FT', 'K1')
+        when e.position_benefits_group_code in ('FT' , 'K1')
             then 'FT'
-        when e.position_benefits_group_code in ('PTE', 'PTN')
+        when e.position_benefits_group_code in ('PTE' , 'PTN')
             then 'PT'
         else 'TEMP'
     end
@@ -134,7 +110,7 @@ select
             )
             % 12
         )::string || ' months'
-    )   as years_of_service
+    )                                                                               as years_of_service
     , case
         when floor(
                 (
@@ -258,57 +234,34 @@ select
         as age_band
 
     , case
-        when coalesce(
-                e.associate_rehire_date , e.associate_original_hire_date
-            ) between date_trunc(month , e.effective_at::date) and last_day(
-                e.effective_at::date
-            )
-            then 1
-        else 0
-    end
-        as is_new
-    , case
-        when e.associate_final_termination_date between date_trunc(
+        when coalesce(e.associate_rehire_date , e.associate_original_hire_date) between date_trunc(
                 month , e.effective_at::date
             ) and last_day(e.effective_at::date)
             then 1
         else 0
-    end
-        as is_term
+    end                                                                             as is_new
     , case
-        when is_term = 1
-            then case
-                    when e.vol_invol ilike '%invol%'
-                        then 1
-                    else 0
-                end
-        else 0
-    end
-        as is_invol_term
-    , case
-        when is_term = 1
-            then case
-                    when e.vol_invol ilike 'vol%'
-                        then 1
-                    else 0
-                end
-        else 0
-    end
-        as is_vol_term
-    , case
-        when is_deleted = 0
-            and (
-                is_term = 1
-                or is_new = 1
-                or e.associate_final_termination_date is null
+        when e.associate_final_termination_date between date_trunc(month , e.effective_at::date) and last_day(
+                e.effective_at::date
             )
-            and coalesce(
-                e.associate_rehire_date , e.associate_original_hire_date
-            ) is not null
             then 1
         else 0
-    end
-        as is_current
+    end                                                                             as is_term
+    , case
+        when is_term = 1 and e.vol_invol ilike '%invol%' then 1
+        else 0
+    end                                                                             as is_invol_term
+    , case
+        when is_term = 1 and e.vol_invol ilike 'vol%' then 1
+        else 0
+    end                                                                             as is_vol_term
+    , case
+        when e.is_deleted = 0
+            and (is_term = 1 or is_new = 1 or e.associate_final_termination_date is null)
+            and coalesce(e.associate_rehire_date , e.associate_original_hire_date) is not null
+            then 1
+        else 0
+    end                                                                             as is_current
     -- If the employee did not terminate prior to this month then set to 1 else 0.
     , case
         when e.associate_final_termination_date

@@ -68,7 +68,6 @@ select
     , _data:"AuthenticationPolicy"::variant                                                     as authenticationpolicy
     , _data:"DisplayName"::text(500)                                                            as displayname
     , _data:"DoesNotRequirePreAuth"::boolean::int                                               as doesnotrequirepreauth
-    , _data:"LastBadPasswordAttempt"::timestamp_tz                                              as lastbadpasswordattempt
     , _data:"ManagedPasswordIntervalInDays"::variant                                            as managedpasswordintervalindays
     , _data:"Modified"::timestamp_tz                                                            as modified
     , _data:"ProtectedFromAccidentalDeletion"::boolean::int
@@ -86,6 +85,11 @@ select
     , _data:"accountExpires"::int                                                               as accountexpires
     , _data:"isDeleted"::int                                                                    as isdeleted
     , _data:"instanceType"::int                                                                 as instancetype
+
+    , _data:"otherMobile"::variant                                                              as othermobile
+    , _data:"dateOfStart"::text(200)                                                            as dateofstart
+    , _data:"dateOfBirth"::text(200)                                                            as dateofbirth
+    , _data:"AdminDescription"::text(200)                                                       as admindescription
 
     , {{ col_is_head(
       reference=source('active_directory', 'serviceaccounts'),

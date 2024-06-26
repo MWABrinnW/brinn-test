@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: oracle_erp
+    schema: oracle
+    description: "Oracle Fusion ERP"
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    tags: ["oracle_fusion", "oracle_erp"]
+    loaded_at_field: _created_at
+    tables:
+      - name: erp_general_ledger
+        description: "General Ledger dump"
+      - name: erp_general_ledger_exceptions
+        description: "Error file, not always available"

@@ -1,0 +1,307 @@
+version: 2
+models:
+  - name: nml_oracle_hcm_associates
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_AT
+        description: 'The datetime this record was pulled from the source system (previously ADP, now Oracle HCM)'
+        data_type: VARCHAR
+      - name: EMPLOYEE_NUM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: EMPLOYEE_NUM
+        description: 'ADP employee number, 6-digit unique identifier.  Exists in HCM for historical data reference.  Will be blank for new associates.'
+        data_type: VARCHAR
+      - name: EMPLOYEE_NUM_LEGACY
+        description: ''
+        data_type: VARCHAR
+      - name: EMPLOYMENT_STATUS
+        description: '"Active" or "Terminated"'
+        data_type: VARCHAR
+      - name: JOB_FUNCTION_CODE
+        description: 'System ID or code for the primary job function of the associate'
+        data_type: VARCHAR
+      - name: JOB_FUNCTION_NAME
+        description: 'Name of the primary job function of the associate, for example: Benefits, Client Service, Compliance, Estate Planning, Finance, Insurance, Licensed Advisor, Platform Mangement, Portfolio Management, Team Operations, Trading, etc.'
+        data_type: VARCHAR
+      - name: JOB_FAMILY
+        description: 'Wealth Management, Wealth Operations, Specialty Tax, Investments, Business Development, Business Intelligence, Human Resources, Information Technology, etc. Added to HCM field list on 5/24/2024'
+        data_type: VARCHAR
+      - name: CHANGE_REASON_CODE
+        description: 'Change reason code'
+        data_type: VARCHAR
+      - name: CHANGE_REASON_DESCRIPTION
+        description: 'Reason the title of the associate changed, or termination reason'
+        data_type: VARCHAR
+      - name: VOL_INVOL_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: WORK_FROM_HOME
+        description: 'Flag that indicates remote work associate'
+        data_type: VARCHAR
+      - name: WORKPLACE
+        description: 'Indicates the location where the associate works from: Hybrid, Onsite, Remote'
+        data_type: VARCHAR
+      - name: PERSON_SOURCE
+        description: 'Person source from the Person profile (acquisition, lift-out, etc.)'
+        data_type: VARCHAR
+      - name: JOB_ID
+        description: 'Job ID'
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_NAME_FIRST
+        description: 'First Name, Legal'
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_NAME_MIDDLE
+        description: 'Middle Name, legal'
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_NAME_LAST
+        description: 'Last Name, legal'
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_NAME_FULL
+        description: 'Full legal name: Last, First Middle'
+        data_type: VARCHAR
+      - name: ASSOCIATE_PREFERRED_NAME
+        description: 'Preferred first name'
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_NAME_SUFFIX
+        description: 'Suffix, legal'
+        data_type: VARCHAR
+      - name: ASSOCIATE_BIRTH_DATE
+        description: 'Birth date (date is masked in end user non-HR views)'
+        data_type: DATE
+      - name: ASSOCIATE_GENDER_CODE
+        description: 'Gender code for the associate (for medical / insurance / compliance purposes).'
+        data_type: VARCHAR
+      - name: ASSOCIATE_GENDER_NAME
+        description: 'Gender name for the associate (for medical / insurance / compliance purposes).'
+        data_type: VARCHAR
+      - name: ASSOCIATE_PERSONAL_EMAIL
+        description: 'Associate personal email address'
+        data_type: VARCHAR
+      - name: ASSOCIATE_PERSONAL_PHONE
+        description: 'Associate personal phone number'
+        data_type: VARCHAR
+      - name: ASSOCIATE_PERSONAL_CELL_PHONE
+        description: 'Associate personal cell phone number'
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_ADDRESS_LINE1
+        description: 'Legal address line 1'
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_ADDRESS_LINE2
+        description: 'Legal address line 2'
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_ADDRESS_CITY
+        description: 'Legal address city'
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_ADDRESS_STATE_ABB
+        description: 'Legal address state abbreviation'
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_ADDRESS_STATE
+        description: 'Legal address state name'
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_ADDRESS_ZIP_CODE
+        description: 'Legal address zip code'
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_ADDRESS_COUNTRY
+        description: 'Legal address country'
+        data_type: VARCHAR
+      - name: ASSOCIATE_OTHER_ADDRESS_LINE1
+        description: 'Other address line 1'
+        data_type: VARCHAR
+      - name: ASSOCIATE_OTHER_ADDRESS_LINE2
+        description: 'Other address line 2'
+        data_type: VARCHAR
+      - name: ASSOCIATE_OTHER_ADDRESS_CITY
+        description: 'Other address city'
+        data_type: VARCHAR
+      - name: ASSOCIATE_OTHER_ADDRESS_STATE_ABB
+        description: 'Other address state abbreviation'
+        data_type: VARCHAR
+      - name: ASSOCIATE_OTHER_ADDRESS_STATE
+        description: 'Other address state name'
+        data_type: VARCHAR
+      - name: ASSOCIATE_OTHER_ADDRESS_ZIP_CODE
+        description: 'Other address zip code'
+        data_type: VARCHAR
+      - name: ASSOCIATE_OTHER_ADDRESS_COUNTRY
+        description: 'Other address country'
+        data_type: VARCHAR
+      - name: ASSOCIATE_EDUCATION
+        description: 'Associate degree(s) earned'
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_EMAIL
+        description: 'Associate work email address'
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_PHONE
+        description: 'Associate work phone number'
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_CELL_PHONE
+        description: 'Associate work cell phone'
+        data_type: VARCHAR
+      - name: ASSOCIATE_ORIGINAL_HIRE_DATE
+        description: 'Date someone was first hired to Mariner'
+        data_type: DATE
+      - name: ASSOCIATE_REHIRE_DATE
+        description: 'Date of most recent rehire status for the associate, if they left and returned'
+        data_type: DATE
+      - name: ASSOCIATE_FINAL_TERMINATION_DATE
+        description: 'The date the associate terminated'
+        data_type: DATE
+      - name: POSITION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_SENIORITY_HIRE_DATE
+        description: 'Hire date of previous firm or otherwise grandfathered'
+        data_type: DATE
+      - name: POSITION_START_DATE
+        description: 'Start date for the most current position of the associate'
+        data_type: DATE
+      - name: POSITION_MANAGER_POSITION_ID
+        description: 'Position ID of the direct manager of the associate'
+        data_type: VARCHAR
+      - name: POSITION_MANAGER_NAME
+        description: 'Name of the direct manager of the associate'
+        data_type: VARCHAR
+      - name: POSITION_MANAGER_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_MANAGER_AD_DISTINGUISHED_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_MANAGER_EMPLOYEE_NUM
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_PRIMARY_JOB_INDICATOR
+        description: 'If an associate has more than one position, indicates primary position'
+        data_type: VARCHAR
+      - name: POSITION_TITLE_CODE
+        description: 'Job title code as it is in the source HR system (previously ADP)'
+        data_type: VARCHAR
+      - name: POSITION_TITLE
+        description: 'Job title name as it is in the source HR system (previously ADP)'
+        data_type: VARCHAR
+      - name: POSITION_WORKER_TYPE
+        description: 'Full time, Part Time, Intern, Temp'
+        data_type: VARCHAR
+      - name: ADVISOR_NONADVISOR
+        description: 'Indicates if this associate is in an advisor or non-advisor role Added to HCM field list on 5/24/2024'
+        data_type: VARCHAR
+      - name: POSITION_FULL_TIME_EQUIVALENT
+        description: "Full Time Equivalency: Associate schedule as equal to Full Time status.\n - 40 hours a week/Full Time = 1\n - 20 hours a week/50% = .5\n - etc."
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_LOCATION_CODE
+        description: 'The location/accounting code of the physical working address of the associate.'
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_LOCATION_NAME
+        description: 'The location name of the physical working address of the associate (ex. Overland Park, KS).'
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_LOCATION_REAL_ESTATE_CODE
+        description: 'This is the record ID from the Real Estate Tracker Smartsheet (ex. RE00001)'
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_ADDRESS_LINE1
+        description: 'Address line 1 of physical work location'
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_ADDRESS_LINE2
+        description: 'Address line 2 of physical work location'
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_ADDRESS_LINE3
+        description: 'Address line 3 of physical work location'
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_ADDRESS_CITY
+        description: 'City of the physical working location for the associate. Blank for remote associates (home address are kept private)'
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_ADDRESS_STATE_ABB
+        description: 'State Abbreviation of the physical working location for the associate. Blank for remote associates (home addresses are kept private)'
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_ADDRESS_STATE
+        description: 'Full state name of the physical working location for the associate. Blank for remote associates (home addresses are kept private)'
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_ADDRESS_ZIP_CODE
+        description: 'Zip code of the physical working location for the associate. Blank for remote associates (home addresses are kept private)'
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_ADDRESS_COUNTRY
+        description: 'Country of the physical working location for the associate. Blank for remote associates (home addresses are kept private).'
+        data_type: VARCHAR
+      - name: COST_SEG_1
+        description: 'Legal Entity code/segment Field rename requested 5/24/2024.'
+        data_type: VARCHAR
+      - name: COST_SEG_2
+        description: 'Product code/segment Field rename requested 5/24/2024.'
+        data_type: VARCHAR
+      - name: COST_SEG_3
+        description: 'Accounting ID Field rename requested 5/24/2024.'
+        data_type: VARCHAR
+      - name: COST_SEG_4
+        description: 'Team code/segment Field rename requested 5/24/2024.'
+        data_type: VARCHAR
+      - name: COST_SEG_6
+        description: 'Initiative code/segment Field rename requested 5/24/2024.'
+        data_type: VARCHAR
+      - name: JOB_LEVEL
+        description: 'The level of position for the associate: Admin/Staff, Technical, Associate Advisor, Advisor, Senior Advisor, Management, Executive Field rename requested 5/24/2024.'
+        data_type: VARCHAR
+      - name: POSITION_DEPARTMENT_NAME
+        description: 'Org Office or Department Name'
+        data_type: VARCHAR
+      - name: FT_PT_TEMP
+        description: 'Full time, part time, temp'
+        data_type: VARCHAR
+      - name: FUTURE_HIRE
+        description: 'Indicates if the new hire has a hire date in the future'
+        data_type: VARCHAR
+      - name: ACCOUNTING_ID
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: OFFICE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DEPARTMENT
+        description: ''
+        data_type: VARCHAR
+      - name: REGION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DIVISION
+        description: ''
+        data_type: VARCHAR
+      - name: IS_AD_LINKED
+        description: ''
+        data_type: NUMBER
+      - name: AD_DISTINGUISHED_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: AD_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: AD_SAM_ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: AD_MANAGER_EMPLOYEE_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: AD_MANAGER_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: AD_MANAGER_DISTINGUISHEDNAME
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: _EXTRA_FIELDS
+        description: ''
+        data_type: OBJECT

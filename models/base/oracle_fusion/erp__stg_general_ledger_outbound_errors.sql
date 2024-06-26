@@ -13,4 +13,4 @@ select
     , effective_date                                                          as effective_date
     , _created_at                                                             as _created_at
     , _source_file                                                            as _source_file
-from {{ source('oracle', 'erp_general_ledger_exceptions') }}
+from {{ source('oracle_erp', 'erp_general_ledger_exceptions') }}
