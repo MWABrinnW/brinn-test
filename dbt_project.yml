@@ -497,6 +497,9 @@ models:
           +schema: enterprise
           +grants:
             select: "{{ ['db_hr_assoc_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+          associates:
+            +grants:
+              select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
           employees:
             +grants:
               select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
