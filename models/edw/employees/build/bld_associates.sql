@@ -2,7 +2,7 @@
     grants = {'select': ['engineering', 'security', 'datamanagement']}
 ) }}
 
-{%- set effective_date_switchover = '2024-06-26' -%}
+{%- set effective_date_switchover = '2024-06-25' -%}
 
 /*
 employee_num vs oracle_employee_num

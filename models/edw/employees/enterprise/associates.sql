@@ -56,6 +56,6 @@ select
     , _created_at                                                        as _created_at
     , _source_file                                                       as _source_file
     , is_head                                                            as is_head
-from {{ ref('bld_associates') }}
+from {{ ref('nml_oracle_hcm_associates') }}
 where 1 = 1
     and is_head = 1

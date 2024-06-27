@@ -53,8 +53,8 @@ select
     , job_id                                                         as job_id
     , null::text                                                     as bu_allocation
     , replace(_extra_fields:employee_num , '"' , '')                 as legacy_employee_num
-from {{ ref('bld_associates') }}
+from {{ ref('nml_oracle_hcm_associates') }}
 where true
-    and coalesce(right(lower(position_id) , 1) , 'a') <> 'n'
     and is_head = 1
-    and effective_at::date >= '2024-06-23'
+    --and coalesce(right(lower(position_id) , 1) , 'a') <> 'n'
+    --and effective_at::date >= '2024-06-25'
