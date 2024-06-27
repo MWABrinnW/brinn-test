@@ -239,13 +239,13 @@ with cte_bld_associates as (
                 , object_construct_keep_null('source' , ba.street_address , 'ad' , ad.street_address)
                 , null
             )
-            , 'City'
+            , 'L'
             , iff(
                 coalesce(ba.city , '') <> coalesce(ad.city , '')
                 , object_construct_keep_null('source' , ba.city , 'ad' , ad.city)
                 , null
             )
-            , 'State'
+            , 'st'
             , iff(
                 coalesce(ba.state , '') <> coalesce(ad.state , '')
                 , object_construct_keep_null('source' , ba.state , 'ad' , ad.state)
@@ -263,7 +263,7 @@ with cte_bld_associates as (
                 , object_construct_keep_null('source' , ba.office_phone , 'ad' , ad.office_phone)
                 , null
             )
-            , 'OtherNumber'
+            , 'otherMobile'
             , iff(
                 coalesce(ba.other_mobile , '') <> coalesce(ad.other_mobile , '')
                 , object_construct_keep_null('source' , ba.other_mobile , 'ad' , ad.other_mobile)
@@ -303,11 +303,11 @@ with cte_bld_associates as (
             , 'Manager' , iff(coalesce(ba.manager , '') <> coalesce(ad.manager , '') , ba.manager , null)
             , 'StreetAddress'
             , iff(coalesce(ba.street_address , '') <> coalesce(ad.street_address , '') , ba.street_address , null)
-            , 'City' , iff(coalesce(ba.city , '') <> coalesce(ad.city , '') , ba.city , null)
-            , 'State' , iff(coalesce(ba.state , '') <> coalesce(ad.state , '') , ba.state , null)
+            , 'L' , iff(coalesce(ba.city , '') <> coalesce(ad.city , '') , ba.city , null)
+            , 'st' , iff(coalesce(ba.state , '') <> coalesce(ad.state , '') , ba.state , null)
             , 'PostalCode' , iff(coalesce(ba.postal_code , '') <> coalesce(ad.postal_code , '') , ba.postal_code , null)
             , 'TelephoneNumber' , iff(coalesce(ba.office_phone , '') <> coalesce(ad.office_phone , '') , ba.office_phone , null)
-            , 'OtherNumber' , iff(coalesce(ba.other_mobile , '') <> coalesce(ad.other_mobile , '') , ba.other_mobile , null)
+            , 'otherMobile' , iff(coalesce(ba.other_mobile , '') <> coalesce(ad.other_mobile , '') , ba.other_mobile , null)
             , 'dateOfStart' , iff(coalesce(ba.date_of_start , '') <> coalesce(ad.date_of_start , '') , ba.date_of_start , null)
             , 'dateOfBirth' , iff(coalesce(ba.date_of_birth , '') <> coalesce(ad.date_of_birth , '') , ba.date_of_birth , null)
         )                                                              as update_payload
@@ -324,11 +324,11 @@ with cte_bld_associates as (
             , object_construct_keep_null('source' , ba.physical_delivery_office_name , 'ad' , ad.physical_delivery_office_name)
             , 'Manager' , object_construct_keep_null('source' , ba.manager , 'ad' , ad.manager)
             , 'StreetAddress' , object_construct_keep_null('source' , ba.street_address , 'ad' , ad.street_address)
-            , 'City' , object_construct_keep_null('source' , ba.city , 'ad' , ad.city)
-            , 'State' , object_construct_keep_null('source' , ba.state , 'ad' , ad.state)
+            , 'L' , object_construct_keep_null('source' , ba.city , 'ad' , ad.city)
+            , 'st' , object_construct_keep_null('source' , ba.state , 'ad' , ad.state)
             , 'PostalCode' , object_construct_keep_null('source' , ba.postal_code , 'ad' , ad.postal_code)
             , 'TelephoneNumber' , object_construct_keep_null('source' , ba.office_phone , 'ad' , ad.office_phone)
-            , 'OtherNumber' , object_construct_keep_null('source' , ba.other_mobile , 'ad' , ad.other_mobile)
+            , 'otherMobile' , object_construct_keep_null('source' , ba.other_mobile , 'ad' , ad.other_mobile)
             , 'dateOfStart' , object_construct_keep_null('source' , ba.date_of_start , 'ad' , ad.date_of_start)
             , 'dateOfBirth' , object_construct_keep_null('source' , ba.date_of_birth , 'ad' , ad.date_of_birth)
         )                                                              as field_comparison
@@ -347,11 +347,11 @@ with cte_bld_associates as (
         , (update_payload:PhysicalDeliveryOfficeName is not null)::int as is_physical_delivery_office_name_diff
         , (update_payload:Manager is not null)::int                    as is_manager_diff
         , (update_payload:StreetAddress is not null)::int              as is_street_address_diff
-        , (update_payload:City is not null)::int                       as is_city_diff
-        , (update_payload:State is not null)::int                      as is_state_diff
+        , (update_payload:L is not null)::int                          as is_city_diff
+        , (update_payload:st is not null)::int                         as is_state_diff
         , (update_payload:PostalCode is not null)::int                 as is_postal_code_diff
         , (update_payload:TelephoneNumber is not null)::int            as is_telephone_number_diff
-        , (update_payload:OtherNumber is not null)::int                as is_other_number_diff
+        , (update_payload:otherMobile is not null)::int                as is_other_mobile_diff
         , (update_payload:dateOfStart is not null)::int                as is_date_of_start_diff
         , (update_payload:dateOfBirth is not null)::int                as is_date_of_birth_diff
 
