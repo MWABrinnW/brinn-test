@@ -186,9 +186,15 @@ select
     , a._source_file                                                                    as _source_file
     , a._uri                                                                            as _uri
     , to_date(a.json:tradeDate::varchar(100) , 'YYYYMMDD')                              as trade_date
-    , to_timestamp(a.json:transactTime::varchar(100) , 'YYYYMMDD-HH24:MI:SS.FF3')       as transaction_time
+    , convert_timezone(
+        'America/Chicago',
+        to_timestamp_tz(a.json:transactTime::varchar(100) || ' +00:00', 'YYYYMMDD-HH24:MI:SS.FF TZH:TZM')
+       )       as transaction_time
     , to_date(a.json:order.tradeDate::varchar(100) , 'YYYYMMDD')                        as order_trade_date
-    , to_timestamp(a.json:order.transactTime::varchar(100) , 'YYYYMMDD-HH24:MI:SS.FF3') as order_transaction_time
+    , convert_timezone(
+        'America/Chicago',
+        to_timestamp_tz(a.json:order.transactTime::varchar(100) || ' +00:00', 'YYYYMMDD-HH24:MI:SS.FF TZH:TZM')
+       ) as order_transaction_time
     , nullif(a.json:clientOrderId::text(200) , '')                                      as client_order_id
 
     , {{ parse_copilot_env(col='a._uri') }}
