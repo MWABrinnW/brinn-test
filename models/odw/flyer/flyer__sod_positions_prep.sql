@@ -110,7 +110,7 @@ with cte_accounts as (
         , a.custodian                                            as custodian
         , a.account_number                                       as account_number
         , case
-            when a.is_sweep = 1
+            when a.is_cash = 1
                 then 'CASH'
             else 'MUT'
         end::text(200)                                           as product
