@@ -38,3 +38,11 @@ sources:
       - name: vw_network_advisor_master_monthly
       - name: historical_market_prices
         description: Historical index performance.
+
+  - name: reporting_raw
+    description: Data Management raw schema
+    database: reporting
+    schema: raw
+    tags: ['reporting']
+    tables:
+      - name: revenue_legacy_history

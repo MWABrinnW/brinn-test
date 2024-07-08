@@ -107,7 +107,7 @@ jobs:
           dbt build --target=$env:DBT_TARGET --select state:modified.body+1 state:modified.persisted_descriptions+1 state:modified.macros+1 state:modified.contract+1 result:error
 
   dbt-docs:
-    if: ((needs.dbt-build.result == 'success' || needs.dbt-build.result == 'failure') && !contains(github.event.pull_request.labels.*.name, 'skip-ci'))
+    if: ((needs.dbt-build.result == 'success') && contains(github.event.pull_request.labels.*.name, 'build-docs'))
     needs: dbt-build
     permissions:
       contents: 'read'
