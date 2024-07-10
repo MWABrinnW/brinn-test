@@ -15,6 +15,7 @@ on:
 
 jobs:
   lint-changed:
+    if: (!contains(github.event.pull_request.labels.*.name, 'skip-lint'))
     runs-on: [self-hosted]
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
