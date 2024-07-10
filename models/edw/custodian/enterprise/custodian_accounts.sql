@@ -48,6 +48,9 @@ select
     , ca.is_taxable
     , ca.is_fee_authorized
     , ca.is_prime_broker
+    , ca.is_margin_enabled
+    , ca.is_multiple_margin_enabled
+    , ca.options_approval_level
     , ca.restrictions_source_code
     , ca.restrictions_source_definition
     , ca.restrictions

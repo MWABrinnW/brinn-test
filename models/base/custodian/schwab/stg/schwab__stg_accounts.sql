@@ -41,7 +41,7 @@ select
     , nullif(trim(substring(a.content , 899 , 1)) , '')                        as account_restrictions
     , nullif(trim(substring(a.content , 901 , 1)) , '')                        as additional_mailings
     , nullif(trim(substring(a.content , 903 , 2)) , '')::int                   as number_of_additional_mailings
-    , nullif(trim(substring(a.content , 906 , 1)) , '')                        as approved_option_level
+    , nullif(trim(substring(a.content , 1424 , 1)) , '')                       as approved_option_level
     , nullif(trim(substring(a.content , 908 , 1)) , '')                        as beneficiary_on_file_yn
     , nullif(trim(substring(a.content , 910 , 2)) , '')::int                   as number_of_beneficiaries
     , nullif(trim(substring(a.content , 913 , 1)) , '')                        as payment_features_checks

@@ -171,6 +171,9 @@ with cte_max_created_at as
         , a.is_taxable
         , a.is_fee_authorized
         , a.is_prime_broker
+        , a.is_margin_enabled
+        , a.is_multiple_margin_enabled
+        , a.options_approval_level
         , a.restrictions_source_code
         , a.restrictions_source_definition
         , a.restrictions

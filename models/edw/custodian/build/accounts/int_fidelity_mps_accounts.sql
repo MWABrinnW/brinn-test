@@ -5,12 +5,12 @@
 -- depends_on: {{ ref('fidelity_mps_history__vw_nabase_2x0_customer') }}
 -- depends_on: {{ ref('fidelity_mps_history__vw_nabase_101_account') }}
 -- depends_on: {{ ref('dates') }}
-{{config(
+{{ config(
     materialized='incremental',
     unique_key='effective_date',
     incremental_strategy='delete+insert',
     on_schema_change='sync_all_columns'
-)}}
+) }}
 
 {# Prepare the query we'll use to determine if new data from the source is available #}
 {%- set src = source('fidelity_mps', 'nabase') -%}
@@ -39,16 +39,16 @@ select
 
 {# Execute the query to determine if new data is ready. 1=yes 0=no #}
 {%- if execute and table_exists -%}
-  {%- set result = dbt_utils.get_single_value(qry_check_for_new_data) -%}
+    {%- set result = dbt_utils.get_single_value(qry_check_for_new_data) -%}
 {%- else -%}
   {%- set result = 0 -%}
 {%- endif -%}
 
 {%- if result == 0 and flags.FULL_REFRESH == false and table_exists -%}
-{# Run a simple query with no results because nothing needs inserted #}
-  select *
-  from {{ this }}
-  limit 0
+    {# Run a simple query with no results because nothing needs inserted #}
+    select *
+    from {{ this }}
+    limit 0
 {%- else -%}
 {# Insert new data #}
 with cte_effective_dates_out_of_date as
@@ -172,6 +172,9 @@ with cte_effective_dates_out_of_date as
     , a.cost_basis_disposal_method_code
     , a.fee_authorization_code
     , a.prime_broker_indicator
+    , a.portfolio_margin_indicator
+    , a.multiple_margin_indicator
+    , a.option_agreement
     , a.restriction_code_partial
     , a._source_loaded_at
     , a._source_file
@@ -292,6 +295,15 @@ select
         when a.prime_broker_indicator in ('j', 'k', 'l', 'm', 'n')
             then 1
         else 0 end                                             as is_prime_broker
+  , case 
+        when a.portfolio_margin_indicator = 'P'
+            then 1
+        else 0 end                                             as is_margin_enabled
+  , case 
+        when a.multiple_margin_indicator = 'Y'
+            then 1
+        else 0 end                                             as is_multiple_margin_enabled
+  , a.option_agreement                                         as options_approval_level
   , a.restriction_code_partial                                 as restrictions_source_code
   , ltrim(regexp_replace(concat_ws(' '
                              , nvl(ma.fixed_format_address_line_1, '')
@@ -346,3 +358,5 @@ where true
     ) }}
 
 {%- endif -%}
+
+

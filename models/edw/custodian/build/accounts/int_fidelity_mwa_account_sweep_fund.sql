@@ -1,5 +1,5 @@
 select
-      effective_date    as effective_date
+    effective_date      as effective_date
     , custodian         as custodian
     , firm_source       as firm_source
     , account_custodial as account_number
