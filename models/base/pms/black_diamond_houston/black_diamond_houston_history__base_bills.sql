@@ -7,6 +7,7 @@ select
     , 'mwa'                                           as firm_source
     , json:"ADV 5D - Client Type"::varchar(200)       as adv_5d_client_type
     , json:"Account Long Name"::varchar(200)          as account_long_name
+    , json:"Account Number"::varchar(200)             as account_number
     , json:"Account Name"::varchar(200)               as account_name
     , json:"Account Registration"::varchar(200)       as account_registration
     , json:"Account Value"::decimal(20 , 5)           as account_value
