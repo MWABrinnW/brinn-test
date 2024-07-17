@@ -21,19 +21,6 @@ select
     -- [financial dates]
     , ir.created_date::timestamp_ntz                                     as invoice_created_at
     , ir.invoice_date_c::date                                            as invoice_date
-    -- There are a few ways to slice the dates/periods.
-    -- CREATED DATE
-    -- Period the invoice record was created. When was the invoice created or published in the source system?
-    -- BILLING DATE
-    -- Period the invoice was originally billed for. What period is the client being billed for?
-    -- REVENUE DATE
-    -- Period the invoice will be booked as revenue. An invoice for 202403 (arrears) could be created in 202405.
-    -- , case
-    --   when ld.lock_date is not null and ir.created_date::date > ld.lock_date
-    --     then dt.yyyyqx
-    --   else dt.yyyyqx
-    -- end::varchar(6)                                                                as lock_date
-
 
     -- [invoice]
     , ir.name::varchar(200)                                              as invoice_number_source
@@ -82,20 +69,18 @@ select
     , ir.branch_2_c::varchar(200)                                        as partner_firm_original
 
     -- [advisor]
-    , coalesce(
-        acc.client_manager
-        , ir.quarterback_c
-    )::varchar(200)                                                      as client_manager_source
-    , ir.quarterback_2_c::varchar(200)                                   as client_manager_original_crm
-    , coalesce(
-        acc.client_manager
+    -- Historical Client Manager (from upsert into Salesforce) 
+    , ir.quarterback_2_c::varchar(200)                                   as client_manager_source
+    -- Historical Client Manager (from Compass account object, historical records)
+    , acc.client_manager::varchar(200)                                   as client_manager_original_crm
+    ,-- Current Client Manager (from Compass account object, is_head) or Billing Review Current QB
+    coalesce(
+        acc2.client_manager
         , ir.quarterback_c
     )::varchar(200)                                                      as client_manager_primary
     , 'W-2'::varchar(200)                                                as client_manager_type
-    , coalesce(
-        acc.employee_number
-        , acc2.employee_number
-    )::varchar(200)                                                      as associate_id
+    -- Historical Associate ID (from Compass account object, historical records)
+    , acc.employee_number::varchar(200)                                  as associate_id
 
     -- [assets and fees]
     , ir.fee_type_c::varchar(200)                                        as fee_type
@@ -141,6 +126,8 @@ select
     -- [accounting]
     , 'REV'::varchar(200)                                                as account_class
     , null::varchar(200)                                                 as coa_segment_3_accounting_id
+    --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
     , case
         when client_location_code = '112' and cpg_acc.advisor = 'Rob Thomas/Direct'
             then
@@ -173,9 +160,9 @@ select
                         )
                         then
                             '40000'--RPP
-                    when coalesce(acc.household_lead_source , acc2.household_lead_source) ilike '%Referral Partner -%'
+                    when coalesce(acc.household_lead_source , acc2.household_lead_source) like '%Referral Partner -%'
                         then
-                            '40002'--Other Referral Partners (CPAs)/Solicitors   
+                            '40002'--OTher Referral Partners (CPAs)/Solicitors   
                     else
                         '40001'
                 end
@@ -186,7 +173,6 @@ select
 
         when ir.fee_type_c in (
                 'Fixed Income Fee'
-                , 'Retirement Services Fee'
                 , 'Advisory Fee'
                 , 'Options Fee'
                 , 'Consulting Fee'
@@ -194,6 +180,18 @@ select
             )
             then--<- review "Consulting Fee" and "Financial Planning Fee"
                 '40100'
+
+        when ir.fee_type_c in (
+                'Retirement Services Fee'
+            )
+            then--<- review "Consulting Fee" and "Financial Planning Fee"
+                '43001'
+
+        when ir.fee_type_c in (
+                'Tax Prep Fee'
+            )
+            then
+                '42001'
 
         when coalesce(acc.household_lead_source , acc2.household_lead_source) in (
                 'Referral Partner - WAS' , 'Referral Partner - SAN' , 'Referral Partner - Scottrade' , 'Referral Partner - TD'
@@ -203,12 +201,14 @@ select
 
         when coalesce(acc.household_lead_source , acc2.household_lead_source) like '%Referral Partner -%'
             then
-                '40002'--OTher Referral Partners (CPAs)/Solicitors    
+                '40002'--Other Referral Partners (CPAs)/Solicitors    
 
         when ir.fee_type_c in ('Quarterly Fee' , 'Fee Adjustment' , 'Lost Client Fee')
             then
                 '40001'-- traditional 
     end::varchar(200)                                                    as coa_segment_5_natural_account_id
+
+    --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     , case
         when ir.fee_type_c ilike any
             ('Quarterly Fee' , 'Fee Adjustment' , 'Lost Client Fee' , 'Fixed Income Fee' , 'Options Fee')
@@ -345,13 +345,13 @@ left join cte_lock_dates
 -- We join on date as first preference for account attributes.
 -- This is because over time the account record can change (i.e. advisor assignment).
 -- We want to know what it looked like at the time of billing.
-left join {{ ref('int_salesforce_compass_accounts') }} as acc
+left join {{ ref('int_salesforce_compass_accounts') }} as acc-- historcial 
     on ir.estate_item_c = acc.id
     and least(ir.invoice_date_c , ir.revenue_as_of_date_c) = acc.effective_date
     and acc.is_latest = 1
 -- If the join with date to the account record fails, we will go ahead
 -- and use the latest available version of the record.
-left join {{ ref('int_salesforce_compass_accounts') }} as acc2
+left join {{ ref('int_salesforce_compass_accounts') }} as acc2--current
     on ir.estate_item_c = acc2.id
     and acc2.is_head = 1
 left join {{ ref('dim_custodian_accounts') }} as dca
