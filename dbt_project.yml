@@ -260,7 +260,7 @@ models:
         mwa:
           +tags: ["mwa"]
           +grants:
-            select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+            select: "{{ ['db_custodial_mwa_r', 'corporate_w2'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       freshservice:
         +tags: ["freshservice"]
