@@ -1,0 +1,1 @@
+{{ envestnet_positions('manasquan') }}
