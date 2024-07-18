@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: envestnet_manasquan
     description: "Envestnet schema documentation stored in Box: https://marinerholdingsllc.app.box.com/file/1481239214383"
-    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw_dev')) }}"
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
     schema: envestnet_manasquan
     tables:
       - name: accountfeeschedule
