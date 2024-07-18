@@ -339,6 +339,11 @@ models:
           +grants:
             select: "{{ ['db_pms_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
+      reach_360:
+        +tags: ["reach_360"]
+        +grants:
+          select: "{{ ['engineering', 'datamanagement', 'reporting', 'integration_reporting'] if target.name in ['prod', 'test', 'ci'] else []}}"
+
       redtail_network:
         +tags: ["redtail", "network"]
         +grants:

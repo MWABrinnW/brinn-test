@@ -1,0 +1,11 @@
+version: 1
+
+sources:
+  - name: reach_360
+    description: "Rise Training application data"
+    database: "{{ var('db_reach_360_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    tags: ['reach_360']
+    loaded_at_field: _created_at
+    tables:
+      - name: api_data
+        description: "JSON dump of data from Rise API"
