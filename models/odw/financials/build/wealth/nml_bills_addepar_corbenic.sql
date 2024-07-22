@@ -35,22 +35,14 @@ select
     -- [financial dates]
     , null::timestamp_ntz                                                         as invoice_created_at
     , b.billing_date::date                                                        as invoice_date
-    {# , case
-        when b.billing_date is null then max(b.billing_date) over (partition by b._source_file)
-        else b.billing_date
-    end::date as invoice_date #}
-    -- , case
-    --   when ld.lock_date is not null and b.billing_date::date > ld.lock_date
-    --     then dt.yyyyqx
-    --   else dt.yyyyqx
-    -- end::varchar(6)                                                            as lock_date
+    {# , null::date                                                                  as revenue_period_end_date #}
 
     -- [invoice]
     , b.billing_id::varchar(200)                                                  as invoice_number_source
     , null::varchar(200)                                                          as billing_statement_id_source
     , null::varchar(200)                                                          as billing_statement_id_crm
     , null::varchar(200)                                                          as invoice_status
-    , 0::int                                                                      as is_mid_cycle_invoice
+    , 0::int                                                                      as is_intra_period_invoice
     , trim(upper(b.holding_account_number))::varchar(200)                         as account_number
     , b.holding_account_number::varchar(200)                                      as account_number_formatted
     , b.billing_bill_to_account_number::varchar(200)                              as billing_account_number
@@ -125,7 +117,7 @@ select
 
     -- [assets and fees]
     -- fee type requires null handling, deteremines revenue category
-    , coalesce(b.billing_fee_type , 'Management Fee')::varchar(200)               as fee_type
+    , lower(coalesce(trim(b.billing_fee_type) , 'management fee'))::varchar(200)  as fee_type
     , a.fee_schedule_legacy::varchar(200)                                         as fee_schedule_source
     , null::varchar(200)                                                          as fee_schedule_type
     , null::varchar(200)                                                          as fee_schedule
@@ -153,21 +145,23 @@ select
         when b.billing_schedule_timing ilike '%arrears%' then 'Arrears'
         else 'Advance'
     end::varchar(200)                                                             as billing_style
-    , coalesce(lower(b.billing_schedule_interval) , 'Monthly')::varchar(200)      as billing_frequency
+    , lower(coalesce(b.billing_schedule_interval , 'monthly'))::varchar(200)      as billing_frequency_source
     , a.billing_payment_method::varchar(200)                                      as billing_method
 
     , case
-        when b.billing_fee_type ilike 'MANAGEMENT FEE' then
-            'EOM Balance'
+        when fee_type ilike '%management fee%'
+            then 'EOM Balance'
     end::varchar(200)                                                             as bill_on_balance_type
     , null::varchar(200)                                                          as payment_terms
     , null::number(20 , 5)                                                        as payment_method_fee
 
     -- [accounting]
     , 'REV'::varchar(200)                                                         as account_class
+    {# , null::varchar(200)                                                       as coa_segment_1_legal_entity_id #}
     , '1197'::varchar(200)                                                        as coa_segment_3_accounting_id
     , case
-        when upper(b.billing_fee_type) ilike 'MANAGEMENT FEE' then '40001'
+        when fee_type ilike '%management fee%'
+            then '40001'
     end::varchar(200)                                                             as coa_segment_5_natural_account_id
     , 'Wealth Mgmt Fees'::varchar(200)                                            as revenue_type
 
@@ -182,7 +176,7 @@ select
     , c.pract_hh_name::varchar(200)                                               as client_name
     , c.pract_hh_name::varchar(200)                                               as client_name_original_crm
     , null::varchar(200)                                                          as client_lead_source
-    , null::varchar(200)                                                          as client_key_tags_crm
+    , null::varchar(500)                                                          as client_key_tags_crm
 
 
     -- [transactions]
