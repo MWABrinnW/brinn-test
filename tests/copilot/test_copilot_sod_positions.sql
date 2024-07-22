@@ -13,51 +13,53 @@ with cte_current as (
 
 , cte_history as (
     select
-        'current'                               as src
-        , effective_date                        as effective_date
+        'history'                               as src
+        , effective_date
         , count(*)                              as cnt
         , count(distinct account)               as cnt_accounts
         , sum(price * quantity)::number(20 , 2) as market_value
     from {{ ref('flyer__stg_sod_positions_history') }}
     where is_head_for_day = 1
-        and effective_date >= current_date - 7
-    group by all
+        and effective_date >= current_date - 15
+    group by effective_date
 )
 
 , cte_history_averaged as (
     select
         src
-        , avg(cnt)          as avg_count
-        , avg(cnt_accounts) as avg_count_accounts
-        , avg(
-            market_value)::number(
-            20
-            , 2
-        )                   as avg_market_value
+        , avg(cnt)                             as avg_count
+        , stddev(cnt)                          as stddev_count
+        , avg(cnt_accounts)                    as avg_count_accounts
+        , stddev(cnt_accounts)                 as stddev_count_accounts
+        , avg(market_value)::number(20 , 2)    as avg_market_value
+        , stddev(market_value)::number(20 , 2) as stddev_market_value
     from cte_history
-    group by all
+    group by src
 )
 
 select
-    a.cnt                                                                             as current_cnt
-    , b.avg_count::int                                                                as historical_cnt_avg
-    , (a.cnt - b.avg_count)::int                                                      as diff_cnt
-    , (abs(diff_cnt)::int / historical_cnt_avg::int)::number(8 , 3)                   as diff_cnt_percent
+    a.cnt                                                           as current_cnt
+    , b.avg_count::int                                              as historical_cnt_avg
+    , (
+        a.cnt - b.avg_count
+    ) / b.stddev_count                                              as cnt_stddevs_away
 
-    , a.cnt_accounts                                                                  as current_cnt_accounts
-    , b.avg_count_accounts::int                                                       as historical_cnt_accounts_avg
-    , (a.cnt_accounts - b.avg_count_accounts)::int                                    as diff_cnt_accounts
-    , (abs(diff_cnt_accounts)::int / historical_cnt_accounts_avg::int)::number(8 , 3) as diff_cnt_accounts_percent
+    , a.cnt_accounts                                                as current_cnt_accounts
+    , b.avg_count_accounts::int                                     as historical_cnt_accounts_avg
+    , (
+        a.cnt_accounts - b.avg_count_accounts
+    ) / b.stddev_count_accounts                                     as cnt_accounts_stddevs_away
 
-    , a.market_value                                                                  as current_value
-    , b.avg_market_value                                                              as historical_value_avg
-    , a.market_value - b.avg_market_value                                             as diff_value
-    , (abs(diff_value)::int / historical_value_avg::int)::number(12 , 3)              as diff_value_percent
+    , a.market_value                                                as current_value
+    , b.avg_market_value                                            as historical_value_avg
+    , (a.market_value - b.avg_market_value) / b.stddev_market_value
+        as market_value_stddevs_away
 
-    , a.cnt_null_product                                                              as cnt_null_product
+    , a.cnt_null_product                                            as cnt_null_product
 from cte_current as a
 cross join cte_history_averaged as b
-where diff_cnt_accounts_percent > .03
-    or diff_cnt_percent > .03
-    or diff_value_percent > .03
+where abs(a.cnt - b.avg_count) > 2 * b.stddev_count
+    or abs(a.cnt_accounts - b.avg_count_accounts) > 2 * b.stddev_count_accounts
+    or abs(a.market_value - b.avg_market_value) > 2 * b.stddev_market_value
     or a.cnt_null_product > 0
+order by a.cnt
