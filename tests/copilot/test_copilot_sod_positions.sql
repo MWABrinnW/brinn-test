@@ -58,8 +58,8 @@ select
     , a.cnt_null_product                                            as cnt_null_product
 from cte_current as a
 cross join cte_history_averaged as b
-where abs(a.cnt - b.avg_count) > 2 * b.stddev_count
-    or abs(a.cnt_accounts - b.avg_count_accounts) > 2 * b.stddev_count_accounts
-    or abs(a.market_value - b.avg_market_value) > 2 * b.stddev_market_value
+where abs(a.cnt - b.avg_count) > 3 * b.stddev_count
+    or abs(a.cnt_accounts - b.avg_count_accounts) > 3 * b.stddev_count_accounts
+    or abs(a.market_value - b.avg_market_value) > 3 * b.stddev_market_value
     or a.cnt_null_product > 0
 order by a.cnt
