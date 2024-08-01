@@ -61,5 +61,6 @@ select
     , _box_file_id::text(200)                         as _box_file_id
     , _box_meta::variant                              as _box_meta
     , _box_file_name::varchar(200)                    as _box_file_name
+    , _id::int                                        as _id
 
 from {{ src }}

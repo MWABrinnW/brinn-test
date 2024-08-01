@@ -41,6 +41,9 @@ sources:
           - name: _BOX_FILE_NAME
             data_type: VARCHAR
             description: ''
+          - name: _ID
+            data_type: INT
+            description: ''
       - name: client
         description: ""
         columns:
