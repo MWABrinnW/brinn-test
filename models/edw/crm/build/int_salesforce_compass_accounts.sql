@@ -131,7 +131,7 @@ select
   )                                                           as account_number
   , lower(ownr.email)                                         as client_manager_email
   --, ei.is_earliest                                              as is_earliest
-  , current_timestamp()::timestamp_ntz                        as _created_at
+  , current_timestamp()                                       as _created_at
 from {{ ref('salesforce_compass__base_estate_item_c') }} as ei
 left join {{ ref('salesforce_compass__base_account') }} as c
   on ei.household_c = c.id
