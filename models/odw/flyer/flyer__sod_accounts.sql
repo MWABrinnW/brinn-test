@@ -98,14 +98,13 @@ select
     , 'api@mariner'
     || ';data@mariner'
     || ';grant@mariner'
-    || ';tanner@mariner'
-    || ';austin@mariner'
-    || ';allen@mariner'
     || ';sharedblotter@mariner'
     || ';adam@mariner'
     || ';brett@mariner'
     || ';robert@mariner'
     || ';jacob@mariner'
+    || ';brad@mariner'
+    || ';ruben@mariner'
     ::text(200)                                                      as associated_users
     , null::text(200)                                                as taxable
     , null::text(200)                                                as cashreserveexpiry
