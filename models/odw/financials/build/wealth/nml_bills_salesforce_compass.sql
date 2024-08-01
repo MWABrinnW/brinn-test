@@ -21,6 +21,7 @@ select
     -- [financial dates]
     , ir.created_date::timestamp_ntz                                     as invoice_created_at
     , ir.invoice_date_c::date                                            as invoice_date
+    , null::date                                                         as revenue_period_end_date
 
     -- [invoice]
     , ir.name::varchar(200)                                              as invoice_number_source
@@ -32,7 +33,7 @@ select
             then 0
         when ir.invoice_date_c != dt.quarter_end_date
             then 1
-    end::int                                                             as is_mid_cycle_invoice
+    end::int                                                             as is_intra_period_invoice
     , coalesce(
         acc.account_number
         , acc2.account_number
@@ -125,6 +126,7 @@ select
 
     -- [accounting]
     , 'REV'::varchar(200)                                                as account_class
+    , null::varchar(200)                                                 as coa_segment_1_legal_entity_id
     , null::varchar(200)                                                 as coa_segment_3_accounting_id
     --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -255,7 +257,7 @@ select
         acc.key_tags
         , acc2.key_tags
 
-    )::varchar(200)                                                      as client_key_tags_crm
+    )::varchar(5000)                                                     as client_key_tags_crm
 
     -- [transactions]
     , case
@@ -297,9 +299,7 @@ select
     end::varchar(200)                                                    as excluded_reason
 
     -- [referential]
-    , ir.system_key
-    || '|' || ir.invoice_date_c::date
-    || '|' || ir.name::varchar(200)                                      as _invoice_key
+    , null::varchar(200)                                                 as _trans_key
     , ir._created_at::timestamp_ntz(9)                                   as _created_at
     , null::varchar(200)                                                 as _source_file
     , null::varchar(200)                                                 as _box_file_id

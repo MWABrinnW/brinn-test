@@ -14,7 +14,7 @@ select
     , null::varchar(200)                           as billing_statement_id_source
     , null::varchar(200)                           as billing_statement_id_crm
     , null::varchar(600)                           as invoice_status
-    , null::number(38 , 0)                         as is_mid_cycle_invoice
+    , null::number(38 , 0)                         as is_intra_period_invoice
     , financial_account_number_clean::varchar(200) as account_number
     , financial_account_number::varchar(200)       as account_number_formatted
     , billing_account_number::varchar(200)         as billing_account_number
@@ -82,7 +82,7 @@ select
     , client_name::varchar(200)                    as client_name
     , null::varchar(200)                           as client_name_original_crm
     , null::varchar(600)                           as client_lead_source
-    , null::varchar(600)                           as client_key_tags_crm
+    , null::varchar(5000)                          as client_key_tags_crm
     , null::varchar(600)                           as transaction_type
     , null::varchar(600)                           as transaction_line_type
     , null::number(20 , 5)                         as transaction_line_quantity

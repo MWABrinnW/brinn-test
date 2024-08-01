@@ -73,6 +73,7 @@ select
   , null::int                                                 as is_voting_proxied
   , ei.fee_schedule_c                                         as fee_schedule
   , ei.household_c                                            as household_id
+  , c.id                                                      as client_id
   , c.unique_identifier_c                                     as unique_identifier
   , c.name                                                    as household_name
   , c.orion_house_id_c                                        as orion_client_id
@@ -109,7 +110,7 @@ select
   , c.other_city_c::text(200)                                 as other_city
   , c.other_state_c::text(200)                                as other_state
   , c.other_postal_code_c::text(200)                          as other_postal_code
-  , c.key_tags_c::text(200)                                   as key_tags
+  , c.key_tags_c::text(5000)                                  as key_tags
   , contact.name                                              as owner_name
   , ownr.name                                                 as client_manager
   , ownr.employee_number                                      as employee_number
@@ -130,12 +131,14 @@ select
   )                                                           as account_number
   , lower(ownr.email)                                         as client_manager_email
   --, ei.is_earliest                                              as is_earliest
-  , current_timestamp()                                       as _created_at
+  , current_timestamp()::timestamp_ntz                        as _created_at
 from {{ ref('salesforce_compass__base_estate_item_c') }} as ei
 left join {{ ref('salesforce_compass__base_account') }} as c
   on ei.household_c = c.id
   and ei.effective_at::date = c.effective_at::date
   and c.is_latest = 1
+  and c.is_deleted = 0
+  and c._fivetran_deleted = 0
 left join {{ ref('salesforce_compass__base_contact') }} as contact
   on c.client_manager_c = contact.id
   and c.effective_at::date = contact.effective_at::date
@@ -166,4 +169,6 @@ where true
           custom_condition_only = false,
           custom_condition = none
     ) }}
+    and ei.is_deleted = 0
+    and ei._fivetran_deleted = 0
 order by ei.effective_at, account_number

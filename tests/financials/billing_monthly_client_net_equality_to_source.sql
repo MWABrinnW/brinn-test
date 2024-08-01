@@ -7,15 +7,17 @@
      'client_fee_net': 'net_fee_c', 'is_head': 'yes'},
     {'model': 'addepar_corbenic_history__base_bills', 'invoice_date': 'billing_date',
      'client_fee_net': 'billing_fee_value', 'is_head': 'yes'},
-] -%}
-    {# {'model': 'black_diamond_houston_history__base_bills', 'invoice_date': 'period_end_date',
+    {'model': 'black_diamond_houston_history__base_bills', 'invoice_date': 'period_end_date',
      'client_fee_net': 'total_period_fee', 'is_head': 'no'},
     {'model': 'sei_manasquan__base_bills', 'invoice_date': 'fee_effective_date',
-     'client_fee_net': 'fees_collected', 'is_head': 'no'},
+     'client_fee_net': 'fees_collected', 'is_head': 'no'}
+] -%}
+    {# 
     {'model': 'axys_granite_history__base_bills', 'invoice_date': 'date',
      'client_fee_net': 'amount', 'is_head': 'no'} #}
     {# {'model': 'orion__base_vw_billaccountitem', 'invoice_date': 'to-be-mapped',
-     'client_fee_net': 'cinitialamt', 'is_head': 'yes'} #}
+     'client_fee_net': 'cinitialamt', 'is_head': 'yes'} 
+    #}
 
 with cte_base as (
     {% for source in base_bills %}

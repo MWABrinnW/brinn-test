@@ -15,7 +15,7 @@
         , billing_frequency
         , invoice_created_at
         , invoice_date
-        , is_mid_cycle_invoice
+        , is_intra_period_invoice
         , revenue_month_end_date
         , days_in_month
         , client_fee_net

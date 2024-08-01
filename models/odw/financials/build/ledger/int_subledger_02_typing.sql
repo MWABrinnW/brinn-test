@@ -29,7 +29,7 @@ select
     , sw.billing_statement_id_source::varchar(200)      as billing_statement_id_source
     , sw.billing_statement_id_crm::varchar(200)         as billing_statement_id_crm
     , sw.invoice_status::varchar(200)                   as invoice_status
-    , sw.is_mid_cycle_invoice                           as is_mid_cycle_invoice
+    , sw.is_intra_period_invoice                        as is_intra_period_invoice
     , sw.account_number::varchar(200)                   as account_number
     , sw.account_number_formatted::varchar(200)         as account_number_formatted
     , sw.billing_account_number::varchar(200)           as billing_account_number

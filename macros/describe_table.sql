@@ -84,7 +84,7 @@
 
    
     ,{% if field.dtype == 'VARCHAR' %}
-        listagg::varchar(500) as distinct_values_limited
+        listagg::varchar(5000) as distinct_values_limited
     {% else %}
         null::varchar(500) as distinct_values_limited
     {% endif %}

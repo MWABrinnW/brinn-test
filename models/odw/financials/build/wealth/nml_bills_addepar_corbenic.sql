@@ -23,34 +23,34 @@ with cte_crm as (
 
 select
 
--- [system attributes]
-    b.system_name::varchar(200)                                                   as system_name
-    , b.system_instance::varchar(200)                                             as system_instance
-    , b.system_key::varchar(200)                                                  as system_key
+    -- [system attributes] ------------------------------------------------------------------------------------------------------
+    b.system_name::varchar(200)                                                  as system_name
+    , b.system_instance::varchar(200)                                            as system_instance
+    , b.system_key::varchar(200)                                                 as system_key
 
 
-    -- [location]
-    , 'L-10001'::varchar(200)                                                     as client_location_code
+    -- [location] ---------------------------------------------------------------------------------------------------------------
+    , 'L-10001'::varchar(200)                                                    as client_location_code
 
-    -- [financial dates]
-    , null::timestamp_ntz                                                         as invoice_created_at
-    , b.billing_date::date                                                        as invoice_date
-    {# , null::date                                                                  as revenue_period_end_date #}
+    -- [financial dates] --------------------------------------------------------------------------------------------------------
+    , null::timestamp_ntz                                                        as invoice_created_at
+    , b.billing_date::date                                                       as invoice_date
+    , null::date                                                                 as revenue_period_end_date
 
-    -- [invoice]
-    , b.billing_id::varchar(200)                                                  as invoice_number_source
-    , null::varchar(200)                                                          as billing_statement_id_source
-    , null::varchar(200)                                                          as billing_statement_id_crm
-    , null::varchar(200)                                                          as invoice_status
-    , 0::int                                                                      as is_intra_period_invoice
-    , trim(upper(b.holding_account_number))::varchar(200)                         as account_number
-    , b.holding_account_number::varchar(200)                                      as account_number_formatted
-    , b.billing_bill_to_account_number::varchar(200)                              as billing_account_number
-    , b.entity_id::varchar(200)                                                   as account_id_pms
-    , a.top_level_owner::varchar(200)                                             as registrant_name
-    , b.name::varchar(200)                                                        as account_name
-    , a.cwm_account_type::varchar(200)                                            as type_of_account
-    , a.top_level_owner_entity_id::varchar(200)                                   as client_id_pms
+    -- [invoice] ----------------------------------------------------------------------------------------------------------------   
+    , b.billing_id::varchar(200)                                                 as invoice_number_source
+    , null::varchar(200)                                                         as billing_statement_id_source
+    , null::varchar(200)                                                         as billing_statement_id_crm
+    , null::varchar(200)                                                         as invoice_status
+    , 0::int                                                                     as is_intra_period_invoice
+    , trim(upper(b.holding_account_number))::varchar(200)                        as account_number
+    , b.holding_account_number::varchar(200)                                     as account_number_formatted
+    , b.billing_bill_to_account_number::varchar(200)                             as billing_account_number
+    , b.entity_id::varchar(200)                                                  as account_id_pms
+    , a.top_level_owner::varchar(200)                                            as registrant_name
+    , b.name::varchar(200)                                                       as account_name
+    , a.cwm_account_type::varchar(200)                                           as type_of_account
+    , a.top_level_owner_entity_id::varchar(200)                                  as client_id_pms
     -- confirm this matches FA Master
     , case
         when a.holding_account_number in (
@@ -81,16 +81,16 @@ select
             'AUM - Assets Under Management'
     end::varchar(200)
         as aum_classification_status
-    , a.cwm_strategy::varchar(200)                                                as model_investment_strategy
-    , b.cwm_custodian::varchar(200)                                               as custodian
-    , null::varchar(200)                                                          as billing_custodian
-    , null::varchar(200)                                                          as partner_firm
-    , null::varchar(200)                                                          as partner_firm_original
+    , a.cwm_strategy::varchar(200)                                               as model_investment_strategy
+    , b.cwm_custodian::varchar(200)                                              as custodian
+    , null::varchar(200)                                                         as billing_custodian
+    , null::varchar(200)                                                         as partner_firm
+    , null::varchar(200)                                                         as partner_firm_original
 
 
-    -- [advisor]
-    , b.cwm_lead_advisor::varchar(200)                                            as client_manager_source
-    , null::varchar(200)                                                          as client_manager_original_crm
+    -- [advisor] ----------------------------------------------------------------------------------------------------------------
+    , b.cwm_lead_advisor::varchar(200)                                           as client_manager_source
+    , null::varchar(200)                                                         as client_manager_original_crm
     , case
         when trim(a.cwm_lead_advisor) = 'DG' then 'David Givler II'
         when trim(a.cwm_lead_advisor) = 'BG' then 'Brad Griswold'
@@ -101,8 +101,8 @@ select
         when trim(a.cwm_lead_advisor) = 'DM' then 'Dennis Morton'
         when trim(a.cwm_lead_advisor) = 'HA' then 'House Accounts'
         else trim(a.cwm_lead_advisor)
-    end::varchar(200)                                                             as client_manager_primary
-    , 'W-2'::varchar(200)                                                         as client_manager_type
+    end::varchar(200)                                                            as client_manager_primary
+    , 'W-2'::varchar(200)                                                        as client_manager_type
     , case
         when trim(b.cwm_lead_advisor) = 'DG' then '002732'
         when trim(b.cwm_lead_advisor) = 'BG' then '002733'
@@ -113,97 +113,94 @@ select
         when trim(a.cwm_lead_advisor) = 'DM' then null
         when trim(b.cwm_lead_advisor) = 'HA' then 'House Accounts'
         else trim(b.cwm_lead_advisor)
-    end                                                                           as associate_id
+    end                                                                          as associate_id
 
-    -- [assets and fees]
+    -- [assets and fees] --------------------------------------------------------------------------------------------------------
     -- fee type requires null handling, deteremines revenue category
-    , lower(coalesce(trim(b.billing_fee_type) , 'management fee'))::varchar(200)  as fee_type
-    , a.fee_schedule_legacy::varchar(200)                                         as fee_schedule_source
-    , null::varchar(200)                                                          as fee_schedule_type
-    , null::varchar(200)                                                          as fee_schedule
-    , b.billing_date::date                                                        as assets_as_of_date
-    , b.billing_date::date                                                        as fee_calculation_date
+    , lower(coalesce(trim(b.billing_fee_type) , 'management fee'))::varchar(200) as fee_type
+    , a.fee_schedule_legacy::varchar(200)                                        as fee_schedule_source
+    , null::varchar(200)                                                         as fee_schedule_type
+    , null::varchar(200)                                                         as fee_schedule
+    , b.billing_date::date                                                       as assets_as_of_date
+    , b.billing_date::date                                                       as fee_calculation_date
     , case
         when b.billing_assets_billed_on = 0 or b.billing_fee_value = 0 then null
         else b.billing_fee_value / b.billing_assets_billed_on::decimal(20 , 5)
-    end                                                                           as effective_fee_rate
-    , b.value::decimal(20 , 5)                                                    as total_account_value
-    , b.billing_assets_billed_on::decimal(20 , 5)                                 as billable_value
-    , (b.value - b.billing_assets_billed_on)::decimal(20 , 5)                     as fee_excluded_assets
-    , b.billing_gross_fee::decimal(20 , 5)                                        as client_fee_gross
-    , 0::decimal(20 , 5)                                                          as client_fee_rebates
-    , 0::decimal(20 , 5)                                                          as client_net_contribution_fee
-    , b.billing_prorated_fee::decimal(20 , 5)                                     as client_adjustments_fee
-    , 0::decimal(20 , 5)                                                          as client_write_off_fee
-    , b.billing_fee_value::decimal(20 , 5)                                        as client_fee_net
-    , null::date                                                                  as collection_date
-    , null::boolean                                                               as third_party_calculation
+    end                                                                          as effective_fee_rate
+    , b.value::decimal(20 , 5)                                                   as total_account_value
+    , b.billing_assets_billed_on::decimal(20 , 5)                                as billable_value
+    , (b.value - b.billing_assets_billed_on)::decimal(20 , 5)                    as fee_excluded_assets
+    , b.billing_gross_fee::decimal(20 , 5)                                       as client_fee_gross
+    , 0::decimal(20 , 5)                                                         as client_fee_rebates
+    , 0::decimal(20 , 5)                                                         as client_net_contribution_fee
+    , b.billing_prorated_fee::decimal(20 , 5)                                    as client_adjustments_fee
+    , 0::decimal(20 , 5)                                                         as client_write_off_fee
+    , b.billing_fee_value::decimal(20 , 5)                                       as client_fee_net
+    , null::date                                                                 as collection_date
+    , null::boolean                                                              as third_party_calculation
 
-    -- [billing terms and payment]
+    -- [billing terms and payment] ----------------------------------------------------------------------------------------------
     , case
         when b.billing_schedule_timing ilike '%advance%' then 'Advance'
         when b.billing_schedule_timing ilike '%arrears%' then 'Arrears'
         else 'Advance'
-    end::varchar(200)                                                             as billing_style
-    , lower(coalesce(b.billing_schedule_interval , 'monthly'))::varchar(200)      as billing_frequency_source
-    , a.billing_payment_method::varchar(200)                                      as billing_method
+    end::varchar(200)                                                            as billing_style
+    , lower(coalesce(b.billing_schedule_interval , 'monthly'))::varchar(200)     as billing_frequency_source
+    , a.billing_payment_method::varchar(200)                                     as billing_method
 
     , case
         when fee_type ilike '%management fee%'
             then 'EOM Balance'
-    end::varchar(200)                                                             as bill_on_balance_type
-    , null::varchar(200)                                                          as payment_terms
-    , null::number(20 , 5)                                                        as payment_method_fee
+    end::varchar(200)                                                            as bill_on_balance_type
+    , null::varchar(200)                                                         as payment_terms
+    , null::number(20 , 5)                                                       as payment_method_fee
 
-    -- [accounting]
-    , 'REV'::varchar(200)                                                         as account_class
-    {# , null::varchar(200)                                                       as coa_segment_1_legal_entity_id #}
-    , '1197'::varchar(200)                                                        as coa_segment_3_accounting_id
+    -- [accounting] -------------------------------------------------------------------------------------------------------------
+    , 'REV'::varchar(200)                                                        as account_class
+    , null::varchar(200)                                                         as coa_segment_1_legal_entity_id
+    , '1197'::varchar(200)                                                       as coa_segment_3_accounting_id
     , case
         when fee_type ilike '%management fee%'
             then '40001'
-    end::varchar(200)                                                             as coa_segment_5_natural_account_id
-    , 'Wealth Mgmt Fees'::varchar(200)                                            as revenue_type
+    end::varchar(200)                                                            as coa_segment_5_natural_account_id
+    , 'Wealth Mgmt Fees'::varchar(200)                                           as revenue_type
 
-    -- [crm]
-    , c.system_name::varchar(200)                                                 as system_name_crm
-    , c.system_instance::varchar(200)                                             as system_instance_crm
-    , c.system_key::varchar(200)                                                  as system_key_crm
-    , c.pract_asset_liability_id::varchar(200)                                    as account_id_crm
-    , c.pract_hh_id::varchar(200)                                                 as client_id_crm
-    , null::varchar(200)                                                          as client_id_original_crm
-    , null::varchar(200)                                                          as client_id_unique_compass
-    , c.pract_hh_name::varchar(200)                                               as client_name
-    , c.pract_hh_name::varchar(200)                                               as client_name_original_crm
-    , null::varchar(200)                                                          as client_lead_source
-    , null::varchar(500)                                                          as client_key_tags_crm
+    -- [crm] --------------------------------------------------------------------------------------------------------------------
+    , c.system_name::varchar(200)                                                as system_name_crm
+    , c.system_instance::varchar(200)                                            as system_instance_crm
+    , c.system_key::varchar(200)                                                 as system_key_crm
+    , c.pract_asset_liability_id::varchar(200)                                   as account_id_crm
+    , c.pract_hh_id::varchar(200)                                                as client_id_crm
+    , null::varchar(200)                                                         as client_id_original_crm
+    , null::varchar(200)                                                         as client_id_unique_compass
+    , c.pract_hh_name::varchar(200)                                              as client_name
+    , c.pract_hh_name::varchar(200)                                              as client_name_original_crm
+    , null::varchar(200)                                                         as client_lead_source
+    , null::varchar(500)                                                         as client_key_tags_crm
 
+    -- [transactions] -----------------------------------------------------------------------------------------------------------
+    , 'Invoice'::varchar(200)                                                    as transaction_type
+    , 'Line'::varchar(200)                                                       as transaction_line_type
+    , 1::int                                                                     as transaction_line_quantity
+    , 'USD'::varchar(200)                                                        as currency_code
+    , 'User'::varchar(200)                                                       as currency_conversion_type
+    , b.billing_fee_value::number(20 , 5)                                        as unit_selling_price
 
-    -- [transactions]
-    , 'Invoice'::varchar(200)                                                     as transaction_type
-    , 'Line'::varchar(200)                                                        as transaction_line_type
-    , 1::int                                                                      as transaction_line_quantity
-    , 'USD'::varchar(200)                                                         as currency_code
-    , 'User'::varchar(200)                                                        as currency_conversion_type
-    , b.billing_fee_value::number(20 , 5)                                         as unit_selling_price
-
-    -- [exclusion]
+    -- [exclusion] ------------------------------------------------------------------------------------------------------------- 
     -- No records are being excluded, default to 0
-    , 0::int                                                                      as is_excluded
-    , null::varchar(200)                                                          as excluded_reason
+    , 0::int                                                                     as is_excluded
+    , null::varchar(200)                                                         as excluded_reason
 
-    -- [referential]
-    , b.system_key
-    || '|' || b.billing_date::date
-    || '|' || concat(b.billing_id , '-' , b.holding_account_number)::varchar(200) as _invoice_key
-    , b._created_at::timestamp_ntz(9)                                             as _created_at
-    , b._source_file::varchar(200)                                                as _source_file
-    , null::varchar(200)                                                          as _box_file_id
+    -- [referential] ------------------------------------------------------------------------------------------------------------
+    , concat(b.billing_id , '-' , b.holding_account_number)::varchar(200)        as _trans_key
+    , b._created_at::timestamp_ntz(9)                                            as _created_at
+    , b._source_file::varchar(200)                                               as _source_file
+    , null::varchar(200)                                                         as _box_file_id
 
     -- These are fields that are likely specific to this source
     -- and are intended to help with one off investigations or
     -- special analysis.
-    , null::variant                                                               as _extra_fields
+    , null::variant                                                              as _extra_fields
 from
     {{ ref('addepar_corbenic_history__base_bills') }} as b
 left join {{ ref('addepar_corbenic_history__base_accounts') }} as a

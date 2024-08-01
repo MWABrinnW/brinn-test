@@ -47,7 +47,7 @@ models:
       - name: INVOICE_STATUS
         description: 'Status of the invoice (ex. Approved by Advisor, Fee Collected / Complete, Rejected, Fee Uncollectible - Written Off, etc.)'
         data_type: VARCHAR
-      - name: IS_MID_CYCLE_INVOICE
+      - name: IS_INTRA_PERIOD_INVOICE
         description: 'Indicates if this invoice was created in the middle of a billing cycle'
         data_type: NUMBER
       - name: ACCOUNT_NUMBER
