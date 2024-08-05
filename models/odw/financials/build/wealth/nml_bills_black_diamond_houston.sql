@@ -5,7 +5,7 @@ select
     , bb.system_key::varchar(200)                                                as system_key
 
     --[location]
-    , null::varchar(200)                                                         as client_location_code--[TODO] discuss with gavin
+    , null::varchar(200)                                                         as client_location_code
 
     -- [financial dates]
     , bb.as_of_date::timestamp_ntz                                               as invoice_created_at
@@ -18,9 +18,9 @@ select
     , null::varchar(200)                                                         as billing_statement_id_crm
     , null::varchar(200)                                                         as invoice_status
     , 0::int                                                                     as is_intra_period_invoice
-    , replace(bb.account_number , '-' , '')::varchar(200)                        as account_number
+    , trim(replace(bb.account_number , '-' , ''))::varchar(200)                  as account_number
     , bb.account_number::varchar(200)                                            as account_number_formatted
-    , replace(bb.billing_account_number , '-' , '')::varchar(200)                as billing_account_number
+    , trim(replace(bb.billing_account_number , '-' , ''))::varchar(200)          as billing_account_number
     , bb.external_id::varchar(200)                                               as account_id_pms
     , bb.account_long_name::varchar(200)                                         as registrant_name
     , bb.account_name::varchar(200)                                              as account_name
@@ -183,7 +183,7 @@ select
 
 from {{ ref('black_diamond_houston_history__base_bills') }} as bb
 left join {{ ref('black_diamond_houston_history__base_accounts') }} as ba
-    on bb.billing_account_number = ba.account_number
+    on trim(replace(bb.account_number , '-' , '')) = trim(replace(ba.account_number , '-' , ''))
     and ba.is_head = 1
 -- joins crm data on invoice date, if available
 left join {{ ref('int_salesforce_compass_accounts') }} as acc
