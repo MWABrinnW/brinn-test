@@ -331,7 +331,7 @@ models:
             select: "{{ ['db_pms_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         black_diamond_uhnw:
           +grants:
-            select: "{{ ['db_pms_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+            select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         envestnet_mps:
           +grants:
             select: "{{ ['db_pms_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
@@ -357,7 +357,7 @@ models:
       salesforce_adviceperiod:
         +tags: ["crm", "salesforce", "mps", "adviceperiod"]
         +grants:
-          select: "{{ ['db_crm_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+          select: "{{ ['db_crm_mps_r', 'db_crm_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       salesforce_baystate:
         +tags: ["crm", "salesforce", "baystate"]
