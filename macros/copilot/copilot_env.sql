@@ -5,7 +5,7 @@
 
   {%- else -%}
 
-    {{ 'uat' }}
+    {{ env_var('COPILOT_ENV', 'prod') }}
 
   {%- endif -%}
 {%- endmacro %}

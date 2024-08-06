@@ -9,7 +9,7 @@ with cte_max_per_day as (
     group by all
 )
 
-select
+select distinct
      'copilot'::text(200)                                                               as platform
     , 'mwa-options'::text(200)                                                          as venue
     , a.json:allocId::text(200)                                                         as alloc_id
