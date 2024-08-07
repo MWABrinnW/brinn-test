@@ -26,7 +26,7 @@ packages:
     ## https://github.com/get-select/dbt-snowflake-query-tags
 
   - package: fivetran/fivetran_log
-    version: [">=1.7.0", "<1.8.0"]
+    version: 1.8.0
     ## https://github.com/fivetran/dbt_fivetran_log
 
   - package: fivetran/github

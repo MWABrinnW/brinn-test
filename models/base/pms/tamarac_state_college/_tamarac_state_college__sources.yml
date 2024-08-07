@@ -3,12 +3,14 @@ version: 2
 sources:
   - name: tamarac_state_college
     description: ""
-    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
-    schema: tamarac_state_college_history
+    database: "{{ var('tamarac_state_college_src', env_var('DB_SRC__TAMARAC_STATE_COLLEGE', env_var('DBT_DB_RAW_SRC', 'raw'))) }}"
+    schema: tamarac_state_college
     tables:
       - name: assets
         description: ""
       - name: clients
         description: ""
-      - name: financial_accounts
+      - name: accounts
+        description: ""
+      - name: households
         description: ""
