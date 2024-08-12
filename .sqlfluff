@@ -241,28 +241,28 @@ ignore_words_regex = None
 
 [sqlfluff:rules:capitalisation.identifiers]
 # Unquoted identifiers
-extended_capitalisation_policy = consistent
+extended_capitalisation_policy = lower
 # Comma separated list of words to ignore for this rule
 ignore_words = None
 ignore_words_regex = None
 
 [sqlfluff:rules:capitalisation.functions]
 # Function names
-extended_capitalisation_policy = consistent
+extended_capitalisation_policy = lower
 # Comma separated list of words to ignore for this rule
 ignore_words = None
 ignore_words_regex = None
 
 [sqlfluff:rules:capitalisation.literals]
 # Null & Boolean Literals
-capitalisation_policy = consistent
+capitalisation_policy = lower
 # Comma separated list of words to ignore for this rule
 ignore_words = None
 ignore_words_regex = None
 
 [sqlfluff:rules:capitalisation.types]
 # Data Types
-extended_capitalisation_policy = consistent
+extended_capitalisation_policy = lower
 # Comma separated list of words to ignore for this rule
 ignore_words = None
 ignore_words_regex = None
