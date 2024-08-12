@@ -5,7 +5,7 @@ select
     , bb.system_key::varchar(200)                                                        as system_key
 
     --[location]
-    , coalesce(acc.household_location_code , acc2.household_location_code)::varchar(200) as client_location_code--[TODO] discuss with gavin
+    , coalesce(acc.household_location_code , acc2.household_location_code)::varchar(200) as client_location_code
 
     -- [financial dates]
     , bb.fee_effective_date::timestamp_ntz                                               as invoice_created_at
