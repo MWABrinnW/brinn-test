@@ -34,6 +34,7 @@ with internal as (
         and a._env = acc._env
     where 1 = 1
         and a._env = {{ "'" ~ copilot_env() ~ "'" }}
+        and a.order_trade_date >= dateadd('DAY' , -7 , current_date())
     group by all
 )
 
