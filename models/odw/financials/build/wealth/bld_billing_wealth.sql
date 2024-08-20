@@ -4,23 +4,10 @@
 ) }}
 
 
-with cte_associate as (
-    select
-        *
-        , row_number() over (partition by file_number order by file_number) as row_number
-    from {{ source('finance', 'vw_associate_accounting_code_reference') }}
-    qualify row_number = 1
-)
-
-, cte_join_fee_type as (
+with cte_get_billing_freq as (
     select
         nml.*
-        , case
-            when nml.billing_frequency_source ilike 'Monthly' or nml.billing_frequency_source ilike 'Quarterly'
-                then nml.billing_frequency_source
-            when ovrd_fee_type.billing_frequency is not null
-                then ovrd_fee_type.billing_frequency
-        end::varchar(200) as billing_frequency
+        , coalesce(nml.billing_frequency_source , ovrd_fee_type.billing_frequency)::varchar(200) as billing_frequency
     from
         {{ ref('int_billing_wealth_01_union') }} as nml
     left join {{ ref('aux__stg_financials_fee_type') }} as ovrd_fee_type
@@ -34,35 +21,48 @@ with cte_associate as (
     select
         *
         , case
+            -- quarterly bills and on-cycle
             when billing_frequency ilike 'Quarterly' and is_intra_period_invoice = 0
                 then
                     case
+                        -- if advance, get next quarter end date
                         when billing_style ilike 'Advance'
                             then
-                                last_day(dateadd('Quarter' , 1 , invoice_date) , 'Quarter')
+                                last_day(dateadd('Quarter' , 1 , fee_calculation_date) , 'Quarter')
+                        -- if arrears, get current quarter end date
                         when billing_style ilike 'Arrears' then
-                            last_day(dateadd('Quarter' , 0 , invoice_date) , 'Quarter')
+                            last_day(dateadd('Quarter' , 0 , fee_calculation_date) , 'Quarter')
                     end
+            -- quarterly bills and NOT on-cycle
             when billing_frequency ilike 'Quarterly' and is_intra_period_invoice = 1
                 then
                     case
+                        -- if advance, get current quarter end date
                         when billing_style ilike 'Advance'
                             then
-                                last_day(dateadd('Quarter' , 0 , invoice_date) , 'Quarter')
+                                last_day(dateadd('Quarter' , 0 , fee_calculation_date) , 'Quarter')
+                        -- if arrears, get current quarter end date
                         when billing_style ilike 'Arrears' then
-                            last_day(dateadd('Quarter' , 0 , invoice_date) , 'Quarter')
+                            last_day(dateadd('Quarter' , 0 , fee_calculation_date) , 'Quarter')
                     end
-            when billing_frequency ilike 'Monthly' then
-                case
-                    when billing_style ilike 'Advance'
-                        then
-                            last_day(dateadd('Month' , 1 , invoice_date) , 'Month')
-                    when billing_style ilike 'Arrears' then
-                        last_day(dateadd('Month' , 0 , invoice_date) , 'Month')
-                end
+            -- monthly bills, intra period is NOT evaluated
+            when billing_frequency ilike 'Monthly'
+                then
+                    case
+                    -- if advance, get next month end date
+                        when billing_style ilike 'Advance'
+                            then
+                                last_day(dateadd('Month' , 1 , fee_calculation_date) , 'Month')
+                        -- if arrears, get current month end date
+                        when billing_style ilike 'Arrears'
+                            then
+                                last_day(dateadd('Month' , 0 , fee_calculation_date) , 'Month')
+                    end
+            -- NOT quarterly or monthly bills, get current month end date (i.e., one-time, semi-annual, annual)
+            else last_day(dateadd('Month' , 0 , fee_calculation_date) , 'Month')
         end::date
             as revenue_period
-    from cte_join_fee_type
+    from cte_get_billing_freq
 )
 
 select
@@ -170,21 +170,19 @@ select
         as impacted_by_financial_markets
     , coalesce(
         nml.coa_segment_1_legal_entity_id
-        , concat(substr(code_acct.revenue_coding , 0 , 2) , 0))::varchar(200)
-        as coa_segment_1_legal_entity_id--[TODO] third coalesce on client location
+        , ass_coa.seg_1)::varchar(200)
+        as coa_segment_1_legal_entity_id
     , '000'::varchar(200)
         as coa_segment_2_product_id
     , coalesce(
         nml.coa_segment_3_accounting_id
         , case
             when ass.advisor_nonadvisor ilike 'Advisor'
-                then substr(code_acct.revenue_coding , 10 , 4)
+                then ass_coa.seg_3
             else loc_cli.accounting_id
         end
-    )::varchar(200
-    )
-        as coa_segment_3_accounting_id
-    , substr(code_acct.revenue_coding , 15 , 4)::varchar(200)                                       as coa_segment_4_team_id
+    )::varchar(200)                                                                                 as coa_segment_3_accounting_id
+    , ass_coa.seg_4::varchar(200)                                                                   as coa_segment_4_team_id
     , coalesce(nml.coa_segment_5_natural_account_id , null)::varchar(200)
         as coa_segment_5_natural_account_id
     , '000'::varchar(200)
@@ -248,14 +246,21 @@ select
 
 from
     cte_normalize as nml
-left join cte_associate as code_acct
-    on nml.associate_id = code_acct.file_number
 left join {{ ref('bld_associates') }} as ass
     on nml.associate_id = ass.employee_num
     and (ass.effective_at::date) = coalesce(nml.invoice_date , nml.revenue_period)
--- Joins to 'edw locations' on 'vw_associate_accounting_code_reference', obtains advisor location
+
+left join {{ source('reporting_ext', 'associate_revenue_coding') }} as ass_coa
+    on (
+        nml.associate_id = ass_coa.associate_id_adp
+        or nml.associate_id = ass_coa.associate_id_oracle
+    )
+    and nml.invoice_date between coalesce(ass_coa.start_date , '1999-01-01')
+    and coalesce(ass_coa.end_date , '2099-12-31')
+    and ass_coa.is_latest = 1
+-- Joins to 'edw locations' on 'accounting id, segment 3', obtains advisor location
 left join {{ ref('locations') }} as loc_adv
-    on coalesce(nml.coa_segment_3_accounting_id , substr(code_acct.revenue_coding , 10 , 4)) = loc_adv.accounting_id
+    on coalesce(nml.coa_segment_3_accounting_id , ass_coa.seg_3) = loc_adv.accounting_id
     and nml.invoice_date between loc_adv.start_date and coalesce(loc_adv.end_date , '2099-12-31')
 -- Joins to 'edw locations' on 'client location', used to obtain client location accounting id segment when non-advisor
 left join {{ ref('locations') }} as loc_cli

@@ -88,8 +88,8 @@ select
     , ir.fee_schedule_c::varchar(200)                                    as fee_schedule_source
     , null::varchar(200)                                                 as fee_schedule_type
     , null::varchar(200)                                                 as fee_schedule
-    , ir.invoice_date_c::date                                            as assets_as_of_date
-    , ir.invoice_date_c::date                                            as fee_calculation_date
+    , coalesce(ir.calculation_as_of_date_c , ir.invoice_date_c)::date    as assets_as_of_date
+    , coalesce(ir.calculation_as_of_date_c , ir.invoice_date_c)::date    as fee_calculation_date
     , case
         when ir.billable_value_c = 0 or ir.net_fee_c = 0 then null
         else ir.net_fee_c / ir.billable_value_c::number(20 , 5)
@@ -108,14 +108,7 @@ select
 
     -- [billing terms and payment]
     , ir.billing_style_c::varchar(200)                                   as billing_style
-    , coalesce(
-        case
-            when ir.fee_type_c in ('Quarterly Fee')
-                then
-                    'Quarterly'
-        end
-        , ir.fee_frequency_c
-    )::varchar(200)                                                      as billing_frequency_source
+    , ir.fee_frequency_c::varchar(200)                                   as billing_frequency_source
     , ir.billing_method_c::varchar(200)                                  as billing_method
     , case
         when ir.fee_type_c = 'Quarterly Fee' then

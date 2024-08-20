@@ -37,6 +37,8 @@ sources:
       - name: vw_network_advisor_master_monthly
       - name: historical_market_prices
         description: Historical index performance.
+      - name: associate_revenue_coding
+        description: "Maintained by the Data Management and Goverance team"
 
   - name: reporting_raw
     description: Data Management raw schema
