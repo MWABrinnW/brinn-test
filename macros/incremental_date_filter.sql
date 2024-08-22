@@ -11,7 +11,7 @@
     custom_condition = none,
     custom_condition_only = false,
     max_lookback = none
-)-%}
+) -%}
 
 {#
 /*
@@ -33,38 +33,39 @@ Returns:
 */
 #}
 
-{%- set lookback_var = var('lookback', 4) -%}
-{%- set offset_var = var('offset', 0) -%}
-{%- set filter_var = var('filter', none) -%}
-{%- set unique_key = config.require('unique_key') -%}
-{%- set target_relation_var = none -%}
+    {%- set lookback_var = var('lookback', 4) -%}
+    {%- set offset_var = var('offset', 0) -%}
+    {%- set filter_var = var('filter', none) -%}
+    {%- set unique_key = config.require('unique_key') -%}
+    {%- set target_relation_var = none -%}
 
 {#  Set the max lookback (day cutoff)
     If target is dev we'll apply the max lookback.
     If target is not dev we'll only apply a max lookback if it was provided. #}
-{%- if target.name not in ['prod'] -%}
+    {%- if target.name not in ['prod'] -%}
     {%- set max_lookback_var = var('max_lookback', var('dev_day_filter', 14)) -%}
 {%- else -%}
-    {%- set max_lookback_var = var('max_lookback', none) -%}
-{%- endif -%}
+        {%- set max_lookback_var = var('max_lookback', none) -%}
+    {%- endif -%}
 
-{% if target_relation == "this" -%}
+    {% if target_relation == "this" -%}
     {%- set target_relation_var = this -%}
 {%- else -%}
-    {%- set target_relation_var = relation -%}
-{%- endif -%}
+        {%- set target_relation_var = relation -%}
+    {%- endif -%}
 
     {%- if max_lookback_var is not none -%}
-        AND {{source_col_name}}::timestamp >= (current_date() - {{max_lookback_var}})::timestamp
+        AND {{ source_col_name }}::timestamp >= (current_date() - {{ max_lookback_var }})::timestamp
     {%- endif -%}
 
     {%- if is_incremental() %}
+        
         AND (
         {% if not custom_condition_only -%}
             -- select records that have a greater {effective_date} than the destination
-            {{source_col_name}}::timestamp > (
-                SELECT MAX({{target_col_name}}::timestamp)
-                FROM {{target_relation_var}}
+            {{ source_col_name }}::timestamp > (
+                SELECT MAX({{ target_col_name }}::timestamp)
+                FROM {{ target_relation_var }}
                 WHERE true
                 {% if filter_var is not none %}
                     filter_var
@@ -72,10 +73,11 @@ Returns:
             )
         {% endif -%}
         {% if do_new == true and not custom_condition_only -%}
+            {% if source_relation is not none -%}
         -- all effective_dates where the source is more up to date than the target
         OR (
-            {{source_col_name}}::timestamp in (
-                                    select distinct {{target_col_name}}::timestamp
+            {{ source_col_name }}::timestamp in (
+                                    select distinct {{ target_col_name }}::timestamp
                                     from {{ source_relation }}
                                     where {{ source_created_at_col }} > (select max({{ target_created_at_col }})
                                                                         from {{ target_relation_var }}
@@ -90,17 +92,18 @@ Returns:
 
         )
         {% endif -%}
+        {% endif -%}
 
-    {% if do_lookback == true and not custom_condition_only -%}
+        {% if do_lookback == true and not custom_condition_only -%}
         OR (
             -- select records with the lookback window using supplied {effective_date} key
-            {{source_col_name}}::date
+            {{ source_col_name }}::date
                 >= DATEADD(
                     DAY,
                     -({{ offset_var + lookback_var }}),
                     CURRENT_DATE()
                 )
-            AND TO_DATE({{source_col_name}})
+            AND TO_DATE({{ source_col_name }})
                 <= DATEADD(
                     DAY,
                     -({{ offset_var }}),
@@ -109,17 +112,17 @@ Returns:
         )
     {% endif -%}
 
-    {%- if custom_condition -%}
+        {%- if custom_condition -%}
         -- custom condition
         {% if custom_condition_only == true -%}
         (
         {% else -%}
         OR (
         {% endif -%}
-            {{ custom_condition }}
+        {{ custom_condition }}
         )
     {% endif -%}
-    )
+        )
     {%- endif -%}
 
 {% endmacro %}

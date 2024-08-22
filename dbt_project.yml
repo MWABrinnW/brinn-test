@@ -417,6 +417,12 @@ models:
         +tags: ["active_directory"]
         +grants:
           +select: "{{ ['db_it_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+      crm:
+        +tags: ["crm"]
+        build:
+          +schema: build
+          +grants:
+            select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod','test'] else []}}"
       activetick:
         +tags: ["activetick"]
       flyer:

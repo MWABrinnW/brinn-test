@@ -1,18 +1,17 @@
-{{ config(
+{{config(
     materialized='incremental',
-    unique_key='effective_date',
+    unique_key='effective_at::date',
     incremental_strategy='delete+insert',
-    on_schema_change='sync_all_columns'
-) }}
+    on_schema_change='sync_all_columns',
+    tags=["financials"]
+)}}
 
 select
-  ei.effective_at                                             as effective_at
-  , ei.effective_at::date                                     as effective_date
-  , 'salesforce'::text(100)                                   as crm
-  , 'compass'::text(100)                                      as crm_instance_location
-  , concat(crm, '__', crm_instance_location)::text(100)       as crm_key
-  , concat(crm, '__', crm_instance_location)::text(100)       as pms_key
-  , 'mwa'                                                     as firm_source
+    ei.effective_at                                           as effective_at
+  , ei.system_name                                            as system_name
+  , ei.system_instance                                        as system_instance
+  , ei.system_key                                             as system_key
+  , ei.firm_source                                            as firm_source
   , ei.id                                                     as id
   , ei.estate_item_id_18_c                                    as estate_item_id
   , ei.owner_id                                               as owner_id
@@ -21,6 +20,14 @@ select
   , ei.name::text(500)                                        as account_name
   , null::text(200)                                           as registrant_name
   , ei.account_idorion_c                                      as orion_account_id
+  , regexp_replace(
+    ltrim(upper(
+      replace(
+        ei.identifier_c, '-', ''
+      )
+    ), '0')::text(200)
+    , '\\s{2,}', ' '
+  )                                                           as account_number
   , ei.identifier_c                                           as account_number_formatted
   , ei.account_type_c                                         as account_type
   , ei.registration_type_c                                    as registration_type_id
@@ -113,59 +120,51 @@ select
   , c.key_tags_c::text(5000)                                  as key_tags
   , contact.name                                              as owner_name
   , ownr.name                                                 as client_manager
+  , ownr.email                                                as client_manager_email
   , ownr.employee_number                                      as employee_number
   , mdl.name                                                  as investment_strategy
   , ei.partner_firm_c                                         as partner_firm
   , ei.trading_system_c                                       as trading_system
   , ei._fivetran_synced                                       as _fivetran_synced
-  , ei._created_at                                            as _source_loaded_at
   , ei.is_head                                                as is_head
   , ei.is_latest                                              as is_latest
-  , regexp_replace(
-    ltrim(upper(
-      replace(
-        ei.identifier_c, '-', ''
-      )
-    ), '0')::text(200)
-    , '\\s{2,}', ' '
-  )                                                           as account_number
-  , lower(ownr.email)                                         as client_manager_email
-  --, ei.is_earliest                                              as is_earliest
-  , current_timestamp()                                       as _created_at
+  , current_timestamp::timestamp_ntz                          as _created_at
+    , ei._created_at                                          as _source_loaded_at
+    , ei.effective_at::date                                   as effective_date
 from {{ ref('salesforce_compass__base_estate_item_c') }} as ei
 left join {{ ref('salesforce_compass__base_account') }} as c
-  on ei.household_c = c.id
-  and ei.effective_at::date = c.effective_at::date
-  and c.is_latest = 1
+    on ei.household_c = c.id
+    and ei.effective_at::date = c.effective_at::date
+    and c.is_latest = 1
   and c.is_deleted = 0
   and c._fivetran_deleted = 0
 left join {{ ref('salesforce_compass__base_contact') }} as contact
-  on c.client_manager_c = contact.id
-  and c.effective_at::date = contact.effective_at::date
-  and contact.is_latest = 1
+    on c.client_manager_c = contact.id
+    and c.effective_at::date = contact.effective_at::date
+    and contact.is_latest = 1
 left join {{ ref('salesforce_compass__base_mh_dynamic_list_c') }} as regtype
-  on ei.registration_type_c = regtype.id
-  and regtype.is_head = 1
+    on ei.registration_type_c = regtype.id
+    and regtype.is_head = 1
 left join {{ ref('salesforce_compass__base_model_c') }} as mdl
-  on ei.model_on_account_c = mdl.id
+    on ei.model_on_account_c = mdl.id
 left join {{ ref('salesforce_compass__base_user') }} as ownr
-  on c.owner_id = ownr.id
-  and ownr.is_head = 1
+    on c.owner_id = ownr.id
+    and ownr.is_head = 1
 left join {{ ref('salesforce_compass__base_mh_location_c') }} as loc
-  on c.mariner_location_c = loc.id
-  and ei.effective_at::date = loc.effective_at::date
-  and loc.is_latest = 1
+    on ei.household_c = loc.id
+    and ei.effective_at::date = loc.effective_at::date
+    and loc.is_latest = 1
 left join {{ ref('salesforce_compass__base_custodian_c') }} as cust
-  on ei.custodian_c = cust.id
-  and ei.effective_at::date = cust.effective_at::date
-  and cust.is_latest = 1
-  and cust.is_deleted = false
+    on ei.custodian_c = cust.id
+    and ei.effective_at::date = cust.effective_at::date
+    and cust.is_latest = 1
+    and cust.is_deleted = false
 where true
   {{ incremental_date_filter(
           source_col_name = 'ei.effective_at',
           target_col_name = 'effective_at',
           do_lookback = false,
-          do_new = false,
+          do_new = true,
           custom_condition_only = false,
           custom_condition = none
     ) }}
