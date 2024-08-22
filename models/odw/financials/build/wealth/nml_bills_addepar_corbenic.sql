@@ -163,6 +163,7 @@ select
         when fee_type ilike '%management fee%'
             then '40001'
     end::varchar(200)                                                            as coa_segment_5_natural_account_id
+    , 'Wealth Management'::varchar(200)                                          as revenue_category
     , 'Wealth Mgmt Fees'::varchar(200)                                           as revenue_type
 
     -- [crm] --------------------------------------------------------------------------------------------------------------------

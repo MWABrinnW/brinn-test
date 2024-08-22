@@ -201,7 +201,11 @@ select
         , '-' , coa_segment_7_intercompany_id
         , '-' , coa_segment_8_future_id
     )                                                                                               as coa_account_number
-    , ovrd_fee_type.revenue_category::varchar(200)                                                  as revenue_category
+    , coalesce(
+        nml.revenue_category
+        , ovrd_fee_type.revenue_category
+    )::varchar(200
+    )                                                                                               as revenue_category
     , initcap(nml.revenue_type::varchar(200))                                                       as revenue_type
 
     -- [crm]

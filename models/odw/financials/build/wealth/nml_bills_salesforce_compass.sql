@@ -202,8 +202,7 @@ select
             then
                 '40001'-- traditional 
     end::varchar(200)                                                    as coa_segment_5_natural_account_id
-
-    --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    , null::varchar(200)                                                 as revenue_category
     , case
         when ir.fee_type_c ilike any
             ('Quarterly Fee' , 'Fee Adjustment' , 'Lost Client Fee' , 'Fixed Income Fee' , 'Options Fee')
