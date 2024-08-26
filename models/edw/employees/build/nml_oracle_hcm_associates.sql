@@ -135,7 +135,7 @@ left join {{ ref('hcm__stg_employee_demographics') }} as man_e
     on e.effective_at = man_e.effective_at
     and e.position_manager_position_id = man_e.oracle_employee_num
 left join {{ ref('active_directory__rpt_users') }} as man_ad
-    on upper(man_e.employee_num) = upper(man_ad.employee_number)
+    on upper(man_e.oracle_employee_num) = upper(man_ad.employee_number)
     and man_e.effective_at::date = man_ad._effective_at::date
 left join {{ ref('locations') }} as l
     on e.cost_seg_3 = l.accounting_id
