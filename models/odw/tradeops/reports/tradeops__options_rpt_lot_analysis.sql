@@ -128,8 +128,6 @@ with cte_accounts as (
         and tl.account_number = p.account_number
         and tl.security_id_source = p.security_id_source
     where 1 = 1
-        -- Exclude zero value lots
-        and tl.market_value <> 0
         -- Exclude zero quantity lots
         and tl.quantity <> 0
     order by explanation , abs(quantity_diff) desc

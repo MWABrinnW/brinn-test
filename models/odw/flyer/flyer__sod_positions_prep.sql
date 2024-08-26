@@ -355,6 +355,9 @@ with cte_accounts as (
     from cte_tax_lots
     where 1 = 1
         -- These records get brought in with cte_schwab_mmf_rollup.
+        -- This filter might be unintentionally dropping lots that don't have a
+        -- product_type_source_definition value. If so, we'll need to update the
+        -- condition to handle the nulls.
         and not (custodian ilike 'SCHWAB' and product_type_source_definition ilike 'SCHWAB NON-SWEEP MONEY MARKET FUNDS')
 
     union all
