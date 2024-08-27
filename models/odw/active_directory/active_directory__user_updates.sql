@@ -373,7 +373,10 @@ with cte_bld_associates as (
             || case
                 when ba.system_key = 'adp__mwa' and left(ba.position_id , 1) = '9' then 'position_id starts with 9;' else ''
             end
-            || case when coalesce(ba.employment_status , '') not ilike 'active' then 'source record not active;' else '' end
+            || case when coalesce(lower(ba.employment_status) , '') not in ('active' , 'leave')
+                    then 'source record not active;'
+                else ''
+            end
             || case when a.employee_num = '000940' then 'marty;' else '' end
             , ''
         )                                                              as excluded_reasons
