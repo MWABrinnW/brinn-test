@@ -68,5 +68,4 @@ left join cte_max_per_day as mxpd
 left join {{ ref('dates' ) }} as dt
     on a._created_at::date = dt.date_key
 where 1 = 1
-    and is_head = 1
     and _env = {{ "'" ~ copilot_env() ~ "'" }}

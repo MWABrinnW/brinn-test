@@ -84,6 +84,11 @@ select
         || option_type
         || lpad(to_char((option_strike_price * 1000)::int), 8, '0')
         ::text(200)                                  as option_symbol
+    , rpad(option_ticker, 6, ' ')
+        || to_varchar(option_ex_date, 'YYMMDD')
+        || option_type
+        || replace(to_varchar(round(option_strike_price, 3), 'FM00000.000'), '.')
+        ::text(200)                                  as option_symbol_occ
 
 
     , b.max_created_date                             as max_created_date

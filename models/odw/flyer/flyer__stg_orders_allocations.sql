@@ -177,6 +177,46 @@ select distinct
     , a.json:order.fixedIncome.principal::number(19 , 6)                                as order_fixedincome_principal
 
     , case
+        when is_option = 1
+            then regexp_substr(
+                symbol, '^(\\D+)(\\d{6,7})(C|P)(\\d+(\\.\\d+)?)', 1, 1, 'e', 1
+            )
+            else null
+            end::text(200)                           as option_ticker
+    , case
+        when is_option = 1
+            then try_to_date(regexp_substr(
+                symbol, '^(\\D+)(\\d{6,7})(C|P)(\\d+(\\.\\d+)?)', 1, 1, 'e', 2
+            ), 'YYMMDD')
+            else null
+            end::date                                as option_ex_date
+    , case
+        when is_option = 1
+            then regexp_substr(
+                    symbol, '^(\\D+)(\\d{6,7})(C|P)(\\d+(\\.\\d+)?)', 1, 1, 'e', 3
+                )
+            else null
+            end::text(200)                           as option_type
+    , case
+        when is_option = 1
+            then (regexp_substr(
+                symbol, '^(\\D+)(\\d{6,7})(C|P)(\\d+(\\.\\d+)?)', 1, 1, 'e', 4
+            )::int / 1000)
+            else null
+            end::decimal(20 , 2)                     as option_strike_price
+    , option_ticker
+        || ' '
+        || to_char(option_ex_date, 'YYMMDD')
+        || option_type
+        || lpad(to_char((option_strike_price * 1000)::int), 8, '0')
+        ::text(200)                                  as option_symbol
+    , rpad(option_ticker, 6, ' ')
+        || to_varchar(option_ex_date, 'YYMMDD')
+        || option_type
+        || replace(to_varchar(round(option_strike_price, 3), 'FM00000.000'), '.')
+        ::text(200)                                  as option_symbol_occ
+
+    , case
         when a._created_at = mxpd.max_created_at
             then 1
         else 0
