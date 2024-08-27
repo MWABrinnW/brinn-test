@@ -151,7 +151,7 @@ left join {{ ref('salesforce_compass__base_user') }} as ownr
     on c.owner_id = ownr.id
     and ownr.is_head = 1
 left join {{ ref('salesforce_compass__base_mh_location_c') }} as loc
-    on ei.household_c = loc.id
+    on c.mariner_location_c = loc.id
     and ei.effective_at::date = loc.effective_at::date
     and loc.is_latest = 1
 left join {{ ref('salesforce_compass__base_custodian_c') }} as cust
