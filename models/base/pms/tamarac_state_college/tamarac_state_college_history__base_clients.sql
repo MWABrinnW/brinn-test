@@ -33,7 +33,7 @@ select
     , content:UPLOAD_HOUSEHOLD_ID::varchar(1024)                                as upload_household_id
     , content:PREV_EOD_DATE::date                                               as prev_eod_date
     , effective_date                                                            as effective_date
-    , row_number() over (partition by effective_date order by _created_at desc) as rn
+    , dense_rank() over (partition by effective_date order by _created_at desc) as rn
     , {{ col_is_head(
         reference=source('tamarac_state_college', 'clients')
         ) }}

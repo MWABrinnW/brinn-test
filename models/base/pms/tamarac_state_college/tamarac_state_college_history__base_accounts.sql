@@ -188,7 +188,7 @@ select
     , content:USE_PRIMARY_HOUSEHOLD_ADDRESS::boolean                            as use_primary_household_address
     , content:ZIP::varchar(20)                                                  as zip
     , effective_date                                                            as effective_date
-    , row_number() over (partition by effective_date order by _created_at desc) as rn
+    , dense_rank() over (partition by effective_date order by _created_at desc) as rn
     , {{ col_is_head(
         reference=source('tamarac_state_college', 'accounts')
         ) }}

@@ -90,7 +90,7 @@ select
     , content:STRIKE_PRICE::double                                                 as strike_price
     , content:SUBSECTOR::varchar(1000)                                             as subsector
     , content:SYMBOL::varchar(1000)                                                as symbol
-    , content:TAS_SECURITY::boolean                                                as tas_security
+    , content:TAS_SECURITY::text(200)                                              as tas_security
     , content:TOTAL_UNREALIZED_GAIN_LOSS::double                                   as total_unrealized_gain_loss
     , content:TREAT_AS_COMMITTED_CAPITAL_SECURITY::boolean                         as treat_as_committed_capital_security
     , content:TREAT_SECURITY_AS_CASH::boolean                                      as treat_security_as_cash
@@ -105,7 +105,7 @@ select
     , content:RECORD_DATE::date                                                    as record_date
     , content:SECURITY_BENCHMARK::varchar(1000)                                    as security_benchmark
     , effective_date                                                               as effective_date
-    , row_number() over (partition by effective_date order by _created_at desc)    as rn
+    , dense_rank() over (partition by effective_date order by _created_at desc)    as rn
     , {{ col_is_head(
         reference=source('tamarac_state_college', 'assets')
         ) }}
