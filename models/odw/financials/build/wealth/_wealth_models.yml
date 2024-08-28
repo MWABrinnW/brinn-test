@@ -1,0 +1,25 @@
+version: 2
+models:
+  - name: bld_billing_wealth
+    columns:
+      - name: BILLING_FREQUENCY
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Monthly', 'Quarterly', 'Annually', 'One-Time', 'Semi-Annually']
+      - name: BILLING_STYLE
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Arrears', 'Advance']
+      - name: REVENUE_PERIOD_END_DATE
+        tests:
+          - not_null
+      - name: REVENUE_CATEGORY
+        tests:
+          - not_null
+      - name: IS_INTRA_PERIOD_INVOICE
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
