@@ -194,5 +194,6 @@ select
         ) }}
     , {{ col_is_current(date_col='effective_date') }}
     , _created_at                                                               as _created_at
+    , _id                                                                       as _id
 from {{ source('tamarac_state_college', 'accounts') }}
 where is_head = 1

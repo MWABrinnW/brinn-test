@@ -35,9 +35,9 @@ select
     , effective_date                                                            as effective_date
     , dense_rank() over (partition by effective_date order by _created_at desc) as rn
     , {{ col_is_head(
-        reference=source('tamarac_state_college', 'clients')
+        reference=source('tamarac_state_college', 'accounts')
         ) }}
     , {{ col_is_current(date_col='effective_date') }}
     , _created_at                                                               as _created_at
-    , _source_file                                                              as _source_file
+    , _id                                                                       as _id
 from {{ source('tamarac_state_college', 'clients') }}
