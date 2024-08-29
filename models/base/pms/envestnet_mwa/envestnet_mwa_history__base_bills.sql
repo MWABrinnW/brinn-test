@@ -9,6 +9,7 @@ select
     , json:BILLABLE_VALUE::decimal(20 , 2)         as billable_value
     , json:BILLING_CYCLE::varchar(200)             as billing_cycle
     , json:BILL_TYPE::varchar(200)                 as bill_type
+    , json:CLIENT_FEE::decimal(20 , 2)             as client_fee
     , json:CUSTODIAN_ID::varchar(200)              as custodian_id
     , json:DEBITED_ACCOUNT::varchar(200)           as debited_account
     , json:DEBIT_CUSTODIAN::varchar(200)           as debit_custodian

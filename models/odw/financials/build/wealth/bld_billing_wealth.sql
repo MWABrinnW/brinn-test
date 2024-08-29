@@ -13,6 +13,12 @@ with cte_get_billing_freq as (
     left join {{ ref('aux__stg_financials_fee_type') }} as ovrd_fee_type
         on nml.system_key = ovrd_fee_type.system_key
         and lower(nml.fee_type) = lower(ovrd_fee_type.fee_type)
+    where true
+    {% if target.name == 'dev' or target.name == 'ci' %}
+        and nml.fee_calculation_date < dateadd(month, -3, date_trunc('month', current_date))
+    {% elif target.name == 'prod' %}
+        and nml.system_key in ('addepar__corbenic', 'black_diamond__houston', 'salesforce__compass', 'sei__manasquan')
+    {% endif %}
 
 
 )
@@ -274,16 +280,6 @@ left join {{ ref('aux__stg_financials_fee_type') }} as ovrd_fee_type
     on nml.system_key = ovrd_fee_type.system_key
     and lower(nml.fee_type) = lower(ovrd_fee_type.fee_type)
 where true
-    {# {% if is_incremental() %}
-        -- This filter will only be applied on an incremental run
-        -- (uses >= to include records whose timestamp occurred since the last run of this model)
-        and nml._created_at >= (select coalesce(max(_created_at) , '1900-01-01') from {{ this }})
-    {% endif %} #}
-
-{% if target.name == 'prod' %}
-        and nml.system_key in ('addepar__corbenic', 'black_diamond__houston', 'salesforce__compass', 'sei__manasquan')
-    {% endif %}
-
 order by
     system_key
     , revenue_period_end_date
