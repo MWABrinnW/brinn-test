@@ -1,7 +1,7 @@
 -- depends_on: {{ ref('int_adp_employees_initial') }}
 -- depends_on: {{ ref('aux__base_employee_overrides') }}
 -- depends_on: {{ ref('dates') }}
-{{ config(materialized='table') }}
+{{ config(materialized='table', cluster_by=['effective_at::date']) }}
 
 {#
   We should consider adding a field to the adp tables which indicates the date of the data (i.e. effective_date)

@@ -114,6 +114,7 @@ select
     , ad_manager_employee_number
     , ad_manager_email
     , ad_manager_distinguishedname
+    , rn_employee_num
     , _created_at
     , _source_file
     , is_head
@@ -122,6 +123,7 @@ from {{ ref('nml_adp_associates') }}
 where effective_at::date < '{{ effective_date_switchover }}'
     and right(lower(position_id) , 1) <> 'n'
     and position_primary_job_indicator = 1
+    and rn_employee_num = 1
 
 union all
 
@@ -226,6 +228,7 @@ select
     , ad_manager_employee_number
     , ad_manager_email
     , ad_manager_distinguishedname
+    , rn_employee_num
     , _created_at
     , _source_file
     , is_head

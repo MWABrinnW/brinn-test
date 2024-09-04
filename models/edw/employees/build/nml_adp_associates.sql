@@ -109,6 +109,16 @@ select
     , ad.manager_email                                                as ad_manager_email
     , ad.manager_distinguishedname                                    as ad_manager_distinguishedname
 
+    -- We need this to allow de-duplication for records based on employee_num.
+    , row_number() over (
+        partition by e.employee_num , e.effective_at
+        order by
+        -- Prefer primary position
+            e.position_primary_job_indicator desc
+            -- Prefer mwa positions
+            , case when e.position_id ilike '67%' then 1 else 2 end
+    )                                                                 as rn_employee_num
+
     , null::timestamp                                                 as _created_at
     , null::text                                                      as _source_file
 

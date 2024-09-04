@@ -139,8 +139,10 @@ with cte_get_data as (
         on u._created_at::date = m._created_at::date
         and u.manager = m.dn
         and m.rn = 1
+        and m.rn_employee_number = 1
     where 1 = 1
         and u.rn = 1
+        and u.rn_employee_number = 1
         and u._created_at::date < (
             select min(_effective_at::date)
             from {{ ref('active_directory__stg_users') }}

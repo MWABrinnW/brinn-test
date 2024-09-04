@@ -115,6 +115,12 @@ select
     , ad.manager_email                                                    as ad_manager_email
     , ad.manager_distinguishedname                                        as ad_manager_distinguishedname
 
+    -- We need this to allow de-duplication for records based on employee_num.
+    , row_number() over (
+        partition by e.oracle_employee_num , e.effective_at
+        order by e.job_id
+    )                                                                     as rn_employee_num
+
     , e._created_at                                                       as _created_at
     , e._source_file                                                      as _source_file
     , e.is_head                                                           as is_head

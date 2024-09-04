@@ -104,6 +104,7 @@ with cte_bld_associates as (
         )                                                      as rn
     from {{ ref('nml_oracle_hcm_associates') }}
     where is_head = 1
+        and rn_employee_num = 1
 )
 
 , cte_active_directory as (
