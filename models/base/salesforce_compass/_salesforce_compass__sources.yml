@@ -390,3 +390,7 @@ sources:
     loaded_at_field: _fivetran_synced
     tables:
       - name: mh_historical_c
+      - name: case
+      - name: case_history
+      - name: case_team_member
+      - name: case_team_role
