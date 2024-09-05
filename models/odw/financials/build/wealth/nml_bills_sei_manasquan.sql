@@ -43,15 +43,17 @@ select
     , null::varchar(200)                                                                 as partner_firm_original
 
     -- [advisor]
-    , coalesce(acc.client_manager , acc2.client_manager)::varchar(200)                   as client_manager_source
-    , coalesce(acc.client_manager , acc2.client_manager)::varchar(200)                   as client_manager_original_crm
-    , coalesce(acc.client_manager , acc2.client_manager)::varchar(200)                   as client_manager_primary
+    , null::varchar(200)                                                                 as client_manager_source
+    -- Historical client manager (from compass account object, historical records)
+    , acc.client_manager::varchar(200)                                                   as client_manager_original
+    -- Historical associate ID (from compass account object, historical records)
+    , acc.employee_number::varchar(200)                                                  as associate_id_original
+    -- Current client manager (from compass account object, is_head)
+    , acc2.client_manager::varchar(200)                                                  as client_manager_primary
+    -- Current associate id (from compass account object, is_head)
+    , acc2.employee_number::varchar(200)                                                 as associate_id_primary
     , 'W-2'::varchar(200)                                                                as client_manager_type
-    , coalesce(
-        acc.employee_number
-        , acc2.employee_number
-    )::varchar(200
-    )                                                                                    as associate_id
+
 
     -- [assets and fees]
     , bb.fee_type_description::varchar(200)                                              as fee_type
@@ -169,12 +171,12 @@ select
 from {{ ref('sei_manasquan__base_bills') }} as bb
 
 -- joins crm data on invoice date, if available
-left join {{ ref('int_salesforce_compass_accounts') }} as acc
+left join {{ ref('salesforce_compass_accounts') }} as acc
     on trim(replace(bb.account_number , '-' , '')) = trim(replace(acc.account_number_formatted , '-' , ''))
     and bb.fee_effective_date = acc.effective_date
     and acc.is_latest = 1
 -- otherwise, joins to the current snapshot (is_head = 1)
-left join {{ ref('int_salesforce_compass_accounts') }} as acc2
+left join {{ ref('salesforce_compass_accounts') }} as acc2
     on bb.account_number = acc2.account_number_formatted
     and acc2.is_head = 1
 left join {{ ref('salesforce_compass__base_fee_schedule_c') }} as fs

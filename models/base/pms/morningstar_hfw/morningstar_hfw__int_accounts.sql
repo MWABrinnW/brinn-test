@@ -402,7 +402,7 @@ with cte_effective_dates as (
         || coalesce(j.internal_financial_account_number , '')
         || '|' || j.effective_date                                       as key_financial_account
     from cte_joined as j
-    left join {{ ref("int_salesforce_compass_accounts") }} as sf
+    left join {{ ref("salesforce_compass_accounts") }} as sf
         on j.financial_account_number = sf.account_number
         and j.effective_date = sf.effective_at::date
         and sf.is_latest = 1

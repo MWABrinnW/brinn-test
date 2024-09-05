@@ -252,7 +252,7 @@ with cte_effective_dates as (
         on b.cusip = c.cusip
         and b.effective_date = c.effective_date
         and c.rn_ticker = 1
-    left join {{ ref("int_salesforce_compass_accounts") }} as sf
+    left join {{ ref('salesforce_compass_accounts') }} as sf
         on b.financial_account_number = sf.account_number
         and b.effective_date = sf.effective_at::date
 )

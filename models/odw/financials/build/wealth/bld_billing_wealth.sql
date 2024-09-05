@@ -14,11 +14,6 @@ with cte_get_billing_freq as (
         on nml.system_key = ovrd_fee_type.system_key
         and lower(nml.fee_type) = lower(ovrd_fee_type.fee_type)
     where true
-    {% if target.name == 'dev' or target.name == 'ci' %}
-        and nml.fee_calculation_date < dateadd(month, -3, date_trunc('month', current_date))
-    {% elif target.name == 'prod' %}
-        and nml.system_key in ('addepar__corbenic', 'black_diamond__houston', 'salesforce__compass', 'sei__manasquan')
-    {% endif %}
 
 
 )
@@ -126,11 +121,11 @@ select
 
     -- [advisor]
     , nml.client_manager_source::varchar(200)                                                       as client_manager_source
-    , nml.client_manager_original_crm::varchar(200)
-        as client_manager_original_crm
+    , nml.client_manager_original::varchar(200)                                                     as client_manager_original
+    , nml.associate_id_original::varchar(200)                                                       as associate_id_original
     , nml.client_manager_primary::varchar(200)                                                      as client_manager_primary
+    , nml.associate_id_primary::varchar(200)                                                        as associate_id_primary
     , nml.client_manager_type::varchar(200)                                                         as client_manager_type
-    , nml.associate_id::varchar(200)                                                                as associate_id
 
     -- [assets and fees]
     , initcap(nml.fee_type::varchar(200))                                                           as fee_type
@@ -257,20 +252,20 @@ select
 from
     cte_normalize as nml
 left join {{ ref('bld_associates') }} as ass
-    on nml.associate_id = ass.employee_num
+    on coalesce(nml.associate_id_original , nml.associate_id_primary) = ass.employee_num
     and (ass.effective_at::date) = coalesce(nml.invoice_date , nml.revenue_period)
 
 left join {{ source('reporting_ext', 'associate_revenue_coding') }} as ass_coa
     on (
-        nml.associate_id = ass_coa.associate_id_adp
-        or nml.associate_id = ass_coa.associate_id_oracle
+        coalesce(nml.associate_id_original , nml.associate_id_primary) = ass_coa.associate_id_adp
+        or coalesce(nml.associate_id_original , nml.associate_id_primary) = ass_coa.associate_id_oracle
     )
     and nml.invoice_date between coalesce(ass_coa.start_date , '1999-01-01')
     and coalesce(ass_coa.end_date , '2099-12-31')
     and ass_coa.is_latest = 1
 -- Joins to 'edw locations' on 'accounting id, segment 3', obtains advisor location
 left join {{ ref('locations') }} as loc_adv
-    on coalesce(nml.coa_segment_3_accounting_id , ass_coa.seg_3) = loc_adv.accounting_id
+    on coalesce(nml.coa_segment_3_accounting_id , nml.client_location_code) = loc_adv.accounting_id-- ass_coa.seg_3
     and nml.invoice_date between loc_adv.start_date and coalesce(loc_adv.end_date , '2099-12-31')
 -- Joins to 'edw locations' on 'client location', used to obtain client location accounting id segment when non-advisor
 left join {{ ref('locations') }} as loc_cli
@@ -280,6 +275,9 @@ left join {{ ref('aux__stg_financials_fee_type') }} as ovrd_fee_type
     on nml.system_key = ovrd_fee_type.system_key
     and lower(nml.fee_type) = lower(ovrd_fee_type.fee_type)
 where true
+{% if target.name == 'prod' %}
+        and nml.system_key in ('addepar__corbenic', 'black_diamond__houston', 'salesforce__compass', 'sei__manasquan')
+    {% endif %}
 order by
     system_key
     , revenue_period_end_date

@@ -30,10 +30,11 @@ select
     , null::varchar(200)                           as partner_firm
     , null::varchar(200)                           as partner_firm_original
     , client_manager::varchar(200)                 as client_manager_source
-    , null::varchar(200)                           as client_manager_original_crm
+    , null::varchar(200)                           as client_manager_original
+    , null::varchar(200)                           as associate_id_original
     , null::varchar(200)                           as client_manager_primary
+    , null::varchar(200)                           as associate_id_primary
     , null::varchar(200)                           as client_manager_type
-    , null::varchar(200)                           as associate_id
     , fee_type::varchar(600)                       as fee_type
     , fee_schedule::varchar(600)                   as fee_schedule_source
     , null::varchar(600)                           as fee_schedule_type

@@ -418,7 +418,11 @@ models:
         +grants:
           +select: "{{ ['db_it_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
       crm:
+        +schema: crm
         +tags: ["crm"]
+        +dbt-osmosis: "_{parent}_models.yml"
+        +grants:
+          +select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod','test'] else []}}"
         build:
           +schema: build
           +grants:

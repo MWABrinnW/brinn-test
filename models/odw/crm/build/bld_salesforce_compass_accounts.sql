@@ -126,8 +126,6 @@ select
   , ei.partner_firm_c                                         as partner_firm
   , ei.trading_system_c                                       as trading_system
   , ei._fivetran_synced                                       as _fivetran_synced
-  , ei.is_head                                                as is_head
-  , ei.is_latest                                              as is_latest
   , current_timestamp::timestamp_ntz                          as _created_at
     , ei._created_at                                          as _source_loaded_at
     , ei.effective_at::date                                   as effective_date

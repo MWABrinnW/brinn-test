@@ -90,7 +90,6 @@ select
 
     -- [advisor] ----------------------------------------------------------------------------------------------------------------
     , b.cwm_lead_advisor::varchar(200)                                           as client_manager_source
-    , null::varchar(200)                                                         as client_manager_original_crm
     , case
         when trim(a.cwm_lead_advisor) = 'DG' then 'David Givler II'
         when trim(a.cwm_lead_advisor) = 'BG' then 'Brad Griswold'
@@ -101,8 +100,7 @@ select
         when trim(a.cwm_lead_advisor) = 'DM' then 'Dennis Morton'
         when trim(a.cwm_lead_advisor) = 'HA' then 'House Accounts'
         else trim(a.cwm_lead_advisor)
-    end::varchar(200)                                                            as client_manager_primary
-    , 'W-2'::varchar(200)                                                        as client_manager_type
+    end::varchar(200)                                                            as client_manager_original
     , case
         when trim(b.cwm_lead_advisor) = 'DG' then '002732'
         when trim(b.cwm_lead_advisor) = 'BG' then '002733'
@@ -113,7 +111,10 @@ select
         when trim(a.cwm_lead_advisor) = 'DM' then null
         when trim(b.cwm_lead_advisor) = 'HA' then 'House Accounts'
         else trim(b.cwm_lead_advisor)
-    end                                                                          as associate_id
+    end                                                                          as associate_id_original
+    , client_manager_original                                                    as client_manager_primary
+    , associate_id_original                                                      as associate_id_primary
+    , 'W-2'::varchar(200)                                                        as client_manager_type
 
     -- [assets and fees] --------------------------------------------------------------------------------------------------------
     -- fee type requires null handling, deteremines revenue category

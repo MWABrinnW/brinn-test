@@ -14,7 +14,6 @@
     'MODEL_INVESTMENT_STRATEGY',
     'CUSTODIAN',
     'PARTNER_FIRM_ORIGINAL',
-    'CLIENT_MANAGER_ORIGINAL_CRM',
     'ASSOCIATE_ID',
     'FEE_SCHEDULE_TYPE',
     'FEE_SCHEDULE',
@@ -54,4 +53,4 @@
     '_EXTRA_FIELDS'
 ] %}
 
-{{ describe_model(model=ref('billing_wealth'), where_clause=none, date_partition='revenue_period_end_date', excluded_columns=columns) }}
+{{ describe_model(model=ref('bld_billing_wealth'), where_clause=none, date_partition='revenue_period_end_date', excluded_columns=columns) }}

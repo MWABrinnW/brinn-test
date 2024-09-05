@@ -72,16 +72,15 @@ select
     -- [advisor]
     -- Historical Client Manager (from upsert into Salesforce) 
     , ir.quarterback_2_c::varchar(200)                                   as client_manager_source
-    -- Historical Client Manager (from Compass account object, historical records)
-    , acc.client_manager::varchar(200)                                   as client_manager_original_crm
-    ,-- Current Client Manager (from Compass account object, is_head) or Billing Review Current QB
-    coalesce(
-        acc2.client_manager
-        , ir.quarterback_c
-    )::varchar(200)                                                      as client_manager_primary
+    -- Historical client manager (from compass account object, historical records)
+    , acc.client_manager::varchar(200)                                   as client_manager_original
+    -- Historical associate ID (from compass account object, historical records)
+    , acc.employee_number::varchar(200)                                  as associate_id_original
+    -- Current client manager (from compass account object, is_head) or billing review current QB
+    , acc2.client_manager::varchar(200)                                  as client_manager_primary
+    -- Current associate id (from compass account object, is_head)
+    , acc2.employee_number::varchar(200)                                 as associate_id_primary
     , 'W-2'::varchar(200)                                                as client_manager_type
-    -- Historical Associate ID (from Compass account object, historical records)
-    , acc.employee_number::varchar(200)                                  as associate_id
 
     -- [assets and fees]
     , ir.fee_type_c::varchar(200)                                        as fee_type
@@ -296,7 +295,6 @@ select
     , null::varchar(200)                                                 as _source_file
     , null::varchar(200)                                                 as _box_file_id
 
-
     -- These are fields that are likely specific to this source
     -- and are intended to help with one off investigations or
     -- special analysis.
@@ -311,6 +309,10 @@ select
         , 'finalized_date' , ir.date_finalized_c
         , 'recon_date' , ir.recon_date_c
         , 'invoice_created_at' , ir.created_date
+        , 'client_is_latest_org' , acc.is_latest
+        , 'client_is_head_org' , acc.is_head
+        , 'client_is_latest_pri' , acc2.is_latest
+        , 'client_is_head_pri' , acc2.is_head
         , 'client_reg_name' , ir.registration_name_c
         , 'client_name_original' , ir.client_name_c
         , 'client_name' , coalesce(acc.household_name , acc2.household_name)
@@ -337,13 +339,13 @@ left join cte_lock_dates
 -- We join on date as first preference for account attributes.
 -- This is because over time the account record can change (i.e. advisor assignment).
 -- We want to know what it looked like at the time of billing.
-left join {{ ref('int_salesforce_compass_accounts') }} as acc-- historcial 
+left join {{ ref('salesforce_compass_accounts') }} as acc-- historcial 
     on ir.estate_item_c = acc.id
     and least(ir.invoice_date_c , ir.revenue_as_of_date_c) = acc.effective_date
     and acc.is_latest = 1
 -- If the join with date to the account record fails, we will go ahead
 -- and use the latest available version of the record.
-left join {{ ref('int_salesforce_compass_accounts') }} as acc2--current
+left join {{ ref('salesforce_compass_accounts') }} as acc2--current
     on ir.estate_item_c = acc2.id
     and acc2.is_head = 1
 left join {{ ref('dim_custodian_accounts') }} as dca
