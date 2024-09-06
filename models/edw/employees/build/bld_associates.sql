@@ -117,7 +117,7 @@ select
     , rn_employee_num
     , _created_at
     , _source_file
-    , is_head
+    , 0::int                               as is_head
     , _extra_fields
 from {{ ref('nml_adp_associates') }}
 where effective_at::date < '{{ effective_date_switchover }}'

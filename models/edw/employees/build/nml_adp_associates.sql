@@ -1,6 +1,32 @@
+--depends_on: {{ ref('adp_history__workers') }}
 {{ config(
     grants = {'select': ['engineering', 'security', 'datamanagement']}
 ) }}
+
+{{ config(
+    materialized = 'incremental',
+    incremental_strategy = 'delete+insert',
+    on_schema_change = 'sync_all_columns',
+    unique_key = ['effective_at::date'],
+    cluster_by = ['effective_at::date'],
+    grants = {'select': ['engineering', 'security', 'datamanagement']}
+) }}
+
+with cte_check as (
+    {%- if is_incremental() -%}
+        select
+            case
+                when (select max(_created_at) from {{ ref('adp_history__workers') }}) > (select max(_created_at) from {{ this }})
+                    then 1
+                when (select max(_created_at) from {{ ref('int_adp_employees_all') }}) > (select max(_created_at) from {{ this }})
+                    then 1
+                else 0
+            end::int as needs_update
+    {%- else -%}
+  select 0::int as needs_update
+  {%- endif -%}
+
+)
 
 select
     'adp'                                                             as system_name
@@ -143,3 +169,8 @@ left join {{ ref('active_directory__rpt_users') }} as man_ad
 left join {{ ref('locations') }} as l
     on e.position_cost_num_location_code = l.accounting_id
     and e.effective_at::date between coalesce(l.start_date , e.effective_at::date) and coalesce(l.end_date , e.effective_at::date)
+where 1 = 1
+    {%- if is_incremental() %}
+        and 1 = (select max(needs_update) from cte_check)
+    {%- endif -%}
+

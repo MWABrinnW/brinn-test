@@ -1,3 +1,28 @@
+--depends_on: {{ ref('adp_history__workers') }}
+{{ config(
+    materialized = 'incremental',
+    incremental_strategy = 'delete+insert',
+    on_schema_change = 'sync_all_columns',
+    unique_key = ['effective_at::date'],
+    cluster_by = ['effective_at::date']
+) }}
+
+with cte_check as (
+    {%- if is_incremental() -%}
+        select
+            case
+                when (select max(_created_at) from {{ ref('adp_history__workers') }}) > (select max(_created_at) from {{ this }})
+                    then 1
+                when (select max(_created_at) from {{ ref('int_adp_employees_initial_supplemented') }})
+                    > (select max(_created_at) from {{ this }})
+                    then 1
+                else 0
+            end::int as needs_update
+    {%- else -%}
+  select 0::int as needs_update
+  {%- endif -%}
+)
+
 select
     e.*
     exclude associate_work_phone
@@ -322,3 +347,7 @@ left join {{ ref('zoom_mwa__base_user_phone_assignments') }} as zoom
     and zoom.rn = 1
 where true
     and coalesce(e.is_deleted , 0) = 0
+    {%- if is_incremental() %}
+        and 1 = (select max(needs_update) from cte_check)
+    {%- endif -%}
+order by e.effective_at
