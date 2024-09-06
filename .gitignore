@@ -15,3 +15,4 @@ edr_target/
 package-lock.yml
 .github/scripts/line-counts.ps1
 justfile.me
+lint_failures.txt

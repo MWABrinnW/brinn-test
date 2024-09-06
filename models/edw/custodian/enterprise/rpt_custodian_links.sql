@@ -30,7 +30,7 @@ with cte_custodian_account_links as (
                 or custodian ilike '%ameritrade%'
                 then 'tda'
             else ''
-        end::text(100)                   as __custodian_key
+        end::text(500)                   as __custodian_key
         , financial_account_number_clean as account_number
         , location_code
         , case
@@ -56,33 +56,33 @@ with cte_custodian_account_links as (
 
 , cte_summary as (
     select
-        custodian                                                        as custodian
-        , link                                                           as link
-        , null::date                                                     as effective_start_date
-        , null::date                                                     as effective_end_date
-        , firm_source                                                    as firm_source
-        , max(link_type)                                                 as link_type
-        , max(link_subtype)                                              as link_subtype
-        , max(link_description)                                          as link_description
-        , max(link_subtype_detail)                                       as link_subtype_detail
-        , max(description)                                               as description
-        , max(notes)                                                     as notes
-        , 1::int                                                         as exists_in_feed
-        , exists_in_map                                                  as exists_in_map
-        , is_deceased                                                    as is_deceased
-        , has_trading_authority                                          as has_trading_authority
-        , location_code                                                  as location_code
-        , advisor_email                                                  as advisor_email
-        , count(distinct account_number)                                 as cnt_accounts
-        , sum(is_mapped)                                                 as cnt_mapped
-        , count(distinct location_code_mapped)                           as cnt_locations
-        , count(distinct advisor_mapped)                                 as cnt_advisor
+        custodian                                                as custodian
+        , link                                                   as link
+        , null::date                                             as effective_start_date
+        , null::date                                             as effective_end_date
+        , firm_source                                            as firm_source
+        , max(link_type)                                         as link_type
+        , max(link_subtype)                                      as link_subtype
+        , max(link_description)                                  as link_description
+        , max(link_subtype_detail)                               as link_subtype_detail
+        , max(description)                                       as description
+        , max(notes)                                             as notes
+        , 1::int                                                 as exists_in_feed
+        , exists_in_map                                          as exists_in_map
+        , is_deceased                                            as is_deceased
+        , has_trading_authority                                  as has_trading_authority
+        , location_code                                          as location_code
+        , advisor_email                                          as advisor_email
+        , count(distinct account_number)                         as cnt_accounts
+        , sum(is_mapped)                                         as cnt_mapped
+        , count(distinct location_code_mapped)                   as cnt_locations
+        , count(distinct advisor_mapped)                         as cnt_advisor
         --, case when cnt_locations = 1 then 1 else 0 end                  as is_location_one_to_one
         --, case when cnt_advisor = 1 then 1 else 0 end                    as is_advisor_one_to_one
         --, case when cnt_locations = 1 then max(location_code_mapped) end as location_code_derived
-        , case when cnt_advisor = 1 then max(advisor_mapped) end         as advisor_derived
-        , max(_source_loaded_at::timestamp)                              as _feed_loaded_at
-        , max(_map_loaded_at)                                            as _map_loaded_at
+        , case when cnt_advisor = 1 then max(advisor_mapped) end as advisor_derived
+        , max(_source_loaded_at::timestamp)                      as _feed_loaded_at
+        , max(_map_loaded_at)                                    as _map_loaded_at
     from cte_account_links_to_master
     group by all
 
@@ -96,8 +96,8 @@ with cte_custodian_account_links as (
         , firm_source           as firm_source
         , link_type             as link_type
         , link_subtype          as link_subtype
-        , null::text(200)       as link_description
-        , null::text(200)       as link_subtype_detail
+        , null::text(500)       as link_description
+        , null::text(500)       as link_subtype_detail
         , description           as description
         , notes                 as notes
         , 0::int                as exists_in_feed
@@ -112,8 +112,8 @@ with cte_custodian_account_links as (
         , null::int             as cnt_advisor
         --, null::int             as is_location_one_to_one
         --, null::int             as is_advisor_one_to_one
-        --, null::text(200)       as location_code_derived
-        , null::text(200)       as advisor_derived
+        --, null::text(500)       as location_code_derived
+        , null::text(500)       as advisor_derived
         , null::timestamp       as _feed_loaded_at
         , _source_loaded_at     as _map_loaded_at
     from {{ ref('aux__stg_custodian_links') }}

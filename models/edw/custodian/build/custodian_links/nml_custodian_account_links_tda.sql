@@ -8,8 +8,8 @@ select
     , a.account_number            as account_number
     , a._rep_code                 as link
     , 'rep_code'                  as link_type
-    , null::text(200)             as link_subtype
-    , null::text(200)             as link_description
+    , null::text(500)             as link_subtype
+    , null::text(500)             as link_description
     , cc.link_subtype_detail      as link_subtype_detail
     , cc.location_code            as location_code
     , cc.advisor_email            as advisor_email
@@ -26,7 +26,7 @@ select
     , {{ col_is_current(date_col='effective_date') }}
     , a._source_loaded_at         as _source_loaded_at
     , a._source_file              as _source_file
-    , null::text(200)             as _checksum
+    , null::text(500)             as _checksum
     , max(cc._source_loaded_at)
         over (partition by 1 = 1) as _map_loaded_at
 from {{ ref('tda__int_accounts') }} as a

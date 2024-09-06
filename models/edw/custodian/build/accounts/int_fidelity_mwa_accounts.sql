@@ -239,7 +239,7 @@ with cte_effective_dates_out_of_date as
                         , nvl(p.fixed_format_last_name_3, '')
                         )
                     end,
-              '(\\s{2,})', ' '), ' ,', ','), '')::varchar(200)
+              '(\\s{2,})', ' '), ' ,', ','), '')::varchar(500)
           end                                                     as account_title
     from {{ ref('fidelity_mwa_history__vw_nabase_101_account') }} a
     left join {{ ref('fidelity_mwa_history__vw_nabase_102_business') }} b
@@ -295,15 +295,15 @@ select
         when a.prime_broker_indicator in ('j', 'k', 'l', 'm', 'n')
             then 1
         else 0 end                                             as is_prime_broker
-  , case 
+  , case
         when a.portfolio_margin_indicator = 'P'
             then 1
         else 0 end                                             as is_margin_enabled
-  , case 
+  , case
         when a.multiple_margin_indicator = 'Y'
             then 1
         else 0 end                                             as is_multiple_margin_enabled
-  , a.option_agreement                                         as options_approval_level        
+  , a.option_agreement                                         as options_approval_level
   , a.restriction_code_partial                                 as restrictions_source_code
   , ltrim(regexp_replace(concat_ws(' '
                              , nvl(ma.fixed_format_address_line_1, '')
@@ -325,7 +325,10 @@ select
   , la.fixed_format_state                                      as legal_address_state
   , la.fixed_format_postal_code                                as legal_address_zip
   , la.country_name                                            as legal_address_country
-  , {{ col_is_head(reference=ref('fidelity_mwa_history__vw_nabase_101_account'), source_date_col='a.effective_date') }}
+  , {{ col_is_head(
+      reference=ref('fidelity_mwa_history__vw_nabase_101_account'),
+      source_date_col='a.effective_date'
+      ) }}
   , {{ col_is_current(date_col='a.effective_date') }}
   , current_timestamp()::timestamp                             as _created_at
   , a._source_loaded_at::timestamp                             as _source_loaded_at
@@ -356,6 +359,4 @@ where true
           custom_condition_only = true,
           custom_condition = 'a.effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
     ) }}
-
-{%- endif -%}
-
+{%- endif %}

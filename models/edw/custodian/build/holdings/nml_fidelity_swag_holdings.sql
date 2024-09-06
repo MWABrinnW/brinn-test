@@ -48,22 +48,22 @@ select
 
     , cb.cost_basis::decimal(19 , 9)           as cost_basis
 
-    , p.cusip::varchar(200)                    as security_id_source
+    , p.cusip::varchar(500)                    as security_id_source
 
-    , s2.symbol::varchar(100)                  as underlying_ticker
-    , s1.underlying_cusip::varchar(100)        as underlying_cusip
-    , s1.underlying_cusip::varchar(100)        as underlying_security_id_source
+    , s2.symbol::varchar(500)                  as underlying_ticker
+    , s1.underlying_cusip::varchar(500)        as underlying_cusip
+    , s1.underlying_cusip::varchar(500)        as underlying_security_id_source
 
-    , cmpt.normalized::varchar(100)            as product_type
-    , cmpt.definition::varchar(100)            as product_type_source_definition
-    , p.product_code::text(200)                as product_type_source_code
+    , cmpt.normalized::varchar(500)            as product_type
+    , cmpt.definition::varchar(500)            as product_type_source_definition
+    , p.product_code::text(500)                as product_type_source_code
 
-    , cmat.normalized::varchar(100)            as account_type
-    , cmat.definition::varchar(100)            as account_type_source
-    , p.account_type::varchar(100)             as account_type_source_code
+    , cmat.normalized::varchar(500)            as account_type
+    , cmat.definition::varchar(500)            as account_type_source
+    , p.account_type::varchar(500)             as account_type_source_code
 
-    , p.isin::varchar(200)                     as isin
-    , p.sedol::varchar(200)                    as sedol
+    , p.isin::varchar(500)                     as isin
+    , p.sedol::varchar(500)                    as sedol
 
     , null::variant                            as extra_fields
 

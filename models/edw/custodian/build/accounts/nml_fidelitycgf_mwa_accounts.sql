@@ -7,32 +7,32 @@ select
     , a.cgf_account_number as account_number_formatted
     , a.g_number           as custodian_link-- branch/firm/gnumber? primary g number but how?
     , 'g_number'           as custodian_link_detail
-    , null::varchar(50)    as rep_link
-    , null::varchar(50)    as rep_link_detail
-    , null::varchar(50)    as account_type
-    , null::varchar(50)    as account_type_source_definition
+    , null::varchar(500)   as rep_link
+    , null::varchar(500)   as rep_link_detail
+    , null::varchar(500)   as account_type
+    , null::varchar(500)   as account_type_source_definition
     , null                 as account_type_source_code--account_classification or account_type
     , null::date           as opened_date
-    , null::varchar(200)   as account_title
+    , null::varchar(500)   as account_title
     , a.first_name         as first_name
     , a.middle_name        as middle_name
     , a.last_name          as last_name
     , null::varchar(20)    as irs_id
-    , null::varchar(10)    as irs_id_type
+    , null::varchar(500)   as irs_id_type
     , a.date_of_birth      as birth_date
-    , null::varchar(75)    as email_address
+    , null::varchar(500)   as email_address
     , null::varchar(20)    as phone
-    , null::varchar(50)    as cost_basis_method_mutual_funds
-    , null::varchar(50)    as cost_basis_method_non_mutual_funds
+    , null::varchar(500)   as cost_basis_method_mutual_funds
+    , null::varchar(500)   as cost_basis_method_non_mutual_funds
     , null::int            as is_taxable
     , null::int            as is_fee_authorized
     , null::int            as is_prime_broker
     , null::int            as is_margin_enabled
-    , null::varchar(200)   as options_approval_level
-    , null::varchar(75)    as restrictions_source_code
+    , null::varchar(500)   as options_approval_level
+    , null::varchar(500)   as restrictions_source_code
     , null::int            as is_multiple_margin_enabled
-    , null::varchar(75)    as restrictions_source_definition
-    , null::varchar(75)    as restrictions
+    , null::varchar(500)   as restrictions_source_definition
+    , null::varchar(500)   as restrictions
     , case
         when a.address_line_3 is not null then concat_ws(', ' , a.address_line_1 , a.address_line_2 , a.address_line_3)
         when a.address_line_2 is not null then concat_ws(', ' , a.address_line_1 , a.address_line_2)

@@ -6,8 +6,8 @@ select
     , firm_source           as firm_source
     , link_type             as link_type
     , link_subtype          as link_subtype
-    , null::text(200)       as link_description
-    , null::text(200)       as link_subtype_detail
+    , null::text(500)       as link_description
+    , null::text(500)       as link_subtype_detail
     , description           as description
     , notes                 as notes
     , location_code         as location_code

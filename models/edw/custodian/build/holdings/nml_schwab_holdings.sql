@@ -25,12 +25,12 @@ select
     , cmsd.normalized                                               as security_type
     , cmsd.definition                                               as source_security_type
     , p.legacy_security_type                                        as source_security_type_code
-    , null::varchar(100)                                            as account_type
-    , null::varchar(100)                                            as source_account_type_code
+    , null::varchar(500)                                            as account_type
+    , null::varchar(500)                                            as source_account_type_code
     , p.is_head                                                     as is_head
     , p.is_current                                                  as is_current
     , p._source_loaded_at                                           as _source_loaded_at
-    , null::varchar(200)                                            as _source_file
+    , null::varchar(500)                                            as _source_file
     , case
         when p.ticker_symbol is null and p.cusip is null
             and cmsd.definition not in ('Put Option' , 'Call Option')
@@ -61,6 +61,7 @@ left join {{ ref('custodian_mappings') }} as cmsd
     and p.legacy_security_type = cmsd.source
 where true
     and p.rn = 1
-qualify row_number() over(
-    partition by p.effective_date, p.account_number, p.cusip, ticker, p.item_issue_id, source_account_type
-    order by nvl(pcb.cost_basis_unamortized_cost_basis_amount,0) desc) = 1
+qualify row_number() over (
+    partition by p.effective_date , p.account_number , p.cusip , ticker , p.item_issue_id , source_account_type
+    order by coalesce(pcb.cost_basis_unamortized_cost_basis_amount , 0) desc
+) = 1

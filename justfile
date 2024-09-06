@@ -65,3 +65,13 @@ alias fc := fix_changed
 @lint_changed:
   ./sqlfluff.ps1 -do lint
 alias lc := lint_changed
+
+# Run sqlfluff fix on the cached failed files from previous run.
+@fix_failed:
+  ./sqlfluff.ps1 -do fix -select failed
+alias ff := fix_failed
+
+# Run sqlfluff lint on the cached failed files from previous run.
+@lint_failed:
+  ./sqlfluff.ps1 -do lint -select failed
+alias lf := lint_failed

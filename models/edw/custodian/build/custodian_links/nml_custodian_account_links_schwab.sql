@@ -56,7 +56,7 @@ select
     , a.master_account_number                 as clink
     , 'master_number'                         as clink_type
     , coalesce(cc.link_subtype , 'sl_master') as clink_subtype
-    , null::text(200)                         as clink_description
+    , null::text(500)                         as clink_description
     , cc.link_subtype_detail                  as clink_subtype_detail
     , cc.location_code                        as location_code
     , cc.advisor_email                        as advisor_email
@@ -73,7 +73,7 @@ select
     , a.is_current                            as is_current
     , a._source_loaded_at                     as _source_loaded_at
     , a._source_file                          as _source_file
-    , null::text(200)                         as _checksum
+    , null::text(500)                         as _checksum
     , max(cc._source_loaded_at)
         over (partition by 1 = 1)             as _map_loaded_at
 from {{ ref('schwab__base_master_accounts_mapping') }} as a

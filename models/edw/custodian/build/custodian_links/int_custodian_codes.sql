@@ -38,7 +38,7 @@ select
         when _office_location ilike '%msec%'
             then 'msec'
         else 'mwa'
-    end::text(200)                                                   as firm_source
+    end::text(500)                                                   as firm_source
     , _link                                                          as link
     , case
         when custodian = 'schwab'
@@ -49,7 +49,7 @@ select
             then 'rep_code'
         when custodian = 'pershing'
             then 'investment_professional_number'
-    end::text(100)                                                   as link_type
+    end::text(500)                                                   as link_type
     , case
         when custodian = 'schwab' and _type ilike 'sl'
             then 'sl_master'
@@ -65,9 +65,9 @@ select
             then 'primary'
         when custodian = 'pershing'
             then 'investment_professional_number'
-    end::text(100)                                                   as link_subtype
+    end::text(500)                                                   as link_subtype
     , _type                                                          as link_subtype_detail
-    --, null::text(200)                                                as custodian_link_description
+    --, null::text(500)                                                as custodian_link_description
     , _description                                                   as description
     , _notes                                                         as notes
     , _location_code                                                 as location_code

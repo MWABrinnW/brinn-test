@@ -200,10 +200,10 @@ select count(*) as cnt from cte_dates_to_refresh
         , firm_source                   as firm_source
         , account_number                as account_number
         , account_number_formatted      as account_number_formatted
-        , '_CASH_'::text(200)           as symbol
-        , '_CASH_'::text(200)           as ticker
-        , null::text(200)               as cusip
-        , 'CASH'::text(200)             as security_name_source
+        , '_CASH_'::text(500)           as symbol
+        , '_CASH_'::text(500)           as ticker
+        , null::text(500)               as cusip
+        , 'CASH'::text(500)             as security_name_source
         , 1::int                        as is_cash
         , 1::int                        as is_sweep
         , total_cash_value::decimal(15, 2) as market_value
@@ -215,18 +215,18 @@ select count(*) as cnt from cte_dates_to_refresh
         , null::decimal(20, 5)          as price_unfactored
         , null::decimal(20, 5)          as factor
         , null::decimal(20, 5)          as cost_basis
-        , null::text(200)               as security_id_source
-        , null::text(200)               as underlying_ticker
-        , null::text(200)               as underlying_cusip
-        , null::text(200)               as underlying_security_id_source
-        , null::text(200)               as product_type
-        , null::text(200)               as product_type_source_definition
-        , null::text(200)               as product_type_source_code
-        , null::text(200)               as account_type
-        , null::text(200)               as account_type_source
-        , null::text(200)               as account_type_source_code
-        , null::text(200)               as isin
-        , null::text(200)               as sedol
+        , null::text(500)               as security_id_source
+        , null::text(500)               as underlying_ticker
+        , null::text(500)               as underlying_cusip
+        , null::text(500)               as underlying_security_id_source
+        , null::text(500)               as product_type
+        , null::text(500)               as product_type_source_definition
+        , null::text(500)               as product_type_source_code
+        , null::text(500)               as account_type
+        , null::text(500)               as account_type_source
+        , null::text(500)               as account_type_source_code
+        , null::text(500)               as isin
+        , null::text(500)               as sedol
         , null::variant                 as extra_fields
         , is_head                       as is_head
         , is_current                    as is_current
@@ -269,7 +269,7 @@ select
         when h.product_type_source_definition ilike any ('EQUITY OPTION', 'OPTION INDEX', 'option - %')
             then 'Option'
         else null
-        end::text(200)      as security_type
+        end::text(500)      as security_type
     , h.security_name_source
 
     , h.is_cash

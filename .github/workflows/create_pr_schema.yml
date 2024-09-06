@@ -100,6 +100,12 @@ jobs:
           echo "cache-hit: ${{ steps.cache-dbt-packages.outputs.cache-hit }}"
           if ('${{ steps.cache-dbt-packages.outputs.cache-hit }}' -ne 'true') {dbt deps} else {echo "Using cached dbt packages"}
 
+      - name: dbt clone
+        shell: pwsh
+        run: |
+          .\utilities\.venv\Scripts\Activate.ps1
+          dbt clone --target=$env:DBT_TARGET --select state:modified+1,config.materialized:incremental,state:old
+
       - name: dbt build
         shell: pwsh
         run: |

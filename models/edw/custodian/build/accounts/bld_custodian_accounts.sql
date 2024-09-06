@@ -25,16 +25,15 @@
     ]
 -%}
 
-with cte_max_created_at as
-(
+with cte_max_created_at as (
     {%- if is_incremental() -%}
     select max(_created_at) as _created_at from {{ this }}
     {%- else -%}
     select null::timestamp as _created_at
     {%- endif -%}
 )
-,cte_effective_dates_out_of_date as
-(
+
+,cte_effective_dates_out_of_date as (
     {% for nml_model in source_models -%}
     {%- set parts = nml_model.split('_') -%}
     {%- set custodian = parts[1] -%}
@@ -53,7 +52,11 @@ with cte_max_created_at as
 
     select distinct effective_date, {{"'" ~ nml_model ~ "'"}} as model_source
     from {{ ref(nml_model) }}
-    where effective_date not in (select distinct effective_date from {{ this }} where replace(custodian,'-','') = '{{custodian}}' and firm_source = '{{firm_source}}')
+    where effective_date not in (
+        select distinct effective_date
+        from {{ this }}
+        where replace(custodian,'-','') = '{{custodian}}' and firm_source = '{{firm_source}}'
+        )
     {%- endif -%}
 
     {%- if not loop.last %}
@@ -63,8 +66,8 @@ with cte_max_created_at as
     {% endif -%}
     {%- endfor %}
 )
-,cte_accounts as
-(
+
+,cte_accounts as (
     {% for nml_model in source_models -%}
     select * exclude _created_at
     from {{ ref(nml_model) }}
@@ -85,8 +88,8 @@ with cte_max_created_at as
     {% endif -%}
     {%- endfor %}
 )
-,cte_cash as
-(
+
+,cte_cash as (
     select
           effective_date
         , custodian
@@ -107,8 +110,8 @@ with cte_max_created_at as
             custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
         ) }}
 )
-,cte_holdings as
-(
+
+,cte_holdings as (
     select
           effective_date
         , custodian
@@ -138,70 +141,74 @@ with cte_max_created_at as
     group by effective_date, custodian, firm, firm_source
             , account_number, account_number_formatted
 )
-,cte_accounts_with_values as
-(
+
+,cte_accounts_with_values as (
     select
-          a.effective_date
-        , a.custodian
-        , a.firm
-        , a.firm_source
-        , a.account_number
-        , a.account_number_formatted
-        , a.custodian_link
-        , a.custodian_link_detail
-        , a.rep_link
-        , a.rep_link_detail
-        , h.total_value                         as total_value
-        , h.cash_value                          as cash_value
-        , a.account_type
-        , a.account_type_source_definition
-        , a.account_type_source_code
-        , a.opened_date
-        , a.account_title
-        , a.first_name
-        , a.middle_name
-        , a.last_name
-        , a.irs_id
-        , a.irs_id_type
-        , a.birth_date
-        , a.email_address
-        , a.phone
-        , a.cost_basis_method_mutual_funds
-        , a.cost_basis_method_non_mutual_funds
-        , a.is_taxable
-        , a.is_fee_authorized
-        , a.is_prime_broker
-        , a.is_margin_enabled
-        , a.is_multiple_margin_enabled
-        , a.options_approval_level
-        , a.restrictions_source_code
-        , a.restrictions_source_definition
-        , a.restrictions
-        , a.mailing_address_street
-        , a.mailing_address_city
-        , a.mailing_address_state
-        , a.mailing_address_zip
-        , a.legal_address_street
-        , a.legal_address_city
-        , a.legal_address_state
-        , a.legal_address_zip
-        , a.legal_address_country
-        , a.is_head
-        , a.is_current
-        , a._source_loaded_at
-        , a._source_file
-    from cte_accounts a
-    left join cte_holdings h
+        a.effective_date
+        , a.custodian::text(200)                          as custodian
+        , a.firm::text(200)                               as firm
+        , a.firm_source::text(200)                        as firm_source
+        , a.account_number::text(200)                     as account_number
+        , a.account_number_formatted::text(200)           as account_number_formatted
+        , a.custodian_link::text(200)                     as custodian_link
+        , a.custodian_link_detail::text(200)              as custodian_link_detail
+        , a.rep_link::text(200)                           as rep_link
+        , a.rep_link_detail::text(200)                    as rep_link_detail
+        , h.total_value                                   as total_value
+        , h.cash_value                                    as cash_value
+        , a.account_type::text(200)                       as account_type
+        , a.account_type_source_definition::text(200)     as account_type_source_definition
+        , a.account_type_source_code::text(200)           as account_type_source_code
+        , a.opened_date::date                             as opened_date
+        , a.account_title::text(200)                      as account_title
+        , a.first_name::text(200)                         as first_name
+        , a.middle_name::text(200)                        as middle_name
+        , a.last_name::text(200)                          as last_name
+        , a.irs_id::text(200)                             as irs_id
+        , a.irs_id_type::text(200)                        as irs_id_type
+        , a.birth_date::date                              as birth_date
+        , a.email_address::text(200)                      as email_address
+        , a.phone::text(200)                              as phone
+        , a.cost_basis_method_mutual_funds::text(200)     as cost_basis_method_mutual_funds
+        , a.cost_basis_method_non_mutual_funds::text(200) as cost_basis_method_non_mutual_funds
+        , a.is_taxable::int                               as is_taxable
+        , a.is_fee_authorized::int                        as is_fee_authorized
+        , a.is_prime_broker::int                          as is_prime_broker
+        , a.is_margin_enabled::int                        as is_margin_enabled
+        , a.is_multiple_margin_enabled::int               as is_multiple_margin_enabled
+        , a.options_approval_level::text(200)             as options_approval_level
+        , a.restrictions_source_code::text(200)           as restrictions_source_code
+        , a.restrictions_source_definition::text(200)     as restrictions_source_definition
+        , a.restrictions::text(200)                       as restrictions
+        , a.mailing_address_street::text(200)             as mailing_address_street
+        , a.mailing_address_city::text(200)               as mailing_address_city
+        , a.mailing_address_state::text(200)              as mailing_address_state
+        , a.mailing_address_zip::text(200)                as mailing_address_zip
+        , a.legal_address_street::text(200)               as legal_address_street
+        , a.legal_address_city::text(200)                 as legal_address_city
+        , a.legal_address_state::text(200)                as legal_address_state
+        , a.legal_address_zip::text(200)                  as legal_address_zip
+        , a.legal_address_country::text(200)              as legal_address_country
+        , a.is_head::int                                  as is_head
+        , a.is_current::int                               as is_current
+        , a._source_loaded_at::timestamp                  as _source_loaded_at
+        , a._source_file::text(200)                       as _source_file
+    from cte_accounts as a
+    left join cte_holdings as h
         on a.effective_date = h.effective_date
         and a.custodian = h.custodian
         and a.firm_source = h.firm_source
         and a.account_number = h.account_number
-)
+    )
 
 select
     *
-    , row_number() over(partition by effective_date, custodian, firm_source, account_number order by _source_loaded_at desc) as rn_firm_source
+    , row_number() over(
+        partition by effective_date, custodian, firm_source, account_number
+        order by _source_loaded_at desc
+        ) as rn_firm_source
     , row_number() over(partition by effective_date, custodian, account_number
-                    order by {{ firm_source_rank() }}) as rn_global
+                    order by {{ firm_source_rank() }}
+                    ) as rn_global
     , current_timestamp()::timestamp as _created_at
 from cte_accounts_with_values

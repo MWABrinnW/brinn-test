@@ -12,7 +12,7 @@ select
         when max(a.is_primary) over (partition by a.effective_date , a.gnum) = 1
             then 'primary'
         else 'secondary'
-    end::text(100)                as link_subtype
+    end::text(500)                as link_subtype
     , a.gnum_name                 as link_description
     , cc.link_subtype_detail      as link_subtype_detail
     , cc.location_code            as location_code

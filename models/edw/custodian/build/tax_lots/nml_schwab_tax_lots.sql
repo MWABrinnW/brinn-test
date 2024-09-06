@@ -14,7 +14,7 @@ select
         , t.cusip
         , s.security_description_line_1
         , cmpt.definition
-    )::text(200)                                 as symbol
+    )::text(500)                                 as symbol
     , t.symbol_ticker                            as ticker
     , t.cusip                                    as cusip
     , t.current_quantity                         as quantity
@@ -46,29 +46,29 @@ select
     end::int                                     as is_short
     , try_to_boolean(t.wash_sale_impacted)::int  as is_wash_sale
 
-    , null::varchar(100)                         as lot_id_source
-    , t.item_issue_id::text(200)                 as security_id_source
+    , null::varchar(500)                         as lot_id_source
+    , t.item_issue_id::text(500)                 as security_id_source
 
-    , t.options_display_symbol::text(200)        as option_ticker
-    , s.option_call_or_put_code::text(200)       as option_indicator
+    , t.options_display_symbol::text(500)        as option_ticker
+    , s.option_call_or_put_code::text(500)       as option_indicator
     , s.option_expiration_date::date             as option_expiration_date
     , s.strike_price_amount::decimal(20 , 5)     as option_strike_price
 
-    , t.isin::text(200)                          as isin
-    , t.sedol::text(200)                         as sedol
+    , t.isin::text(500)                          as isin
+    , t.sedol::text(500)                         as sedol
 
-    , cmpt.normalized::text(200)                 as product_type
-    , cmpt.definition::text(200)                 as product_type_source_definition
-    , t.product_code::text(200)                  as product_type_source_code
+    , cmpt.normalized::text(500)                 as product_type
+    , cmpt.definition::text(500)                 as product_type_source_definition
+    , t.product_code::text(500)                  as product_type_source_code
 
-    , cmsd.normalized::text(200)                 as legacy_product_type
-    , cmsd.definition::text(200)                 as legacy_product_type_source_definition
-    , t.product_code::text(200)                  as legacy_product_type_source_code
+    , cmsd.normalized::text(500)                 as legacy_product_type
+    , cmsd.definition::text(500)                 as legacy_product_type_source_definition
+    , t.product_code::text(500)                  as legacy_product_type_source_code
 
     , t.is_head                                  as is_head
     , t.is_current                               as is_current
     , t._source_loaded_at                        as _source_loaded_at
-    , t._source_file::text(200)                  as _source_file
+    , t._source_file::text(500)                  as _source_file
     , object_construct(
         'product_category_code' , t.product_category_code
     )::variant                                   as _extra_fields
