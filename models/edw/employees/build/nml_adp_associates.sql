@@ -1,8 +1,4 @@
---depends_on: {{ ref('adp_history__workers') }}
-{{ config(
-    grants = {'select': ['engineering', 'security', 'datamanagement']}
-) }}
-
+--depends_on: {{ ref('adp_history__base_workers') }}
 {{ config(
     materialized = 'incremental',
     incremental_strategy = 'delete+insert',
@@ -13,19 +9,20 @@
 ) }}
 
 with cte_check as (
-    {%- if is_incremental() -%}
+    {%- if is_incremental() %}
         select
             case
-                when (select max(_created_at) from {{ ref('adp_history__workers') }}) > (select max(_created_at) from {{ this }})
+                when (select max(_created_at) from {{ ref('adp_history__base_workers') }})
+                    > coalesce((select max(_created_at) from {{ this }}) , '1900-01-01'::date::timestamp)
                     then 1
-                when (select max(_created_at) from {{ ref('int_adp_employees_all') }}) > (select max(_created_at) from {{ this }})
+                when (select max(_created_at) from {{ ref('int_adp_employees_all') }})
+                    > coalesce((select max(_created_at) from {{ this }}) , '1900-01-01'::date::timestamp)
                     then 1
                 else 0
             end::int as needs_update
     {%- else -%}
   select 0::int as needs_update
-  {%- endif -%}
-
+  {%- endif %}
 )
 
 select
@@ -145,7 +142,7 @@ select
             , case when e.position_id ilike '67%' then 1 else 2 end
     )                                                                 as rn_employee_num
 
-    , null::timestamp                                                 as _created_at
+    , current_timestamp()::timestamp_ntz                              as _created_at
     , null::text                                                      as _source_file
 
     , e.is_head                                                       as is_head
@@ -172,5 +169,4 @@ left join {{ ref('locations') }} as l
 where 1 = 1
     {%- if is_incremental() %}
         and 1 = (select max(needs_update) from cte_check)
-    {%- endif -%}
-
+    {%- endif %}
