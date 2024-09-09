@@ -45,56 +45,56 @@ with cte_dates as (
 )
 
 select
-    a.record_id::varchar(200)                                                     as record_id
-    , a.system_name::varchar(200)                                                 as system_name
-    , a.system_details::varchar(200)                                              as system_details
-    , a.redtail_id::varchar(200)                                                  as redtail_id
-    , a.advisor_full_name::varchar(200)                                           as advisor_full_name
-    , a.advisor_first_name::varchar(200)                                          as advisor_first_name
-    , a.advisor_last_name::varchar(200)                                           as advisor_last_name
+    a.record_id::varchar(500)                                                     as record_id
+    , a.system_name::varchar(500)                                                 as system_name
+    , a.system_details::varchar(500)                                              as system_details
+    , a.redtail_id::varchar(500)                                                  as redtail_id
+    , a.advisor_full_name::varchar(500)                                           as advisor_full_name
+    , a.advisor_first_name::varchar(500)                                          as advisor_first_name
+    , a.advisor_last_name::varchar(500)                                           as advisor_last_name
     , a.advisor_active_ind::boolean                                               as advisor_active_ind
-    , a.advisor_firm_name::varchar(200)                                           as advisor_firm_name
+    , a.advisor_firm_name::varchar(500)                                           as advisor_firm_name
     , a.advisor_start_date::date                                                  as advisor_start_date
-    , a.advisor_termination_date::varchar(200)                                    as advisor_termination_date
-    , a.advisor_age_band::varchar(200)                                            as advisor_age_band
-    , a.advisor_years_of_service::varchar(200)                                    as advisor_years_of_service
-    , a.work_site_address_1::varchar(200)                                         as work_site_address_1
-    , a.work_site_address_2::varchar(200)                                         as work_site_address_2
-    , a.work_site_city::varchar(200)                                              as work_site_city
-    , a.work_site_state::varchar(200)                                             as work_site_state
-    , a.work_site_zip_code::varchar(200)                                          as work_site_zip_code
-    , a.work_phone::varchar(200)                                                  as work_phone
-    , a.work_email::varchar(200)                                                  as work_email
-    , a.redtail_category::varchar(200)                                            as redtail_category
-    , a.redtail_status::varchar(200)                                              as redtail_status
-    , a.service_tier::varchar(200)                                                as service_tier
+    , a.advisor_termination_date::varchar(500)                                    as advisor_termination_date
+    , a.advisor_age_band::varchar(500)                                            as advisor_age_band
+    , a.advisor_years_of_service::varchar(500)                                    as advisor_years_of_service
+    , a.work_site_address_1::varchar(500)                                         as work_site_address_1
+    , a.work_site_address_2::varchar(500)                                         as work_site_address_2
+    , a.work_site_city::varchar(500)                                              as work_site_city
+    , a.work_site_state::varchar(500)                                             as work_site_state
+    , a.work_site_zip_code::varchar(500)                                          as work_site_zip_code
+    , a.work_phone::varchar(500)                                                  as work_phone
+    , a.work_email::varchar(500)                                                  as work_email
+    , a.redtail_category::varchar(500)                                            as redtail_category
+    , a.redtail_status::varchar(500)                                              as redtail_status
+    , a.service_tier::varchar(500)                                                as service_tier
     , a.house_accounts_ind::boolean                                               as house_accounts_ind
     , a.legacy_mps_advisor_ind::boolean                                           as legacy_mps_advisor_ind
-    , a.affiliation_model::varchar(200)                                           as affiliation_model
+    , a.affiliation_model::varchar(500)                                           as affiliation_model
     , a.start_this_month::int                                                     as start_this_month
     , a.end_this_month::int                                                       as end_this_month
     , a.new_this_month::int                                                       as new_this_month
     , a.lost_this_month::int                                                      as lost_this_month
     , a.other_adj_this_month::int                                                 as other_adj_this_month
     , a.affiliation_model_change::int                                             as affiliation_model_change
-    , a.prior_affiliation_model::varchar(200)                                     as prior_affiliation_model
-    , a.advisor_status_change_date::varchar(200)                                  as advisor_status_change_date
-    , a.advisor_status_notes::varchar(200)                                        as advisor_status_notes
-    , a.termination_type::varchar(200)                                            as termination_type
-    , a.termination_reason::varchar(200)                                          as termination_reason
-    , a.firm_id::varchar(200)                                                     as firm_id
-    , a.lpl_master_rep_id::varchar(200)                                           as lpl_master_rep_id
-    , a.individual_crd::varchar(200)                                              as individual_crd
-    , a.broker_dealer::varchar(200)                                               as broker_dealer
-    , a.custodian::varchar(200)                                                   as custodian
-    , a.pms_system::varchar(200)                                                  as pms_system
-    , a.crm_system::varchar(200)                                                  as crm_system
-    , a.location_code::varchar(200)                                               as location_code
-    , a.source_system_client_manager::varchar(200)                                as source_system_client_manager
-    , a.portfolio_consulting_ind::varchar(200)                                    as portfolio_consulting_ind
-    , a.hubspot_deal_id::varchar(200)                                             as hubspot_deal_id
-    , a.source_created_datetime::varchar(200)                                     as source_created_datetime
-    , a.added_by_name::varchar(200)                                               as added_by_name
+    , a.prior_affiliation_model::varchar(500)                                     as prior_affiliation_model
+    , a.advisor_status_change_date::varchar(500)                                  as advisor_status_change_date
+    , a.advisor_status_notes::varchar(500)                                        as advisor_status_notes
+    , a.termination_type::varchar(500)                                            as termination_type
+    , a.termination_reason::varchar(500)                                          as termination_reason
+    , a.firm_id::varchar(500)                                                     as firm_id
+    , a.lpl_master_rep_id::varchar(500)                                           as lpl_master_rep_id
+    , a.individual_crd::varchar(500)                                              as individual_crd
+    , a.broker_dealer::varchar(500)                                               as broker_dealer
+    , a.custodian::varchar(500)                                                   as custodian
+    , a.pms_system::varchar(500)                                                  as pms_system
+    , a.crm_system::varchar(500)                                                  as crm_system
+    , a.location_code::varchar(500)                                               as location_code
+    , a.source_system_client_manager::varchar(500)                                as source_system_client_manager
+    , a.portfolio_consulting_ind::varchar(500)                                    as portfolio_consulting_ind
+    , a.hubspot_deal_id::varchar(500)                                             as hubspot_deal_id
+    , a.source_created_datetime::varchar(500)                                     as source_created_datetime
+    , a.added_by_name::varchar(500)                                               as added_by_name
     , a.effective_date::date                                                      as effective_date
     , a.month_end_date::date                                                      as month_end_date
     , a.record_date::date                                                         as record_date
