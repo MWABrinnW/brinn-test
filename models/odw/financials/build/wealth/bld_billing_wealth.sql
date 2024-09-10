@@ -1,13 +1,19 @@
-{{
-    config(
-    materialized='table'
-) }}
+with cte_loc_adv as (
+    select
+        accounting_id
+        , location_code
+        , office_name
+        , start_date
+        , row_number() over (partition by accounting_id order by start_date desc) as rn
+    from {{ ref('locations') }}
+    qualify rn = 1
+)
 
-
-with cte_get_billing_freq as (
+, cte_billing_freq as (
     select
         nml.*
         , coalesce(nml.billing_frequency_source , ovrd_fee_type.billing_frequency)::varchar(200) as billing_frequency
+        , coalesce(nml.revenue_category , ovrd_fee_type.revenue_category)::varchar(200)          as _revenue_category
     from
         {{ ref('int_billing_wealth_01_union') }} as nml
     left join {{ ref('aux__stg_financials_fee_type') }} as ovrd_fee_type
@@ -18,7 +24,7 @@ with cte_get_billing_freq as (
 
 )
 
-, cte_normalize as (
+, cte_rev_period as (
     select
         *
         , case
@@ -63,7 +69,22 @@ with cte_get_billing_freq as (
             else last_day(dateadd('Month' , 0 , fee_calculation_date) , 'Month')
         end::date
             as revenue_period
-    from cte_get_billing_freq
+    from cte_billing_freq
+)
+
+-- returns accounting id (segment 3) for the advisor; otherwise from the client location
+, cte_finalize as (
+    select
+        nml.*
+        , coalesce(
+            nml.coa_segment_3_accounting_id
+            , case
+                when nml.advisor_nonadvisor ilike 'Advisor' and nml.associate_coa_segment_3 is not null
+                    then nml.associate_coa_segment_3
+                else nml.client_location_accounting_id
+            end
+        )::varchar(200) as _coa_segment_3_accounting_id
+    from cte_rev_period as nml
 )
 
 select
@@ -74,17 +95,17 @@ select
 
     -- [location]
     , case
-        when ass.advisor_nonadvisor ilike 'Advisor'
+        when nml.advisor_nonadvisor ilike 'Advisor'
             then loc_adv.location_code
-        else loc_cli.location_code
+        else nml.client_location_code
     end::varchar(200)                                                                               as location_code
     , case
-        when ass.advisor_nonadvisor ilike 'Advisor'
+        when nml.advisor_nonadvisor ilike 'Advisor'
             then loc_adv.office_name
-        else loc_cli.office_name
+        else nml.client_office_name
     end::varchar(200)                                                                               as office_name
-    , loc_cli.location_code::varchar(200)                                                           as client_location_code
-    , loc_cli.office_name::varchar(200)                                                             as client_office_name
+    , nml.client_location_code::varchar(200)                                                        as client_location_code
+    , nml.client_office_name::varchar(200)                                                          as client_office_name
 
     -- [financial dates]
     , nml.invoice_created_at::datetime                                                              as invoice_created_at
@@ -170,20 +191,12 @@ select
     , coalesce(nml.fee_type in ('Quarterly Fee' , 'Management fee') , false)::boolean
         as impacted_by_financial_markets
     , coalesce(
-        nml.coa_segment_1_legal_entity_id
-        , ass_coa.seg_1)::varchar(200)
+        nml.coa_segment_1_legal_entity_id , nml.associate_coa_segment_1
+    )::varchar(200)
         as coa_segment_1_legal_entity_id
-    , '000'::varchar(200)
-        as coa_segment_2_product_id
-    , coalesce(
-        nml.coa_segment_3_accounting_id
-        , case
-            when ass.advisor_nonadvisor ilike 'Advisor'
-                then ass_coa.seg_3
-            else loc_cli.accounting_id
-        end
-    )::varchar(200)                                                                                 as coa_segment_3_accounting_id
-    , ass_coa.seg_4::varchar(200)                                                                   as coa_segment_4_team_id
+    , '000'::varchar(200)                                                                           as coa_segment_2_product_id
+    , nml._coa_segment_3_accounting_id                                                              as coa_segment_3_accounting_id
+    , nml.associate_coa_segment_4::varchar(200)                                                     as coa_segment_4_team_id
     , coalesce(nml.coa_segment_5_natural_account_id , null)::varchar(200)
         as coa_segment_5_natural_account_id
     , '000'::varchar(200)
@@ -202,11 +215,7 @@ select
         , '-' , coa_segment_7_intercompany_id
         , '-' , coa_segment_8_future_id
     )                                                                                               as coa_account_number
-    , coalesce(
-        nml.revenue_category
-        , ovrd_fee_type.revenue_category
-    )::varchar(200
-    )                                                                                               as revenue_category
+    , nml._revenue_category::varchar(200)                                                           as revenue_category
     , initcap(nml.revenue_type::varchar(200))                                                       as revenue_type
 
     -- [crm]
@@ -250,31 +259,11 @@ select
     , nml._extra_fields::variant                                                                    as _extra_fields
 
 from
-    cte_normalize as nml
-left join {{ ref('bld_associates') }} as ass
-    on coalesce(nml.associate_id_original , nml.associate_id_primary) = ass.employee_num
-    and (ass.effective_at::date) = coalesce(nml.invoice_date , nml.revenue_period)
-
-left join {{ source('reporting_ext', 'associate_revenue_coding') }} as ass_coa
-    on (
-        coalesce(nml.associate_id_original , nml.associate_id_primary) = ass_coa.associate_id_adp
-        or coalesce(nml.associate_id_original , nml.associate_id_primary) = ass_coa.associate_id_oracle
-    )
-    and nml.invoice_date between coalesce(ass_coa.start_date , '1999-01-01')
-    and coalesce(ass_coa.end_date , '2099-12-31')
-    and ass_coa.is_latest = 1
+    cte_finalize as nml
 -- Joins to 'edw locations' on 'accounting id, segment 3', obtains advisor location
-left join {{ ref('locations') }} as loc_adv
-    on coalesce(nml.coa_segment_3_accounting_id , nml.client_location_code) = loc_adv.accounting_id-- ass_coa.seg_3
-    and nml.invoice_date between loc_adv.start_date and coalesce(loc_adv.end_date , '2099-12-31')
--- Joins to 'edw locations' on 'client location', used to obtain client location accounting id segment when non-advisor
-left join {{ ref('locations') }} as loc_cli
-    on nml.client_location_code = loc_cli.location_code
-    and nml.invoice_date between loc_cli.start_date and coalesce(loc_cli.end_date , '2099-12-31')
-left join {{ ref('aux__stg_financials_fee_type') }} as ovrd_fee_type
-    on nml.system_key = ovrd_fee_type.system_key
-    and lower(nml.fee_type) = lower(ovrd_fee_type.fee_type)
-where true
+left join cte_loc_adv as loc_adv
+    on nml._coa_segment_3_accounting_id = loc_adv.accounting_id
+    and loc_adv.rn = 1
 {% if target.name == 'prod' %}
         and nml.system_key in ('addepar__corbenic', 'black_diamond__houston', 'salesforce__compass', 'sei__manasquan')
     {% endif %}

@@ -47,3 +47,4 @@ sources:
     tags: ['reporting']
     tables:
       - name: revenue_legacy_history
+      - name: master_employee_coding

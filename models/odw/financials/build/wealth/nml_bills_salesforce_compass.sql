@@ -1,10 +1,3 @@
-with cte_lock_dates as (
-    select
-        '202309'::int        as period
-        , '10/23/2023'::date as lock_date
-)
-
-
 select
 
 -- [system attributes]
@@ -299,42 +292,14 @@ select
     -- and are intended to help with one off investigations or
     -- special analysis.
     , object_construct_keep_null(
-        'orion_bill_id' , ir.orion_bill_id_c
-        , 'orion_account_id' , ir.orion_account_id_c
-        , 'orion_client_id' , ir.orion_house_id_c
-        , 'revenue_quarter' , ir.revenue_quarter_c
-        , 'invoice_quarter' , ir.invoice_quarter_c
-        , 'revenue_as_of_date' , ir.revenue_as_of_date_c
-        , 'advisor_approved_date_c' , ir.advisor_approved_date_c
-        , 'finalized_date' , ir.date_finalized_c
-        , 'recon_date' , ir.recon_date_c
-        , 'invoice_created_at' , ir.created_date
-        , 'client_is_latest_org' , acc.is_latest
-        , 'client_is_head_org' , acc.is_head
-        , 'client_is_latest_pri' , acc2.is_latest
-        , 'client_is_head_pri' , acc2.is_head
-        , 'client_reg_name' , ir.registration_name_c
-        , 'client_name_original' , ir.client_name_c
+        'account_id' , coalesce(acc.estate_item_id , acc2.estate_item_id)
+        , 'client_id' , coalesce(acc.client_id , acc2.client_id)
+        , 'client_id_joins_on_origin' , iff(acc.client_id is not null , 1 , 0)
+        , 'client_id_joins_on_head' , iff(acc2.client_id is not null , 1 , 0)
         , 'client_name' , coalesce(acc.household_name , acc2.household_name)
-        , 'client_id_source' , coalesce(ir.company_family_c , acc.household_id , acc2.household_id)
-        , 'account_id_source' , ir.estate_item_c
-        , 'accounting_id' , coalesce(acc.household_accounting_id , acc2.household_accounting_id)
-        , 'client_state_code' , coalesce(
-            coalesce(acc.billing_state , acc2.billing_state)
-            , coalesce(acc.legal_address_state , acc2.legal_address_state)
-            , coalesce(acc.mailing_state , acc2.mailing_state)
-            , coalesce(acc.other_state , acc2.other_state)
-            , coalesce(acc.shipping_state , acc2.shipping_state)
-            {# , ca.legal_address_state #}
-            , cpg_acc.state_of_primary_residence
-        )
-        , 'client_open_date' , coalesce(acc.household_opened_date , acc2.household_opened_date)
-        , 'partner_firm' , ir.branch_c
     )                                                                    as _extra_fields
 from {{ ref('salesforce_compass__base_invoice_review_c') }} as ir
 left join {{ ref('dates') }} as dt
-    on ir.invoice_date_c = dt.date_key
-left join cte_lock_dates
     on ir.invoice_date_c = dt.date_key
 -- We join on date as first preference for account attributes.
 -- This is because over time the account record can change (i.e. advisor assignment).

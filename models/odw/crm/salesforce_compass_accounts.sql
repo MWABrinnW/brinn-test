@@ -9,10 +9,8 @@ select
         source_date_col='effective_date', 
         reference_date_col='effective_date'
     ) }}
-    , case
-        when row_number() over (partition by cli.effective_date order by cli._created_at desc) = 1
-            then 1
-        else 0
-    end as is_latest
+    , dense_rank() over (partition by cli.effective_date order by date_trunc('second' , cli._source_loaded_at) desc)::int
+        as is_latest
 from {{ ref('bld_salesforce_compass_accounts') }} as cli
 where true
+qualify is_latest = 1
