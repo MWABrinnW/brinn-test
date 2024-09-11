@@ -35,9 +35,9 @@ saleforce_salentica as (
 
 select
     -- [pms attributes]
-    'black_diamond'::varchar(200)                                              as system_name
-    , 'uhnw'::varchar(200)                                                     as system_instance
-    , 'black_diamond_uhnw'::varchar(200)                                       as system_key
+    bb.system_name::varchar(200)                                               as system_name
+    , bb.system_instance::varchar(200)                                         as system_instance
+    , bb.system_key::varchar(200)                                              as system_key
 
     -- [location]
     , '640'::varchar(200)                                                      as client_location_code
