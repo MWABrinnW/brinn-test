@@ -1,19 +1,18 @@
 select
-    ---[pms attributes]
+    -- [pms attributes]
     bb.system_name::varchar(200)                                                         as system_name
     , bb.system_instance::varchar(200)                                                   as system_instance
     , bb.system_key::varchar(200)                                                        as system_key
 
-    --[location]
+    -- [location]
     , coalesce(acc.household_location_code , acc2.household_location_code)::varchar(200) as client_location_code
-
 
     -- [financial dates]
     , bb.as_of_date::timestamp_ntz                                                       as invoice_created_at
     , bb.as_of_date::date                                                                as invoice_date
     , bb.period_end_date::date                                                           as revenue_period_end_date
 
-    --[invoice]
+    -- [invoice]
     , null::varchar(200)                                                                 as invoice_number_source
     , null::varchar(200)                                                                 as billing_statement_id_source
     , null::varchar(200)                                                                 as billing_statement_id_crm
@@ -25,21 +24,12 @@ select
     , bb.external_id::varchar(200)                                                       as account_id_pms
     , bb.account_long_name::varchar(200)                                                 as registrant_name
     , bb.account_name::varchar(200)                                                      as account_name
-    , coalesce(
-        acc.registration_type
-        , acc2.registration_type
-    )::varchar(200)                                                                      as type_of_account
+    , coalesce(acc.registration_type , acc2.registration_type)::varchar(200)             as type_of_account
     , ba.id::varchar(200)                                                                as client_id_pms
-    , coalesce(
-        acc.aum_classification
-        , acc2.aum_classification
-    )::varchar(200
-    )                                                                                    as aum_classification_status
+    , coalesce(acc.aum_classification , acc2.aum_classification)::varchar(200)           as aum_classification_status
     , coalesce(acc.investment_strategy , acc2.investment_strategy)::varchar(200)         as model_investment_strategy
     , coalesce(acc.custodian_key , acc2.custodian_key)::varchar(200)                     as custodian
-    , coalesce(
-        bb.billing_account_custodian , bb.custodian
-    )::varchar(200)                                                                      as billing_custodian
+    , coalesce(bb.billing_account_custodian , bb.custodian)::varchar(200)                as billing_custodian
     , null::varchar(200)                                                                 as partner_firm
     , null::varchar(200)                                                                 as partner_firm_original
 
@@ -54,7 +44,6 @@ select
     -- Current associate id (from compass account object, is_head)
     , acc2.employee_number::varchar(200)                                                 as associate_id_primary
     , 'W-2'::varchar(200)                                                                as client_manager_type
-
 
     -- [assets and fees]
     , 'Quarterly Fee'::varchar(200)                                                      as fee_type
@@ -121,47 +110,14 @@ select
     , 'salesforce'::varchar(200)                                                         as system_name_crm
     , 'compass'::varchar(200)                                                            as system_instance_crm
     , concat(system_name_crm , '__' , system_instance_crm)::varchar(200)                 as system_key_crm
-    , coalesce(
-        acc.id
-        , acc2.id
-    )::varchar(200)                                                                      as account_id_crm
-    , coalesce(
-        acc.client_id
-        , acc2.client_id
-    )::varchar(200
-    )                                                                                    as client_id_crm
-    , coalesce(
-        acc.client_id
-        , acc2.client_id
-    )::varchar(200
-    )                                                                                    as client_id_original_crm
-    , coalesce(
-
-        acc.unique_identifier
-        , acc2.unique_identifier
-
-    )::varchar(200)                                                                      as client_id_unique_compass
-    , coalesce(
-
-        acc.household_name
-        , acc2.household_name
-    )::varchar(200)                                                                      as client_name
-    , coalesce(
-        acc.household_name
-        , acc2.household_name
-    )::varchar(200)                                                                      as client_name_original_crm
-    , coalesce(
-
-        acc.household_lead_source
-        , acc2.household_lead_source
-
-    )::varchar(200)                                                                      as client_lead_source
-    , coalesce(
-
-        acc.key_tags
-        , acc2.key_tags
-
-    )::varchar(5009)                                                                     as client_key_tags_crm
+    , coalesce(acc.id , acc2.id)::varchar(200)                                           as account_id_crm
+    , coalesce(acc.client_id , acc2.client_id)::varchar(200)                             as client_id_crm
+    , coalesce(acc.client_id , acc2.client_id)::varchar(200)                             as client_id_original_crm
+    , coalesce(acc.unique_identifier , acc2.unique_identifier)::varchar(200)             as client_id_unique_compass
+    , coalesce(acc.household_name , acc2.household_name)::varchar(200)                   as client_name
+    , coalesce(acc.household_name , acc2.household_name)::varchar(200)                   as client_name_original_crm
+    , coalesce(acc.household_lead_source , acc2.household_lead_source)::varchar(200)     as client_lead_source
+    , coalesce(acc.key_tags , acc2.key_tags)::varchar(5009)                              as client_key_tags_crm
 
     -- [transactions]
     , 'Invoice'::varchar(200)                                                            as transaction_type

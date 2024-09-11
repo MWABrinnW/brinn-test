@@ -265,7 +265,7 @@ left join cte_loc_adv as loc_adv
     on nml._coa_segment_3_accounting_id = loc_adv.accounting_id
     and loc_adv.rn = 1
 {% if target.name == 'prod' %}
-        and nml.system_key in ('addepar__corbenic', 'black_diamond__houston', 'salesforce__compass', 'sei__manasquan')
+        and nml.system_key in ('addepar__corbenic', 'black_diamond__houston', 'black_diamond__uhnw', 'salesforce__compass', 'sei__manasquan')
     {% endif %}
 order by
     system_key

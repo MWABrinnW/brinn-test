@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: fivetran_salesforce_adviceperiod
+    description: ""
+    database: fivetran
+    schema: salesforce_adviceperiod
+    loaded_at_field: _fivetran_synced
+    tables:
+      - name: user
