@@ -23,21 +23,21 @@ with cte_crm as (
 
 select
 
-    -- [system attributes] ------------------------------------------------------------------------------------------------------
+    -- [system attributes]
     b.system_name::varchar(200)                                                  as system_name
     , b.system_instance::varchar(200)                                            as system_instance
     , b.system_key::varchar(200)                                                 as system_key
 
 
-    -- [location] ---------------------------------------------------------------------------------------------------------------
+    -- [location]
     , 'L-10001'::varchar(200)                                                    as client_location_code
 
-    -- [financial dates] --------------------------------------------------------------------------------------------------------
+    -- [financial dates]
     , null::timestamp_ntz                                                        as invoice_created_at
     , b.billing_date::date                                                       as invoice_date
     , null::date                                                                 as revenue_period_end_date
 
-    -- [invoice] ----------------------------------------------------------------------------------------------------------------   
+    -- [invoice]
     , b.billing_id::varchar(200)                                                 as invoice_number_source
     , null::varchar(200)                                                         as billing_statement_id_source
     , null::varchar(200)                                                         as billing_statement_id_crm
@@ -88,7 +88,7 @@ select
     , null::varchar(200)                                                         as partner_firm_original
 
 
-    -- [advisor] ----------------------------------------------------------------------------------------------------------------
+    -- [advisor]
     , b.cwm_lead_advisor::varchar(200)                                           as client_manager_source
     , case
         when trim(a.cwm_lead_advisor) = 'DG' then 'David Givler II'
@@ -116,7 +116,7 @@ select
     , associate_id_original                                                      as associate_id_primary
     , 'W-2'::varchar(200)                                                        as client_manager_type
 
-    -- [assets and fees] --------------------------------------------------------------------------------------------------------
+    -- [assets and fees]
     -- fee type requires null handling, deteremines revenue category
     , lower(coalesce(trim(b.billing_fee_type) , 'management fee'))::varchar(200) as fee_type
     , a.fee_schedule_legacy::varchar(200)                                        as fee_schedule_source
@@ -140,7 +140,7 @@ select
     , null::date                                                                 as collection_date
     , null::boolean                                                              as third_party_calculation
 
-    -- [billing terms and payment] ----------------------------------------------------------------------------------------------
+    -- [billing terms and payment]
     , case
         when b.billing_schedule_timing ilike '%advance%' then 'Advance'
         when b.billing_schedule_timing ilike '%arrears%' then 'Arrears'
@@ -156,7 +156,7 @@ select
     , null::varchar(200)                                                         as payment_terms
     , null::number(20 , 5)                                                       as payment_method_fee
 
-    -- [accounting] -------------------------------------------------------------------------------------------------------------
+    -- [accounting]
     , 'REV'::varchar(200)                                                        as account_class
     , null::varchar(200)                                                         as coa_segment_1_legal_entity_id
     , '1197'::varchar(200)                                                       as coa_segment_3_accounting_id
@@ -167,7 +167,7 @@ select
     , 'Wealth Management'::varchar(200)                                          as revenue_category
     , 'Wealth Mgmt Fees'::varchar(200)                                           as revenue_type
 
-    -- [crm] --------------------------------------------------------------------------------------------------------------------
+    -- [crm]
     , c.system_name::varchar(200)                                                as system_name_crm
     , c.system_instance::varchar(200)                                            as system_instance_crm
     , c.system_key::varchar(200)                                                 as system_key_crm
@@ -180,7 +180,7 @@ select
     , null::varchar(200)                                                         as client_lead_source
     , null::varchar(500)                                                         as client_key_tags_crm
 
-    -- [transactions] -----------------------------------------------------------------------------------------------------------
+    -- [transactions]
     , 'Invoice'::varchar(200)                                                    as transaction_type
     , 'Line'::varchar(200)                                                       as transaction_line_type
     , 1::int                                                                     as transaction_line_quantity
@@ -188,12 +188,12 @@ select
     , 'User'::varchar(200)                                                       as currency_conversion_type
     , b.billing_fee_value::number(20 , 5)                                        as unit_selling_price
 
-    -- [exclusion] ------------------------------------------------------------------------------------------------------------- 
+    -- [exclusion]
     -- No records are being excluded, default to 0
     , 0::int                                                                     as is_excluded
     , null::varchar(200)                                                         as excluded_reason
 
-    -- [referential] ------------------------------------------------------------------------------------------------------------
+    -- [referential]
     , concat(b.billing_id , '-' , b.holding_account_number)::varchar(200)        as _trans_key
     , b._created_at::timestamp_ntz(9)                                            as _created_at
     , b._source_file::varchar(200)                                               as _source_file

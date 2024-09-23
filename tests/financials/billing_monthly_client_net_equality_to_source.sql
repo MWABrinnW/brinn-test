@@ -11,6 +11,8 @@
      'client_fee_net': 'total_period_fee', 'is_head': 'no'},
     {'model': 'black_diamond_uhnw__base_bills', 'invoice_date': 'period_end_date',
      'client_fee_net': 'total_period_fee', 'is_head': 'no'},
+    {'model': 'envestnet_manasquan__stg_bills', 'invoice_date': 'invoice_date',
+     'client_fee_net': 'total_fee_amount', 'is_head': 'no'},
     {'model': 'sei_manasquan__base_bills', 'invoice_date': 'fee_effective_date',
      'client_fee_net': 'fees_collected', 'is_head': 'no'}
 ] -%}

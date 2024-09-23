@@ -1,10 +1,10 @@
 select
-    ---[pms attributes]
+    -- [pms attributes]
     bb.system_name::varchar(200)                                                         as system_name
     , bb.system_instance::varchar(200)                                                   as system_instance
     , bb.system_key::varchar(200)                                                        as system_key
 
-    --[location]
+    -- [location]
     , coalesce(acc.household_location_code , acc2.household_location_code)::varchar(200) as client_location_code
 
     -- [financial dates]
@@ -12,7 +12,7 @@ select
     , bb.fee_effective_date::date                                                        as invoice_date
     , null::date                                                                         as revenue_period_end_date
 
-    --[invoice]
+    -- [invoice]
     , bb.transaction_identifier::varchar(200)                                            as invoice_number_source
     , bb.transaction_identifier::varchar(200)                                            as billing_statement_id_source
     , null::varchar(200)                                                                 as billing_statement_id_crm
@@ -104,47 +104,14 @@ select
     , 'salesforce'::varchar(200)                                                         as system_name_crm
     , 'compass'::varchar(200)                                                            as system_instance_crm
     , concat(system_name_crm , '__' , system_instance_crm)::varchar(200)                 as system_key_crm
-    , coalesce(
-        acc.id
-        , acc2.id
-    )::varchar(200)                                                                      as account_id_crm
-    , coalesce(
-        acc.client_id
-        , acc2.client_id
-    )::varchar(200
-    )                                                                                    as client_id_crm
-    , coalesce(
-        acc.client_id
-        , acc2.client_id
-    )::varchar(200
-    )                                                                                    as client_id_original_crm
-    , coalesce(
-
-        acc.unique_identifier
-        , acc2.unique_identifier
-
-    )::varchar(200)                                                                      as client_id_unique_compass
-    , coalesce(
-
-        acc.household_name
-        , acc2.household_name
-    )::varchar(200)                                                                      as client_name
-    , coalesce(
-        acc.household_name
-        , acc2.household_name
-    )::varchar(200)                                                                      as client_name_original_crm
-    , coalesce(
-
-        acc.household_lead_source
-        , acc2.household_lead_source
-
-    )::varchar(200)                                                                      as client_lead_source
-    , coalesce(
-
-        acc.key_tags
-        , acc2.key_tags
-
-    )::varchar(200)                                                                      as client_key_tags_crm
+    , coalesce(acc.id , acc2.id)::varchar(200)                                           as account_id_crm
+    , coalesce(acc.client_id , acc2.client_id)::varchar(200)                             as client_id_crm
+    , coalesce(acc.client_id , acc2.client_id)::varchar(200)                             as client_id_original_crm
+    , coalesce(acc.unique_identifier , acc2.unique_identifier)::varchar(200)             as client_id_unique_compass
+    , coalesce(acc.household_name , acc2.household_name)::varchar(200)                   as client_name
+    , coalesce(acc.household_name , acc2.household_name)::varchar(200)                   as client_name_original_crm
+    , coalesce(acc.household_lead_source , acc2.household_lead_source)::varchar(200)     as client_lead_source
+    , coalesce(acc.key_tags , acc2.key_tags)::varchar(200)                               as client_key_tags_crm
 
     -- [transactions]
     , 'Invoice'::varchar(200)                                                            as transaction_type

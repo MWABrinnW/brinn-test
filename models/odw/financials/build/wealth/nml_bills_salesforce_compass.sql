@@ -1,6 +1,6 @@
 select
 
--- [system attributes]
+    -- [system attributes]
     ir.system_name::varchar(200)                                         as system_name
     , ir.system_instance::varchar(200)                                   as system_instance
     , ir.system_key::varchar(200)                                        as system_key
@@ -63,7 +63,7 @@ select
     , ir.branch_2_c::varchar(200)                                        as partner_firm_original
 
     -- [advisor]
-    -- Historical Client Manager (from upsert into Salesforce) 
+    -- Historical Client Manager (from upsert into Salesforce)
     , ir.quarterback_2_c::varchar(200)                                   as client_manager_source
     -- Historical client manager (from compass account object, historical records)
     , acc.client_manager::varchar(200)                                   as client_manager_original
@@ -130,7 +130,7 @@ select
                             '40000'--RPP
                     when coalesce(acc.household_lead_source , acc2.household_lead_source) like '%Referral Partner -%'
                         then
-                            '40002'--Other Referral Partners (CPAs)/Solicitors   
+                            '40002'--Other Referral Partners (CPAs)/Solicitors
                     else
                         '40001'
                 end
@@ -149,14 +149,14 @@ select
                             '40000'--RPP
                     when coalesce(acc.household_lead_source , acc2.household_lead_source) like '%Referral Partner -%'
                         then
-                            '40002'--OTher Referral Partners (CPAs)/Solicitors   
+                            '40002'--OTher Referral Partners (CPAs)/Solicitors
                     else
                         '40001'
                 end
 
         when client_location_code = '112' and cpg_acc.advisor is not null
             then
-                '40002'--OTher Referral Partners (CPAs)/Solicitors 
+                '40002'--OTher Referral Partners (CPAs)/Solicitors
 
         when ir.fee_type_c in (
                 'Fixed Income Fee'
@@ -188,11 +188,11 @@ select
 
         when coalesce(acc.household_lead_source , acc2.household_lead_source) like '%Referral Partner -%'
             then
-                '40002'--Other Referral Partners (CPAs)/Solicitors    
+                '40002'--Other Referral Partners (CPAs)/Solicitors
 
         when ir.fee_type_c in ('Quarterly Fee' , 'Fee Adjustment' , 'Lost Client Fee')
             then
-                '40001'-- traditional 
+                '40001'-- traditional
     end::varchar(200)                                                    as coa_segment_5_natural_account_id
     , null::varchar(200)                                                 as revenue_category
     , case
@@ -304,7 +304,7 @@ left join {{ ref('dates') }} as dt
 -- We join on date as first preference for account attributes.
 -- This is because over time the account record can change (i.e. advisor assignment).
 -- We want to know what it looked like at the time of billing.
-left join {{ ref('salesforce_compass_accounts') }} as acc-- historcial 
+left join {{ ref('salesforce_compass_accounts') }} as acc-- historcial
     on ir.estate_item_c = acc.id
     and least(ir.invoice_date_c , ir.revenue_as_of_date_c) = acc.effective_date
     and acc.is_latest = 1
