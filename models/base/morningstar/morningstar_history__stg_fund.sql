@@ -58,9 +58,9 @@ select
     , nullif(trim(_data:totalmarketvaluenet) , '')::dec(20 , 6)                as totalmarketvaluenet
     , nullif(trim(_data:totalmarketvalueshort) , '')::dec(20 , 6)              as totalmarketvalueshort
     , nullif(trim(_data:totalyieldlong) , '')::dec(20 , 6)                     as totalyieldlong
-    , _data:fundnetassets::int                                                 as fundnetassets
+    , nullif(trim(_data:fundnetassets), '')::int                               as fundnetassets
     , nullif(trim(_data:netassetsdate) , '')::date                             as netassetsdate
-    , _data:normalizedfundnetassets::int                                       as normalizedfundnetassets
+    , nullif(trim(_data:normalizedfundnetassets), '')::int                     as normalizedfundnetassets
     , nullif(trim(_data:countryexposure_country) , '')::text(200)              as countryexposure_country
     , nullif(trim(_data:countryexposure_value) , '')::dec(20 , 6)              as countryexposure_value
     , nullif(trim(_data:countryexposure_country_2) , '')::text(200)            as countryexposure_country_2
