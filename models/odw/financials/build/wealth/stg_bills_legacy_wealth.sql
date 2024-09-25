@@ -64,7 +64,7 @@ select
     , null::boolean                                as impacted_by_financial_markets
     , null::varchar(200)                           as coa_segment_1_legal_entity_id
     , null::varchar(200)                           as coa_segment_2_product_id
-    , null::varchar(200)                           as coa_segment_3_accounting_id
+    , coa_segment_3_accounting_id::varchar(200)    as coa_segment_3_accounting_id
     , null::varchar(200)                           as coa_segment_4_team_id
     , null::varchar(200)                           as coa_segment_5_natural_account_id
     , null::varchar(200)                           as coa_segment_6_initiative_id
