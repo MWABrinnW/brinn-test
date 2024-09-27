@@ -292,7 +292,7 @@ select
   , null::int                                                  as is_taxable
   , case when a.fee_authorization_code = 'f' then 1 else 0 end as is_fee_authorized
   , case
-        when a.prime_broker_indicator in ('j', 'k', 'l', 'm', 'n')
+        when a.prime_broker_indicator in ('4', '6', '7')
             then 1
         else 0 end                                             as is_prime_broker
    , case
