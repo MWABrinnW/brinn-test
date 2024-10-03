@@ -92,7 +92,7 @@ select
     , a.location_code::varchar(500)                                               as location_code
     , a.source_system_client_manager::varchar(500)                                as source_system_client_manager
     , a.portfolio_consulting_ind::varchar(500)                                    as portfolio_consulting_ind
-    , a.hubspot_deal_id::varchar(500)                                             as hubspot_deal_id
+    , a.pipeline_deal_id::varchar(500)                                            as pipeline_deal_id
     , a.source_created_datetime::varchar(500)                                     as source_created_datetime
     , a.added_by_name::varchar(500)                                               as added_by_name
     , a.effective_date::date                                                      as effective_date
