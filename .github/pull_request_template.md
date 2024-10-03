@@ -8,7 +8,6 @@
 
 ## Checklist:
 
-- [ ] My code follows the style guidelines of this project
 - [ ] I have executed sqlfluff or similar formatter
 - [ ] I have added/updated any relevant sources/models files
 - [ ] I have added/updated any relevant paths/configs in dbt_project.yml

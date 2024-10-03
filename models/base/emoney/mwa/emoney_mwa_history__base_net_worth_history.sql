@@ -10,4 +10,5 @@ select
     , _created_at::timestampntz                                        as _created_at
     , _source_file::text(200)                                          as _source_file
     , _id::int                                                         as _id
+    , {{ col_is_head(reference=source('emoney_mwa', 'net_worth_history')) }}
 from {{ source('emoney_mwa','net_worth_history') }}
