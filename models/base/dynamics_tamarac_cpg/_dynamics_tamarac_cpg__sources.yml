@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: dynamics_tamarac_cpg
+    description: 'crm for tamarac cpg'
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    schema: dynamics_tamarac_cpg
+    tables:
+      - name: account
+      - name: connection
+      - name: connectionrole
+      - name: contact
+      - name: retentionsuccessdetail
+      - name: stringmap
+      - name: tam_accounttype
+      - name: tam_financeaccount

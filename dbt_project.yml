@@ -250,6 +250,11 @@ models:
         +grants:
           select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
+      dynamics_tamarac_cpg:
+        +tags: ["crm", "dynamics", "tamarac", "mps", "cpg"]
+        +grants:
+          select: "{{ ['db_crm_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+
       edw_legacy:
         +tags: ["edw", "employees", "associates"]
         +grants:
