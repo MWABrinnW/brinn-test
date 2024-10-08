@@ -1,6 +1,6 @@
 select
 
-    -- [system attributes]
+    -- [pms attributes]
     ir.system_name::varchar(200)                                         as system_name
     , ir.system_instance::varchar(200)                                   as system_instance
     , ir.system_key::varchar(200)                                        as system_key
@@ -11,13 +11,10 @@ select
         , acc2.household_location_code
     )::varchar(200)                                                      as client_location_code
 
-    -- [financial dates]
-    , ir.created_date::timestamp_ntz                                     as invoice_created_at
-    , ir.invoice_date_c::date                                            as invoice_date
-    , null::date                                                         as revenue_period_end_date
-
     -- [invoice]
     , ir.name::varchar(200)                                              as invoice_number_source
+    , ir.created_date::timestamp_ntz                                     as invoice_created_at
+    , ir.invoice_date_c::date                                            as invoice_date
     , ir.orion_bill_id_c::varchar(200)                                   as billing_statement_id_source
     , ir.id::varchar(200)                                                as billing_statement_id_crm
     , ir.status_c::varchar(200)                                          as invoice_status
@@ -100,7 +97,12 @@ select
 
     -- [billing terms and payment]
     , ir.billing_style_c::varchar(200)                                   as billing_style
-    , ir.fee_frequency_c::varchar(200)                                   as billing_frequency_source
+    -- sourced from "aux__stg_financials_fee_type" if not hardcoded
+    , coalesce(
+        ir.fee_frequency_c
+        , ovrd_fee_type.billing_frequency
+    )::varchar(200
+    )                                                                    as billing_frequency
     , ir.billing_method_c::varchar(200)                                  as billing_method
     , case
         when ir.fee_type_c = 'Quarterly Fee' then
@@ -113,8 +115,6 @@ select
     , 'REV'::varchar(200)                                                as account_class
     , null::varchar(200)                                                 as coa_segment_1_legal_entity_id
     , null::varchar(200)                                                 as coa_segment_3_accounting_id
-    --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
     , case
         when client_location_code = '112' and cpg_acc.advisor = 'Rob Thomas/Direct'
             then
@@ -194,7 +194,9 @@ select
             then
                 '40001'-- traditional
     end::varchar(200)                                                    as coa_segment_5_natural_account_id
-    , null::varchar(200)                                                 as revenue_category
+    -- sourced from "aux__stg_financials_fee_type" if not hardcoded
+    , ovrd_fee_type.revenue_category::varchar(200)                       as revenue_category
+
     , case
         when ir.fee_type_c ilike any
             ('Quarterly Fee' , 'Fee Adjustment' , 'Lost Client Fee' , 'Fixed Income Fee' , 'Options Fee')
@@ -266,6 +268,7 @@ select
     ,ir.old_name_c::varchar(200) as old_name
     ,acc.household_location_id::varchar(200) as mariner_location #}
 
+
     -- [exclusion]
     , case
         when mh.record_type_id = '0123c000000tyRyAAI' or ir.third_party_calculation_c = true
@@ -282,11 +285,15 @@ select
             then 'Third Party Calculation'
     end::varchar(200)                                                    as excluded_reason
 
+    -- [finanical dates] dependencies on upstream identifiers
+    , {{ financials_set_revenue_period() }}
+
     -- [referential]
     , null::varchar(200)                                                 as _trans_key
-    , ir._created_at::timestamp_ntz(9)                                   as _created_at
+    , ir._created_at::timestamp_ntz(9)                                   as _source_loaded_at
     , null::varchar(200)                                                 as _source_file
     , null::varchar(200)                                                 as _box_file_id
+
 
     -- These are fields that are likely specific to this source
     -- and are intended to help with one off investigations or
@@ -327,14 +334,16 @@ left join {{ ref('tamarac_state_college_history__base_accounts') }} as cpg_acc
 -- Excludes service types categorized as tax preparation
 left join fivetran.salesforce_compass.mhservice_c as mh
     on ir.service_rendered_c = mh.id
+left join {{ ref('aux__stg_financials_fee_type') }} as ovrd_fee_type
+    on ir.system_key = ovrd_fee_type.system_key
+    and lower(ir.fee_type_c) = lower(ovrd_fee_type.fee_type)
 where true
     and ir.is_head = 1
     and ir.is_latest = 1
     and ir.is_deleted = 0
     and ir._fivetran_deleted = 0
     and ir.invoice_date_c >= '12/31/2021'-- move downstream
-order by ir.revenue_as_of_date_c desc , coalesce(
-    acc.account_number
-    , acc2.account_number
-    , ir.account_number_c
-)
+order by
+    system_key
+    , revenue_period_end_date
+    , coalesce(_trans_key , account_number)

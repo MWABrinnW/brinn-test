@@ -7,13 +7,10 @@ select
     -- [location]
     , coalesce(acc.household_location_code , acc2.household_location_code)::varchar(200) as client_location_code
 
-    -- [financial dates]
-    , bb.fee_effective_date::timestamp_ntz                                               as invoice_created_at
-    , bb.fee_effective_date::date                                                        as invoice_date
-    , null::date                                                                         as revenue_period_end_date
-
     -- [invoice]
     , bb.transaction_identifier::varchar(200)                                            as invoice_number_source
+    , bb.fee_effective_date::timestamp_ntz                                               as invoice_created_at
+    , bb.fee_effective_date::date                                                        as invoice_date
     , bb.transaction_identifier::varchar(200)                                            as billing_statement_id_source
     , null::varchar(200)                                                                 as billing_statement_id_crm
     , null::varchar(200)                                                                 as invoice_status
@@ -77,7 +74,8 @@ select
 
     -- [billing terms and payment]
     , 'Arrears'::varchar(200)                                                            as billing_style
-    , 'Quarterly'::varchar(200)                                                          as billing_frequency_source
+    -- sourced from "aux__stg_financials_fee_type" if not hardcoded
+    , 'Quarterly'::varchar(200)                                                          as billing_frequency
     , 'Direct'::varchar(200)                                                             as billing_method
     , null::varchar(200)                                                                 as bill_on_balance_type
     , null::varchar(200)                                                                 as payment_terms
@@ -97,6 +95,7 @@ select
         else
             '40001'
     end::varchar(200)                                                                    as coa_segment_5_natural_account_id
+    -- sourced from "aux__stg_financials_fee_type" if not hardcoded
     , 'Wealth Management'::varchar(200)                                                  as revenue_category
     , 'Wealth Mgmt Fees'::varchar(200)                                                   as revenue_type
 
@@ -126,17 +125,20 @@ select
     , 0::int                                                                             as is_excluded
     , null::varchar(200)                                                                 as excluded_reason
 
+    -- [finanical dates] dependencies on upstream identifiers
+    , {{ financials_set_revenue_period() }}
+
     -- [referential]
     , bb.transaction_identifier::varchar(200)                                            as _trans_key
-    , bb._created_at::timestamp_ntz(9)                                                   as _created_at
+    , bb._created_at::timestamp_ntz(9)                                                   as _source_loaded_at
     , bb._box_file_name::varchar(200)                                                    as _source_file
     , bb._box_file_id::varchar(200)                                                      as _box_file_id
 
     -- [extra fields]
     , null::variant                                                                      as _extra_fields
 
-from {{ ref('sei_manasquan__base_bills') }} as bb
 
+from {{ ref('sei_manasquan__base_bills') }} as bb
 -- joins crm data on invoice date, if available
 left join {{ ref('salesforce_compass_accounts') }} as acc
     on trim(replace(bb.account_number , '-' , '')) = trim(replace(acc.account_number_formatted , '-' , ''))
@@ -158,3 +160,7 @@ left join {{ ref('salesforce_compass__base_fee_schedule_c') }} as fs
         , acc2.fee_schedule
     ) = fs.id
     and fs.is_latest = 1
+order by
+    system_key
+    , revenue_period_end_date
+    , coalesce(_trans_key , account_number)

@@ -42,13 +42,10 @@ select
     -- [location]
     , '640'::varchar(200)                                                      as client_location_code
 
-    -- [financial dates]
+    -- [invoice]
+    , null::varchar(200)                                                       as invoice_number_source
     , null::timestamp_ntz                                                      as invoice_created_at
     , dateadd('day' , -1 , date_trunc('month' , bb.cash_available_date))::date as invoice_date
-    , null::date                                                               as revenue_period_end_date
-
-    -- [invoice]
-    , null::varchar(200)                                                       as invoice_number_source--use rep code?
     , null::varchar(200)                                                       as billing_statement_id_source
     , null::varchar(200)                                                       as billing_statement_id_crm
     , null::varchar(200)                                                       as invoice_status
@@ -111,7 +108,8 @@ select
 
     -- [billing terms and payment]
     , 'Advance'::varchar(200)                                                  as billing_style
-    , 'Quarterly'::varchar(200)                                                as billing_frequency_source
+    -- sourced from "aux__stg_financials_fee_type" if not hardcoded
+    , 'Quarterly'::varchar(200)                                                as billing_frequency
     , case
         when bb.billing_account_number = bb.account_number
             then 'Direct'
@@ -127,6 +125,7 @@ select
     , '110'::varchar(200)                                                      as coa_segment_1_legal_entity_id
     , '6640'::varchar(200)                                                     as coa_segment_3_accounting_id
     , '40001'::varchar(200)                                                    as coa_segment_5_natural_account_id
+    -- sourced from "aux__stg_financials_fee_type" if not hardcoded
     , 'Wealth Management'::varchar(200)                                        as revenue_category
     , 'Wealth Mgmt Fees'::varchar(200)                                         as revenue_type
 
@@ -155,11 +154,14 @@ select
     , null::int                                                                as is_excluded
     , null::varchar(200)                                                       as excluded_reason
 
+    -- [finanical dates] dependencies on upstream identifiers
+    , {{ financials_set_revenue_period() }}
+
     -- [referential]
     , null::varchar(200)                                                       as _trans_key
-    , null::timestamp_ntz(9)                                                   as _created_at
-    , null::varchar(200)                                                       as _source_file
-    , null::varchar(200)                                                       as _box_file_id
+    , bb._created_at::timestamp_ntz(9)                                         as _source_loaded_at
+    , bb._box_file_name::varchar(200)                                          as _source_file
+    , bb._box_file_id::varchar(200)                                            as _box_file_id
 
     -- [extra fields]
     , null::variant                                                            as _extra_fields
@@ -178,3 +180,7 @@ left join black_diamond_relationship as br
 left join {{ ref('black_diamond_uhnw__base_account_benchmarks') }} as bm
     on trim(replace(bb.account_number , '-' , '')) = trim(replace(bm.account_number , '-' , ''))
     and bm.is_head = 1
+order by
+    system_key
+    , revenue_period_end_date
+    , coalesce(_trans_key , account_number)

@@ -1,5 +1,3 @@
-{{ config(materialized = 'table') }}
-
 {%- set source_models = [
     'nml_bills_salesforce_compass',
     'nml_bills_addepar_corbenic',

@@ -3,7 +3,6 @@ with sf_accounts as (
         max(_fivetran_synced) over (partition by effective_date , account_number) as max_fivetran_synced
         , *
     from {{ ref('salesforce_compass_accounts') }}
-    where not account_name ilike '%(CLOSED)%'
 )
 
 , stg_account_master as (
@@ -11,8 +10,7 @@ with sf_accounts as (
         max(effective_date) over (partition by year(effective_date) , month(effective_date)) as last_effective_date_of_month
         , *
     from {{ ref('envestnet_manasquan__stg_account_master') }}
-    where close_date is null
-        and customer_name not in ('Closed Accounts')
+
 )
 
 select
@@ -25,15 +23,12 @@ select
     , coalesce(
         a_hist.household_location_code
         , a_head.household_location_code
-    )::varchar(200)                                                                 as client_location_code--[TODO] discuss with gavin
-
-    -- [financial dates]
-    , b.invoice_date::timestamp_ntz                                                 as invoice_created_at
-    , b.invoice_date::date                                                          as invoice_date
-    , b.period_end_date::date                                                       as revenue_period_end_date
+    )::varchar(200)                                                                 as client_location_code
 
     -- [invoice]
     , null::varchar(200)                                                            as invoice_number_source
+    , b.invoice_date::timestamp_ntz                                                 as invoice_created_at
+    , b.invoice_date::date                                                          as invoice_date
     , null::varchar(200)                                                            as billing_statement_id_source
     , null::varchar(200)                                                            as billing_statement_id_crm
     , null::varchar(200)                                                            as invoice_status
@@ -99,7 +94,8 @@ select
 
     -- [billing terms and payment]
     , 'Advance'::varchar(200)                                                       as billing_style
-    , coalesce(b.billing_cycle , 'Quarterly')::varchar(200)                         as billing_frequency_source
+    -- sourced from "aux__stg_financials_fee_type" if not hardcoded
+    , coalesce(b.billing_cycle , 'Quarterly')::varchar(200)                         as billing_frequency
     , b.debit_type::varchar(200)                                                    as billing_method
     , null::varchar(200)                                                            as bill_on_balance_type
     , null::varchar(200)                                                            as payment_terms
@@ -116,6 +112,7 @@ select
             then '40002'
         else '40001'
     end::varchar(200)                                                               as coa_segment_5_natural_account_id
+    -- sourced from "aux__stg_financials_fee_type" if not hardcoded
     , 'Wealth Management'::varchar(200)                                             as revenue_category
     , 'Wealth Mgmt Fees'::varchar(200)                                              as revenue_type
 
@@ -148,14 +145,18 @@ select
     , 0::int                                                                        as is_excluded
     , null::varchar(200)                                                            as excluded_reason
 
+    -- [finanical dates] dependencies on upstream identifiers
+    , {{ financials_set_revenue_period() }}
+
     -- [referential]
     , trim(replace(b.account_number , '-' , null)) || '-' || b._id::varchar(200)    as _trans_key
-    , b._created_at::timestamp_ntz(9)                                               as _created_at
+    , b._created_at::timestamp_ntz(9)                                               as _source_loaded_at
     , b._box_file_name::varchar(200)                                                as _source_file
     , b._box_file_id::varchar(200)                                                  as _box_file_id
 
     -- [extra fields]
     , null::variant                                                                 as _extra_fields
+
 
 from {{ ref('envestnet_manasquan__stg_bills') }} as b
 
@@ -179,3 +180,7 @@ left join {{ ref('salesforce_compass__base_fee_schedule_c') }} as fs
     on b.invoice_date = fs.effective_at::date
     and coalesce(a_hist.fee_schedule , a_head.fee_schedule) = fs.id
     and fs.is_latest = 1
+order by
+    system_key
+    , revenue_period_end_date
+    , coalesce(_trans_key , account_number)

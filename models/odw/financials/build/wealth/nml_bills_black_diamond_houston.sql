@@ -7,13 +7,11 @@ select
     -- [location]
     , coalesce(acc.household_location_code , acc2.household_location_code)::varchar(200) as client_location_code
 
-    -- [financial dates]
-    , bb.as_of_date::timestamp_ntz                                                       as invoice_created_at
-    , bb.as_of_date::date                                                                as invoice_date
-    , bb.period_end_date::date                                                           as revenue_period_end_date
 
     -- [invoice]
     , null::varchar(200)                                                                 as invoice_number_source
+    , bb.as_of_date::timestamp_ntz                                                       as invoice_created_at
+    , bb.as_of_date::date                                                                as invoice_date
     , null::varchar(200)                                                                 as billing_statement_id_source
     , null::varchar(200)                                                                 as billing_statement_id_crm
     , null::varchar(200)                                                                 as invoice_status
@@ -24,12 +22,12 @@ select
     , bb.external_id::varchar(200)                                                       as account_id_pms
     , bb.account_long_name::varchar(200)                                                 as registrant_name
     , bb.account_name::varchar(200)                                                      as account_name
-    , coalesce(acc.registration_type , acc2.registration_type)::varchar(200)             as type_of_account
     , ba.id::varchar(200)                                                                as client_id_pms
+    , coalesce(bb.billing_account_custodian , bb.custodian)::varchar(200)                as billing_custodian
+    , coalesce(acc.custodian_key , acc2.custodian_key)::varchar(200)                     as custodian
+    , coalesce(acc.registration_type , acc2.registration_type)::varchar(200)             as type_of_account
     , coalesce(acc.aum_classification , acc2.aum_classification)::varchar(200)           as aum_classification_status
     , coalesce(acc.investment_strategy , acc2.investment_strategy)::varchar(200)         as model_investment_strategy
-    , coalesce(acc.custodian_key , acc2.custodian_key)::varchar(200)                     as custodian
-    , coalesce(bb.billing_account_custodian , bb.custodian)::varchar(200)                as billing_custodian
     , null::varchar(200)                                                                 as partner_firm
     , null::varchar(200)                                                                 as partner_firm_original
 
@@ -77,7 +75,8 @@ select
 
     -- [billing terms and payment]
     , 'Advance'::varchar(200)                                                            as billing_style
-    , 'Quarterly'::varchar(200)                                                          as billing_frequency_source
+    -- sourced from "aux__stg_financials_fee_type" if not hardcoded
+    , 'Quarterly'::varchar(200)                                                          as billing_frequency
     , 'Direct'::varchar(200)                                                             as billing_method
     , null::varchar(200)                                                                 as bill_on_balance_type
     , null::varchar(200)                                                                 as payment_terms
@@ -103,6 +102,7 @@ select
         else
             '40001'
     end::varchar(200)                                                                    as coa_segment_5_natural_account_id
+    -- sourced from "aux__stg_financials_fee_type" if not hardcoded
     , 'Wealth Management'::varchar(200)                                                  as revenue_category
     , 'Wealth Mgmt Fees'::varchar(200)                                                   as revenue_type
 
@@ -132,9 +132,12 @@ select
     , 0::int                                                                             as is_excluded
     , null::varchar(200)                                                                 as excluded_reason
 
+    -- [finanical dates] dependencies on upstream identifiers
+    , {{ financials_set_revenue_period() }}
+
     -- [referential]
     , trim(replace(bb.account_number , '-' , '')) || '-' || bb._id::varchar(200)         as _trans_key
-    , bb._created_at::timestamp_ntz(9)                                                   as _created_at
+    , bb._created_at::timestamp_ntz(9)                                                   as _source_loaded_at
     , bb._box_file_name::varchar(200)                                                    as _source_file
     , bb._box_file_id::varchar(200)                                                      as _box_file_id
 
@@ -166,3 +169,7 @@ left join {{ ref('salesforce_compass__base_fee_schedule_c') }} as fs
         , acc2.fee_schedule
     ) = fs.id
     and fs.is_latest = 1
+order by
+    system_key
+    , revenue_period_end_date
+    , coalesce(_trans_key , account_number)

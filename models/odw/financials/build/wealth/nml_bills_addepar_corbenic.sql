@@ -23,7 +23,7 @@ with cte_crm as (
 
 select
 
-    -- [system attributes]
+    -- [pms attributes]
     b.system_name::varchar(200)                                                  as system_name
     , b.system_instance::varchar(200)                                            as system_instance
     , b.system_key::varchar(200)                                                 as system_key
@@ -32,13 +32,10 @@ select
     -- [location]
     , 'L-10001'::varchar(200)                                                    as client_location_code
 
-    -- [financial dates]
-    , null::timestamp_ntz                                                        as invoice_created_at
-    , b.billing_date::date                                                       as invoice_date
-    , null::date                                                                 as revenue_period_end_date
-
     -- [invoice]
     , b.billing_id::varchar(200)                                                 as invoice_number_source
+    , null::timestamp_ntz                                                        as invoice_created_at
+    , b.billing_date::date                                                       as invoice_date
     , null::varchar(200)                                                         as billing_statement_id_source
     , null::varchar(200)                                                         as billing_statement_id_crm
     , null::varchar(200)                                                         as invoice_status
@@ -146,7 +143,8 @@ select
         when b.billing_schedule_timing ilike '%arrears%' then 'Arrears'
         else 'Advance'
     end::varchar(200)                                                            as billing_style
-    , lower(coalesce(b.billing_schedule_interval , 'monthly'))::varchar(200)     as billing_frequency_source
+    -- sourced from "aux__stg_financials_fee_type" if not hardcoded
+    , lower(coalesce(b.billing_schedule_interval , 'monthly'))::varchar(200)     as billing_frequency
     , a.billing_payment_method::varchar(200)                                     as billing_method
 
     , case
@@ -164,6 +162,7 @@ select
         when fee_type ilike '%management fee%'
             then '40001'
     end::varchar(200)                                                            as coa_segment_5_natural_account_id
+    -- sourced from "aux__stg_financials_fee_type" if not hardcoded
     , 'Wealth Management'::varchar(200)                                          as revenue_category
     , 'Wealth Mgmt Fees'::varchar(200)                                           as revenue_type
 
@@ -193,9 +192,12 @@ select
     , 0::int                                                                     as is_excluded
     , null::varchar(200)                                                         as excluded_reason
 
+    -- [finanical dates] dependencies on upstream identifiers
+    , {{ financials_set_revenue_period() }}
+
     -- [referential]
     , concat(b.billing_id , '-' , b.holding_account_number)::varchar(200)        as _trans_key
-    , b._created_at::timestamp_ntz(9)                                            as _created_at
+    , b._created_at::timestamp_ntz(9)                                            as _source_loaded_at
     , b._source_file::varchar(200)                                               as _source_file
     , null::varchar(200)                                                         as _box_file_id
 
@@ -213,3 +215,11 @@ left join cte_crm as c
     on b.holding_account_number = c.pract_acct_num
 where b.is_head = 1
     and a.is_head = 1
+    -- uncomment if "billing_frequency" or "revenue_category" is not hardcoded.
+{# left join {{ ref('aux__stg_financials_fee_type') }} as ovrd_fee_type
+        on bb.system_key = ovrd_fee_type.system_key
+        and lower(bb.fee_type_description) = lower(ovrd_fee_type.fee_type) #}
+order by
+    system_key
+    , revenue_period_end_date
+    , coalesce(_trans_key , account_number)

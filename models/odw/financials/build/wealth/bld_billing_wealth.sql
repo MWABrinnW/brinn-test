@@ -1,273 +1,157 @@
-with cte_loc_adv as (
-    select
-        accounting_id
-        , location_code
-        , office_name
-        , start_date
-        , row_number() over (partition by accounting_id order by start_date desc) as rn
-    from {{ ref('locations') }}
-    qualify rn = 1
+-- depends_on: {{ ref('addepar_corbenic_history__base_bills') }}
+-- depends_on: {{ ref('black_diamond_houston_history__base_bills') }}
+-- depends_on: {{ ref('black_diamond_uhnw__base_bills') }}
+-- depends_on: {{ ref('envestnet_manasquan__stg_bills') }}
+-- depends_on: {{ ref('salesforce_compass__base_invoice_review_c') }}
+-- depends_on: {{ ref('sei_manasquan__base_bills') }}
+
+{{ config(
+    materialized = 'incremental',
+    incremental_strategy = 'delete+insert',
+    on_schema_change = 'sync_all_columns',
+    unique_key = 'system_key',
+    cluster_by = ['revenue_period_end_date', 'system_key']
+) }}
+
+{%- set pms_keys = 
+    [
+        'addepar__corbenic',
+        'black_diamond__houston',
+        'black_diamond__uhnw',
+        'envestnet__manasquan',
+        'salesforce__compass',
+        'sei__manasquan'
+    ]
+-%}
+
+with cte_check as (
+
+    {%- if is_incremental() %}
+
+        select
+            case
+                when (
+                    select max(_created_at)
+                    from {{ ref('addepar_corbenic_history__base_bills') }}) > coalesce(
+                    (select max(_source_loaded_at) from {{ this }} where system_key = 'addepar__corbenic')
+                    , '1900-01-01'::date::timestamp
+                )
+                    then 'addepar__corbenic'
+            end as system_key
+
+        union all
+
+        select
+            case
+                when (
+                    select max(_created_at)
+                    from {{ ref('black_diamond_houston_history__base_bills') }}) > coalesce(
+                    (select max(_source_loaded_at) from {{ this }} where system_key = 'black_diamond__houston')
+                    , '1900-01-01'::date::timestamp
+                )
+                    then 'black_diamond__houston'
+            end as system_key
+
+        union all
+
+        select
+            case
+                when (
+                    select max(_created_at)
+                    from {{ ref('black_diamond_uhnw__base_bills') }}) > coalesce(
+                    (select max(_source_loaded_at) from {{ this }} where system_key = 'black_diamond__uhnw')
+                    , '1900-01-01'::date::timestamp
+                )
+                    then 'black_diamond__uhnw'
+            end as system_key
+
+        union all
+
+        select
+            case
+                when (
+                    select max(_created_at)
+                    from {{ ref('envestnet_manasquan__stg_bills') }}) > coalesce(
+                    (select max(_source_loaded_at) from {{ this }} where system_key = 'envestnet__manasquan')
+                    , '1900-01-01'::date::timestamp
+                )
+                    then 'envestnet__manasquan'
+            end as system_key
+
+        union all
+
+        select
+            case
+                when (
+                    select max(_created_at)
+                    from {{ ref('sei_manasquan__base_bills') }}) > coalesce(
+                    (select max(_source_loaded_at) from {{ this }} where system_key = 'sei__manasquan')
+                    , '1900-01-01'::date::timestamp
+                )
+                    then 'sei__manasquan'
+            end as system_key
+
+        union all
+
+        -- For salesforce__compass we use the source application timestamp values for comparison.
+        select case
+            when (
+                select
+                    greatest(
+                        max(last_modified_date)
+                        , max(created_date)
+                    )
+                from {{ ref('salesforce_compass__base_invoice_review_c') }}
+                where 1 = 1
+                    and is_head = 1
+                    and is_latest = 1
+                    and is_deleted = 0
+                    and _fivetran_deleted = 0
+                    and invoice_date_c >= '12/31/2021'-- move downstream
+            ) > coalesce(
+                (
+                    select max(_source_loaded_at) from {{ this }}
+                    where system_key = 'salesforce__compass'
+                )
+                , '1900-01-01'::date::timestamp
+            )
+                then 'salesforce__compass'
+        end as system_key
+
+    {%- else %}
+
+    {%- for key in system_keys %}
+
+        select {{ "'" ~ key ~ "'" }} as system_key
+
+    {%- if not loop.last %} 
+    union all 
+    {%- endif %}
+
+    {%- endfor %}
+
+    {%- endif %}
+
 )
 
-, cte_billing_freq as (
-    select
-        nml.*
-        , coalesce(nml.billing_frequency_source , ovrd_fee_type.billing_frequency)::varchar(200) as billing_frequency
-        , coalesce(nml.revenue_category , ovrd_fee_type.revenue_category)::varchar(200)          as _revenue_category
-    from
-        {{ ref('int_billing_wealth_01_union') }} as nml
-    left join {{ ref('aux__stg_financials_fee_type') }} as ovrd_fee_type
-        on nml.system_key = ovrd_fee_type.system_key
-        and lower(nml.fee_type) = lower(ovrd_fee_type.fee_type)
+, cte_union as (
+    select *
+    from {{ ref('int_billing_wealth_02_coa') }}
     where true
-
-
-)
-
-, cte_rev_period as (
-    select
-        *
-        , case
-            -- quarterly bills and on-cycle
-            when billing_frequency ilike 'Quarterly' and is_intra_period_invoice = 0
-                then
-                    case
-                        -- if advance, get next quarter end date
-                        when billing_style ilike 'Advance'
-                            then
-                                last_day(dateadd('Quarter' , 1 , fee_calculation_date) , 'Quarter')
-                        -- if arrears, get current quarter end date
-                        when billing_style ilike 'Arrears' then
-                            last_day(dateadd('Quarter' , 0 , fee_calculation_date) , 'Quarter')
-                    end
-            -- quarterly bills and NOT on-cycle
-            when billing_frequency ilike 'Quarterly' and is_intra_period_invoice = 1
-                then
-                    case
-                        -- if advance, get current quarter end date
-                        when billing_style ilike 'Advance'
-                            then
-                                last_day(dateadd('Quarter' , 0 , fee_calculation_date) , 'Quarter')
-                        -- if arrears, get current quarter end date
-                        when billing_style ilike 'Arrears' then
-                            last_day(dateadd('Quarter' , 0 , fee_calculation_date) , 'Quarter')
-                    end
-            -- monthly bills, intra period is NOT evaluated
-            when billing_frequency ilike 'Monthly'
-                then
-                    case
-                    -- if advance, get next month end date
-                        when billing_style ilike 'Advance'
-                            then
-                                last_day(dateadd('Month' , 1 , fee_calculation_date) , 'Month')
-                        -- if arrears, get current month end date
-                        when billing_style ilike 'Arrears'
-                            then
-                                last_day(dateadd('Month' , 0 , fee_calculation_date) , 'Month')
-                    end
-            -- NOT quarterly or monthly bills, get current month end date (i.e., one-time, semi-annual, annual)
-            else last_day(dateadd('Month' , 0 , fee_calculation_date) , 'Month')
-        end::date
-            as revenue_period
-    from cte_billing_freq
-)
-
--- returns accounting id (segment 3) for the advisor; otherwise from the client location
-, cte_finalize as (
-    select
-        nml.*
-        , coalesce(
-            nml.coa_segment_3_accounting_id
-            , case
-                when nml.advisor_nonadvisor ilike 'Advisor' and nml.associate_coa_segment_3 is not null
-                    then nml.associate_coa_segment_3
-                else nml.client_location_accounting_id
-            end
-        )::varchar(200) as _coa_segment_3_accounting_id
-    from cte_rev_period as nml
+        {% if is_incremental() %}
+            and system_key in (
+                select system_key
+                from cte_check
+                where system_key is not null
+            )
+        {% endif %}
 )
 
 select
-    -- [system attributes]
-    nml.system_name::varchar(200)                                                                   as system_name
-    , nml.system_instance::varchar(200)                                                             as system_instance
-    , nml.system_key::varchar(200)                                                                  as system_key
-
-    -- [location]
-    , case
-        when nml.advisor_nonadvisor ilike 'Advisor'
-            then loc_adv.location_code
-        else nml.client_location_code
-    end::varchar(200)                                                                               as location_code
-    , case
-        when nml.advisor_nonadvisor ilike 'Advisor'
-            then loc_adv.office_name
-        else nml.client_office_name
-    end::varchar(200)                                                                               as office_name
-    , nml.client_location_code::varchar(200)                                                        as client_location_code
-    , nml.client_office_name::varchar(200)                                                          as client_office_name
-
-    -- [financial dates]
-    , nml.invoice_created_at::datetime                                                              as invoice_created_at
-    , nml.invoice_date::date                                                                        as invoice_date
-    , nml.revenue_period::date                                                                      as revenue_period_end_date
-    , dateadd(day , -1 , dateadd('Quarter' , 1 , date_trunc('Quarter' , nml.revenue_period)))::date as revenue_quarter_end_date
-
-    -- [invoice]
-    , nml.invoice_number_source::varchar(200)                                                       as invoice_number_source
-    , nml.billing_statement_id_source::varchar(200)
-        as billing_statement_id_source
-    , nml.billing_statement_id_crm::varchar(200)
-        as billing_statement_id_crm
-    , initcap(nml.invoice_status::varchar(200))                                                     as invoice_status
-    , nml.is_intra_period_invoice::int
-        as is_intra_period_invoice
-    , nml.account_number::varchar(200)                                                              as account_number
-    , nml.account_number_formatted::varchar(200)
-        as account_number_formatted
-    , nml.billing_account_number::varchar(200)                                                      as billing_account_number
-    , nml.account_id_pms::varchar(200)                                                              as account_id_pms
-    , nml.registrant_name::varchar(200)                                                             as registrant_name
-    , nml.account_name::varchar(200)                                                                as account_name
-    , nml.type_of_account::varchar(200)                                                             as type_of_account
-    , nml.client_id_pms::varchar(200)                                                               as client_id_pms
-    , nml.aum_classification_status::varchar(200)
-        as aum_classification_status
-    , nml.model_investment_strategy::varchar(200)
-        as model_investment_strategy
-    , nml.custodian::varchar(200)                                                                   as custodian
-    , nml.billing_custodian::varchar(200)                                                           as billing_custodian
-    , nml.partner_firm::varchar(200)                                                                as partner_firm
-    , nml.partner_firm_original::varchar(200)                                                       as partner_firm_original
-
-    -- [advisor]
-    , nml.client_manager_source::varchar(200)                                                       as client_manager_source
-    , nml.client_manager_original::varchar(200)                                                     as client_manager_original
-    , nml.associate_id_original::varchar(200)                                                       as associate_id_original
-    , nml.client_manager_primary::varchar(200)                                                      as client_manager_primary
-    , nml.associate_id_primary::varchar(200)                                                        as associate_id_primary
-    , nml.client_manager_type::varchar(200)                                                         as client_manager_type
-
-    -- [assets and fees]
-    , initcap(nml.fee_type::varchar(200))                                                           as fee_type
-    , initcap(nml.fee_schedule_source::varchar(200))                                                as fee_schedule_source
-    , initcap(nml.fee_schedule_type::varchar(200))                                                  as fee_schedule_type
-    , initcap(nml.fee_schedule::varchar(200))                                                       as fee_schedule
-    , nml.assets_as_of_date::date                                                                   as assets_as_of_date
-    , nml.fee_calculation_date::date                                                                as fee_calculation_date
-    , case
-        when lower(nml.billing_frequency_source) ilike 'Monthly'
-            then nml.effective_fee_rate * 12
-        when lower(nml.billing_frequency_source) ilike 'Quarterly'
-            then nml.effective_fee_rate * 4
-        when nml.billing_frequency_source is null
-            then nml.effective_fee_rate
-    end::number(20 , 5)                                                                             as effective_fee_rate
-    , nml.total_account_value::number(20 , 5)                                                       as total_account_value
-    , nml.billable_value::number(20 , 5)                                                            as billable_value
-    , nml.fee_excluded_assets::number(20 , 5)                                                       as fee_excluded_assets
-    , nml.client_fee_gross::number(20 , 5)                                                          as client_fee_gross
-    , nml.client_fee_rebates::number(20 , 5)                                                        as client_fee_rebates
-    , nml.client_net_contribution_fee::number(20 , 5)
-        as client_net_contribution_fee
-    , nml.client_adjustments_fee::number(20 , 5)                                                    as client_adjustments_fee
-    , nml.client_write_off_fee::number(20 , 5)                                                      as client_write_off_fee
-    , nml.client_fee_net::number(20 , 5)                                                            as client_fee_net
-    , nml.collection_date::date                                                                     as collection_date
-    , coalesce(nml.third_party_calculation::boolean , false)
-        as third_party_calculation
-
-    -- [billing terms and payment]
-    , initcap(nml.billing_style::varchar(200))                                                      as billing_style
-    , initcap(nml.billing_frequency::varchar(200))                                                  as billing_frequency
-    , initcap(nml.billing_method::varchar(200))                                                     as billing_method
-    , initcap(nml.bill_on_balance_type::varchar(200))                                               as bill_on_balance_type
-    , initcap(nml.payment_terms::varchar(200))                                                      as payment_terms
-    , initcap(nml.payment_method_fee::number(20 , 5))                                               as payment_method_fee
-
-    -- [accounting]
-    , lower(nml.account_class::varchar(200))                                                        as account_class
-    , coalesce(nml.fee_type in ('Quarterly Fee' , 'Management fee') , false)::boolean               as recurring_revenue
-    , coalesce(nml.fee_type in ('Quarterly Fee' , 'Management fee') , false)::boolean
-        as impacted_by_financial_markets
-    , coalesce(
-        nml.coa_segment_1_legal_entity_id , nml.associate_coa_segment_1
-    )::varchar(200)
-        as coa_segment_1_legal_entity_id
-    , '000'::varchar(200)                                                                           as coa_segment_2_product_id
-    , nml._coa_segment_3_accounting_id                                                              as coa_segment_3_accounting_id
-    , nml.associate_coa_segment_4::varchar(200)                                                     as coa_segment_4_team_id
-    , coalesce(nml.coa_segment_5_natural_account_id , null)::varchar(200)
-        as coa_segment_5_natural_account_id
-    , '000'::varchar(200)
-        as coa_segment_6_initiative_id
-    , '000'::varchar(200)
-        as coa_segment_7_intercompany_id
-    , '000'::varchar(200)
-        as coa_segment_8_future_id
-    , concat(
-        coa_segment_1_legal_entity_id
-        , '-' , coa_segment_2_product_id
-        , '-' , coa_segment_3_accounting_id
-        , '-' , coa_segment_4_team_id
-        , '-' , coa_segment_5_natural_account_id
-        , '-' , coa_segment_6_initiative_id
-        , '-' , coa_segment_7_intercompany_id
-        , '-' , coa_segment_8_future_id
-    )                                                                                               as coa_account_number
-    , nml._revenue_category::varchar(200)                                                           as revenue_category
-    , initcap(nml.revenue_type::varchar(200))                                                       as revenue_type
-
-    -- [crm]
-    , nml.system_name_crm::varchar(200)                                                             as system_name_crm
-    , nml.system_instance_crm::varchar(200)                                                         as system_instance_crm
-    , nml.system_key_crm::varchar(200)                                                              as system_key_crm
-    , nml.account_id_crm::varchar(200)                                                              as account_id_crm
-    , nml.client_id_crm::varchar(200)                                                               as client_id_crm
-    , nml.client_id_original_crm::varchar(200)                                                      as client_id_original_crm
-    , nml.client_id_unique_compass::varchar(200)
-        as client_id_unique_compass
-    , nml.client_name::varchar(200)                                                                 as client_name
-    , nml.client_name_original_crm::varchar(200)
-        as client_name_original_crm
-    , initcap(nml.client_lead_source::varchar(200))                                                 as client_lead_source
-    , initcap(nml.client_key_tags_crm::varchar(5000))                                               as client_key_tags_crm
-
-    -- [transactions]
-    , initcap(nml.transaction_type::varchar(200))                                                   as transaction_type
-    , initcap(nml.transaction_line_type::varchar(200))                                              as transaction_line_type
-    , nml.transaction_line_quantity::number(20 , 5)
-        as transaction_line_quantity
-    , nml.currency_code::varchar(200)                                                               as currency_code
-    , nml.currency_conversion_type::varchar(200)
-        as currency_conversion_type
-    , nml.unit_selling_price::number(20 , 5)                                                        as unit_selling_price
-
-    -- [exclusion]
-    , nml.is_excluded::int                                                                          as is_excluded
-    , initcap(nml.excluded_reason::varchar(200))                                                    as excluded_reason
-
-    -- [referential]
-    , (
-        nml.system_key::varchar(50)
-        || ' | ' || nml.revenue_period::varchar(10)
-        || ' | ' || coalesce(nml._trans_key::varchar(100) , nml.invoice_number_source::varchar(100))
-    )::varchar(200)                                                                                 as _invoice_key
-    , nml._created_at::datetime                                                                     as _created_at
-    , nml._source_file::varchar(200)                                                                as _source_file
-    , nml._box_file_id::varchar(200)                                                                as _box_file_id
-    , nml._extra_fields::variant                                                                    as _extra_fields
-
-from
-    cte_finalize as nml
--- Joins to 'edw locations' on 'accounting id, segment 3', obtains advisor location
-left join cte_loc_adv as loc_adv
-    on nml._coa_segment_3_accounting_id = loc_adv.accounting_id
-    and loc_adv.rn = 1
+    *
+    , current_timestamp()::timestamp as _created_at
+from cte_union
+where true
 {% if target.name == 'prod' %}
-        and nml.system_key in ('addepar__corbenic', 'black_diamond__houston', 'black_diamond__uhnw', 'salesforce__compass', 'sei__manasquan', 'envestnet__manasquan')
+        and system_key in ('addepar__corbenic', 'black_diamond__houston', 'black_diamond__uhnw', 'salesforce__compass', 'sei__manasquan', 'envestnet__manasquan')
     {% endif %}
-order by
-    system_key
-    , revenue_period_end_date
-    , _invoice_key

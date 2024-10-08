@@ -35,6 +35,8 @@ select
     , null::varchar(200)                           as client_manager_primary
     , null::varchar(200)                           as associate_id_primary
     , null::varchar(200)                           as client_manager_type
+    , null::varchar(200)                           as client_manager
+    , null::varchar(200)                           as associate_id
     , fee_type::varchar(600)                       as fee_type
     , fee_schedule::varchar(600)                   as fee_schedule_source
     , null::varchar(600)                           as fee_schedule_type
@@ -93,8 +95,9 @@ select
     , null::number(38 , 0)                         as is_excluded
     , null::varchar(600)                           as excluded_reason
     , null::varchar(200)                           as _invoice_key
-    , null::timestamp_ntz(9)                       as _created_at
+    , null::timestamp_ntz(9)                       as _source_loaded_at
     , null::varchar(200)                           as _source_file
     , null::varchar(200)                           as _box_file_id
     , null::variant                                as _extra_fields
+    , null::timestamp_ntz(9)                       as _created_at
 from {{ source('reporting_raw', 'revenue_legacy_history') }}
