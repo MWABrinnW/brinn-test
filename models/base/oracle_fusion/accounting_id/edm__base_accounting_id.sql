@@ -1,169 +1,209 @@
 with cte_accounting_id as (
     select *
-    from {{ ref('edm__stg_accounting_id') }}
+    from oracle_fusion.edm.stg_accounting_id
 )
 
-, cte_sector as (
+, cte_business_units as (
     select
-        business_unit.name
-            as business_unit
-        , business_unit.effective_date
-        , coalesce(
-            new_data.name , business_unit.name
-        )                  as sector
-        , nullif(
-            greatest(
-                coalesce(business_unit.attr_10 , '1900-01-01')
-                , coalesce(new_data.attr_10 , '1900-01-01')
-            )
-            , '1900-01-01'
-        )::date            as org_effective_date
-    from cte_accounting_id as business_unit
-    left join cte_accounting_id as new_data
-        on business_unit.name = new_data.parent
-        and business_unit.effective_date = new_data.effective_date
-        and new_data.attr_12 like '%Sector%'
-    where business_unit.attr_12 like '%BU%'
+        a.effective_date
+        , a.name    as business_unit
+        , a.attr_10 as org_effective_date
+        , a.parent
+    from cte_accounting_id as a
+    where 1 = 1
+        and a.attr_12 like '%BU%'
+    group by all
 )
 
-, cte_division as (
+, cte_sectors as (
     select
-        business_unit
-        , sector
-        , cte_sector.effective_date
-        , coalesce(
-            new_data.name , cte_sector.sector
-        )       as division
-        , nullif(
-            greatest(
-                coalesce(cte_sector.org_effective_date , '1900-01-01')
-                , coalesce(new_data.attr_10 , '1900-01-01')
-            )
-            , '1900-01-01'
-        )::date as org_effective_date
-    from cte_sector
-    left join cte_accounting_id as new_data
-        on cte_sector.sector = new_data.parent
-        and cte_sector.effective_date = new_data.effective_date
-        and new_data.attr_12 like '%Division%'
+        a.effective_date
+        , a.name    as sector
+        , a.attr_10 as org_effective_date
+        , case
+            when a.attr_12 ilike '%BU%'
+                then a.name
+            else a.parent
+        end         as parent
+    from cte_accounting_id as a
+    where 1 = 1
+        and a.attr_12 like '%Sector%'
+    group by all
 )
 
-, cte_region as (
+, cte_divisions as (
     select
-        business_unit
-        , sector
-        , division
-        , cte_division.effective_date
-        , coalesce(
-            new_data.name , cte_division.division
-        )       as region
-        , nullif(
-            greatest(
-                coalesce(cte_division.org_effective_date , '1900-01-01')
-                , coalesce(new_data.attr_10 , '1900-01-01')
-            )
-            , '1900-01-01'
-        )::date as org_effective_date
-    from cte_division
-    left join cte_accounting_id as new_data
-        on cte_division.division = new_data.parent
-        and cte_division.effective_date = new_data.effective_date
-        and new_data.attr_12 like '%Region%'
+        a.effective_date
+        , a.name    as division
+        , a.attr_10 as org_effective_date
+        , case
+            when a.attr_12 ilike '%Sector%'
+                then a.name
+            else a.parent
+        end         as parent
+    from cte_accounting_id as a
+    where 1 = 1
+        and a.attr_12 like '%Division%'
+    group by all
 )
 
-, cte_market as (
+, cte_regions as (
     select
-        business_unit
-        , sector
-        , division
-        , region
-        , cte_region.effective_date
-        , coalesce(
-            new_data.name , cte_region.region
-        )       as market
-        , nullif(
-            greatest(
-                coalesce(cte_region.org_effective_date , '1900-01-01')
-                , coalesce(new_data.attr_10 , '1900-01-01')
-            )
-            , '1900-01-01'
-        )::date as org_effective_date
-    from cte_region
-    left join cte_accounting_id as new_data
-        on cte_region.region = new_data.parent
-        and cte_region.effective_date = new_data.effective_date
-        and new_data.attr_12 like '%Market%'
+        a.effective_date
+        , a.name    as region
+        , a.attr_10 as org_effective_date
+        , case
+            when a.attr_12 ilike '%Division%'
+                then a.name
+            else a.parent
+        end         as parent
+    from cte_accounting_id as a
+    where 1 = 1
+        and a.attr_12 like '%Region%'
+    group by all
 )
 
-, cte_location as (
+, cte_markets as (
     select
-        business_unit
-        , sector
-        , division
-        , region
-        , market
-        , cte_market.effective_date
-        , coalesce(
-            new_data.name , cte_market.market
-        )       as location
-        , nullif(
-            greatest(
-                coalesce(cte_market.org_effective_date , '1900-01-01')
-                , coalesce(new_data.attr_10 , '1900-01-01')
-            )
-            , '1900-01-01'
-        )::date as org_effective_date
-    from cte_market
-    left join cte_accounting_id as new_data
-        on cte_market.market = new_data.parent
-        and cte_market.effective_date = new_data.effective_date
-        and new_data.attr_12 like '%Location%'
+        a.effective_date
+        , a.name    as market
+        , a.attr_10 as org_effective_date
+        , case
+            when a.attr_12 ilike '%Region%'
+                then a.name
+            else a.parent
+        end         as parent
+    from cte_accounting_id as a
+    where 1 = 1
+        and a.attr_12 like '%Market%'
+    group by all
 )
 
-, cte_department as (
+, cte_locations as (
     select
-        new_data.name
-            as accounting_id
-        , new_data.is_enabled
-        , new_data.end_date
-        , new_data.attr_01::text(200)                   as location_code
-        , new_data.attr_02::text(200)                   as city
-        , new_data.attr_03::text(200)                   as state
-        , new_data.attr_04::text(200)                   as acquisition_type
-        , new_data.attr_05::text(200)                   as acquisition_name
-        , new_data.attr_08::text(200)                   as leader_1
-        , new_data.attr_09::text(200)                   as leader_1_email
-        , new_data.attr_14::text(200)                   as leader_2
-        , new_data.attr_15::text(200)                   as leader_2_email
-        , new_data.attr_13::text(200)                   as hr_business_partner
-        , new_data.attr_06::int                         as is_greenfield
-        , new_data.attr_07::date                        as acquisition_start_month
-        , new_data.attr_11::date                        as inception_date
-        , nullif(
-            greatest(
-                coalesce(cte_location.org_effective_date , '1900-01-01')
-                , coalesce(new_data.attr_10 , '1900-01-01')
-            )
-            , '1900-01-01'
-        )::date                                         as org_effective_date
-        , new_data.attr_16::text(200)                   as igo_segment
-        , cte_location.business_unit
-        , cte_location.sector
-        , cte_location.division
-        , replace(cte_location.region , ' Region' , '') as region
-        , replace(cte_location.market , ' Market' , '') as market
-        , cte_location.location
-        , new_data.description                          as department
-        , cte_location.effective_date
-        , new_data.is_head
-        , new_data._created_at
-        , new_data._source_file
-    from cte_location
-    left join cte_accounting_id as new_data
-        on cte_location.location = new_data.parent
-        and cte_location.effective_date = new_data.effective_date
-        and new_data.attr_12 like '%Dept'
+        a.effective_date
+        , a.name    as location
+        , a.attr_10 as org_effective_date
+        , case
+            when a.attr_12 ilike '%Market%'
+                then a.name
+            else a.parent
+        end         as parent
+    from cte_accounting_id as a
+    where 1 = 1
+        and a.attr_12 like '%Location%'
+    group by all
 )
 
-select *
-from cte_department
+, cte_departments as (
+    select
+        a.effective_date
+        , a.name         as department
+        , a.attr_10      as org_effective_date
+        , case
+            when a.attr_12 ilike '%Location%'
+                then a.name
+            else a.parent
+        end              as parent
+        , a.attr_01      as location_code
+        , a.description
+        , a.is_enabled
+        , a.end_date
+        , a.attr_01      as attr_01
+        , a.attr_02      as attr_02
+        , a.attr_03      as attr_03
+        , a.attr_04      as attr_04
+        , a.attr_05      as attr_05
+        , a.attr_08      as attr_08
+        , a.attr_09      as attr_09
+        , a.attr_14      as attr_14
+        , a.attr_15      as attr_15
+        , a.attr_13      as attr_13
+        , a.attr_06      as attr_06
+        , a.attr_07      as attr_07
+        , a.attr_11      as attr_11
+        , a.attr_16      as attr_16
+        , a.is_head      as is_head
+        , a._created_at  as _created_at
+        , a._source_file as _source_file
+    from cte_accounting_id as a
+    where 1 = 1
+        and a.attr_12 like '%Dept%'
+        and a.attr_12 not like '%Rollup%'
+    group by all
+)
+
+select
+    dep.department                         as accounting_id
+    , dep.is_enabled                       as is_enabled
+    , dep.end_date                         as end_date
+    , dep.location_code                    as location_code
+
+    , dep.attr_02::text(200)               as city
+    , dep.attr_03::text(200)               as state
+    , dep.attr_04::text(200)               as acquisition_type
+    , dep.attr_05::text(200)               as acquisition_name
+    , dep.attr_08::text(200)               as leader_1
+    , dep.attr_09::text(200)               as leader_1_email
+    , dep.attr_14::text(200)               as leader_2
+    , dep.attr_15::text(200)               as leader_2_email
+    , dep.attr_13::text(200)               as hr_business_partner
+    , dep.attr_06::int                     as is_greenfield
+    , dep.attr_07::date                    as acquisition_start_month
+    , dep.attr_11::date                    as inception_date
+    , nullif(
+        greatest(
+            coalesce(dep.org_effective_date , '1900-01-01')::date
+            , coalesce(loc.org_effective_date , '1900-01-01')::date
+            , coalesce(mkt.org_effective_date , '1900-01-01')::date
+            , coalesce(reg.org_effective_date , '1900-01-01')::date
+            , coalesce(div.org_effective_date , '1900-01-01')::date
+            , coalesce(sec.org_effective_date , '1900-01-01')::date
+            , coalesce(bu.org_effective_date , '1900-01-01')::date
+        )
+        , '1900-01-01'::date
+    )::date                                as org_effective_date
+    , object_construct_keep_null(
+        'deparment', dep.org_effective_date,
+        'location', loc.org_effective_date,
+        'market', mkt.org_effective_date,
+        'region', reg.org_effective_date,
+        'division', div.org_effective_date,
+        'sector', sec.org_effective_date,
+        'business_unit', bu.org_effective_date
+    )                                      as org_effective_dates
+    , dep.attr_16::text(200)               as igo_segment
+
+    , bu.business_unit                     as business_unit
+    , sec.sector                           as sector
+    , div.division                         as division
+    , replace(reg.region , ' Region' , '') as region
+    , replace(mkt.market , ' Market' , '') as market
+    , loc.location                         as location
+    , dep.description                      as department
+    , dep.effective_date                   as effective_date
+
+    , dep.is_head                          as is_head
+    , dep._created_at                      as _created_at
+    , dep._source_file                     as _source_file
+from cte_departments as dep
+left join cte_locations as loc
+    on dep.effective_date = loc.effective_date
+    and dep.parent = loc.location
+left join cte_markets as mkt
+    on loc.effective_date = mkt.effective_date
+    and loc.parent = mkt.market
+left join cte_regions as reg
+    on mkt.effective_date = reg.effective_date
+    and mkt.parent = reg.region
+left join cte_divisions as div
+    on reg.effective_date = div.effective_date
+    and reg.parent = div.division
+left join cte_sectors as sec
+    on div.effective_date = sec.effective_date
+    and div.parent = sec.sector
+left join cte_business_units as bu
+    on sec.effective_date = bu.effective_date
+    and sec.parent = bu.business_unit
+where 1 = 1
+order by dep.effective_date , dep.department
