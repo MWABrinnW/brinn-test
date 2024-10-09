@@ -13,7 +13,7 @@
     cluster_by = ['revenue_period_end_date', 'system_key']
 ) }}
 
-{%- set pms_keys = 
+{%- set system_keys = 
     [
         'addepar__corbenic',
         'black_diamond__houston',
