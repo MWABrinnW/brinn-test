@@ -69,6 +69,7 @@ select
     , json:TAMC_SPLIT_1::varchar(200)                        as tamc_split_1
     , json:TAMC_SPLIT_2::varchar(200)                        as tamc_split_2
     , json:TAMC_SPLIT_3::varchar(200)                        as tamc_split_3
+    , json:TAMC_SPLIT_4::varchar(200)                        as tamc_split_4
     , json:TAM_ACCOUNTGUID::varchar(200)                     as tam_account_guid
     , json:TAM_ADDRESSUPDATEDFROMPLUGIN::varchar(200)        as tam_address_updated_from_plugin
     , json:TAM_ADDRESS_1::varchar(100)                       as tam_address_1

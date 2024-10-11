@@ -68,7 +68,6 @@ select
     , json:STATECODE::integer                                    as state_code
     , json:TIMEZONERULEVERSIONNUMBER::integer                    as timezone_rule_version_number
     , json:VERSIONNUMBER::integer                                as version_number
-    , json:_ACCOUNTID_VALUE::varchar(200)                        as _account_id_value
     , json:_CREATEDBY_VALUE::varchar(200)                        as _created_by_value
     , json:_FIVETRAN_DELETED::integer                            as _fivetran_deleted
     , json:_FIVETRAN_SYNCED::timestamp_ntz                       as _fivetran_synced
@@ -79,9 +78,10 @@ select
     , json:_OWNINGUSER_VALUE::varchar(200)                       as _owning_user_value
     , json:_PRIMARYCONTACTID_VALUE::varchar(200)                 as _primary_contact_id_value
     , json:_SECONDARYCONTACTID_VALUE::varchar(200)               as _secondary_contact_id_value
-    , _created_at::timestamp_ntz                                 as _created_at
+    , json:_TAM_ACCOUNTID_VALUE::varchar(200)                    as _tam_account_id_value
     , json:_TRUSTID_VALUE::varchar(200)                          as _trust_id_value
     , json:_TRANSACTIONCURRENCYID_VALUE::varchar(200)            as _transaction_currency_id_value
+    , _created_at::timestamp_ntz                                 as _created_at
     , {{ col_is_head(reference = source('dynamics_tamarac_cpg', 'tam_financeaccount'), 
             reference_date_col = 'effective_at::date', 
             source_date_col = 'effective_at::date') }}
