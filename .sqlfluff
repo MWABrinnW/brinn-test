@@ -47,7 +47,7 @@ fix_even_unparsable = False
 # removed in a future version.
 # Set either to 0 to disable.
 large_file_skip_char_limit = 0
-large_file_skip_byte_limit = 40000
+large_file_skip_byte_limit = 25000
 # CPU processes to use while linting.
 # If positive, just implies number of processes.
 # If negative or zero, implies number_of_cpus - specified_number.

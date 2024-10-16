@@ -146,3 +146,5 @@ left join {{ ref('active_directory__rpt_users') }} as man_ad
 left join {{ ref('locations') }} as l
     on e.cost_seg_3 = l.accounting_id
     and e.effective_at::date between coalesce(l.start_date , e.effective_at::date) and coalesce(l.end_date , e.effective_at::date)
+where 1 = 1
+    and e.is_head_for_day = 1

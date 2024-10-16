@@ -1,5 +1,5 @@
 select
-    nullif(replace(split(content , '|')[0] , '' , '') , '')::timestamp_ntz   as effective_at
+    effective_at                                                             as effective_at
     , nullif(replace(split(content , '|')[1] , '' , '') , '')::varchar(200)  as oracle_employee_num
     , nullif(replace(split(content , '|')[2] , '' , '') , '')::varchar(200)  as associate_id
     , nullif(replace(split(content , '|')[3] , '' , '') , '')::varchar(200)  as employee_id
@@ -78,13 +78,17 @@ select
     , nullif(replace(split(content , '|')[76] , '' , '') , '')::varchar(200) as position_department_name
     , nullif(replace(split(content , '|')[77] , '' , '') , '')::varchar(200) as ft_pt_temp
     , nullif(replace(split(content , '|')[78] , '' , '') , '')::varchar(200) as future_hire
-    --, effective_date                                                         as effective_date
     , {{ col_is_head(
         reference=source('oracle_hcm', 'hcm_employee_demographics'),
         source_date_col='effective_at',
-        reference_date_col="nullif(replace(split(content , '|')[0] , '' , '') , '')::timestamp_ntz"
+        reference_date_col='effective_at'
         ) }}
+    , case
+        when dense_rank() over (partition by effective_at::date order by effective_at desc) = 1
+            then 1
+        else 0
+    end::int                                                                 as is_head_for_day
     , _created_at                                                            as _created_at
     , _source_file                                                           as _source_file
 from {{ source('oracle_hcm', 'hcm_employee_demographics') }}
-where effective_date >= '2024-05-28'
+where effective_at::date >= '2024-05-28'

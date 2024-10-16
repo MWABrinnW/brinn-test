@@ -16,6 +16,7 @@ $paths = @("models", "tests", "snapshots")
 
 $failed_files = @()
 if ($select.trim() -ne "") {
+    $select = $select.replace("\", "/")
     Write-Host "select: [$select]"
 
     $files = @()
@@ -23,12 +24,13 @@ if ($select.trim() -ne "") {
         Write-Host "Looking for previously failed files"
         $files = Get-Content "./lint_failures.txt"
     } else {
-        if ($select -notlike "*.sql*") {
-            $select = "$select.sql"
-        }
+        # if ($select -notlike "*.sql*") {
+        #     $select = "$select.sql"
+        # }
 
         foreach ($path in $paths) {
-            $files += Get-ChildItem -Path $path -Filter "*$select*" -Recurse -File
+            $files += Get-ChildItem -Path $path -Filter "*sql" -Recurse -File
+                | Where-Object { $_.FullName.Replace("\", "/") -like "*$($select)*" }
         }
     }
 
