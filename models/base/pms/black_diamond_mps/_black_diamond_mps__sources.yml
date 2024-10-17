@@ -24,6 +24,24 @@ sources:
           - name: RECORD_ID
             data_type: NUMBER
             description: ''
+      - name: bills
+        description: ""
+        columns:
+          - name: JSON
+            data_type: VARIANT
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _BOX_FILE_ID
+            data_type: NUMBER
+            description: ''
+          - name: _BOX_META
+            data_type: VARIANT
+            description: ''
+          - name: _BOX_FILE_NAME
+            data_type: VARCHAR
+            description: ''
       - name: client
         description: ""
         columns:
