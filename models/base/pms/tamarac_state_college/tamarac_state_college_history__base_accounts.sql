@@ -95,10 +95,16 @@ select
     , content:LAST_REBAL_DATE::date                                             as last_rebal_date
     , content:LAST_RECONCILIATION_DATE::date                                    as last_reconciliation_date
     , content:LAST_SYNC_START_DATE::date                                        as last_sync_start_date
-    , dateadd(
-        hour , 2 , to_timestamp_tz(
-            replace(content:LAST_SYNC_TIME::text , ' PT' , '') , 'MM/DD/YYYY HH:MI AM'
+    , iff(
+        content:LAST_SYNC_TIME like '% PT'
+        , dateadd(
+            hour
+            , 2
+            , to_timestamp_tz(
+                replace(content:LAST_SYNC_TIME::text , ' PT' , '') , 'MM/DD/YYYY HH:MI AM'
+            )
         )
+        , to_timestamp_tz(content:LAST_SYNC_TIME::text , 'YYYY-MM-DD HH24:MI:SS.FF3')
     )::timestamp_tz                                                             as last_sync_time
     , content:MANAGED_ACCOUNT_VALUE_PREVEOD::double                             as managed_account_value_preveod
     , content:MANAGEMENT_FEES::double                                           as management_fees

@@ -34,8 +34,11 @@ with cte_loc_cli as (
         , seg_7
         , seg_8
         , is_latest
+        -- accounts for rare instances that an client manager has two records for the same period, differerent state values for tax requirements
+        , row_number() over (partition by associate_id_adp , associate_id_oracle , start_date , end_date order by _id) as rn
     from {{ ref('bld_associate_revenue_coding') }}
     where is_latest = 1
+    qualify rn = 1
 )
 
 , cte_normalized as (

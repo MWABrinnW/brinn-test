@@ -168,7 +168,7 @@ select
 
 from {{ ref('black_diamond_uhnw__base_bills') }} as bb
 left join {{ ref('black_diamond_uhnw__base_accounts') }} as ba
-    on trim(replace(bb.account_number , '-' , '')) = trim(replace(ba.accountnumber , '-' , ''))
+    on trim(replace(bb.external_id , '-' , '')) = trim(replace(ba.id , '-' , ''))
     and bb.cash_available_date = ba.effective_date
     and ba.billable = true
 left join saleforce_salentica as sf

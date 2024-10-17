@@ -317,20 +317,21 @@ left join {{ ref('salesforce_compass_accounts') }} as acc-- historcial
     and acc.is_latest = 1
 -- If the join with date to the account record fails, we will go ahead
 -- and use the latest available version of the record.
-left join {{ ref('salesforce_compass_accounts') }} as acc2--current
+left join {{ ref('salesforce_compass_accounts') }} as acc2
     on ir.estate_item_c = acc2.id
     and acc2.is_head = 1
 left join {{ ref('dim_custodian_accounts') }} as dca
     on coalesce(acc.custodian_key , acc2.custodian_key) = dca.custodian
     and coalesce(acc.account_number , acc2.account_number) = dca.account_number
 {# left join {{ ref('bld_custodian_accounts') }} as ca
-  on coalesce(acc.custodian_key , acc2.custodian_key) = ca.custodian
-  and coalesce(acc.account_number , acc2.account_number) = ca.account_number
-  and least(ir.invoice_date_c , ir.revenue_as_of_date_c , dca.max_effective_date) = ca.effective_date #}
+    on coalesce(acc.custodian_key , acc2.custodian_key) = ca.custodian
+    and coalesce(acc.account_number , acc2.account_number) = ca.account_number
+    and least(ir.invoice_date_c , ir.revenue_as_of_date_c , dca.max_effective_date) = ca.effective_date #}
 left join {{ ref('tamarac_state_college_history__base_accounts') }} as cpg_acc
     on coalesce(acc.account_number , acc2.account_number) = replace(cpg_acc.account_number , '-' , '')
     and ir.revenue_as_of_date_c = cpg_acc.effective_date
     and cpg_acc.rn = 1
+    and cpg_acc.entity_type = 'Single Account'
 -- Excludes service types categorized as tax preparation
 left join fivetran.salesforce_compass.mhservice_c as mh
     on ir.service_rendered_c = mh.id
