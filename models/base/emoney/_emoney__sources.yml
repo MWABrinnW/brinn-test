@@ -24,3 +24,67 @@ sources:
         description: ""
       - name: user
         description: ""
+      - name: account_history
+        description: ""
+      - name: account_interests
+        description: ""
+      - name: alerts
+        description: ""
+      - name: alliances
+        description: ""
+      - name: assumptions
+        description: ""
+      - name: charities
+        description: ""
+      - name: client_group_members
+        description: ""
+      - name: client_groups
+        description: ""
+      - name: disability_ltc_insurance_accounts
+        description: ""
+      - name: external_user_ids
+        description: ""
+      - name: facts
+        description: ""
+      - name: flows
+        description: ""
+      - name: flp_entities
+        description: ""
+      - name: holdings
+        description: ""
+      - name: liability_note_accounts
+        description: ""
+      - name: life_insurance_annuity_accounts
+        description: ""
+      - name: medical_insurance_accounts
+        description: ""
+      - name: nexus_accounts
+        description: ""
+      - name: nexus_advisors
+        description: ""
+      - name: nexus_bank_transactions
+        description: ""
+      - name: nexus_clients
+        description: ""
+      - name: nexus_deleted_bank_transactions
+        description: ""
+      - name: nexus_deleted_investment_transactions
+        description: ""
+      - name: nexus_holdings
+        description: ""
+      - name: nexus_investment_transactions
+        description: ""
+      - name: notes
+        description: ""
+      - name: personal_property_accounts
+        description: ""
+      - name: property_casualty_insurance_accounts
+        description: ""
+      - name: stock_option_accounts
+        description: ""
+      - name: stock_option_grants
+        description: ""
+      - name: tasks
+        description: ""
+      - name: trust_entities
+        description: ""
