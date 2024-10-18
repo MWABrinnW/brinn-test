@@ -1,6 +1,6 @@
 version: 2
 models:
-  - name: black_diamond_mcgervey_history__base_accounts
+  - name: black_diamond_mcgervey__base_accounts
     columns:
       - name: PMS
         description: ''
@@ -143,7 +143,7 @@ models:
       - name: _SOURCE_LOADED_AT
         description: ''
         data_type: TIMESTAMP_LTZ
-  - name: black_diamond_mcgervey_history__base_account_fees
+  - name: black_diamond_mcgervey__base_account_fees
     columns:
       - name: PMS
         description: ''
@@ -184,7 +184,7 @@ models:
       - name: _SOURCE_LOADED_AT
         description: ''
         data_type: TIMESTAMP_LTZ
-  - name: black_diamond_mcgervey_history__base_portfolio_groups
+  - name: black_diamond_mcgervey__base_portfolio_groups
     columns:
       - name: PMS
         description: ''
@@ -216,7 +216,7 @@ models:
       - name: _SOURCE_LOADED_AT
         description: ''
         data_type: TIMESTAMP_LTZ
-  - name: black_diamond_mcgervey_history__base_account_benchmarks
+  - name: black_diamond_mcgervey__base_account_benchmarks
     columns:
       - name: PMS
         description: ''
@@ -248,7 +248,7 @@ models:
       - name: _SOURCE_LOADED_AT
         description: ''
         data_type: TIMESTAMP_LTZ
-  - name: black_diamond_mcgervey_history__base_holdings
+  - name: black_diamond_mcgervey__base_holdings
     columns:
       - name: PMS
         description: ''
@@ -337,7 +337,7 @@ models:
       - name: _SOURCE_LOADED_AT
         description: ''
         data_type: TIMESTAMP_LTZ
-  - name: black_diamond_mcgervey_history__base_tax_lots
+  - name: black_diamond_mcgervey__base_tax_lots
     columns:
       - name: PMS
         description: ''
@@ -411,7 +411,7 @@ models:
       - name: _SOURCE_LOADED_AT
         description: ''
         data_type: TIMESTAMP_LTZ
-  - name: black_diamond_mcgervey_history__base_account_tags
+  - name: black_diamond_mcgervey__base_account_tags
     columns:
       - name: PMS
         description: ''
@@ -452,7 +452,7 @@ models:
       - name: _SOURCE_LOADED_AT
         description: ''
         data_type: TIMESTAMP_LTZ
-  - name: black_diamond_mcgervey_history__base_relationships
+  - name: black_diamond_mcgervey__base_relationships
     columns:
       - name: PMS
         description: ''

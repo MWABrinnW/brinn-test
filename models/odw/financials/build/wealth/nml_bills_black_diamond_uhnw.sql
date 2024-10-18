@@ -60,7 +60,7 @@ select
     , bb.external_id::varchar(200)                                             as account_id_pms
     , bb.account_long_name::varchar(200)                                       as registrant_name
     , bb.account_name::varchar(200)                                            as account_name
-    , ba.accountregistrationtype::varchar(200)                                 as type_of_account
+    , ba.account_registration_type::varchar(200)                               as type_of_account
     , br.rel_id::varchar(200)                                                  as client_id_pms
     , ba.aum_aua_ro::varchar(200)                                              as aum_classification_status
     , bm.benchmark_name::varchar(200)                                          as model_investment_strategy

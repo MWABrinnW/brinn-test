@@ -144,8 +144,8 @@ select
     -- [extra fields]
     , null::variant                                                                      as _extra_fields
 
-from {{ ref('black_diamond_houston_history__base_bills') }} as bb
-left join {{ ref('black_diamond_houston_history__base_accounts') }} as ba
+from {{ ref('black_diamond_houston__base_bills') }} as bb
+left join {{ ref('black_diamond_houston__base_accounts') }} as ba
     on trim(replace(bb.account_number , '-' , '')) = trim(replace(ba.account_number , '-' , ''))
     and ba.is_head = 1
 -- joins crm data on invoice date, if available

@@ -7,7 +7,7 @@
      'client_fee_net': 'net_fee_c', 'is_head': 'yes'},
     {'model': 'addepar_corbenic_history__base_bills', 'invoice_date': 'billing_date',
      'client_fee_net': 'billing_fee_value', 'is_head': 'yes'},
-    {'model': 'black_diamond_houston_history__base_bills', 'invoice_date': 'period_end_date',
+    {'model': 'black_diamond_houston__base_bills', 'invoice_date': 'period_end_date',
      'client_fee_net': 'total_period_fee', 'is_head': 'no'},
     {'model': 'black_diamond_uhnw__base_bills', 'invoice_date': 'period_end_date',
      'client_fee_net': 'total_period_fee', 'is_head': 'no'},
