@@ -50,3 +50,6 @@ with cte_paths as (
       and f.path not like '%.%'
     group by all
 )
+
+select *
+from cte_paths
