@@ -574,6 +574,12 @@ models:
         +grants:
           select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
+      prices:
+        +tags: ["prices"]
+        +schema: ref
+        +grants:
+          select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+
 seeds:
   data_engineering:
     # By default seeds will go into datalake.aux

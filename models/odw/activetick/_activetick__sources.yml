@@ -8,3 +8,5 @@ sources:
     tables:
       - name: snapshots
         description: ""
+      - name: prices_daily
+        description: ""
