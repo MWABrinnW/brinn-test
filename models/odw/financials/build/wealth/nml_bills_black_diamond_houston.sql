@@ -11,7 +11,7 @@ select
     -- [invoice]
     , null::varchar(200)                                                                 as invoice_number_source
     , bb.as_of_date::timestamp_ntz                                                       as invoice_created_at
-    , bb.as_of_date::date                                                                as invoice_date
+    , dateadd('day' , -1 , date_trunc('quarter' , bb.cash_available_date))::date         as invoice_date
     , null::varchar(200)                                                                 as billing_statement_id_source
     , null::varchar(200)                                                                 as billing_statement_id_crm
     , null::varchar(200)                                                                 as invoice_status
@@ -48,8 +48,8 @@ select
     , fs.name::varchar(200)                                                              as fee_schedule_source
     , bb.fee_schedule_name::varchar(200)                                                 as fee_schedule_type
     , null::varchar(200)                                                                 as fee_schedule
-    , bb.as_of_date::date                                                                as assets_as_of_date
-    , bb.as_of_date::date                                                                as fee_calculation_date
+    , invoice_date                                                                       as assets_as_of_date
+    , invoice_date                                                                       as fee_calculation_date
     , bb.rate_percentage * 100::decimal(20 , 5)                                          as effective_fee_rate
     , coalesce(bb.account_value , acc.account_value)::decimal(20 , 5)                    as total_account_value
     , bb.billed_value::decimal(20 , 5)                                                   as billable_value
