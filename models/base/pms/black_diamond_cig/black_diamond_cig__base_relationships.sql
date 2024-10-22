@@ -1,5 +1,5 @@
 {{ black_diamond_relationships(
-    src=source('black_diamond_cig', 'accounts'),
+    src=source('black_diamond_cig', 'relationship'),
     instance='cig',
     firm_source='mwa',
     extra_columns=none,
