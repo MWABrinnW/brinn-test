@@ -359,6 +359,12 @@ models:
         +grants:
           select: "{{ ['engineering', 'datamanagement', 'reporting', 'integration_reporting'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
+      pontera:
+        +tags: ["pontera"]
+        +grants:
+          select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+
+
       salesforce_adviceperiod:
         +tags: ["crm", "salesforce", "mps", "adviceperiod"]
         +grants:

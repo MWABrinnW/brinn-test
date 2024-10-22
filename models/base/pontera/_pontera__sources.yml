@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: pontera
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    description: ""
+    schema: pontera
+    tables:
+      - name: accounts
+        columns:
+          - name: _data
+          - name: effective_date
+          - name: _created_at
+          - name: _source_file
+          - name: _id
+      - name: clients
+        columns:
+          - name: _data
+          - name: effective_date
+          - name: _created_at
+          - name: _source_file
+          - name: _id
+      - name: positions
+        columns:
+          - name: _data
+          - name: effective_date
+          - name: _created_at
+          - name: _source_file
+          - name: _id
+      - name: prices
+        columns:
+          - name: _data
+          - name: effective_date
+          - name: _created_at
+          - name: _source_file
+          - name: _id
+      - name: securities
+        columns:
+          - name: _data
+          - name: effective_date
+          - name: _created_at
+          - name: _source_file
+          - name: _id
+      - name: transactions
+        columns:
+          - name: _data
+          - name: effective_date
+          - name: _created_at
+          - name: _source_file
+          - name: _id
