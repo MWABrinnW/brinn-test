@@ -20,7 +20,7 @@ with cte_current as (
         , sum(price * quantity)::number(20 , 2) as market_value
     from {{ ref('flyer__stg_sod_positions_history') }}
     where is_head_for_day = 1
-        and effective_date >= current_date - 15
+        and effective_date >= current_date - 30
     group by effective_date
 )
 
@@ -38,28 +38,33 @@ with cte_current as (
 )
 
 select
-    a.cnt                                                           as current_cnt
-    , b.avg_count::int                                              as historical_cnt_avg
-    , (
-        a.cnt - b.avg_count
-    ) / b.stddev_count                                              as cnt_stddevs_away
+    -- count
+    a.cnt                                                                                  as count_cur
+    , b.avg_count::int                                                                     as count_hist_avg
+    , b.stddev_count::decimal(20 , 2)                                                      as count_stddev
+    , ((a.cnt - b.avg_count) / b.stddev_count)::decimal(20 , 2)                            as cnt_zscore
 
-    , a.cnt_accounts                                                as current_cnt_accounts
-    , b.avg_count_accounts::int                                     as historical_cnt_accounts_avg
-    , (
-        a.cnt_accounts - b.avg_count_accounts
-    ) / b.stddev_count_accounts                                     as cnt_accounts_stddevs_away
+    -- count accounts
+    , a.cnt_accounts                                                                       as cnt_accts
+    , b.avg_count_accounts::int                                                            as cnt_accts_hist_avg
+    , b.stddev_count_accounts::decimal(20 , 2)                                             as cnt_accts_stddev
+    , ((a.cnt_accounts - b.avg_count_accounts) / b.stddev_count_accounts)::decimal(20 , 2) as cnt_accts_zscore
 
-    , a.market_value                                                as current_value
-    , b.avg_market_value                                            as historical_value_avg
-    , (a.market_value - b.avg_market_value) / b.stddev_market_value
-        as market_value_stddevs_away
+    -- market value
+    , a.market_value::decimal(20 , 2)                                                      as market_value
+    , b.avg_market_value::decimal(20 , 2)                                                  as market_value_hist_avg
+    , b.stddev_market_value::decimal(20 , 2)                                               as market_value_stddev
+    , ((a.market_value - b.avg_market_value) / b.stddev_market_value)::decimal(20 , 2)
+        as market_value_zscore
 
-    , a.cnt_null_product                                            as cnt_null_product
+    -- product count
+    , a.cnt_null_product                                                                   as prouduct_cnt
+
 from cte_current as a
 cross join cte_history_averaged as b
-where abs(a.cnt - b.avg_count) > 3 * b.stddev_count
-    or abs(a.cnt_accounts - b.avg_count_accounts) > 3 * b.stddev_count_accounts
-    or abs(a.market_value - b.avg_market_value) > 3 * b.stddev_market_value
+where
+    abs((a.cnt - b.avg_count) / b.stddev_count) > 3
+    or abs((a.cnt_accounts - b.avg_count_accounts) / b.stddev_count_accounts) > 3
+    or abs((a.market_value - b.avg_market_value) / b.stddev_market_value) > 3
     or a.cnt_null_product > 0
 order by a.cnt
