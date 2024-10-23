@@ -1,6 +1,6 @@
 version: 2
 models:
-  - name: bld_billing_wealth
+  - name: bld_billing_wealth_like
     columns:
       - name: BILLING_FREQUENCY
         tests:

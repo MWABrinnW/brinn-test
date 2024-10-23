@@ -68,7 +68,7 @@ with cte_base as (
         , last_day(date_trunc('month' , invoice_date::date))::date as billings_invoice_date
         , sum(client_fee_net)::number(15 , 2)                      as billings_client_fee_net
     from
-        {{ ref('bld_billing_wealth') }}
+        {{ ref('bld_billing_wealth_like') }}
     where
         true
         and last_day(date_trunc('month' , invoice_date::date))

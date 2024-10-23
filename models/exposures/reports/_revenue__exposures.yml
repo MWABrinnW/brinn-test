@@ -13,6 +13,7 @@ exposures:
 
     depends_on:
       - ref('billing_wealth')
+      - ref('billing_independent_advisory')
 
     owner:
       name: Data Management

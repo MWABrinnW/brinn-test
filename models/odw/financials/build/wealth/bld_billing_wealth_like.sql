@@ -167,6 +167,3 @@ select
     , current_timestamp()::timestamp as _created_at
 from cte_union
 where true
-{% if target.name == 'prod' %}
-        and system_key in ('addepar__corbenic', 'black_diamond__baystate', 'black_diamond__houston', 'black_diamond__uhnw', 'salesforce__compass', 'sei__manasquan', 'envestnet__manasquan')
-    {% endif %}

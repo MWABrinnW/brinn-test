@@ -53,6 +53,6 @@
     '_EXTRA_FIELDS'
 ] %}
 
-{% set condition = "a.system_key in ('addepar__corbenic', 'black_diamond__houston', 'black_diamond__uhnw', 'salesforce__compass', 'sei__manasquan', 'envestnet__manasquan')" %}
+{% set condition = "a.system_key in ('black_diamond__baystate')" %}
 
 {{ describe_model(model=ref('bld_billing_wealth_like'), where_clause=condition, date_partition='revenue_period_end_date', excluded_columns=columns) }}
