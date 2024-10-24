@@ -69,7 +69,7 @@ select
     , null::decimal(20 , 5)                                                              as client_net_contribution_fee
     , null::decimal(20 , 5)                                                              as client_adjustments_fee
     , null::decimal(20 , 5)                                                              as client_write_off_fee
-    , bb.fee_or_rebate_amount::decimal(20 , 5)                                           as client_fee_net
+    , bb.total_period_fee::decimal(20 , 5)                                               as client_fee_net
     , null::date                                                                         as collection_date
     , null::boolean                                                                      as third_party_calculation
 
