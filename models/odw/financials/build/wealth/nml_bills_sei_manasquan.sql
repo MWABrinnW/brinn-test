@@ -59,7 +59,7 @@ select
     , null::varchar(200)                                                                 as fee_schedule
     , bb.fee_effective_date::date                                                        as assets_as_of_date
     , bb.fee_effective_date::date                                                        as fee_calculation_date
-    , null::decimal(20 , 5)                                                              as effective_fee_rate
+    , null::decimal(29 , 8)                                                              as effective_fee_rate
     , acc.account_value::decimal(20 , 5)                                                 as total_account_value
     , acc.account_value::decimal(20 , 5)                                                 as billable_value
     , null::decimal(20 , 5)                                                              as fee_excluded_assets
@@ -79,7 +79,7 @@ select
     , 'Direct'::varchar(200)                                                             as billing_method
     , null::varchar(200)                                                                 as bill_on_balance_type
     , null::varchar(200)                                                                 as payment_terms
-    , null::varchar(200)                                                                 as payment_method_fee
+    , null::decimal(20 , 5)                                                              as payment_method_fee
 
     -- [accounting]
     , 'REV'::varchar(200)                                                                as account_class
@@ -110,7 +110,7 @@ select
     , coalesce(acc.household_name , acc2.household_name)::varchar(200)                   as client_name
     , coalesce(acc.household_name , acc2.household_name)::varchar(200)                   as client_name_original_crm
     , coalesce(acc.household_lead_source , acc2.household_lead_source)::varchar(200)     as client_lead_source
-    , coalesce(acc.key_tags , acc2.key_tags)::varchar(200)                               as client_key_tags_crm
+    , coalesce(acc.key_tags , acc2.key_tags)::varchar(5000)                              as client_key_tags_crm
 
     -- [transactions]
     , 'Invoice'::varchar(200)                                                            as transaction_type
@@ -135,7 +135,7 @@ select
     , bb._box_file_id::varchar(200)                                                      as _box_file_id
 
     -- [extra fields]
-    , null::variant                                                                      as _extra_fields
+    , null::object                                                                       as _extra_fields
 
 
 from {{ ref('sei_manasquan__base_bills') }} as bb

@@ -108,9 +108,9 @@ select
         when trim(a.cwm_lead_advisor) = 'DM' then null
         when trim(b.cwm_lead_advisor) = 'HA' then 'House Accounts'
         else trim(b.cwm_lead_advisor)
-    end                                                                          as associate_id_original
+    end::varchar(200)                                                            as associate_id_original
     , client_manager_original                                                    as client_manager_primary
-    , associate_id_original                                                      as associate_id_primary
+    , associate_id_original::varchar(200)                                        as associate_id_primary
     , 'W-2'::varchar(200)                                                        as client_manager_type
 
     -- [assets and fees]
@@ -124,7 +124,7 @@ select
     , case
         when b.billing_assets_billed_on = 0 or b.billing_fee_value = 0 then null
         else b.billing_fee_value / b.billing_assets_billed_on::decimal(20 , 5)
-    end                                                                          as effective_fee_rate
+    end::decimal(29 , 8)                                                         as effective_fee_rate
     , b.value::decimal(20 , 5)                                                   as total_account_value
     , b.billing_assets_billed_on::decimal(20 , 5)                                as billable_value
     , (b.value - b.billing_assets_billed_on)::decimal(20 , 5)                    as fee_excluded_assets
@@ -177,7 +177,7 @@ select
     , c.pract_hh_name::varchar(200)                                              as client_name
     , c.pract_hh_name::varchar(200)                                              as client_name_original_crm
     , null::varchar(200)                                                         as client_lead_source
-    , null::varchar(500)                                                         as client_key_tags_crm
+    , null::varchar(5000)                                                        as client_key_tags_crm
 
     -- [transactions]
     , 'Invoice'::varchar(200)                                                    as transaction_type
@@ -204,7 +204,7 @@ select
     -- These are fields that are likely specific to this source
     -- and are intended to help with one off investigations or
     -- special analysis.
-    , null::variant                                                              as _extra_fields
+    , null::object                                                               as _extra_fields
 from
     {{ ref('addepar_corbenic_history__base_bills') }} as b
 left join {{ ref('addepar_corbenic_history__base_accounts') }} as a
@@ -215,10 +215,12 @@ left join cte_crm as c
     on b.holding_account_number = c.pract_acct_num
 where b.is_head = 1
     and a.is_head = 1
+    and billing_date < '2024-10-01'
     -- uncomment if "billing_frequency" or "revenue_category" is not hardcoded.
 {# left join {{ ref('aux__stg_financials_fee_type') }} as ovrd_fee_type
         on bb.system_key = ovrd_fee_type.system_key
         and lower(bb.fee_type_description) = lower(ovrd_fee_type.fee_type) #}
+
 order by
     system_key
     , revenue_period_end_date

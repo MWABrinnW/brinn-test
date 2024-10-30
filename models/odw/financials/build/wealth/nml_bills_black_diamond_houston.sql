@@ -22,12 +22,12 @@ select
     , bb.external_id::varchar(200)                                                       as account_id_pms
     , bb.account_long_name::varchar(200)                                                 as registrant_name
     , bb.account_name::varchar(200)                                                      as account_name
-    , ba.id::varchar(200)                                                                as client_id_pms
-    , coalesce(bb.billing_account_custodian , bb.custodian)::varchar(200)                as billing_custodian
-    , coalesce(acc.custodian_key , acc2.custodian_key)::varchar(200)                     as custodian
     , coalesce(acc.registration_type , acc2.registration_type)::varchar(200)             as type_of_account
+    , ba.id::varchar(200)                                                                as client_id_pms
     , coalesce(acc.aum_classification , acc2.aum_classification)::varchar(200)           as aum_classification_status
     , coalesce(acc.investment_strategy , acc2.investment_strategy)::varchar(200)         as model_investment_strategy
+    , coalesce(acc.custodian_key , acc2.custodian_key)::varchar(200)                     as custodian
+    , coalesce(bb.billing_account_custodian , bb.custodian)::varchar(200)                as billing_custodian
     , null::varchar(200)                                                                 as partner_firm
     , null::varchar(200)                                                                 as partner_firm_original
 
@@ -50,7 +50,7 @@ select
     , null::varchar(200)                                                                 as fee_schedule
     , invoice_date                                                                       as assets_as_of_date
     , invoice_date                                                                       as fee_calculation_date
-    , bb.rate_percentage * 100::decimal(20 , 5)                                          as effective_fee_rate
+    , (bb.rate_percentage * 100)::decimal(29 , 8)                                        as effective_fee_rate
     , coalesce(bb.account_value , acc.account_value)::decimal(20 , 5)                    as total_account_value
     , bb.billed_value::decimal(20 , 5)                                                   as billable_value
     , (bb.account_value - bb.billed_value)::decimal(20 , 5)                              as fee_excluded_assets
@@ -58,8 +58,8 @@ select
         when bb.fee_or_rebate_amount > 0
             then
                 bb.fee_or_rebate_amount
-        else 0::decimal(20 , 5)
-    end                                                                                  as client_fee_gross
+        else 0
+    end::decimal(20 , 5)                                                                 as client_fee_gross
     , case
         when bb.fee_or_rebate_amount < 0
             then
@@ -80,7 +80,7 @@ select
     , 'Direct'::varchar(200)                                                             as billing_method
     , null::varchar(200)                                                                 as bill_on_balance_type
     , null::varchar(200)                                                                 as payment_terms
-    , null::varchar(200)                                                                 as payment_method_fee
+    , null::decimal(20 , 5)                                                              as payment_method_fee
 
     -- [accounting]
     , 'REV'::varchar(200)                                                                as account_class
@@ -117,7 +117,7 @@ select
     , coalesce(acc.household_name , acc2.household_name)::varchar(200)                   as client_name
     , coalesce(acc.household_name , acc2.household_name)::varchar(200)                   as client_name_original_crm
     , coalesce(acc.household_lead_source , acc2.household_lead_source)::varchar(200)     as client_lead_source
-    , coalesce(acc.key_tags , acc2.key_tags)::varchar(5009)                              as client_key_tags_crm
+    , coalesce(acc.key_tags , acc2.key_tags)::varchar(5000)                              as client_key_tags_crm
 
     -- [transactions]
     , 'Invoice'::varchar(200)                                                            as transaction_type
@@ -136,13 +136,13 @@ select
     , {{ financials_set_revenue_period() }}
 
     -- [referential]
-    , trim(replace(bb.account_number , '-' , '')) || '-' || bb._id::varchar(200)         as _trans_key
+    , (trim(replace(bb.account_number , '-' , '')) || '-' || bb._id)::varchar(200)       as _trans_key
     , bb._created_at::timestamp_ntz(9)                                                   as _source_loaded_at
     , bb._box_file_name::varchar(200)                                                    as _source_file
     , bb._box_file_id::varchar(200)                                                      as _box_file_id
 
     -- [extra fields]
-    , null::variant                                                                      as _extra_fields
+    , null::object                                                                       as _extra_fields
 
 from {{ ref('black_diamond_houston__base_bills') }} as bb
 left join {{ ref('black_diamond_houston__base_accounts') }} as ba

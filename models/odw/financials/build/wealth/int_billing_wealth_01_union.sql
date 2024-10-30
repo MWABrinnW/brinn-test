@@ -1,6 +1,7 @@
 {%- set source_models = [
     'nml_bills_salesforce_compass',
-    'nml_bills_addepar_corbenic',
+    'nml_bills_addepar_corbenic_practifi',
+    'nml_bills_addepar_corbenic_compass',
     'nml_bills_black_diamond_baystate',
     'nml_bills_black_diamond_houston',
     'nml_bills_black_diamond_uhnw',

@@ -84,7 +84,7 @@ select
     , bb.fee_schedule_name::varchar(200)                                         as fee_schedule
     , invoice_date                                                               as assets_as_of_date
     , invoice_date                                                               as fee_calculation_date
-    , bb.rate_percentage::decimal(20 , 5)                                        as effective_fee_rate
+    , bb.rate_percentage::decimal(29 , 8)                                        as effective_fee_rate
     , bb.account_value::decimal(20 , 5)                                          as total_account_value
     , coalesce(bb.billed_value , bb.account_value)::decimal(20 , 5)              as billable_value
     , (bb.account_value - bb.billed_value)::decimal(20 , 5)                      as fee_excluded_assets
@@ -118,7 +118,7 @@ select
         as billing_method
     , null::varchar(200)                                                         as bill_on_balance_type
     , null::varchar(200)                                                         as payment_terms
-    , null::varchar(200)                                                         as payment_method_fee
+    , null::number(20 , 5)                                                       as payment_method_fee
 
     -- [accounting]
     , 'REV'::varchar(200)                                                        as account_class
@@ -140,7 +140,7 @@ select
     , sf.name::varchar(200)                                                      as client_name
     , sf.name::varchar(200)                                                      as client_name_original_crm
     , null::varchar(200)                                                         as client_lead_source
-    , null::varchar(200)                                                         as client_key_tags_crm
+    , null::varchar(5000)                                                        as client_key_tags_crm
 
     -- [transactions]
     , null::varchar(200)                                                         as transaction_type
@@ -164,7 +164,7 @@ select
     , bb._box_file_id::varchar(200)                                              as _box_file_id
 
     -- [extra fields]
-    , null::variant                                                              as _extra_fields
+    , null::object                                                               as _extra_fields
 
 from {{ ref('black_diamond_uhnw__base_bills') }} as bb
 left join {{ ref('black_diamond_uhnw__base_accounts') }} as ba

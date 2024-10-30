@@ -71,15 +71,15 @@ select
         when b.billable_value = 0
             then 0
         else (b.total_fee_amount / b.billable_value) * 100
-    end::decimal(20 , 5)                                                            as effective_fee_rate
+    end::decimal(29 , 8)                                                            as effective_fee_rate
     , coalesce(am.total_market_value , b.billable_value)::decimal(20 , 5)           as total_account_value
     , b.billable_value::decimal(20 , 5)                                             as billable_value
     , (am.total_market_value - b.billable_value)::decimal(20 , 5)                   as fee_excluded_assets
     , case
         when b.total_fee_amount > 0
             then b.total_fee_amount
-        else 0::decimal(20 , 5)
-    end                                                                             as client_fee_gross
+        else 0
+    end::decimal(20 , 5)                                                            as client_fee_gross
     , case
         when b.total_fee_amount < 0
             then b.total_fee_amount
@@ -99,7 +99,7 @@ select
     , b.debit_type::varchar(200)                                                    as billing_method
     , null::varchar(200)                                                            as bill_on_balance_type
     , null::varchar(200)                                                            as payment_terms
-    , null::varchar(200)                                                            as payment_method_fee
+    , null::decimal(20 , 5)                                                         as payment_method_fee
 
     -- [accounting]
     , 'REV'::varchar(200)                                                           as account_class
@@ -130,7 +130,7 @@ select
         a_hist.household_lead_source
         , a_head.household_lead_source
     )::varchar(200)                                                                 as client_lead_source
-    , coalesce(a_hist.key_tags , a_head.key_tags)::varchar(5009)                    as client_key_tags_crm
+    , coalesce(a_hist.key_tags , a_head.key_tags)::varchar(5000)                    as client_key_tags_crm
 
     -- [transactions]
     , 'Invoice'::varchar(200)                                                       as transaction_type
@@ -149,13 +149,13 @@ select
     , {{ financials_set_revenue_period() }}
 
     -- [referential]
-    , trim(replace(b.account_number , '-' , null)) || '-' || b._id::varchar(200)    as _trans_key
+    , (trim(replace(b.account_number , '-' , null)) || '-' || b._id)::varchar(200)  as _trans_key
     , b._created_at::timestamp_ntz(9)                                               as _source_loaded_at
     , b._box_file_name::varchar(200)                                                as _source_file
     , b._box_file_id::varchar(200)                                                  as _box_file_id
 
     -- [extra fields]
-    , null::variant                                                                 as _extra_fields
+    , null::object                                                                  as _extra_fields
 
 
 from {{ ref('envestnet_manasquan__stg_bills') }} as b
