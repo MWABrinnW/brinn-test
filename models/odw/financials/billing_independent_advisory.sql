@@ -1,8 +1,11 @@
 select
     * exclude (
-        fee_schedule , fee_schedule_type , _extra_fields
+        fee_schedule , fee_schedule_type
     )
     , 0::int as is_legacy
 from {{ ref('bld_billing_wealth_like') }}
 where true
     and system_key in ('black_diamond__baystate')
+    or (
+        system_key = 'salesforce__compass' and (_extra_fields['is_cpg'] = 1)
+    )

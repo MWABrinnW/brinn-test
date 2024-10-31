@@ -53,6 +53,15 @@
     '_EXTRA_FIELDS'
 ] %}
 
-{% set condition = "a.system_key in ('addepar__corbenic', 'black_diamond__houston', 'black_diamond__uhnw', 'salesforce__compass', 'sei__manasquan', 'envestnet__manasquan')" %}
+{% set condition = "a.system_key in (
+        'addepar__corbenic'
+        , 'black_diamond__houston'
+        , 'black_diamond__uhnw'
+        , 'sei__manasquan'
+        , 'envestnet__manasquan'
+    )
+    or (
+        a.system_key = 'salesforce__compass' and (a._extra_fields['is_cpg'] = 0)
+    )" %}
 
 {{ describe_model(model=ref('bld_billing_wealth_like'), where_clause=condition, date_partition='revenue_period_end_date', excluded_columns=columns) }}

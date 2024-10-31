@@ -1,11 +1,12 @@
 {%- set source_models = [
-    'nml_bills_salesforce_compass',
     'nml_bills_addepar_corbenic_practifi',
     'nml_bills_addepar_corbenic_compass',
     'nml_bills_black_diamond_baystate',
     'nml_bills_black_diamond_houston',
     'nml_bills_black_diamond_uhnw',
     'nml_bills_envestnet_manasquan',
+    'nml_bills_salesforce_compass',
+    'nml_bills_salesforce_compass_cpg',
     'nml_bills_sei_manasquan'
 ] -%}
 
