@@ -27,3 +27,4 @@ where true
     or (
         system_key = 'salesforce__compass' and (_extra_fields['is_cpg'] = 0)
     )
+    or is_legacy = 1
