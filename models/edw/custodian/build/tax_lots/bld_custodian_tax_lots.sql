@@ -12,6 +12,7 @@
 {%-
     set source_models = [
           'schwab__base_tax_lots'
+         ,'schwab__base_securities'
          ,'fidelity_baystate_history__vw_tlaopen_tax_accounting'
          ,'fidelity_mps_history__vw_tlaopen_tax_accounting'
          ,'fidelity_swag_history__vw_tlaopen_tax_accounting'
@@ -57,7 +58,10 @@ with cte_destination_summary as (
 -- that should be considered for the incremental.
 , cte_fresh_sources as (
     {% for src_model in source_models -%}
-    select a.custodian, a.firm_source, a.effective_date, {{"'" ~ src_model ~ "'"}} as model_source, max(a._source_loaded_at) as max_source_loaded_at, max(b._source_loaded_at) as dest_max_source_loaded_at
+    select a.custodian, a.firm_source, a.effective_date
+        , {{"'" ~ src_model ~ "'"}} as model_source
+        , max(a._source_loaded_at)  as max_source_loaded_at
+        , max(b._source_loaded_at)  as dest_max_source_loaded_at
     from {{ ref(src_model) }} a
     left join cte_destination_summary b
         on a.effective_date = b.effective_date

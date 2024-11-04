@@ -67,7 +67,10 @@ select
 
     , t.is_head                                  as is_head
     , t.is_current                               as is_current
-    , t._source_loaded_at                        as _source_loaded_at
+    , greatest(
+        t._source_loaded_at
+        , s._source_loaded_at
+    )                                            as _source_loaded_at
     , t._source_file::text(500)                  as _source_file
     , object_construct(
         'product_category_code' , t.product_category_code
