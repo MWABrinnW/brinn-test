@@ -11,6 +11,8 @@
      'client_fee_net': 'total_period_fee', 'is_head': 'no'},
     {'model': 'black_diamond_houston__base_bills', 'invoice_date': "(dateadd('day', -1, date_trunc('quarter', cash_available_date)))::date",
      'client_fee_net': 'total_period_fee', 'is_head': 'no'},
+    {'model': 'black_diamond_mps__base_bills', 'invoice_date': "(dateadd('day', -1, date_trunc('quarter', cash_available_date)))::date",
+     'client_fee_net': 'total_period_fee', 'is_head': 'no'},
     {'model': 'black_diamond_uhnw__base_bills', 'invoice_date': "(dateadd('day', -1, date_trunc('quarter', cash_available_date)))::date",
      'client_fee_net': 'total_period_fee', 'is_head': 'no'},
     {'model': 'envestnet_manasquan__stg_bills', 'invoice_date': 'invoice_date',

@@ -1,6 +1,7 @@
 -- depends_on: {{ ref('addepar_corbenic_history__base_bills') }}
 -- depends_on: {{ ref('black_diamond_baystate__base_bills') }}
 -- depends_on: {{ ref('black_diamond_houston__base_bills') }}
+-- depends_on: {{ ref('black_diamond_mps__base_bills') }}
 -- depends_on: {{ ref('black_diamond_uhnw__base_bills') }}
 -- depends_on: {{ ref('envestnet_manasquan__stg_bills') }}
 -- depends_on: {{ ref('salesforce_compass__base_invoice_review_c') }}
@@ -19,6 +20,7 @@
         'addepar__corbenic',
         'black_diamond__baystate',
         'black_diamond__houston',
+        'black_diamond__mps',
         'black_diamond__uhnw',
         'envestnet__manasquan',
         'salesforce__compass',
@@ -65,6 +67,19 @@ with cte_check as (
                     , '1900-01-01'::date::timestamp
                 )
                     then 'black_diamond__houston'
+            end as system_key
+
+        union all
+
+        select
+            case
+                when (
+                    select max(_created_at)
+                    from {{ ref('black_diamond_mps__base_bills') }}) > coalesce(
+                    (select max(_source_loaded_at) from {{ this }} where system_key = 'black_diamond__mps')
+                    , '1900-01-01'::date::timestamp
+                )
+                    then 'black_diamond__mps'
             end as system_key
 
         union all

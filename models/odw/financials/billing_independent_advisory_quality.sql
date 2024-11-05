@@ -53,7 +53,7 @@
     '_EXTRA_FIELDS'
 ] %}
 
-{% set condition = "a.system_key in ('black_diamond__baystate')
+{% set condition = "a.system_key in ('black_diamond__baystate' , 'black_diamond__mps')
     or (
         a.system_key = 'salesforce__compass' and (a._extra_fields['is_cpg'] = 1)
     )
