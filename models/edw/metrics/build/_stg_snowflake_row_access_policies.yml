@@ -1,0 +1,52 @@
+version: 2
+models:
+  - name: stg_snowflake_row_access_policies
+    columns:
+      - name: POLICY_ID
+        description: ''
+        data_type: NUMBER
+      - name: POLICY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: POLICY_SCHEMA_ID
+        description: ''
+        data_type: NUMBER
+      - name: POLICY_SCHEMA
+        description: ''
+        data_type: VARCHAR
+      - name: POLICY_CATALOG_ID
+        description: ''
+        data_type: NUMBER
+      - name: POLICY_CATALOG
+        description: ''
+        data_type: VARCHAR
+      - name: POLICY_OWNER
+        description: ''
+        data_type: VARCHAR
+      - name: POLICY_SIGNATURE
+        description: ''
+        data_type: VARCHAR
+      - name: POLICY_RETURN_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: POLICY_BODY
+        description: ''
+        data_type: VARCHAR
+      - name: POLICY_COMMENT
+        description: ''
+        data_type: VARIANT
+      - name: CREATED
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: LAST_ALTERED
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: DELETED
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: OWNER_ROLE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: OPTIONS
+        description: ''
+        data_type: VARIANT

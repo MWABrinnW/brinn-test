@@ -1,0 +1,88 @@
+version: 2
+models:
+  - name: stg_snowflake_users
+    columns:
+      - name: USER_ID
+        description: ''
+        data_type: NUMBER
+      - name: USER_NAME
+        description: ''
+        data_type: NUMBER
+      - name: CREATED_ON
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: DELETED_ON
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: LOGIN_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DISPLAY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: FIRST_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LAST_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: OWNER
+        description: ''
+        data_type: VARCHAR
+      - name: TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: DEFAULT_ROLE
+        description: ''
+        data_type: VARCHAR
+      - name: DEFAULT_SECONDARY_ROLE
+        description: ''
+        data_type: VARCHAR
+      - name: COMMENT
+        description: ''
+        data_type: VARCHAR
+      - name: DEFAULT_WAREHOUSE
+        description: ''
+        data_type: VARCHAR
+      - name: DEFAULT_NAMESPACE
+        description: ''
+        data_type: VARCHAR
+      - name: MUST_CHANGE_PASSWORD
+        description: ''
+        data_type: BOOLEAN
+      - name: DISABLED
+        description: ''
+        data_type: VARIANT
+      - name: HAS_MFA
+        description: ''
+        data_type: BOOLEAN
+      - name: HAS_PASSWORD
+        description: ''
+        data_type: BOOLEAN
+      - name: PASSWORD_LAST_SET_TIME
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: SNOWFLAKE_LOCK
+        description: ''
+        data_type: VARIANT
+      - name: LOCKED_UNTIL_TIME
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: EXT_AUTHN_DUO
+        description: ''
+        data_type: BOOLEAN
+      - name: EXT_AUTHN_UID
+        description: ''
+        data_type: VARCHAR
+      - name: LAST_SUCCESS_LOGIN
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: EXPIRES_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: HAS_RSA_PUBLIC_KEY
+        description: ''
+        data_type: BOOLEAN

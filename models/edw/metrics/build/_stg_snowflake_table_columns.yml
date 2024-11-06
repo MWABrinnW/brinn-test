@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: stg_snowflake_table_columns
+    description: >
+      Materialization of Snowflake's information_schema.columns. Actually accessed via
+      the account_usage views which carry up to 90 minutes of latency.
+    columns:
+      - name: DATABASE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SCHEMA_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TABLE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: FQ_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: COLUMN_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ORDINAL_POSITION
+        description: ''
+        data_type: NUMBER
+      - name: COLUMN_DEFAULT
+        description: ''
+        data_type: VARCHAR
+      - name: DATA_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: table_column_key
+        description: Unique surrogate key identifying the database.schema.table.column reference.
+      - name: table_key
+        description: Foreign key identifying a table or view's database.schema.table reference.

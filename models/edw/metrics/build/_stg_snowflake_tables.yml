@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name: stg_snowflake_tables
+    description: >
+      Materialization of Snowflake's information_schema.tables (includes tables and views).
+      Actually accessed via the account_usage views which carry up to 90 minutes of latency.
+    columns:
+      - name: DATABASE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SCHEMA_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TABLE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: FQ_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TABLE_CATALOG
+        description: ''
+        data_type: VARCHAR
+      - name: TABLE_OWNER
+        description: ''
+        data_type: VARCHAR
+      - name: TABLE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: LAST_ALTERED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: CLUSTERING_KEY
+        description: ''
+        data_type: VARCHAR
+      - name: ROW_COUNT
+        description: ''
+        data_type: NUMBER
+      - name: BYTES
+        description: ''
+        data_type: NUMBER
+      - name: MEGABYTES
+        description: ''
+        data_type: NUMBER
+      - name: IS_TRANSIENT
+        description: ''
+        data_type: BOOLEAN
+      - name: IS_AUTO_CLUSTERING_ON
+        description: ''
+        data_type: BOOLEAN
+      - name: table_key
+        description: Unique surrogate key identifying the database.schema.table reference

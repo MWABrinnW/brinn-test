@@ -1,0 +1,49 @@
+version: 2
+models:
+  - name: stg_snowflake_policy_references
+    columns:
+      - name: POLICY_DB
+        description: ''
+        data_type: VARCHAR
+      - name: POLICY_SCHEMA
+        description: ''
+        data_type: VARCHAR
+      - name: POLICY_ID
+        description: ''
+        data_type: NUMBER
+      - name: POLICY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: POLICY_KIND
+        description: ''
+        data_type: VARCHAR
+      - name: REF_DATABASE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: REF_SCHEMA_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: REF_ENTITY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: REF_ENTITY_DOMAIN
+        description: ''
+        data_type: VARCHAR
+      - name: REF_COLUMN_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: REF_ARG_COLUMN_NAMES
+        description: ''
+        data_type: VARCHAR
+      - name: TAG_DATABASE
+        description: ''
+        data_type: VARCHAR
+      - name: TAG_SCHEMA
+        description: ''
+        data_type: VARCHAR
+      - name: TAG_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: POLICY_STATUS
+        description: ''
+        data_type: VARCHAR

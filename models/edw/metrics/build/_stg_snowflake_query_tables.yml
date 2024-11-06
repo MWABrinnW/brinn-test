@@ -1,0 +1,110 @@
+version: 2
+
+models:
+  - name: stg_snowflake_query_tables
+    description: |
+      Snowflake queries' uniquely accessed objects (tables and views). A row of this table represents a reference
+      to a table or view by a Snowflake query. Further explained by Snowflake's documentation.
+      https://docs.snowflake.com/en/sql-reference/account-usage/access_history.html#label-acctuse-view-access-history-columns
+    columns:
+      - name: query_id
+        description: |
+          Foreign key identifier of a the Snowflake query.
+      - name: START_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: END_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: USER_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ROLE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DATABASE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SCHEMA_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TABLE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: FQ_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TABLE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: COLUMNS_ARRAY
+        description: ''
+        data_type: VARIANT
+      - name: QUERY_TYPE
+        description: The type of query, like 'select'. There are a wide variety (30+) of query types.
+        data_type: VARCHAR
+      - name: EXECUTION_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: ERROR_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: ERROR_MESSAGE
+        description: ''
+        data_type: VARCHAR
+      - name: WAREHOUSE_ID
+        description: ''
+        data_type: NUMBER
+      - name: WAREHOUSE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: WAREHOUSE_SIZE
+        description: ''
+        data_type: VARCHAR
+      - name: WAREHOUSE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: QUERY_TAG
+        description: ''
+        data_type: VARCHAR
+      - name: IS_TOOLING_USER
+        description: ''
+        data_type: BOOLEAN
+      - name: CLUSTER_NUMBER
+        description: ''
+        data_type: NUMBER
+      - name: DURATION_SECONDS
+        description: ''
+        data_type: NUMBER
+      - name: COMPILATION_SECONDS
+        description: ''
+        data_type: NUMBER
+      - name: EXECUTION_SECONDS
+        description: ''
+        data_type: NUMBER
+      - name: QUEUED_PROVISIONING_SECONDS
+        description: ''
+        data_type: NUMBER
+      - name: QUEUED_REPAIR_SECONDS
+        description: ''
+        data_type: NUMBER
+      - name: QUEUED_OVERLOAD_SECONDS
+        description: ''
+        data_type: NUMBER
+      - name: TRANSACTION_BLOCKED_SECONDS
+        description: ''
+        data_type: NUMBER
+      - name: BYTES_SCANNED
+        description: ''
+        data_type: NUMBER
+      - name: query_table_key
+        description: |
+          Unique surrogate key identifying the query_id and unique accessed table or view's database.schema.table reference.
+        tests:
+          - unique_not_null_recently:
+              time_column: start_at
+              lookback_days: 7
+
+      - name: table_key
+        description: |
+          Foreign key identifier of a table or view's database.schema.table reference.

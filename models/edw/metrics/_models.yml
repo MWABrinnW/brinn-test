@@ -1,0 +1,19 @@
+version: 2
+models:
+  - name: models
+    columns:
+      - name: DATABASE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SCHEMA_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TABLE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: FQ_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TABLE_TYPE
+        description: ''
+        data_type: VARCHAR

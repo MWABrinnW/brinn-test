@@ -1,0 +1,31 @@
+version: 2
+models:
+  - name: model_usage_by_role_daily
+    columns:
+      - name: QUERY_DATE
+        description: ''
+        data_type: DATE
+      - name: DATABASE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SCHEMA_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TABLE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: FQ_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TABLE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ROLE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TOTAL_USE_COUNT
+        description: ''
+        data_type: NUMBER
+      - name: USERS
+        description: ''
+        data_type: ARRAY

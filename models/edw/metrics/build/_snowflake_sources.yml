@@ -1,0 +1,762 @@
+version: 2
+
+sources:
+  - name: snowflake_internal
+    database: snowflake
+    schema: account_usage
+
+    tables:
+      - name: access_history
+        description: "https://docs.snowflake.com/en/user-guide/access-history.html"
+        columns:
+          - name: QUERY_ID
+            description: ''
+            data_type: VARCHAR
+          - name: QUERY_START_TIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: USER_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: DIRECT_OBJECTS_ACCESSED
+            description: ''
+            data_type: ARRAY
+          - name: BASE_OBJECTS_ACCESSED
+            description: ''
+            data_type: ARRAY
+          - name: OBJECTS_MODIFIED
+            description: ''
+            data_type: ARRAY
+          - name: OBJECT_MODIFIED_BY_DDL
+            description: ''
+            data_type: OBJECT
+          - name: POLICIES_REFERENCED
+            description: ''
+            data_type: ARRAY
+          - name: PARENT_QUERY_ID
+            description: ''
+            data_type: VARCHAR
+          - name: ROOT_QUERY_ID
+            description: ''
+            data_type: VARCHAR
+      - name: query_history
+        description: "https://docs.snowflake.com/en/sql-reference/account-usage/query_history.html"
+        columns:
+          - name: QUERY_ID
+            description: ''
+            data_type: VARCHAR
+          - name: QUERY_TEXT
+            description: ''
+            data_type: VARCHAR
+          - name: DATABASE_ID
+            description: ''
+            data_type: NUMBER
+          - name: DATABASE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: SCHEMA_ID
+            description: ''
+            data_type: NUMBER
+          - name: SCHEMA_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: QUERY_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: SESSION_ID
+            description: ''
+            data_type: NUMBER
+          - name: USER_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ROLE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: WAREHOUSE_ID
+            description: ''
+            data_type: NUMBER
+          - name: WAREHOUSE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: WAREHOUSE_SIZE
+            description: ''
+            data_type: VARCHAR
+          - name: WAREHOUSE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: CLUSTER_NUMBER
+            description: ''
+            data_type: NUMBER
+          - name: QUERY_TAG
+            description: ''
+            data_type: VARCHAR
+          - name: EXECUTION_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: ERROR_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: ERROR_MESSAGE
+            description: ''
+            data_type: VARCHAR
+          - name: START_TIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: END_TIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: TOTAL_ELAPSED_TIME
+            description: ''
+            data_type: NUMBER
+          - name: BYTES_SCANNED
+            description: ''
+            data_type: NUMBER
+          - name: PERCENTAGE_SCANNED_FROM_CACHE
+            description: ''
+            data_type: FLOAT
+          - name: BYTES_WRITTEN
+            description: ''
+            data_type: NUMBER
+          - name: BYTES_WRITTEN_TO_RESULT
+            description: ''
+            data_type: NUMBER
+          - name: BYTES_READ_FROM_RESULT
+            description: ''
+            data_type: NUMBER
+          - name: ROWS_PRODUCED
+            description: ''
+            data_type: NUMBER
+          - name: ROWS_INSERTED
+            description: ''
+            data_type: NUMBER
+          - name: ROWS_UPDATED
+            description: ''
+            data_type: NUMBER
+          - name: ROWS_DELETED
+            description: ''
+            data_type: NUMBER
+          - name: ROWS_UNLOADED
+            description: ''
+            data_type: NUMBER
+          - name: BYTES_DELETED
+            description: ''
+            data_type: NUMBER
+          - name: PARTITIONS_SCANNED
+            description: ''
+            data_type: NUMBER
+          - name: PARTITIONS_TOTAL
+            description: ''
+            data_type: NUMBER
+          - name: BYTES_SPILLED_TO_LOCAL_STORAGE
+            description: ''
+            data_type: NUMBER
+          - name: BYTES_SPILLED_TO_REMOTE_STORAGE
+            description: ''
+            data_type: NUMBER
+          - name: BYTES_SENT_OVER_THE_NETWORK
+            description: ''
+            data_type: NUMBER
+          - name: COMPILATION_TIME
+            description: ''
+            data_type: NUMBER
+          - name: EXECUTION_TIME
+            description: ''
+            data_type: NUMBER
+          - name: QUEUED_PROVISIONING_TIME
+            description: ''
+            data_type: NUMBER
+          - name: QUEUED_REPAIR_TIME
+            description: ''
+            data_type: NUMBER
+          - name: QUEUED_OVERLOAD_TIME
+            description: ''
+            data_type: NUMBER
+          - name: TRANSACTION_BLOCKED_TIME
+            description: ''
+            data_type: NUMBER
+          - name: OUTBOUND_DATA_TRANSFER_CLOUD
+            description: ''
+            data_type: VARCHAR
+          - name: OUTBOUND_DATA_TRANSFER_REGION
+            description: ''
+            data_type: VARCHAR
+          - name: OUTBOUND_DATA_TRANSFER_BYTES
+            description: ''
+            data_type: NUMBER
+          - name: INBOUND_DATA_TRANSFER_CLOUD
+            description: ''
+            data_type: VARCHAR
+          - name: INBOUND_DATA_TRANSFER_REGION
+            description: ''
+            data_type: VARCHAR
+          - name: INBOUND_DATA_TRANSFER_BYTES
+            description: ''
+            data_type: NUMBER
+          - name: LIST_EXTERNAL_FILES_TIME
+            description: ''
+            data_type: NUMBER
+          - name: CREDITS_USED_CLOUD_SERVICES
+            description: ''
+            data_type: FLOAT
+          - name: RELEASE_VERSION
+            description: ''
+            data_type: VARCHAR
+          - name: EXTERNAL_FUNCTION_TOTAL_INVOCATIONS
+            description: ''
+            data_type: NUMBER
+          - name: EXTERNAL_FUNCTION_TOTAL_SENT_ROWS
+            description: ''
+            data_type: NUMBER
+          - name: EXTERNAL_FUNCTION_TOTAL_RECEIVED_ROWS
+            description: ''
+            data_type: NUMBER
+          - name: EXTERNAL_FUNCTION_TOTAL_SENT_BYTES
+            description: ''
+            data_type: NUMBER
+          - name: EXTERNAL_FUNCTION_TOTAL_RECEIVED_BYTES
+            description: ''
+            data_type: NUMBER
+          - name: QUERY_LOAD_PERCENT
+            description: ''
+            data_type: NUMBER
+          - name: IS_CLIENT_GENERATED_STATEMENT
+            description: ''
+            data_type: BOOLEAN
+          - name: QUERY_ACCELERATION_BYTES_SCANNED
+            description: ''
+            data_type: NUMBER
+          - name: QUERY_ACCELERATION_PARTITIONS_SCANNED
+            description: ''
+            data_type: NUMBER
+          - name: QUERY_ACCELERATION_UPPER_LIMIT_SCALE_FACTOR
+            description: ''
+            data_type: NUMBER
+          - name: TRANSACTION_ID
+            description: ''
+            data_type: NUMBER
+          - name: CHILD_QUERIES_WAIT_TIME
+            description: ''
+            data_type: NUMBER
+          - name: ROLE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: QUERY_HASH
+            description: ''
+            data_type: VARCHAR
+          - name: QUERY_HASH_VERSION
+            description: ''
+            data_type: NUMBER
+          - name: QUERY_PARAMETERIZED_HASH
+            description: ''
+            data_type: VARCHAR
+          - name: QUERY_PARAMETERIZED_HASH_VERSION
+            description: ''
+            data_type: NUMBER
+          - name: SECONDARY_ROLE_STATS
+            description: ''
+            data_type: VARCHAR
+          - name: ROWS_WRITTEN_TO_RESULT
+            description: ''
+            data_type: NUMBER
+          - name: QUERY_RETRY_TIME
+            description: ''
+            data_type: NUMBER
+          - name: QUERY_RETRY_CAUSE
+            description: ''
+            data_type: VARCHAR
+          - name: FAULT_HANDLING_TIME
+            description: ''
+            data_type: NUMBER
+      - name: tables
+        description: "https://docs.snowflake.com/en/sql-reference/account-usage/tables.html"
+        columns:
+          - name: TABLE_ID
+            description: ''
+            data_type: NUMBER
+          - name: TABLE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: TABLE_SCHEMA_ID
+            description: ''
+            data_type: NUMBER
+          - name: TABLE_SCHEMA
+            description: ''
+            data_type: VARCHAR
+          - name: TABLE_CATALOG_ID
+            description: ''
+            data_type: NUMBER
+          - name: TABLE_CATALOG
+            description: ''
+            data_type: VARCHAR
+          - name: TABLE_OWNER
+            description: ''
+            data_type: VARCHAR
+          - name: TABLE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: IS_TRANSIENT
+            description: ''
+            data_type: VARCHAR
+          - name: IS_ICEBERG
+            description: ''
+            data_type: VARCHAR
+          - name: IS_DYNAMIC
+            description: ''
+            data_type: VARCHAR
+          - name: CLUSTERING_KEY
+            description: ''
+            data_type: VARCHAR
+          - name: ROW_COUNT
+            description: ''
+            data_type: NUMBER
+          - name: BYTES
+            description: ''
+            data_type: NUMBER
+          - name: RETENTION_TIME
+            description: ''
+            data_type: NUMBER
+          - name: SELF_REFERENCING_COLUMN_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REFERENCE_GENERATION
+            description: ''
+            data_type: VARCHAR
+          - name: USER_DEFINED_TYPE_CATALOG
+            description: ''
+            data_type: VARCHAR
+          - name: USER_DEFINED_TYPE_SCHEMA
+            description: ''
+            data_type: VARCHAR
+          - name: USER_DEFINED_TYPE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: IS_INSERTABLE_INTO
+            description: ''
+            data_type: VARCHAR
+          - name: IS_TYPED
+            description: ''
+            data_type: VARCHAR
+          - name: COMMIT_ACTION
+            description: ''
+            data_type: VARCHAR
+          - name: CREATED
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: LAST_ALTERED
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: LAST_DDL
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: LAST_DDL_BY
+            description: ''
+            data_type: VARCHAR
+          - name: DELETED
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: AUTO_CLUSTERING_ON
+            description: ''
+            data_type: VARCHAR
+          - name: COMMENT
+            description: ''
+            data_type: VARCHAR
+          - name: OWNER_ROLE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: INSTANCE_ID
+            description: ''
+            data_type: NUMBER
+      - name: columns
+        description: https://docs.snowflake.com/en/sql-reference/account-usage/columns.html
+
+        columns:
+          - name: COLUMN_ID
+            description: ''
+            data_type: NUMBER
+          - name: COLUMN_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: TABLE_ID
+            description: ''
+            data_type: NUMBER
+          - name: TABLE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: TABLE_SCHEMA_ID
+            description: ''
+            data_type: NUMBER
+          - name: TABLE_SCHEMA
+            description: ''
+            data_type: VARCHAR
+          - name: TABLE_CATALOG_ID
+            description: ''
+            data_type: NUMBER
+          - name: TABLE_CATALOG
+            description: ''
+            data_type: VARCHAR
+          - name: ORDINAL_POSITION
+            description: ''
+            data_type: NUMBER
+          - name: COLUMN_DEFAULT
+            description: ''
+            data_type: VARCHAR
+          - name: IS_NULLABLE
+            description: ''
+            data_type: VARCHAR
+          - name: DATA_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: CHARACTER_MAXIMUM_LENGTH
+            description: ''
+            data_type: NUMBER
+          - name: CHARACTER_OCTET_LENGTH
+            description: ''
+            data_type: NUMBER
+          - name: NUMERIC_PRECISION
+            description: ''
+            data_type: NUMBER
+          - name: NUMERIC_PRECISION_RADIX
+            description: ''
+            data_type: NUMBER
+          - name: NUMERIC_SCALE
+            description: ''
+            data_type: NUMBER
+          - name: DATETIME_PRECISION
+            description: ''
+            data_type: NUMBER
+          - name: INTERVAL_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: INTERVAL_PRECISION
+            description: ''
+            data_type: VARCHAR
+          - name: CHARACTER_SET_CATALOG
+            description: ''
+            data_type: VARCHAR
+          - name: CHARACTER_SET_SCHEMA
+            description: ''
+            data_type: VARCHAR
+          - name: CHARACTER_SET_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: COLLATION_CATALOG
+            description: ''
+            data_type: VARCHAR
+          - name: COLLATION_SCHEMA
+            description: ''
+            data_type: VARCHAR
+          - name: COLLATION_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: DOMAIN_CATALOG
+            description: ''
+            data_type: VARCHAR
+          - name: DOMAIN_SCHEMA
+            description: ''
+            data_type: VARCHAR
+          - name: DOMAIN_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: UDT_CATALOG
+            description: ''
+            data_type: VARCHAR
+          - name: UDT_SCHEMA
+            description: ''
+            data_type: VARCHAR
+          - name: UDT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: SCOPE_CATALOG
+            description: ''
+            data_type: VARCHAR
+          - name: SCOPE_SCHEMA
+            description: ''
+            data_type: VARCHAR
+          - name: SCOPE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: MAXIMUM_CARDINALITY
+            description: ''
+            data_type: VARCHAR
+          - name: DTD_IDENTIFIER
+            description: ''
+            data_type: VARCHAR
+          - name: IS_SELF_REFERENCING
+            description: ''
+            data_type: VARCHAR
+          - name: IS_IDENTITY
+            description: ''
+            data_type: VARCHAR
+          - name: IDENTITY_GENERATION
+            description: ''
+            data_type: VARCHAR
+          - name: IDENTITY_START
+            description: ''
+            data_type: VARCHAR
+          - name: IDENTITY_INCREMENT
+            description: ''
+            data_type: VARCHAR
+          - name: IDENTITY_MAXIMUM
+            description: ''
+            data_type: VARCHAR
+          - name: IDENTITY_MINIMUM
+            description: ''
+            data_type: VARCHAR
+          - name: IDENTITY_CYCLE
+            description: ''
+            data_type: VARCHAR
+          - name: IDENTITY_ORDERED
+            description: ''
+            data_type: VARCHAR
+          - name: SCHEMA_EVOLUTION_RECORD
+            description: ''
+            data_type: VARCHAR
+          - name: COMMENT
+            description: ''
+            data_type: VARCHAR
+          - name: DELETED
+            description: ''
+            data_type: TIMESTAMP_LTZ
+      - name: users
+        description: https://docs.snowflake.com/en/sql-reference/account-usage/users
+
+        columns:
+          - name: USER_ID
+            description: ''
+            data_type: NUMBER
+          - name: NAME
+            description: ''
+            data_type: VARCHAR
+          - name: CREATED_ON
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: DELETED_ON
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: LOGIN_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: DISPLAY_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: FIRST_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: LAST_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: EMAIL
+            description: ''
+            data_type: VARCHAR
+          - name: MUST_CHANGE_PASSWORD
+            description: ''
+            data_type: BOOLEAN
+          - name: HAS_PASSWORD
+            description: ''
+            data_type: BOOLEAN
+          - name: COMMENT
+            description: ''
+            data_type: VARCHAR
+          - name: DISABLED
+            description: ''
+            data_type: VARIANT
+          - name: SNOWFLAKE_LOCK
+            description: ''
+            data_type: VARIANT
+          - name: DEFAULT_WAREHOUSE
+            description: ''
+            data_type: VARCHAR
+          - name: DEFAULT_NAMESPACE
+            description: ''
+            data_type: VARCHAR
+          - name: DEFAULT_ROLE
+            description: ''
+            data_type: VARCHAR
+          - name: EXT_AUTHN_DUO
+            description: ''
+            data_type: BOOLEAN
+          - name: EXT_AUTHN_UID
+            description: ''
+            data_type: VARCHAR
+          - name: HAS_MFA
+            description: ''
+            data_type: BOOLEAN
+          - name: BYPASS_MFA_UNTIL
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: LAST_SUCCESS_LOGIN
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: EXPIRES_AT
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: LOCKED_UNTIL_TIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: HAS_RSA_PUBLIC_KEY
+            description: ''
+            data_type: BOOLEAN
+          - name: PASSWORD_LAST_SET_TIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: OWNER
+            description: ''
+            data_type: VARCHAR
+          - name: DEFAULT_SECONDARY_ROLE
+            description: ''
+            data_type: VARCHAR
+          - name: TYPE
+            description: ''
+            data_type: VARCHAR
+      - name: policy_references
+        description: https://docs.snowflake.com/en/sql-reference/account-usage/policy_references
+
+        columns:
+          - name: POLICY_DB
+            description: ''
+            data_type: VARCHAR
+          - name: POLICY_SCHEMA
+            description: ''
+            data_type: VARCHAR
+          - name: POLICY_ID
+            description: ''
+            data_type: NUMBER
+          - name: POLICY_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: POLICY_KIND
+            description: ''
+            data_type: VARCHAR
+          - name: REF_DATABASE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REF_SCHEMA_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REF_ENTITY_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REF_ENTITY_DOMAIN
+            description: ''
+            data_type: VARCHAR
+          - name: REF_COLUMN_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REF_ARG_COLUMN_NAMES
+            description: ''
+            data_type: VARCHAR
+          - name: TAG_DATABASE
+            description: ''
+            data_type: VARCHAR
+          - name: TAG_SCHEMA
+            description: ''
+            data_type: VARCHAR
+          - name: TAG_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: POLICY_STATUS
+            description: ''
+            data_type: VARCHAR
+      - name: masking_policies
+        description: https://docs.snowflake.com/en/sql-reference/account-usage/masking_policies
+
+        columns:
+          - name: POLICY_ID
+            description: ''
+            data_type: NUMBER
+          - name: POLICY_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: POLICY_SCHEMA_ID
+            description: ''
+            data_type: NUMBER
+          - name: POLICY_SCHEMA
+            description: ''
+            data_type: VARCHAR
+          - name: POLICY_CATALOG_ID
+            description: ''
+            data_type: NUMBER
+          - name: POLICY_CATALOG
+            description: ''
+            data_type: VARCHAR
+          - name: POLICY_OWNER
+            description: ''
+            data_type: VARCHAR
+          - name: POLICY_SIGNATURE
+            description: ''
+            data_type: VARCHAR
+          - name: POLICY_RETURN_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: POLICY_BODY
+            description: ''
+            data_type: VARCHAR
+          - name: POLICY_COMMENT
+            description: ''
+            data_type: VARIANT
+          - name: CREATED
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: LAST_ALTERED
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: DELETED
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: OWNER_ROLE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: OPTIONS
+            description: ''
+            data_type: VARIANT
+      - name: row_access_policies
+        description: https://docs.snowflake.com/en/sql-reference/account-usage/row_access_policies
+        columns:
+          - name: POLICY_ID
+            description: ''
+            data_type: NUMBER
+          - name: POLICY_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: POLICY_SCHEMA_ID
+            description: ''
+            data_type: NUMBER
+          - name: POLICY_SCHEMA
+            description: ''
+            data_type: VARCHAR
+          - name: POLICY_CATALOG_ID
+            description: ''
+            data_type: NUMBER
+          - name: POLICY_CATALOG
+            description: ''
+            data_type: VARCHAR
+          - name: POLICY_OWNER
+            description: ''
+            data_type: VARCHAR
+          - name: POLICY_SIGNATURE
+            description: ''
+            data_type: VARCHAR
+          - name: POLICY_RETURN_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: POLICY_BODY
+            description: ''
+            data_type: VARCHAR
+          - name: POLICY_COMMENT
+            description: ''
+            data_type: VARIANT
+          - name: CREATED
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: LAST_ALTERED
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: DELETED
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: OWNER_ROLE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: OPTIONS
+            description: ''
+            data_type: VARIANT

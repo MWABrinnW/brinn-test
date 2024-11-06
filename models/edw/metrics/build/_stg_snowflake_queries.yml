@@ -1,0 +1,86 @@
+version: 2
+
+models:
+  - name: stg_snowflake_queries
+    description: |
+      Snowflake query history. Reference provided by Snowflake.
+      https://docs.snowflake.com/en/sql-reference/account-usage/query_history.html
+    columns:
+      - name: query_id
+        description: |
+          Primary key identifier for a Snowflake query.
+      - name: SESSION_ID
+        description: ''
+        data_type: NUMBER
+      - name: START_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: END_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: USER_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ROLE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: query_type
+        description: |
+          The type of query, like 'select'. There are a wide variety (30+) of query types.
+      - name: QUERY_TEXT
+        description: ''
+        data_type: VARCHAR
+      - name: EXECUTION_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: ERROR_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: ERROR_MESSAGE
+        description: ''
+        data_type: VARCHAR
+      - name: WAREHOUSE_ID
+        description: ''
+        data_type: NUMBER
+      - name: WAREHOUSE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: WAREHOUSE_SIZE
+        description: ''
+        data_type: VARCHAR
+      - name: WAREHOUSE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: QUERY_TAG
+        description: ''
+        data_type: VARCHAR
+      - name: IS_TOOLING_USER
+        description: ''
+        data_type: BOOLEAN
+      - name: CLUSTER_NUMBER
+        description: ''
+        data_type: NUMBER
+      - name: DURATION_SECONDS
+        description: ''
+        data_type: NUMBER
+      - name: COMPILATION_SECONDS
+        description: ''
+        data_type: NUMBER
+      - name: EXECUTION_SECONDS
+        description: ''
+        data_type: NUMBER
+      - name: QUEUED_PROVISIONING_SECONDS
+        description: ''
+        data_type: NUMBER
+      - name: QUEUED_REPAIR_SECONDS
+        description: ''
+        data_type: NUMBER
+      - name: QUEUED_OVERLOAD_SECONDS
+        description: ''
+        data_type: NUMBER
+      - name: TRANSACTION_BLOCKED_SECONDS
+        description: ''
+        data_type: NUMBER
+      - name: BYTES_SCANNED
+        description: ''
+        data_type: NUMBER
