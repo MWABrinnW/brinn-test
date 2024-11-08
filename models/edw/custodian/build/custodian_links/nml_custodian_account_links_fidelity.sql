@@ -9,7 +9,7 @@ select
     , a.gnum                      as link
     , 'gnumber'                   as link_type
     , case
-        when max(a.is_primary) over (partition by a.effective_date , a.gnum) = 1
+        when a.is_primary = 1
             then 'primary'
         else 'secondary'
     end::text(500)                as link_subtype
