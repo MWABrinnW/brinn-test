@@ -5,7 +5,10 @@ select
     , NULLIF(json:"clientName"::text(200) , '')                               as client_name
     , json:"clientId"::int                                                    as client_id
     , NULLIF(json:"taskTypeCode"::text(200) , '')                             as task_type_code
-    , TO_DATE((json:"periodEndDate"::text(200)) , 'DD/MM/YYYY')               as period_end_date
+    , coalesce(
+        TRY_TO_DATE((json:"periodEndDate"::text(200)) , 'DD/MM/YYYY'),
+        TRY_TO_DATE((json:"periodEndDate"::text(200)) , 'MM/DD/YYYY')
+    )                                                                         as period_end_date
     , NULLIF(json:"priority"::text(200) , '')                                 as priority
     , NULLIF(json:"taskDescription"::text(200) , '')                          as task_description
     , NULLIF(json:"originatingLocationName"::text(200) , '')                  as originating_location_name
@@ -41,12 +44,18 @@ select
     , NULLIF(json:"levelOf_Service"::text(200) , '')                          as level_of_service
     , NULLIF(json:"descriptionOfOther_Service"::text(200) , '')               as description_of_other_service
     , NULLIF(json:"entity_Structure"::text(200) , '')                         as entity_structure
-    , TRY_TO_DATE((json:"financialStatement_Date"::text(200)) , 'DD/MM/YYYY') as financial_statement_date
+    , coalesce(
+        TRY_TO_DATE((json:"financialStatement_Date"::text(200)) , 'DD/MM/YYYY'),
+        TRY_TO_DATE((json:"financialStatement_Date"::text(200)) , 'MM/DD/YYYY')
+    )                                                                         as financial_statement_date
     , NULLIF(json:"basisof_Accounting"::text(200) , '')                       as basis_of_accounting
     , NULLIF(json:"task_Industry"::text(200) , '')                            as task_industry
     , NULLIF(json:"descriptionOfOther_Industry"::text(200) , '')              as description_of_other_industry
     , NULLIF(json:"engagement_Status"::text(200) , '')                        as engagement_status
-    , TRY_TO_DATE((json:"due_Date"::text(200)) , 'DD/MM/YYYY')                as due_date
+    , coalesce(
+        TRY_TO_DATE((json:"due_Date"::text(200)) , 'DD/MM/YYYY'),
+        TRY_TO_DATE((json:"due_Date"::text(200)) , 'MM/DD/YYYY')
+    )                                                                         as due_date
     , NULLIF(json:"externalId"::text(200) , '')                               as external_id
     , NULLIF(json:"taskCategoryCode"::text(200) , '')                         as task_category_code
     , NULLIF(json:"taskCategoryName"::text(200) , '')                         as task_category_name
