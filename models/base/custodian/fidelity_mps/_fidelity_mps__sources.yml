@@ -48,6 +48,190 @@ sources:
           - name: source_file
       - name: tlaopen_tax_accounting
         description: ""
+        columns:
+          - name: ACCOUNT_CUSTODIAL
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_CUSTODIAL_FORMATTED
+            description: ''
+            data_type: VARCHAR
+          - name: RECORD_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: TAS_DELTA_INDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: BRANCH
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITY_DESCRIPTION_LINES_1_6
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCT_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: CLOSING_MARKET_PRICE
+            description: ''
+            data_type: NUMBER
+          - name: LOT_QUANTITY
+            description: ''
+            data_type: NUMBER
+          - name: LOT_MARKET_VALUE
+            description: ''
+            data_type: NUMBER
+          - name: TAS_COST_BASIS_AMOUNT_PROCEEDS
+            description: ''
+            data_type: NUMBER
+          - name: UNREALIZED_GAIN_LOSS_AMOUNT
+            description: ''
+            data_type: NUMBER
+          - name: COST_BASIS_EVENT_SOURCE_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: TAS_LOT_ACQUIRED_DATE
+            description: ''
+            data_type: DATE
+          - name: LOT_COST_BASIS_METHOD_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: HOLDING_PERIOD_FRACTURED_LOT_INDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: WASH_SALE_INDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: LONG_SHORT_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: MARK_TO_MARKET_INDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: RETIREMENT_INDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: FIXED_INCOME_UNADJUSTED_COST_BASIS_AMOUNT
+            description: ''
+            data_type: NUMBER
+          - name: FIXED_INCOME_ADJUSTED_COST_BASIS_INDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: YTD_ACQUISITION_PREMIUM
+            description: ''
+            data_type: NUMBER
+          - name: YTD_AMORTIZED_PREMIUM
+            description: ''
+            data_type: NUMBER
+          - name: YTD_MARKET_DISCOUNT_INCOME
+            description: ''
+            data_type: NUMBER
+          - name: OPTION_CONTRACT_ID
+            description: ''
+            data_type: VARCHAR
+          - name: OPTION_EXPIRATION_DATE
+            description: ''
+            data_type: DATE
+          - name: OPTION_CALL_PUT_INDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: OPTION_STRIKE_PRICE
+            description: ''
+            data_type: NUMBER
+          - name: OPTION_SYMBOL_ID
+            description: ''
+            data_type: VARCHAR
+          - name: CBL_COVERED_LOT_INDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: CBL_GIFTED_INHERITED_LOT_INDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: GIFTED_LOT_DATE
+            description: ''
+            data_type: DATE
+          - name: GIFTED_LOT_FAIR_MARKET_VALUE
+            description: ''
+            data_type: NUMBER
+          - name: CBL_COVERED_REASON_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: WASH_SALE_HOLDING_PERIOD_DATE
+            description: ''
+            data_type: DATE
+          - name: OPEN_LOT_IDENTIFIER
+            description: ''
+            data_type: VARCHAR
+          - name: NIGO_OUT_OF_BALANCE_EXCEPTION_INDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: NIGO_TECH_SHORT_EXCEPTION_INDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: NIGO_COST_EXCEPTION_INDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: POSITION_COST_BASIS_METHOD_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: OPEN_LOT_SETTLEMENT_DATE
+            description: ''
+            data_type: DATE
+          - name: ORIGINAL_LOT_QUANTITY
+            description: ''
+            data_type: NUMBER
+          - name: ORIGINAL_LOT_COST
+            description: ''
+            data_type: NUMBER
+          - name: CURRENT_COST_UNADJUSTED_WASH
+            description: ''
+            data_type: NUMBER
+          - name: OPEN_RUN_DATE
+            description: ''
+            data_type: DATE
+          - name: SEDOL
+            description: ''
+            data_type: VARCHAR
+          - name: YTD_ORIGINAL_ISSUE_DISCOUNT_AMOUNT
+            description: ''
+            data_type: NUMBER
+          - name: THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_DATE
+            description: ''
+            data_type: DATE
+          - name: THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_AMOUNT
+            description: ''
+            data_type: NUMBER
+          - name: LOT_RECEIVED_DATE
+            description: ''
+            data_type: DATE
+          - name: YTD_NON_QUALIFIED_STATED_INTEREST_AMOUNT
+            description: ''
+            data_type: NUMBER
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: EFFECTIVE_DATE_ORIGINAL
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: DTNUM
+            description: ''
+            data_type: NUMBER
       - name: tlaopendelta
         description: ""
         columns:

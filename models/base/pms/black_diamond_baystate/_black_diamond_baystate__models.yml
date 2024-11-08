@@ -2,121 +2,121 @@ version: 2
 models:
   - name: black_diamond_baystate__base_accounts
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
         description: ''
         data_type: VARCHAR
-      - name: ACCOUNTNUMBER
+      - name: ACCOUNT_NUMBER
         description: ''
         data_type: VARCHAR
-      - name: ACCOUNTCATEGORY
+      - name: ACCOUNT_CATEGORY
         description: ''
         data_type: VARCHAR
-      - name: ACCOUNTREGISTRATIONTYPE
+      - name: ACCOUNT_REGISTRATION_TYPE
         description: ''
         data_type: VARCHAR
-      - name: ACCOUNTSUBCATEGORY
+      - name: ACCOUNT_SUBCATEGORY
         description: ''
         data_type: VARCHAR
-      - name: ACCOUNTTYPE
+      - name: ACCOUNT_TYPE
         description: ''
         data_type: VARCHAR
-      - name: ASOFDATE
+      - name: AS_OF_DATE
         description: ''
         data_type: DATE
-      - name: AUM_AUA_RO
-        description: ''
-        data_type: VARCHAR
       - name: BILLABLE
         description: ''
         data_type: BOOLEAN
-      - name: BILLINGACCOUNTDESCRIPTION
+      - name: BILLING_ACCOUNT_DESCRIPTION
         description: ''
         data_type: VARCHAR
-      - name: BILLINGENDDATE
+      - name: BILLING_END_DATE
         description: ''
         data_type: DATE
-      - name: BILLINGNUMBER
+      - name: BILLING_NUMBER
         description: ''
         data_type: VARCHAR
-      - name: BILLINGSTARTDATE
+      - name: BILLING_START_DATE
         description: ''
         data_type: DATE
-      - name: CAIS
-        description: ''
-        data_type: VARCHAR
-      - name: CLOSEDDATE
+      - name: CLOSED_DATE
         description: ''
         data_type: DATE
-      - name: CUSTODIALACCOUNTNAME
+      - name: CUSTODIAL_ACCOUNT_NAME
         description: ''
         data_type: VARCHAR
       - name: CUSTODIAN
         description: ''
         data_type: VARCHAR
-      - name: DATAPROVIDER
+      - name: DATA_PROVIDER
         description: ''
         data_type: VARCHAR
       - name: DISCRETIONARY
         description: ''
         data_type: BOOLEAN
-      - name: ERISA
+      - name: EXTERNAL_BILLING_ACCOUNTID
         description: ''
         data_type: VARCHAR
-      - name: EXTERNALBILLINGACCOUNTID
-        description: ''
-        data_type: VARCHAR
-      - name: HISTORYSTARTDATE
+      - name: HISTORY_START_DATE
         description: ''
         data_type: DATE
       - name: ID
         description: ''
         data_type: VARCHAR
-      - name: LASTRECONCILEDDATE
+      - name: LAST_RECONCILED_DATE
         description: ''
         data_type: DATE
-      - name: LONGNUMBER
+      - name: LONG_NUMBER
         description: ''
         data_type: VARCHAR
       - name: MANAGER
         description: ''
         data_type: VARCHAR
-      - name: NAME
+      - name: ACCOUNT_NAME
         description: ''
         data_type: VARCHAR
-      - name: OTHERBILLINGMETHOD
+      - name: OTHER_BILLING_METHOD
         description: ''
         data_type: VARCHAR
-      - name: PAYBYINVOICE
+      - name: PAY_BY_INVOICE
         description: ''
         data_type: BOOLEAN
       - name: PERFORMANCESTARTDATE
         description: ''
         data_type: DATE
-      - name: RPP_CLIENT
-        description: ''
-        data_type: VARCHAR
-      - name: STARTDATE
+      - name: START_DATE
         description: ''
         data_type: DATE
       - name: SUPERVISED
         description: ''
         data_type: BOOLEAN
+      - name: TAX_STATUS
+        description: ''
+        data_type: VARCHAR
       - name: TEAM
         description: ''
         data_type: VARCHAR
-      - name: TOTALEMV
+      - name: TOTAL_EMV
         description: ''
         data_type: NUMBER
-      - name: STYLENAME
+      - name: STYLE_NAME
         description: ''
         data_type: VARCHAR
-      - name: TAXSTATUS
+      - name: FEE_SCHEDULE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: FEE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: RATE_TYPE
         description: ''
         data_type: VARCHAR
       - name: EFFECTIVE_DATE
@@ -134,12 +134,48 @@ models:
       - name: _SOURCE_LOADED_AT
         description: ''
         data_type: TIMESTAMP_LTZ
-  - name: black_diamond_baystate__base_account_tags
-    columns:
-      - name: PMS
+      - name: ACCOUNT_COMMENTS
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: ACTIVE_PASSIVE_FORM
+        description: ''
+        data_type: VARCHAR
+      - name: ADVISOR_COMMISSION_SPLIT_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_COMPANY
+        description: ''
+        data_type: VARCHAR
+      - name: NOTES_1
+        description: ''
+        data_type: VARCHAR
+      - name: NOTES_1_2
+        description: ''
+        data_type: VARCHAR
+      - name: NOTES_2
+        description: ''
+        data_type: VARCHAR
+      - name: SELECT_ALTERNATIVES
+        description: ''
+        data_type: VARCHAR
+      - name: SELECT_EQUITIES
+        description: ''
+        data_type: VARCHAR
+      - name: SELECT_FIXED_INCOME
+        description: ''
+        data_type: VARCHAR
+      - name: SELECT_PROGRAM
+        description: ''
+        data_type: VARCHAR
+  - name: black_diamond_baystate__base_account_tags
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
@@ -177,10 +213,13 @@ models:
         data_type: TIMESTAMP_LTZ
   - name: black_diamond_baystate__base_portfolio_groups
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
@@ -192,7 +231,7 @@ models:
       - name: PORTFOLIO_GROUP_ID
         description: ''
         data_type: VARCHAR
-      - name: ASPORTFOLIO_GROUP_NAME
+      - name: PORTFOLIO_GROUP_NAME
         description: ''
         data_type: VARCHAR
       - name: PORTFOLIO_ID
@@ -209,10 +248,13 @@ models:
         data_type: TIMESTAMP_LTZ
   - name: black_diamond_baystate__base_tax_lots
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
@@ -283,10 +325,13 @@ models:
         data_type: TIMESTAMP_LTZ
   - name: black_diamond_baystate__base_account_fees
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
@@ -296,6 +341,9 @@ models:
         description: ''
         data_type: DATE
       - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_ID
         description: ''
         data_type: VARCHAR
       - name: FEE_SCHEDULE_TYPE
@@ -321,6 +369,18 @@ models:
         data_type: TIMESTAMP_LTZ
   - name: black_diamond_baystate__base_contacts
     columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
       - name: EFFECTIVE_DATE
         description: ''
         data_type: DATE
@@ -366,12 +426,18 @@ models:
       - name: IS_CURRENT
         description: ''
         data_type: NUMBER
+      - name: _SOURCE_LOADED_AT_2
+        description: ''
+        data_type: TIMESTAMP_LTZ
   - name: black_diamond_baystate__base_relationships
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
@@ -407,6 +473,9 @@ models:
       - name: PORTFOLIO_DISPLAY_NAME
         description: ''
         data_type: VARCHAR
+      - name: IS_MASTER_PORTFOLIO
+        description: ''
+        data_type: NUMBER
       - name: ACCOUNT_ID
         description: ''
         data_type: VARCHAR
@@ -430,10 +499,13 @@ models:
         data_type: TIMESTAMP_LTZ
   - name: black_diamond_baystate__base_holdings
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
@@ -519,10 +591,13 @@ models:
         data_type: TIMESTAMP_LTZ
   - name: black_diamond_baystate__base_account_benchmarks
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
@@ -549,3 +624,170 @@ models:
       - name: _SOURCE_LOADED_AT
         description: ''
         data_type: TIMESTAMP_LTZ
+  - name: black_diamond_baystate__base_bills
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_LONG_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_STATE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: ADVISOR_COMMISSION_SPLIT_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: AS_OF_DATE
+        description: ''
+        data_type: DATE
+      - name: ASSIGNED_TO
+        description: ''
+        data_type: VARCHAR
+      - name: ASSIGNMENT_LEVEL
+        description: ''
+        data_type: VARCHAR
+      - name: BILLABLE_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: BILLED_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: BILLED_VALUE_CHANGE_PERCENTAGE
+        description: ''
+        data_type: NUMBER
+      - name: BILLING_ACCOUNT_CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_ACCOUNT_LONG_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_CONFIGURATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_RULE_APPLIED
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_START_DATE
+        description: ''
+        data_type: DATE
+      - name: CASH_AVAILABLE
+        description: ''
+        data_type: NUMBER
+      - name: CASH_AVAILABLE_DATE
+        description: ''
+        data_type: DATE
+      - name: CASH_DIFFERENCE
+        description: ''
+        data_type: NUMBER
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: DAYS_HELD
+        description: ''
+        data_type: VARCHAR
+      - name: DAYS_IN_PERIOD
+        description: ''
+        data_type: VARCHAR
+      - name: EXTERNAL_ID
+        description: ''
+        data_type: VARCHAR
+      - name: FEE_SCHEDULE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: FEE_OR_REBATE_AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: FEE_REBATE_CHANGE_PERCENTAGE
+        description: ''
+        data_type: NUMBER
+      - name: LAST_AS_OF_DATE
+        description: ''
+        data_type: DATE
+      - name: LAST_BILLED_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: LAST_FEE_REBATE_AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: LAST_JOB_ID
+        description: ''
+        data_type: VARCHAR
+      - name: MANAGER
+        description: ''
+        data_type: VARCHAR
+      - name: PERIOD_END_DATE
+        description: ''
+        data_type: DATE
+      - name: PREFERENTIAL_RETIREMENT
+        description: ''
+        data_type: VARCHAR
+      - name: RATE_PERCENTAGE
+        description: ''
+        data_type: NUMBER
+      - name: RATE_BPS
+        description: ''
+        data_type: NUMBER
+      - name: RATE_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: REP_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: REP_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: START_DATE_ADJ_EMV
+        description: ''
+        data_type: VARCHAR
+      - name: STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: STYLE
+        description: ''
+        data_type: VARCHAR
+      - name: TOTAL_PERIOD_FEE
+        description: ''
+        data_type: NUMBER
+      - name: WORKFLOW
+        description: ''
+        data_type: VARCHAR
+      - name: _ID
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _BOX_FILE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: _BOX_FILE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: _BOX_META
+        description: ''
+        data_type: VARIANT

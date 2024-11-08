@@ -1,0 +1,746 @@
+version: 3
+
+sources:
+  - name: emoney_mwa
+    description: ""
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    schema: emoney_mwa
+    tables:
+      - name: advisors
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: businesses
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: clients
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: entity_interests
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: investment_deposit_accounts
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: net_worth_history
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: people
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: real_estate_assets
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: user
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: account_history
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: account_interests
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: alerts
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: alliances
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: assumptions
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: charities
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: client_group_members
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: client_groups
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: disability_ltc_insurance_accounts
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: external_user_ids
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: facts
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: flows
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: flp_entities
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: holdings
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: liability_note_accounts
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: life_insurance_annuity_accounts
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: medical_insurance_accounts
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: nexus_accounts
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: nexus_advisors
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: nexus_bank_transactions
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: nexus_clients
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: nexus_deleted_bank_transactions
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: nexus_deleted_investment_transactions
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: nexus_holdings
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: nexus_investment_transactions
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: notes
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: personal_property_accounts
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: property_casualty_insurance_accounts
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: stock_option_accounts
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: stock_option_grants
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: tasks
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
+      - name: trust_entities
+        description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER

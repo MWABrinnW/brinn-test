@@ -3,7 +3,7 @@
     materialized = 'incremental',
     incremental_strategy = 'delete+insert',
     on_schema_change = 'sync_all_columns',
-    unique_key = ['effective_at::date'],
+    unique_key = 'effective_at::date',
     cluster_by = ['effective_at::date'],
     grants = {'select': ['engineering', 'security', 'datamanagement']}
 ) }}

@@ -7,37 +7,40 @@ models:
         data_type: VARCHAR
       - name: START_DATE
         description: ''
-        data_type: VARCHAR
-        # tests:
-        #   - not_null
+        data_type: DATE
+        # tests:
+        #   - not_null
       - name: END_DATE
         description: ''
-        data_type: VARCHAR
+        data_type: DATE
       - name: ACTIVE
+        description: ''
+        data_type: NUMBER
+      - name: BUSINESS_UNIT
+        description: ''
+        data_type: VARCHAR
+      - name: SECTOR
         description: ''
         data_type: VARCHAR
       - name: DIVISION
         description: ''
         data_type: VARCHAR
-      - name: LEGAL_NAME
+      - name: REGION
         description: ''
         data_type: VARCHAR
-      - name: REGION_NAME
+      - name: MARKET
         description: ''
         data_type: VARCHAR
-      - name: MARKET_NAME
+      - name: LOCATION
         description: ''
         data_type: VARCHAR
-      - name: LOCATION_NAME
+      - name: DEPARTMENT
         description: ''
         data_type: VARCHAR
-      - name: OFFICE_NAME
+      - name: CITY
         description: ''
         data_type: VARCHAR
-      - name: LOCATION_CITY
-        description: ''
-        data_type: VARCHAR
-      - name: LOCATION_STATE
+      - name: STATE
         description: ''
         data_type: VARCHAR
       - name: ACCOUNTING_ID
@@ -52,24 +55,60 @@ models:
       - name: ACQUISITION_TYPE
         description: ''
         data_type: VARCHAR
-      - name: GENERAL_ACCESS
+      - name: LEADER_1
         description: ''
         data_type: VARCHAR
-      - name: LEADER
+      - name: LEADER_1_EMAIL
         description: ''
         data_type: VARCHAR
-      - name: LEADER_EMAIL
+      - name: LEADER_2
         description: ''
         data_type: VARCHAR
-      - name: EFFECTIVE_DATE
+      - name: LEADER_2_EMAIL
         description: ''
         data_type: VARCHAR
-      - name: IS_HEAD
+      - name: HR_BUSINESS_PARTNER
         description: ''
         data_type: VARCHAR
-      - name: _CREATED_AT
+      - name: IS_GREENFIELD
+        description: ''
+        data_type: NUMBER
+      - name: ACQUISITION_START_MONTH
+        description: ''
+        data_type: DATE
+      - name: INCEPTION_DATE
+        description: ''
+        data_type: DATE
+      - name: IGO_SEGMENT
         description: ''
         data_type: VARCHAR
-      - name: _SOURCE_FILE
+      - name: MIN_INCEPTION_DATE
+        description: ''
+        data_type: DATE
+      - name: ORG_EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: MIN_ORG_EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: MAX_ORG_EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: MIN_EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: MAX_EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: MIN_CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: MAX_CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: MIN_SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: MAX_SOURCE_FILE
         description: ''
         data_type: VARCHAR

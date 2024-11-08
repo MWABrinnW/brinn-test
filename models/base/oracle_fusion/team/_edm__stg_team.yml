@@ -1,0 +1,67 @@
+version: 2
+models:
+  - name: edm__stg_team
+    columns:
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: PARENT
+        description: ''
+        data_type: VARCHAR
+      - name: LEVEL
+        description: ''
+        data_type: NUMBER
+      - name: HIERARCHY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: IS_ENABLED
+        description: ''
+        data_type: NUMBER
+      - name: END_DATE
+        description: ''
+        data_type: DATE
+      - name: ATTR_01
+        description: ''
+        data_type: VARCHAR
+      - name: ATTR_02
+        description: ''
+        data_type: VARCHAR
+      - name: ATTR_03
+        description: ''
+        data_type: VARCHAR
+      - name: ATTR_04
+        description: ''
+        data_type: VARCHAR
+      - name: ATTR_05
+        description: ''
+        data_type: VARCHAR
+      - name: ATTR_06
+        description: ''
+        data_type: VARCHAR
+      - name: ATTR_07
+        description: ''
+        data_type: VARCHAR
+      - name: ATTR_08
+        description: ''
+        data_type: VARCHAR
+      - name: ATTR_09
+        description: ''
+        data_type: VARCHAR
+      - name: ATTR_10
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR

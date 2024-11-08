@@ -6,8 +6,10 @@ models:
     columns:
       - name: custodian
         description: ""
+        data_type: VARCHAR
       - name: firm_source
         description: ""
+        data_type: VARCHAR
       - name: firm
         description: ""
       - name: record_type
@@ -269,8 +271,10 @@ models:
         description: ""
       - name: is_deceased
         description: ""
+        data_type: NUMBER
       - name: is_from_tda_migration
         description: ""
+        data_type: NUMBER
       - name: effective_date
         description: ""
       - name: RN
@@ -284,7 +288,7 @@ models:
         description: ''
       - name: _SOURCE_LOADED_AT
         data_type: TIMESTAMP_NTZ
-        description: ''
+        description: 'Time when the records were created in the source table.'
       - name: _SOURCE_FILE
         data_type: VARCHAR
         description: ''

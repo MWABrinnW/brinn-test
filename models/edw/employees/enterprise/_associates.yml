@@ -1,0 +1,172 @@
+version: 2
+models:
+  - name: associates
+    columns:
+      - name: ASSOCIATE_ID
+        description: 'ADP system identifier, exists in Oracle HCM for legacy data reference.  Will be blank for new associates.'
+        data_type: VARCHAR
+      - name: LEGACY_EMPLOYEE_NUM
+        description: ''
+        data_type: VARCHAR
+      - name: EMPLOYMENT_STATUS
+        description: '"Active" or "Terminated"'
+        data_type: VARCHAR
+      - name: JOB_FUNCTION_NAME
+        description: 'Name of the primary job function of the associate, for example: Benefits, Client Service, Compliance, Estate Planning, Finance, Insurance, Licensed Advisor, Platform Mangement, Portfolio Management, Team Operations, Trading, etc.'
+        data_type: VARCHAR
+      - name: JOB_FAMILY
+        description: 'Wealth Management, Wealth Operations, Specialty Tax, Investments, Business Development, Business Intelligence, Human Resources, Information Technology, etc. Added to HCM field list on 5/24/2024'
+        data_type: VARCHAR
+      - name: WORK_FROM_HOME
+        description: 'Flag that indicates remote work associate'
+        data_type: VARCHAR
+      - name: WORKPLACE
+        description: 'Indicates the location where the associate works from: Hybrid, Onsite, Remote'
+        data_type: VARCHAR
+      - name: PERSON_SOURCE
+        description: 'Person source from the Person profile (acquisition, lift-out, etc.)'
+        data_type: VARCHAR
+      - name: JOB_ID
+        description: 'Job ID'
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_NAME_FIRST
+        description: 'First Name, Legal'
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_NAME_MIDDLE
+        description: 'Middle Name, legal'
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_NAME_LAST
+        description: 'Last Name, legal'
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_NAME_FULL
+        description: 'Full legal name: Last, First Middle'
+        data_type: VARCHAR
+      - name: ASSOCIATE_PREFERRED_NAME
+        description: 'Preferred first name'
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_NAME_SUFFIX
+        description: 'Suffix, legal'
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_EMAIL
+        description: 'Associate work email address'
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_PHONE
+        description: 'Associate work phone number'
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_CELL_PHONE
+        description: 'Associate work cell phone'
+        data_type: VARCHAR
+      - name: ASSOCIATE_ORIGINAL_HIRE_DATE
+        description: 'Date someone was first hired to Mariner'
+        data_type: DATE
+      - name: ASSOCIATE_REHIRE_DATE
+        description: 'Date of most recent rehire status for the associate, if they left and returned'
+        data_type: DATE
+      - name: ASSOCIATE_FINAL_TERMINATION_DATE
+        description: 'The date the associate terminated'
+        data_type: DATE
+      - name: ASSOCIATE_SENIORITY_HIRE_DATE
+        description: ''
+        data_type: DATE
+      - name: ASSOCIATE_START_DATE
+        description: ''
+        data_type: DATE
+      - name: ASSOCIATE_MANAGER_ASSIGNMENT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_MANAGER_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_TITLE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORKER_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ADVISOR_NONADVISOR
+        description: 'Indicates if this associate is in an advisor or non-advisor role Added to HCM field list on 5/24/2024'
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_SITE_LOCATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_SITE_LOCATION_REAL_ESTATE_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_SITE_ADDRESS_LINE1
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_SITE_ADDRESS_LINE2
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_SITE_ADDRESS_LINE3
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_SITE_ADDRESS_CITY
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_SITE_ADDRESS_STATE_ABB
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_SITE_ADDRESS_ZIP_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: _1_LEGAL_ENTITY_ID
+        description: ''
+        data_type: VARCHAR
+      - name: _2_PRODUCT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: _3_ACCOUNTING_ID
+        description: ''
+        data_type: VARCHAR
+      - name: _4_TEAM_ID
+        description: ''
+        data_type: VARCHAR
+      - name: _6_INITIATIVE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: JOB_LEVEL
+        description: 'The level of position for the associate: Admin/Staff, Technical, Associate Advisor, Advisor, Senior Advisor, Management, Executive Field rename requested 5/24/2024.'
+        data_type: VARCHAR
+      - name: ASSOCIATE_DEPARTMENT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: FT_PT_TEMP
+        description: 'Full time, part time, temp'
+        data_type: VARCHAR
+      - name: TITLE_CHANGE_REASON
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_BIRTH_DATE_MASKED
+        description: ''
+        data_type: DATE
+      - name: ASSOCIATE_BIRTH_DATE
+        description: 'Birth date (date is masked in end user non-HR views)'
+        data_type: VARCHAR
+      - name: ASSOCIATE_BIRTH_MONTH
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: REGION_NAME
+        description: 'Region name, markets are grouped into a region'
+        data_type: VARCHAR
+      - name: LOCATION_NAME
+        description: 'Location name, offices are grouped into a location'
+        data_type: VARCHAR
+      - name: DATA_LAST_REFRESHED_DATE
+        description: ''
+        data_type: DATE
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: 'Datetime when the record was created in Snowflake.'
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: 'File where the record is sourced from.'
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: 'Returns the latest version of the demographics file from HCM.'
+        data_type: NUMBER

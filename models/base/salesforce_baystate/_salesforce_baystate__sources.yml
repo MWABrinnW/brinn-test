@@ -5,14 +5,54 @@ sources:
     database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
     tables:
       - name: account
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: account_contact_relation
       - name: account_contact_role
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: account_feed
       - name: account_history
       - name: additional_number
       - name: address
       - name: advisor_split_code_c
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: advisor_split_detail_c
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: apex_class
       - name: apex_component
       - name: apex_page
@@ -78,6 +118,16 @@ sources:
       - name: comm_subscription_timing_history
       - name: conference_number
       - name: contact
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: contact_feed
       - name: contact_history
       - name: contact_point_address
@@ -323,32 +373,32 @@ sources:
       - name: work_step_template_history
       - name: work_thanks
 
-  # - name: salesforce_baystate
-  #   database: raw
-  #   tables:
-  #     - name: account
-  #       columns:
-  #         - name: json
-  #           data_type: variant
-  #         - name: effective_at
-  #           data_type: timestamp_ntz
-  #         - name: _created_at
-  #           data_type: timestamp_ntz
+  # - name: salesforce_baystate
+  #   database: raw
+  #   tables:
+  #     - name: account
+  #       columns:
+  #         - name: json
+  #           data_type: variant
+  #         - name: effective_at
+  #           data_type: timestamp_ntz
+  #         - name: _created_at
+  #           data_type: timestamp_ntz
 
-  #     - name: account_contact_role
-  #       columns:
-  #         - name: json
-  #           data_type: variant
-  #         - name: effective_at
-  #           data_type: timestamp_ntz
-  #         - name: _created_at
-  #           data_type: timestamp_ntz
+  #     - name: account_contact_role
+  #       columns:
+  #         - name: json
+  #           data_type: variant
+  #         - name: effective_at
+  #           data_type: timestamp_ntz
+  #         - name: _created_at
+  #           data_type: timestamp_ntz
 
-  #     - name: contact
-  #       columns:
-  #         - name: json
-  #           data_type: variant
-  #         - name: effective_at
-  #           data_type: timestamp_ntz
-  #         - name: _created_at
-  #           data_type: timestamp_ntz
+  #     - name: contact
+  #       columns:
+  #         - name: json
+  #           data_type: variant
+  #         - name: effective_at
+  #           data_type: timestamp_ntz
+  #         - name: _created_at
+  #           data_type: timestamp_ntz

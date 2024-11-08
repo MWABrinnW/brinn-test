@@ -9,3 +9,16 @@ sources:
     tables:
       - name: api_data
         description: "JSON dump of data from Rise API"
+        columns:
+          - name: CONTENT
+            description: ''
+            data_type: VARIANT
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _CREATED_AT
+            description: ''
+            data_type: VARCHAR
+          - name: _EXTRACTED_AT
+            description: ''
+            data_type: VARCHAR

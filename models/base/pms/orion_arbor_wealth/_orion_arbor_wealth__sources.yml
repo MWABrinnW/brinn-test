@@ -8,7 +8,640 @@ sources:
     tables:
       - name: as_of_value_by_account_3679_history
         description: ""
+        columns:
+          - name: CANCELDATE
+            description: ''
+            data_type: DATE
+          - name: CLIENT_ID
+            description: ''
+            data_type: NUMBER
+          - name: CLIENT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENTADDRESS
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENTADDRESS2
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENTCITY
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENTZIP
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENTEMAIL
+            description: ''
+            data_type: VARCHAR
+          - name: REG_ID
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNT_ID
+            description: ''
+            data_type: NUMBER
+          - name: LNAME
+            description: ''
+            data_type: VARCHAR
+          - name: REG_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ADDR1
+            description: ''
+            data_type: VARCHAR
+          - name: ADDR2
+            description: ''
+            data_type: VARCHAR
+          - name: CITY
+            description: ''
+            data_type: VARCHAR
+          - name: STATE
+            description: ''
+            data_type: VARCHAR
+          - name: ZIP
+            description: ''
+            data_type: VARCHAR
+          - name: ACCTCODE
+            description: ''
+            data_type: VARCHAR
+          - name: FUND_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASOFDATE
+            description: ''
+            data_type: DATE
+          - name: SUBADVISORNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTVALUE
+            description: ''
+            data_type: NUMBER
+          - name: ACCRUEDINT
+            description: ''
+            data_type: NUMBER
+          - name: TOTALACCOUNTVALUE
+            description: ''
+            data_type: NUMBER
+          - name: MODEL_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: FEESCHEDULE
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUTSCHEDULE
+            description: ''
+            data_type: VARCHAR
+          - name: STARTDATE
+            description: ''
+            data_type: DATE
+          - name: SSN
+            description: ''
+            data_type: VARCHAR
+          - name: MGMT_STYLE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTSTATUS
+            description: ''
+            data_type: NUMBER
+          - name: ACCTSTARTDATE
+            description: ''
+            data_type: DATE
+          - name: REP_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REG_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: ISQUALIFIED
+            description: ''
+            data_type: BOOLEAN
+          - name: ISACTIVE
+            description: ''
+            data_type: BOOLEAN
+          - name: REPNO
+            description: ''
+            data_type: VARCHAR
+          - name: BROKER_DEALER_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: PAY_METHOD
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSLINENAME
+            description: ''
+            data_type: VARCHAR
+          - name: INCLUDE_IN_QPE
+            description: ''
+            data_type: BOOLEAN
+          - name: INCLUDE_IN_TWR
+            description: ''
+            data_type: VARCHAR
+          - name: OUTSIDEID
+            description: ''
+            data_type: VARCHAR
+          - name: ISANNUITY
+            description: ''
+            data_type: BOOLEAN
+          - name: PLAN_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: PLAN_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: ACCT_IS_MANAGED
+            description: ''
+            data_type: BOOLEAN
+          - name: PHONE_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: AGE
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNT_CREATED_DATE
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
       - name: as_of_value_by_asset_1809_history
         description: ""
+        columns:
+          - name: LNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASOFDATE
+            description: ''
+            data_type: DATE
+          - name: CLIENT_ID
+            description: ''
+            data_type: NUMBER
+          - name: REP_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REP_COMPANY_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: BROKER_DEALER
+            description: ''
+            data_type: VARCHAR
+          - name: REG_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REGTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCT_ID
+            description: ''
+            data_type: NUMBER
+          - name: TICKER
+            description: ''
+            data_type: VARCHAR
+          - name: SHARE_CLASS
+            description: ''
+            data_type: VARCHAR
+          - name: DSYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: CATEGORY
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTSTATUS
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNTISACTIVE
+            description: ''
+            data_type: BOOLEAN
+          - name: OUTSIDEID
+            description: ''
+            data_type: VARCHAR
+          - name: MGMT_STYLE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_ID
+            description: ''
+            data_type: NUMBER
+          - name: PLANNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCTTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSETCLASS
+            description: ''
+            data_type: VARCHAR
+          - name: DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: RISK_CATEGORY
+            description: ''
+            data_type: VARCHAR
+          - name: ACCTCODE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSET_ID
+            description: ''
+            data_type: NUMBER
+          - name: ASSETISACTIVE
+            description: ''
+            data_type: BOOLEAN
+          - name: ISFEEEXCLUDED
+            description: ''
+            data_type: BOOLEAN
+          - name: ASSETVALUE
+            description: ''
+            data_type: NUMBER
+          - name: UNITBALANCE
+            description: ''
+            data_type: NUMBER
+          - name: NAVPRICE
+            description: ''
+            data_type: VARCHAR
+          - name: FUND_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTODIAN
+            description: ''
+            data_type: VARCHAR
+          - name: SSN
+            description: ''
+            data_type: VARCHAR
+          - name: INCLUDE_IN_QPE
+            description: ''
+            data_type: BOOLEAN
+          - name: INCLUDE_IN_TWR
+            description: ''
+            data_type: VARCHAR
+          - name: ASSETLEVELSTRATEGY
+            description: ''
+            data_type: VARCHAR
+          - name: INCEPTIONDATE
+            description: ''
+            data_type: DATE
+          - name: LASTTTRANSDATE
+            description: ''
+            data_type: DATE
+          - name: ACCOUNT_ISMANAGED
+            description: ''
+            data_type: BOOLEAN
+          - name: ASSET_ISMANAGED
+            description: ''
+            data_type: BOOLEAN
+          - name: PRODUCT_ISMANAGED
+            description: ''
+            data_type: BOOLEAN
+          - name: BUSINESSLINE
+            description: ''
+            data_type: VARCHAR
+          - name: SUBADVISOR_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: DIVIDENDS_REINVESTED
+            description: ''
+            data_type: VARCHAR
+          - name: COMPANY
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENTFULLNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: SHARES
+            description: ''
+            data_type: NUMBER
+          - name: COSTBASIS
+            description: ''
+            data_type: NUMBER
+          - name: FEE_SCHEDULE
+            description: ''
+            data_type: VARCHAR
+          - name: EXCLUDE_FROM_REBALANCE
+            description: ''
+            data_type: BOOLEAN
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
       - name: audit_all_accounts_4213_history
         description: ""
+        columns:
+          - name: CLIENT_ID
+            description: ''
+            data_type: NUMBER
+          - name: REGISTRATION_ID
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNT_ID
+            description: ''
+            data_type: NUMBER
+          - name: FIRST_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: LAST_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REG_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REG_L_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REG_F_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REG_DOB
+            description: ''
+            data_type: DATE
+          - name: REP_ACCOUNT_MANAGER
+            description: ''
+            data_type: VARCHAR
+          - name: REP_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REP_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: ADDRESS1
+            description: ''
+            data_type: VARCHAR
+          - name: ADDRESS2
+            description: ''
+            data_type: VARCHAR
+          - name: ADDRESS3
+            description: ''
+            data_type: VARCHAR
+          - name: CITY
+            description: ''
+            data_type: VARCHAR
+          - name: STATE
+            description: ''
+            data_type: VARCHAR
+          - name: ZIP
+            description: ''
+            data_type: VARCHAR
+          - name: EMAIL
+            description: ''
+            data_type: VARCHAR
+          - name: PHONE_HOME
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESS_PHONE
+            description: ''
+            data_type: VARCHAR
+          - name: STATEMENT_TRANSMIT_METHOD
+            description: ''
+            data_type: VARCHAR
+          - name: REG_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: FUND_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: MGMT_STYLE
+            description: ''
+            data_type: VARCHAR
+          - name: FEE_SCHEDULE
+            description: ''
+            data_type: VARCHAR
+          - name: FEE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: MASTER_PAYOUT_SCHEDULE
+            description: ''
+            data_type: VARCHAR
+          - name: PAY_METHOD_INSTRUCTION
+            description: ''
+            data_type: VARCHAR
+          - name: BILL_FREQUENCY
+            description: ''
+            data_type: VARCHAR
+          - name: BILL_STYLE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTODIAN
+            description: ''
+            data_type: VARCHAR
+          - name: OUTSIDE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: SUBADVISOR_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: IS_PERFORMANCE_BILLED
+            description: ''
+            data_type: VARCHAR
+          - name: LAST_PERFORMANCE_BILL_DATE
+            description: ''
+            data_type: DATE
+          - name: CREATED_DATE
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: CREATED_BY
+            description: ''
+            data_type: VARCHAR
+          - name: EDITED_DATE
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: INVESTMENT_OBJECTIVE
+            description: ''
+            data_type: VARCHAR
+          - name: PLAN_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: PLAN_SPONSOR
+            description: ''
+            data_type: VARCHAR
+          - name: PLAN_ADMINISTRATOR_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_START_DATE
+            description: ''
+            data_type: DATE
+          - name: BILL_START_DATE
+            description: ''
+            data_type: DATE
+          - name: PLAN_ID
+            description: ''
+            data_type: VARCHAR
+          - name: CURRENT_VALUE
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNT_ID_THAT_DOES_THE_PLAYING
+            description: ''
+            data_type: VARCHAR
+          - name: PERCENT_PAID_BY_ACCOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: ACCT_VALUE_THAT_DOES_PAYING
+            description: ''
+            data_type: VARCHAR
+          - name: ACCT_NO_THAT_DOES_PAYING
+            description: ''
+            data_type: VARCHAR
+          - name: TIME_HORIZON
+            description: ''
+            data_type: VARCHAR
+          - name: RETURN_OBJECTIVE
+            description: ''
+            data_type: VARCHAR
+          - name: STOCK_PERCENTAGE
+            description: ''
+            data_type: VARCHAR
+          - name: RISK_TOLERANCE
+            description: ''
+            data_type: VARCHAR
+          - name: RISK_BUDGET
+            description: ''
+            data_type: VARCHAR
+          - name: MODEL_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: BD_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: VALUATION_METHOD
+            description: ''
+            data_type: VARCHAR
+          - name: CREDIT_REMAINING
+            description: ''
+            data_type: VARCHAR
+          - name: SALUTATION
+            description: ''
+            data_type: VARCHAR
+          - name: NET_WORTH
+            description: ''
+            data_type: FLOAT
+          - name: CYCLE_MONTH
+            description: ''
+            data_type: NUMBER
+          - name: ISQUAL
+            description: ''
+            data_type: BOOLEAN
+          - name: IS_TRADING_BLOCKED
+            description: ''
+            data_type: BOOLEAN
+          - name: TRADE_INSTRUCTION
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESS_LINE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTODIAN_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: PLAN_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: MGMT_STYLE_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: SUB_ADVISOR_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: ADDITIONAL_CHARGE_CREDIT_AMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: ADDITIONAL_CHARGE_CREDIT_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: MODEL_GROUP_NUM
+            description: ''
+            data_type: VARCHAR
+          - name: MINIMUM_INCEPTION_DATE
+            description: ''
+            data_type: DATE
+          - name: TRUE_ACCOUNT_START_DATE
+            description: ''
+            data_type: DATE
+          - name: REPONSIBLE_PARTY
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: INCLUDE_IN_QPE
+            description: ''
+            data_type: BOOLEAN
+          - name: INCLUDE_IN_TWR
+            description: ''
+            data_type: VARCHAR
+          - name: BILLING_NONMGD_ACCT_NO
+            description: ''
+            data_type: VARCHAR
+          - name: BILLING_NONMGD_ACCT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: BILLING_NONMGD_CLIENT
+            description: ''
+            data_type: VARCHAR
+          - name: SSN
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_IS_ACTIVE
+            description: ''
+            data_type: BOOLEAN
+          - name: CLIENT_IS_ACTIVE
+            description: ''
+            data_type: BOOLEAN
+          - name: BRANCH_ID
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_CREATED_DATE
+            description: ''
+            data_type: DATE
+          - name: LAST_TRX_DATE
+            description: ''
+            data_type: DATE
+          - name: LAST_INVOICE_CREATION_DATE
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: HISORY_ACCOUNT_ID
+            description: ''
+            data_type: VARCHAR
+          - name: FIRST_INVEST_DATE
+            description: ''
+            data_type: DATE
+          - name: AS_OF_DATE
+            description: ''
+            data_type: DATE
+          - name: DOWNLOAD_SOURCE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCT_START_VALUE
+            description: ''
+            data_type: NUMBER
+          - name: SLEEVE_ACCOUNT
+            description: ''
+            data_type: BOOLEAN
+          - name: IS_DISCRETIONARY
+            description: ''
+            data_type: BOOLEAN
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE

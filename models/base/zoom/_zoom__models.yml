@@ -1,0 +1,185 @@
+version: 2
+models:
+  - name: zoom_mwa__base_phone_users
+    columns:
+      - name: ID
+        description: ''
+        data_type: VARCHAR
+      - name: PHONE_USER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: EXTENSION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: EXTENSION_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: CALLING_PLANS
+        description: ''
+        data_type: VARCHAR
+      - name: SITE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: SITE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+  - name: zoom_mwa__base_account_phone_numbers
+    columns:
+      - name: ID
+        description: ''
+        data_type: VARCHAR
+      - name: NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: NUMBER_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: CAPABILITY
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION
+        description: ''
+        data_type: VARCHAR
+      - name: ASSIGNEE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ASSIGNEE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ASSIGNEE_EXT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ASSIGNEE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: SITE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: SITE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: EMERG_ADDRESS_COUNTRY
+        description: ''
+        data_type: VARCHAR
+      - name: EMERG_ADDRESS_LINE1
+        description: ''
+        data_type: VARCHAR
+      - name: EMERG_ADDRESS_LINE2
+        description: ''
+        data_type: VARCHAR
+      - name: EMERG_ADDRESS_CITY
+        description: ''
+        data_type: VARCHAR
+      - name: EMERG_ADDRESS_STATE_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: EMERG_ADDRESS_ZIP
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+  - name: zoom_mwa__base_user_phone_assignments
+    columns:
+      - name: ID
+        description: ''
+        data_type: VARCHAR
+      - name: PHONE_USER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: EXTENSION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: EXTENSION_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: CALLING_PLANS
+        description: ''
+        data_type: VARCHAR
+      - name: SITE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: SITE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: NUMBER_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION
+        description: ''
+        data_type: VARCHAR
+      - name: CAPABILITY
+        description: ''
+        data_type: VARCHAR
+      - name: ASSIGNEE_EXT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ASSIGNEE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: RN
+        description: ''
+        data_type: NUMBER
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER

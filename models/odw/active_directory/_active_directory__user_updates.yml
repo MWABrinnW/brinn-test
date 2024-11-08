@@ -1,0 +1,72 @@
+version: 2
+models:
+  - name: active_directory__user_updates
+    columns:
+      - name: EMPLOYEE_NUM
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: FULL_NAME
+        description: ''
+      - name: EMPLOYMENT_STATUS
+        description: ''
+      - name: EXISTS_IN_SOURCE
+        description: ''
+      - name: EXISTS_IN_AD
+        description: ''
+      - name: EXISTS_IN_BOTH
+        description: ''
+      - name: HAS_MANAGER_IN_SOURCE
+        description: ''
+      - name: UPDATE_PAYLOAD_DETAIL
+        description: ''
+      - name: UPDATE_PAYLOAD
+        description: ''
+      - name: FIELD_COMPARISON
+        description: ''
+      - name: FIELDS_TO_UPDATE
+        description: ''
+      - name: CNT_FIELDS_TO_UPDATE
+        description: ''
+      - name: IS_EMPLOYEE_ID_DIFF
+        description: ''
+      - name: IS_COMPANY_DIFF
+        description: ''
+      - name: IS_DIVISION_DIFF
+        description: ''
+      - name: IS_ADMIN_DESCRIPTION_DIFF
+        description: ''
+      - name: IS_DEPARTMENT_DIFF
+        description: ''
+      - name: IS_TITLE_DIFF
+        description: ''
+      - name: IS_PHYSICAL_DELIVERY_OFFICE_NAME_DIFF
+        description: ''
+      - name: IS_MANAGER_DIFF
+        description: ''
+      - name: IS_STREET_ADDRESS_DIFF
+        description: ''
+      - name: IS_CITY_DIFF
+        description: ''
+      - name: IS_STATE_DIFF
+        description: ''
+      - name: IS_POSTAL_CODE_DIFF
+        description: ''
+      - name: IS_TELEPHONE_NUMBER_DIFF
+        description: ''
+      - name: IS_OTHER_MOBILE_DIFF
+        description: ''
+      - name: IS_DATE_OF_START_DIFF
+        description: ''
+      - name: IS_DATE_OF_BIRTH_DIFF
+        description: ''
+      - name: EXCLUDED_REASONS
+        description: ''
+      - name: IS_EXCLUDED
+        description: ''
+      - name: NEEDS_UPDATED
+        description: ''
+      - name: ERP_EFFECTIVE_AT
+        description: ''
+      - name: AD_EFFECTIVE_AT
+        description: ''

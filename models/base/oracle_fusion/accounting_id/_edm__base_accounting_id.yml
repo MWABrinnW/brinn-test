@@ -5,15 +5,12 @@ models:
       - name: ACCOUNTING_ID
         description: ''
         data_type: VARCHAR
-      - name: OFFICE_NAME
-        description: ''
-        data_type: VARCHAR
       - name: IS_ENABLED
         description: ''
-        data_type: VARCHAR
+        data_type: NUMBER
       - name: END_DATE
         description: ''
-        data_type: VARCHAR
+        data_type: DATE
       - name: LOCATION_CODE
         description: ''
         data_type: VARCHAR
@@ -29,16 +26,58 @@ models:
       - name: ACQUISITION_NAME
         description: ''
         data_type: VARCHAR
+      - name: LEADER_1
+        description: ''
+        data_type: VARCHAR
+      - name: LEADER_1_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: LEADER_2
+        description: ''
+        data_type: VARCHAR
+      - name: LEADER_2_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: HR_BUSINESS_PARTNER
+        description: ''
+        data_type: VARCHAR
       - name: IS_GREENFIELD
         description: ''
-        data_type: INT
+        data_type: NUMBER
       - name: ACQUISITION_START_MONTH
         description: ''
-        data_type: VARCHAR
-      - name: LEADER
+        data_type: DATE
+      - name: INCEPTION_DATE
+        description: ''
+        data_type: DATE
+      - name: ORG_EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: ORG_EFFECTIVE_DATES
+        description: ''
+        data_type: OBJECT
+      - name: IGO_SEGMENT
         description: ''
         data_type: VARCHAR
-      - name: LEADER_EMAIL
+      - name: BUSINESS_UNIT
+        description: ''
+        data_type: VARCHAR
+      - name: SECTOR
+        description: ''
+        data_type: VARCHAR
+      - name: DIVISION
+        description: ''
+        data_type: VARCHAR
+      - name: REGION
+        description: ''
+        data_type: VARCHAR
+      - name: MARKET
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION
+        description: ''
+        data_type: VARCHAR
+      - name: DEPARTMENT
         description: ''
         data_type: VARCHAR
       - name: EFFECTIVE_DATE
@@ -46,25 +85,10 @@ models:
         data_type: DATE
       - name: IS_HEAD
         description: ''
-        data_type: VARCHAR
+        data_type: NUMBER
       - name: _CREATED_AT
         description: ''
-        data_type: VARCHAR
+        data_type: TIMESTAMP_NTZ
       - name: _SOURCE_FILE
-        description: ''
-        data_type: VARCHAR
-      - name: LOCATION_NAME
-        description: ''
-        data_type: VARCHAR
-      - name: MARKET_NAME
-        description: ''
-        data_type: VARCHAR
-      - name: REGION_NAME
-        description: ''
-        data_type: VARCHAR
-      - name: DIVISION_NAME
-        description: ''
-        data_type: VARCHAR
-      - name: BUSINESS_UNIT_NAME
         description: ''
         data_type: VARCHAR

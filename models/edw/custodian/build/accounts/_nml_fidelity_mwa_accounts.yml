@@ -1,0 +1,153 @@
+version: 2
+models:
+- name: nml_fidelity_mwa_accounts
+  columns:
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTODIAN_LINK
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTODIAN_LINK_DETAIL
+    description: ''
+    data_type: VARCHAR
+  - name: REP_LINK
+    description: ''
+    data_type: VARCHAR
+  - name: REP_LINK_DETAIL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE_SOURCE_DEFINITION
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE_SOURCE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: OPENED_DATE
+    description: ''
+    data_type: DATE
+  - name: ACCOUNT_TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: MIDDLE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: A.IRS_ID::VARCHAR(500)
+    description: ''
+    data_type: VARCHAR
+  - name: A.IRS_ID_TYPE::VARCHAR(500)
+    description: ''
+    data_type: VARCHAR
+  - name: BIRTH_DATE
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: EMAIL_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: COST_BASIS_METHOD_MUTUAL_FUNDS
+    description: ''
+    data_type: VARCHAR
+  - name: COST_BASIS_METHOD_NON_MUTUAL_FUNDS
+    description: ''
+    data_type: VARCHAR
+  - name: IS_TAXABLE
+    description: ''
+    data_type: NUMBER
+  - name: IS_FEE_AUTHORIZED
+    description: ''
+    data_type: NUMBER
+  - name: IS_PRIME_BROKER
+    description: ''
+    data_type: NUMBER
+  - name: IS_MARGIN_ENABLED
+    description: ''
+    data_type: NUMBER
+  - name: OPTIONS_APPROVAL_LEVEL
+    description: ''
+    data_type: VARCHAR
+  - name: RESTRICTIONS_SOURCE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_MULTIPLE_MARGIN_ENABLED
+    description: ''
+    data_type: NUMBER
+  - name: RESTRICTIONS_SOURCE_DEFINTION
+    description: ''
+    data_type: VARCHAR
+  - name: RESTRICTIONS
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_ADDRESS_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_ADDRESS_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_ADDRESS_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_ADDRESS_ZIP
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_ADDRESS_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: LEGAL_ADDRESS_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: LEGAL_ADDRESS_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: LEGAL_ADDRESS_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: LEGAL_ADDRESS_ZIP
+    description: ''
+    data_type: VARCHAR
+  - name: LEGAL_ADDRESS_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR

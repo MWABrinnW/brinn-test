@@ -51,9 +51,35 @@ vars:
     github_database: fivetran
     github_schema: github
 
+  # [Policies]
+  use_common_policy_db: "True"
+  common_policy_db: |
+      {%- if  target.name in ["dev", "ci"] -%} {{ target.database }}
+      {%- elif target.name == "test" -%} {{ target.database }} || _test
+      {%- else -%} {{ target.database }}
+      {%- endif -%}
+  common_policy_schema: |
+      {%- if  target.name in ["dev", "ci"] -%} {{ target.schema }}
+      {%- else -%} policies
+      {%- endif -%}
+  create_policy_schema: "True"
+  # use_force_applying_masking_policy: "False"
+  # use_force_applying_row_access_policy: "False"
+  common_tag_database: |
+      {%- if  target.name in ["dev", "ci"] -%} {{ target.database }}
+      {%- elif target.name == "test" -%} {{ target.database }} || _test
+      {%- else -%} {{ target.database }}
+      {%- endif -%}
+  common_tag_schema: |
+      {%- if  target.name in ["dev", "ci"] -%} {{ target.schema }}
+      {%- else -%} tags
+      {%- endif -%}
+
 on-run-start:
   - "{{ create_schemas() if target.name in ['prod', 'test', 'ci'] }}"
   - "{{ has_children_in_scope(model_name='pershing_udfs', macro_name='create_pershing_udfs') }}"
+  - "{{ create_row_access_policies() }}"
+  - "{{ create_masking_policies() }}"
 on-run-end:
   - "{{ grant_usage_on_schemas_where_select() if target.name in ['prod', 'test'] }}"
 
@@ -74,8 +100,8 @@ models:
       {%- endif -%}
     +schema: "elementary"
     +grants:
-      select: ["engineering"]
-    enabled: "{{ target.name in ['prod', 'test'] }}"
+      select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
+    enabled: "{{ target.name in ['prod', 'test'] and env_var('DBT_ELEMENTARY_ENABLED', True) != False }}"
 
   github_source:
     +tags: ["github", "daily"]
@@ -125,6 +151,11 @@ models:
       relation: true
       columns: true
     +dbt-osmosis: "_{parent}__models.yml"
+    # post-hook:
+      # - "{{ apply_policies(meta_key='row_access_policy') }}"
+      # - "{{ apply_policies(meta_key='masking_policy') }}"
+      # - "{{ apply_row_access_policies() }}"
+      # - "{{ apply_masking_policies() }}"
 
     # By default models will go in the datalake db
     +database: |
@@ -261,12 +292,10 @@ models:
         +grants:
           select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
-      emoney:
-        +tags: ["emoney"]
-        mwa:
-          +tags: ["mwa"]
-          +grants:
-            select: "{{ ['db_custodial_mwa_r', 'corporate_w2'] if target.name in ['prod', 'test', 'ci'] else []}}"
+      emoney_mwa:
+        +tags: ["emoney", "emoney_mwa"]
+        +grants:
+          select: "{{ ['db_custodial_mwa_r', 'corporate_w2'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       freshservice:
         +tags: ["freshservice"]
@@ -325,6 +354,13 @@ models:
       pms:
         +tags: ["pms"]
         +grants:
+          select: "{{ ['db_pms_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        mwa:
+          +tags: ["mwa"]
+          +grants:
+            select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        mps:
+          +tags: ["mps"]
           select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         black_diamond_ap4:
           +grants:
@@ -338,7 +374,17 @@ models:
         black_diamond_uhnw:
           +grants:
             select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        envestnet_mwa:
+          +enabled: false
+          +tags: ["envestnet", "mwa"]
+          +grants:
+            select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        envestnet_manasquan:
+          +tags: ["envestnet", "mwa", "manasquan"]
+          +grants:
+            select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         envestnet_mps:
+          +tags: ["envestnet", "mps"]
           +grants:
             select: "{{ ['db_pms_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         orion_mps:

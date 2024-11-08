@@ -11,7 +11,11 @@ select
     ,money_market_value
     ,option_market_value
     ,margin_equity_value
-    ,{{ col_is_head(reference=ref('bld_custodian_cash_balances'), reference_date_col='effective_date', source_date_col='effective_date') }}
+    ,{{ col_is_head(
+        reference=ref('bld_custodian_cash_balances'),
+        reference_date_col='effective_date',
+        source_date_col='effective_date'
+        ) }}
     ,{{ col_is_current(date_col='effective_date') }}
     ,rn_firm_source
     ,rn_global

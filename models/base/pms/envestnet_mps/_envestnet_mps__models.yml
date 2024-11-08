@@ -1,0 +1,3341 @@
+version: 2
+models:
+- name: envestnet_mps_history__base_accountmaster_accounts
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ADVISOR_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ADVISOR_BRANCH_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: REP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: START_DATE
+    description: ''
+    data_type: DATE
+  - name: MAILING_LABEL
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTRATION_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: STATE
+    description: ''
+    data_type: VARCHAR
+  - name: NAME_AND_ADDRESS_1
+    description: ''
+    data_type: VARCHAR
+  - name: NAME_AND_ADDRESS_2
+    description: ''
+    data_type: VARCHAR
+  - name: NAME_AND_ADDRESS_3
+    description: ''
+    data_type: VARCHAR
+  - name: NAME_AND_ADDRESS_4
+    description: ''
+    data_type: VARCHAR
+  - name: SSN_TAX_ID
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: SSN_TAX_ID_FLAG
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_number
+    data_type: NUMBER
+  - name: CLOSE_DATE
+    description: ''
+    data_type: DATE
+  - name: ACCOUNTING_METHOD_OF_EQUITIES
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNTING_METHOD_OF_MUTUAL_FUNDS
+    description: ''
+    data_type: NUMBER
+  - name: MASTER_ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPOSAL_GROUP_ID
+    description: ''
+    data_type: NUMBER
+  - name: CUSTOMER_REGISTRATION_ID
+    description: ''
+    data_type: NUMBER
+  - name: RECONCILED_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_RECONCILED_DATE
+    description: ''
+    data_type: DATE
+  - name: NSCC_NETWORKING_LEVEL
+    description: ''
+    data_type: NUMBER
+  - name: SWP_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: ACH_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: PAC_SPP_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: CHECK_WRITING
+    description: ''
+    data_type: VARCHAR
+  - name: FUND_FAMILY_ID
+    description: ''
+    data_type: NUMBER
+  - name: IMPORT_ACCOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: CROSS_FUND_REINVEST
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_NUMBER_INDICATOR
+    description: ''
+    data_type: NUMBER
+  - name: NF_TRANSFER_ELIGIBILITY_FLAG
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTODIAN_ID
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_STATUS
+    description: ''
+    data_type: NUMBER
+  - name: REGISTRATION_TYPE_ID
+    description: ''
+    data_type: NUMBER
+  - name: PRIMARY_MEMBER_FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PRIMARY_MEMBER_MIDDLE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PRIMARY_MEMBER_LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PARTNER_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ALTERNATE_REP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ADVISOR_REP_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_ID
+    description: ''
+    data_type: NUMBER
+  - name: PROPOSAL_RISK_RATING
+    description: ''
+    data_type: NUMBER
+  - name: AS_OF_CLOSE_DATE
+    description: ''
+    data_type: DATE
+  - name: UN_SUPERVISED_ASSETS
+    description: ''
+    data_type: NUMBER
+  - name: TOTAL_CASH
+    description: ''
+    data_type: NUMBER
+  - name: TOTAL_MARKET_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_UPDATED_BY_CUSTODIAN
+    description: ''
+    data_type: DATE
+  - name: ACCOUNT_CREATED_DATE
+    description: ''
+    data_type: DATE
+  - name: TAX_STATUS
+    description: ''
+    data_type: NUMBER
+  - name: ADVISOR_ID
+    description: ''
+    data_type: NUMBER
+  - name: BENCHMARK
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_account_fee_schedule_fee_component
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: FEE_SCHEDULE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FEE_COMPONENT_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: IS_DERIVED_COMPONENT
+    description: ''
+    data_type: BOOLEAN
+  - name: FEE_MINIMUM
+    description: ''
+    data_type: NUMBER
+  - name: FEE_MAXIMUM
+    description: ''
+    data_type: NUMBER
+  - name: IS_LINEAR
+    description: ''
+    data_type: BOOLEAN
+  - name: IS_HOUSEHOLD
+    description: ''
+    data_type: BOOLEAN
+  - name: ASSET_CALCULATION_METHOD
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_account_fee_schedule_fee_rate
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: FEE_SCHEDULE_ID
+    description: ''
+    data_type: NUMBER
+  - name: FEE_COMPONENT_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: FILTER_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: START_RANGE
+    description: ''
+    data_type: NUMBER
+  - name: RATE_PERCENT
+    description: ''
+    data_type: NUMBER
+  - name: RATE_DOLLAR
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_account_fee_schedule_fee_schedule
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FEE_SCHEDULE_ID
+    description: ''
+    data_type: NUMBER
+  - name: BILLING_MODE_ID
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_annual_income
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ANNUAL_INCOME_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_assets_calculation_method
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CALCULATION_METHOD_ID
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_asset_category
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: FEE_FILTER_TYPE_ID
+    description: ''
+    data_type: NUMBER
+  - name: BILLING_MODE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_billing_debit_method
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_DEBIT_METHOD_ID
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_billing_mode
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_MODE_ID
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_commission_type
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: COMMISSION_TYPE_ID
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_employment_status
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYMENT_STATUS_ID
+    description: ''
+    data_type: NUMBER
+  - name: EMPLOYMENT_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_gics_sector
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: GICS_SECTOR_ID
+    description: ''
+    data_type: NUMBER
+  - name: GICS_SECTOR
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_account_fee_schedule_fee_filter
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: FEE_SCHEDULE_ID
+    description: ''
+    data_type: NUMBER
+  - name: FEE_COMPONENT_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: FILTER_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: FILTER_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_product_imr_status
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: IMR_STATUS_ID
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_product_status
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: STATUS_ID
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_product_type
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_TYPE_ID
+    description: ''
+    data_type: NUMBER
+  - name: PRODUCT_TYPE_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_contact_type
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CONTACT_TYPE_ID
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_salutation
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SALUTATION_ID
+    description: ''
+    data_type: NUMBER
+  - name: SALUTATION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_fee_component_type
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: FEE_COMPONENT_TYPE_ID
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_service_request_type
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SERVICE_REQUEST_ID
+    description: ''
+    data_type: NUMBER
+  - name: SERVICE_REQUEST_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: NSCC_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MSTAR_DTCC_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: DST_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_ssn_type
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SSN_TYPE_ID
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_number
+    data_type: NUMBER
+  - name: SSN_TYPE_DESCRIPTION
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_style_type
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: STYLE_TYPE_ID
+    description: ''
+    data_type: NUMBER
+  - name: STYLE_TYPE_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_instruction_type
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: INSTRUCTION_TYPE_ID
+    description: ''
+    data_type: NUMBER
+  - name: INSTRUCTION_TYPE_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: ENTITY_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: NSCC_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MSTAR_DTCC_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: DST_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_tax_efficiency
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: TAX_EFFICIENCY_ID
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_time_horizion
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: TIME_HORIZON_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_marital_status
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: MARITAL_STATUS_ID
+    description: ''
+    data_type: NUMBER
+  - name: MARITAL_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: ENTITY_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: NSCC_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MSTAR_DTCC_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: DST_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_familymember_client_activity
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ACTIVITY_ID
+    description: ''
+    data_type: NUMBER
+  - name: CUSTOMER_ID
+    description: ''
+    data_type: NUMBER
+  - name: ACTIVITY_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: ACTIVITY_DETAILS
+    description: ''
+    data_type: VARCHAR
+  - name: DATE_POSTED
+    description: ''
+    data_type: DATE
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_familymember_client_restriction
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RESTRICTION_ID
+    description: ''
+    data_type: NUMBER
+  - name: CUSTOMER_ID
+    description: ''
+    data_type: NUMBER
+  - name: RESTRICTION_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: ENTITY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ISSUED_ON
+    description: ''
+    data_type: DATE
+  - name: EXPIRED_ON
+    description: ''
+    data_type: DATE
+  - name: MEMO
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATED_BY
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_familymember_contact
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: NUMBER
+  - name: OWNER_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: CONTACT_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: CONTACT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: STATE
+    description: ''
+    data_type: VARCHAR
+  - name: ZIP
+    description: ''
+    data_type: VARCHAR
+  - name: COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE_1
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FAX
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: USE_AS_QPR_MAILING_ADDRESS
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_familymember_family_member
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_ID
+    description: ''
+    data_type: NUMBER
+  - name: ENTITY_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: FAMILY_MEMBER_ID
+    description: ''
+    data_type: NUMBER
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: MIDDLE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SALUTATION
+    description: ''
+    data_type: NUMBER
+  - name: RELATIONSHIP
+    description: ''
+    data_type: NUMBER
+  - name: DATE_OF_BIRTH
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: GENDER
+    description: ''
+    data_type: NUMBER
+  - name: MARTIAL_STATUS
+    description: ''
+    data_type: NUMBER
+  - name: DEPENDENTS
+    description: ''
+    data_type: NUMBER
+  - name: SSN_TIN
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: EMPLOYMENT_STATUS
+    description: ''
+    data_type: NUMBER
+  - name: OCCUPATION
+    description: ''
+    data_type: VARCHAR
+  - name: INCOME_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: YEARS_EMPLOYED
+    description: ''
+    data_type: NUMBER
+  - name: COUNTRY_OF_CITIZENSHIP_ORGANIZATION
+    description: ''
+    data_type: NUMBER
+  - name: TAX_RESIDENCE_COUNTRY
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_gainloss_gain_loss
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_ID
+    description: ''
+    data_type: NUMBER
+  - name: CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: TICKER
+    description: ''
+    data_type: VARCHAR
+  - name: SALES_DATE
+    description: ''
+    data_type: DATE
+  - name: PROCEEDS
+    description: ''
+    data_type: NUMBER
+  - name: SALES_UNITS
+    description: ''
+    data_type: NUMBER
+  - name: TOTAL_COST
+    description: ''
+    data_type: NUMBER
+  - name: PURCHASE_DATE
+    description: ''
+    data_type: DATE
+  - name: UNSUPERVISED_INDICATOR
+    description: ''
+    data_type: NUMBER
+  - name: SHORT_POSITION_INDICATOR
+    description: ''
+    data_type: NUMBER
+  - name: TAX_CURRENCY
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_hierarchy_advisor
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ADVISOR_ID
+    description: ''
+    data_type: NUMBER
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: MIDDLE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: REP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: USER_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ENTERPRISE_ID
+    description: ''
+    data_type: NUMBER
+  - name: FIRM_ID
+    description: ''
+    data_type: NUMBER
+  - name: BRANCH_ID
+    description: ''
+    data_type: NUMBER
+  - name: ENTITLEMENT
+    description: ''
+    data_type: VARCHAR
+  - name: MANAGER_REP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SSN_NUMBER
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: DATE_OF_BIRTH
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: CRD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: DBA_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: START_DATE
+    description: ''
+    data_type: DATE
+  - name: TERMINATION_DATE
+    description: ''
+    data_type: DATE
+  - name: TERMINATION_REASON
+    description: ''
+    data_type: VARCHAR
+  - name: HOME_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: SSO_USER_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ALTERNATE_SSO_USER_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_hierarchy_contact
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: NUMBER
+  - name: OWNER_TYPE_ID
+    description: ''
+    data_type: NUMBER
+  - name: CONTACT_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: ADDRESS_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: ADDRESS_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: STATE
+    description: ''
+    data_type: VARCHAR
+  - name: ZIP
+    description: ''
+    data_type: VARCHAR
+  - name: COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE_1
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FAX
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_estimated_net_worth
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ESTIMATED_NET_WORTH_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_hierarchy_firm
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_ID
+    description: ''
+    data_type: NUMBER
+  - name: FIRM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SHORT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ENTERPRISE_ID
+    description: ''
+    data_type: NUMBER
+  - name: BROKER_SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: CRD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: BANK_ACCOUNT_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: BANK_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: BANK_ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: BANK_ACCOUNT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ABA_ROUTING_NO
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_hierarchy_rep_code
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: REP_CODE_ID
+    description: ''
+    data_type: NUMBER
+  - name: REP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_SPLIT_REP_CODE
+    description: ''
+    data_type: NUMBER
+  - name: ENTERPRISE_ID
+    description: ''
+    data_type: NUMBER
+  - name: BRANCH_ID
+    description: ''
+    data_type: NUMBER
+  - name: ADVISOR_ID
+    description: ''
+    data_type: NUMBER
+  - name: PARTICIPATING_REP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PERCENTAGE
+    description: ''
+    data_type: FLOAT
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_positions_positions
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: AS_OF_DATE
+    description: ''
+    data_type: DATE
+  - name: SECURITY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: TICKER
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_STYLE
+    description: ''
+    data_type: VARCHAR
+  - name: QUANTITY
+    description: ''
+    data_type: NUMBER
+  - name: MARKET_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: TOTAL_COST
+    description: ''
+    data_type: NUMBER
+  - name: MARKET_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: ACCRUED_INCOME
+    description: ''
+    data_type: NUMBER
+  - name: ACCRUED_INTEREST
+    description: ''
+    data_type: NUMBER
+  - name: UNSUPERVISED_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: SHORT_POSITION_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: ITD_PERFORMANCE
+    description: ''
+    data_type: VARCHAR
+  - name: INCEPTION_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: UNSUPERVISED_START_DATE
+    description: ''
+    data_type: DATE
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_proposal_asset
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPOSAL_GROUP_ID
+    description: ''
+    data_type: NUMBER
+  - name: PROPOSAL_ID
+    description: ''
+    data_type: NUMBER
+  - name: ASSET_ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: TICKER
+    description: ''
+    data_type: VARCHAR
+  - name: ASSET_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: ASSET_STYLE
+    description: ''
+    data_type: VARCHAR
+  - name: ASSET_QUANTITY
+    description: ''
+    data_type: NUMBER
+  - name: ASSET_MARKET_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: INVESTABLE_FLAG
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_proposal_investment
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPOSAL_GROUP_ID
+    description: ''
+    data_type: NUMBER
+  - name: PROPOSAL_ID
+    description: ''
+    data_type: NUMBER
+  - name: CUSTOMER_REGISTRATION_ID
+    description: ''
+    data_type: NUMBER
+  - name: PRODUCT_ID
+    description: ''
+    data_type: NUMBER
+  - name: PRODUCT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ALLOCATION_PERCENTAGE
+    description: ''
+    data_type: NUMBER
+  - name: PRODUCT_TYPE_ID
+    description: ''
+    data_type: NUMBER
+  - name: LIMITED_PARTNERSHIP
+    description: ''
+    data_type: VARCHAR
+  - name: DISCRETION
+    description: ''
+    data_type: VARCHAR
+  - name: PROGRAM
+    description: ''
+    data_type: VARCHAR
+  - name: PRICING_TIER
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_proposal_proposal
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPOSAL_GROUP_ID
+    description: ''
+    data_type: NUMBER
+  - name: REP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATED_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPOSAL_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: ADVISOR_ID
+    description: ''
+    data_type: NUMBER
+  - name: ADVISOR_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_proposal_registration
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPOSAL_GROUP_ID
+    description: ''
+    data_type: NUMBER
+  - name: PROPOSAL_ID
+    description: ''
+    data_type: NUMBER
+  - name: CUSTOMER_REGISTRATION_ID
+    description: ''
+    data_type: NUMBER
+  - name: INVESTMENT_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: REGISTRATION_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTODIAN_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTRATION_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: MASTER_ACCOUNT_NEEDED
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_proposal_registration_owner
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPOSAL_GROUP_ID
+    description: ''
+    data_type: NUMBER
+  - name: PROPOSAL_ID
+    description: ''
+    data_type: NUMBER
+  - name: CUSTOMER_REGISTRATION_ID
+    description: ''
+    data_type: NUMBER
+  - name: OWNER_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: ENTITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PREFIX
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: MIDDLE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SSN_TAX_ID
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: SSN_TAX_ID_FLAG
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_number
+    data_type: NUMBER
+  - name: DATE_OF_BIRTH
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: ADDRESS_LINE1
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_LINE2
+    description: ''
+    data_type: VARCHAR
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: STATE
+    description: ''
+    data_type: VARCHAR
+  - name: ZIP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE_DAY
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE_EVENING
+    description: ''
+    data_type: VARCHAR
+  - name: IDENTIFICATION_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_account_status
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_STATUS
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_taxlots_taxlots
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: AS_OF_DATE
+    description: ''
+    data_type: DATE
+  - name: SECURITY_ID
+    description: ''
+    data_type: NUMBER
+  - name: CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: TICKER
+    description: ''
+    data_type: VARCHAR
+  - name: QUANTITY
+    description: ''
+    data_type: FLOAT
+  - name: MARKET_VALUE
+    description: ''
+    data_type: FLOAT
+  - name: TOTAL_COST
+    description: ''
+    data_type: FLOAT
+  - name: MARKET_PRICE
+    description: ''
+    data_type: FLOAT
+  - name: PURCHASE_DATE
+    description: ''
+    data_type: DATE
+  - name: ACCRUED_INCOME
+    description: ''
+    data_type: FLOAT
+  - name: ACCRUED_INTEREST
+    description: ''
+    data_type: FLOAT
+  - name: UNSUPERVISED_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: SHORT_POSITION_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: ITD_PERFORMANCE
+    description: ''
+    data_type: VARCHAR
+  - name: INCEPTION_DATE
+    description: ''
+    data_type: DATE
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_STYLE
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_familymember_family
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: FILENAME
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_ID
+    description: ''
+    data_type: NUMBER
+  - name: FAMILY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SPLIT_REP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: DISABLE_QPR_DOWNLOAD_TO_PROFESSSIONAL_PRINTER_FLAG
+    description: ''
+    data_type: VARCHAR
+  - name: DISABLE_ACCESS_TO_QPR_ON_CLIENT_WEB_SITE_FLAG
+    description: ''
+    data_type: VARCHAR
+  - name: SAMPLE_CLIENT_FLAG
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_hierarchy_branch
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH_ID
+    description: ''
+    data_type: NUMBER
+  - name: BRANCH_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH_SHORT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ENTERPRISE_ID
+    description: ''
+    data_type: NUMBER
+  - name: FIRM_ID
+    description: ''
+    data_type: NUMBER
+  - name: BRANCH_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MANAGER_REP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_fee_filter
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: FEE_FILTER
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_products_products
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_ID
+    description: ''
+    data_type: NUMBER
+  - name: PRODUCT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: MANAGER_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_TYPE_ID
+    description: ''
+    data_type: NUMBER
+  - name: TAX_EFFICIENCY
+    description: ''
+    data_type: NUMBER
+  - name: RISK_RATING
+    description: ''
+    data_type: NUMBER
+  - name: LAST_MODEL_CHANGE_DATE
+    description: ''
+    data_type: DATE
+  - name: STATUS
+    description: ''
+    data_type: NUMBER
+  - name: IMR_STATUS
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_MINIMUM
+    description: ''
+    data_type: NUMBER
+  - name: STYLE_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: CURRENCY
+    description: ''
+    data_type: VARCHAR
+  - name: PORTFOLIO_ID
+    description: ''
+    data_type: NUMBER
+  - name: PORTFOLIO_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: MANAGER_FIRM_ID
+    description: ''
+    data_type: NUMBER
+  - name: MANAGER_FIRM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SLEEVE_SECURITY_ID
+    description: ''
+    data_type: NUMBER
+  - name: DASHBOARD_PRODUCT_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: PRODUCT_CLASS_ID
+    description: ''
+    data_type: NUMBER
+  - name: PRICING_TIER
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_suitability_status
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SUITABILITY_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_proposal_solution
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPOSAL_GROUP_ID
+    description: ''
+    data_type: NUMBER
+  - name: PROPOSAL_ID
+    description: ''
+    data_type: NUMBER
+  - name: RISK_TOLERENCE
+    description: ''
+    data_type: VARCHAR
+  - name: INVESTMENT_OBJECTIVE
+    description: ''
+    data_type: VARCHAR
+  - name: TOTAL_INVESTMENT
+    description: ''
+    data_type: NUMBER
+  - name: FUNDING_METHOD
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_product_name
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_ID
+    description: ''
+    data_type: NUMBER
+  - name: PRODUCT_NAME_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_transactions_transactions
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: TRANSACTION_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSACTION_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: TICKER
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSACTION_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSACTION_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSACTION_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSACTION_UNITS
+    description: ''
+    data_type: VARCHAR
+  - name: COMMISSION
+    description: ''
+    data_type: VARCHAR
+  - name: DELETED_FLAG
+    description: ''
+    data_type: BOOLEAN
+  - name: SETTLEMENT_DATE
+    description: ''
+    data_type: DATE
+  - name: SEC_FEE
+    description: ''
+    data_type: FLOAT
+  - name: POSTAGE_FEE
+    description: ''
+    data_type: FLOAT
+  - name: CLEARING_FEE
+    description: ''
+    data_type: FLOAT
+  - name: EXCHANGE_FEE
+    description: ''
+    data_type: FLOAT
+  - name: TICKET_CHARGE
+    description: ''
+    data_type: FLOAT
+  - name: HANDLING_FEE
+    description: ''
+    data_type: FLOAT
+  - name: REDEMPTION_FEE
+    description: ''
+    data_type: FLOAT
+  - name: DEFERRED_SALES_LOAD_FEE
+    description: ''
+    data_type: FLOAT
+  - name: CONCESSION
+    description: ''
+    data_type: FLOAT
+  - name: ACCRUED_INTEREST
+    description: ''
+    data_type: FLOAT
+  - name: OWNING_REP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EXECUTING_REP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: POSTED_DATE
+    description: ''
+    data_type: DATE
+  - name: TRANSACTION_MAPPING_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EXCHANGE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: REVENUE_CONCESSION
+    description: ''
+    data_type: VARCHAR
+  - name: EXECUTION_PRICE
+    description: ''
+    data_type: FLOAT
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_STYLE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_relationship
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RELATIONSHIP_ID
+    description: ''
+    data_type: NUMBER
+  - name: RELATIONSHIP
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_investment_knowledge
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: INVESTMENT_KNOWLEDGE_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_account_history_type
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: HISTORY_TYPE_ID
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_transaction_mapping
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: STYLE_TYPE_ID
+    description: ''
+    data_type: NUMBER
+  - name: STYLE_TYPE_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: NSCC_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MSTAR_DTCC_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: DST_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_registration_type
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTRATION_TYPE_ID
+    description: ''
+    data_type: NUMBER
+  - name: REGISTRATION_TYPE_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_country
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: COUNTRY_ID
+    description: ''
+    data_type: NUMBER
+  - name: COUNTRY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ABBREVIATION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_fund_family
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: FUND_FAMILY_ID
+    description: ''
+    data_type: NUMBER
+  - name: FUND_FAMILY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: NSCC_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MSTAR_DTCC_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: DST_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_investable_assets
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: INVESTABLE_ASSETS_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_investment_objective_rank
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: INVESTMENT_OBJECTIVE_RANK
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_transaction_type
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSACTION_TYPE_ID
+    description: ''
+    data_type: NUMBER
+  - name: TRANSACTION_TYPE_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_sector
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SECTOR_ID
+    description: ''
+    data_type: NUMBER
+  - name: SECTOR
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_fee_filter_type
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: FEE_FILTER_TYPE_ID
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_securitymaster_securities
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: SECURITY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: TICKER_SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_STYLE
+    description: ''
+    data_type: VARCHAR
+  - name: ISSUE_TYPE_MULTIPLIER
+    description: ''
+    data_type: VARCHAR
+  - name: AGENCY_FACTOR
+    description: ''
+    data_type: VARCHAR
+  - name: PRICE_DATE
+    description: ''
+    data_type: DATE
+  - name: FIDELITY_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: PERSHING_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: SCHWAB_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: BETA_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: AGGREGRATE_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: PACIFIC_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: SHARE_CLASS
+    description: ''
+    data_type: VARCHAR
+  - name: CDSC_FUND_FLAG
+    description: ''
+    data_type: BOOLEAN
+  - name: FUND_FAMILY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CLOSED_FLAG
+    description: ''
+    data_type: VARCHAR
+  - name: SP_RATING
+    description: ''
+    data_type: VARCHAR
+  - name: MOODY_RATING_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_ELIGBILE
+    description: ''
+    data_type: VARCHAR
+  - name: ISSUE_DATE
+    description: ''
+    data_type: DATE
+  - name: MATRUITY_DATE
+    description: ''
+    data_type: DATE
+  - name: CALL_DATE
+    description: ''
+    data_type: DATE
+  - name: CALL_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: SECTOR
+    description: ''
+    data_type: VARCHAR
+  - name: SUB_SECTOR_GICS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: DATE
+  - name: INTEREST_RATE
+    description: ''
+    data_type: NUMBER
+  - name: ACCURAL_METHOD
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_TAXABLE
+    description: ''
+    data_type: BOOLEAN
+  - name: FEDERAL_TAXABLE
+    description: ''
+    data_type: BOOLEAN
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_risk_scale
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RISK_SCALE_MIN_POINT
+    description: ''
+    data_type: NUMBER
+  - name: RISK_SCALE_MAX_POINT
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_hierarchy_enterprise
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ENTERPRISE_ID
+    description: ''
+    data_type: NUMBER
+  - name: ENTERPRISE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_tax_bracket
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: TAX_BRACKET_TYPE
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_trade_exchange
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_EXCHANGE_ID
+    description: ''
+    data_type: NUMBER
+  - name: TRADE_EXCHANGE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: envestnet_mps_history__base_codes_risk_tolerance
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ

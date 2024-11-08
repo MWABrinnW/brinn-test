@@ -1,0 +1,43 @@
+version: 2
+models:
+  - name: tradeops__options_rpt_lot_analysis
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: ACCOUNT_NUMBER
+        description: 'End-client account number at Schwab.'
+        data_type: VARCHAR
+      - name: ITEM_ISSUE_ID
+        description: 'Unique internal Schwab security identifier when combined with following field "Rule Set Suffix ID"'
+        data_type: VARCHAR
+      - name: TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: 'Committee on Uniform Securities Identification Procedures. A CUSIP number identifies most securities.'
+        data_type: VARCHAR
+      - name: POSITION_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: TAX_LOT_QUANTITY
+        description: ''
+        data_type: NUMBER
+      - name: POSITION_QUANTITY
+        description: ''
+        data_type: NUMBER
+      - name: QUANTITY_DIFF
+        description: ''
+        data_type: NUMBER
+      - name: EXPLANATION
+        description: ''
+        data_type: VARCHAR
+      - name: TAX_LOT_VALUE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_VALUE
+        description: ''
+        data_type: VARCHAR
+      - name: VALUE_DIFF
+        description: ''
+        data_type: VARCHAR

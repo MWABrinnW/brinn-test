@@ -6,5 +6,37 @@ sources:
     tables:
       - name: users
         description: "Youtrack User data and related fields"
+        columns:
+          - name: ID
+            description: ''
+            data_type: VARCHAR
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _UPDATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _ID
+            description: ''
+            data_type: NUMBER
       - name: issues
         description: "Youtrack Issues history, and related fields"
+        columns:
+          - name: ID
+            description: ''
+            data_type: VARCHAR
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _UPDATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _ID
+            description: ''
+            data_type: NUMBER

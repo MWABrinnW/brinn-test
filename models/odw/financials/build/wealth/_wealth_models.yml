@@ -23,3 +23,1873 @@ models:
           - not_null
           - accepted_values:
               values: [0, 1]
+  - name: nml_bills_addepar_corbenic
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: CLIENT_LOCATION_CODE
+        description: ''
+      - name: INVOICE_NUMBER_SOURCE
+        description: ''
+      - name: INVOICE_CREATED_AT
+        description: ''
+      - name: INVOICE_DATE
+        description: ''
+      - name: BILLING_STATEMENT_ID_SOURCE
+        description: ''
+      - name: BILLING_STATEMENT_ID_CRM
+        description: ''
+      - name: INVOICE_STATUS
+        description: ''
+      - name: IS_INTRA_PERIOD_INVOICE
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: BILLING_ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_ID_PMS
+        description: ''
+      - name: REGISTRANT_NAME
+        description: ''
+      - name: ACCOUNT_NAME
+        description: ''
+      - name: TYPE_OF_ACCOUNT
+        description: ''
+      - name: CLIENT_ID_PMS
+        description: ''
+      - name: AUM_CLASSIFICATION_STATUS
+        description: ''
+      - name: MODEL_INVESTMENT_STRATEGY
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: BILLING_CUSTODIAN
+        description: ''
+      - name: PARTNER_FIRM
+        description: ''
+      - name: PARTNER_FIRM_ORIGINAL
+        description: ''
+      - name: CLIENT_MANAGER_SOURCE
+        description: ''
+      - name: CLIENT_MANAGER_ORIGINAL
+        description: ''
+      - name: ASSOCIATE_ID_ORIGINAL
+        description: ''
+      - name: CLIENT_MANAGER_PRIMARY
+        description: ''
+      - name: ASSOCIATE_ID_PRIMARY
+        description: ''
+      - name: CLIENT_MANAGER_TYPE
+        description: ''
+      - name: FEE_TYPE
+        description: ''
+      - name: FEE_SCHEDULE_SOURCE
+        description: ''
+      - name: FEE_SCHEDULE_TYPE
+        description: ''
+      - name: FEE_SCHEDULE
+        description: ''
+      - name: ASSETS_AS_OF_DATE
+        description: ''
+      - name: FEE_CALCULATION_DATE
+        description: ''
+      - name: EFFECTIVE_FEE_RATE
+        description: ''
+      - name: TOTAL_ACCOUNT_VALUE
+        description: ''
+      - name: BILLABLE_VALUE
+        description: ''
+      - name: FEE_EXCLUDED_ASSETS
+        description: ''
+      - name: CLIENT_FEE_GROSS
+        description: ''
+      - name: CLIENT_FEE_REBATES
+        description: ''
+      - name: CLIENT_NET_CONTRIBUTION_FEE
+        description: ''
+      - name: CLIENT_ADJUSTMENTS_FEE
+        description: ''
+      - name: CLIENT_WRITE_OFF_FEE
+        description: ''
+      - name: CLIENT_FEE_NET
+        description: ''
+      - name: COLLECTION_DATE
+        description: ''
+      - name: THIRD_PARTY_CALCULATION
+        description: ''
+      - name: BILLING_STYLE
+        description: ''
+      - name: BILLING_FREQUENCY
+        description: ''
+      - name: BILLING_METHOD
+        description: ''
+      - name: BILL_ON_BALANCE_TYPE
+        description: ''
+      - name: PAYMENT_TERMS
+        description: ''
+      - name: PAYMENT_METHOD_FEE
+        description: ''
+      - name: ACCOUNT_CLASS
+        description: ''
+      - name: COA_SEGMENT_1_LEGAL_ENTITY_ID
+        description: ''
+      - name: COA_SEGMENT_3_ACCOUNTING_ID
+        description: ''
+      - name: COA_SEGMENT_5_NATURAL_ACCOUNT_ID
+        description: ''
+      - name: REVENUE_CATEGORY
+        description: ''
+      - name: REVENUE_TYPE
+        description: ''
+      - name: SYSTEM_NAME_CRM
+        description: ''
+      - name: SYSTEM_INSTANCE_CRM
+        description: ''
+      - name: SYSTEM_KEY_CRM
+        description: ''
+      - name: ACCOUNT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_ORIGINAL_CRM
+        description: ''
+      - name: CLIENT_ID_UNIQUE_COMPASS
+        description: ''
+      - name: CLIENT_NAME
+        description: ''
+      - name: CLIENT_NAME_ORIGINAL_CRM
+        description: ''
+      - name: CLIENT_LEAD_SOURCE
+        description: ''
+      - name: CLIENT_KEY_TAGS_CRM
+        description: ''
+      - name: TRANSACTION_TYPE
+        description: ''
+      - name: TRANSACTION_LINE_TYPE
+        description: ''
+      - name: TRANSACTION_LINE_QUANTITY
+        description: ''
+      - name: CURRENCY_CODE
+        description: ''
+      - name: CURRENCY_CONVERSION_TYPE
+        description: ''
+      - name: UNIT_SELLING_PRICE
+        description: ''
+      - name: IS_EXCLUDED
+        description: ''
+      - name: EXCLUDED_REASON
+        description: ''
+      - name: REVENUE_PERIOD_END_DATE
+        description: ''
+      - name: _TRANS_KEY
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''
+      - name: _BOX_FILE_ID
+        description: ''
+      - name: _EXTRA_FIELDS
+        description: ''
+  - name: nml_bills_black_diamond_baystate
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: CLIENT_LOCATION_CODE
+        description: ''
+      - name: INVOICE_NUMBER_SOURCE
+        description: ''
+      - name: INVOICE_CREATED_AT
+        description: ''
+      - name: INVOICE_DATE
+        description: ''
+      - name: BILLING_STATEMENT_ID_SOURCE
+        description: ''
+      - name: BILLING_STATEMENT_ID_CRM
+        description: ''
+      - name: INVOICE_STATUS
+        description: ''
+      - name: IS_INTRA_PERIOD_INVOICE
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: BILLING_ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_ID_PMS
+        description: ''
+      - name: REGISTRANT_NAME
+        description: ''
+      - name: ACCOUNT_NAME
+        description: ''
+      - name: CLIENT_ID_PMS
+        description: ''
+      - name: BILLING_CUSTODIAN
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: TYPE_OF_ACCOUNT
+        description: ''
+      - name: AUM_CLASSIFICATION_STATUS
+        description: ''
+      - name: MODEL_INVESTMENT_STRATEGY
+        description: ''
+      - name: PARTNER_FIRM
+        description: ''
+      - name: PARTNER_FIRM_ORIGINAL
+        description: ''
+      - name: CLIENT_MANAGER_SOURCE
+        description: ''
+      - name: CLIENT_MANAGER_ORIGINAL
+        description: ''
+      - name: ASSOCIATE_ID_ORIGINAL
+        description: ''
+      - name: CLIENT_MANAGER_PRIMARY
+        description: ''
+      - name: ASSOCIATE_ID_PRIMARY
+        description: ''
+      - name: CLIENT_MANAGER_TYPE
+        description: ''
+      - name: FEE_TYPE
+        description: ''
+      - name: FEE_SCHEDULE_SOURCE
+        description: ''
+      - name: FEE_SCHEDULE_TYPE
+        description: ''
+      - name: FEE_SCHEDULE
+        description: ''
+      - name: ASSETS_AS_OF_DATE
+        description: ''
+      - name: FEE_CALCULATION_DATE
+        description: ''
+      - name: EFFECTIVE_FEE_RATE
+        description: ''
+      - name: TOTAL_ACCOUNT_VALUE
+        description: ''
+      - name: BILLABLE_VALUE
+        description: ''
+      - name: FEE_EXCLUDED_ASSETS
+        description: ''
+      - name: CLIENT_FEE_GROSS
+        description: ''
+      - name: CLIENT_FEE_REBATES
+        description: ''
+      - name: CLIENT_NET_CONTRIBUTION_FEE
+        description: ''
+      - name: CLIENT_ADJUSTMENTS_FEE
+        description: ''
+      - name: CLIENT_WRITE_OFF_FEE
+        description: ''
+      - name: CLIENT_FEE_NET
+        description: ''
+      - name: COLLECTION_DATE
+        description: ''
+      - name: THIRD_PARTY_CALCULATION
+        description: ''
+      - name: BILLING_STYLE
+        description: ''
+      - name: BILLING_FREQUENCY
+        description: ''
+      - name: BILLING_METHOD
+        description: ''
+      - name: BILL_ON_BALANCE_TYPE
+        description: ''
+      - name: PAYMENT_TERMS
+        description: ''
+      - name: PAYMENT_METHOD_FEE
+        description: ''
+      - name: ACCOUNT_CLASS
+        description: ''
+      - name: COA_SEGMENT_1_LEGAL_ENTITY_ID
+        description: ''
+      - name: COA_SEGMENT_3_ACCOUNTING_ID
+        description: ''
+      - name: COA_SEGMENT_5_NATURAL_ACCOUNT_ID
+        description: ''
+      - name: REVENUE_CATEGORY
+        description: ''
+      - name: REVENUE_TYPE
+        description: ''
+      - name: SYSTEM_NAME_CRM
+        description: ''
+      - name: SYSTEM_INSTANCE_CRM
+        description: ''
+      - name: SYSTEM_KEY_CRM
+        description: ''
+      - name: ACCOUNT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_ORIGINAL_CRM
+        description: ''
+      - name: CLIENT_ID_UNIQUE_COMPASS
+        description: ''
+      - name: CLIENT_NAME
+        description: ''
+      - name: CLIENT_NAME_ORIGINAL_CRM
+        description: ''
+      - name: CLIENT_LEAD_SOURCE
+        description: ''
+      - name: CLIENT_KEY_TAGS_CRM
+        description: ''
+      - name: TRANSACTION_TYPE
+        description: ''
+      - name: TRANSACTION_LINE_TYPE
+        description: ''
+      - name: TRANSACTION_LINE_QUANTITY
+        description: ''
+      - name: CURRENCY_CODE
+        description: ''
+      - name: CURRENCY_CONVERSION_TYPE
+        description: ''
+      - name: UNIT_SELLING_PRICE
+        description: ''
+      - name: IS_EXCLUDED
+        description: ''
+      - name: EXCLUDED_REASON
+        description: ''
+      - name: REVENUE_PERIOD_END_DATE
+        description: ''
+      - name: _TRANS_KEY
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''
+      - name: _BOX_FILE_ID
+        description: ''
+      - name: _EXTRA_FIELDS
+        description: ''
+  - name: nml_bills_black_diamond_uhnw
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: CLIENT_LOCATION_CODE
+        description: ''
+      - name: INVOICE_NUMBER_SOURCE
+        description: ''
+      - name: INVOICE_CREATED_AT
+        description: ''
+      - name: INVOICE_DATE
+        description: ''
+      - name: BILLING_STATEMENT_ID_SOURCE
+        description: ''
+      - name: BILLING_STATEMENT_ID_CRM
+        description: ''
+      - name: INVOICE_STATUS
+        description: ''
+      - name: IS_INTRA_PERIOD_INVOICE
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: BILLING_ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_ID_PMS
+        description: ''
+      - name: REGISTRANT_NAME
+        description: ''
+      - name: ACCOUNT_NAME
+        description: ''
+      - name: TYPE_OF_ACCOUNT
+        description: ''
+      - name: CLIENT_ID_PMS
+        description: ''
+      - name: AUM_CLASSIFICATION_STATUS
+        description: ''
+      - name: MODEL_INVESTMENT_STRATEGY
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: BILLING_CUSTODIAN
+        description: ''
+      - name: PARTNER_FIRM
+        description: ''
+      - name: PARTNER_FIRM_ORIGINAL
+        description: ''
+      - name: CLIENT_MANAGER_SOURCE
+        description: ''
+      - name: CLIENT_MANAGER_ORIGINAL
+        description: ''
+      - name: ASSOCIATE_ID_ORIGINAL
+        description: ''
+      - name: CLIENT_MANAGER_PRIMARY
+        description: ''
+      - name: ASSOCIATE_ID_PRIMARY
+        description: ''
+      - name: CLIENT_MANAGER_TYPE
+        description: ''
+      - name: FEE_TYPE
+        description: ''
+      - name: FEE_SCHEDULE_SOURCE
+        description: ''
+      - name: FEE_SCHEDULE_TYPE
+        description: ''
+      - name: FEE_SCHEDULE
+        description: ''
+      - name: ASSETS_AS_OF_DATE
+        description: ''
+      - name: FEE_CALCULATION_DATE
+        description: ''
+      - name: EFFECTIVE_FEE_RATE
+        description: ''
+      - name: TOTAL_ACCOUNT_VALUE
+        description: ''
+      - name: BILLABLE_VALUE
+        description: ''
+      - name: FEE_EXCLUDED_ASSETS
+        description: ''
+      - name: CLIENT_FEE_GROSS
+        description: ''
+      - name: CLIENT_FEE_REBATES
+        description: ''
+      - name: CLIENT_NET_CONTRIBUTION_FEE
+        description: ''
+      - name: CLIENT_ADJUSTMENTS_FEE
+        description: ''
+      - name: CLIENT_WRITE_OFF_FEE
+        description: ''
+      - name: CLIENT_FEE_NET
+        description: ''
+      - name: COLLECTION_DATE
+        description: ''
+      - name: THIRD_PARTY_CALCULATION
+        description: ''
+      - name: BILLING_STYLE
+        description: ''
+      - name: BILLING_FREQUENCY
+        description: ''
+      - name: BILLING_METHOD
+        description: ''
+      - name: BILL_ON_BALANCE_TYPE
+        description: ''
+      - name: PAYMENT_TERMS
+        description: ''
+      - name: PAYMENT_METHOD_FEE
+        description: ''
+      - name: ACCOUNT_CLASS
+        description: ''
+      - name: COA_SEGMENT_1_LEGAL_ENTITY_ID
+        description: ''
+      - name: COA_SEGMENT_3_ACCOUNTING_ID
+        description: ''
+      - name: COA_SEGMENT_5_NATURAL_ACCOUNT_ID
+        description: ''
+      - name: REVENUE_CATEGORY
+        description: ''
+      - name: REVENUE_TYPE
+        description: ''
+      - name: SYSTEM_NAME_CRM
+        description: ''
+      - name: SYSTEM_INSTANCE_CRM
+        description: ''
+      - name: SYSTEM_KEY_CRM
+        description: ''
+      - name: ACCOUNT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_ORIGINAL_CRM
+        description: ''
+      - name: CLIENT_ID_UNIQUE_COMPASS
+        description: ''
+      - name: CLIENT_NAME
+        description: ''
+      - name: CLIENT_NAME_ORIGINAL_CRM
+        description: ''
+      - name: CLIENT_LEAD_SOURCE
+        description: ''
+      - name: CLIENT_KEY_TAGS_CRM
+        description: ''
+      - name: TRANSACTION_TYPE
+        description: ''
+      - name: TRANSACTION_LINE_TYPE
+        description: ''
+      - name: TRANSACTION_LINE_QUANTITY
+        description: ''
+      - name: CURRENCY_CODE
+        description: ''
+      - name: CURRENCY_CONVERSION_TYPE
+        description: ''
+      - name: UNIT_SELLING_PRICE
+        description: ''
+      - name: IS_EXCLUDED
+        description: ''
+      - name: EXCLUDED_REASON
+        description: ''
+      - name: REVENUE_PERIOD_END_DATE
+        description: ''
+      - name: _TRANS_KEY
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''
+      - name: _BOX_FILE_ID
+        description: ''
+      - name: _EXTRA_FIELDS
+        description: ''
+  - name: nml_bills_envestnet_manasquan
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: CLIENT_LOCATION_CODE
+        description: ''
+      - name: INVOICE_NUMBER_SOURCE
+        description: ''
+      - name: INVOICE_CREATED_AT
+        description: ''
+      - name: INVOICE_DATE
+        description: ''
+      - name: BILLING_STATEMENT_ID_SOURCE
+        description: ''
+      - name: BILLING_STATEMENT_ID_CRM
+        description: ''
+      - name: INVOICE_STATUS
+        description: ''
+      - name: IS_INTRA_PERIOD_INVOICE
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: BILLING_ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_ID_PMS
+        description: ''
+      - name: REGISTRANT_NAME
+        description: ''
+      - name: ACCOUNT_NAME
+        description: ''
+      - name: TYPE_OF_ACCOUNT
+        description: ''
+      - name: CLIENT_ID_PMS
+        description: ''
+      - name: AUM_CLASSIFICATION_STATUS
+        description: ''
+      - name: MODEL_INVESTMENT_STRATEGY
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: BILLING_CUSTODIAN
+        description: ''
+      - name: PARTNER_FIRM
+        description: ''
+      - name: PARTNER_FIRM_ORIGINAL
+        description: ''
+      - name: CLIENT_MANAGER_SOURCE
+        description: ''
+      - name: CLIENT_MANAGER_ORIGINAL
+        description: ''
+      - name: ASSOCIATE_ID_ORIGINAL
+        description: ''
+      - name: CLIENT_MANAGER_PRIMARY
+        description: ''
+      - name: ASSOCIATE_ID_PRIMARY
+        description: ''
+      - name: CLIENT_MANAGER_TYPE
+        description: ''
+      - name: FEE_TYPE
+        description: ''
+      - name: FEE_SCHEDULE_SOURCE
+        description: ''
+      - name: FEE_SCHEDULE_TYPE
+        description: ''
+      - name: FEE_SCHEDULE
+        description: ''
+      - name: ASSETS_AS_OF_DATE
+        description: ''
+      - name: FEE_CALCULATION_DATE
+        description: ''
+      - name: EFFECTIVE_FEE_RATE
+        description: ''
+      - name: TOTAL_ACCOUNT_VALUE
+        description: ''
+      - name: BILLABLE_VALUE
+        description: ''
+      - name: FEE_EXCLUDED_ASSETS
+        description: ''
+      - name: CLIENT_FEE_GROSS
+        description: ''
+      - name: CLIENT_FEE_REBATES
+        description: ''
+      - name: CLIENT_NET_CONTRIBUTION_FEE
+        description: ''
+      - name: CLIENT_ADJUSTMENTS_FEE
+        description: ''
+      - name: CLIENT_WRITE_OFF_FEE
+        description: ''
+      - name: CLIENT_FEE_NET
+        description: ''
+      - name: COLLECTION_DATE
+        description: ''
+      - name: THIRD_PARTY_CALCULATION
+        description: ''
+      - name: BILLING_STYLE
+        description: ''
+      - name: BILLING_FREQUENCY
+        description: ''
+      - name: BILLING_METHOD
+        description: ''
+      - name: BILL_ON_BALANCE_TYPE
+        description: ''
+      - name: PAYMENT_TERMS
+        description: ''
+      - name: PAYMENT_METHOD_FEE
+        description: ''
+      - name: ACCOUNT_CLASS
+        description: ''
+      - name: COA_SEGMENT_1_LEGAL_ENTITY_ID
+        description: ''
+      - name: COA_SEGMENT_3_ACCOUNTING_ID
+        description: ''
+      - name: COA_SEGMENT_5_NATURAL_ACCOUNT_ID
+        description: ''
+      - name: REVENUE_CATEGORY
+        description: ''
+      - name: REVENUE_TYPE
+        description: ''
+      - name: SYSTEM_NAME_CRM
+        description: ''
+      - name: SYSTEM_INSTANCE_CRM
+        description: ''
+      - name: SYSTEM_KEY_CRM
+        description: ''
+      - name: ACCOUNT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_ORIGINAL_CRM
+        description: ''
+      - name: CLIENT_ID_UNIQUE_COMPASS
+        description: ''
+      - name: CLIENT_NAME
+        description: ''
+      - name: CLIENT_NAME_ORIGINAL_CRM
+        description: ''
+      - name: CLIENT_LEAD_SOURCE
+        description: ''
+      - name: CLIENT_KEY_TAGS_CRM
+        description: ''
+      - name: TRANSACTION_TYPE
+        description: ''
+      - name: TRANSACTION_LINE_TYPE
+        description: ''
+      - name: TRANSACTION_LINE_QUANTITY
+        description: ''
+      - name: CURRENCY_CODE
+        description: ''
+      - name: CURRENCY_CONVERSION_TYPE
+        description: ''
+      - name: UNIT_SELLING_PRICE
+        description: ''
+      - name: IS_EXCLUDED
+        description: ''
+      - name: EXCLUDED_REASON
+        description: ''
+      - name: REVENUE_PERIOD_END_DATE
+        description: ''
+      - name: _TRANS_KEY
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''
+      - name: _BOX_FILE_ID
+        description: ''
+      - name: _EXTRA_FIELDS
+        description: ''
+  - name: nml_bills_sei_manasquan
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: CLIENT_LOCATION_CODE
+        description: ''
+      - name: INVOICE_NUMBER_SOURCE
+        description: ''
+      - name: INVOICE_CREATED_AT
+        description: ''
+      - name: INVOICE_DATE
+        description: ''
+      - name: BILLING_STATEMENT_ID_SOURCE
+        description: ''
+      - name: BILLING_STATEMENT_ID_CRM
+        description: ''
+      - name: INVOICE_STATUS
+        description: ''
+      - name: IS_INTRA_PERIOD_INVOICE
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: BILLING_ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_ID_PMS
+        description: ''
+      - name: REGISTRANT_NAME
+        description: ''
+      - name: ACCOUNT_NAME
+        description: ''
+      - name: TYPE_OF_ACCOUNT
+        description: ''
+      - name: CLIENT_ID_PMS
+        description: ''
+      - name: AUM_CLASSIFICATION_STATUS
+        description: ''
+      - name: MODEL_INVESTMENT_STRATEGY
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: BILLING_CUSTODIAN
+        description: ''
+      - name: PARTNER_FIRM
+        description: ''
+      - name: PARTNER_FIRM_ORIGINAL
+        description: ''
+      - name: CLIENT_MANAGER_SOURCE
+        description: ''
+      - name: CLIENT_MANAGER_ORIGINAL
+        description: ''
+      - name: ASSOCIATE_ID_ORIGINAL
+        description: ''
+      - name: CLIENT_MANAGER_PRIMARY
+        description: ''
+      - name: ASSOCIATE_ID_PRIMARY
+        description: ''
+      - name: CLIENT_MANAGER_TYPE
+        description: ''
+      - name: FEE_TYPE
+        description: ''
+      - name: FEE_SCHEDULE_SOURCE
+        description: ''
+      - name: FEE_SCHEDULE_TYPE
+        description: ''
+      - name: FEE_SCHEDULE
+        description: ''
+      - name: ASSETS_AS_OF_DATE
+        description: ''
+      - name: FEE_CALCULATION_DATE
+        description: ''
+      - name: EFFECTIVE_FEE_RATE
+        description: ''
+      - name: TOTAL_ACCOUNT_VALUE
+        description: ''
+      - name: BILLABLE_VALUE
+        description: ''
+      - name: FEE_EXCLUDED_ASSETS
+        description: ''
+      - name: CLIENT_FEE_GROSS
+        description: ''
+      - name: CLIENT_FEE_REBATES
+        description: ''
+      - name: CLIENT_NET_CONTRIBUTION_FEE
+        description: ''
+      - name: CLIENT_ADJUSTMENTS_FEE
+        description: ''
+      - name: CLIENT_WRITE_OFF_FEE
+        description: ''
+      - name: CLIENT_FEE_NET
+        description: ''
+      - name: COLLECTION_DATE
+        description: ''
+      - name: THIRD_PARTY_CALCULATION
+        description: ''
+      - name: BILLING_STYLE
+        description: ''
+      - name: BILLING_FREQUENCY
+        description: ''
+      - name: BILLING_METHOD
+        description: ''
+      - name: BILL_ON_BALANCE_TYPE
+        description: ''
+      - name: PAYMENT_TERMS
+        description: ''
+      - name: PAYMENT_METHOD_FEE
+        description: ''
+      - name: ACCOUNT_CLASS
+        description: ''
+      - name: COA_SEGMENT_1_LEGAL_ENTITY_ID
+        description: ''
+      - name: COA_SEGMENT_3_ACCOUNTING_ID
+        description: ''
+      - name: COA_SEGMENT_5_NATURAL_ACCOUNT_ID
+        description: ''
+      - name: REVENUE_CATEGORY
+        description: ''
+      - name: REVENUE_TYPE
+        description: ''
+      - name: SYSTEM_NAME_CRM
+        description: ''
+      - name: SYSTEM_INSTANCE_CRM
+        description: ''
+      - name: SYSTEM_KEY_CRM
+        description: ''
+      - name: ACCOUNT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_ORIGINAL_CRM
+        description: ''
+      - name: CLIENT_ID_UNIQUE_COMPASS
+        description: ''
+      - name: CLIENT_NAME
+        description: ''
+      - name: CLIENT_NAME_ORIGINAL_CRM
+        description: ''
+      - name: CLIENT_LEAD_SOURCE
+        description: ''
+      - name: CLIENT_KEY_TAGS_CRM
+        description: ''
+      - name: TRANSACTION_TYPE
+        description: ''
+      - name: TRANSACTION_LINE_TYPE
+        description: ''
+      - name: TRANSACTION_LINE_QUANTITY
+        description: ''
+      - name: CURRENCY_CODE
+        description: ''
+      - name: CURRENCY_CONVERSION_TYPE
+        description: ''
+      - name: UNIT_SELLING_PRICE
+        description: ''
+      - name: IS_EXCLUDED
+        description: ''
+      - name: EXCLUDED_REASON
+        description: ''
+      - name: REVENUE_PERIOD_END_DATE
+        description: ''
+      - name: _TRANS_KEY
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''
+      - name: _BOX_FILE_ID
+        description: ''
+      - name: _EXTRA_FIELDS
+        description: ''
+  - name: stg_bills_legacy_wealth
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: LOCATION_CODE
+        description: ''
+      - name: OFFICE_NAME
+        description: ''
+      - name: CLIENT_LOCATION_CODE
+        description: ''
+      - name: CLIENT_OFFICE_NAME
+        description: ''
+      - name: INVOICE_CREATED_AT
+        description: ''
+      - name: INVOICE_DATE
+        description: ''
+      - name: REVENUE_PERIOD_END_DATE
+        description: ''
+      - name: REVENUE_QUARTER_END_DATE
+        description: ''
+      - name: INVOICE_NUMBER_SOURCE
+        description: ''
+      - name: BILLING_STATEMENT_ID_SOURCE
+        description: ''
+      - name: BILLING_STATEMENT_ID_CRM
+        description: ''
+      - name: INVOICE_STATUS
+        description: ''
+      - name: IS_INTRA_PERIOD_INVOICE
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: BILLING_ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_ID_PMS
+        description: ''
+      - name: REGISTRANT_NAME
+        description: ''
+      - name: ACCOUNT_NAME
+        description: ''
+      - name: TYPE_OF_ACCOUNT
+        description: ''
+      - name: CLIENT_ID_PMS
+        description: ''
+      - name: AUM_CLASSIFICATION_STATUS
+        description: ''
+      - name: MODEL_INVESTMENT_STRATEGY
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: BILLING_CUSTODIAN
+        description: ''
+      - name: PARTNER_FIRM
+        description: ''
+      - name: PARTNER_FIRM_ORIGINAL
+        description: ''
+      - name: CLIENT_MANAGER_SOURCE
+        description: ''
+      - name: CLIENT_MANAGER_ORIGINAL
+        description: ''
+      - name: ASSOCIATE_ID_ORIGINAL
+        description: ''
+      - name: CLIENT_MANAGER_PRIMARY
+        description: ''
+      - name: ASSOCIATE_ID_PRIMARY
+        description: ''
+      - name: CLIENT_MANAGER_TYPE
+        description: ''
+      - name: CLIENT_MANAGER
+        description: ''
+      - name: ASSOCIATE_ID
+        description: ''
+      - name: FEE_TYPE
+        description: ''
+      - name: FEE_SCHEDULE_SOURCE
+        description: ''
+      - name: FEE_SCHEDULE_TYPE
+        description: ''
+      - name: FEE_SCHEDULE
+        description: ''
+      - name: ASSETS_AS_OF_DATE
+        description: ''
+      - name: FEE_CALCULATION_DATE
+        description: ''
+      - name: EFFECTIVE_FEE_RATE
+        description: ''
+      - name: TOTAL_ACCOUNT_VALUE
+        description: ''
+      - name: BILLABLE_VALUE
+        description: ''
+      - name: FEE_EXCLUDED_ASSETS
+        description: ''
+      - name: CLIENT_FEE_GROSS
+        description: ''
+      - name: CLIENT_FEE_REBATES
+        description: ''
+      - name: CLIENT_NET_CONTRIBUTION_FEE
+        description: ''
+      - name: CLIENT_ADJUSTMENTS_FEE
+        description: ''
+      - name: CLIENT_WRITE_OFF_FEE
+        description: ''
+      - name: CLIENT_FEE_NET
+        description: ''
+      - name: COLLECTION_DATE
+        description: ''
+      - name: THIRD_PARTY_CALCULATION
+        description: ''
+      - name: BILLING_STYLE
+        description: ''
+      - name: BILLING_FREQUENCY
+        description: ''
+      - name: BILLING_METHOD
+        description: ''
+      - name: BILL_ON_BALANCE_TYPE
+        description: ''
+      - name: PAYMENT_TERMS
+        description: ''
+      - name: PAYMENT_METHOD_FEE
+        description: ''
+      - name: ACCOUNT_CLASS
+        description: ''
+      - name: RECURRING_REVENUE
+        description: ''
+      - name: IMPACTED_BY_FINANCIAL_MARKETS
+        description: ''
+      - name: COA_SEGMENT_1_LEGAL_ENTITY_ID
+        description: ''
+      - name: COA_SEGMENT_2_PRODUCT_ID
+        description: ''
+      - name: COA_SEGMENT_3_ACCOUNTING_ID
+        description: ''
+      - name: COA_SEGMENT_4_TEAM_ID
+        description: ''
+      - name: COA_SEGMENT_5_NATURAL_ACCOUNT_ID
+        description: ''
+      - name: COA_SEGMENT_6_INITIATIVE_ID
+        description: ''
+      - name: COA_SEGMENT_7_INTERCOMPANY_ID
+        description: ''
+      - name: COA_SEGMENT_8_FUTURE_ID
+        description: ''
+      - name: COA_ACCOUNT_NUMBER
+        description: ''
+      - name: REVENUE_CATEGORY
+        description: ''
+      - name: REVENUE_TYPE
+        description: ''
+      - name: SYSTEM_NAME_CRM
+        description: ''
+      - name: SYSTEM_INSTANCE_CRM
+        description: ''
+      - name: SYSTEM_KEY_CRM
+        description: ''
+      - name: ACCOUNT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_ORIGINAL_CRM
+        description: ''
+      - name: CLIENT_ID_UNIQUE_COMPASS
+        description: ''
+      - name: CLIENT_NAME
+        description: ''
+      - name: CLIENT_NAME_ORIGINAL_CRM
+        description: ''
+      - name: CLIENT_LEAD_SOURCE
+        description: ''
+      - name: CLIENT_KEY_TAGS_CRM
+        description: ''
+      - name: TRANSACTION_TYPE
+        description: ''
+      - name: TRANSACTION_LINE_TYPE
+        description: ''
+      - name: TRANSACTION_LINE_QUANTITY
+        description: ''
+      - name: CURRENCY_CODE
+        description: ''
+      - name: CURRENCY_CONVERSION_TYPE
+        description: ''
+      - name: UNIT_SELLING_PRICE
+        description: ''
+      - name: IS_EXCLUDED
+        description: ''
+      - name: EXCLUDED_REASON
+        description: ''
+      - name: _INVOICE_KEY
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''
+      - name: _BOX_FILE_ID
+        description: ''
+      - name: _EXTRA_FIELDS
+        description: ''
+      - name: _CREATED_AT
+        description: ''
+  - name: bld_associate_revenue_coding
+    columns:
+      - name: SOURCE_FILE_YEAR
+        description: ''
+      - name: SOURCE_FILE_ID
+        description: ''
+      - name: SHEET_NAME
+        description: ''
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: START_DATE
+        description: ''
+      - name: END_DATE
+        description: ''
+      - name: ASSOC_ID_HC
+        description: ''
+      - name: ASSOC_NAME_HC
+        description: ''
+      - name: ASSOCIATE_ID_ORACLE
+        description: ''
+      - name: ASSOCIATE_ID_ADP
+        description: ''
+      - name: ASSOCIATE_NAME_LEGAL
+        description: ''
+      - name: ASSOCIATE_REVENUE_CODING
+        description: ''
+      - name: SEG_1
+        description: ''
+      - name: SEG_2
+        description: ''
+      - name: SEG_3
+        description: ''
+      - name: SEG_4
+        description: ''
+      - name: SEG_5
+        description: ''
+      - name: SEG_6
+        description: ''
+      - name: SEG_7
+        description: ''
+      - name: SEG_8
+        description: ''
+      - name: _ID
+        description: ''
+      - name: _CREATED_AT
+        description: ''
+      - name: IS_LATEST
+        description: ''
+      - name: IS_HEAD
+        description: ''
+  - name: int_billing_wealth_02_coa
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: LOCATION_CODE
+        description: ''
+      - name: OFFICE_NAME
+        description: ''
+      - name: CLIENT_LOCATION_CODE
+        description: ''
+      - name: CLIENT_OFFICE_NAME
+        description: ''
+      - name: INVOICE_CREATED_AT
+        description: ''
+      - name: INVOICE_DATE
+        description: ''
+      - name: REVENUE_PERIOD_END_DATE
+        description: ''
+      - name: REVENUE_QUARTER_END_DATE
+        description: ''
+      - name: INVOICE_NUMBER_SOURCE
+        description: ''
+      - name: BILLING_STATEMENT_ID_SOURCE
+        description: ''
+      - name: BILLING_STATEMENT_ID_CRM
+        description: ''
+      - name: INVOICE_STATUS
+        description: ''
+      - name: IS_INTRA_PERIOD_INVOICE
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: BILLING_ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_ID_PMS
+        description: ''
+      - name: REGISTRANT_NAME
+        description: ''
+      - name: ACCOUNT_NAME
+        description: ''
+      - name: TYPE_OF_ACCOUNT
+        description: ''
+      - name: CLIENT_ID_PMS
+        description: ''
+      - name: AUM_CLASSIFICATION_STATUS
+        description: ''
+      - name: MODEL_INVESTMENT_STRATEGY
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: BILLING_CUSTODIAN
+        description: ''
+      - name: PARTNER_FIRM
+        description: ''
+      - name: PARTNER_FIRM_ORIGINAL
+        description: ''
+      - name: CLIENT_MANAGER_SOURCE
+        description: ''
+      - name: CLIENT_MANAGER_ORIGINAL
+        description: ''
+      - name: ASSOCIATE_ID_ORIGINAL
+        description: ''
+      - name: CLIENT_MANAGER_PRIMARY
+        description: ''
+      - name: ASSOCIATE_ID_PRIMARY
+        description: ''
+      - name: CLIENT_MANAGER_TYPE
+        description: ''
+      - name: CLIENT_MANAGER
+        description: ''
+      - name: ASSOCIATE_ID
+        description: ''
+      - name: FEE_TYPE
+        description: ''
+      - name: FEE_SCHEDULE_SOURCE
+        description: ''
+      - name: FEE_SCHEDULE_TYPE
+        description: ''
+      - name: FEE_SCHEDULE
+        description: ''
+      - name: ASSETS_AS_OF_DATE
+        description: ''
+      - name: FEE_CALCULATION_DATE
+        description: ''
+      - name: EFFECTIVE_FEE_RATE
+        description: ''
+      - name: TOTAL_ACCOUNT_VALUE
+        description: ''
+      - name: BILLABLE_VALUE
+        description: ''
+      - name: FEE_EXCLUDED_ASSETS
+        description: ''
+      - name: CLIENT_FEE_GROSS
+        description: ''
+      - name: CLIENT_FEE_REBATES
+        description: ''
+      - name: CLIENT_NET_CONTRIBUTION_FEE
+        description: ''
+      - name: CLIENT_ADJUSTMENTS_FEE
+        description: ''
+      - name: CLIENT_WRITE_OFF_FEE
+        description: ''
+      - name: CLIENT_FEE_NET
+        description: ''
+      - name: COLLECTION_DATE
+        description: ''
+      - name: THIRD_PARTY_CALCULATION
+        description: ''
+      - name: BILLING_STYLE
+        description: ''
+      - name: BILLING_FREQUENCY
+        description: ''
+      - name: BILLING_METHOD
+        description: ''
+      - name: BILL_ON_BALANCE_TYPE
+        description: ''
+      - name: PAYMENT_TERMS
+        description: ''
+      - name: PAYMENT_METHOD_FEE
+        description: ''
+      - name: ACCOUNT_CLASS
+        description: ''
+      - name: RECURRING_REVENUE
+        description: ''
+      - name: IMPACTED_BY_FINANCIAL_MARKETS
+        description: ''
+      - name: COA_SEGMENT_1_LEGAL_ENTITY_ID
+        description: ''
+      - name: COA_SEGMENT_2_PRODUCT_ID
+        description: ''
+      - name: COA_SEGMENT_3_ACCOUNTING_ID
+        description: ''
+      - name: COA_SEGMENT_4_TEAM_ID
+        description: ''
+      - name: COA_SEGMENT_5_NATURAL_ACCOUNT_ID
+        description: ''
+      - name: COA_SEGMENT_6_INITIATIVE_ID
+        description: ''
+      - name: COA_SEGMENT_7_INTERCOMPANY_ID
+        description: ''
+      - name: COA_SEGMENT_8_FUTURE_ID
+        description: ''
+      - name: COA_ACCOUNT_NUMBER
+        description: ''
+      - name: REVENUE_CATEGORY
+        description: ''
+      - name: REVENUE_TYPE
+        description: ''
+      - name: SYSTEM_NAME_CRM
+        description: ''
+      - name: SYSTEM_INSTANCE_CRM
+        description: ''
+      - name: SYSTEM_KEY_CRM
+        description: ''
+      - name: ACCOUNT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_ORIGINAL_CRM
+        description: ''
+      - name: CLIENT_ID_UNIQUE_COMPASS
+        description: ''
+      - name: CLIENT_NAME
+        description: ''
+      - name: CLIENT_NAME_ORIGINAL_CRM
+        description: ''
+      - name: CLIENT_LEAD_SOURCE
+        description: ''
+      - name: CLIENT_KEY_TAGS_CRM
+        description: ''
+      - name: TRANSACTION_TYPE
+        description: ''
+      - name: TRANSACTION_LINE_TYPE
+        description: ''
+      - name: TRANSACTION_LINE_QUANTITY
+        description: ''
+      - name: CURRENCY_CODE
+        description: ''
+      - name: CURRENCY_CONVERSION_TYPE
+        description: ''
+      - name: UNIT_SELLING_PRICE
+        description: ''
+      - name: IS_EXCLUDED
+        description: ''
+      - name: EXCLUDED_REASON
+        description: ''
+      - name: _INVOICE_KEY
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''
+      - name: _BOX_FILE_ID
+        description: ''
+      - name: _EXTRA_FIELDS
+        description: ''
+  - name: nml_bills_black_diamond_houston
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: CLIENT_LOCATION_CODE
+        description: ''
+      - name: INVOICE_NUMBER_SOURCE
+        description: ''
+      - name: INVOICE_CREATED_AT
+        description: ''
+      - name: INVOICE_DATE
+        description: ''
+      - name: BILLING_STATEMENT_ID_SOURCE
+        description: ''
+      - name: BILLING_STATEMENT_ID_CRM
+        description: ''
+      - name: INVOICE_STATUS
+        description: ''
+      - name: IS_INTRA_PERIOD_INVOICE
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: BILLING_ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_ID_PMS
+        description: ''
+      - name: REGISTRANT_NAME
+        description: ''
+      - name: ACCOUNT_NAME
+        description: ''
+      - name: CLIENT_ID_PMS
+        description: ''
+      - name: BILLING_CUSTODIAN
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: TYPE_OF_ACCOUNT
+        description: ''
+      - name: AUM_CLASSIFICATION_STATUS
+        description: ''
+      - name: MODEL_INVESTMENT_STRATEGY
+        description: ''
+      - name: PARTNER_FIRM
+        description: ''
+      - name: PARTNER_FIRM_ORIGINAL
+        description: ''
+      - name: CLIENT_MANAGER_SOURCE
+        description: ''
+      - name: CLIENT_MANAGER_ORIGINAL
+        description: ''
+      - name: ASSOCIATE_ID_ORIGINAL
+        description: ''
+      - name: CLIENT_MANAGER_PRIMARY
+        description: ''
+      - name: ASSOCIATE_ID_PRIMARY
+        description: ''
+      - name: CLIENT_MANAGER_TYPE
+        description: ''
+      - name: FEE_TYPE
+        description: ''
+      - name: FEE_SCHEDULE_SOURCE
+        description: ''
+      - name: FEE_SCHEDULE_TYPE
+        description: ''
+      - name: FEE_SCHEDULE
+        description: ''
+      - name: ASSETS_AS_OF_DATE
+        description: ''
+      - name: FEE_CALCULATION_DATE
+        description: ''
+      - name: EFFECTIVE_FEE_RATE
+        description: ''
+      - name: TOTAL_ACCOUNT_VALUE
+        description: ''
+      - name: BILLABLE_VALUE
+        description: ''
+      - name: FEE_EXCLUDED_ASSETS
+        description: ''
+      - name: CLIENT_FEE_GROSS
+        description: ''
+      - name: CLIENT_FEE_REBATES
+        description: ''
+      - name: CLIENT_NET_CONTRIBUTION_FEE
+        description: ''
+      - name: CLIENT_ADJUSTMENTS_FEE
+        description: ''
+      - name: CLIENT_WRITE_OFF_FEE
+        description: ''
+      - name: CLIENT_FEE_NET
+        description: ''
+      - name: COLLECTION_DATE
+        description: ''
+      - name: THIRD_PARTY_CALCULATION
+        description: ''
+      - name: BILLING_STYLE
+        description: ''
+      - name: BILLING_FREQUENCY
+        description: ''
+      - name: BILLING_METHOD
+        description: ''
+      - name: BILL_ON_BALANCE_TYPE
+        description: ''
+      - name: PAYMENT_TERMS
+        description: ''
+      - name: PAYMENT_METHOD_FEE
+        description: ''
+      - name: ACCOUNT_CLASS
+        description: ''
+      - name: COA_SEGMENT_1_LEGAL_ENTITY_ID
+        description: ''
+      - name: COA_SEGMENT_3_ACCOUNTING_ID
+        description: ''
+      - name: COA_SEGMENT_5_NATURAL_ACCOUNT_ID
+        description: ''
+      - name: REVENUE_CATEGORY
+        description: ''
+      - name: REVENUE_TYPE
+        description: ''
+      - name: SYSTEM_NAME_CRM
+        description: ''
+      - name: SYSTEM_INSTANCE_CRM
+        description: ''
+      - name: SYSTEM_KEY_CRM
+        description: ''
+      - name: ACCOUNT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_ORIGINAL_CRM
+        description: ''
+      - name: CLIENT_ID_UNIQUE_COMPASS
+        description: ''
+      - name: CLIENT_NAME
+        description: ''
+      - name: CLIENT_NAME_ORIGINAL_CRM
+        description: ''
+      - name: CLIENT_LEAD_SOURCE
+        description: ''
+      - name: CLIENT_KEY_TAGS_CRM
+        description: ''
+      - name: TRANSACTION_TYPE
+        description: ''
+      - name: TRANSACTION_LINE_TYPE
+        description: ''
+      - name: TRANSACTION_LINE_QUANTITY
+        description: ''
+      - name: CURRENCY_CODE
+        description: ''
+      - name: CURRENCY_CONVERSION_TYPE
+        description: ''
+      - name: UNIT_SELLING_PRICE
+        description: ''
+      - name: IS_EXCLUDED
+        description: ''
+      - name: EXCLUDED_REASON
+        description: ''
+      - name: REVENUE_PERIOD_END_DATE
+        description: ''
+      - name: _TRANS_KEY
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''
+      - name: _BOX_FILE_ID
+        description: ''
+      - name: _EXTRA_FIELDS
+        description: ''
+  - name: nml_bills_salesforce_compass
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: CLIENT_LOCATION_CODE
+        description: ''
+      - name: INVOICE_NUMBER_SOURCE
+        description: ''
+      - name: INVOICE_CREATED_AT
+        description: ''
+      - name: INVOICE_DATE
+        description: ''
+      - name: BILLING_STATEMENT_ID_SOURCE
+        description: ''
+      - name: BILLING_STATEMENT_ID_CRM
+        description: ''
+      - name: INVOICE_STATUS
+        description: ''
+      - name: IS_INTRA_PERIOD_INVOICE
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: BILLING_ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_ID_PMS
+        description: ''
+      - name: REGISTRANT_NAME
+        description: ''
+      - name: ACCOUNT_NAME
+        description: ''
+      - name: TYPE_OF_ACCOUNT
+        description: ''
+      - name: CLIENT_ID_PMS
+        description: ''
+      - name: AUM_CLASSIFICATION_STATUS
+        description: ''
+      - name: MODEL_INVESTMENT_STRATEGY
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: BILLING_CUSTODIAN
+        description: ''
+      - name: PARTNER_FIRM
+        description: ''
+      - name: PARTNER_FIRM_ORIGINAL
+        description: ''
+      - name: CLIENT_MANAGER_SOURCE
+        description: ''
+      - name: CLIENT_MANAGER_ORIGINAL
+        description: ''
+      - name: ASSOCIATE_ID_ORIGINAL
+        description: ''
+      - name: CLIENT_MANAGER_PRIMARY
+        description: ''
+      - name: ASSOCIATE_ID_PRIMARY
+        description: ''
+      - name: CLIENT_MANAGER_TYPE
+        description: ''
+      - name: FEE_TYPE
+        description: ''
+      - name: FEE_SCHEDULE_SOURCE
+        description: ''
+      - name: FEE_SCHEDULE_TYPE
+        description: ''
+      - name: FEE_SCHEDULE
+        description: ''
+      - name: ASSETS_AS_OF_DATE
+        description: ''
+      - name: FEE_CALCULATION_DATE
+        description: ''
+      - name: EFFECTIVE_FEE_RATE
+        description: ''
+      - name: TOTAL_ACCOUNT_VALUE
+        description: ''
+      - name: BILLABLE_VALUE
+        description: ''
+      - name: FEE_EXCLUDED_ASSETS
+        description: ''
+      - name: CLIENT_FEE_GROSS
+        description: ''
+      - name: CLIENT_FEE_REBATES
+        description: ''
+      - name: CLIENT_NET_CONTRIBUTION_FEE
+        description: ''
+      - name: CLIENT_ADJUSTMENTS_FEE
+        description: ''
+      - name: CLIENT_WRITE_OFF_FEE
+        description: ''
+      - name: CLIENT_FEE_NET
+        description: ''
+      - name: COLLECTION_DATE
+        description: ''
+      - name: THIRD_PARTY_CALCULATION
+        description: ''
+      - name: BILLING_STYLE
+        description: ''
+      - name: BILLING_FREQUENCY
+        description: ''
+      - name: BILLING_METHOD
+        description: ''
+      - name: BILL_ON_BALANCE_TYPE
+        description: ''
+      - name: PAYMENT_TERMS
+        description: ''
+      - name: PAYMENT_METHOD_FEE
+        description: ''
+      - name: ACCOUNT_CLASS
+        description: ''
+      - name: COA_SEGMENT_1_LEGAL_ENTITY_ID
+        description: ''
+      - name: COA_SEGMENT_3_ACCOUNTING_ID
+        description: ''
+      - name: COA_SEGMENT_5_NATURAL_ACCOUNT_ID
+        description: ''
+      - name: REVENUE_CATEGORY
+        description: ''
+      - name: REVENUE_TYPE
+        description: ''
+      - name: SYSTEM_NAME_CRM
+        description: ''
+      - name: SYSTEM_INSTANCE_CRM
+        description: ''
+      - name: SYSTEM_KEY_CRM
+        description: ''
+      - name: ACCOUNT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_ORIGINAL_CRM
+        description: ''
+      - name: CLIENT_ID_UNIQUE_COMPASS
+        description: ''
+      - name: CLIENT_NAME
+        description: ''
+      - name: CLIENT_NAME_ORIGINAL_CRM
+        description: ''
+      - name: CLIENT_LEAD_SOURCE
+        description: ''
+      - name: CLIENT_KEY_TAGS_CRM
+        description: ''
+      - name: TRANSACTION_TYPE
+        description: ''
+      - name: TRANSACTION_LINE_TYPE
+        description: ''
+      - name: TRANSACTION_LINE_QUANTITY
+        description: ''
+      - name: CURRENCY_CODE
+        description: ''
+      - name: CURRENCY_CONVERSION_TYPE
+        description: ''
+      - name: UNIT_SELLING_PRICE
+        description: ''
+      - name: IS_EXCLUDED
+        description: ''
+      - name: EXCLUDED_REASON
+        description: ''
+      - name: REVENUE_PERIOD_END_DATE
+        description: ''
+      - name: _TRANS_KEY
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''
+      - name: _BOX_FILE_ID
+        description: ''
+      - name: _EXTRA_FIELDS
+        description: ''
+  - name: int_billing_wealth_01_union
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: CLIENT_LOCATION_CODE
+        description: ''
+      - name: INVOICE_NUMBER_SOURCE
+        description: ''
+      - name: INVOICE_CREATED_AT
+        description: ''
+      - name: INVOICE_DATE
+        description: ''
+      - name: BILLING_STATEMENT_ID_SOURCE
+        description: ''
+      - name: BILLING_STATEMENT_ID_CRM
+        description: ''
+      - name: INVOICE_STATUS
+        description: ''
+      - name: IS_INTRA_PERIOD_INVOICE
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: BILLING_ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_ID_PMS
+        description: ''
+      - name: REGISTRANT_NAME
+        description: ''
+      - name: ACCOUNT_NAME
+        description: ''
+      - name: TYPE_OF_ACCOUNT
+        description: ''
+      - name: CLIENT_ID_PMS
+        description: ''
+      - name: AUM_CLASSIFICATION_STATUS
+        description: ''
+      - name: MODEL_INVESTMENT_STRATEGY
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: BILLING_CUSTODIAN
+        description: ''
+      - name: PARTNER_FIRM
+        description: ''
+      - name: PARTNER_FIRM_ORIGINAL
+        description: ''
+      - name: CLIENT_MANAGER_SOURCE
+        description: ''
+      - name: CLIENT_MANAGER_ORIGINAL
+        description: ''
+      - name: ASSOCIATE_ID_ORIGINAL
+        description: ''
+      - name: CLIENT_MANAGER_PRIMARY
+        description: ''
+      - name: ASSOCIATE_ID_PRIMARY
+        description: ''
+      - name: CLIENT_MANAGER_TYPE
+        description: ''
+      - name: FEE_TYPE
+        description: ''
+      - name: FEE_SCHEDULE_SOURCE
+        description: ''
+      - name: FEE_SCHEDULE_TYPE
+        description: ''
+      - name: FEE_SCHEDULE
+        description: ''
+      - name: ASSETS_AS_OF_DATE
+        description: ''
+      - name: FEE_CALCULATION_DATE
+        description: ''
+      - name: EFFECTIVE_FEE_RATE
+        description: ''
+      - name: TOTAL_ACCOUNT_VALUE
+        description: ''
+      - name: BILLABLE_VALUE
+        description: ''
+      - name: FEE_EXCLUDED_ASSETS
+        description: ''
+      - name: CLIENT_FEE_GROSS
+        description: ''
+      - name: CLIENT_FEE_REBATES
+        description: ''
+      - name: CLIENT_NET_CONTRIBUTION_FEE
+        description: ''
+      - name: CLIENT_ADJUSTMENTS_FEE
+        description: ''
+      - name: CLIENT_WRITE_OFF_FEE
+        description: ''
+      - name: CLIENT_FEE_NET
+        description: ''
+      - name: COLLECTION_DATE
+        description: ''
+      - name: THIRD_PARTY_CALCULATION
+        description: ''
+      - name: BILLING_STYLE
+        description: ''
+      - name: BILLING_FREQUENCY
+        description: ''
+      - name: BILLING_METHOD
+        description: ''
+      - name: BILL_ON_BALANCE_TYPE
+        description: ''
+      - name: PAYMENT_TERMS
+        description: ''
+      - name: PAYMENT_METHOD_FEE
+        description: ''
+      - name: ACCOUNT_CLASS
+        description: ''
+      - name: COA_SEGMENT_1_LEGAL_ENTITY_ID
+        description: ''
+      - name: COA_SEGMENT_3_ACCOUNTING_ID
+        description: ''
+      - name: COA_SEGMENT_5_NATURAL_ACCOUNT_ID
+        description: ''
+      - name: REVENUE_CATEGORY
+        description: ''
+      - name: REVENUE_TYPE
+        description: ''
+      - name: SYSTEM_NAME_CRM
+        description: ''
+      - name: SYSTEM_INSTANCE_CRM
+        description: ''
+      - name: SYSTEM_KEY_CRM
+        description: ''
+      - name: ACCOUNT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_ORIGINAL_CRM
+        description: ''
+      - name: CLIENT_ID_UNIQUE_COMPASS
+        description: ''
+      - name: CLIENT_NAME
+        description: ''
+      - name: CLIENT_NAME_ORIGINAL_CRM
+        description: ''
+      - name: CLIENT_LEAD_SOURCE
+        description: ''
+      - name: CLIENT_KEY_TAGS_CRM
+        description: ''
+      - name: TRANSACTION_TYPE
+        description: ''
+      - name: TRANSACTION_LINE_TYPE
+        description: ''
+      - name: TRANSACTION_LINE_QUANTITY
+        description: ''
+      - name: CURRENCY_CODE
+        description: ''
+      - name: CURRENCY_CONVERSION_TYPE
+        description: ''
+      - name: UNIT_SELLING_PRICE
+        description: ''
+      - name: IS_EXCLUDED
+        description: ''
+      - name: EXCLUDED_REASON
+        description: ''
+      - name: REVENUE_PERIOD_END_DATE
+        description: ''
+      - name: _TRANS_KEY
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''
+      - name: _BOX_FILE_ID
+        description: ''
+      - name: _EXTRA_FIELDS
+        description: ''
+      - name: CLIENT_OFFICE_NAME
+        description: ''
+      - name: CLIENT_LOCATION_ACCOUNTING_ID
+        description: ''
+      - name: ADVISOR_NONADVISOR
+        description: ''
+      - name: ASSOCIATE_COA_SEGMENT_1
+        description: ''
+      - name: ASSOCIATE_COA_SEGMENT_2
+        description: ''
+      - name: ASSOCIATE_COA_SEGMENT_3
+        description: ''
+      - name: ASSOCIATE_COA_SEGMENT_4
+        description: ''
+      - name: ASSOCIATE_COA_SEGMENT_5
+        description: ''
+      - name: ASSOCIATE_COA_SEGMENT_6
+        description: ''
+      - name: ASSOCIATE_COA_SEGMENT_7
+        description: ''
+      - name: ASSOCIATE_COA_SEGMENT_8
+        description: ''

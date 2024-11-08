@@ -1,0 +1,288 @@
+version: 2
+models:
+  - name: legacy__vw_employees_hr_all
+    columns:
+      - name: EMPLOYEE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: PAYROLL_FILE_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGALNAME_FIRST
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGALNAME_MIDDLE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGALNAME_LAST
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGALNAME_SUFFIX
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGALNAME_FULL
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_PREFERREDNAME
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_BIRTHDATE
+        description: ''
+        data_type: DATE
+      - name: ASSOCIATE_GENDER_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_GENDER_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_PERSONAL_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_PERSONAL_PHONE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_PERSONAL_CELLPHONE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGALADDRESS_LINE1
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGALADDRESS_LINE2
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGALADDRESS_CITY
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGALADDRESS_STATEABB
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGALADDRESS_STATENAME
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGALADDRESS_ZIPCODE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGALADDRESS_COUNTRY
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_OTHERADDRESS_LINE1
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_OTHERADDRESS_LINE2
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_OTHERADDRESS_CITY
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_OTHERADDRESS_STATEABB
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_OTHERADDRESS_STATE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_OTHERADDRESS_ZIPCODE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_OTHER_ADDRESS_COUNTRY
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_EEO_IDENTIFICATION_METHOD
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_EEO_ETHNICITY
+        description: ''
+        meta:
+          masking_policy: mp_associate_pii_text
+        data_type: VARCHAR
+      - name: ASSOCIATE_EDUCATION
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_PHONE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_CELLPHONE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_EMPLOYMENT_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_SENIORITY_DOH
+        description: ''
+        data_type: DATE
+      - name: ASSOCIATE_ORIGINAL_DOH
+        description: ''
+        data_type: DATE
+      - name: ASSOCIATE_REHIRE_DOH
+        description: ''
+        data_type: DATE
+      - name: ASSOCIATE_FINAL_DOT
+        description: ''
+        data_type: DATE
+      - name: POSITION_COMPANY_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_STATUS_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_SENIORITY_HIRE_DATE
+        description: ''
+        data_type: DATE
+      - name: POSITION_START_DATE
+        description: ''
+        data_type: DATE
+      - name: HIRE_DETAILS
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_DOT
+        description: ''
+        data_type: DATE
+      - name: POSITION_CHANGE_REASON
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_REGION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_REGION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_REGION_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_MARKET_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_MARKET_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_DEPARTMENT_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_DEPARTMENT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_MANAGER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_MANAGER_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_PRIMARY_JOB_INDICATOR
+        description: ''
+        data_type: NUMBER
+      - name: POSITION_TITLE_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_TITLE
+        description: ''
+        data_type: VARCHAR
+      - name: JOB_FUNCTION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORKER_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_BENEFITSGROUP_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_BENEFITSGROUP_CLASS
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_FLSA
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_CLASS_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_CLASS
+        description: ''
+        data_type: VARCHAR
+      - name: ADVISOR_NONADVISOR
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_EEO_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_EEO_CLASS
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_FTE
+        description: ''
+        data_type: FLOAT
+      - name: POSITION_SCHEDULED_HOURS
+        description: ''
+        data_type: FLOAT
+      - name: POSITION_STANDARD_HOURS
+        description: ''
+        data_type: FLOAT
+      - name: LOCATION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_COST_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORKSITE_LOCATION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORKSITE_LOCATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORKSITEADDRESS_LINE1
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORKSITEADDRESS_LINE2
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORKSITEADDRESS_LINE3
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORKSITEADDRESS_CITY
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORKSITEADDRESS_STATEABB
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORKSITEADDRESS_STATE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORKSITEADDRESS_ZIPCODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORKSITEADDRESS_COUNTRY
+        description: ''
+        data_type: VARCHAR
+      - name: ADP_LAST_UPDATE_DATE
+        description: ''
+        data_type: DATE
+      - name: DATA_LAST_REFRESHED_DATE
+        description: ''
+        data_type: DATE
+      - name: CHANGE_REASON_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: CHANGE_REASON_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: VOL_INVOL
+        description: ''
+        data_type: VARCHAR
+      - name: REPORTING_OFFICE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNTING_ID
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: TITLE_CHANGE_REASON
+        description: ''
+        data_type: VARCHAR

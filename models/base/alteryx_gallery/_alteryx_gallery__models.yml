@@ -202,21 +202,6 @@ models:
       - name: NAME
         description: ''
         data_type: VARCHAR
-      - name: CREATED_DATE
-        description: ''
-        data_type: TIMESTAMP_NTZ
-      - name: OWNER_ID
-        description: ''
-        data_type: VARCHAR
-      - name: EXECUTION_MODE
-        description: ''
-        data_type: VARCHAR
-      - name: IS_AMP
-        description: ''
-        data_type: NUMBER
-      - name: PUBLISHED_VERSION_NUMBER
-        description: ''
-        data_type: NUMBER
       - name: TOOL
         description: ''
         data_type: VARCHAR
@@ -232,6 +217,9 @@ models:
       - name: Y
         description: ''
         data_type: NUMBER
+      - name: ANNOTATION
+        description: ''
+        data_type: VARCHAR
       - name: SOURCE_TABLES
         description: ''
         data_type: VARCHAR
@@ -250,6 +238,18 @@ models:
       - name: DESTINATION_BOX_FILE_ID
         description: ''
         data_type: VARCHAR
+      - name: SOURCE_SMARTSHEET_ID
+        description: ''
+        data_type: VARCHAR
+      - name: DESTINATION_SMARTSHEET_ID
+        description: ''
+        data_type: VARCHAR
+      - name: TABLEAU_DATA_SOURCE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ORION_QUERY_ID
+        description: ''
+        data_type: NUMBER
       - name: MACRO_NAME
         description: ''
         data_type: VARCHAR

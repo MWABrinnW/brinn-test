@@ -1,0 +1,909 @@
+version: 2
+models:
+- name: tamarac_savant_history__base_accounts
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: ACCOUNT__NET_WORTH_CATEGORY
+    description: ''
+    data_type: FLOAT
+  - name: ACCOUNT__OWNERSHIP_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT__PRIMARY_OWNER_EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CURRENT_VALUE
+    description: ''
+    data_type: FLOAT
+  - name: ACCOUNT_LONG_TERM_REALIZED_GAIN_LOSS
+    description: ''
+    data_type: FLOAT
+  - name: ACCOUNT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_SHORT_TERM_REALIZED_GAIN_LOSS
+    description: ''
+    data_type: FLOAT
+  - name: ACCOUNT_TOTAL_REALIZED_GAIN_LOSS
+    description: ''
+    data_type: FLOAT
+  - name: ACCOUNT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS1
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS2
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS3
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS4
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS5
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS6
+    description: ''
+    data_type: VARCHAR
+  - name: ADVISOR
+    description: ''
+    data_type: VARCHAR
+  - name: AMORTIZATION_CALCULATION_ENABLED
+    description: ''
+    data_type: BOOLEAN
+  - name: ANNUAL_TURNOVER
+    description: ''
+    data_type: FLOAT
+  - name: ANNUALIZED_GROSS_IRR
+    description: ''
+    data_type: FLOAT
+  - name: ANNUALIZED_GROSS_TWR
+    description: ''
+    data_type: FLOAT
+  - name: ANNUALIZED_NET_IRR
+    description: ''
+    data_type: FLOAT
+  - name: ANNUALIZED_NET_TWR
+    description: ''
+    data_type: FLOAT
+  - name: AVERAGE_DAILY_BALANCE
+    description: ''
+    data_type: FLOAT
+  - name: BENCHMARK
+    description: ''
+    data_type: FLOAT
+  - name: BENCHMARK_START_DATE
+    description: ''
+    data_type: DATE
+  - name: BENEFICIAL_BILLING_RATE_TIER_TREATMENT
+    description: ''
+    data_type: BOOLEAN
+  - name: BILLING_CLOSED_DATE
+    description: ''
+    data_type: DATE
+  - name: BILLING_DEFINITIONS
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_GROUPS
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_INCEPTION_DATE
+    description: ''
+    data_type: DATE
+  - name: CALCULATE_PERFORMANCE
+    description: ''
+    data_type: BOOLEAN
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: CLOSED_DATE
+    description: ''
+    data_type: DATE
+  - name: CLOSING_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: COMMISSIONS
+    description: ''
+    data_type: VARCHAR
+  - name: COMPUTE_BILLING_CLOSED_DATE
+    description: ''
+    data_type: BOOLEAN
+  - name: COMPUTE_BILLING_INCEPTION_DATE
+    description: ''
+    data_type: BOOLEAN
+  - name: COMPUTE_PERFORMANCE_INCEPTION_DATE
+    description: ''
+    data_type: BOOLEAN
+  - name: COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: CUMULATIVE_TURNOVER
+    description: ''
+    data_type: FLOAT
+  - name: CURRENT_CASH
+    description: ''
+    data_type: FLOAT
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: DEFAULT_TEMPLATE
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: DISCRETIONARY
+    description: ''
+    data_type: BOOLEAN
+  - name: DISPLAY_ACCRUED_INTEREST
+    description: ''
+    data_type: BOOLEAN
+  - name: DISPLAY_PREFERENCE
+    description: ''
+    data_type: VARCHAR
+  - name: DOLLAR_VARIANCE
+    description: ''
+    data_type: FLOAT
+  - name: ENTITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: EXCLUDE_ALL_SECURITIES_FROM_BILLING
+    description: ''
+    data_type: BOOLEAN
+  - name: EXCLUDE_ALL_SECURITIES_FROM_PERFORMANCE
+    description: ''
+    data_type: BOOLEAN
+  - name: EXPENSES_EXCLUDING_REVENUE
+    description: ''
+    data_type: FLOAT
+  - name: EXPENSES_PERCENT_OF_ACCOUNT
+    description: ''
+    data_type: FLOAT
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FISCAL_YEAR_END
+    description: ''
+    data_type: VARCHAR
+  - name: FISCAL_YEAR_END_DATE_USE_FOR_REPORTING
+    description: ''
+    data_type: BOOLEAN
+  - name: GROSS_IRR
+    description: ''
+    data_type: FLOAT
+  - name: GROSS_TWR
+    description: ''
+    data_type: FLOAT
+  - name: HOUSEHOLD_ASSIGNMENTS
+    description: ''
+    data_type: VARCHAR
+  - name: INCLUDE_ACCRUED_DIVIDENDS
+    description: ''
+    data_type: BOOLEAN
+  - name: INCLUDE_ACCRUED_GAINS
+    description: ''
+    data_type: BOOLEAN
+  - name: INFLOWS
+    description: ''
+    data_type: FLOAT
+  - name: INITIAL_VALUE
+    description: ''
+    data_type: FLOAT
+  - name: INTEREST_AND_DIVIDENDS
+    description: ''
+    data_type: FLOAT
+  - name: INTERNAL_COMMISSIONS
+    description: ''
+    data_type: NUMBER
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_RECONCILIATION_DATE
+    description: ''
+    data_type: DATE
+  - name: LAST_SYNC_START_DATE
+    description: ''
+    data_type: DATE
+  - name: LAST_SYNC_TIME
+    description: ''
+    data_type: TIMESTAMP_LTZ
+  - name: MANAGED_ACCOUNT_VALUE_PREVEOD
+    description: ''
+    data_type: FLOAT
+  - name: MANAGEMENT_FEES
+    description: ''
+    data_type: FLOAT
+  - name: MANAGEMENT_FEES_AND_COMMISSIONS
+    description: ''
+    data_type: FLOAT
+  - name: MANUAL_PERFORMANCE_HISTORY_END_DATE
+    description: ''
+    data_type: DATE
+  - name: MANUAL_PERFORMANCE_RETURN_BEHAVIOR
+    description: ''
+    data_type: VARCHAR
+  - name: MANUAL_PERFORMANCE_VALUE_BEHAVIOR
+    description: ''
+    data_type: VARCHAR
+  - name: MARGIN_EXPENSE
+    description: ''
+    data_type: FLOAT
+  - name: MASTER_ACCOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: NET_FLOWS
+    description: ''
+    data_type: FLOAT
+  - name: NET_INVESTMENT_GAIN
+    description: ''
+    data_type: FLOAT
+  - name: NET_IRR
+    description: ''
+    data_type: FLOAT
+  - name: NET_TWR
+    description: ''
+    data_type: FLOAT
+  - name: NEXT_SYNC_START_DATE
+    description: ''
+    data_type: DATE
+  - name: NUMBER_OF_TRADES
+    description: ''
+    data_type: VARCHAR
+  - name: OBJECTIVE
+    description: ''
+    data_type: VARCHAR
+  - name: OBJECTIVE_START_DATE
+    description: ''
+    data_type: DATE
+  - name: OUT_OF_TOLERANCE
+    description: ''
+    data_type: BOOLEAN
+  - name: OUTFLOWS
+    description: ''
+    data_type: VARCHAR
+  - name: OWNERSHIP_ACCOUNT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: OWNERSHIP_PARENT_ACCOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: PERCENT_VARIANCE
+    description: ''
+    data_type: FLOAT
+  - name: PERFORMANCE_DATE
+    description: ''
+    data_type: DATE
+  - name: PERFORMANCE_INCEPTION_DATE
+    description: ''
+    data_type: DATE
+  - name: PORTFOLIO_YIELD
+    description: ''
+    data_type: FLOAT
+  - name: PREV_EOD_DATE
+    description: ''
+    data_type: DATE
+  - name: PREVIOUS_12_MONTHS_TURNOVER
+    description: ''
+    data_type: FLOAT
+  - name: PRIMARY_ADVISOR
+    description: ''
+    data_type: VARCHAR
+  - name: PRIMARY_HOUSEHOLD_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PRIMARY_HOUSEHOLD_PRIMARY_ADVISOR
+    description: ''
+    data_type: BOOLEAN
+  - name: PRIMARY_HOUSEHOLD_PRIMARY_ADVISOR_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PURCHASES
+    description: ''
+    data_type: FLOAT
+  - name: RECONCILIATION_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: SALES
+    description: ''
+    data_type: FLOAT
+  - name: SERVICE_TEAM_COMPLIANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SERVICE_TEAM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SERVICE_TEAM_OPERATIONS
+    description: ''
+    data_type: VARCHAR
+  - name: SERVICE_TEAM_PRIMARY_ADVISOR
+    description: ''
+    data_type: VARCHAR
+  - name: SERVICE_TEAM_SECONDARY_ADVISOR
+    description: ''
+    data_type: VARCHAR
+  - name: SHORT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SMA
+    description: ''
+    data_type: BOOLEAN
+  - name: SMA_DESCRIPTION1
+    description: ''
+    data_type: VARCHAR
+  - name: SMA_DESCRIPTION2
+    description: ''
+    data_type: VARCHAR
+  - name: SMA_DESCRIPTION3
+    description: ''
+    data_type: VARCHAR
+  - name: SMA_SECTOR
+    description: ''
+    data_type: VARCHAR
+  - name: SMA_SUBSECTOR
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE_OF_RECORD_FOR_REALIZED_GAIN_LOSS_IS_CUSTODIAN
+    description: ''
+    data_type: BOOLEAN
+  - name: STATE
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_OF_PRIMARY_RESIDENCE
+    description: ''
+    data_type: VARCHAR
+  - name: TARGET_ALLOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: TAXABLE
+    description: ''
+    data_type: BOOLEAN
+  - name: TOTAL_ACCOUNT_VALUE_PREVEOD
+    description: ''
+    data_type: FLOAT
+  - name: TRADED_AWAY_COMMISSIONS
+    description: ''
+    data_type: FLOAT
+  - name: UNMANAGED_ACCOUNT_VALUE_PREVEOD
+    description: ''
+    data_type: FLOAT
+  - name: UPLOAD_ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: USE_PRIMARY_HOUSEHOLD_ADDRESS
+    description: ''
+    data_type: BOOLEAN
+  - name: YEAR_TO_DATE_NET_RETURN
+    description: ''
+    data_type: FLOAT
+  - name: ZIP
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_NUMBER
+    description: ''
+    data_type: NUMBER
+  - name: ERISA
+    description: ''
+    data_type: BOOLEAN
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_LTZ
+- name: tamarac_savant_history__base_holdings
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ACCRUAL_METHOD
+    description: ''
+    data_type: VARCHAR
+  - name: ACCRUED_INCOME
+    description: ''
+    data_type: FLOAT
+  - name: ALLOW_UPDATES
+    description: ''
+    data_type: BOOLEAN
+  - name: ALWAYS_REPORT_AS_IRR
+    description: ''
+    data_type: BOOLEAN
+  - name: AMORTIZE_ACCRETE_TO
+    description: ''
+    data_type: VARCHAR
+  - name: ANNUAL_DIVIDEND
+    description: ''
+    data_type: FLOAT
+  - name: ANNUAL_INCOME
+    description: ''
+    data_type: FLOAT
+  - name: AS_OF_DATE
+    description: ''
+    data_type: DATE
+  - name: CALL_DATE
+    description: ''
+    data_type: DATE
+  - name: CALL_PRICE
+    description: ''
+    data_type: FLOAT
+  - name: CALL_PUT
+    description: ''
+    data_type: FLOAT
+  - name: CASH_INVESTED
+    description: ''
+    data_type: FLOAT
+  - name: COMPOUNDING_FREQUENCY
+    description: ''
+    data_type: VARCHAR
+  - name: COST_BASIS
+    description: ''
+    data_type: FLOAT
+  - name: CUMULATIVE_INCOME
+    description: ''
+    data_type: FLOAT
+  - name: CURRENT_PRICE
+    description: ''
+    data_type: FLOAT
+  - name: CURRENT_YIELD
+    description: ''
+    data_type: FLOAT
+  - name: CURRENT_YIELD_TO_WORST_MARKET
+    description: ''
+    data_type: FLOAT
+  - name: CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: DAYS_TO_LONG_TERM
+    description: ''
+    data_type: NUMBER
+  - name: DISPLAY_ACCRUED_INTEREST_SECURITY
+    description: ''
+    data_type: BOOLEAN
+  - name: DIVIDENT_INCOME_RATE_PER
+    description: ''
+    data_type: FLOAT
+  - name: DOLLAR_GAIN_LOSS
+    description: ''
+    data_type: FLOAT
+  - name: EFFECTIVE_DURATION
+    description: ''
+    data_type: FLOAT
+  - name: EXCLUDE_FROM_BILLING
+    description: ''
+    data_type: BOOLEAN
+  - name: EXCLUDE_FROM_PERFORMANCE
+    description: ''
+    data_type: BOOLEAN
+  - name: EXPIRATION_DATE
+    description: ''
+    data_type: DATE
+  - name: EXTENDED_DESCRIPTION1
+    description: ''
+    data_type: VARCHAR
+  - name: EXTENDED_DESCRIPTION2
+    description: ''
+    data_type: VARCHAR
+  - name: FEDERAL_TAXABLE
+    description: ''
+    data_type: BOOLEAN
+  - name: FINAL_COUPON_DATE
+    description: ''
+    data_type: DATE
+  - name: FIRST_COUPON_DATE
+    description: ''
+    data_type: DATE
+  - name: FIRST_PAYMENT_DATE
+    description: ''
+    data_type: DATE
+  - name: FITCH_BOND_RATING
+    description: ''
+    data_type: VARCHAR
+  - name: FITCH_BOND_RATING_EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: FITCH_BOND_RATING_PREVIOUS_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: FITCH_BOND_RATING_PREVIOUS_VALUE_EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: FUND_INCEPTION_DATE
+    description: ''
+    data_type: DATE
+  - name: GLOBALLY_EXCLUDE_FROM_BILLING
+    description: ''
+    data_type: BOOLEAN
+  - name: GLOBALLY_EXCLUDE_FROM_PERFORMANCE
+    description: ''
+    data_type: BOOLEAN
+  - name: HOLDINGS_CURRENT_VALUE
+    description: ''
+    data_type: FLOAT
+  - name: INCOME_FREQUENCY
+    description: ''
+    data_type: VARCHAR
+  - name: INTEREST_RATE
+    description: ''
+    data_type: FLOAT
+  - name: ISSUE_DATE
+    description: ''
+    data_type: DATE
+  - name: ISSUE_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: LONG_TERM_UNREALIZED_GAIN_LOSS
+    description: ''
+    data_type: FLOAT
+  - name: MARKET_CAP
+    description: ''
+    data_type: FLOAT
+  - name: MATURITY_DATE
+    description: ''
+    data_type: DATE
+  - name: MOODYS_BOND_RATING
+    description: ''
+    data_type: VARCHAR
+  - name: MOODYS_BOND_RATING_EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: MOODYS_BOND_RATING_PREVIOUS_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: MOODYS_BOND_RATING_PREVIOUS_VALUE_EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: NEXT_CAPITAL_CALL_DATE
+    description: ''
+    data_type: DATE
+  - name: NEXT_DIVIDEND_AMOUNT
+    description: ''
+    data_type: FLOAT
+  - name: NEXT_DIVIDEND_DATE
+    description: ''
+    data_type: DATE
+  - name: NEXT_EXDIVIDEND_DATE
+    description: ''
+    data_type: DATE
+  - name: NEXT_EXINCOME_DATE
+    description: ''
+    data_type: DATE
+  - name: NEXT_INCOME_AMOUNT
+    description: ''
+    data_type: FLOAT
+  - name: NEXT_INCOME_DATE
+    description: ''
+    data_type: DATE
+  - name: OPEN_DATE
+    description: ''
+    data_type: DATE
+  - name: PERCENT_DOLLAR_GAIN_LOSS
+    description: ''
+    data_type: FLOAT
+  - name: PERCENT_GAIN_LOSS
+    description: ''
+    data_type: FLOAT
+  - name: PREREFUND_DATE
+    description: ''
+    data_type: DATE
+  - name: PREREFUND_PRICE
+    description: ''
+    data_type: FLOAT
+  - name: PRICE
+    description: ''
+    data_type: FLOAT
+  - name: QUALIFIED_STATUS
+    description: ''
+    data_type: BOOLEAN
+  - name: QUANTITY
+    description: ''
+    data_type: FLOAT
+  - name: REPORT_GAINS_AND_LOSSES_ON_THE_REALIZED_GAINS_LOSSES_REPORT
+    description: ''
+    data_type: BOOLEAN
+  - name: SECTOR
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_ANNUAL_INCOME
+    description: ''
+    data_type: FLOAT
+  - name: SECURITY_BENCHMARK
+    description: ''
+    data_type: FLOAT
+  - name: SECURITY_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SHARES_PER_CONTRACT
+    description: ''
+    data_type: NUMBER
+  - name: SHORT_TERM_UNREALIZED_GAIN_LOSS
+    description: ''
+    data_type: FLOAT
+  - name: SP_BOND_RATING
+    description: ''
+    data_type: VARCHAR
+  - name: SP_BOND_RATING_EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: SP_BOND_RATING_PREVIOUS_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: SP_BOND_RATING_PREVIOUS_VALUE_EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: STATE_TAXABLE
+    description: ''
+    data_type: BOOLEAN
+  - name: STRIKE_PRICE
+    description: ''
+    data_type: FLOAT
+  - name: SUBSECTOR
+    description: ''
+    data_type: FLOAT
+  - name: SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: TOTAL_UNREALIZED_GAIN_LOSS
+    description: ''
+    data_type: FLOAT
+  - name: TREAT_AS_COMMITTED_CAPITAL_SECURITY
+    description: ''
+    data_type: BOOLEAN
+  - name: TREAT_SECURITY_AS_CASH
+    description: ''
+    data_type: BOOLEAN
+  - name: TREAT_TRANSACTIONS_AS_END_OF_DAY
+    description: ''
+    data_type: BOOLEAN
+  - name: UNDERLYING_SECURITY
+    description: ''
+    data_type: FLOAT
+  - name: UNIT_COST
+    description: ''
+    data_type: FLOAT
+  - name: UPLOAD_ACCOUNT_ID
+    description: ''
+    data_type: NUMBER
+  - name: UPLOAD_SECURITY_ID
+    description: ''
+    data_type: NUMBER
+  - name: WEIGHT
+    description: ''
+    data_type: FLOAT
+  - name: YIELD_AT_COST
+    description: ''
+    data_type: FLOAT
+  - name: SIG_ASSET_CLASS
+    description: ''
+    data_type: VARCHAR
+  - name: SIG_SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SIG_SUBASSET_CLASS
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_LTZ
+- name: tamarac_savant_history__base_households
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: HOUSEHOLD_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: UPLOAD_HOUSEHOLD_ID
+    description: ''
+    data_type: NUMBER
+  - name: HOUSEHOLD_NUMBER
+    description: ''
+    data_type: NUMBER
+  - name: HOUSEHOLD_ADDRESS1
+    description: ''
+    data_type: VARCHAR
+  - name: HOUSEHOLD_ADDRESS2
+    description: ''
+    data_type: VARCHAR
+  - name: HOUSEHOLD_ADDRESS3
+    description: ''
+    data_type: VARCHAR
+  - name: HOUSEHOLD_ADDRESS4
+    description: ''
+    data_type: VARCHAR
+  - name: HOUSEHOLD_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: HOUSEHOLD_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: HOUSEHOLD_STATE_OF_PRIMARY_RESIDENCE
+    description: ''
+    data_type: VARCHAR
+  - name: HOUSEHOLD_ZIP
+    description: ''
+    data_type: VARCHAR
+  - name: HOUSEHOLD_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: IS_PRIMARY_RESIDENCE
+    description: ''
+    data_type: VARCHAR
+  - name: PRIMARY_EMAIL_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: MANAGED_VALUE
+    description: ''
+    data_type: FLOAT
+  - name: TOTAL_VALUE
+    description: ''
+    data_type: FLOAT
+  - name: NET_WORTH
+    description: ''
+    data_type: FLOAT
+  - name: SERVICE_TEAM
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PREV_EOD_DATE
+    description: ''
+    data_type: DATE
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_LTZ
+- name: tamarac_savant_history__base_clients
+  columns:
+  - name: PMS
+    description: ''
+    data_type: VARCHAR
+  - name: PMS_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: ACTIVATION_EMAIL_SENT
+    description: ''
+    data_type: BOOLEAN
+  - name: ALLOW_PORTAL_ACCESS
+    description: ''
+    data_type: BOOLEAN
+  - name: CLIENT_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_VIEW
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_SIGNATURE
+    description: ''
+    data_type: VARCHAR
+  - name: USE_DEFAULT_CUSTOMER_SIGNATURE
+    description: ''
+    data_type: BOOLEAN
+  - name: DATE_OF_BIRTH
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: DEFAULT_ACCOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: DEFAULT_ACCOUNT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: DEFAULT_ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: DEFAULT_UPLOAD_ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: HOUSEHOLD_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_LOGIN_DATE
+    description: ''
+    data_type: DATE
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: MIDDLE_NAME_INITIAL
+    description: ''
+    data_type: VARCHAR
+  - name: PREFERRED_DELIVERY_METHOD
+    description: ''
+    data_type: VARCHAR
+  - name: SERVICE_TEAM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SERVICE_TEAM_COMPLIANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SERVICE_TEAM_OPERATIONS
+    description: ''
+    data_type: VARCHAR
+  - name: SERVICE_TEAM_PRIMARY_ADVISOR
+    description: ''
+    data_type: VARCHAR
+  - name: SERVICE_TEAM_SECONDARY_ADVISOR
+    description: ''
+    data_type: VARCHAR
+  - name: UPLOAD_HOUSEHOLD_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PREV_EOD_DATE
+    description: ''
+    data_type: DATE
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_LTZ

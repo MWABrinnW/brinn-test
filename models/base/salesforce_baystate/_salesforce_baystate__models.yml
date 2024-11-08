@@ -1,0 +1,757 @@
+version: 2
+models:
+- name: salesforce_baystate__base_advisor_split_detail_c
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: ADVISOR_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: ADVISOR_SPLIT_CODE_C
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PERCENTAGE_C
+    description: ''
+    data_type: NUMBER
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: salesforce_baystate__base_advisor_split_code_c
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: TOTAL_MARKET_VALUE_ROLLUP_C
+    description: ''
+    data_type: NUMBER
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: salesforce_baystate__base_contact
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_CUUPDATE_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: MAILING_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: LEAD_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: SALUTATION
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: JIGSAW_CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: JIGSAW
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: MIDDLE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PHOTO_URL
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_BOUNCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: IS_PRIORITY_RECORD
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: MASTER_RECORD_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_PERSON_ACCOUNT
+    description: ''
+    data_type: BOOLEAN
+  - name: REPORTS_TO_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: OTHER_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_BOUNCED_REASON
+    description: ''
+    data_type: VARCHAR
+  - name: ASSISTANT_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: REP_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_EMAIL_BOUNCED
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: MOBILE_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: MAILING_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: FAX
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: SUFFIX
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: HOME_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: BIRTHDATE
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: LAST_CUREQUEST_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ASSISTANT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: INDIVIDUAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: DEPARTMENT
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_baystate__base_account
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: FIN_SERV_NOTES_C
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_MOBILE_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_ASSISTANT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: TOTAL_MARKET_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: IS_PERSON_ACCOUNT
+    description: ''
+    data_type: BOOLEAN
+  - name: PERSON_DEPARTMENT
+    description: ''
+    data_type: VARCHAR
+  - name: PHOTO_URL
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: HOUSEHOLD_C
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: VALUATION_DATE_C
+    description: ''
+    data_type: DATE
+  - name: ACCOUNT_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: TOTAL_UNSUPERVISED_MARKET_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: PERSON_MAILING_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_MAILING_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: TICKER_SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_MAILING_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: RATING
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_MAILING_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: SITE
+    description: ''
+    data_type: VARCHAR
+  - name: INDUSTRY
+    description: ''
+    data_type: VARCHAR
+  - name: JIGSAW
+    description: ''
+    data_type: VARCHAR
+  - name: PRIMARY_PORTFOLIO_C
+    description: ''
+    data_type: VARCHAR
+  - name: JIGSAW_COMPANY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: PERSON_OTHER_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_LAST_CUREQUEST_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PERSON_OTHER_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: ANNUAL_REVENUE
+    description: ''
+    data_type: NUMBER
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: OWNERSHIP
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: PERSON_EMAIL_BOUNCED_REASON
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_MAILING_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_EMAIL_BOUNCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PERSON_MAILING_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: RECORD_TYPE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_ASSISTANT_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_OTHER_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: WEBSITE
+    description: ''
+    data_type: VARCHAR
+  - name: TOTAL_SUPERVISED_MARKET_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: MASTER_RECORD_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: BILLING_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: REP_C
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: TOTAL_MARKET_VALUE_2_C
+    description: ''
+    data_type: NUMBER
+  - name: SIC
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_OTHER_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_MAILING_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: SUFFIX
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_BIRTHDATE
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: PERSON_OTHER_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_INDIVIDUAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_HOME_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PERSON_MAILING_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: PERSON_LAST_CUUPDATE_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PERSON_OTHER_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_DATABROKER_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: SECONDARY_MEMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: FAX
+    description: ''
+    data_type: VARCHAR
+  - name: MIDDLE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_OTHER_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_OTHER_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: PERSON_CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SALUTATION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_PRIORITY_RECORD
+    description: ''
+    data_type: BOOLEAN
+  - name: SIC_DESC
+    description: ''
+    data_type: VARCHAR
+  - name: REP_ID_PC
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_LEAD_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_OTHER_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NUMBER_OF_EMPLOYEES
+    description: ''
+    data_type: NUMBER
+  - name: PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_baystate__base_account_contact_role
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: ROLE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_PRIMARY
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER

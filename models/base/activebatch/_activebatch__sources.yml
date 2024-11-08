@@ -6,5 +6,238 @@ sources:
     tables:
       - name: jobs
         description: "Workflows, including plans, jobs, and references."
+        columns:
+          - name: ID
+            description: ''
+            data_type: VARCHAR
+          - name: CLASSID
+            description: ''
+            data_type: VARCHAR
+          - name: PATH
+            description: ''
+            data_type: VARCHAR
+          - name: NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REF_LABEL
+            description: ''
+            data_type: VARCHAR
+          - name: REF_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REF_PID
+            description: ''
+            data_type: VARCHAR
+          - name: LAST_JOBID
+            description: ''
+            data_type: VARCHAR
+          - name: ENABLED
+            description: ''
+            data_type: VARCHAR
+          - name: TARGETID
+            description: ''
+            data_type: VARCHAR
+          - name: PID
+            description: ''
+            data_type: VARCHAR
+          - name: RID
+            description: ''
+            data_type: VARCHAR
+          - name: STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: INSTANCETYPE
+            description: ''
+            data_type: VARCHAR
+          - name: LAST_SUCCESSFUL_EXECUTION_STARTED_AT
+            description: ''
+            data_type: VARCHAR
+          - name: SCRIPT
+            description: ''
+            data_type: VARCHAR
+          - name: IS_SCRIPT_FROM_REF
+            description: ''
+            data_type: VARCHAR
+          - name: IS_SCRIPT_FROM_JOB
+            description: ''
+            data_type: VARCHAR
+          - name: IS_ALTERYX_RELATED
+            description: ''
+            data_type: VARCHAR
+          - name: AYX_MIN_PROP_VALUE
+            description: ''
+            data_type: VARCHAR
+          - name: AYX_MAX_PROP_VALUE
+            description: ''
+            data_type: VARCHAR
+          - name: IS_REF_OBJ
+            description: ''
+            data_type: VARCHAR
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: SCRIPT_EXTENSION
+            description: ''
+            data_type: VARCHAR
       - name: executions
         description: "Activebatch instances/job execution history."
+        columns:
+          - name: JOBID
+            description: ''
+            data_type: VARCHAR
+          - name: QUEUENAME
+            description: ''
+            data_type: VARCHAR
+          - name: QUEUEPRIORITY
+            description: ''
+            data_type: VARCHAR
+          - name: TEMPLATEJOBID
+            description: ''
+            data_type: VARCHAR
+          - name: JOBNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ORIGINALQUEUENAME
+            description: ''
+            data_type: VARCHAR
+          - name: TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: STATE
+            description: ''
+            data_type: VARCHAR
+          - name: SUBSTATE
+            description: ''
+            data_type: VARCHAR
+          - name: EXECUTIONREASON
+            description: ''
+            data_type: VARCHAR
+          - name: LASTEVENTID
+            description: ''
+            data_type: VARCHAR
+          - name: USERNAME
+            description: ''
+            data_type: VARCHAR
+          - name: SUBMITTINGUSER
+            description: ''
+            data_type: VARCHAR
+          - name: JOBSUBMISSIONTIME
+            description: ''
+            data_type: VARCHAR
+          - name: JOBELIGIBILITYTIME
+            description: ''
+            data_type: VARCHAR
+          - name: STARTTIME
+            description: ''
+            data_type: VARCHAR
+          - name: JSSCOMPLETIONTIME
+            description: ''
+            data_type: VARCHAR
+          - name: EXECAGENTCOMPLETIONTIME
+            description: ''
+            data_type: VARCHAR
+          - name: REVISIONTIME
+            description: ''
+            data_type: VARCHAR
+          - name: RESTARTTIME
+            description: ''
+            data_type: VARCHAR
+          - name: STANDARDOUTPUTFILE
+            description: ''
+            data_type: VARCHAR
+          - name: STANDARDERRORFILE
+            description: ''
+            data_type: VARCHAR
+          - name: JOBSTEPSTODO
+            description: ''
+            data_type: VARCHAR
+          - name: JOBSTEPSDONE
+            description: ''
+            data_type: VARCHAR
+          - name: JOBLOGFILE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKINGDIRECTORY
+            description: ''
+            data_type: VARCHAR
+          - name: JOBSTATUS
+            description: ''
+            data_type: VARCHAR
+          - name: LASTJOBID
+            description: ''
+            data_type: VARCHAR
+          - name: SUCCESSFULINSTANCES
+            description: ''
+            data_type: VARCHAR
+          - name: FAILEDINSTANCES
+            description: ''
+            data_type: VARCHAR
+          - name: MULTIINSTANCECOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: CPUDAYS
+            description: ''
+            data_type: VARCHAR
+          - name: CPUHOURS
+            description: ''
+            data_type: VARCHAR
+          - name: CPUMINUTES
+            description: ''
+            data_type: VARCHAR
+          - name: CPUSECONDS
+            description: ''
+            data_type: VARCHAR
+          - name: CPUMILLISECONDS
+            description: ''
+            data_type: VARCHAR
+          - name: REVISIONID
+            description: ''
+            data_type: VARCHAR
+          - name: EXECUTIONMACHINE
+            description: ''
+            data_type: VARCHAR
+          - name: SUCCESSCOMPLETIONCODES
+            description: ''
+            data_type: VARCHAR
+          - name: DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: CATEGORY
+            description: ''
+            data_type: VARCHAR
+          - name: DOCUMENTATION
+            description: ''
+            data_type: VARCHAR
+          - name: REVISEDBY
+            description: ''
+            data_type: VARCHAR
+          - name: TRIGGEREDBY
+            description: ''
+            data_type: VARCHAR
+          - name: SUCCESSCODESTRING
+            description: ''
+            data_type: VARCHAR
+          - name: EXITCODEDESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: INSTANCETYPE
+            description: ''
+            data_type: VARCHAR
+          - name: JOBTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PATH
+            description: ''
+            data_type: VARCHAR
+          - name: STATETEXT
+            description: ''
+            data_type: VARCHAR
+          - name: STATEDETAILTEXT
+            description: ''
+            data_type: VARCHAR
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _UPDATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ

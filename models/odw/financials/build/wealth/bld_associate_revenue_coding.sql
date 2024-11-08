@@ -2,7 +2,7 @@
     materialized = 'incremental',
     incremental_strategy = 'delete+insert',
     on_schema_change = 'sync_all_columns',
-    unique_key = ['associate_id_oracle'],
+    unique_key = 'associate_id_oracle',
     cluster_by = ['effective_date']
 ) }}
 

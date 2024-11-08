@@ -12,7 +12,6 @@ sources:
             description: ""
           - name: definitions
             description: ""
-
       - name: trade_status
         description: ""
         loaded_at_field: _created_at
@@ -21,10 +20,6 @@ sources:
             description: "CAIS trade system unique ID"
           - name: order_status
             description: "Trade order pipeline status"
-          - name: close_date
-            description: "Target close date when actual close date not available (ie pre and post full execution)"
-          - name: amount
-            description: "Transaction Amount (Precision as appropriate)"
           - name: user_name
             description: "User name of transacting user (first + last name)"
           - name: userid
@@ -35,8 +30,9 @@ sources:
             description: "CAIS System Unique Firm ID"
           - name: fund_name
             description: "Fund legal name"
-          - name: fund_id
-            description: "CAIS System Unique Fund ID"
+          - name: FIND_ID
+            description: ''
+            data_type: VARCHAR
           - name: share_class
             description: "Shareclass or Series information (if available)"
           - name: investment_entity_name
@@ -45,7 +41,19 @@ sources:
             description: "CAIS System Unique Investment Entity ID"
           - name: third_party_account
             description: "Custodian or custom account number (if available)"
-
+          - name: close_date
+            description: "Target close date when actual close date not available (ie pre and post full execution)"
+          - name: amount
+            description: "Transaction Amount (Precision as appropriate)"
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: trade_status_agg
         description: ""
         loaded_at_field: _created_at
@@ -54,3 +62,12 @@ sources:
             description: "Trade order pipeline status"
           - name: number_of_orders
             description: "Number of Transactions"
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR

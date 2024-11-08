@@ -7,10 +7,90 @@ sources:
     schema: dynamics_tamarac_cpg
     tables:
       - name: account
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: connection
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: connectionrole
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: contact
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: retentionsuccessdetail
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stringmap
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: tam_accounttype
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: tam_financeaccount
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ

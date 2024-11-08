@@ -1,0 +1,151 @@
+version: 2
+models:
+  - name: employees
+    columns:
+      - name: SOURCE_SYSTEM
+        description: ''
+        data_type: VARCHAR
+      - name: EMPLOYEE_NUM
+        description: 'ADP employee number, 6-digit unique identifier.  Exists in HCM for historical data reference.  Will be blank for new associates.'
+        data_type: VARCHAR
+      - name: POSITION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: EMPLOYMENT_STATUS
+        description: '"Active" or "Terminated"'
+        data_type: VARCHAR
+      - name: POSITION_TITLE
+        description: 'Job title name as it is in the source HR system (previously ADP)'
+        data_type: VARCHAR
+      - name: JOB_FUNCTION_CODE
+        description: 'System ID or code for the primary job function of the associate'
+        data_type: VARCHAR
+      - name: ADVISOR_NONADVISOR
+        description: 'Indicates if this associate is in an advisor or non-advisor role Added to HCM field list on 5/24/2024'
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_EMAIL
+        description: 'Associate work email address'
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_PHONE
+        description: 'Associate work phone number'
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_CELL_PHONE
+        description: 'Associate work cell phone'
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_NAME_FIRST
+        description: 'First Name, Legal'
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_NAME_MIDDLE
+        description: 'Middle Name, legal'
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_NAME_LAST
+        description: 'Last Name, legal'
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_NAME_SUFFIX
+        description: 'Suffix, legal'
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_NAME_FULL
+        description: 'Full legal name: Last, First Middle'
+        data_type: VARCHAR
+      - name: ASSOCIATE_PREFERRED_NAME
+        description: 'Preferred first name'
+        data_type: VARCHAR
+      - name: ASSOCIATE_BIRTH_DATE_MASKED
+        description: ''
+        data_type: DATE
+      - name: ASSOCIATE_BIRTH_DATE
+        description: 'Birth date (date is masked in end user non-HR views)'
+        data_type: VARCHAR
+      - name: ASSOCIATE_BIRTH_MONTH
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_ADDRESS_LINE1
+        description: 'Address line 1 of physical work location'
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_ADDRESS_LINE2
+        description: 'Address line 2 of physical work location'
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_ADDRESS_LINE3
+        description: 'Address line 3 of physical work location'
+        data_type: VARCHAR
+      - name: POSITION_CLASS
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORKER_TYPE
+        description: 'Full time, Part Time, Intern, Temp'
+        data_type: VARCHAR
+      - name: POSITION_COMPANY_CODE
+        description: ''
+        data_type: VARIANT
+      - name: POSITION_MANAGER_NAME
+        description: 'Name of the direct manager of the associate'
+        data_type: VARCHAR
+      - name: POSITION_MANAGER_POSITION_ID
+        description: 'Position ID of the direct manager of the associate'
+        data_type: VARCHAR
+      - name: POSITION_REGION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_LOCATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_DEPARTMENT_NAME
+        description: 'Org Office or Department Name'
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_LOCATION_NAME
+        description: 'The location name of the physical working address of the associate (ex. Overland Park, KS).'
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_ADDRESS_CITY
+        description: 'City of the physical working location for the associate. Blank for remote associates (home address are kept private)'
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_ADDRESS_STATE_ABB
+        description: 'State Abbreviation of the physical working location for the associate. Blank for remote associates (home addresses are kept private)'
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_ADDRESS_ZIP_CODE
+        description: 'Zip code of the physical working location for the associate. Blank for remote associates (home addresses are kept private)'
+        data_type: VARCHAR
+      - name: LOCATION_CODE
+        description: 'Mariner Location ID for the location (ex. 100, L-10015)'
+        data_type: VARCHAR
+      - name: COST_NUM
+        description: ''
+        data_type: VARCHAR
+      - name: REPORTING_OFFICE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_ORIGINAL_HIRE_DATE
+        description: 'Date someone was first hired to Mariner'
+        data_type: DATE
+      - name: POSITION_SENIORITY_HIRE_DATE
+        description: 'Hire date of previous firm or otherwise grandfathered'
+        data_type: DATE
+      - name: ASSOCIATE_REHIRE_DATE
+        description: 'Date of most recent rehire status for the associate, if they left and returned'
+        data_type: DATE
+      - name: ASSOCIATE_FINAL_TERMINATION_DATE
+        description: 'The date the associate terminated'
+        data_type: DATE
+      - name: DATA_LAST_REFRESHED_DATE
+        description: ''
+        data_type: DATE
+      - name: ACCOUNTING_ID
+        description: 'Great Plains accounting/cost code (ex. 1104, 7704, 8804),'
+        data_type: VARCHAR
+      - name: SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_START_DATE
+        description: 'Start date for the most current position of the associate'
+        data_type: DATE
+      - name: TITLE_CHANGE_REASON
+        description: ''
+        data_type: VARCHAR
+      - name: JOB_ID
+        description: 'Job ID'
+        data_type: VARCHAR
+      - name: BU_ALLOCATION
+        description: ''
+        data_type: VARCHAR
+      - name: LEGACY_EMPLOYEE_NUM
+        description: ''
+        data_type: VARCHAR

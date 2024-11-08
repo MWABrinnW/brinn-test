@@ -1,0 +1,94 @@
+version: 2
+models:
+  - name: perform__stg_allocations
+    columns:
+      - name: SIDE
+        description: ''
+      - name: CUSIP
+        description: ''
+      - name: PRICE
+        description: ''
+      - name: TRADE_DATE
+        description: ''
+      - name: SETTLE_DATE
+        description: ''
+      - name: DEALER
+        description: ''
+      - name: DEALER_DTC
+        description: ''
+      - name: PERFORM_SYSTICKETNO
+        description: ''
+      - name: TICKETNO
+        description: ''
+      - name: DESCRIPTION
+        description: ''
+      - name: MATURE_DATE
+        description: ''
+      - name: COUPON
+        description: ''
+      - name: SECURITY_TYPE
+        description: ''
+      - name: CREATED_DATE
+        description: ''
+      - name: CREATED_TIME
+        description: ''
+      - name: CREATED_DATE_UTC
+        description: ''
+      - name: CREATED_TIME_UTC
+        description: ''
+      - name: CREATED_BY
+        description: ''
+      - name: APPLIED_DATE
+        description: ''
+      - name: APPLIED_TIME
+        description: ''
+      - name: APPLIED_DATE_UTC
+        description: ''
+      - name: APPLIED_TIME_UTC
+        description: ''
+      - name: APPLIED_BY
+        description: ''
+      - name: APPLIED_LAST_DATE
+        description: ''
+      - name: APPLIED_LAST_TIME
+        description: ''
+      - name: APPLIED_LAST_DATE_UTC
+        description: ''
+      - name: APPLIED_LAST_TIME_UTC
+        description: ''
+      - name: APPLIED_LAST_BY
+        description: ''
+      - name: TRADE_QUANTITY
+        description: ''
+      - name: TRADE_PRINCIPAL
+        description: ''
+      - name: TRADE_INTEREST
+        description: ''
+      - name: TRADE_NET_MONEY
+        description: ''
+      - name: PORTFOLIO
+        description: ''
+      - name: PORTFOLIO_ACCOUNT_NUMBER
+        description: ''
+      - name: PORTFOLIO_CUSTODIAN
+        description: ''
+      - name: ACCOUNT_TYPE
+        description: ''
+      - name: QUANTITY
+        description: ''
+      - name: PRINCIPAL
+        description: ''
+      - name: INTEREST
+        description: ''
+      - name: NET_MONEY
+        description: ''
+      - name: INQUIRY_ID
+        description: ''
+      - name: EXTERNAL_ORDER_ID
+        description: ''
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: RECORD_DATE
+        description: ''
+      - name: RECORD_DATETIME
+        description: ''

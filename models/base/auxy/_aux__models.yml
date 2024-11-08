@@ -1,26 +1,26 @@
 version: 2
-
 models:
   - name: aux__base_locations
     config:
-      tags: ['locations']
-    description: >
-      Primary purpose for this table is to assign a Mariner Location ID to each Mariner Location.
-      That ID/name is used throughout a number of systems (ex. Great Plains, ADP, Salesforce, Enterprise Reporting, etc).
-      The Location Master is also where the the hierarchy of Region/Market/Location is kept, along with other ancillary levels (Division, Legal, and Tax hierarchy) will be found.
+      tags:
+        - locations
+    description: 'Primary purpose for this table is to assign a Mariner Location ID to each Mariner Location. That ID/name is used throughout a number of systems (ex. Great Plains, ADP, Salesforce, Enterprise Reporting, etc). The Location Master is also where the the hierarchy of Region/Market/Location is kept, along with other ancillary levels (Division, Legal, and Tax hierarchy) will be found.
+
+      '
     columns:
       - name: start_date
         description: Unique identifier for each Location Master record.
       - name: end_date
         description: Start date the new location is active.
-      - name: active_directory
-        description: True = active; False = Inactive
+      - name: ACTIVE
+        description: ''
+        data_type: NUMBER
       - name: general_access
-        description: "True = everyone can see code; False = restricted view NOTE: This is always set to True."
+        description: 'True = everyone can see code; False = restricted view NOTE: This is always set to True.'
       - name: location_code
         description: Mariner Location ID for the location (ex. 100, L-10015)
       - name: division
-        description: "Division: separates Wealth, Advisory Solutions, and HQ"
+        description: 'Division: separates Wealth, Advisory Solutions, and HQ'
       - name: legal_name
         description: Legal entity
       - name: region_name
@@ -30,28 +30,31 @@ models:
       - name: location_name
         description: Location name, offices are grouped into a location
       - name: office_name
-        description: "Office name/location in the format of 'City, State'"
+        description: Office name/location in the format of 'City, State'
       - name: location_city
         description: Location city
       - name: location_state
         description: Location state
-      - name: accounting_id_description
-        description: Great Plains accounting/cost code description (ex. Costa Mesa, CA; Costa Mesa, CA - MSEC; Costa Mesa, CA - MIR),
       - name: accounting_id
         description: Great Plains accounting/cost code (ex. 1104, 7704, 8804),
+      - name: accounting_id_description
+        description: Great Plains accounting/cost code description (ex. Costa Mesa, CA; Costa Mesa, CA - MSEC; Costa Mesa, CA - MIR),
       - name: acquisition_name
         description: Name of firm purchase/acquisition or advisor lift-out,
       - name: acquisition_type
         description: Type of acquisition (ex. Advisor lift-out, Firm purchase, Significant hire, Greenfield, Tax Acquisition),
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
       - name: _created_at
         description: Datetime representing when the record was loaded into the table from the source file.
-
   - name: aux__base_locations_cost_center_history
     config:
-      tags: ['locations']
-    description: >
-      Primary purpose for this table is to track prior accounting codes/cost centers for each location and the corresponding current accounting code.
-      These accounting codes tie to Great Plains and ADP.
+      tags:
+        - locations
+    description: 'Primary purpose for this table is to track prior accounting codes/cost centers for each location and the corresponding current accounting code. These accounting codes tie to Great Plains and ADP.
+
+      '
     columns:
       - name: start_date
         description: Start date the new location is active
@@ -61,42 +64,590 @@ models:
         description: Great Plains accounting/cost code (ex. 1104, 7704, 8804) - prior code
       - name: current_code
         description: Great Plains accounting/cost code (ex. 1104, 7704, 8804) - current code
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
       - name: _created_at
         description: Datetime representing when the record was loaded into the table from the source file.
-
   - name: aux__base_employee_overrides
-    tags: ['employees']
-    description: >
-      "Employee record value overrides and manual entries (box file id: 1085269023169)."
-      Used by the HR team to make modification to employee records before they appear in the EDW.
+    tags:
+      - employees
+    description: '"Employee record value overrides and manual entries (box file id: 1085269023169)." Used by the HR team to make modification to employee records before they appear in the EDW.
 
+      '
+    columns:
+      - name: COMMENT
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: START_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: END_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: IS_DELETED
+        description: ''
+        data_type: NUMBER
+      - name: ASSOCIATE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: EMPLOYEE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: EMPLOYEE_NUM
+        description: ''
+        data_type: VARCHAR
+      - name: EMPLOYMENT_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: VOL_INVOL
+        description: ''
+        data_type: VARCHAR
+      - name: CHANGE_REASON_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: CHANGE_REASON_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: HIRE_DETAILS
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: JOB_FUNCTION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_ORIGINAL_HIRE_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_REHIRE_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_FINAL_TERMINATION_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_NAME_FIRST
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_NAME_MIDDLE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_NAME_LAST
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_NAME_FULL
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_PREFERRED_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_NAME_SUFFIX
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_BIRTH_DATE
+        description: ''
+        data_type: VARCHAR
+        meta:
+          masking_policy: mp_associate_pii_text
+      - name: ASSOCIATE_GENDER_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_GENDER_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_PERSONAL_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_PERSONAL_PHONE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_PERSONAL_CELL_PHONE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_ADDRESS_LINE1
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_ADDRESS_LINE2
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_ADDRESS_CITY
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_ADDRESS_STATE_ABB
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_ADDRESS_STATE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_ADDRESS_ZIP_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_LEGAL_ADDRESS_COUNTRY
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_OTHER_ADDRESS_LINE1
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_OTHER_ADDRESS_LINE2
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_OTHER_ADDRESS_CITY
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_OTHER_ADDRESS_STATE_ABB
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_OTHER_ADDRESS_STATE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_OTHER_ADDRESS_ZIP_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_OTHER_ADDRESS_COUNTRY
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_EEO_ETHNICITY
+        description: ''
+        data_type: VARCHAR
+        meta:
+          masking_policy: mp_associate_pii_text
+      - name: ASSOCIATE_EEO_IDENTIFICATION_METHOD
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_EDUCATION
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_PHONE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_WORK_CELL_PHONE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_COMPANY_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_STATUS_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_SENIORITY_HIRE_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_START_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_TERMINATION_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_CHANGE_REASON
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_REGION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_REGION_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_REGION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_MANAGER_POSITION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_MANAGER_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_PRIMARY_JOB_INDICATOR
+        description: ''
+        data_type: NUMBER
+      - name: POSITION_TITLE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_TITLE_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: EE_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORKER_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_BENEFITS_GROUP_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_BENEFITS_GROUP_CLASS
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_FLSA
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_FULL_TIME_EQUIVALENT
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_SCHEDULED_HOURS
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_STANDARD_HOURS
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_LOCATION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_LOCATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_ADDRESS_LINE1
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_ADDRESS_LINE2
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_ADDRESS_LINE3
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_ADDRESS_CITY
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_ADDRESS_STATE_ABB
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_ADDRESS_STATE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_ADDRESS_ZIP_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_WORK_SITE_ADDRESS_COUNTRY
+        description: ''
+        data_type: VARCHAR
+      - name: HOME_ORGANIZATIONAL_UNITS
+        description: ''
+        data_type: VARCHAR
+      - name: HOME_ORGANIZATIONAL_UNITS_MARKET_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: HOME_ORGANIZATIONAL_UNITS_MARKET_NAME_1
+        description: ''
+        data_type: VARCHAR
+      - name: HOME_ORGANIZATIONAL_UNITS_MARKET_NAME_2
+        description: ''
+        data_type: VARCHAR
+      - name: HOME_ORGANIZATIONAL_UNITS_DEPARTMENT_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: HOME_ORGANIZATIONAL_UNITS_DEPARTMENT_NAME_1
+        description: ''
+        data_type: VARCHAR
+      - name: HOME_ORGANIZATIONAL_UNITS_DEPARTMENT_NAME_2
+        description: ''
+        data_type: VARCHAR
+      - name: HOME_ORGANIZATIONAL_UNITS_COST_NUM
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_COST_NUM_LEGAL_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_COST_NUM_REGION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_COST_NUM_MARKET_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_COST_NUM_LOCATION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_COST_NUM_TEAM_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_COST_NUM_NATURAL_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_COST_NUM_CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: OCCUPATIONAL_CLASSIFICATIONS
+        description: ''
+        data_type: VARCHAR
+      - name: OCCUPATIONAL_CLASSIFICATIONS_EEO_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: OCCUPATIONAL_CLASSIFICATIONS_EEO_CLASS_P2
+        description: ''
+        data_type: VARCHAR
+      - name: OCCUPATIONAL_CLASSIFICATIONS_EEO_CLASS_P1
+        description: ''
+        data_type: VARCHAR
+      - name: OCCUPATIONAL_CLASSIFICATIONS_CLASS_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: OCCUPATIONAL_CLASSIFICATIONS_CLASS
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_EEO_CLASS
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_DEPARTMENT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_MARKET_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: REPORTING_OFFICE
+        description: ''
+        data_type: VARCHAR
+      - name: TITLE_CHANGE_REASON
+        description: ''
+        data_type: VARCHAR
+      - name: JOB_ID
+        description: ''
+        data_type: VARCHAR
+      - name: BU_ALLOCATION
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _BOX_FILE_ID
+        description: ''
+        data_type: VARCHAR
   - name: aux__base_integration_roadmap
     description: This smartsheets file is maintained by the platforms team and details the roadmap for various location Orion integration activities.
-
+    columns:
+      - name: ACQUISITION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: INTEGRATION_MILESTONE
+        description: ''
+        data_type: VARCHAR
+      - name: STANDARD_APPROACH
+        description: ''
+        data_type: VARCHAR
+      - name: STRATEGY
+        description: ''
+        data_type: VARCHAR
+      - name: STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: TARGET_START
+        description: ''
+        data_type: DATE
+      - name: TARGET_END
+        description: ''
+        data_type: DATE
+      - name: LEVEL_OF_EFFORT
+        description: ''
+        data_type: VARCHAR
+      - name: RISK
+        description: ''
+        data_type: VARCHAR
+      - name: BUSINESS_PRIORITY
+        description: ''
+        data_type: VARCHAR
+      - name: ESS_AND_OPS_TEAMS_NEEDED_FOR_PROJECT
+        description: ''
+        data_type: VARCHAR
+      - name: ESS_AND_OPS_RESOURCE_NAMES_LIGHT_SUPPORT
+        description: ''
+        data_type: VARCHAR
+      - name: ESS_AND_OPS_RESOURCE_NAMES_HEAVY_SUPPORT
+        description: ''
+        data_type: VARCHAR
+      - name: HEALTH
+        description: ''
+        data_type: VARCHAR
+      - name: ALERTED_HEALTH_REASON
+        description: ''
+        data_type: VARCHAR
+      - name: ADDITIONAL_HEALTH_COMMENTS
+        description: ''
+        data_type: VARCHAR
+      - name: LINKS_TO_ADDITIONAL_DETAIL
+        description: ''
+        data_type: VARCHAR
+      - name: LEGACY_SYSTEM
+        description: ''
+        data_type: VARCHAR
+      - name: LEGACY_SYSTEM_CONTRACT_TERM_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: OWNER
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
   - name: aux__base_hfw_acct_data
     config:
-      tags: ['hfw']
+      tags:
+        - hfw
       grants:
-        select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        select: '{{ [''db_pms_mwa_r''] if target.name in [''prod'', ''test'', ''ci''] else []}}'
+    columns:
+      - name: FINANCIAL_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: FINANCIAL_ACCOUNT_NUMBER_CLEAN
+        description: ''
+        data_type: VARCHAR
+      - name: INTERNAL_FINANCIAL_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: INTERNAL_HOUSEHOLD_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: REGISTRANT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: FINANCIAL_ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TYPE_OF_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE_SYSTEM_CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: VERIFIED_CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: MODEL_INVESTMENT_STRATEGY
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENT_MANAGER
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE_SYSTEM_CLIENT_MANAGER
+        description: ''
+        data_type: VARCHAR
+      - name: PRIMARY_CLIENT_MANAGER
+        description: ''
+        data_type: VARCHAR
+      - name: FEE_SCHEDULE
+        description: ''
+        data_type: VARCHAR
+      - name: ERISA
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_ACTIVE
+        description: ''
+        data_type: VARCHAR
+      - name: AUM_CLASSIFICATION_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: DISCRETION_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: PROXY_VOTING_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: COST_BASIS_DISPOSAL_METHOD
+        description: ''
+        data_type: VARCHAR
+      - name: PRIME_BROKER_ENABLED
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_OPEN_DATE
+        description: ''
+        data_type: DATE
+      - name: CLOSED_DATE
+        description: ''
+        data_type: DATE
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: UPDATE_DATE
+        description: ''
+        data_type: DATE
+      - name: NOTES
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
   - name: aux__base_hfw_tpg_mstar_overlap
     config:
-      tags: ['hfw']
+      tags:
+        - hfw
       grants:
-        select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        select: '{{ [''db_pms_mwa_r''] if target.name in [''prod'', ''test'', ''ci''] else []}}'
+    columns:
+      - name: CLIENT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TPG_ID_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: MORNINGSTAR_ACCT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: MORNINGSTAR_ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
   - name: aux__stg_tda_account_mappings
     config:
-      tags: ['tda', 'schwab']
+      tags:
+        - tda
+        - schwab
       grants:
-        select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        select: '{{ [''engineering'', ''datamanagement''] if target.name in [''prod'', ''test'', ''ci''] else []}}'
+    columns:
+      - name: SCHWAB_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: TDA_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_REGISTRATION
+        description: ''
+        data_type: VARCHAR
+      - name: _BOX_FILE_ID
+        description: ''
+        data_type: NUMBER
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
   - name: aux__stg_custodian_links
-    description: >
-      Custodian link catalog intended to
-      1) Be comprehensive of all custodian links associated to accounts in Mariner data feeds.
-      2) Capture the firm entity (firm_source) associated with each custodian link.
+    description: 'Custodian link catalog intended to 1) Be comprehensive of all custodian links associated to accounts in Mariner data feeds. 2) Capture the firm entity (firm_source) associated with each custodian link.
+
+      '
     config:
-      tags: ['custodian']
+      tags:
+        - custodian
       grants:
-        select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        select: '{{ [''datamanagement'', ''engineering''] if target.name in [''prod'', ''test'', ''ci''] else []}}'
     tests:
       - dbt_utils.mutually_exclusive_ranges:
           lower_bound_column: coalesce(effective_start_date, '1900-01-01')
@@ -106,32 +657,29 @@ models:
           zero_length_range_allowed: true
     columns:
       - name: CUSTODIAN
-        description: 'Custodian name, lower-case, no spaces.'
+        description: Custodian name, lower-case, no spaces.
         data_type: VARCHAR
       - name: LINK
-        description: >
-          'The custodian link value. Each custodian calls this something different and it functions specific to their platform. However, they all share similarities in that the value is associated to financial accounts and serves to "link" an account to a feed or certain access areas of a firm.'
+        description: '''The custodian link value. Each custodian calls this something different and it functions specific to their platform. However, they all share similarities in that the value is associated to financial accounts and serves to "link" an account to a feed or certain access areas of a firm.''
 
-          Schwab - master number (type FA or SL)
-          Fidelity - G number (type primary or secondary)
-          Pershing - Investment professional number
-          LPL - Subscriber id and rep id
-          TDA - rep code
+          Schwab - master number (type FA or SL) Fidelity - G number (type primary or secondary) Pershing - Investment professional number LPL - Subscriber id and rep id TDA - rep code
+
+          '
         data_type: VARCHAR
       - name: EFFECTIVE_START_DATE
-        description: 'When the link record first became effective. Null indicates all of history prior to the effective_end_date.'
+        description: When the link record first became effective. Null indicates all of history prior to the effective_end_date.
         data_type: DATE
       - name: EFFECTIVE_END_DATE
-        description: 'When the link record became inactive. Null indicates all of time after the effective_start_date.'
+        description: When the link record became inactive. Null indicates all of time after the effective_start_date.
         data_type: DATE
       - name: FIRM_SOURCE
-        description: 'Firm entity associated with the link value.'
+        description: Firm entity associated with the link value.
         data_type: VARCHAR
       - name: LINK_TYPE
-        description: 'The type of link (i.e. master number or G number). Each custodian has different link types.'
+        description: The type of link (i.e. master number or G number). Each custodian has different link types.
         data_type: VARCHAR
       - name: LINK_SUBTYPE
-        description: 'Some custodians have primary, secondary, or other labels to indicate the type of link value.'
+        description: Some custodians have primary, secondary, or other labels to indicate the type of link value.
         data_type: VARCHAR
       - name: LINK_DESCRIPTION
         description: ''
@@ -146,43 +694,506 @@ models:
         description: ''
         data_type: VARCHAR
       - name: LOCATION_CODE
-        description: 'Location code assigned to the link. This is not always 1 to 1.'
+        description: Location code assigned to the link. This is not always 1 to 1.
         data_type: VARCHAR
       - name: LOCATION_CODE_NOTES
         description: ''
         data_type: VARCHAR
       - name: ADVISOR_EMAIL
-        description: 'For link values that are associated to a single advisor, this is their email address.'
+        description: For link values that are associated to a single advisor, this is their email address.
         data_type: VARCHAR
       - name: IS_DECEASED
-        description: 'Is this a master/link designated for deceased clients.'
+        description: Is this a master/link designated for deceased clients.
         data_type: NUMBER
       - name: HAS_TRADING_AUTHORITY
-        description: 'Does this link value enable trading activity?'
+        description: Does this link value enable trading activity?
         data_type: NUMBER
       - name: ADDED_DATE
-        description: 'Manually maintained date to indicate when a link was added to the source spreadsheet.'
+        description: Manually maintained date to indicate when a link was added to the source spreadsheet.
         data_type: DATE
       - name: ADDED_NOTES
-        description: 'Manually maintained text field that can include context about who or why a link was added to the source spreadsheet.'
+        description: Manually maintained text field that can include context about who or why a link was added to the source spreadsheet.
         data_type: VARCHAR
       - name: DEACTIVATED_DATE
-        description: 'The date a link was deprecated or removed from service, if applicable.'
+        description: The date a link was deprecated or removed from service, if applicable.
         data_type: DATE
       - name: IS_FROM_TDA_MIGRATION
-        description: 'Is the Schwab master (link) related to the TDA migration in September 2023.'
+        description: Is the Schwab master (link) related to the TDA migration in September 2023.
         data_type: NUMBER
       - name: _BOX_FILE_ID
-        description: 'The unique box file ID where the records are originally sourced.'
+        description: The unique box file ID where the records are originally sourced.
         data_type: VARCHAR
       - name: _BOX_SHEET_NAME
-        description: 'The name of the box file sheet where the records are originally sourced.'
+        description: The name of the box file sheet where the records are originally sourced.
         data_type: VARCHAR
       - name: _SOURCE_LOADED_AT
-        description: 'Time when the records were created in the source table.'
+        description: Time when the records were created in the source table.
         data_type: TIMESTAMP_NTZ
   - name: aux__stg_referral_fees_san_adjustments
     config:
-      tags: ['referral_fees']
+      tags:
+        - referral_fees
       grants:
-        select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        select: '{{ [''datamanagement'', ''engineering''] if target.name in [''prod'', ''test'', ''ci''] else []}}'
+    columns:
+      - name: PERIOD_DATENUM
+        description: ''
+        data_type: NUMBER
+      - name: DATE
+        description: ''
+        data_type: DATE
+      - name: AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: ADJUSTMENT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_ID
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: MWA_ADVISOR
+        description: ''
+        data_type: VARCHAR
+  - name: aux__stg_custodian_codes_master_list
+    columns:
+      - name: OFFICE_LOCATION
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: ADVISOR_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: _CUSTODIAN_KEY
+        description: ''
+        data_type: VARCHAR
+      - name: LINK
+        description: ''
+        data_type: VARCHAR
+      - name: TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: NOTES
+        description: ''
+        data_type: VARCHAR
+      - name: HQ_MASTER_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: PRICING
+        description: ''
+        data_type: VARCHAR
+      - name: TRADING_AUTHORITY
+        description: ''
+        data_type: VARCHAR
+      - name: THIRD_PARTY_MANAGED
+        description: ''
+        data_type: VARCHAR
+      - name: RPP_WA_OR_SAN
+        description: ''
+        data_type: VARCHAR
+      - name: OPEN_DATE
+        description: ''
+        data_type: DATE
+      - name: OLD_REP_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: ONE_MARINER_TRANSITION
+        description: ''
+        data_type: VARCHAR
+      - name: VENDOR_TRANSMISSION
+        description: ''
+        data_type: VARCHAR
+      - name: OPTIONS_LEVEL_APPROVAL
+        description: ''
+        data_type: VARCHAR
+      - name: PRIME_BROKER
+        description: ''
+        data_type: VARCHAR
+      - name: DATA_FEED
+        description: ''
+        data_type: VARCHAR
+      - name: STANDING_LINKING_INSTRUCTIONS
+        description: ''
+        data_type: VARCHAR
+      - name: STATEMENT_PREFERENCES
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: ADVISOR_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: _BOX_FILE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: _BOX_SHEET_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+  - name: aux__stg_financials_fee_type
+    columns:
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: VARCHAR
+      - name: FEE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: REVENUE_CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_FREQUENCY
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _BOX_FILE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: _BOX_FILE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: _BOX_META
+        description: ''
+        data_type: VARIANT
+      - name: _ID
+        description: ''
+        data_type: NUMBER
+  - name: aux__base_lifi_exclusions
+    columns:
+      - name: _BOX_FILE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+  - name: aux__stg_referral_fees_lock_dates
+    columns:
+      - name: QUARTER_END_DATE
+        description: ''
+        data_type: DATE
+      - name: LOCK_DATE
+        description: ''
+        data_type: DATE
+      - name: REFERRAL_PARTY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _BOX_FILE_ID
+        description: ''
+        data_type: VARCHAR
+  - name: base_dates
+    columns:
+      - name: DATE_DAY
+        description: ''
+        data_type: DATE
+      - name: PRIOR_DATE_DAY
+        description: ''
+        data_type: DATE
+      - name: NEXT_DATE_DAY
+        description: ''
+        data_type: DATE
+      - name: PRIOR_YEAR_DATE_DAY
+        description: ''
+        data_type: DATE
+      - name: PRIOR_YEAR_OVER_YEAR_DATE_DAY
+        description: ''
+        data_type: DATE
+      - name: DAY_OF_WEEK
+        description: ''
+        data_type: NUMBER
+      - name: DAY_OF_WEEK_ISO
+        description: ''
+        data_type: NUMBER
+      - name: DAY_OF_WEEK_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DAY_OF_WEEK_NAME_SHORT
+        description: ''
+        data_type: VARCHAR
+      - name: DAY_OF_MONTH
+        description: ''
+        data_type: NUMBER
+      - name: DAY_OF_YEAR
+        description: ''
+        data_type: NUMBER
+      - name: WEEK_START_DATE
+        description: ''
+        data_type: DATE
+      - name: WEEK_END_DATE
+        description: ''
+        data_type: DATE
+      - name: PRIOR_YEAR_WEEK_START_DATE
+        description: ''
+        data_type: DATE
+      - name: PRIOR_YEAR_WEEK_END_DATE
+        description: ''
+        data_type: DATE
+      - name: WEEK_OF_YEAR
+        description: ''
+        data_type: NUMBER
+      - name: ISO_WEEK_START_DATE
+        description: ''
+        data_type: DATE
+      - name: ISO_WEEK_END_DATE
+        description: ''
+        data_type: DATE
+      - name: PRIOR_YEAR_ISO_WEEK_START_DATE
+        description: ''
+        data_type: DATE
+      - name: PRIOR_YEAR_ISO_WEEK_END_DATE
+        description: ''
+        data_type: DATE
+      - name: ISO_WEEK_OF_YEAR
+        description: ''
+        data_type: NUMBER
+      - name: PRIOR_YEAR_WEEK_OF_YEAR
+        description: ''
+        data_type: NUMBER
+      - name: PRIOR_YEAR_ISO_WEEK_OF_YEAR
+        description: ''
+        data_type: NUMBER
+      - name: MONTH_OF_YEAR
+        description: ''
+        data_type: NUMBER
+      - name: MONTH_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: MONTH_NAME_SHORT
+        description: ''
+        data_type: VARCHAR
+      - name: MONTH_START_DATE
+        description: ''
+        data_type: DATE
+      - name: MONTH_END_DATE
+        description: ''
+        data_type: DATE
+      - name: PRIOR_YEAR_MONTH_START_DATE
+        description: ''
+        data_type: DATE
+      - name: PRIOR_YEAR_MONTH_END_DATE
+        description: ''
+        data_type: DATE
+      - name: QUARTER_OF_YEAR
+        description: ''
+        data_type: NUMBER
+      - name: QUARTER_START_DATE
+        description: ''
+        data_type: DATE
+      - name: QUARTER_END_DATE
+        description: ''
+        data_type: DATE
+      - name: YEAR_NUMBER
+        description: ''
+        data_type: NUMBER
+      - name: YEAR_START_DATE
+        description: ''
+        data_type: DATE
+      - name: YEAR_END_DATE
+        description: ''
+        data_type: DATE
+  - name: aux__stg_custodian_mappings
+    columns:
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: FIELD
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: DEFINITION
+        description: ''
+        data_type: VARCHAR
+      - name: NORMALIZED
+        description: ''
+        data_type: VARCHAR
+      - name: _BOX_FILE_ID
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+  - name: aux__stg_revenue_black_diamond_mcgervey
+    columns:
+      - name: ACCOUNT_LONG_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_STATE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: ACTUAL_CLIENT_DATA
+        description: ''
+        data_type: VARCHAR
+      - name: AS_OF_DATE
+        description: ''
+        data_type: DATE
+      - name: ASSIGNED_TO
+        description: ''
+        data_type: VARCHAR
+      - name: ASSIGNMENT_LEVEL
+        description: ''
+        data_type: VARCHAR
+      - name: BILLABLE_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: BILLED_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: BILLED_VALUE_CHANGE
+        description: ''
+        data_type: NUMBER
+      - name: BILLING_ACCOUNT_CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_ACCOUNT_LONG_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_CONFIGURATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_RULE_APPLIED
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_START_DATE
+        description: ''
+        data_type: DATE
+      - name: CASH_AVAILABLE
+        description: ''
+        data_type: NUMBER
+      - name: CASH_AVAILABLE_DATE
+        description: ''
+        data_type: DATE
+      - name: CASH_DIFFERENCE
+        description: ''
+        data_type: NUMBER
+      - name: CLIENT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: DAYS_IN_PERIOD
+        description: ''
+        data_type: NUMBER
+      - name: EXTERNAL_ID
+        description: ''
+        data_type: VARCHAR
+      - name: FEE_SCHEDULE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: FEE_OR_REBATE_AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: FEE_REBATE_CHANGE
+        description: ''
+        data_type: NUMBER
+      - name: FINALIZED_BY
+        description: ''
+        data_type: VARCHAR
+      - name: FINALIZED_DATE
+        description: ''
+        data_type: DATE
+      - name: LAST_AS_OF_DATE
+        description: ''
+        data_type: DATE
+      - name: LAST_BILLED_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: LAST_FEE_REBATE_AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: LAST_JOB_ID
+        description: ''
+        data_type: VARCHAR
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: PERIOD_END_DATE
+        description: ''
+        data_type: DATE
+      - name: PORTFOLIO_DISPLAY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_GROUP
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: PREFERENTIAL_RETIREMENT
+        description: ''
+        data_type: VARCHAR
+      - name: RATE_PERCENTAGE
+        description: ''
+        data_type: NUMBER
+      - name: RATE_BPS
+        description: ''
+        data_type: NUMBER
+      - name: RATE_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: RELATIONSHIP
+        description: ''
+        data_type: VARCHAR
+      - name: REP_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: START_DATE_ADJ_EMV
+        description: ''
+        data_type: VARCHAR
+      - name: TOTAL_PERIOD_FEE
+        description: ''
+        data_type: NUMBER
+      - name: WORKFLOW
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _BOX_FILE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: _BOX_FILE_NAME
+        description: ''
+        data_type: VARCHAR

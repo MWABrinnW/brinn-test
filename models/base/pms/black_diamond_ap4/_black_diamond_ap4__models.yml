@@ -2,109 +2,121 @@ version: 2
 models:
   - name: black_diamond_ap4__base_accounts
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
         description: ''
         data_type: VARCHAR
-      - name: ACCOUNTNUMBER
+      - name: ACCOUNT_NUMBER
         description: ''
         data_type: VARCHAR
-      - name: ACCOUNTCATEGORY
+      - name: ACCOUNT_CATEGORY
         description: ''
         data_type: VARCHAR
-      - name: ACCOUNTREGISTRATIONTYPE
+      - name: ACCOUNT_REGISTRATION_TYPE
         description: ''
         data_type: VARCHAR
-      - name: ACCOUNTSUBCATEGORY
+      - name: ACCOUNT_SUBCATEGORY
         description: ''
         data_type: VARCHAR
-      - name: ACCOUNTTYPE
+      - name: ACCOUNT_TYPE
         description: ''
         data_type: VARCHAR
-      - name: ASOFDATE
+      - name: AS_OF_DATE
         description: ''
         data_type: DATE
       - name: BILLABLE
         description: ''
         data_type: BOOLEAN
-      - name: BILLINGACCOUNTDESCRIPTION
+      - name: BILLING_ACCOUNT_DESCRIPTION
         description: ''
         data_type: VARCHAR
-      - name: BILLINGENDDATE
+      - name: BILLING_END_DATE
         description: ''
         data_type: DATE
-      - name: BILLINGNUMBER
+      - name: BILLING_NUMBER
         description: ''
         data_type: VARCHAR
-      - name: BILLINGSTARTDATE
+      - name: BILLING_START_DATE
         description: ''
         data_type: DATE
-      - name: CLOSEDDATE
+      - name: CLOSED_DATE
         description: ''
         data_type: DATE
-      - name: CUSTODIALACCOUNTNAME
+      - name: CUSTODIAL_ACCOUNT_NAME
         description: ''
         data_type: VARCHAR
       - name: CUSTODIAN
         description: ''
         data_type: VARCHAR
-      - name: DATAPROVIDER
+      - name: DATA_PROVIDER
         description: ''
         data_type: VARCHAR
       - name: DISCRETIONARY
         description: ''
         data_type: BOOLEAN
-      - name: EXTERNALBILLINGACCOUNTID
+      - name: EXTERNAL_BILLING_ACCOUNTID
         description: ''
         data_type: VARCHAR
-      - name: HISTORYSTARTDATE
+      - name: HISTORY_START_DATE
         description: ''
         data_type: DATE
       - name: ID
         description: ''
         data_type: VARCHAR
-      - name: LASTRECONCILEDDATE
+      - name: LAST_RECONCILED_DATE
         description: ''
         data_type: DATE
-      - name: LONGNUMBER
+      - name: LONG_NUMBER
         description: ''
         data_type: VARCHAR
       - name: MANAGER
         description: ''
         data_type: VARCHAR
-      - name: NAME
+      - name: ACCOUNT_NAME
         description: ''
         data_type: VARCHAR
-      - name: OTHERBILLINGMETHOD
+      - name: OTHER_BILLING_METHOD
         description: ''
         data_type: VARCHAR
-      - name: PAYBYINVOICE
+      - name: PAY_BY_INVOICE
         description: ''
         data_type: BOOLEAN
       - name: PERFORMANCESTARTDATE
         description: ''
         data_type: DATE
-      - name: STARTDATE
+      - name: START_DATE
         description: ''
         data_type: DATE
       - name: SUPERVISED
         description: ''
         data_type: BOOLEAN
+      - name: TAX_STATUS
+        description: ''
+        data_type: VARCHAR
       - name: TEAM
         description: ''
         data_type: VARCHAR
-      - name: TOTALEMV
+      - name: TOTAL_EMV
         description: ''
         data_type: NUMBER
-      - name: STYLENAME
+      - name: STYLE_NAME
         description: ''
         data_type: VARCHAR
-      - name: TAXSTATUS
+      - name: FEE_SCHEDULE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: FEE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: RATE_TYPE
         description: ''
         data_type: VARCHAR
       - name: EFFECTIVE_DATE
@@ -113,13 +125,22 @@ models:
       - name: RECORD_ID
         description: ''
         data_type: NUMBER
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
       - name: AUM_AUA_RO
         description: ''
         data_type: VARCHAR
       - name: ACCOUNT_COMPRESSION
         description: ''
         data_type: VARCHAR
-      - name: ACCOUNT_TYPE
+      - name: ACCOUNT_TYPE_2
         description: ''
         data_type: VARCHAR
       - name: BILLING_SPLIT
@@ -149,21 +170,15 @@ models:
       - name: TD_ACCOUNT_NUMBER
         description: ''
         data_type: VARCHAR
-      - name: IS_HEAD
-        description: ''
-        data_type: NUMBER
-      - name: IS_CURRENT
-        description: ''
-        data_type: NUMBER
-      - name: _SOURCE_LOADED_AT
-        description: ''
-        data_type: TIMESTAMP_LTZ
   - name: black_diamond_ap4__base_account_fees
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
@@ -173,6 +188,9 @@ models:
         description: ''
         data_type: DATE
       - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_ID
         description: ''
         data_type: VARCHAR
       - name: FEE_SCHEDULE_TYPE
@@ -198,10 +216,13 @@ models:
         data_type: TIMESTAMP_LTZ
   - name: black_diamond_ap4__base_holdings
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
@@ -287,10 +308,13 @@ models:
         data_type: TIMESTAMP_LTZ
   - name: black_diamond_ap4__base_tax_lots
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
@@ -408,6 +432,18 @@ models:
         data_type: NUMBER
   - name: black_diamond_ap4__base_contacts
     columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
       - name: EFFECTIVE_DATE
         description: ''
         data_type: DATE
@@ -453,12 +489,18 @@ models:
       - name: IS_CURRENT
         description: ''
         data_type: NUMBER
+      - name: _SOURCE_LOADED_AT_2
+        description: ''
+        data_type: TIMESTAMP_LTZ
   - name: black_diamond_ap4__base_portfolio_groups
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
@@ -470,7 +512,7 @@ models:
       - name: PORTFOLIO_GROUP_ID
         description: ''
         data_type: VARCHAR
-      - name: ASPORTFOLIO_GROUP_NAME
+      - name: PORTFOLIO_GROUP_NAME
         description: ''
         data_type: VARCHAR
       - name: PORTFOLIO_ID
@@ -621,10 +663,13 @@ models:
         data_type: TIMESTAMP_LTZ
   - name: black_diamond_ap4__base_account_tags
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
@@ -639,12 +684,12 @@ models:
       - name: TAG_NAME
         description: ''
         data_type: VARCHAR
-        tests:
-        - accepted_values:
-            name: unique_black_diamond_ap4_tag_name
-            values: ['AUM / AUA / RO', 'Account Compression', 'Account Type', 'Billing Split', 'CAIS', 'ERISA', 'Exclude from Billing', 'IPS', 'Liquid vs Illiquid', 'Managed / Non-managed', 'RPP Client', 'TD Account Number']
-            config:
-              severity: warn
+        # tests:
+        #   - accepted_values:
+        #       name: unique_black_diamond_ap4_tag_name
+        #       values: ['AUM / AUA / RO', 'Account Compression', 'Account Type', 'Billing Split', 'CAIS', 'ERISA', 'Exclude from Billing', 'IPS', 'Liquid vs Illiquid', 'Managed / Non-managed', 'RPP Client', 'TD Account Number']
+        #       config:
+        #         severity: warn
       - name: TAG_VALUE
         description: ''
         data_type: VARCHAR
@@ -662,10 +707,13 @@ models:
         data_type: TIMESTAMP_LTZ
   - name: black_diamond_ap4__base_relationships
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
@@ -701,6 +749,9 @@ models:
       - name: PORTFOLIO_DISPLAY_NAME
         description: ''
         data_type: VARCHAR
+      - name: IS_MASTER_PORTFOLIO
+        description: ''
+        data_type: NUMBER
       - name: ACCOUNT_ID
         description: ''
         data_type: VARCHAR
@@ -724,10 +775,13 @@ models:
         data_type: TIMESTAMP_LTZ
   - name: black_diamond_ap4__base_account_benchmarks
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE

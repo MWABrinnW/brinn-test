@@ -1,0 +1,36 @@
+version: 2
+models:
+  - name: tradeops__accounts_groups
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: PLATFORM
+        description: ''
+        data_type: VARCHAR
+      - name: VENUE
+        description: ''
+        data_type: VARCHAR
+        meta:
+          row_access_policy: rap_tradeops_venue
+      - name: GROUP_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_ID
+        description: ''
+        data_type: NUMBER
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: LAST_COLLECTED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ

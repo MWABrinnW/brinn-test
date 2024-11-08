@@ -1,0 +1,91 @@
+version: 2
+models:
+  - name: int_custodian_codes
+    columns:
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: LINK
+        description: ''
+        data_type: VARCHAR
+      - name: LINK_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: LINK_SUBTYPE
+        description: ''
+        data_type: VARCHAR
+      - name: LINK_SUBTYPE_DETAIL
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: NOTES
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_CODE_NOTE
+        description: ''
+        data_type: VARCHAR
+      - name: ADVISOR_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HQ_MASTER_CODE
+        description: ''
+        data_type: NUMBER
+      - name: HAS_TRADING_AUTHORITY
+        description: ''
+        data_type: NUMBER
+      - name: IS_PRIME_BROKER
+        description: ''
+        data_type: NUMBER
+      - name: DATA_FEED
+        description: ''
+        data_type: VARCHAR
+      - name: PRICING
+        description: ''
+        data_type: VARCHAR
+      - name: THIRD_PARTY_MANAGED
+        description: ''
+        data_type: VARCHAR
+      - name: RPP_WA_OR_SAN
+        description: ''
+        data_type: VARCHAR
+      - name: OPEN_DATE
+        description: ''
+        data_type: DATE
+      - name: ONE_MARINER_TRANSITION
+        description: ''
+        data_type: VARCHAR
+      - name: VENDOR_TRANSMISSION
+        description: ''
+        data_type: VARCHAR
+      - name: OLD_REP_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: OPTIONS_LEVEL_APPROVAL
+        description: ''
+        data_type: VARCHAR
+      - name: STANDING_LINKING_INSTRUCTIONS
+        description: ''
+        data_type: VARCHAR
+      - name: STATEMENT_PREFERENCES
+        description: ''
+        data_type: VARCHAR
+      - name: _BOX_FILE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: _BOX_SHEET_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ

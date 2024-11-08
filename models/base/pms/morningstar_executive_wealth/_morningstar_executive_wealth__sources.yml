@@ -8,5 +8,136 @@ sources:
     tables:
       - name: aum
         description: ""
+        columns:
+          - name: ADVISOR_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: CURRENT_CUSTODIAN
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_MANAGED_BY
+            description: ''
+            data_type: VARCHAR
+          - name: INVESTMENT_STRATEGY
+            description: ''
+            data_type: VARCHAR
+          - name: CASH_AMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: CASH_PERCENT
+            description: ''
+            data_type: VARCHAR
+          - name: US_STOCK_AMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: US_STOCK_PERCENT
+            description: ''
+            data_type: VARCHAR
+          - name: NON_US_STOCK_AMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: NON_US_STOCK_PERCENT
+            description: ''
+            data_type: VARCHAR
+          - name: BOND_AMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: BOND_PERCENT
+            description: ''
+            data_type: VARCHAR
+          - name: OTHER_AMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: OTHER_PERCENT
+            description: ''
+            data_type: VARCHAR
+          - name: NOT_CLASSIFIED_AMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: NOT_CLASSIFIED_PERCENT
+            description: ''
+            data_type: VARCHAR
+          - name: TOTAL_ACCOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _MD5
+            description: ''
+            data_type: VARCHAR
       - name: gain_loss
         description: ""
+        columns:
+          - name: ADVISOR_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITY_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: SYMBOL_CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: ACQUISITION_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: SHORT_TERM_UNREALIZED_G_L
+            description: ''
+            data_type: VARCHAR
+          - name: LONG_TERM_UNREALIZED_G_L
+            description: ''
+            data_type: VARCHAR
+          - name: PERCENT_G_L
+            description: ''
+            data_type: VARCHAR
+          - name: UNIT_COST
+            description: ''
+            data_type: VARCHAR
+          - name: PRICE
+            description: ''
+            data_type: VARCHAR
+          - name: QUANTITY
+            description: ''
+            data_type: VARCHAR
+          - name: MARKET_VALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERCENT_OF_ASSET_PERCENT
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _MD5
+            description: ''
+            data_type: VARCHAR

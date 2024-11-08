@@ -390,7 +390,648 @@ sources:
     loaded_at_field: _fivetran_synced
     tables:
       - name: mh_historical_c
+        columns:
+          - name: ID
+            description: ''
+            data_type: VARCHAR
+          - name: IS_DELETED
+            description: ''
+            data_type: BOOLEAN
+          - name: NAME
+            description: ''
+            data_type: VARCHAR
+          - name: CREATED_DATE
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: CREATED_BY_ID
+            description: ''
+            data_type: VARCHAR
+          - name: LAST_MODIFIED_DATE
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: LAST_MODIFIED_BY_ID
+            description: ''
+            data_type: VARCHAR
+          - name: SYSTEM_MODSTAMP
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: LAST_ACTIVITY_DATE
+            description: ''
+            data_type: DATE
+          - name: LAST_VIEWED_DATE
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: LAST_REFERENCED_DATE
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: ESTATE_ITEM_C
+            description: ''
+            data_type: VARCHAR
+          - name: AUM_C
+            description: ''
+            data_type: NUMBER
+          - name: ADVISOR_DAYS_OUTSTANDING_C
+            description: ''
+            data_type: FLOAT
+          - name: ADVISOR_PENDING_END_DATE_C
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: ADVISOR_PENDING_START_DATE_C
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: ASSIGNED_DATE_C
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: ASSIGNED_TO_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_CLOSE_DATE_DEL_C
+            description: ''
+            data_type: DATE
+          - name: COMPLETED_DATE_C
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: COMPLETED_SHORT_DATE_C
+            description: ''
+            data_type: DATE
+          - name: Z_COMPLIANCE_REVIEW_DATE_C_DEL_C
+            description: ''
+            data_type: DATE
+          - name: Z_COMPLIANCE_REVIEW_NOTES_DEL_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_CURRENT_VALUE_C
+            description: ''
+            data_type: NUMBER
+          - name: Z_CUSTODIAL_FIRM_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_CUSTODIAN_DATA_SOURCE_DEL_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_CUSTODIAN_NOTES_C
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_OWNER_NAME_C
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_DATE_DATA_FIRST_AVAILABLE_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_ESTATE_ITEM_CREATED_DATE_C
+            description: ''
+            data_type: DATE
+          - name: Z_ESTATE_ITEM_IDENTIFIER_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_ESTATE_ITEM_RECORD_TYPE_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_FEE_SCHEDULE_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_FIRM_C
+            description: ''
+            data_type: VARCHAR
+          - name: CLOSE_DATE_C
+            description: ''
+            data_type: DATE
+          - name: Z_HOUSEHOLD_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_MODEL_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_ONLY_IN_SALESFORCE_C
+            description: ''
+            data_type: BOOLEAN
+          - name: Z_OPERATIONS_NOTES_ESTATE_ITEM_C
+            description: ''
+            data_type: VARCHAR
+          - name: OPS_DAYS_OUTSTANDING_C
+            description: ''
+            data_type: FLOAT
+          - name: COMPLIANCE_REVIEW_DATE_C
+            description: ''
+            data_type: DATE
+          - name: Z_ORION_ACCOUNT_ID_C
+            description: ''
+            data_type: VARCHAR
+          - name: ORION_DAYS_OUTSTANDING_C
+            description: ''
+            data_type: FLOAT
+          - name: Z_ORION_HOUSE_ID_C
+            description: ''
+            data_type: VARCHAR
+          - name: ORION_PENDING_END_DATE_C
+            description: ''
+            data_type: DATE
+          - name: ORION_PENDING_START_DATE_C
+            description: ''
+            data_type: DATE
+          - name: Z_QUARTERBACK_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_RECON_NOTES_ESTATE_ITEM_C
+            description: ''
+            data_type: VARCHAR
+          - name: RECON_NOTES_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_STALE_ACCOUNT_NOTES_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_STALE_DATE_C
+            description: ''
+            data_type: DATE
+          - name: Z_START_DATE_C
+            description: ''
+            data_type: DATE
+          - name: STATEMENT_HYPERLINK_C
+            description: ''
+            data_type: VARCHAR
+          - name: STATEMENT_LINK_C
+            description: ''
+            data_type: VARCHAR
+          - name: STATUS_C
+            description: ''
+            data_type: VARCHAR
+          - name: UNIQUE_ID_C
+            description: ''
+            data_type: VARCHAR
+          - name: VALUATION_DATE_C
+            description: ''
+            data_type: DATE
+          - name: OLD_NAME_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_CUSTODIAN_RECON_PERIOD_C
+            description: ''
+            data_type: DATE
+          - name: COMPLIANCE_REVIEW_NOTES_C
+            description: ''
+            data_type: VARCHAR
+          - name: CURRENT_VALUE_C
+            description: ''
+            data_type: NUMBER
+          - name: CUSTODIAN_DATA_SOURCE_C
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTODIAN_NOTES_C
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTODIAN_RECON_PERIOD_C
+            description: ''
+            data_type: DATE
+          - name: CUSTODIAN_C
+            description: ''
+            data_type: VARCHAR
+          - name: DATE_DATA_FIRST_AVAILABLE_C
+            description: ''
+            data_type: VARCHAR
+          - name: ESTATE_ITEM_CREATED_DATE_C
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: ESTATE_ITEM_IDENTIFIER_C
+            description: ''
+            data_type: VARCHAR
+          - name: ESTATE_ITEM_OPERATIONS_NOTES_C
+            description: ''
+            data_type: VARCHAR
+          - name: ESTATE_ITEM_RECORD_TYPE_C
+            description: ''
+            data_type: VARCHAR
+          - name: FEE_SCHEDULE_C
+            description: ''
+            data_type: VARCHAR
+          - name: MODEL_C
+            description: ''
+            data_type: VARCHAR
+          - name: ONLY_IN_SALESFORCE_C
+            description: ''
+            data_type: BOOLEAN
+          - name: ORION_ACCOUNT_ID_C
+            description: ''
+            data_type: VARCHAR
+          - name: ORION_HOUSE_ID_C
+            description: ''
+            data_type: VARCHAR
+          - name: PARTNER_FIRM_C
+            description: ''
+            data_type: VARCHAR
+          - name: ZZ_QUARTERBACK_C
+            description: ''
+            data_type: VARCHAR
+          - name: STALE_ACCOUNT_NOTES_C
+            description: ''
+            data_type: VARCHAR
+          - name: STALE_DATE_C
+            description: ''
+            data_type: DATE
+          - name: START_DATE_C
+            description: ''
+            data_type: DATE
+          - name: Z_CLOSE_DATE_C
+            description: ''
+            data_type: DATE
+          - name: Z_COMPLIANCE_REVIEW_DATE_C_C
+            description: ''
+            data_type: DATE
+          - name: Z_COMPLIANCE_REVIEW_NOTES_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_CUSTODIAN_DATA_SOURCE_C
+            description: ''
+            data_type: VARCHAR
+          - name: ZZ_CUSTODIAL_FIRM_C
+            description: ''
+            data_type: VARCHAR
+          - name: PERIOD_BEGIN_DATE_C
+            description: ''
+            data_type: DATE
+          - name: PERIOD_END_DATE_C
+            description: ''
+            data_type: DATE
+          - name: SYCAMORE_NOTES_C
+            description: ''
+            data_type: VARCHAR
+          - name: FUND_FAMILY_C
+            description: ''
+            data_type: VARCHAR
+          - name: PREVIOUS_RECON_NOTES_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_FUND_FAMILY_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_MODEL_NOTES_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_MODEL_RECON_ASSIGNMENT_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_MODEL_DATA_SOURCE_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_MODEL_AS_OF_DATE_C
+            description: ''
+            data_type: DATE
+          - name: Z_CUSTODIAN_RECON_ASSIGNMENT_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_ESTATE_ITEM_RECON_ASSIGNMENT_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_ESTATE_ITEM_DATA_SOURCE_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_ESTATE_ITEM_RECONCILIATION_FREQUENCY_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_MODEL_RECONCILIATION_FREQUENCY_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_MODEL_PRIMARY_CONTACT_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_MODEL_LINK_TO_STATEMENTS_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_MODEL_HYPERLINK_TO_STATEMENTS_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_MODEL_CLOSED_TO_NEW_INVESTORS_C
+            description: ''
+            data_type: BOOLEAN
+          - name: Z_MODEL_LOCK_UP_PERIOD_C
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESS_LINE_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_AUM_CLASSIFICATION_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_ESTATE_ITEM_OWNER_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_PARTNER_FIRM_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_RECON_NOTES_CATEGORY_C
+            description: ''
+            data_type: VARCHAR
+          - name: HOUSEHOLD_ID_C
+            description: ''
+            data_type: VARCHAR
+          - name: PREVIOUSLY_ASSIGNED_TO_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_DATA_SOURCE_C
+            description: ''
+            data_type: VARCHAR
+          - name: FINAL_RECONCILED_VALUE_C
+            description: ''
+            data_type: NUMBER
+          - name: ZESTATE_ITEM_CREATED_BY_C
+            description: ''
+            data_type: VARCHAR
+          - name: ONLY_IN_SALESFORCE_NOTES_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_ACCOUNT_TYPE_C
+            description: ''
+            data_type: VARCHAR
+          - name: Z_BAA_TYPE_C
+            description: ''
+            data_type: VARCHAR
+          - name: MH_LOCATION_C
+            description: ''
+            data_type: VARCHAR
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
+          - name: _FIVETRAN_SYNCED
+            description: ''
+            data_type: TIMESTAMP_TZ
       - name: case
+        columns:
+          - name: ID
+            description: ''
+            data_type: VARCHAR
+          - name: IS_DELETED
+            description: ''
+            data_type: BOOLEAN
+          - name: MASTER_RECORD_ID
+            description: ''
+            data_type: VARCHAR
+          - name: CASE_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: CONTACT_ID
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_ID
+            description: ''
+            data_type: VARCHAR
+          - name: PARENT_ID
+            description: ''
+            data_type: VARCHAR
+          - name: SUPPLIED_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: SUPPLIED_PHONE
+            description: ''
+            data_type: VARCHAR
+          - name: SUPPLIED_COMPANY
+            description: ''
+            data_type: VARCHAR
+          - name: TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: REASON
+            description: ''
+            data_type: VARCHAR
+          - name: ORIGIN
+            description: ''
+            data_type: VARCHAR
+          - name: LANGUAGE
+            description: ''
+            data_type: VARCHAR
+          - name: SUBJECT
+            description: ''
+            data_type: VARCHAR
+          - name: PRIORITY
+            description: ''
+            data_type: VARCHAR
+          - name: DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: IS_CLOSED
+            description: ''
+            data_type: BOOLEAN
+          - name: CLOSED_DATE
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: IS_ESCALATED
+            description: ''
+            data_type: BOOLEAN
+          - name: OWNER_ID
+            description: ''
+            data_type: VARCHAR
+          - name: CREATED_DATE
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: CREATED_BY_ID
+            description: ''
+            data_type: VARCHAR
+          - name: LAST_MODIFIED_DATE
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: LAST_MODIFIED_BY_ID
+            description: ''
+            data_type: VARCHAR
+          - name: SYSTEM_MODSTAMP
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: CONTACT_PHONE
+            description: ''
+            data_type: VARCHAR
+          - name: CONTACT_MOBILE
+            description: ''
+            data_type: VARCHAR
+          - name: CONTACT_EMAIL
+            description: ''
+            data_type: VARCHAR
+          - name: CONTACT_FAX
+            description: ''
+            data_type: VARCHAR
+          - name: COMMENTS
+            description: ''
+            data_type: VARCHAR
+          - name: LAST_VIEWED_DATE
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: LAST_REFERENCED_DATE
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: CASE_AGE_C
+            description: ''
+            data_type: FLOAT
+          - name: CO_OWNER_C
+            description: ''
+            data_type: VARCHAR
+          - name: DUE_DATE_C
+            description: ''
+            data_type: DATE
+          - name: OFFENDING_SYSTEM_C
+            description: ''
+            data_type: VARCHAR
+          - name: CASE_RESOLUTION_C
+            description: ''
+            data_type: VARCHAR
+          - name: RANKING_C
+            description: ''
+            data_type: FLOAT
+          - name: LOCATION_C
+            description: ''
+            data_type: VARCHAR
+          - name: DIVISION_C
+            description: ''
+            data_type: VARCHAR
+          - name: INVESTMENT_TEAM_COMMENTS_C
+            description: ''
+            data_type: VARCHAR
+          - name: IMPORT_ID_C
+            description: ''
+            data_type: VARCHAR
+          - name: ESTATE_ITEM_C
+            description: ''
+            data_type: VARCHAR
+          - name: PERSONAL_EMAIL_C
+            description: ''
+            data_type: VARCHAR
+          - name: INTERNAL_COMMENTS_C
+            description: ''
+            data_type: VARCHAR
+          - name: CASE_LEVEL_C
+            description: ''
+            data_type: FLOAT
+          - name: ORION_CASE_NUMBER_C
+            description: ''
+            data_type: VARCHAR
+          - name: ORION_PROJECT_NUMBER_C
+            description: ''
+            data_type: VARCHAR
+          - name: ORION_CARD_NUMBER_C
+            description: ''
+            data_type: VARCHAR
+          - name: MWA_ORION_INTEGRATED_CASE_C
+            description: ''
+            data_type: BOOLEAN
+          - name: MH_SERVICE_C
+            description: ''
+            data_type: VARCHAR
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
+          - name: _FIVETRAN_SYNCED
+            description: ''
+            data_type: TIMESTAMP_TZ
       - name: case_history
+        columns:
+          - name: ID
+            description: ''
+            data_type: VARCHAR
+          - name: IS_DELETED
+            description: ''
+            data_type: BOOLEAN
+          - name: CASE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: CREATED_BY_ID
+            description: ''
+            data_type: VARCHAR
+          - name: CREATED_DATE
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: FIELD
+            description: ''
+            data_type: VARCHAR
+          - name: DATA_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: OLD_VALUE
+            description: ''
+            data_type: VARCHAR
+          - name: NEW_VALUE
+            description: ''
+            data_type: VARCHAR
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
+          - name: _FIVETRAN_SYNCED
+            description: ''
+            data_type: TIMESTAMP_TZ
       - name: case_team_member
+        columns:
+          - name: ID
+            description: ''
+            data_type: VARCHAR
+          - name: PARENT_ID
+            description: ''
+            data_type: VARCHAR
+          - name: MEMBER_ID
+            description: ''
+            data_type: VARCHAR
+          - name: TEAM_TEMPLATE_MEMBER_ID
+            description: ''
+            data_type: VARCHAR
+          - name: TEAM_ROLE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: TEAM_TEMPLATE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: CREATED_DATE
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: CREATED_BY_ID
+            description: ''
+            data_type: VARCHAR
+          - name: LAST_MODIFIED_DATE
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: LAST_MODIFIED_BY_ID
+            description: ''
+            data_type: VARCHAR
+          - name: SYSTEM_MODSTAMP
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
+          - name: _FIVETRAN_SYNCED
+            description: ''
+            data_type: TIMESTAMP_TZ
       - name: case_team_role
+        columns:
+          - name: ID
+            description: ''
+            data_type: VARCHAR
+          - name: NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ACCESS_LEVEL
+            description: ''
+            data_type: VARCHAR
+          - name: PREFERENCES_VISIBLE_IN_CSP
+            description: ''
+            data_type: BOOLEAN
+          - name: CREATED_DATE
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: CREATED_BY_ID
+            description: ''
+            data_type: VARCHAR
+          - name: LAST_MODIFIED_DATE
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: LAST_MODIFIED_BY_ID
+            description: ''
+            data_type: VARCHAR
+          - name: SYSTEM_MODSTAMP
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
+          - name: _FIVETRAN_SYNCED
+            description: ''
+            data_type: TIMESTAMP_TZ

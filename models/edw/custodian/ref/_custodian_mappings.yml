@@ -1,0 +1,25 @@
+version: 2
+models:
+  - name: custodian_mappings
+    columns:
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: FIELD
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: DEFINITION
+        description: ''
+        data_type: VARCHAR
+      - name: NORMALIZED
+        description: ''
+        data_type: VARCHAR
+      - name: _BOX_FILE_ID
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ

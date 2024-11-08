@@ -1,0 +1,90 @@
+version: 2
+models:
+  - name: dim_information_schema_sources
+    columns:
+      - name: TABLE_CATALOG
+        description: ''
+        data_type: VARCHAR
+      - name: TABLE_SCHEMA
+        description: ''
+        data_type: VARCHAR
+      - name: TABLE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TABLE_OWNER
+        description: ''
+        data_type: VARCHAR
+      - name: TABLE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: IS_TRANSIENT
+        description: ''
+        data_type: VARCHAR
+      - name: CLUSTERING_KEY
+        description: ''
+        data_type: VARCHAR
+      - name: ROW_COUNT
+        description: ''
+        data_type: NUMBER
+      - name: BYTES
+        description: ''
+        data_type: NUMBER
+      - name: RETENTION_TIME
+        description: ''
+        data_type: NUMBER
+      - name: SELF_REFERENCING_COLUMN_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: REFERENCE_GENERATION
+        description: ''
+        data_type: VARCHAR
+      - name: USER_DEFINED_TYPE_CATALOG
+        description: ''
+        data_type: VARCHAR
+      - name: USER_DEFINED_TYPE_SCHEMA
+        description: ''
+        data_type: VARCHAR
+      - name: USER_DEFINED_TYPE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: IS_INSERTABLE_INTO
+        description: ''
+        data_type: VARCHAR
+      - name: IS_TYPED
+        description: ''
+        data_type: VARCHAR
+      - name: COMMIT_ACTION
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: LAST_ALTERED
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: LAST_DDL
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: LAST_DDL_BY
+        description: ''
+        data_type: VARCHAR
+      - name: AUTO_CLUSTERING_ON
+        description: ''
+        data_type: VARCHAR
+      - name: COMMENT
+        description: ''
+        data_type: VARCHAR
+  - name: rpt_table_history
+    columns:
+      - name: _DATE
+        description: ''
+        data_type: DATE
+      - name: TABLE_SCHEMA
+        description: ''
+        data_type: VARCHAR
+      - name: TABLE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DAILY_ROW_DIFF
+        description: ''
+        data_type: NUMBER

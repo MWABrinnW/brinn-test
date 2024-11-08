@@ -9,6 +9,7 @@
     */
   {% set schema_grants = {} %}
   {% if execute %}
+    {{ log("Evaluating if there are any schemas that need created") }}
     {% for node in graph.nodes.values() | selectattr("resource_type", "equalto", "model") %}
       {% if node.unique_id in selected_resources %}
       {% set grants = node.config.get('grants') %}
@@ -27,7 +28,7 @@
   {% set grant_list %}
     {% for schema in schema_grants %}
       {% if schema_grants[schema] | length > 0 %}
-        {{ dbt_utils.log_info("Creating schema if not exists " ~ schema) }}
+        {{ log("Creating schema if not exists " ~ schema, info=True) }}
         create schema if not exists {{ schema }};
       {% endif %}
     {% endfor %}

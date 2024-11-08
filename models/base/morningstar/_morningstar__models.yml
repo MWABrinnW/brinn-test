@@ -1,0 +1,663 @@
+version: 2
+models:
+  - name: morningstar_history__fund_history
+    columns:
+      - name: MSTARID
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: FUNDSTANDARDNAME
+        description: ''
+        data_type: VARCHAR
+      - name: FUNDNAME
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITYTYPE
+        description: ''
+        data_type: VARCHAR
+      - name: SHARECLASSTYPE
+        description: ''
+        data_type: VARCHAR
+      - name: GLOBALCATEGORYNAME
+        description: ''
+        data_type: VARCHAR
+      - name: CATEGORYNAME
+        description: ''
+        data_type: VARCHAR
+      - name: MARKETCAPITAL
+        description: ''
+        data_type: NUMBER
+      - name: EQUITYSTYLEBOX
+        description: ''
+        data_type: NUMBER
+      - name: EQUITYSTYLEBOXNAME
+        description: ''
+        data_type: VARCHAR
+      - name: EQUITYSTYLEBOXSHORT
+        description: ''
+        data_type: NUMBER
+      - name: EQUITYSTYLEBOXSHORTNAME
+        description: ''
+        data_type: VARCHAR
+      - name: FIXEDINCOMESTYLEBOX
+        description: ''
+        data_type: NUMBER
+      - name: FIXEDINCOMESTYLEBOXNAME
+        description: ''
+        data_type: VARCHAR
+      - name: PERCENTILERANK3MTH
+        description: ''
+        data_type: NUMBER
+      - name: PERCENTILERANKYTD
+        description: ''
+        data_type: NUMBER
+      - name: PERCENTILERANK5YR
+        description: ''
+        data_type: NUMBER
+      - name: PERCENTILERANK10YR
+        description: ''
+        data_type: NUMBER
+      - name: PERCENTILERANK15YR
+        description: ''
+        data_type: NUMBER
+      - name: RETURN1MTH
+        description: ''
+        data_type: NUMBER
+      - name: RETURN3MTH
+        description: ''
+        data_type: NUMBER
+      - name: RETURN5YR
+        description: ''
+        data_type: NUMBER
+      - name: RETURN10YR
+        description: ''
+        data_type: NUMBER
+      - name: RETURN15YR
+        description: ''
+        data_type: NUMBER
+      - name: BONDLONG
+        description: ''
+        data_type: NUMBER
+      - name: BONDNET
+        description: ''
+        data_type: NUMBER
+      - name: BONDSHORT
+        description: ''
+        data_type: NUMBER
+      - name: CASHLONG
+        description: ''
+        data_type: NUMBER
+      - name: CASHNET
+        description: ''
+        data_type: NUMBER
+      - name: CASHSHORT
+        description: ''
+        data_type: NUMBER
+      - name: CONVERTIBLELONG
+        description: ''
+        data_type: NUMBER
+      - name: CONVERTIBLENET
+        description: ''
+        data_type: NUMBER
+      - name: CONVERTIBLESHORT
+        description: ''
+        data_type: NUMBER
+      - name: OTHERLONG
+        description: ''
+        data_type: NUMBER
+      - name: OTHERNET
+        description: ''
+        data_type: NUMBER
+      - name: OTHERSHORT
+        description: ''
+        data_type: NUMBER
+      - name: PORTFOLIODATE
+        description: ''
+        data_type: DATE
+      - name: PREFERREDLONG
+        description: ''
+        data_type: NUMBER
+      - name: PREFERREDNET
+        description: ''
+        data_type: NUMBER
+      - name: PREFERREDSHORT
+        description: ''
+        data_type: NUMBER
+      - name: STOCKLONG
+        description: ''
+        data_type: NUMBER
+      - name: STOCKNET
+        description: ''
+        data_type: NUMBER
+      - name: STOCKSHORT
+        description: ''
+        data_type: NUMBER
+      - name: LARGEBLEND
+        description: ''
+        data_type: NUMBER
+      - name: LARGEGROWTH
+        description: ''
+        data_type: NUMBER
+      - name: LARGEVALUE
+        description: ''
+        data_type: NUMBER
+      - name: MIDBLEND
+        description: ''
+        data_type: NUMBER
+      - name: MIDGROWTH
+        description: ''
+        data_type: NUMBER
+      - name: MIDVALUE
+        description: ''
+        data_type: NUMBER
+      - name: SMALLBLEND
+        description: ''
+        data_type: NUMBER
+      - name: SMALLGROWTH
+        description: ''
+        data_type: NUMBER
+      - name: SMALLVALUE
+        description: ''
+        data_type: NUMBER
+      - name: NETMARGIN
+        description: ''
+        data_type: NUMBER
+      - name: TOTALMARKETVALUELONG
+        description: ''
+        data_type: NUMBER
+      - name: TOTALMARKETVALUENET
+        description: ''
+        data_type: NUMBER
+      - name: TOTALMARKETVALUESHORT
+        description: ''
+        data_type: NUMBER
+      - name: TOTALYIELDLONG
+        description: ''
+        data_type: NUMBER
+      - name: FUNDNETASSETS
+        description: ''
+        data_type: NUMBER
+      - name: NETASSETSDATE
+        description: ''
+        data_type: DATE
+      - name: NORMALIZEDFUNDNETASSETS
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSURE_COUNTRY
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSURE_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSURE_COUNTRY_2
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSURE_VALUE_2
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSURE_COUNTRY_3
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSURE_VALUE_3
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSURE_COUNTRY_4
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSURE_VALUE_4
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSURE_COUNTRY_5
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSURE_VALUE_5
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSUREBOND_COUNTRY
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSUREBOND_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSUREBOND_COUNTRY_2
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSUREBOND_VALUE_2
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSUREBOND_COUNTRY_3
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSUREBOND_VALUE_3
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSUREBOND_COUNTRY_4
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSUREBOND_VALUE_4
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSUREBOND_COUNTRY_5
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSUREBOND_VALUE_5
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSURECONVERTIBLE_COUNTRY
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSURECONVERTIBLE_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSURECONVERTIBLE_COUNTRY_2
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSURECONVERTIBLE_VALUE_2
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSURECONVERTIBLE_COUNTRY_3
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSURECONVERTIBLE_VALUE_3
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSURECONVERTIBLE_COUNTRY_4
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSURECONVERTIBLE_VALUE_4
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSURECONVERTIBLE_COUNTRY_5
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSURECONVERTIBLE_VALUE_5
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSUREEQUITY_COUNTRY
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSUREEQUITY_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSUREEQUITY_COUNTRY_2
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSUREEQUITY_VALUE_2
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSUREEQUITY_COUNTRY_3
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSUREEQUITY_VALUE_3
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSUREEQUITY_COUNTRY_4
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSUREEQUITY_VALUE_4
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSUREEQUITY_COUNTRY_5
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSUREEQUITY_VALUE_5
+        description: ''
+        data_type: NUMBER
+      - name: MTYPE
+        description: ''
+        data_type: VARCHAR
+      - name: RECORD_DATE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: RECORD_DATETIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: _ID
+        description: ''
+        data_type: NUMBER
+  - name: morningstar_history__stg_fund
+    columns:
+      - name: MSTARID
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: FUNDSTANDARDNAME
+        description: ''
+        data_type: VARCHAR
+      - name: FUNDNAME
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITYTYPE
+        description: ''
+        data_type: VARCHAR
+      - name: SHARECLASSTYPE
+        description: ''
+        data_type: VARCHAR
+      - name: GLOBALCATEGORYNAME
+        description: ''
+        data_type: VARCHAR
+      - name: CATEGORYNAME
+        description: ''
+        data_type: VARCHAR
+      - name: MARKETCAPITAL
+        description: ''
+        data_type: NUMBER
+      - name: EQUITYSTYLEBOX
+        description: ''
+        data_type: NUMBER
+      - name: EQUITYSTYLEBOXNAME
+        description: ''
+        data_type: VARCHAR
+      - name: EQUITYSTYLEBOXSHORT
+        description: ''
+        data_type: NUMBER
+      - name: EQUITYSTYLEBOXSHORTNAME
+        description: ''
+        data_type: VARCHAR
+      - name: FIXEDINCOMESTYLEBOX
+        description: ''
+        data_type: NUMBER
+      - name: FIXEDINCOMESTYLEBOXNAME
+        description: ''
+        data_type: VARCHAR
+      - name: PERCENTILERANK3MTH
+        description: ''
+        data_type: NUMBER
+      - name: PERCENTILERANKYTD
+        description: ''
+        data_type: NUMBER
+      - name: PERCENTILERANK5YR
+        description: ''
+        data_type: NUMBER
+      - name: PERCENTILERANK10YR
+        description: ''
+        data_type: NUMBER
+      - name: PERCENTILERANK15YR
+        description: ''
+        data_type: NUMBER
+      - name: RETURN1MTH
+        description: ''
+        data_type: NUMBER
+      - name: RETURN3MTH
+        description: ''
+        data_type: NUMBER
+      - name: RETURN5YR
+        description: ''
+        data_type: NUMBER
+      - name: RETURN10YR
+        description: ''
+        data_type: NUMBER
+      - name: RETURN15YR
+        description: ''
+        data_type: NUMBER
+      - name: BONDLONG
+        description: ''
+        data_type: NUMBER
+      - name: BONDNET
+        description: ''
+        data_type: NUMBER
+      - name: BONDSHORT
+        description: ''
+        data_type: NUMBER
+      - name: CASHLONG
+        description: ''
+        data_type: NUMBER
+      - name: CASHNET
+        description: ''
+        data_type: NUMBER
+      - name: CASHSHORT
+        description: ''
+        data_type: NUMBER
+      - name: CONVERTIBLELONG
+        description: ''
+        data_type: NUMBER
+      - name: CONVERTIBLENET
+        description: ''
+        data_type: NUMBER
+      - name: CONVERTIBLESHORT
+        description: ''
+        data_type: NUMBER
+      - name: OTHERLONG
+        description: ''
+        data_type: NUMBER
+      - name: OTHERNET
+        description: ''
+        data_type: NUMBER
+      - name: OTHERSHORT
+        description: ''
+        data_type: NUMBER
+      - name: PORTFOLIODATE
+        description: ''
+        data_type: DATE
+      - name: PREFERREDLONG
+        description: ''
+        data_type: NUMBER
+      - name: PREFERREDNET
+        description: ''
+        data_type: NUMBER
+      - name: PREFERREDSHORT
+        description: ''
+        data_type: NUMBER
+      - name: STOCKLONG
+        description: ''
+        data_type: NUMBER
+      - name: STOCKNET
+        description: ''
+        data_type: NUMBER
+      - name: STOCKSHORT
+        description: ''
+        data_type: NUMBER
+      - name: LARGEBLEND
+        description: ''
+        data_type: NUMBER
+      - name: LARGEGROWTH
+        description: ''
+        data_type: NUMBER
+      - name: LARGEVALUE
+        description: ''
+        data_type: NUMBER
+      - name: MIDBLEND
+        description: ''
+        data_type: NUMBER
+      - name: MIDGROWTH
+        description: ''
+        data_type: NUMBER
+      - name: MIDVALUE
+        description: ''
+        data_type: NUMBER
+      - name: SMALLBLEND
+        description: ''
+        data_type: NUMBER
+      - name: SMALLGROWTH
+        description: ''
+        data_type: NUMBER
+      - name: SMALLVALUE
+        description: ''
+        data_type: NUMBER
+      - name: NETMARGIN
+        description: ''
+        data_type: NUMBER
+      - name: TOTALMARKETVALUELONG
+        description: ''
+        data_type: NUMBER
+      - name: TOTALMARKETVALUENET
+        description: ''
+        data_type: NUMBER
+      - name: TOTALMARKETVALUESHORT
+        description: ''
+        data_type: NUMBER
+      - name: TOTALYIELDLONG
+        description: ''
+        data_type: NUMBER
+      - name: FUNDNETASSETS
+        description: ''
+        data_type: NUMBER
+      - name: NETASSETSDATE
+        description: ''
+        data_type: DATE
+      - name: NORMALIZEDFUNDNETASSETS
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSURE_COUNTRY
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSURE_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSURE_COUNTRY_2
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSURE_VALUE_2
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSURE_COUNTRY_3
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSURE_VALUE_3
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSURE_COUNTRY_4
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSURE_VALUE_4
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSURE_COUNTRY_5
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSURE_VALUE_5
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSUREBOND_COUNTRY
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSUREBOND_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSUREBOND_COUNTRY_2
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSUREBOND_VALUE_2
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSUREBOND_COUNTRY_3
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSUREBOND_VALUE_3
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSUREBOND_COUNTRY_4
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSUREBOND_VALUE_4
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSUREBOND_COUNTRY_5
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSUREBOND_VALUE_5
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSURECONVERTIBLE_COUNTRY
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSURECONVERTIBLE_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSURECONVERTIBLE_COUNTRY_2
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSURECONVERTIBLE_VALUE_2
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSURECONVERTIBLE_COUNTRY_3
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSURECONVERTIBLE_VALUE_3
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSURECONVERTIBLE_COUNTRY_4
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSURECONVERTIBLE_VALUE_4
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSURECONVERTIBLE_COUNTRY_5
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSURECONVERTIBLE_VALUE_5
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSUREEQUITY_COUNTRY
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSUREEQUITY_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSUREEQUITY_COUNTRY_2
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSUREEQUITY_VALUE_2
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSUREEQUITY_COUNTRY_3
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSUREEQUITY_VALUE_3
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSUREEQUITY_COUNTRY_4
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSUREEQUITY_VALUE_4
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYEXPOSUREEQUITY_COUNTRY_5
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRYEXPOSUREEQUITY_VALUE_5
+        description: ''
+        data_type: NUMBER
+      - name: MTYPE
+        description: ''
+        data_type: VARCHAR
+      - name: RECORD_DATE
+        description: ''
+        data_type: DATE
+      - name: RECORD_DATETIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: _ID
+        description: ''
+        data_type: NUMBER

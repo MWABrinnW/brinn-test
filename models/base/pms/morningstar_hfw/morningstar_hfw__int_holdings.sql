@@ -1,6 +1,6 @@
 {# NOTE
 
-    This DBT model is to slow for production.  This SQL is copied into the Alteryx flow directly and run from there.
+    This DBT model is too slow for production.  This SQL is copied into the Alteryx flow directly and run from there.
 
 #}
 
@@ -8,7 +8,8 @@ with cte_effective_dates as (
     select distinct effective_date
     from {{ ref('morningstar_hfw__base_gain_loss') }}
     where true
-        and effective_date >= '2/1/2023'-- excluding pre 202302, not all dataset were being collected consistently
+        -- excluding pre 202302, not all dataset were being collected consistently
+        and effective_date >= '2/1/2023'
     {# and effective_date >= '5/20/2023'  -- narrow effective date for efficient dev testing #}
 )
 
@@ -20,9 +21,11 @@ with cte_effective_dates as (
         , issue_entry_date
         , effective_date
         , row_number() over (partition by ticker , effective_date order by issue_entry_date desc) as rn_ticker
-    from {{ ref('cusip_history__base_issues') }}-- Grant suggested using this dataset instead of Security_Master from Alteryx
+    -- Grant suggested using this dataset instead of Security_Master from Alteryx
+    from {{ ref('cusip_history__base_issues') }}
     where true
-        and issue_status = 'A'-- assuming this stands for Active, might need to remove this (ticker = MDT is blocked by this)
+        -- assuming this stands for Active, might need to remove this (ticker = MDT is blocked by this)
+        and issue_status = 'A'
         and effective_date in (
             select effective_date
             from cte_effective_dates
@@ -65,7 +68,8 @@ with cte_effective_dates as (
         )                                           as financial_account_number
         , gl.security_name
         , gl.symbol_cusip
-        , coalesce(c.cusip , gl.symbol_cusip)       as cusip_mapped-- a single symbol can map to various cusip values (ex. JPO -> 46656C103, 465938405)
+        -- a single symbol can map to various cusip values (ex. JPO -> 46656C103, 465938405)
+        , coalesce(c.cusip , gl.symbol_cusip)       as cusip_mapped
         , gl.acquisition_date
         , gl.short_term_unrealized_gl
         , gl.long_term_unrealized_gl
@@ -81,7 +85,8 @@ with cte_effective_dates as (
         , 'DATALAKE.MORNINGSTAR_HFW.BASE_GAIN_LOSS' as system_details
     from {{ ref('morningstar_hfw__base_gain_loss') }} as gl
     left join cte_cusip_validate as c
-        on gl.symbol_cusip = c.ticker--symbol_cusip has mix of tickers and cusip values
+        --symbol_cusip has mix of tickers and cusip values
+        on gl.symbol_cusip = c.ticker
         and gl.effective_date = c.effective_date
         and c.rn_ticker = 1
     where true
@@ -218,10 +223,11 @@ with cte_effective_dates as (
         , fa.proxy_voting_status                                                  as proxy_voting_status
         , coalesce(c.cusip , gl.cusip_mapped , h.cusip)                           as cusip
         , coalesce(c.ticker , gl.cusip_mapped , c.ticker)                         as ticker--noqa: disable=AL03
+        --regex excludes Trademark and Registered symbols
         , regexp_replace(
             coalesce(gl.security_name , h.cusipdescription) , '[™®]'
             , ''
-        )--regex excludes Trademark and Registered symbols
+        )                                                                         as security_name
         , coalesce(c.security_type_description , h.holdingtypedesc)               as security_type--noqa: enable=AL03
         , coalesce(gl.market_value , h.sum_fairvalue)                             as market_value
         , coalesce(gl.quantity , h.sum_parvalue)                                  as units_shares

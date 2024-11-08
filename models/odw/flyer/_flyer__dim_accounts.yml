@@ -1,0 +1,40 @@
+version: 2
+models:
+  - name: flyer__dim_accounts
+    columns:
+      - name: PLATFORM
+        description: ''
+      - name: VENUE
+        description: ''
+      - name: ACCOUNT_ID
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_NAME
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: IS_ACTIVE
+        description: ''
+      - name: START_DATE
+        description: ''
+      - name: TOTAL_VALUE
+        description: ''
+      - name: IS_MARGIN_ENABLED
+        description: ''
+      - name: IS_MULTIPLE_MARGIN_ENABLED
+        description: ''
+      - name: OPTIONS_APPROVAL_LEVEL
+        description: ''
+      - name: LAST_COLLECTED_AT
+        description: ''
+      - name: FIRST_COLLECTED_AT
+        description: ''
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''
+      - name: _URI
+        description: ''
+      - name: _ENV
+        description: ''

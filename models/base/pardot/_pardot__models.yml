@@ -1,0 +1,836 @@
+version: 2
+models:
+- name: pardot__stg_list
+  columns:
+  - name: ID
+    description: ''
+    data_type: NUMBER
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: IS_PUBLIC
+    description: ''
+    data_type: BOOLEAN
+  - name: IS_DYNAMIC
+    description: ''
+    data_type: BOOLEAN
+  - name: TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_CRM_VISIBLE
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: UPDATED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: pardot__stg_list_email
+  columns:
+  - name: ID
+    description: ''
+    data_type: NUMBER
+  - name: CAMPAIGN_ID
+    description: ''
+    data_type: NUMBER
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: NUMBER
+  - name: UPDATED_BY_ID
+    description: ''
+    data_type: NUMBER
+  - name: EMAIL_TEMPLATE_ID
+    description: ''
+    data_type: NUMBER
+  - name: TRACKER_DOMAIN_ID
+    description: ''
+    data_type: NUMBER
+  - name: CLIENT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SUBJECT
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: HTML_MESSAGE
+    description: ''
+    data_type: VARCHAR
+  - name: TEXT_MESSAGE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: IS_PAUSED
+    description: ''
+    data_type: BOOLEAN
+  - name: IS_SENT
+    description: ''
+    data_type: BOOLEAN
+  - name: OPERATIONAL_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SENT_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: UPDATED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: pardot__stg_list_membership
+  columns:
+  - name: ID
+    description: ''
+    data_type: NUMBER
+  - name: LIST_ID
+    description: ''
+    data_type: NUMBER
+  - name: PROSPECT_ID
+    description: ''
+    data_type: NUMBER
+  - name: OPTED_OUT
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: UPDATED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: pardot__stg_list_tag
+  columns:
+  - name: LIST_ID
+    description: ''
+    data_type: NUMBER
+  - name: TAG_ID
+    description: ''
+    data_type: NUMBER
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: pardot__stg_opportunity_prospect
+  columns:
+  - name: OPPORTUNITY_ID
+    description: ''
+    data_type: NUMBER
+  - name: PROSPECT_ID
+    description: ''
+    data_type: NUMBER
+  - name: UPDATED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: pardot__stg_prospect
+  columns:
+  - name: ID
+    description: ''
+    data_type: NUMBER
+  - name: CAMPAIGN_ID
+    description: ''
+    data_type: NUMBER
+  - name: USER_ID
+    description: ''
+    data_type: NUMBER
+  - name: SALUTATION
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: PASSWORD
+    description: ''
+    data_type: VARCHAR
+  - name: COMPANY
+    description: ''
+    data_type: VARCHAR
+  - name: WEBSITE
+    description: ''
+    data_type: VARCHAR
+  - name: JOB_TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: DEPARTMENT
+    description: ''
+    data_type: VARCHAR
+  - name: COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_ONE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_TWO
+    description: ''
+    data_type: VARCHAR
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: STATE
+    description: ''
+    data_type: VARCHAR
+  - name: TERRITORY
+    description: ''
+    data_type: VARCHAR
+  - name: ZIP
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: FAX
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: ANNUAL_REVENUE
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYEES
+    description: ''
+    data_type: VARCHAR
+  - name: INDUSTRY
+    description: ''
+    data_type: VARCHAR
+  - name: YEARS_IN_BUSINESS
+    description: ''
+    data_type: VARCHAR
+  - name: COMMENTS
+    description: ''
+    data_type: VARCHAR
+  - name: NOTES
+    description: ''
+    data_type: VARCHAR
+  - name: SCORE
+    description: ''
+    data_type: NUMBER
+  - name: GRADE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_PERMANENTLY_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_ACTIVITY_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: RECENT_INTERACTION
+    description: ''
+    data_type: VARCHAR
+  - name: CRM_LEAD_FID
+    description: ''
+    data_type: VARCHAR
+  - name: CRM_CONTACT_FID
+    description: ''
+    data_type: VARCHAR
+  - name: CRM_OWNER_FID
+    description: ''
+    data_type: VARCHAR
+  - name: CRM_ACCOUNT_FID
+    description: ''
+    data_type: VARCHAR
+  - name: CRM_LAST_SYNC
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CRM_URL
+    description: ''
+    data_type: VARCHAR
+  - name: PROSPECT_ACCOUNT_ID
+    description: ''
+    data_type: NUMBER
+  - name: IS_DO_NOT_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: IS_DO_NOT_CALL
+    description: ''
+    data_type: BOOLEAN
+  - name: OPTED_OUT
+    description: ''
+    data_type: BOOLEAN
+  - name: IS_REVIEWED
+    description: ''
+    data_type: BOOLEAN
+  - name: IS_STARRED
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: UPDATED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: CUSTOM_CONTACT_RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_SALESFORCE_FID
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_MARKETING_OWNER
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CUSTOM_DIGITAL_MARKETING_OPT_OUT_RETIREMENT_
+    description: ''
+    data_type: NUMBER
+  - name: CUSTOM_DIGITAL_MARKETING_OPT_OUT_ASSET_MANAGEMENT_
+    description: ''
+    data_type: VARIANT
+  - name: CUSTOM_DIGITAL_MARKETING_CAMPAIGNS_WEALTH_
+    description: ''
+    data_type: VARIANT
+  - name: CUSTOM_DIGITAL_MARKETING_OPT_OUT_WEALTH_
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_DIGITAL_MARKETING_OPTIONS_WEALTH_
+    description: ''
+    data_type: VARIANT
+  - name: CUSTOM_MARKETING_RECORD_TYPE
+    description: ''
+    data_type: VARIANT
+  - name: CUSTOM_BIRTHDATE
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: CUSTOM_TAGS
+    description: ''
+    data_type: VARIANT
+  - name: CUSTOM_AGE
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_float
+    data_type: FLOAT
+  - name: CUSTOM_FORCE_SYNC
+    description: ''
+    data_type: BOOLEAN
+  - name: CUSTOM_MARKETING_ACCOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_DIGITAL_MARKETING_OPTIONS_RETIREMENT_
+    description: ''
+    data_type: VARIANT
+  - name: CUSTOM_TYPE_OF_RETIREE_QUIZ_
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_DIGITAL_MARKETING_CAMPAIGNS_RETIREMENT_
+    description: ''
+    data_type: VARIANT
+  - name: CUSTOM_DRIP_CAMPAIGN_LIST
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_COLLEGE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_DATE_OF_DEATH
+    description: ''
+    data_type: DATE
+  - name: CUSTOM_LEAD_SOURCE_WEALTH_
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_ARE_YOU_A_
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_WEALTH_CONTACT_LIFECYCLE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_CONTACT_NOTES
+    description: ''
+    data_type: VARIANT
+  - name: CUSTOM_DIGITAL_MARKETING_OPTIONS_RIVER_POINT_
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_RETIREMENT_CONTACT_LIFECYCLE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_INVESTMENT_OBJECTIVES
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_CURRENT_CLIENT
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_HAVE_CHILDREN_YOU_CLAIM_AS_DEPENDENTS
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_AWARE_OF_THE_IMPACT_OF_TCJA
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_WHO_PREPARES_YOUR_TAXES
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_AGE_RANGE
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: CUSTOM_TAX_BRACKET
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_ANY_QUESTIONS_OR_CONCERNS_WE_COULD_ANSWER
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_NICKNAME
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_ORIGINAL_OPPTY_STAGE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_YEARS_UNTIL_RETIREMENT
+    description: ''
+    data_type: VARCHAR
+  - name: DELETED
+    description: ''
+    data_type: BOOLEAN
+- name: pardot__stg_prospect_account
+  columns:
+  - name: ID
+    description: ''
+    data_type: NUMBER
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOM_TYPE
+    description: ''
+    data_type: VARIANT
+  - name: CUSTOM_ASSIGNED_TO
+    description: ''
+    data_type: VARIANT
+  - name: CUSTOM_CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: CUSTOM_UPDATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: pardot__stg_prospect_tag
+  columns:
+  - name: PROSPECT_ID
+    description: ''
+    data_type: NUMBER
+  - name: TAG_ID
+    description: ''
+    data_type: NUMBER
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: pardot__stg_tag
+  columns:
+  - name: ID
+    description: ''
+    data_type: NUMBER
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: UPDATED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: pardot__stg_user
+  columns:
+  - name: ID
+    description: ''
+    data_type: NUMBER
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: JOB_TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: ROLE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT
+    description: ''
+    data_type: NUMBER
+  - name: CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: UPDATED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: pardot__stg_visitor_activity
+  columns:
+  - name: ID
+    description: ''
+    data_type: NUMBER
+  - name: PROSPECT_ID
+    description: ''
+    data_type: NUMBER
+  - name: VISITOR_ID
+    description: ''
+    data_type: NUMBER
+  - name: EMAIL_ID
+    description: ''
+    data_type: NUMBER
+  - name: OPPORTUNITY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: VISIT_ID
+    description: ''
+    data_type: NUMBER
+  - name: CAMPAIGN_ID
+    description: ''
+    data_type: NUMBER
+  - name: TYPE
+    description: ''
+    data_type: NUMBER
+  - name: TYPE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: DETAILS
+    description: ''
+    data_type: VARCHAR
+  - name: LIST_EMAIL_ID
+    description: ''
+    data_type: NUMBER
+  - name: EMAIL_TEMPLATE_ID
+    description: ''
+    data_type: NUMBER
+  - name: FORM_ID
+    description: ''
+    data_type: NUMBER
+  - name: FORM_HANDLER_ID
+    description: ''
+    data_type: NUMBER
+  - name: SITE_SEARCH_QUERY_ID
+    description: ''
+    data_type: NUMBER
+  - name: LANDING_PAGE_ID
+    description: ''
+    data_type: NUMBER
+  - name: PAID_SEARCH_AD_ID
+    description: ''
+    data_type: NUMBER
+  - name: MULTIVARIATE_TEST_VARIATION_ID
+    description: ''
+    data_type: NUMBER
+  - name: VISITOR_PAGE_VIEW_ID
+    description: ''
+    data_type: NUMBER
+  - name: FILE_ID
+    description: ''
+    data_type: NUMBER
+  - name: CUSTOM_REDIRECT_ID
+    description: ''
+    data_type: NUMBER
+  - name: CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: pardot__stg_visitor_page_view
+  columns:
+  - name: ID
+    description: ''
+    data_type: NUMBER
+  - name: URL
+    description: ''
+    data_type: VARCHAR
+  - name: TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: VISIT_ID
+    description: ''
+    data_type: NUMBER
+  - name: CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: pardot__stg_fivetran_audit
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: MESSAGE
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATE_STARTED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: UPDATE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SCHEMA
+    description: ''
+    data_type: VARCHAR
+  - name: TABLE
+    description: ''
+    data_type: VARCHAR
+  - name: START
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: DONE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ROWS_UPDATED_OR_INSERTED
+    description: ''
+    data_type: NUMBER
+  - name: STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: PROGRESS
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: pardot__stg_campaign
+  columns:
+  - name: ID
+    description: ''
+    data_type: NUMBER
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: COST
+    description: ''
+    data_type: NUMBER
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: pardot__stg_visitor
+  columns:
+  - name: ID
+    description: ''
+    data_type: NUMBER
+  - name: PROSPECT_ID
+    description: ''
+    data_type: NUMBER
+  - name: PAGE_VIEW_COUNT
+    description: ''
+    data_type: NUMBER
+  - name: IP_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: CAMPAIGN_PARAMETER
+    description: ''
+    data_type: VARCHAR
+  - name: MEDIUM_PARAMETER
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE_PARAMETER
+    description: ''
+    data_type: VARCHAR
+  - name: CONTENT_PARAMETER
+    description: ''
+    data_type: VARCHAR
+  - name: TERM_PARAMETER
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: UPDATED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: HOSTNAME
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: pardot__stg_opportunity
+  columns:
+  - name: ID
+    description: ''
+    data_type: NUMBER
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: VALUE
+    description: ''
+    data_type: FLOAT
+  - name: PROBABILITY
+    description: ''
+    data_type: NUMBER
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: STAGE
+    description: ''
+    data_type: VARCHAR
+  - name: STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: UPDATED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CLOSED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CAMPAIGN_ID
+    description: ''
+    data_type: NUMBER
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: pardot__stg_email_tag
+  columns:
+  - name: EMAIL_ID
+    description: ''
+    data_type: NUMBER
+  - name: TAG_ID
+    description: ''
+    data_type: NUMBER
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: pardot__stg_user_tag
+  columns:
+  - name: USER_ID
+    description: ''
+    data_type: NUMBER
+  - name: TAG_ID
+    description: ''
+    data_type: NUMBER
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: pardot__stg_campaign_tag
+  columns:
+  - name: CAMPAIGN_ID
+    description: ''
+    data_type: NUMBER
+  - name: TAG_ID
+    description: ''
+    data_type: NUMBER
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: pardot__stg_visit
+  columns:
+  - name: ID
+    description: ''
+    data_type: NUMBER
+  - name: VISITOR_ID
+    description: ''
+    data_type: NUMBER
+  - name: PROSPECT_ID
+    description: ''
+    data_type: NUMBER
+  - name: VISITOR_PAGE_VIEW_COUNT
+    description: ''
+    data_type: NUMBER
+  - name: FIRST_VISITOR_PAGE_VIEW_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_VISITOR_PAGE_VIEW_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: DURATION_IN_SECONDS
+    description: ''
+    data_type: NUMBER
+  - name: CAMPAIGN_PARAMETER
+    description: ''
+    data_type: VARCHAR
+  - name: MEDIUM_PARAMETER
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE_PARAMETER
+    description: ''
+    data_type: VARCHAR
+  - name: CONTENT_PARAMETER
+    description: ''
+    data_type: VARCHAR
+  - name: TERM_PARAMETER
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: UPDATED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: pardot__stg_email
+  columns:
+  - name: ID
+    description: ''
+    data_type: NUMBER
+  - name: LIST_EMAIL_ID
+    description: ''
+    data_type: NUMBER
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SUBJECT
+    description: ''
+    data_type: VARCHAR
+  - name: PROSPECT_ID
+    description: ''
+    data_type: NUMBER
+  - name: LIST_ID
+    description: ''
+    data_type: NUMBER
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: NUMBER
+  - name: CAMPAIGN_ID
+    description: ''
+    data_type: NUMBER
+  - name: CLIENT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ

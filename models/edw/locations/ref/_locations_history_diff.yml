@@ -1,0 +1,62 @@
+version: 2
+models:
+  - name: locations_history_diff
+    description: Displays a grouping of locations data for audit purposes.
+    columns:
+      - name: MIN_CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: MAX_CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: LOCATION_CODE
+        description: 'Mariner Location ID for the location (ex. 100, L-10015)'
+        data_type: VARCHAR
+      - name: START_DATE
+        description: 'Unique identifier for each Location Master record.'
+        data_type: DATE
+      - name: END_DATE
+        description: 'Start date the new location is active.'
+        data_type: DATE
+      - name: ACTIVE
+        description: ''
+        data_type: NUMBER
+      - name: DIVISION
+        description: 'Division: separates Wealth, Advisory Solutions, and HQ'
+        data_type: VARCHAR
+      - name: LEGAL_NAME
+        description: 'Legal entity'
+        data_type: VARCHAR
+      - name: REGION_NAME
+        description: 'Region name, markets are grouped into a region'
+        data_type: VARCHAR
+      - name: MARKET_NAME
+        description: 'Market name, locations are grouped into a market'
+        data_type: VARCHAR
+      - name: LOCATION_NAME
+        description: 'Location name, offices are grouped into a location'
+        data_type: VARCHAR
+      - name: OFFICE_NAME
+        description: 'Office name/location in the format of ''City, State'''
+        data_type: VARCHAR
+      - name: LOCATION_CITY
+        description: 'Location city'
+        data_type: VARCHAR
+      - name: LOCATION_STATE
+        description: 'Location state'
+        data_type: VARCHAR
+      - name: ACCOUNTING_ID
+        description: 'Great Plains accounting/cost code (ex. 1104, 7704, 8804),'
+        data_type: VARCHAR
+      - name: ACCOUNTING_ID_DESCRIPTION
+        description: 'Great Plains accounting/cost code description (ex. Costa Mesa, CA; Costa Mesa, CA - MSEC; Costa Mesa, CA - MIR),'
+        data_type: VARCHAR
+      - name: ACQUISITION_NAME
+        description: 'Name of firm purchase/acquisition or advisor lift-out,'
+        data_type: VARCHAR
+      - name: ACQUISITION_TYPE
+        description: 'Type of acquisition (ex. Advisor lift-out, Firm purchase, Significant hire, Greenfield, Tax Acquisition),'
+        data_type: VARCHAR
+      - name: GENERAL_ACCESS
+        description: 'True = everyone can see code; False = restricted view NOTE: This is always set to True.'
+        data_type: NUMBER

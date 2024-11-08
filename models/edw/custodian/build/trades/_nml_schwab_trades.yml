@@ -1,0 +1,139 @@
+version: 2
+models:
+  - name: nml_schwab_trades
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: CUSTODIAN
+        description: 'Custodian name, lower-case, no spaces.'
+        data_type: VARCHAR
+      - name: FIRM
+        description: 'Firm name'
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: 'Firm entity associated with the link value.'
+        meta:
+          row_access_policy: rap_firm_source
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: 'End-client account number at Schwab.'
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN_LINK
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN_LINK_DETAIL
+        description: ''
+        data_type: VARCHAR
+      - name: REP_LINK
+        description: ''
+        data_type: VARCHAR
+      - name: REP_LINK_DETAIL
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_TYPE
+        description: 'Type of account at Schwab. For a full list of codes and definitions see the tab "Account Type Codes."'
+        data_type: VARCHAR
+      - name: ACCOUNT_TYPE_SOURCE_DEFINITION
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_TYPE_SOURCE_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: 'Committee on Uniform Securities Identification Procedures. A CUSIP number identifies most securities'
+        data_type: VARCHAR
+      - name: TRANSACTION_DATE
+        description: 'The actual date the transaction is to be recognized. The effective date of the transaction. This will be identical to the trade date in most cases. This date can, however, be different from trade date in rare instances, for example, if the trade was processed through a foreign exchange with a holiday schedule that differs from domestic exchanges.'
+        data_type: DATE
+      - name: SETTLEMENT_DATE
+        description: 'The expected trade settlement date.'
+        data_type: DATE
+      - name: ENTRY_DATE
+        description: ''
+        data_type: DATE
+      - name: BUY_SELL
+        description: ''
+        data_type: VARCHAR
+      - name: UNITS_SHARES
+        description: ''
+        data_type: NUMBER
+      - name: PRICE
+        description: 'Amount or value per unit or Quantity of a record.'
+        data_type: NUMBER
+      - name: GROSS_AMOUNT
+        description: 'Total amount or value of a trade record before deductions (Gross Amount = [Quantity * Price] + [Other Credits])'
+        data_type: NUMBER
+      - name: NET_AMOUNT
+        description: 'Final amount or value of a record (Net Amount = Gross Amount - [All Fees and Withholdings]). May be zero for non-trade activity. Provides a negative sign for sell transactions. Interfaces may want to use absolute value instead.'
+        data_type: NUMBER
+      - name: COMMISSION
+        description: 'Amount or value of fee type - Commission'
+        data_type: NUMBER
+      - name: CLOSING_PRICE
+        description: 'Closing price in Schwab systems.
+
+          OBSOLETE field, use \"Closing Price - Unfactored.\"
+
+          '
+        data_type: NUMBER
+      - name: CLOSING_PRICE_UNFACTORED
+        description: 'Closing price in Schwab systems. For securities where a factor applies, the value provided does not reflect the factor. Multiply by the Factor  value in the next field for a factored price.'
+        data_type: NUMBER
+      - name: FACTOR
+        description: 'The security''s current factor. For securities without a factor, the factor value will default to 1. Applies to TIPS, asset-backed securities, and other securities where a factor exists.'
+        data_type: NUMBER
+      - name: FACTOR_DATE
+        description: 'The date associated with the Factor value provided in the previous field.'
+        data_type: DATE
+      - name: DEBIT_CREDIT_INDICATOR
+        description: 'Resolves direction and method of a record (In vs. Out and Cash vs. Trade/Exchange) CREDIT, DEBIT, LONG, SHORT'
+        data_type: VARCHAR
+      - name: TRADE_EXECUTED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: IS_CANCELED
+        description: ''
+        data_type: NUMBER
+      - name: ISIN
+        description: 'International Securities Identification Number. A unique international code which identifies a securities issue'
+        data_type: VARCHAR
+      - name: SEDOL
+        description: 'The Stock Exchange Daily Official List number, a code used by the London Stock Exchange to identify foreign stocks'
+        data_type: VARCHAR
+      - name: TRANSACTION_ID_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: TRANSACTION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE_SOURCE_DEFINITION
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE_SOURCE_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: 'Time when the records were created in the source table.'
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR

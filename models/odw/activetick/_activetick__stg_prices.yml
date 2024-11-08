@@ -1,0 +1,166 @@
+version: 2
+models:
+  - name: activetick__stg_prices
+    columns:
+      - name: TICKER
+        description: ''
+      - name: ACTIVETICK_SYMBOL
+        description: ''
+      - name: OPTION_TYPE
+        description: ''
+      - name: STRIKE_PRICE
+        description: ''
+      - name: UNDERLYING_TICKER
+        description: ''
+      - name: LAST_PRICE
+        description: ''
+      - name: PREV_CLOSE_PRICE
+        description: ''
+      - name: OPEN_PRICE
+        description: ''
+      - name: CLOSE_PRICE
+        description: ''
+      - name: BID_PRICE
+        description: ''
+      - name: ASK_PRICE
+        description: ''
+      - name: HIGH_PRICE
+        description: ''
+      - name: LOW_PRICE
+        description: ''
+      - name: STATUS
+        description: ''
+      - name: FEED_SOURCE_CODE
+        description: ''
+      - name: FEED_SOURCE_CODE_2
+        description: ''
+      - name: DAILY_HIGH_PRICE
+        description: ''
+      - name: DAILY_LOW_PRICE
+        description: ''
+      - name: PRE_MARKET_OPEN_PRICE
+        description: ''
+      - name: EXTENDED_HOURS_LAST_PRICE
+        description: ''
+      - name: EXTENDED_HOURS_CLOSE_PRICE
+        description: ''
+      - name: BID_EXCHANGE
+        description: ''
+      - name: ASK_EXCHANGE
+        description: ''
+      - name: LAST_TRADE_EXCHANGE
+        description: ''
+      - name: LAST_TRADE_CONDITIONS
+        description: ''
+      - name: QUOTE_CONDITION
+        description: ''
+      - name: SESSION_BEGIN_TIME
+        description: ''
+      - name: SESSION_END_TIME
+        description: ''
+      - name: LAST_TRADE_TIME
+        description: ''
+      - name: QUOTE_TIME
+        description: ''
+      - name: HIGH_TIME
+        description: ''
+      - name: LOW_TIME
+        description: ''
+      - name: DAILY_HIGH_TIME
+        description: ''
+      - name: DAILY_LOW_TIME
+        description: ''
+      - name: FIFTY_TWO_WEEK_HIGH_PRICE
+        description: ''
+      - name: FIFTY_TWO_WEEK_LOW_PRICE
+        description: ''
+      - name: FIFTY_TWO_WEEK_HIGH_TIME
+        description: ''
+      - name: FIFTY_TWO_WEEK_LOW_TIME
+        description: ''
+      - name: LAST_TRADE_SIZE
+        description: ''
+      - name: BID_SIZE
+        description: ''
+      - name: ASK_SIZE
+        description: ''
+      - name: VOLUME
+        description: ''
+      - name: PRE_MARKET_VOLUME
+        description: ''
+      - name: EXTENDED_HOURS_VOLUMNE
+        description: ''
+      - name: TRADE_COUNT
+        description: ''
+      - name: PRE_MARKET_TRADE_COUNT
+        description: ''
+      - name: EXTENDED_HOURS_TRADE_COUNT
+        description: ''
+      - name: TRANSACTIONS_SUM
+        description: ''
+      - name: VWAP
+        description: ''
+      - name: OPTION_OPEN_INTEREST
+        description: ''
+      - name: OPTION_THEORETICAL_CALCULATED_PRICE
+        description: ''
+      - name: OPTION_GREEK_DELTA
+        description: ''
+      - name: OPTION_GREEK_GAMMA
+        description: ''
+      - name: OPTION_GREEK_RHO
+        description: ''
+      - name: OPTION_GREEK_VEGA
+        description: ''
+      - name: OPTION_GREEK_THETA
+        description: ''
+      - name: OPTION_IMPLIED_VOLATILITY
+        description: ''
+      - name: FIVE_DAY_AVG_VOLUME
+        description: ''
+      - name: TEN_DAY_AVG_VOLUME
+        description: ''
+      - name: TWENTY_DAY_AVG_VOLUME
+        description: ''
+      - name: FIFTY_DAY_AVG_VOLUME
+        description: ''
+      - name: ONE_HUNDRED_DAY_AVG_VOLUME
+        description: ''
+      - name: TWO_HUNDRED_DAY_AVG_VOLUME
+        description: ''
+      - name: FIVE_DAY_AVG_PRICE
+        description: ''
+      - name: TEN_DAY_AVG_PRICE
+        description: ''
+      - name: TWENTY_DAY_AVG_PRICE
+        description: ''
+      - name: FIFTY_DAY_AVG_PRICE
+        description: ''
+      - name: ONE_HUNDRED_DAY_AVG_PRICE
+        description: ''
+      - name: TWO_HUNDRED_DAY_AVG_PRICE
+        description: ''
+      - name: DIVIDEND_AMOUNT
+        description: ''
+      - name: DIVIDEND_DECLARED_DATE
+        description: ''
+      - name: DIVIDEND_EX_DATE
+        description: ''
+      - name: DIVIDEND_RECORD_DATE
+        description: ''
+      - name: DIVIDEND_PAYABLE_DATE
+        description: ''
+      - name: DIVIDEND_TYPE
+        description: ''
+      - name: COMPANY_SHORT_DESCRIPTION
+        description: ''
+      - name: COMPANY_LONG_DESCRIPTION
+        description: ''
+      - name: STOCK_SIC_CODE
+        description: ''
+      - name: STOCK_SIK_CODE
+        description: ''
+      - name: STOCK_PRIMARY_EXCHANGE
+        description: ''
+      - name: _CREATED_AT
+        description: ''

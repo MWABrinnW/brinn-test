@@ -1,0 +1,241 @@
+version: 2
+models:
+- name: pontera__stg_accounts
+  columns:
+  - name: CUSTODIAN_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_BALANCE
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CASH_SECURITY
+    description: ''
+    data_type: VARCHAR
+  - name: AS_OF_DATE
+    description: ''
+    data_type: DATE
+  - name: DATA_AVAILABILITY
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PLAN_ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_ID
+    description: ''
+    data_type: NUMBER
+  - name: NOTES
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD_FOR_DAY
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: pontera__stg_clients
+  columns:
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: ZIP
+    description: ''
+    data_type: NUMBER
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SSN
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: FIRM_ID
+    description: ''
+    data_type: VARCHAR
+  - name: REP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_ID
+    description: ''
+    data_type: NUMBER
+  - name: STATE
+    description: ''
+    data_type: VARCHAR
+  - name: ORGANIZATION_CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD_FOR_DAY
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: pontera__stg_positions
+  columns:
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: QUANTITY
+    description: ''
+    data_type: NUMBER
+  - name: TOTAL_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: POSITION_EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD_FOR_DAY
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: pontera__stg_prices
+  columns:
+  - name: SECURITY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PRICE_EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: ASSET_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD_FOR_DAY
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: pontera__stg_transactions
+  columns:
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CANCEL_FLAG
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: QUANTITY
+    description: ''
+    data_type: NUMBER
+  - name: SECURITY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSACTION_ID
+    description: ''
+    data_type: NUMBER
+  - name: TRANSACTION_EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: ASSET_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: COMMISSION
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD_FOR_DAY
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: pontera__stg_securities
+  columns:
+  - name: CATEGORY
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TICKER
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD_FOR_DAY
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER

@@ -1,0 +1,193 @@
+version: 2
+models:
+  - name: fidelity__int_gnums
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+        meta:
+          row_access_policy: rap_firm_source
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: PRIMARY_ACCOUNT_HOLDER
+        description: ''
+        data_type: VARCHAR
+      - name: GNUM
+        description: ''
+        data_type: VARCHAR
+      - name: GNUM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: IS_PRIMARY
+        description: ''
+        data_type: NUMBER
+      - name: GNUM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: GNUM_SOURCE_DESC
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: _ROW_NUMBER
+        description: ''
+        data_type: NUMBER
+      - name: _CHECKSUM
+        description: ''
+        data_type: VARCHAR
+  - name: fidelity__stg_gnums
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: FIRM_SOURCE
+        meta:
+          row_access_policy: rap_firm_source
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: PRIMARY_ACCOUNT_HOLDER
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTOM_SHORT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: REG_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: REG_TYPE_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: IS_OPEN
+        description: ''
+        data_type: NUMBER
+      - name: ESTABLISHED_DATE
+        description: ''
+        data_type: DATE
+      - name: AGENCY
+        description: ''
+        data_type: VARCHAR
+      - name: REGISTRATION_AND_ADDRESS
+        description: ''
+        data_type: VARCHAR
+      - name: RR1
+        description: ''
+        data_type: VARCHAR
+      - name: RR2
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_RESTRICTIONS
+        description: ''
+        data_type: VARCHAR
+      - name: PRIMARY_GNUM
+        description: ''
+        data_type: VARCHAR
+      - name: PRIMARY_GNUM_ADVISOR
+        description: ''
+        data_type: VARCHAR
+      - name: SECONDARY_GNUM_1
+        description: ''
+        data_type: VARCHAR
+      - name: SECONDARY_GNUM_NAME_1
+        description: ''
+        data_type: VARCHAR
+      - name: SECONDARY_GNUM_2
+        description: ''
+        data_type: VARCHAR
+      - name: SECONDARY_GNUM_NAME_2
+        description: ''
+        data_type: VARCHAR
+      - name: SECONDARY_GNUM_3
+        description: ''
+        data_type: VARCHAR
+      - name: SECONDARY_GNUM_NAME_3
+        description: ''
+        data_type: VARCHAR
+      - name: SECONDARY_GNUM_4
+        description: ''
+        data_type: VARCHAR
+      - name: SECONDARY_GNUM_NAME_4
+        description: ''
+        data_type: VARCHAR
+      - name: SECONDARY_GNUM_5
+        description: ''
+        data_type: VARCHAR
+      - name: SECONDARY_GNUM_NAME_5
+        description: ''
+        data_type: VARCHAR
+      - name: SECONDARY_GNUM_6
+        description: ''
+        data_type: VARCHAR
+      - name: SECONDARY_GNUM_NAME_6
+        description: ''
+        data_type: VARCHAR
+      - name: SECONDARY_GNUM_7
+        description: ''
+        data_type: VARCHAR
+      - name: SECONDARY_GNUM_NAME_7
+        description: ''
+        data_type: VARCHAR
+      - name: SECONDARY_GNUM_8
+        description: ''
+        data_type: VARCHAR
+      - name: SECONDARY_GNUM_NAME_8
+        description: ''
+        data_type: VARCHAR
+      - name: SECONDARY_GNUM_9
+        description: ''
+        data_type: VARCHAR
+      - name: SECONDARY_GNUM_NAME_9
+        description: ''
+        data_type: VARCHAR
+      - name: SECONDARY_GNUM_10
+        description: ''
+        data_type: VARCHAR
+      - name: SECONDARY_GNUM_NAME_10
+        description: ''
+        data_type: VARCHAR
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: _SOURCE_FILE_DATE
+        description: ''
+        data_type: DATE
+      - name: _ROW_NUMBER
+        description: ''
+        data_type: NUMBER
+      - name: _CHECKSUM
+        description: ''
+        data_type: VARCHAR

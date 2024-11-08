@@ -1,0 +1,5538 @@
+version: 2
+models:
+- name: salesforce_mps__base_account_contact_role
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ROLE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_PRIMARY
+    description: ''
+    data_type: BOOLEAN
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_account_feed
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: INSERTED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_RICH_TEXT
+    description: ''
+    data_type: BOOLEAN
+  - name: LINK_URL
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: BODY
+    description: ''
+    data_type: VARCHAR
+  - name: LIKE_COUNT
+    description: ''
+    data_type: NUMBER
+  - name: BEST_COMMENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: COMMENT_COUNT
+    description: ''
+    data_type: NUMBER
+  - name: TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: RELATED_RECORD_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_additional_number
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CALL_CENTER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_asset
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: STREET
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PURCHASE_DATE
+    description: ''
+    data_type: DATE
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ROOT_ASSET_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PRICE
+    description: ''
+    data_type: NUMBER
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: ASSET_SERVICED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SERIAL_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: QUANTITY
+    description: ''
+    data_type: FLOAT
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: USAGE_END_DATE
+    description: ''
+    data_type: DATE
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_2_ID
+    description: ''
+    data_type: VARCHAR
+  - name: STOCK_KEEPING_UNIT
+    description: ''
+    data_type: VARCHAR
+  - name: INSTALL_DATE
+    description: ''
+    data_type: DATE
+  - name: IS_COMPETITOR_PRODUCT
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: STATE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ASSET_PROVIDED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: IS_INTERNAL
+    description: ''
+    data_type: BOOLEAN
+  - name: LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: ASSET_LEVEL
+    description: ''
+    data_type: NUMBER
+  - name: POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_asset_feed
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: INSERTED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LIKE_COUNT
+    description: ''
+    data_type: NUMBER
+  - name: BODY
+    description: ''
+    data_type: VARCHAR
+  - name: COMMENT_COUNT
+    description: ''
+    data_type: NUMBER
+  - name: RELATED_RECORD_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LINK_URL
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_RICH_TEXT
+    description: ''
+    data_type: BOOLEAN
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: BEST_COMMENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_asset_relationship_feed
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LINK_URL
+    description: ''
+    data_type: VARCHAR
+  - name: COMMENT_COUNT
+    description: ''
+    data_type: NUMBER
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: LIKE_COUNT
+    description: ''
+    data_type: NUMBER
+  - name: BEST_COMMENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: INSERTED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_RICH_TEXT
+    description: ''
+    data_type: BOOLEAN
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: BODY
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: RELATED_RECORD_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_associated_location
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: LOCATION_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ACTIVE_TO
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ACTIVE_FROM
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PARENT_RECORD_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ASSOCIATED_LOCATION_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_associated_location_history
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: DATA_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: NEW_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: OLD_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: FIELD
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: ASSOCIATED_LOCATION_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_campaign
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: NUMBER_OF_WON_OPPORTUNITIES
+    description: ''
+    data_type: NUMBER
+  - name: STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: END_DATE
+    description: ''
+    data_type: DATE
+  - name: AMOUNT_WON_OPPORTUNITIES
+    description: ''
+    data_type: NUMBER
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: EXPECTED_REVENUE
+    description: ''
+    data_type: NUMBER
+  - name: AMOUNT_ALL_OPPORTUNITIES
+    description: ''
+    data_type: NUMBER
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: START_DATE
+    description: ''
+    data_type: DATE
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CAMPAIGN_MEMBER_RECORD_TYPE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACTUAL_COST
+    description: ''
+    data_type: NUMBER
+  - name: NUMBER_OF_RESPONSES
+    description: ''
+    data_type: NUMBER
+  - name: NUMBER_SENT
+    description: ''
+    data_type: FLOAT
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: EXPECTED_RESPONSE
+    description: ''
+    data_type: FLOAT
+  - name: BUDGETED_COST
+    description: ''
+    data_type: NUMBER
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NUMBER_OF_LEADS
+    description: ''
+    data_type: NUMBER
+  - name: NUMBER_OF_CONVERTED_LEADS
+    description: ''
+    data_type: NUMBER
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_ACTIVE
+    description: ''
+    data_type: BOOLEAN
+  - name: NUMBER_OF_OPPORTUNITIES
+    description: ''
+    data_type: NUMBER
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: NUMBER_OF_CONTACTS
+    description: ''
+    data_type: NUMBER
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_campaign_history
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: NEW_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: DATA_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: FIELD
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: CAMPAIGN_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: OLD_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_campaign_member_status
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CAMPAIGN_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SORT_ORDER
+    description: ''
+    data_type: NUMBER
+  - name: HAS_RESPONDED
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_DEFAULT
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: LABEL
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_case
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_ESCALATED
+    description: ''
+    data_type: BOOLEAN
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ORIGIN
+    description: ''
+    data_type: VARCHAR
+  - name: SUPPLIED_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: SUPPLIED_EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CLOSED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PRIORITY
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: REASON
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SUPPLIED_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CONTACT_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SUPPLIED_COMPANY
+    description: ''
+    data_type: VARCHAR
+  - name: CASE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: CONTACT_FAX
+    description: ''
+    data_type: VARCHAR
+  - name: CONTACT_MOBILE
+    description: ''
+    data_type: VARCHAR
+  - name: CONTACT_EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: SUBJECT
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_CLOSED
+    description: ''
+    data_type: BOOLEAN
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: COMMENTS
+    description: ''
+    data_type: VARCHAR
+  - name: MASTER_RECORD_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_case_contact_role
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CASES_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: ROLE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_case_status
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SORT_ORDER
+    description: ''
+    data_type: NUMBER
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: MASTER_LABEL
+    description: ''
+    data_type: VARCHAR
+  - name: API_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_DEFAULT
+    description: ''
+    data_type: BOOLEAN
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_CLOSED
+    description: ''
+    data_type: BOOLEAN
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_case_team_role
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PREFERENCES_VISIBLE_IN_CSP
+    description: ''
+    data_type: BOOLEAN
+  - name: ACCESS_LEVEL
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_case_team_template_record
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: TEAM_TEMPLATE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_asset_history
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: OLD_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: ASSET_ID
+    description: ''
+    data_type: VARCHAR
+  - name: DATA_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIELD
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NEW_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_asset_relationship
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: ASSET_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ASSET_RELATIONSHIP_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: RELATIONSHIP_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: FROM_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TO_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: RELATED_ASSET_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_contact
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_BOUNCED_REASON
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: OTHER_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: JIGSAW_CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: RECORD_TYPE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: JIGSAW
+    description: ''
+    data_type: VARCHAR
+  - name: MASTER_RECORD_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PHOTO_URL
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: LEAD_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: SALUTATION
+    description: ''
+    data_type: VARCHAR
+  - name: TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_BOUNCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: INDIVIDUAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_EMAIL_BOUNCED
+    description: ''
+    data_type: BOOLEAN
+  - name: ASSISTANT_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ASSISTANT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: MAILING_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: REPORTS_TO_ID
+    description: ''
+    data_type: VARCHAR
+  - name: HOME_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: MOBILE_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_PERSON_ACCOUNT
+    description: ''
+    data_type: BOOLEAN
+  - name: DEPARTMENT
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: MAILING_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: IS_PRIORITY_RECORD
+    description: ''
+    data_type: BOOLEAN
+  - name: OTHER_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_CUUPDATE_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_CUREQUEST_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: FAX
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: BIRTHDATE
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: MAILING_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_asset_relationship_history
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: ASSET_RELATIONSHIP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: OLD_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: FIELD
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: DATA_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NEW_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_campaign_feed
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: RELATED_RECORD_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: LIKE_COUNT
+    description: ''
+    data_type: NUMBER
+  - name: TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: COMMENT_COUNT
+    description: ''
+    data_type: NUMBER
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: BODY
+    description: ''
+    data_type: VARCHAR
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: BEST_COMMENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_RICH_TEXT
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: INSERTED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LINK_URL
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_contract_status
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DEFAULT
+    description: ''
+    data_type: BOOLEAN
+  - name: SORT_ORDER
+    description: ''
+    data_type: NUMBER
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: STATUS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: API_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: MASTER_LABEL
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_group
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: RELATED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: DOES_INCLUDE_BOSSES
+    description: ''
+    data_type: BOOLEAN
+  - name: DEVELOPER_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: DOES_SEND_EMAIL_TO_MEMBERS
+    description: ''
+    data_type: BOOLEAN
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_individual
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: MASTER_RECORD_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: HAS_OPTED_OUT_PROCESSING
+    description: ''
+    data_type: BOOLEAN
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: IS_HOME_OWNER
+    description: ''
+    data_type: BOOLEAN
+  - name: INDIVIDUALS_AGE
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: BIRTH_DATE
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: WEBSITE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SHOULD_FORGET
+    description: ''
+    data_type: BOOLEAN
+  - name: CONSUMER_CREDIT_SCORE
+    description: ''
+    data_type: NUMBER
+  - name: HAS_OPTED_OUT_SOLICIT
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CONSUMER_CREDIT_SCORE_PROVIDER_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: HAS_OPTED_OUT_TRACKING
+    description: ''
+    data_type: BOOLEAN
+  - name: CAN_STORE_PII_ELSEWHERE
+    description: ''
+    data_type: BOOLEAN
+  - name: DEATH_DATE
+    description: ''
+    data_type: DATE
+  - name: SEND_INDIVIDUAL_DATA
+    description: ''
+    data_type: BOOLEAN
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CHILDREN_COUNT
+    description: ''
+    data_type: NUMBER
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: INFLUENCER_RATING
+    description: ''
+    data_type: NUMBER
+  - name: MILITARY_SERVICE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: OCCUPATION
+    description: ''
+    data_type: VARCHAR
+  - name: HAS_OPTED_OUT_GEO_TRACKING
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: HAS_OPTED_OUT_PROFILING
+    description: ''
+    data_type: BOOLEAN
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SALUTATION
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONVICTIONS_COUNT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_location
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LOCATION_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: LOGO_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_MOBILE
+    description: ''
+    data_type: BOOLEAN
+  - name: ROOT_LOCATION_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: EXTERNAL_REFERENCE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_INVENTORY_LOCATION
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_address
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: TIME_ZONE
+    description: ''
+    data_type: VARCHAR
+  - name: LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: STREET
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: DRIVING_DIRECTIONS
+    description: ''
+    data_type: VARCHAR
+  - name: GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LOCATION_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: ADDRESS_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: STATE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_category_data
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: CATEGORY_NODE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: RELATED_SOBJECT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_organization
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: RECEIVES_INFO_EMAILS
+    description: ''
+    data_type: BOOLEAN
+  - name: STATE
+    description: ''
+    data_type: VARCHAR
+  - name: PREFERENCES_ONLY_LLPERM_USER_ALLOWED
+    description: ''
+    data_type: BOOLEAN
+  - name: PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PREFERENCES_LIGHTNING_LOGIN_ENABLED
+    description: ''
+    data_type: BOOLEAN
+  - name: GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: LANGUAGE_LOCALE_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: USES_START_DATE_AS_FISCAL_YEAR_NAME
+    description: ''
+    data_type: BOOLEAN
+  - name: NUM_KNOWLEDGE_SERVICE
+    description: ''
+    data_type: NUMBER
+  - name: WEB_TO_CASE_DEFAULT_ORIGIN
+    description: ''
+    data_type: VARCHAR
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: IS_SANDBOX
+    description: ''
+    data_type: BOOLEAN
+  - name: COMPLIANCE_BCC_EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: DEFAULT_LOCALE_SID_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: PREFERENCES_REQUIRE_OPPORTUNITY_PRODUCTS
+    description: ''
+    data_type: BOOLEAN
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: DEFAULT_OPPORTUNITY_ACCESS
+    description: ''
+    data_type: VARCHAR
+  - name: DEFAULT_CAMPAIGN_ACCESS
+    description: ''
+    data_type: VARCHAR
+  - name: RECEIVES_ADMIN_INFO_EMAILS
+    description: ''
+    data_type: BOOLEAN
+  - name: PREFERENCES_EMAIL_SENDER_ID_COMPLIANCE
+    description: ''
+    data_type: BOOLEAN
+  - name: PREFERENCES_AUTO_SELECT_INDIVIDUAL_ON_MERGE
+    description: ''
+    data_type: BOOLEAN
+  - name: DIVISION
+    description: ''
+    data_type: VARCHAR
+  - name: DEFAULT_LEAD_ACCESS
+    description: ''
+    data_type: VARCHAR
+  - name: LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: NAMESPACE_PREFIX
+    description: ''
+    data_type: VARCHAR
+  - name: DEFAULT_CASE_ACCESS
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: UI_SKIN
+    description: ''
+    data_type: VARCHAR
+  - name: DEFAULT_CALENDAR_ACCESS
+    description: ''
+    data_type: VARCHAR
+  - name: DEFAULT_ACCOUNT_ACCESS
+    description: ''
+    data_type: VARCHAR
+  - name: FAX
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FISCAL_YEAR_START_MONTH
+    description: ''
+    data_type: NUMBER
+  - name: DEFAULT_CONTACT_ACCESS
+    description: ''
+    data_type: VARCHAR
+  - name: IS_READ_ONLY
+    description: ''
+    data_type: BOOLEAN
+  - name: POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PRIMARY_CONTACT
+    description: ''
+    data_type: VARCHAR
+  - name: MONTHLY_PAGE_VIEWS_USED
+    description: ''
+    data_type: NUMBER
+  - name: TRIAL_EXPIRATION_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: STREET
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: TIME_ZONE_SID_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: DEFAULT_PRICEBOOK_ACCESS
+    description: ''
+    data_type: VARCHAR
+  - name: PREFERENCES_CONSENT_MANAGEMENT_ENABLED
+    description: ''
+    data_type: BOOLEAN
+  - name: MONTHLY_PAGE_VIEWS_ENTITLEMENT
+    description: ''
+    data_type: NUMBER
+  - name: INSTANCE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ORGANIZATION_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SIGNUP_COUNTRY_ISO_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_partner
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_PRIMARY
+    description: ''
+    data_type: BOOLEAN
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TO_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ROLE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_FROM_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: REVERSE_PARTNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: OPPORTUNITY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_contract_contact_role
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONTRACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ROLE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_PRIMARY
+    description: ''
+    data_type: BOOLEAN
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_user_account_team_member
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: CONTACT_ACCESS_LEVEL
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ACCOUNT_ACCESS_LEVEL
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: OPPORTUNITY_ACCESS_LEVEL
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: TEAM_MEMBER_ROLE
+    description: ''
+    data_type: VARCHAR
+  - name: CASE_ACCESS_LEVEL
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_campaign_member
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: LEAD_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FAX
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: HAS_OPTED_OUT_OF_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: COMPANY_OR_ACCOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: DO_NOT_CALL
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: HAS_RESPONDED
+    description: ''
+    data_type: BOOLEAN
+  - name: LEAD_OR_CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: STATE
+    description: ''
+    data_type: VARCHAR
+  - name: CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: MOBILE_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: LEAD_OR_CONTACT_OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: LEAD_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: CAMPAIGN_ID
+    description: ''
+    data_type: VARCHAR
+  - name: COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_RESPONDED_DATE
+    description: ''
+    data_type: DATE
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: STREET
+    description: ''
+    data_type: VARCHAR
+  - name: HAS_OPTED_OUT_OF_FAX
+    description: ''
+    data_type: BOOLEAN
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: SALUTATION
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_account_history
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: FIELD
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: NEW_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: OLD_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: DATA_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_case_team_template_member
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: TEAM_ROLE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TEAM_TEMPLATE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: MEMBER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_order
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SHIPPING_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: BILLING_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: SHIPPING_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: ACTIVATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: BILLING_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: TOTAL_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: IS_REDUCTION_ORDER
+    description: ''
+    data_type: BOOLEAN
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: END_DATE
+    description: ''
+    data_type: DATE
+  - name: SHIPPING_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: CONTRACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ORIGINAL_ORDER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SHIPPING_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PRICEBOOK_2_ID
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: ACTIVATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: STATUS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: COMPANY_AUTHORIZED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CUSTOMER_AUTHORIZED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ORDER_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_contract
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ACTIVATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: COMPANY_SIGNED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: SHIPPING_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: BILLING_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: ACTIVATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SHIPPING_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: START_DATE
+    description: ''
+    data_type: DATE
+  - name: SHIPPING_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_SIGNED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: COMPANY_SIGNED_DATE
+    description: ''
+    data_type: DATE
+  - name: STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: CONTRACT_TERM
+    description: ''
+    data_type: NUMBER
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: OWNER_EXPIRATION_NOTICE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_APPROVED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SPECIAL_TERMS
+    description: ''
+    data_type: VARCHAR
+  - name: STATUS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_SIGNED_DATE
+    description: ''
+    data_type: DATE
+  - name: CUSTOMER_SIGNED_TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SHIPPING_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: BILLING_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: CONTRACT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: SHIPPING_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: END_DATE
+    description: ''
+    data_type: DATE
+  - name: SHIPPING_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_contract_line_item
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SUBTOTAL
+    description: ''
+    data_type: NUMBER
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: END_DATE
+    description: ''
+    data_type: DATE
+  - name: LINE_ITEM_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LIST_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: SERVICE_CONTRACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: ROOT_CONTRACT_LINE_ITEM_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ASSET_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PARENT_CONTRACT_LINE_ITEM_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_2_ID
+    description: ''
+    data_type: VARCHAR
+  - name: START_DATE
+    description: ''
+    data_type: DATE
+  - name: PRICEBOOK_ENTRY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: UNIT_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: QUANTITY
+    description: ''
+    data_type: FLOAT
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: TOTAL_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: DISCOUNT
+    description: ''
+    data_type: FLOAT
+  - name: LOCATION_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_customer
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: TOTAL_LIFE_TIME_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_STATUS_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PARTY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_group_member
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: GROUP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: USER_OR_GROUP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_opportunity
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_STAGE_CHANGE_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PRICEBOOK_2_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: LEAD_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: FISCAL_YEAR
+    description: ''
+    data_type: NUMBER
+  - name: IS_WON
+    description: ''
+    data_type: BOOLEAN
+  - name: PROBABILITY
+    description: ''
+    data_type: FLOAT
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: NEXT_STEP
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: HAS_OPEN_ACTIVITY
+    description: ''
+    data_type: BOOLEAN
+  - name: FISCAL
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PUSH_COUNT
+    description: ''
+    data_type: NUMBER
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: HAS_OVERDUE_TASK
+    description: ''
+    data_type: BOOLEAN
+  - name: FORECAST_CATEGORY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: STAGE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FISCAL_QUARTER
+    description: ''
+    data_type: NUMBER
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_CLOSED
+    description: ''
+    data_type: BOOLEAN
+  - name: CLOSE_DATE
+    description: ''
+    data_type: DATE
+  - name: FORECAST_CATEGORY
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CAMPAIGN_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_CLOSE_DATE_CHANGED_HISTORY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_AMOUNT_CHANGED_HISTORY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: HAS_OPPORTUNITY_LINE_ITEM
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_category_node_localization
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LANGUAGE
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CATEGORY_NODE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAMESPACE_PREFIX
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_account
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_MAILING_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_OTHER_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_PERSON_ACCOUNT
+    description: ''
+    data_type: BOOLEAN
+  - name: SHIPPING_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: PERSON_CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_OTHER_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_OTHER_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: ANNUAL_HOUSEHOLD_INCOME_C
+    description: ''
+    data_type: NUMBER
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: SHIPPING_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_ASSISTANT_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: FAX
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_OTHER_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PERSON_EMAIL_BOUNCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: JIGSAW_COMPANY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_HOME_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: SHIPPING_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: JIGSAW
+    description: ''
+    data_type: VARCHAR
+  - name: NUMBER_OF_EMPLOYEES
+    description: ''
+    data_type: NUMBER
+  - name: PERSON_OTHER_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SIC_DESC
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_LAST_CUUPDATE_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PERSON_OTHER_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_MAILING_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_MOBILE_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_MAILING_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: ANNUAL_REVENUE
+    description: ''
+    data_type: NUMBER
+  - name: PERSON_MAILING_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_PRIORITY_RECORD
+    description: ''
+    data_type: BOOLEAN
+  - name: BILLING_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_ASSISTANT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: BILLING_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: PERSON_INDIVIDUAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_LEAD_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_DEPARTMENT
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: WEBSITE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: INDUSTRY
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: TEST_DATE_C
+    description: ''
+    data_type: DATE
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_OTHER_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: NET_WORTH_C
+    description: ''
+    data_type: NUMBER
+  - name: PERSON_MAILING_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: PHOTO_URL
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_MAILING_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: TAX_BRACKET_C
+    description: ''
+    data_type: FLOAT
+  - name: SALUTATION
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_LAST_CUREQUEST_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PERSON_EMAIL_BOUNCED_REASON
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_OTHER_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_OTHER_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: TRADING_SYSTEM_HOUSE_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_MAILING_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_BIRTHDATE
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: PERSON_MAILING_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: MASTER_RECORD_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_opportunity_line_item
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: TOTAL_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: OPPORTUNITY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_2_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: SORT_ORDER
+    description: ''
+    data_type: NUMBER
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: UNIT_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: PRICEBOOK_ENTRY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: QUANTITY
+    description: ''
+    data_type: FLOAT
+  - name: LIST_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SERVICE_DATE
+    description: ''
+    data_type: DATE
+  - name: PRODUCT_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_period
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: START_DATE
+    description: ''
+    data_type: DATE
+  - name: FISCAL_YEAR_SETTINGS_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_FORECAST_PERIOD
+    description: ''
+    data_type: BOOLEAN
+  - name: QUARTER_LABEL
+    description: ''
+    data_type: VARCHAR
+  - name: FULLY_QUALIFIED_LABEL
+    description: ''
+    data_type: VARCHAR
+  - name: END_DATE
+    description: ''
+    data_type: DATE
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PERIOD_LABEL
+    description: ''
+    data_type: VARCHAR
+  - name: NUMBER
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_opportunity_contact_role
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_PRIMARY
+    description: ''
+    data_type: BOOLEAN
+  - name: CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: ROLE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: OPPORTUNITY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_lead
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: NUMBER_OF_EMPLOYEES
+    description: ''
+    data_type: NUMBER
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: JIGSAW
+    description: ''
+    data_type: VARCHAR
+  - name: JIGSAW_CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: WEBSITE
+    description: ''
+    data_type: VARCHAR
+  - name: CONVERTED_OPPORTUNITY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: STATE
+    description: ''
+    data_type: VARCHAR
+  - name: COMPANY
+    description: ''
+    data_type: VARCHAR
+  - name: MASTER_RECORD_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_BOUNCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ANNUAL_REVENUE
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: LEAD_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: CONVERTED_DATE
+    description: ''
+    data_type: DATE
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: RATING
+    description: ''
+    data_type: VARCHAR
+  - name: IS_CONVERTED
+    description: ''
+    data_type: BOOLEAN
+  - name: PHOTO_URL
+    description: ''
+    data_type: VARCHAR
+  - name: IS_UNREAD_BY_OWNER
+    description: ''
+    data_type: BOOLEAN
+  - name: LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: IS_PRIORITY_RECORD
+    description: ''
+    data_type: BOOLEAN
+  - name: INDIVIDUAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: STREET
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONVERTED_CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: CONVERTED_ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SALUTATION
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: EMAIL_BOUNCED_REASON
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: INDUSTRY
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_category_node
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: MASTER_LABEL
+    description: ''
+    data_type: VARCHAR
+  - name: SORT_ORDER
+    description: ''
+    data_type: NUMBER
+  - name: SORT_STYLE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_order_item
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: ORDER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: ORIGINAL_ORDER_ITEM_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: AVAILABLE_QUANTITY
+    description: ''
+    data_type: FLOAT
+  - name: SERVICE_DATE
+    description: ''
+    data_type: DATE
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LIST_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: UNIT_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: ORDER_ITEM_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: PRICEBOOK_ENTRY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: TOTAL_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: PRODUCT_2_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: END_DATE
+    description: ''
+    data_type: DATE
+  - name: QUANTITY
+    description: ''
+    data_type: FLOAT
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_user
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: LANGUAGE_LOCALE_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_DISABLE_SHARE_POST_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: CALL_CENTER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_HIDE_LIGHTNING_MIGRATION_MODAL
+    description: ''
+    data_type: BOOLEAN
+  - name: GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_SHOW_WORK_PHONE_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SUPPRESS_EVENT_SFXREMINDERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_FORECASTING_CHANGE_SIGNALS
+    description: ''
+    data_type: BOOLEAN
+  - name: ALIAS
+    description: ''
+    data_type: VARCHAR
+  - name: MOBILE_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_SHOW_POSTAL_CODE_TO_EXTERNAL_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HIDE_CSNGET_CHATTER_MOBILE_TASK
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_CACHE_DIAGNOSTICS
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: STAY_IN_TOUCH_SUBJECT
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PERMISSIONS_SUPPORT_USER
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_DISABLE_ENDORSEMENT_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: OUT_OF_OFFICE_MESSAGE
+    description: ''
+    data_type: VARCHAR
+  - name: OFFLINE_PDA_TRIAL_EXPIRATION_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_LOGIN_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: USER_PREFERENCES_SHOW_MANAGER_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: SENDER_EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: STAY_IN_TOUCH_NOTE
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_PREFERENCES_AUTO_BCC_STAY_IN_TOUCH
+    description: ''
+    data_type: BOOLEAN
+  - name: STAY_IN_TOUCH_SIGNATURE
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_FAVORITES_SHOW_TOP_FAVORITES
+    description: ''
+    data_type: BOOLEAN
+  - name: SIGNATURE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LOCALE_SID_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_DISABLE_MENTIONS_POST_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_CITY_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_DISABLE_BOOKMARK_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: USER_PREFERENCES_SHOW_FAX_TO_EXTERNAL_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_RECEIVE_NO_NOTIFICATIONS_AS_APPROVER
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_DISABLE_FILE_SHARE_NOTIFICATIONS_FOR_API
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_ROLE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: MEDIUM_BANNER_PHOTO_URL
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PERMISSIONS_MARKETING_USER
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_FORECASTING_ROUNDED_AMOUNTS
+    description: ''
+    data_type: BOOLEAN
+  - name: FORECAST_ENABLED
+    description: ''
+    data_type: BOOLEAN
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_GLOBAL_NAV_BAR_WTSHOWN
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_WORK_PHONE_TO_EXTERNAL_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_FAVORITES_WTSHOWN
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_COUNTRY_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: TIME_ZONE_SID_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_NEW_LIGHTNING_REPORT_RUN_PAGE_ENABLED
+    description: ''
+    data_type: BOOLEAN
+  - name: PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PERMISSIONS_OFFLINE_USER
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_NATIVE_EMAIL_CLIENT
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_ENABLE_AUTO_SUB_FOR_FEEDS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_EMAIL_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: MEDIUM_PHOTO_URL
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_SHOW_MOBILE_PHONE_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: DIGEST_FREQUENCY
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PERMISSIONS_AVANTGO_USER
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_PREVIEW_LIGHTNING
+    description: ''
+    data_type: BOOLEAN
+  - name: RECEIVES_ADMIN_INFO_EMAILS
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_SHOW_EMAIL_TO_EXTERNAL_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: BADGE_TEXT
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_HIDE_SECOND_CHATTER_ONBOARDING_SPLASH
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HIDE_CHATTER_ONBOARDING_SPLASH
+    description: ''
+    data_type: BOOLEAN
+  - name: IS_EXT_INDICATOR_VISIBLE
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PERMISSIONS_INTERACTION_USER
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: USER_PREFERENCES_LIVE_AGENT_MIAW_SETUP_DEFLECTION
+    description: ''
+    data_type: BOOLEAN
+  - name: MANAGER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_DISABLE_ALL_FEEDS_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: EMPLOYEE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: STREET
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_DISABLE_LIKE_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_FAX_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: EMAIL_ENCODING_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_SHOW_STATE_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: INDIVIDUAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_SHOW_STREET_ADDRESS_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: IS_ACTIVE
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_TITLE_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_PASSWORD_CHANGE_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: USER_PREFERENCES_DIS_COMMENT_AFTER_LIKE_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: SENDER_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: COMPANY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_DIS_PROF_POST_COMMENT_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SORT_FEED_BY_COMMENT
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HIDE_BIGGER_PHOTO_CALLOUT
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_DISABLE_CHANGE_COMMENT_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: COMMUNITY_NICKNAME
+    description: ''
+    data_type: VARCHAR
+  - name: SMALL_PHOTO_URL
+    description: ''
+    data_type: VARCHAR
+  - name: POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_REMINDER_SOUND_OFF
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SUPPRESS_TASK_SFXREMINDERS
+    description: ''
+    data_type: BOOLEAN
+  - name: SMALL_BANNER_PHOTO_URL
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_PREFERENCES_STAY_IN_TOUCH_REMINDER
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_LIGHTNING_EXPERIENCE_PREFERRED
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_RECORD_HOME_RESERVED_WTSHOWN
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HIDE_SFX_WELCOME_MAT
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_PREVIEW_CUSTOM_THEME
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_TASK_REMINDERS_CHECKBOX_DEFAULT
+    description: ''
+    data_type: BOOLEAN
+  - name: RECEIVES_INFO_EMAILS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PERMISSIONS_SFCONTENT_USER
+    description: ''
+    data_type: BOOLEAN
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: EXTENSION
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_SHOW_MOBILE_PHONE_TO_EXTERNAL_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_STATE_TO_EXTERNAL_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: EMAIL_PREFERENCES_AUTO_BCC
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HIDE_S_1_BROWSER_UI
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_RECEIVE_NOTIFICATIONS_AS_DELEGATED_APPROVER
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: USERNAME
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_DISABLE_LATER_COMMENT_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: USER_PREFERENCES_DISABLE_FOLLOWERS_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_RECORD_HOME_SECTION_COLLAPSE_WTSHOWN
+    description: ''
+    data_type: BOOLEAN
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: FAX
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_SHOW_MANAGER_TO_EXTERNAL_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_POSTAL_CODE_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_STREET_ADDRESS_TO_EXTERNAL_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: IS_PROFILE_PHOTO_ACTIVE
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HIDE_ONLINE_SALES_APP_WELCOME_MAT
+    description: ''
+    data_type: BOOLEAN
+  - name: BANNER_PHOTO_URL
+    description: ''
+    data_type: VARCHAR
+  - name: DIVISION
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_EVENT_REMINDERS_CHECKBOX_DEFAULT
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_PROFILE_PIC_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HIDE_CSNDESKTOP_TASK
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_EXCLUDE_MAIL_APP_ATTACHMENTS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_REVERSE_OPEN_ACTIVITIES_VIEW
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SRHOVERRIDE_ACTIVITIES
+    description: ''
+    data_type: BOOLEAN
+  - name: OFFLINE_TRIAL_EXPIRATION_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: USER_PREFERENCES_GLOBAL_NAV_GRID_MENU_WTSHOWN
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_DIS_MENTIONS_COMMENT_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: DEFAULT_GROUP_NOTIFICATION_FREQUENCY
+    description: ''
+    data_type: VARCHAR
+  - name: FEDERATION_IDENTIFIER
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_PATH_ASSISTANT_COLLAPSED
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HIDE_END_USER_ONBOARDING_ASSISTANT_MODAL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PERMISSIONS_CALL_CENTER_AUTO_LOGIN
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_USER_DEBUG_MODE_PREF
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_COUNTRY_TO_EXTERNAL_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: NUMBER_OF_FAILED_LOGINS
+    description: ''
+    data_type: NUMBER
+  - name: DELEGATED_APPROVER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: USER_PREFERENCES_HAS_SENT_WARNING_EMAIL_240
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_DISABLE_PROFILE_POST_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: ABOUT_ME
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_SHOW_CITY_TO_EXTERNAL_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HAS_SENT_WARNING_EMAIL_238
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_CREATE_LEXAPPS_WTSHOWN
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_ACTIVITY_REMINDERS_POPUP
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HAS_SENT_WARNING_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HAS_CELEBRATION_BADGE
+    description: ''
+    data_type: BOOLEAN
+  - name: CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_DISABLE_MESSAGE_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: DEPARTMENT
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_SHOW_TITLE_TO_EXTERNAL_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: STATE
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_HIDE_BROWSE_PRODUCT_REDIRECT_CONFIRMATION
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: FULL_PHOTO_URL
+    description: ''
+    data_type: VARCHAR
+  - name: PROFILE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: USER_PREFERENCES_APEX_PAGES_DEVELOPER_MODE
+    description: ''
+    data_type: BOOLEAN
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_case_team_member
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: MEMBER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TEAM_ROLE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: TEAM_TEMPLATE_MEMBER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: TEAM_TEMPLATE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_contact_history
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIELD
+    description: ''
+    data_type: VARCHAR
+  - name: CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: OLD_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: NEW_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: DATA_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_partner_role
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: REVERSE_ROLE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SORT_ORDER
+    description: ''
+    data_type: NUMBER
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: API_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: MASTER_LABEL
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_contract_line_item_history
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: NEW_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONTRACT_LINE_ITEM_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: FIELD
+    description: ''
+    data_type: VARCHAR
+  - name: DATA_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: OLD_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_contact_point_address
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: BEST_TIME_TO_CONTACT_END_TIME
+    description: ''
+    data_type: VARCHAR
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_DEFAULT
+    description: ''
+    data_type: BOOLEAN
+  - name: ACTIVE_TO_DATE
+    description: ''
+    data_type: DATE
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: IS_PRIMARY
+    description: ''
+    data_type: BOOLEAN
+  - name: POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CONTACT_POINT_PHONE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: STATE
+    description: ''
+    data_type: VARCHAR
+  - name: BEST_TIME_TO_CONTACT_START_TIME
+    description: ''
+    data_type: VARCHAR
+  - name: STREET
+    description: ''
+    data_type: VARCHAR
+  - name: BEST_TIME_TO_CONTACT_TIMEZONE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: USAGE_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: ACTIVE_FROM_DATE
+    description: ''
+    data_type: DATE
+  - name: LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: PREFERENCE_RANK
+    description: ''
+    data_type: NUMBER
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_mps__base_case_team_template
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER

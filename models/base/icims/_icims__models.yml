@@ -1,0 +1,343 @@
+version: 2
+models:
+- name: icims__base_applicant_workflows
+  columns:
+  - name: ID
+    description: ''
+    data_type: NUMBER
+  - name: UPDATED_DATE
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: UPDATED_BY
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATED_BY_ID
+    description: ''
+    data_type: NUMBER
+  - name: SOURCE_DEVICE
+    description: ''
+    data_type: VARCHAR
+  - name: ASSOCIATED_PROFILE
+    description: ''
+    data_type: VARCHAR
+  - name: ASSOCIATED_PROFILE_ID
+    description: ''
+    data_type: NUMBER
+  - name: BASE_PROFILE
+    description: ''
+    data_type: VARCHAR
+  - name: BASE_PROFILE_ID
+    description: ''
+    data_type: NUMBER
+  - name: SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: PORTAL_ID
+    description: ''
+    data_type: NUMBER
+  - name: SOURCE_ORIGIN
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE_ORIGIN_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE_CHANNEL
+    description: ''
+    data_type: VARCHAR
+  - name: STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: STATUS_ID
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: icims__base_jobs
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATED_DATE
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: UPDATED_BY
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATED_BY_ID
+    description: ''
+    data_type: NUMBER
+  - name: JOB_TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: HIRING_MANAGER_PROFILE
+    description: ''
+    data_type: VARCHAR
+  - name: HIRING_MANAGER
+    description: ''
+    data_type: VARCHAR
+  - name: HIRING_MANAGER_ID
+    description: ''
+    data_type: NUMBER
+  - name: NUMBER_OF_POSITIONS
+    description: ''
+    data_type: NUMBER
+  - name: JOB_LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: JOB_LOCATION_ID
+    description: ''
+    data_type: NUMBER
+  - name: POSITION_CATEGORY
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_CATEGORY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_CATEGORY_SOCCODE
+    description: ''
+    data_type: NUMBER
+  - name: RECRUITER_PROFILE
+    description: ''
+    data_type: VARCHAR
+  - name: RECRUITER_ID
+    description: ''
+    data_type: NUMBER
+  - name: RECRUITER
+    description: ''
+    data_type: VARCHAR
+  - name: FOLDER
+    description: ''
+    data_type: VARCHAR
+  - name: FOLDER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: START_DATE
+    description: ''
+    data_type: DATE
+  - name: JOB_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: JOB_TYPE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EEOCATEGORY
+    description: ''
+    data_type: VARCHAR
+  - name: EEOCATEGORY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: JOB_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_TYPE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROFILE
+    description: ''
+    data_type: VARCHAR
+  - name: PROFILE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: HIRE
+    description: ''
+    data_type: VARCHAR
+  - name: HIRE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: COMPANY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: COMPANY_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: MINIMUM_SALARY_TIMEFRAME
+    description: ''
+    data_type: VARCHAR
+  - name: MINIMUM_SALARY_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: MINIMUM_SALARY_CURRENCY
+    description: ''
+    data_type: VARCHAR
+  - name: MAXIMUM_SALARY_TIMEFRAME
+    description: ''
+    data_type: VARCHAR
+  - name: MAXIMUM_SALARY_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: MAXIMUM_SALARY_CURRENCY
+    description: ''
+    data_type: VARCHAR
+  - name: OVERVIEW
+    description: ''
+    data_type: VARCHAR
+  - name: RESPONSIBILITIES
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: icims__base_people
+  columns:
+  - name: ID
+    description: ''
+    data_type: NUMBER
+  - name: JOB
+    description: ''
+    data_type: VARCHAR
+  - name: JOB_ID
+    description: ''
+    data_type: NUMBER
+  - name: UPDATED_DATE
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: ADDRESS_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: ENTRY
+    description: ''
+    data_type: NUMBER
+  - name: ZIP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_STATE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_STATE_ABBREV
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_COUNTRY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_COUNTRY_ABBREV
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_TYPE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_STREET_1
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_PRIMARY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: MIDDLE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: EDUCATION_ENTRY
+    description: ''
+    data_type: NUMBER
+  - name: MAJOR_ID
+    description: ''
+    data_type: VARCHAR
+  - name: MAJOR
+    description: ''
+    data_type: VARCHAR
+  - name: SCHOOL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SCHOOL
+    description: ''
+    data_type: VARCHAR
+  - name: DEGREE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: DEGREE
+    description: ''
+    data_type: VARCHAR
+  - name: GPA
+    description: ''
+    data_type: NUMBER
+  - name: GRADUATION_DATE
+    description: ''
+    data_type: DATE
+  - name: EDUCATION_START_DATE
+    description: ''
+    data_type: DATE
+  - name: RACE
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: GENDER
+    description: ''
+    data_type: VARCHAR
+  - name: VETERAN
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE_TYPE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE_ENTRY
+    description: ''
+    data_type: NUMBER
+  - name: PHONE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: PRIMARY_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE_DEVICE
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE_PORTAL
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE_CHANNEL
+    description: ''
+    data_type: VARCHAR
+  - name: FOLDER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FOLDER
+    description: ''
+    data_type: VARCHAR
+  - name: SUPERVISOR
+    description: ''
+    data_type: VARCHAR
+  - name: SUPERVISOR_ID
+    description: ''
+    data_type: NUMBER
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: HIRE_DATE
+    description: ''
+    data_type: DATE
+  - name: POSITION_START_DATE
+    description: ''
+    data_type: DATE
+  - name: START_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ

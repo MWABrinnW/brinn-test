@@ -13,7 +13,7 @@ select
   , city::varchar(100)                                as city
   , state::varchar(100)                               as state
   , zip_code::varchar(50)                             as zip_code
-  , ssn::number                                       as ssn
+  , ssn::text                                         as ssn
   , account_number::varchar(100)                      as account_number
   , advisor_id::varchar(100)                          as advisor_id
   , taxable::varchar(100)                             as taxable
@@ -62,7 +62,7 @@ select
   , city::varchar(100)                                as city
   , state::varchar(100)                               as state
   , zip_code::varchar(50)                             as zip_code
-  , ssn::number                                       as ssn
+  , ssn::text                                         as ssn
   , account_number::varchar(100)                      as account_number
   , advisor_id::varchar(100)                          as advisor_id
   , taxable::varchar(100)                             as taxable

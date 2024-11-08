@@ -8,9 +8,73 @@ sources:
     tables:
       - name: assets
         description: ""
+        columns:
+          - name: CONTENT
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _ID
+            description: ''
+            data_type: NUMBER
       - name: clients
         description: ""
+        columns:
+          - name: CONTENT
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _ID
+            description: ''
+            data_type: NUMBER
       - name: accounts
         description: ""
+        columns:
+          - name: CONTENT
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _ID
+            description: ''
+            data_type: NUMBER
       - name: households
         description: ""
+        columns:
+          - name: CONTENT
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _ID
+            description: ''
+            data_type: NUMBER

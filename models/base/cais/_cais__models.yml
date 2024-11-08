@@ -1,0 +1,83 @@
+version: 2
+models:
+  - name: cais__base_status_definitions
+    columns:
+      - name: TRANSACTION_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: DEFINITIONS
+        description: ''
+        data_type: VARCHAR
+  - name: cais__base_trade_status_agg
+    columns:
+      - name: ORDER_STATUS
+        description: 'Trade order pipeline status'
+        data_type: VARCHAR
+      - name: NUMBER_OF_ORDERS
+        description: 'Number of Transactions'
+        data_type: NUMBER
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+  - name: cais__base_trade_status
+    columns:
+      - name: CAIS_ORDER_ID
+        description: 'CAIS trade system unique ID'
+        data_type: VARCHAR
+      - name: ORDER_STATUS
+        description: 'Trade order pipeline status'
+        data_type: VARCHAR
+      - name: CLOSE_DATE
+        description: 'Target close date when actual close date not available (ie pre and post full execution)'
+        data_type: DATE
+      - name: AMOUNT
+        description: 'Transaction Amount (Precision as appropriate)'
+        data_type: NUMBER
+      - name: USER_NAME
+        description: 'User name of transacting user (first + last name)'
+        data_type: VARCHAR
+      - name: USERID
+        description: 'CAIS System Unique User ID'
+        data_type: VARCHAR
+      - name: FIRM_NAME
+        description: '2 Entities - Mariner Platform Solutions or Mariner Wealth Advisors'
+        data_type: VARCHAR
+      - name: FIRM_ID
+        description: 'CAIS System Unique Firm ID'
+        data_type: VARCHAR
+      - name: FUND_NAME
+        description: 'Fund legal name'
+        data_type: VARCHAR
+      - name: SHARE_CLASS
+        description: 'Shareclass or Series information (if available)'
+        data_type: VARCHAR
+      - name: INVESTMENT_ENTITY_NAME
+        description: 'Registered investor account name as captured on sub doc'
+        data_type: VARCHAR
+      - name: INVESTMENT_ENTITY_ID
+        description: 'CAIS System Unique Investment Entity ID'
+        data_type: VARCHAR
+      - name: THIRD_PARTY_ACCOUNT
+        description: 'Custodian or custom account number (if available)'
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR

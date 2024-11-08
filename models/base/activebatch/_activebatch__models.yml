@@ -1,0 +1,240 @@
+version: 2
+models:
+  - name: activebatch__stg_executions
+    columns:
+      - name: JOB_ID
+        description: ''
+        data_type: NUMBER
+      - name: QUE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: QUE_PRIORITY
+        description: ''
+        data_type: NUMBER
+      - name: TEMPLATE_JOB_ID
+        description: ''
+        data_type: NUMBER
+      - name: JOB_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ORGINAL_QUEUE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TYPE
+        description: ''
+        data_type: NUMBER
+      - name: STATE
+        description: ''
+        data_type: NUMBER
+      - name: SUB_STATE
+        description: ''
+        data_type: NUMBER
+      - name: EXECUTION_REASON
+        description: ''
+        data_type: NUMBER
+      - name: LAST_EVENT_ID
+        description: ''
+        data_type: NUMBER
+      - name: USER_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SUBMITTING_USER
+        description: ''
+        data_type: VARCHAR
+      - name: JOB_SUBMISSION_TIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: JOB_ELIGIBILITY_TIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: START_TIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: JSS_COMPLETION_TIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: EXEC_AGENT_COMPLETION_TIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: REVISION_TIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: RESTART_TIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: STANDARD_OUTPUT_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: STANDARD_ERROR_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: JOB_STEPS_TO_DO
+        description: ''
+        data_type: NUMBER
+      - name: JOB_STEPS_DONE
+        description: ''
+        data_type: NUMBER
+      - name: JOB_LOG_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: WORKING_DIRECTORY
+        description: ''
+        data_type: VARCHAR
+      - name: JOB_STATUS
+        description: ''
+        data_type: NUMBER
+      - name: LAST_JOB_ID
+        description: ''
+        data_type: NUMBER
+      - name: SUCCESSFUL_INSTANCES
+        description: ''
+        data_type: NUMBER
+      - name: FAILED_INSTANCES
+        description: ''
+        data_type: NUMBER
+      - name: MULTI_INSTANCE_COUNT
+        description: ''
+        data_type: NUMBER
+      - name: CPU_DAYS
+        description: ''
+        data_type: NUMBER
+      - name: CPU_HOURS
+        description: ''
+        data_type: NUMBER
+      - name: CPU_MINUTES
+        description: ''
+        data_type: NUMBER
+      - name: CPU_SECONDS
+        description: ''
+        data_type: NUMBER
+      - name: CPU_MILLISECONDS
+        description: ''
+        data_type: NUMBER
+      - name: REVISION_ID
+        description: ''
+        data_type: NUMBER
+      - name: EXECUTION_MACHINE
+        description: ''
+        data_type: VARCHAR
+      - name: SUCCESS_COMPLETION_CODES
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: DOCUMENTATION
+        description: ''
+        data_type: VARCHAR
+      - name: REVISED_BY
+        description: ''
+        data_type: VARCHAR
+      - name: TRIGGERED_BY
+        description: ''
+        data_type: VARCHAR
+      - name: SUCCESS_CODE_STRING
+        description: ''
+        data_type: VARCHAR
+      - name: EXIT_CODE_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: INSTANCE_TYPE
+        description: ''
+        data_type: NUMBER
+      - name: JOB_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: PATH
+        description: ''
+        data_type: VARCHAR
+      - name: STATE_TEXT
+        description: ''
+        data_type: VARCHAR
+      - name: STATE_DETAIL_TEXT
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+  - name: activebatch__stg_jobs
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: CLASS_ID
+        description: ''
+        data_type: NUMBER
+      - name: PATH
+        description: ''
+        data_type: VARCHAR
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: REF_LABEL
+        description: ''
+        data_type: VARCHAR
+      - name: REF_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: REF_PID
+        description: ''
+        data_type: NUMBER
+      - name: LAST_JOBID
+        description: ''
+        data_type: NUMBER
+      - name: ENABLED
+        description: ''
+        data_type: BOOLEAN
+      - name: TARGET_ID
+        description: ''
+        data_type: NUMBER
+      - name: PID
+        description: ''
+        data_type: NUMBER
+      - name: RID
+        description: ''
+        data_type: NUMBER
+      - name: STATUS
+        description: ''
+        data_type: NUMBER
+      - name: INSTANCETYPE
+        description: ''
+        data_type: NUMBER
+      - name: LAST_SUCCESSFUL_EXECUTION_STARTED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: SCRIPT
+        description: ''
+        data_type: VARCHAR
+      - name: IS_SCRIPT_FROM_REF
+        description: ''
+        data_type: NUMBER
+      - name: IS_SCRIPT_FROM_JOB
+        description: ''
+        data_type: NUMBER
+      - name: IS_ALTERYX_RELATED
+        description: ''
+        data_type: NUMBER
+      - name: AYX_MIN_PROP_VALUE
+        description: ''
+        data_type: VARCHAR
+      - name: AYX_MAX_PROP_VALUE
+        description: ''
+        data_type: VARCHAR
+      - name: IS_REF_OBJ
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_HEAD_FOR_DAY
+        description: ''
+        data_type: NUMBER

@@ -1,0 +1,3406 @@
+version: 2
+models:
+- name: hubspot_network__base_contact
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: NUMBER
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_ALL_CONTACT_VIDS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_FIRST_DEAL_CREATED_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_CALCULATED_MOBILE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_ENTERED_CUSTOMER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_COUNT_IS_WORKED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_DAYS_TO_CLOSE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_COUNT_IS_UNWORKED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_GDC
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_ASSETS_UNDER_MANAGMENT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_CALCULATED_PHONE_NUMBER_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_CALCULATED_PHONE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_CALCULATED_MERGED_VIDS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_AVATAR_FILEMANAGER_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_CALCULATED_FORM_SUBMISSIONS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_FIRST_CONVERSION_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_FIRST_CONVERSION_EVENT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_CALL_DISPOSITION
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HOME_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HOME_ZIPCODE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_DATE_OF_BIRTH
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: PROPERTY_HOME_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HOME_ADDRESS_1
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ADDITIONAL_EMAILS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_GENDER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_CREATED_BY_USER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HOME_ADDRESS_2
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_CONTENT_MEMBERSHIP_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_ENTERED_OPPORTUNITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_IS_UNWORKED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_ENTERED_LEAD
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_EXITED_LEAD
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_IS_CONTACT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_DOMAIN
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LAST_SALES_ACTIVITY_TIMESTAMP
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_LAST_SALES_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: PROPERTY_HS_DATE_EXITED_OPPORTUNITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_FIRST_ENGAGEMENT_OBJECT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_ENTERED_SUBSCRIBER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_EXITED_SUBSCRIBER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_SENDS_SINCE_LAST_ENGAGEMENT
+    description: ''
+    data_type: NUMBER
+  - name: PROPERTY_HS_LAST_SALES_ACTIVITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_IP_TIMEZONE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_HARD_BOUNCE_REASON_ENUM
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LATEST_SEQUENCE_ENROLLED_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LATEST_SEQUENCE_ENROLLED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_PIPELINE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_MARKETABLE_UNTIL_RENEWAL
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LATEST_SOURCE_TIMESTAMP
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_OBJECT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_OPPORTUNITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_MARKETABLE_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_LEAD
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_BETWEEN_CONTACT_CREATION_AND_DEAL_CLOSE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_TO_MOVE_FROM_LEAD_TO_CUSTOMER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SEARCHABLE_CALCULATED_MOBILE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_TO_MOVE_FROM_OPPORTUNITY_TO_CUSTOMER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SALES_EMAIL_LAST_OPENED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_CUSTOMER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LEAD_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SA_FIRST_ENGAGEMENT_OBJECT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SA_FIRST_ENGAGEMENT_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_BETWEEN_CONTACT_CREATION_AND_DEAL_CREATION
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SA_FIRST_ENGAGEMENT_DESCR
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_TO_FIRST_ENGAGEMENT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SEARCHABLE_CALCULATED_PHONE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SALES_EMAIL_LAST_CLICKED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_SUBSCRIBER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIMEZONE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LEGAL_BASIS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_TO_MOVE_FROM_SUBSCRIBER_TO_CUSTOMER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SEQUENCES_ACTIVELY_ENROLLED_COUNT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_PINNED_ENGAGEMENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SEQUENCES_IS_ENROLLED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SEQUENCES_ENROLLED_COUNT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_RECENT_DEAL_CLOSE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_OPTOUT_7368234
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NUM_CONVERSION_EVENTS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_FIRSTNAME
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NUM_UNIQUE_CONVERSION_EVENTS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NUM_ASSOCIATED_DEALS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_LASTMODIFIEDDATE
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_RECENT_DEAL_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_TOTAL_REVENUE
+    description: ''
+    data_type: NUMBER
+  - name: PROPERTY_TWITTERHANDLE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_REFERAL_PARTNER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_USER_IDS_OF_ALL_OWNERS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HUBSPOT_OWNER_ASSIGNEDDATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_RECRUITER_CUSTODIAN_SALES_TEAM
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_OPTOUT_7484018
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_SOCIAL_MEDIA
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_SPOUSE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_UPDATED_BY_USER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_DELIVERED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_IP_STATE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_IP_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_RECENT_CONVERSION_EVENT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_IP_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_IP_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_RECENT_CONVERSION_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_IP_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_STREET_ADDRESS_2
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_WORK_EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_USER_IDS_OF_ALL_NOTIFICATION_UNFOLLOWERS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_USER_IDS_OF_ALL_NOTIFICATION_FOLLOWERS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_OUTBOUND_ADVISOR_RETIREMENT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_REPCRD
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_RIAFIRMCRD
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_RIAFIRMNAME
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_LASTNAME
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_NUM_PAGE_VIEWS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HUBSPOT_TEAM_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_NUM_EVENT_COMPLETIONS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_OPTOUT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_FIRST_TIMESTAMP
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_TWITTERPROFILEPHOTO
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_NUM_VISITS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SOCIAL_FACEBOOK_CLICKS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_FIRST_VISIT_TIMESTAMP
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_LAST_TIMESTAMP
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SOCIAL_GOOGLE_PLUS_CLICKS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ALL_OWNER_IDS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SOCIAL_TWITTER_CLICKS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SOCIAL_LINKEDIN_CLICKS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NUM_NOTES
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_ENGAGEMENTS_LAST_MEETING_BOOKED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NOTES_LAST_UPDATED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_MOBILEPHONE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NOTES_NEXT_ACTIVITY_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NOTES_LAST_CONTACTED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SALES_EMAIL_LAST_REPLIED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NUM_CONTACTED_NOTES
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HUBSPOT_OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_FAX
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_LAST_EMAIL_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_LAST_SEND_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LATEST_MEETING_ACTIVITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_LAST_URL
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_OPEN
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_LAST_OPEN_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_BOUNCE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_SOURCE_DATA_2
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_SOURCE_DATA_1
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LATEST_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_REVENUE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_AVERAGE_PAGE_VIEWS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ALL_ACCESSIBLE_TEAM_IDS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_ASSOCIATEDCOMPANYID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_WEBSITE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SOCIAL_NUM_BROADCAST_CLICKS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_LIFECYCLESTAGE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_LAST_VISIT_TIMESTAMP
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LIFECYCLESTAGE_LEAD_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_CREATEDATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ALL_TEAM_IDS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LIFECYCLESTAGE_OPPORTUNITY_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LATEST_SOURCE_DATA_1
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LATEST_SOURCE_DATA_2
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_COMPANY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_JOBTITLE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LIFECYCLESTAGE_CUSTOMER_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_CLOSEDATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_ANNUALREVENUE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LIFECYCLESTAGE_SUBSCRIBER_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_ZIP
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_FIRST_SEND_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_FIRST_OPEN_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_contact_form_submission
+  columns:
+  - name: CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FORM_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TIMESTAMP
+    description: ''
+    data_type: VARCHAR
+  - name: PORTAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PAGE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_deal
+  columns:
+  - name: DEAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PORTAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_ANALYTICS_SOURCE_DATA_2
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_SOURCE_DATA_1
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_CLOSED_AMOUNT_IN_HOME_CURRENCY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_LATEST_SOURCE_TIMESTAMP_CONTACT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_DATE_ENTERED_DECISIONMAKERBOUGHTIN
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_ENTERED_6734705
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_DATE_ENTERED_2494962
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_DATE_ENTERED_962615
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_AMOUNT_IN_HOME_CURRENCY
+    description: ''
+    data_type: NUMBER
+  - name: PROPERTY_DAYS_TO_CLOSE
+    description: ''
+    data_type: NUMBER
+  - name: PROPERTY_HS_DATE_ENTERED_41524885
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_DATE_ENTERED_APPOINTMENTSCHEDULED
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_ANALYTICS_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_ENTERED_1016290
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_CLOSED_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: PROPERTY_HS_ANALYTICS_LATEST_SOURCE_DATA_2_CONTACT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_ENTERED_CLOSEDWON
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_DATE_ENTERED_PRESENTATIONSCHEDULED
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_ANALYTICS_LATEST_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_LATEST_SOURCE_DATA_2
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_LATEST_SOURCE_DATA_1
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_LATEST_SOURCE_TIMESTAMP
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_ANALYTICS_LATEST_SOURCE_CONTACT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_LATEST_SOURCE_DATA_1_CONTACT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_ENTERED_CLOSEDLOST
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_ANALYTICS_LATEST_SOURCE_DATA_1_COMPANY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_LATEST_SOURCE_DATA_2_COMPANY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_LATEST_SOURCE_COMPANY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_CREATED_BY_USER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_ENTERED_1037199
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_DATE_ENTERED_2216211
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_DATE_ENTERED_2216212
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_DATE_ENTERED_1037201
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_DATE_ENTERED_1037200
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_DATE_ENTERED_2216213
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_DATE_ENTERED_43126578
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_DATE_ENTERED_37104998
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_DATE_ENTERED_37105004
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_FORECAST_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: PROPERTY_HS_DATE_EXITED_DECISIONMAKERBOUGHTIN
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_EXITED_6734705
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_EXITED_2494962
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_EXITED_962615
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_IS_CLOSED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_EXITED_PRESENTATIONSCHEDULED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_EXITED_41524885
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DEAL_STAGE_PROBABILITY_SHADOW
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_EXITED_APPOINTMENTSCHEDULED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DEAL_STAGE_PROBABILITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LASTMODIFIEDDATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_IS_CLOSED_WON
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_IS_DEAL_SPLIT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_EXITED_1016290
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_NUM_TARGET_ACCOUNTS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_EXITED_2216211
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_EXITED_1037200
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_EXITED_1037201
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_EXITED_1037199
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_NUM_ASSOCIATED_DEAL_SPLITS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_NUM_ASSOCIATED_ACTIVE_DEAL_REGISTRATIONS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_NUM_ASSOCIATED_DEAL_REGISTRATIONS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_EXITED_43126578
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_MERGED_OBJECT_IDS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_1016290
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_DECISIONMAKERBOUGHTIN
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_2494962
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_APPOINTMENTSCHEDULED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_PROJECTED_AMOUNT_IN_HOME_CURRENCY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_962615
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_UPDATED_BY_USER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_6734705
+    description: ''
+    data_type: VARCHAR
+  - name: DEAL_PIPELINE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HUBSPOT_OWNER_ASSIGNEDDATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_PROJECTED_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_DEALNAME
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_CLOSEDATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_CREATEDATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SALES_EMAIL_LAST_REPLIED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_PRESENTATIONSCHEDULED
+    description: ''
+    data_type: VARCHAR
+  - name: DEAL_PIPELINE_STAGE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_OBJECT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_41524885
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_CLOSEDWON
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_USER_IDS_OF_ALL_OWNERS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_CLOSEDLOST
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_PRIORITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_1037201
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_1037200
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_1037199
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_2216212
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_2216211
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_2216213
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_43126578
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_37104998
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_37105004
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NUM_NOTES
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HUBSPOT_TEAM_ID
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_CLOSED_WON_REASON
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NOTES_LAST_CONTACTED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ALL_ACCESSIBLE_TEAM_IDS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NUM_ASSOCIATED_CONTACTS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NOTES_LAST_UPDATED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NUM_CONTACTED_NOTES
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ALL_TEAM_IDS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NOTES_NEXT_ACTIVITY_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_CREATEDATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ALL_OWNER_IDS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_CLOSED_LOST_REASON
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_DEALTYPE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: NUMBER
+  - name: PROPERTY_HS_LATEST_MEETING_ACTIVITY
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_PINNED_ENGAGEMENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_SERVICE_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_MARINER_ADVISORY_CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_AFFILIATION_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_MARINER_A_LA_CARTE_SERVICES
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_MARINER_BD_PAYOUT_
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_MARINER_PCS_FEE_IN_BPTS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_MARINER_ADV_PAYOUT_
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_MARINER_RIA_SWAG_OR_MPS_
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_MARINER_MINORITY_RECAP
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_LOCATION_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_LOCATION_STATE_2_LETTERS_
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_GDC
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_MARINER_REFERRAL_PARTNER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_MARINER_REFERRAL_PARTNER_NAME_FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_MARINER_PCS_AUM_COMMITMENT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_USER_IDS_OF_ALL_OWNERS_2
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ALL_OWNER_IDS_2
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ALL_COLLABORATOR_OWNER_IDS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_MARINER_TA
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_MARINER_ORF_RECRUITING_FEE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_BROKERAGE_529_PLANS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_BROKERAGE_ALTS_STRUCTURED_NOTES_REITS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_BROKERAGE_ANNUITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_BROKERAGE_BROKERAGE_DIRECT_BUSINESS
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_deal_contact
+  columns:
+  - name: CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: DEAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_deal_pipeline
+  columns:
+  - name: PIPELINE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LABEL
+    description: ''
+    data_type: VARCHAR
+  - name: ACTIVE
+    description: ''
+    data_type: VARCHAR
+  - name: DISPLAY_ORDER
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_deal_pipeline_stage
+  columns:
+  - name: STAGE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PIPELINE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LABEL
+    description: ''
+    data_type: VARCHAR
+  - name: ACTIVE
+    description: ''
+    data_type: VARCHAR
+  - name: DISPLAY_ORDER
+    description: ''
+    data_type: VARCHAR
+  - name: PROBABILITY
+    description: ''
+    data_type: VARCHAR
+  - name: CLOSED_WON
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_deal_property_history
+  columns:
+  - name: DEAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: TIMESTAMP
+    description: ''
+    data_type: VARCHAR
+  - name: VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_START
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_END
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_ACTIVE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_email_campaign
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: APP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: APP_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CONTENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: NUM_INCLUDED
+    description: ''
+    data_type: VARCHAR
+  - name: NUM_QUEUED
+    description: ''
+    data_type: VARCHAR
+  - name: SUB_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SUBJECT
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_email_event_dropped
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: SUBJECT
+    description: ''
+    data_type: VARCHAR
+  - name: FROM_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: REPLY_TO_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: CC_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: BCC_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: DROP_REASON
+    description: ''
+    data_type: VARCHAR
+  - name: DROP_MESSAGE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_email_event_open
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IP_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: USER_AGENT
+    description: ''
+    data_type: VARCHAR
+  - name: BROWSER
+    description: ''
+    data_type: VARCHAR
+  - name: LOCATION
+    description: ''
+    data_type: VARCHAR
+  - name: DURATION
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_email_event_spam_report
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: USER_AGENT
+    description: ''
+    data_type: VARCHAR
+  - name: IP_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_email_subscription
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: PORTAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: ACTIVE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_engagement
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: PORTAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACTIVE
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ACTIVITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_AT
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_UPDATED
+    description: ''
+    data_type: VARCHAR
+  - name: TIMESTAMP
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_engagement_company
+  columns:
+  - name: COMPANY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ENGAGEMENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_engagement_contact
+  columns:
+  - name: CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ENGAGEMENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_engagement_deal
+  columns:
+  - name: DEAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ENGAGEMENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_engagement_email_cc
+  columns:
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: ENGAGEMENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_deal_stage
+  columns:
+  - name: DEAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: DATE_ENTERED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_START
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_END
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_ACTIVE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_engagement_meeting
+  columns:
+  - name: ENGAGEMENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: BODY
+    description: ''
+    data_type: VARCHAR
+  - name: START_TIME
+    description: ''
+    data_type: VARCHAR
+  - name: END_TIME
+    description: ''
+    data_type: VARCHAR
+  - name: TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: EXTERNAL_URL
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_FROM_LINK_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: WEB_CONFERENCE_MEETING_ID
+    description: ''
+    data_type: VARCHAR
+  - name: MEETING_OUTCOME
+    description: ''
+    data_type: VARCHAR
+  - name: PRE_MEETING_PROSPECT_REMINDERS
+    description: ''
+    data_type: VARCHAR
+  - name: ATTENDEE_OWNER_IDS
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_email_event
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECIPIENT
+    description: ''
+    data_type: VARCHAR
+  - name: PORTAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: APP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FILTERED_EVENT
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_CAMPAIGN_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SENT_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SENT_BY_CREATED
+    description: ''
+    data_type: VARCHAR
+  - name: CAUSED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CAUSED_BY_CREATED
+    description: ''
+    data_type: VARCHAR
+  - name: OBSOLETED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: OBSOLETED_BY_CREATED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_email_event_deferred
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: RESPONSE
+    description: ''
+    data_type: VARCHAR
+  - name: ATTEMPT
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_company
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: PORTAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_SOURCE_DATA_2
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_NUM_PAGE_VIEWS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_SOURCE_DATA_1
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_FIRST_TIMESTAMP
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_NUM_VISITS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_ENTERED_OPPORTUNITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_FOUNDED_YEAR
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_FIRST_DEAL_CREATED_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_LATEST_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_LATEST_SOURCE_DATA_2
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_LATEST_SOURCE_DATA_1
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_LATEST_SOURCE_TIMESTAM
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_ENTERED_CUSTOMER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_ENTERED_LEAD
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LASTMODIFIEDDATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_NUM_DECISION_MAKERS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_NUM_OPEN_DEALS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NUM_ASSOCIATED_DEALS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TOTAL_DEAL_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TARGET_ACCOUNT_PROBABILITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NUM_ASSOCIATED_CONTACTS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_OBJECT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_OPPORTUNITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_IS_PUBLIC
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_NUM_BLOCKERS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_NUM_CONTACTS_WITH_BUYING_ROLES
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LAST_LOGGED_CALL_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_CUSTOMER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_EXITED_OPPORTUNITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LAST_SALES_ACTIVITY_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LAST_SALES_ACTIVITY_TIMESTAMP
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LAST_OPEN_TASK_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_PIPELINE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LAST_SALES_ACTIVITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HUBSPOT_OWNER_ASSIGNEDDATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_USER_IDS_OF_ALL_OWNERS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_LEAD
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_TOTAL_MONEY_RAISED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_DOMAIN
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_INDUSTRY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_ZIP
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_WEBSITE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_FACEBOOK_COMPANY_PAGE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_LIFECYCLESTAGE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_LINKEDINBIO
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_LINKEDIN_COMPANY_PAGE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_TIMEZONE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_TWITTERHANDLE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_ANNUALREVENUE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NUMBEROFEMPLOYEES
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NUM_NOTES
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NUM_CONVERSION_EVENTS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NOTES_LAST_CONTACTED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NOTES_LAST_UPDATED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NUM_CONTACTED_NOTES
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_ADDRESS_2
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_RECENT_DEAL_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_TOTAL_REVENUE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_RECENT_DEAL_CLOSE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NOTES_NEXT_ACTIVITY_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SALES_EMAIL_LAST_REPLIED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HUBSPOT_TEAM_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ALL_ACCESSIBLE_TEAM_IDS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ALL_TEAM_IDS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HUBSPOT_OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ALL_OWNER_IDS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_CREATEDATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_FIRST_CONTACT_CREATEDATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_WEB_TECHNOLOGIES
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_CLOSEDATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_DAYS_TO_CLOSE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_NUM_CHILD_COMPANIES
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LATEST_MEETING_ACTIVITY
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_LAST_BOOKED_MEETING_DATE
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_DATE_EXITED_LEAD
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_UPDATED_BY_USER_ID
+    description: ''
+    data_type: FLOAT
+  - name: PROPERTY_HS_CREATED_BY_USER_ID
+    description: ''
+    data_type: FLOAT
+  - name: PROPERTY_AUM
+    description: ''
+    data_type: FLOAT
+  - name: PROPERTY_NUMBER_OF_CLIENTS
+    description: ''
+    data_type: FLOAT
+  - name: PROPERTY_HS_ANNUAL_REVENUE_CURRENCY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_email_event_sent
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: SUBJECT
+    description: ''
+    data_type: VARCHAR
+  - name: FROM_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: REPLY_TO_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: CC_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: BCC_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_email_event_status_change
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: REQUESTED_BY
+    description: ''
+    data_type: VARCHAR
+  - name: PORTAL_SUBSCRIPTION_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: SUBSCRIPTIONS
+    description: ''
+    data_type: VARCHAR
+  - name: BOUNCED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_marketing_email_contact
+  columns:
+  - name: CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: MARKETING_EMAIL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_CONTACT_INCLUDED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_email_subscription_change
+  columns:
+  - name: _FIVETRAN_ID
+    description: ''
+    data_type: VARCHAR
+  - name: RECIPIENT
+    description: ''
+    data_type: VARCHAR
+  - name: CHANGE
+    description: ''
+    data_type: VARCHAR
+  - name: CHANGE_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PORTAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: CAUSED_BY_EVENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TIMESTAMP
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_SUBSCRIPTION_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_owner
+  columns:
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_AT
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATED_AT
+    description: ''
+    data_type: VARCHAR
+  - name: ACTIVE_USER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_ACTIVE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_property
+  columns:
+  - name: _FIVETRAN_ID
+    description: ''
+    data_type: VARCHAR
+  - name: HUBSPOT_OBJECT
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LABEL
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: GROUP_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: FIELD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CALCULATED
+    description: ''
+    data_type: VARCHAR
+  - name: HUBSPOT_DEFINED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_team
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_engagement_email
+  columns:
+  - name: ENGAGEMENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FROM_EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: FROM_FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FROM_LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SUBJECT
+    description: ''
+    data_type: VARCHAR
+  - name: HTML
+    description: ''
+    data_type: VARCHAR
+  - name: TEXT
+    description: ''
+    data_type: VARCHAR
+  - name: TRACKER_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: MESSAGE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: THREAD_ID
+    description: ''
+    data_type: VARCHAR
+  - name: STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: SENT_VIA
+    description: ''
+    data_type: VARCHAR
+  - name: LOGGED_FROM
+    description: ''
+    data_type: VARCHAR
+  - name: ERROR_MESSAGE
+    description: ''
+    data_type: VARCHAR
+  - name: FACSIMILE_SEND_ID
+    description: ''
+    data_type: VARCHAR
+  - name: POST_SEND_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: MEDIA_PROCESSING_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: ATTACHED_VIDEO_OPENED
+    description: ''
+    data_type: VARCHAR
+  - name: ATTACHED_VIDEO_WATCHED
+    description: ''
+    data_type: VARCHAR
+  - name: ATTACHED_VIDEO_ID
+    description: ''
+    data_type: VARCHAR
+  - name: RECIPIENT_DROP_REASONS
+    description: ''
+    data_type: VARCHAR
+  - name: VALIDATION_SKIPPED
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_SEND_EVENT_ID_CREATED
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_SEND_EVENT_ID_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PENDING_INLINE_IMAGE_IDS
+    description: ''
+    data_type: VARCHAR
+  - name: BOUNCE_ERROR_DETAIL
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: MEMBER_OF_FORWARDED_SUBTHREAD
+    description: ''
+    data_type: VARCHAR
+  - name: ENCODED_EMAIL_ASSOCIATIONS_REQUEST
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_ticket_pipeline_stage
+  columns:
+  - name: STAGE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PIPELINE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LABEL
+    description: ''
+    data_type: VARCHAR
+  - name: ACTIVE
+    description: ''
+    data_type: VARCHAR
+  - name: DISPLAY_ORDER
+    description: ''
+    data_type: VARCHAR
+  - name: IS_CLOSED
+    description: ''
+    data_type: VARCHAR
+  - name: TICKET_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_users
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: VARCHAR
+  - name: ROLE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PRIMARY_TEAM_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_marketing_email
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: SUBSCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: AB
+    description: ''
+    data_type: VARCHAR
+  - name: AB_HOURS_TO_WAIT
+    description: ''
+    data_type: VARCHAR
+  - name: AB_VARIATION
+    description: ''
+    data_type: VARCHAR
+  - name: AB_SAMPLE_SIZE_DEFAULT
+    description: ''
+    data_type: VARCHAR
+  - name: AB_SAMPLING_DEFAULT
+    description: ''
+    data_type: VARCHAR
+  - name: AB_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: AB_SUCCESS_METRIC
+    description: ''
+    data_type: VARCHAR
+  - name: AB_TEST_ID
+    description: ''
+    data_type: VARCHAR
+  - name: AB_TEST_PERCENTAGE
+    description: ''
+    data_type: VARCHAR
+  - name: ABSOLUTE_URL
+    description: ''
+    data_type: VARCHAR
+  - name: ANALYTICS_PAGE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ANALYTICS_PAGE_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ARCHIVED
+    description: ''
+    data_type: VARCHAR
+  - name: AUTHOR
+    description: ''
+    data_type: VARCHAR
+  - name: AUTHOR_AT
+    description: ''
+    data_type: VARCHAR
+  - name: AUTHOR_EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: AUTHOR_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: AUTHOR_USER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: BLOG_EMAIL_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CAMPAIGN
+    description: ''
+    data_type: VARCHAR
+  - name: CAMPAIGN_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CAN_SPAM_SETTINGS_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CLONED_FROM
+    description: ''
+    data_type: VARCHAR
+  - name: CREATE_PAGE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED
+    description: ''
+    data_type: VARCHAR
+  - name: CURRENTLY_PUBLISHED
+    description: ''
+    data_type: VARCHAR
+  - name: DOMAIN
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_BODY
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_NOTE
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: FEEDBACK_EMAIL_CATEGORY
+    description: ''
+    data_type: VARCHAR
+  - name: FEEDBACK_SURVEY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FOLDER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FREEZE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: FROM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: IS_GRAYMAIL_SUPPRESSION_ENABLED
+    description: ''
+    data_type: VARCHAR
+  - name: IS_LOCAL_TIMEZONE_SEND
+    description: ''
+    data_type: VARCHAR
+  - name: IS_PUBLISHED
+    description: ''
+    data_type: VARCHAR
+  - name: IS_RECIPIENT_FATIGUE_SUPPRESSIO
+    description: ''
+    data_type: VARCHAR
+  - name: LEAD_FLOW_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LIVE_DOMAIN
+    description: ''
+    data_type: VARCHAR
+  - name: META_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PAGE_EXPIRY_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PAGE_EXPIRY_REDIRECT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PAGE_REDIRECTED
+    description: ''
+    data_type: VARCHAR
+  - name: PORTAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PREVIEW_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: PROCESSING_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: PUBLISH_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PUBLISHED_AT
+    description: ''
+    data_type: VARCHAR
+  - name: PUBLISHED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PUBLISHED_BY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PUBLISH_IMMEDIATELY
+    description: ''
+    data_type: VARCHAR
+  - name: PUBLISHED_URL
+    description: ''
+    data_type: VARCHAR
+  - name: REPLY_TO
+    description: ''
+    data_type: VARCHAR
+  - name: RESOLVED_DOMAIN
+    description: ''
+    data_type: VARCHAR
+  - name: SLUG
+    description: ''
+    data_type: VARCHAR
+  - name: SUBCATEGORY
+    description: ''
+    data_type: VARCHAR
+  - name: SUBJECT
+    description: ''
+    data_type: VARCHAR
+  - name: SUBSCRIPTION_BLOG_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SUBSCRIPTION_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSACTIONAL
+    description: ''
+    data_type: VARCHAR
+  - name: UNPUBLISHED_AT
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATED
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: URL
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_owner_team
+  columns:
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TEAM_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: VARCHAR
+  - name: IS_TEAM_PRIMARY
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_ticket_pipeline
+  columns:
+  - name: PIPELINE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LABEL
+    description: ''
+    data_type: VARCHAR
+  - name: ACTIVE
+    description: ''
+    data_type: VARCHAR
+  - name: DISPLAY_ORDER
+    description: ''
+    data_type: VARCHAR
+  - name: OBJECT_TYPE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_email_event_bounce
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: RESPONSE
+    description: ''
+    data_type: VARCHAR
+  - name: CATEGORY
+    description: ''
+    data_type: VARCHAR
+  - name: STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_marketing_email_campaign
+  columns:
+  - name: CAMPAIGN_ID
+    description: ''
+    data_type: VARCHAR
+  - name: MARKETING_EMAIL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_marketing_email_contact_list
+  columns:
+  - name: CONTACT_LIST_ID
+    description: ''
+    data_type: VARCHAR
+  - name: MARKETING_EMAIL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_MAILING_LIST_INCLUDED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_contact_property_history
+  columns:
+  - name: CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: TIMESTAMP
+    description: ''
+    data_type: VARCHAR
+  - name: VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_START
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_END
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_ACTIVE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_form
+  columns:
+  - name: GUID
+    description: ''
+    data_type: VARCHAR
+  - name: PORTAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ACTION
+    description: ''
+    data_type: VARCHAR
+  - name: METHOD
+    description: ''
+    data_type: VARCHAR
+  - name: CSS_CLASS
+    description: ''
+    data_type: VARCHAR
+  - name: REDIRECT
+    description: ''
+    data_type: VARCHAR
+  - name: SUBMIT_TEXT
+    description: ''
+    data_type: VARCHAR
+  - name: FOLLOW_UP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: NOTIFY_RECIPIENTS
+    description: ''
+    data_type: VARCHAR
+  - name: LEAD_NURTURING_CAMPAIGN_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FORM_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_AT
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATED_AT
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_line_item
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: DEAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_CREATEDATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LASTMODIFIEDDATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_POSITION_ON_QUOTE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_QUANTITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_OBJECT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_UPDATED_BY_USER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_CREATED_BY_USER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_RECURRINGBILLINGFREQUENCY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_URL
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_company_property_history
+  columns:
+  - name: COMPANY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: TIMESTAMP
+    description: ''
+    data_type: VARCHAR
+  - name: VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_START
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_END
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_ACTIVE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_merged_deal
+  columns:
+  - name: DEAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: MERGED_DEAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_engagement_email_to
+  columns:
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: ENGAGEMENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_engagement_note
+  columns:
+  - name: ENGAGEMENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: BODY
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_engagement_call
+  columns:
+  - name: ENGAGEMENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TO_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FROM_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: EXTERNAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: DURATION_MILLISECONDS
+    description: ''
+    data_type: VARCHAR
+  - name: EXTERNAL_ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: RECORDING_URL
+    description: ''
+    data_type: VARCHAR
+  - name: BODY
+    description: ''
+    data_type: VARCHAR
+  - name: DISPOSITION
+    description: ''
+    data_type: VARCHAR
+  - name: CALLEE_OBJECT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CALLEE_OBJECT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSCRIPTION_ID
+    description: ''
+    data_type: VARCHAR
+  - name: UNKNOWN_VISITOR_CONVERSATION
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: DIRECTION
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_deal_company
+  columns:
+  - name: COMPANY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: DEAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_property_option
+  columns:
+  - name: LABEL
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: DISPLAY_ORDER
+    description: ''
+    data_type: VARCHAR
+  - name: DOUBLE_DATA
+    description: ''
+    data_type: VARCHAR
+  - name: HIDDEN
+    description: ''
+    data_type: VARCHAR
+  - name: READ_ONLY
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_contact_list
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: DELETEABLE
+    description: ''
+    data_type: VARCHAR
+  - name: DYNAMIC
+    description: ''
+    data_type: VARCHAR
+  - name: PORTAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATED_AT
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_AT
+    description: ''
+    data_type: VARCHAR
+  - name: METADATA_LAST_PROCESSING_STATE_CHANGE_AT
+    description: ''
+    data_type: VARCHAR
+  - name: METADATA_PROCESSING
+    description: ''
+    data_type: VARCHAR
+  - name: METADATA_LAST_SIZE_CHANGE_AT
+    description: ''
+    data_type: VARCHAR
+  - name: METADATA_ERROR
+    description: ''
+    data_type: VARCHAR
+  - name: METADATA_SIZE
+    description: ''
+    data_type: VARCHAR
+  - name: OFFSET_
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_engagement_task
+  columns:
+  - name: ENGAGEMENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: BODY
+    description: ''
+    data_type: VARCHAR
+  - name: SUBJECT
+    description: ''
+    data_type: VARCHAR
+  - name: STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: FOR_OBJECT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: TASK_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: COMPLETION_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PRIORITY
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: IS_ALL_DAY
+    description: ''
+    data_type: VARCHAR
+  - name: TEMPLATE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SEQUENCE_STEP_ENROLLMENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SEQUENCE_STEP_ORDER
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_email_event_delivered
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: RESPONSE
+    description: ''
+    data_type: VARCHAR
+  - name: SMTP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_contact_list_member
+  columns:
+  - name: CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONTACT_LIST_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ADDED_AT
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_line_item_property_history
+  columns:
+  - name: LINE_ITEM_ID
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: TIMESTAMP
+    description: ''
+    data_type: VARCHAR
+  - name: VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: SELECTED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_START
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_END
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_ACTIVE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_network__base_team_user
+  columns:
+  - name: TEAM_ID
+    description: ''
+    data_type: VARCHAR
+  - name: USER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_SECONDARY_USER
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER

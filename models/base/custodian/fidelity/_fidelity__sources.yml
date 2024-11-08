@@ -10,8 +10,8 @@ sources:
         description: "G number report from Fidelity Wealthscape"
         columns:
           - name: json
+          - name: _source_file_date
           - name: _created_at
           - name: _source_file
-          - name: _source_file_date
           - name: _row_number
           - name: _checksum

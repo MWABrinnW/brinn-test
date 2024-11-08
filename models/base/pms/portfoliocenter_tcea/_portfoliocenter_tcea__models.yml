@@ -1,0 +1,245 @@
+version: 2
+models:
+  - name: portfoliocenter_tcea_history__base_accounts
+    columns:
+      - name: PMS
+        description: ''
+        data_type: VARCHAR
+      - name: PMS_LOCATION
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: HIDDENPORTFOLIOID
+        description: ''
+        data_type: VARCHAR
+      - name: UNDERLYINGHIDDENPORTFOLIOID
+        description: ''
+        data_type: VARCHAR
+      - name: AS_OF_DATE
+        description: ''
+        data_type: DATE
+      - name: PRICE_DATE
+        description: ''
+        data_type: DATE
+      - name: CLOSED_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_CLOSED_DATE
+        description: ''
+        data_type: DATE
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: "'ACCOUNT_CLASSIFICATION_-CF-'"
+        description: ''
+        data_type: VARCHAR
+      - name: ADVISOR_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: ADVISOR_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_SPEC
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: DISCRETIONARY_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: "'ERISA_-CF-'"
+        description: ''
+        data_type: VARCHAR
+      - name: FIRST_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LAST_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: "'HOUSEHOLD_CODE_-CF-'"
+        description: ''
+        data_type: VARCHAR
+      - name: INCEPTION_DATE
+        description: ''
+        data_type: DATE
+      - name: MARKET_VALUE
+        description: ''
+        data_type: VARCHAR
+      - name: OBJECTIVE
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: "'PROXY_VOTING_-CF-'"
+        description: ''
+        data_type: VARCHAR
+      - name: TOTAL_VALUE
+        description: ''
+        data_type: FLOAT
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+  - name: portfoliocenter_tcea_history__base_bills
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: BILLABLE_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: ACCOUNT_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: COLLECTED
+        description: ''
+        data_type: DATE
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: DATE
+        description: ''
+        data_type: DATE
+      - name: NOTES
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: _ID
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _BOX_FILE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: _BOX_FILE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: _BOX_META
+        description: ''
+        data_type: VARIANT
+  - name: portfoliocenter_tcea_history__base_holdings
+    columns:
+      - name: PMS
+        description: ''
+        data_type: VARCHAR
+      - name: PMS_LOCATION
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: HIDDENPORTFOLIOID
+        description: ''
+        data_type: VARCHAR
+      - name: UNDERLYINGHIDDENPORTFOLIOID
+        description: ''
+        data_type: VARCHAR
+      - name: AS_OF_DATE
+        description: ''
+        data_type: DATE
+      - name: PRICE_DATE
+        description: ''
+        data_type: DATE
+      - name: PORTFOLIO_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: "'HOUSEHOLD_CODE_-CF-'"
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSET_CLASS_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: CURRENT_PRICE
+        description: ''
+        data_type: FLOAT
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: SECTOR_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITY_COMMENT
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITY_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITY_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: SUBSECTOR_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: COST_BASIS
+        description: ''
+        data_type: FLOAT
+      - name: MARKET_VALUE
+        description: ''
+        data_type: FLOAT
+      - name: ORIGINAL_TRADE_DATE
+        description: ''
+        data_type: DATE
+      - name: QUANTITY
+        description: ''
+        data_type: FLOAT
+      - name: TOTAL_VALUE
+        description: ''
+        data_type: FLOAT
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ

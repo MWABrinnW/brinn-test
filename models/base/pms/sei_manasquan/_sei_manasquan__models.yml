@@ -1,0 +1,73 @@
+version: 2
+models:
+  - name: sei_manasquan__base_bills
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_DISPLAY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: FEE_EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: FEE_TYPE_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: FEES_COLLECTED
+        description: ''
+        data_type: NUMBER
+      - name: FIRM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: NET_COLLECTED
+        description: ''
+        data_type: NUMBER
+      - name: PRIMARY_OWNER
+        description: ''
+        data_type: VARCHAR
+      - name: SETTLEMENT_DATE
+        description: ''
+        data_type: DATE
+      - name: TRADE_DATE
+        description: ''
+        data_type: DATE
+      - name: TRANSACTION_CURRENCY
+        description: ''
+        data_type: VARCHAR
+      - name: TRANSACTION_DATE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: TRANSACTION_IDENTIFIER
+        description: ''
+        data_type: VARCHAR
+      - name: TRANSACTION_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: _ID
+        description: 'identifier for the record.'
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: 'datetime each record is loaded to the source table.'
+        data_type: TIMESTAMP_NTZ
+      - name: _BOX_FILE_ID
+        description: 'identifier for the box file.'
+        data_type: VARCHAR
+      - name: _BOX_FILE_NAME
+        description: 'name of the box file.'
+        data_type: VARCHAR
+      - name: _BOX_META
+        description: 'metadata associated with the box file.'
+        data_type: VARIANT

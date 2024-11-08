@@ -1423,7 +1423,90 @@ sources:
             description: ""
           - name: x_3_p_intro_c
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
+          - name: ADDRESS_CHANGE_LETTER_JEFF_C
+            description: ''
+            data_type: VARCHAR
+          - name: NAP_CONGA_BATCH_C
+            description: ''
+            data_type: VARCHAR
+          - name: RAP_CONGA_BATCH_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_RECALCULATE_SHARING_C
+            description: ''
+            data_type: BOOLEAN
+          - name: PAYOUT_MEMBER_PERCENT_TOTAL_C
+            description: ''
+            data_type: FLOAT
+          - name: PAYOUT_FIRM_AFFILIATION_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_ON_HEIGHTENED_SUPERVISION_C
+            description: ''
+            data_type: BOOLEAN
+          - name: PAYOUT_RECALCULATE_SHARING_TIME_C
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: PAYOUT_ACCOUNT_SORT_KEY_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_OF_ADV_GROUP_MEMBERS_C
+            description: ''
+            data_type: FLOAT
+          - name: PAYOUT_LAST_UPDATED_DATE_TIME_C
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: PAYOUT_LAST_UPDATED_BY_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_FINRA_ADDRESS_C
+            description: ''
+            data_type: VARCHAR
+          - name: NAP_CONGA_TEST_C
+            description: ''
+            data_type: VARCHAR
+          - name: CONGA_TEST_C
+            description: ''
+            data_type: VARCHAR
+          - name: RAP_CONGA_BATCH_001_C
+            description: ''
+            data_type: VARCHAR
+          - name: NAP_CONGA_BATCH_002_C
+            description: ''
+            data_type: VARCHAR
+          - name: ADDRESS_CHANGE_LETTER_CONGA_BATCH_C
+            description: ''
+            data_type: VARCHAR
+          - name: NAP_CONGA_BATCH_001_C
+            description: ''
+            data_type: VARCHAR
+          - name: ADDRESS_CHANGE_LETTER_CONGA_BATCH_1_C
+            description: ''
+            data_type: VARCHAR
+          - name: ADDRESS_CHANGE_LETTER_CONGA_BATCH_001_C
+            description: ''
+            data_type: VARCHAR
+          - name: RAP_CONGA_BATCH_1_C
+            description: ''
+            data_type: VARCHAR
+          - name: ADDRESS_CHANGE_LETTER_C
+            description: ''
+            data_type: DATE
+          - name: ADDRESS_CHANGE_LETTER_CONGA_BATCH_1_01_C
+            description: ''
+            data_type: VARCHAR
+          - name: RAP_CONGA_BATCH_1_822_DEL_C
+            description: ''
+            data_type: VARCHAR
+          - name: IS_PRIORITY_RECORD
+            description: ''
+            data_type: BOOLEAN
+          - name: DATE_OF_DEATH_PC
+            description: ''
+            data_type: DATE
       - name: authorization_form_text_feed
         description: ""
         columns:
@@ -1465,7 +1548,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: briefcase_assignment
         description: ""
         columns:
@@ -1489,7 +1574,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: business_brand
         description: ""
         columns:
@@ -1521,7 +1608,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: contact
         description: ""
         columns:
@@ -1835,7 +1924,27 @@ sources:
             description: ""
           - name: payout_next_birthday_c
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
+          - name: IS_PRIORITY_RECORD
+            description: ''
+            data_type: BOOLEAN
+          - name: CONTACT_SOURCE
+            description: ''
+            data_type: VARCHAR
+          - name: BUYER_ATTRIBUTES
+            description: ''
+            data_type: VARCHAR
+          - name: TITLE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: DEPARTMENT_GROUP
+            description: ''
+            data_type: VARCHAR
+          - name: DATE_OF_DEATH_C
+            description: ''
+            data_type: DATE
       - name: customer
         description: ""
         columns:
@@ -1869,7 +1978,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: data_asset_usage_tracking_info
         description: ""
         columns:
@@ -1905,7 +2016,6 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
       - name: event_relay_feedback
         description: ""
         columns:
@@ -1945,7 +2055,18 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: LAST_RELAYED_EVENT_TIME
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: ERROR_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
+          - name: USAGE_TYPE
+            description: ''
+            data_type: VARCHAR
       - name: fivetran_api_call
         description: ""
         columns:
@@ -1959,7 +2080,6 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
       - name: fivetran_audit
         description: ""
         columns:
@@ -1987,7 +2107,6 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
       - name: fivetran_formula
         description: ""
         columns:
@@ -1997,17 +2116,10 @@ sources:
             description: ""
           - name: formula
             description: ""
-          - name: sql
-            description: ""
           - name: _fivetran_synced
-            description: ""
-          - name: view_sql
-            description: ""
-          - name: reason_null
             description: ""
           - name: _fivetran_deleted
             description: ""
-
       - name: fivetran_formula_history
         description: ""
         columns:
@@ -2023,7 +2135,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: DEPRECATION_NOTICE
+            description: ''
+            data_type: VARCHAR
       - name: fivetran_formula_model
         description: ""
         columns:
@@ -2033,7 +2147,6 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
       - name: fivetran_query
         description: ""
         columns:
@@ -2059,7 +2172,6 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
       - name: flow_orchestration_instance
         description: ""
         columns:
@@ -2085,7 +2197,21 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: LAST_REFERENCED_DATE
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: LAST_VIEWED_DATE
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: OWNER_ID
+            description: ''
+            data_type: VARCHAR
+          - name: ORCHESTRATION_DEVELOPER_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: flow_orchestration_stage_instance
         description: ""
         columns:
@@ -2115,7 +2241,12 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: OWNER_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: flow_orchestration_step_instance
         description: ""
         columns:
@@ -2147,7 +2278,12 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: OWNER_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: flow_orchestration_work_item
         description: ""
         columns:
@@ -2185,7 +2321,18 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: LAST_REFERENCED_DATE
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: LAST_VIEWED_DATE
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: OWNER_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: image_feed
         description: ""
         columns:
@@ -2227,7 +2374,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: image_history
         description: ""
         columns:
@@ -2251,7 +2400,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: managed_content_space
         description: ""
         columns:
@@ -2281,7 +2432,12 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
+          - name: API_NAME
+            description: ''
+            data_type: VARCHAR
       - name: managed_content_variant
         description: ""
         columns:
@@ -2313,7 +2469,24 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: MANAGED_CONTENT_ID
+            description: ''
+            data_type: VARCHAR
+          - name: MANAGED_CONTENT_VARIANT_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
+          - name: IS_PRIMARY
+            description: ''
+            data_type: BOOLEAN
+          - name: IS_READY
+            description: ''
+            data_type: BOOLEAN
+          - name: HAS_LOCKS
+            description: ''
+            data_type: BOOLEAN
       - name: payout_advisor_confidential_information_c
         description: ""
         columns:
@@ -2351,7 +2524,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_advisor_confidential_information_history
         description: ""
         columns:
@@ -2375,7 +2550,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_beneficiary_c
         description: ""
         columns:
@@ -2405,7 +2582,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_beneficiary_history
         description: ""
         columns:
@@ -2429,7 +2608,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_commission_batch_c
         description: ""
         columns:
@@ -2557,7 +2738,9 @@ sources:
             description: ""
           - name: payout_commission_calculation_started_c
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_commission_transactions_c
         description: ""
         columns:
@@ -2829,7 +3012,9 @@ sources:
             description: ""
           - name: payout_ct_out_of_proof_c
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_create_payments_settings_c
         description: ""
         columns:
@@ -2857,7 +3042,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_dashboard_review_c
         description: ""
         columns:
@@ -2887,7 +3074,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_financial_account_c
         description: ""
         columns:
@@ -3431,7 +3620,189 @@ sources:
             description: ""
           - name: payout_liquid_assets_c
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
+          - name: PAYOUT_GROUP_NUMBER_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_NUMBER_OF_DEPENDENTS_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_DATE_TRUST_ESTABLISHED_TXT_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_INV_OBJ_CODE_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_SECONDARY_PHONE_TYPE_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_STATUS_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_ADVISOR_SAME_AS_CLIENT_ADVISOR_C
+            description: ''
+            data_type: BOOLEAN
+          - name: PAYOUT_LEGAL_CITY_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_MUTUAL_FUND_HOLDINGS_C
+            description: ''
+            data_type: FLOAT
+          - name: PAYOUT_RELATED_OTHER_IBD_LAST_NAME_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_ANNUAL_INCOME_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_INVESTMENT_TIME_HORIZON_DATE_C
+            description: ''
+            data_type: DATE
+          - name: PAYOUT_LICENSE_FLAG_TEXT_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_THIRD_PHONE_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_INV_TIME_HORIZON_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_ANNUITIES_FIXED_HOLDINGS_C
+            description: ''
+            data_type: FLOAT
+          - name: PAYOUT_FINRA_INS_ACCT_CODE_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_INV_TIME_HORIZON_DATE_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_MASS_ON_HOLD_CRITERIA_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_PARENT_UNIQUE_ID_UNIQUE_ID_C
+            description: ''
+            data_type: BOOLEAN
+          - name: PAYOUT_LEGAL_ADDRESS_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_SOCIAL_CODE_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_PRODUCT_TYPE_CODE_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_CIRRUS_RECORD_ID_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_OPTION_HOLDINGS_C
+            description: ''
+            data_type: FLOAT
+          - name: PAYOUT_POLITICAL_OFFICE_HELD_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_INV_LIQUIDITY_NEEDS_CODE_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_LIQUIDITY_NEEDS_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_PRIMARY_PHONE_TYPE_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_PRIVATEBANKING_INDICATOR_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_ERISA_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_SSN_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_LEGAL_STATE_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_FEE_BASED_LICENSE_FLAG_TEXT_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_LEGAL_ZIP_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_FA_FROM_CT_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_LEGAL_COUNTRY_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_REAL_ESTATE_HOLDINGS_C
+            description: ''
+            data_type: FLOAT
+          - name: PAYOUT_EQUITY_HOLDINGS_C
+            description: ''
+            data_type: FLOAT
+          - name: PAYOUT_THIRD_PHONE_TYPE_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_TYPE_OF_TUST_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_FIRM_AFFILIATION_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_INITIAL_SOURCE_FUNDS_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_ANNUITIES_VARIABLE_HOLDINGS_C
+            description: ''
+            data_type: FLOAT
+          - name: PAYOUT_RELATED_OTHER_IBD_FIRST_NAME_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_LASTNAME_POLITICALLY_EXPOSED_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_CT_ID_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_FOREIGN_BANK_INDICATOR_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_STATEMENT_ADDRESS_FLAG_C
+            description: ''
+            data_type: BOOLEAN
+          - name: PAYOUT_UIT_HOLDINGS_C
+            description: ''
+            data_type: FLOAT
+          - name: PAYOUT_SEX_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_FIRSTNAME_POLITICALLY_EXPOSED_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_CONTRACT_PARTY_ROLE_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_LICENSE_EXCEPTION_REASON_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_POL_EXP_PERSON_OFFICE_COUNTRY_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_DATE_TRUST_ESTABLISHED_C
+            description: ''
+            data_type: DATE
+          - name: PAYOUT_IRS_QUALIFICATION_CODE_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_FIXED_INCOME_HOLDINGS_C
+            description: ''
+            data_type: FLOAT
+          - name: WF_RULE_C
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_DATA_SOURCE_COMMISSION_SCHEDULE_C
+            description: ''
+            data_type: VARCHAR
       - name: payout_finra_licensing_c
         description: ""
         columns:
@@ -3467,7 +3838,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_finra_licensing_history
         description: ""
         columns:
@@ -3491,7 +3864,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_finra_update_c
         description: ""
         columns:
@@ -3519,7 +3894,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_line_of_authority_c
         description: ""
         columns:
@@ -3547,7 +3924,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_line_of_authority_history
         description: ""
         columns:
@@ -3571,7 +3950,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_naf_c
         description: ""
         columns:
@@ -3853,7 +4234,27 @@ sources:
             description: ""
           - name: migration_track_id_c
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
+          - name: ACCOUNT_LIQUIDITY_NEEDS_C
+            description: ''
+            data_type: VARCHAR
+          - name: NEW_ACCOUNT_PROFILE_JFOLEY_2023217_328_PM_C
+            description: ''
+            data_type: VARCHAR
+          - name: RAP_CONGA_BATCH_C
+            description: ''
+            data_type: VARCHAR
+          - name: NAP_LETTER_SENT_C
+            description: ''
+            data_type: DATE
+          - name: NAP_CONGA_BATCH_C
+            description: ''
+            data_type: VARCHAR
+          - name: PRIMARY_OBJECTIVE_CHANGE_DATE_C
+            description: ''
+            data_type: DATE
       - name: payout_nipr_update_c
         description: ""
         columns:
@@ -3885,7 +4286,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_ofac_c
         description: ""
         columns:
@@ -3971,7 +4374,9 @@ sources:
             description: ""
           - name: payout_last_name_c
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_ofac_cs_c
         description: ""
         columns:
@@ -4005,7 +4410,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_ofac_history
         description: ""
         columns:
@@ -4029,7 +4436,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_payout_summary_c
         description: ""
         columns:
@@ -4063,7 +4472,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_payout_summary_history
         description: ""
         columns:
@@ -4087,7 +4498,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_portfolio_c
         description: ""
         columns:
@@ -4123,7 +4536,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_product_line_loa_c
         description: ""
         columns:
@@ -4151,7 +4566,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_product_line_loa_history
         description: ""
         columns:
@@ -4175,7 +4592,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_regulatory_action_c
         description: ""
         columns:
@@ -4207,7 +4626,9 @@ sources:
             description: ""
           - name: last_viewed_date
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_regulatory_action_history
         description: ""
         columns:
@@ -4231,7 +4652,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_tab_access_to_profile_c
         description: ""
         columns:
@@ -4257,7 +4680,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_ticket_charge_configuration_c
         description: ""
         columns:
@@ -4425,7 +4850,9 @@ sources:
             description: ""
           - name: payout_schedule_name_c
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_ticket_charge_configuration_history
         description: ""
         columns:
@@ -4449,7 +4876,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_ticket_charge_rule_c
         description: ""
         columns:
@@ -4495,7 +4924,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: payout_ticket_charge_rule_history
         description: ""
         columns:
@@ -4519,7 +4950,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: prompt_error
         description: ""
         columns:
@@ -4551,7 +4984,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: recommendation_response
         description: ""
         columns:
@@ -4597,7 +5032,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: scorecard
         description: ""
         columns:
@@ -4629,7 +5066,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: scorecard_association
         description: ""
         columns:
@@ -4659,7 +5098,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: scorecard_metric
         description: ""
         columns:
@@ -4689,7 +5130,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: seller
         description: ""
         columns:
@@ -4729,7 +5172,9 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
       - name: service_setup_provisioning
         description: ""
         columns:
@@ -4759,7 +5204,18 @@ sources:
             description: ""
           - name: _fivetran_synced
             description: ""
-
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
+          - name: ATTEMPT_ORDINAL
+            description: ''
+            data_type: NUMBER
+          - name: TASK_ACTION_CONTEXT
+            description: ''
+            data_type: VARCHAR
+          - name: TASK_ACTION
+            description: ''
+            data_type: VARCHAR
       - name: user
         description: ""
         columns:
@@ -5111,3 +5567,18 @@ sources:
             description: ""
           - name: user_preferences_has_sent_warning_email
             description: ""
+          - name: USER_PREFERENCES_HAS_SENT_WARNING_EMAIL_238
+            description: ''
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_HAS_SENT_WARNING_EMAIL_240
+            description: ''
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_FORECASTING_ROUNDED_AMOUNTS
+            description: ''
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_LIVE_AGENT_MIAW_SETUP_DEFLECTION
+            description: ''
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_HIDE_ONLINE_SALES_APP_TAB_VISIBILITY_REQUIREMENTS_MODAL
+            description: ''
+            data_type: BOOLEAN

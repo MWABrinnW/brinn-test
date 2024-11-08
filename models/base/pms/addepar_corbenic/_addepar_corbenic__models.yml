@@ -348,12 +348,119 @@ models:
       - name: NAME
         description: ''
         data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
       - name: _ID
         data_type: NUMBER
         description: ''
       - name: _CREATED_AT
         description: ''
         data_type: TIMESTAMP_NTZ
+      - name: _MAX_CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
       - name: _SOURCE_FILE
         description: ''
         data_type: VARCHAR
+  - name: addepar_corbenic_history__stg_bills
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: CWM_CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: CWM_LEAD_ADVISOR
+        description: ''
+        data_type: VARCHAR
+      - name: REFERRAL_FEE_PARTNER
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_ID
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_ASSETS_BILLED_ON
+        description: ''
+        data_type: NUMBER
+      - name: BILLING_BILL_TO
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_BILL_TO_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_DATE
+        description: ''
+        data_type: DATE
+      - name: BILLING_EFFECTIVE_RATE
+        description: ''
+        data_type: NUMBER
+      - name: BILLING_FEE_EXCLUSION
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_FEE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_FEE_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: BILLING_GROSS_FEE
+        description: ''
+        data_type: NUMBER
+      - name: BILLING_PRORATED_FEE
+        description: ''
+        data_type: NUMBER
+      - name: BILLING_SCHEDULE_INTERVAL
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_SCHEDULE_TIMING
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_SCHEDULE
+        description: ''
+        data_type: VARCHAR
+      - name: HOLDING_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_PAYMENT_METHOD
+        description: ''
+        data_type: VARCHAR
+      - name: INCEPTION_EVENT_DATE
+        description: ''
+        data_type: DATE
+      - name: OWNER
+        description: ''
+        data_type: VARCHAR
+      - name: VALUE
+        description: ''
+        data_type: NUMBER
+      - name: ENTITY_ID
+        description: ''
+        data_type: VARCHAR
+      - name: GROUPING
+        description: ''
+        data_type: VARCHAR
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: _ID
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: _MAX_SOURCE_BILLING_DATE
+        description: ''
+        data_type: DATE

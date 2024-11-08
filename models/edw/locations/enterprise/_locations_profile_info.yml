@@ -1,0 +1,160 @@
+version: 2
+models:
+  - name: locations_profile_info
+    columns:
+      - name: LOCATION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: LEGAL_ENTITY
+        description: ''
+        data_type: VARCHAR
+      - name: DIVISION
+        description: ''
+        data_type: VARCHAR
+      - name: REGION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: MARKET_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: OFFICE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACQUISITION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACQUISITION_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNTING_ID
+        description: ''
+        data_type: VARCHAR
+      - name: IS_MARKETING_OFFICE
+        description: ''
+        data_type: BOOLEAN
+      - name: REGION_LEADER
+        description: ''
+        data_type: VARCHAR
+      - name: MARKET_LEADER
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_LEADER
+        description: ''
+        data_type: VARCHAR
+      - name: TOTAL_AUA
+        description: ''
+        data_type: NUMBER
+      - name: NUMBER_OF_TOTAL_AUA_CLIENTS
+        description: ''
+        data_type: NUMBER
+      - name: NUMBER_OF_TOTAL_AUA_ACCOUNTS
+        description: ''
+        data_type: NUMBER
+      - name: PRIMARY_CUSTODIANS
+        description: ''
+        data_type: VARCHAR
+      - name: NUMBER_OF_ASSOCIATES
+        description: ''
+        data_type: NUMBER
+      - name: ADDRESS_LINE_1
+        description: ''
+        data_type: VARCHAR
+      - name: ADDRESS_LINE_2
+        description: ''
+        data_type: VARCHAR
+      - name: CITY
+        description: ''
+        data_type: VARCHAR
+      - name: STATE
+        description: ''
+        data_type: VARCHAR
+      - name: ZIP_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: LATITUDE
+        description: ''
+        data_type: NUMBER
+      - name: LONGITUDE
+        description: ''
+        data_type: NUMBER
+      - name: LAT_LNG
+        description: ''
+        data_type: VARCHAR
+      - name: PRIMARY_PMS_PLATFORM
+        description: ''
+        data_type: VARCHAR
+      - name: PRIMARY_PMS_PLATFORM_ADMINISTRATION
+        description: ''
+        data_type: VARCHAR
+      - name: ADDITIONAL_PMS_PLATFORMS
+        description: ''
+        data_type: VARCHAR
+      - name: ADDITIONAL_PMS_PLATFORMS_ADMINISTRATION
+        description: ''
+        data_type: VARCHAR
+      - name: PMS_CONVERSION_DATE
+        description: ''
+        data_type: DATE
+      - name: PMS_COMPLEXITY
+        description: ''
+        data_type: VARCHAR
+      - name: PRIMARY_CRM_PLATFORM
+        description: ''
+        data_type: VARCHAR
+      - name: PRIMARY_CRM_PLATFORM_ADMINISTRATION
+        description: ''
+        data_type: VARCHAR
+      - name: ADDITIONAL_CRM_PLATFORMS
+        description: ''
+        data_type: VARCHAR
+      - name: ADDITIONAL_CRM_PLATFORMS_ADMINISTRATION
+        description: ''
+        data_type: VARCHAR
+      - name: CRM_CONVERSION_DATE
+        description: ''
+        data_type: DATE
+      - name: CRM_COMPLEXITY
+        description: ''
+        data_type: VARCHAR
+      - name: PRIMARY_TRADING_PLATFORM
+        description: ''
+        data_type: VARCHAR
+      - name: PRIMARY_TRADING_PLATFORM_ADMINISTRATION
+        description: ''
+        data_type: VARCHAR
+      - name: ADDITIONAL_TRADING_PLATFORMS
+        description: ''
+        data_type: VARCHAR
+      - name: ADDITIONAL_TRADING_PLATFORMS_ADMINISTRATION
+        description: ''
+        data_type: VARCHAR
+      - name: TRADING_CONVERSION_DATE
+        description: ''
+        data_type: DATE
+      - name: TRADING_COMPLEXITY
+        description: ''
+        data_type: VARCHAR
+      - name: PRIMARY_BILLING_PLATFORM
+        description: ''
+        data_type: VARCHAR
+      - name: PRIMARY_BILLING_PLATFORM_ADMINISTRATION
+        description: ''
+        data_type: VARCHAR
+      - name: ADDITIONAL_BILLING_PLATFORMS
+        description: ''
+        data_type: VARCHAR
+      - name: ADDITIONAL_BILLING_PLATFORMS_ADMINISTRATION
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_CONVERSION_DATE
+        description: ''
+        data_type: DATE
+      - name: BILLING_COMPLEXITY
+        description: ''
+        data_type: VARCHAR
+      - name: CALCULATION_METHODOLOGY
+        description: ''
+        data_type: VARCHAR

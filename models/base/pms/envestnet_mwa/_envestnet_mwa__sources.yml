@@ -8,163 +8,3131 @@ sources:
     tables:
       - name: account_fee_schedule_fee_component
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: FEE_SCHEDULE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: FEE_COMPONENT_TYPE
+            description: ''
+            data_type: NUMBER
+          - name: IS_DERIVED_COMPONENT
+            description: ''
+            data_type: BOOLEAN
+          - name: FEE_MINIMUM
+            description: ''
+            data_type: NUMBER
+          - name: FEE_MAXIMUM
+            description: ''
+            data_type: NUMBER
+          - name: IS_LINEAR
+            description: ''
+            data_type: BOOLEAN
+          - name: IS_HOUSEHOLD
+            description: ''
+            data_type: BOOLEAN
+          - name: ASSET_CALCULATION_METHOD
+            description: ''
+            data_type: NUMBER
+          - name: AUM_FEE_SCHEDULE_ID
+            description: ''
+            data_type: NUMBER
+          - name: AUM_METHOD
+            description: ''
+            data_type: NUMBER
+          - name: AUM_RULE
+            description: ''
+            data_type: VARCHAR
+          - name: FEE_PAID_BY
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: account_fee_schedule_fee_filter
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: FEE_SCHEDULE_ID
+            description: ''
+            data_type: NUMBER
+          - name: FEE_COMPONENT_TYPE
+            description: ''
+            data_type: NUMBER
+          - name: FILTER_TYPE
+            description: ''
+            data_type: NUMBER
+          - name: FILER_VALUE
+            description: ''
+            data_type: VARCHAR
+          - name: IS_EXCLUSION_DISCOUNT_CUSTOM_FEE
+            description: ''
+            data_type: VARCHAR
+          - name: EXCLUSION_END_DATE
+            description: ''
+            data_type: DATE
+          - name: ADVISOR_CANNOT_EDIT
+            description: ''
+            data_type: VARCHAR
+          - name: DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: REGISTRATION_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: EXCLUSION_FACTOR
+            description: ''
+            data_type: NUMBER
+          - name: EXCLUSION_FACTORY_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: CUMULATIVE_DISCOUNT_CAP
+            description: ''
+            data_type: NUMBER
+          - name: ADJUST_DISCOUNT_TO
+            description: ''
+            data_type: NUMBER
+          - name: FEE_FILTER_ID
+            description: ''
+            data_type: NUMBER
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: account_fee_schedule_fee_rate
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: FEE_SCHEDULE_ID
+            description: ''
+            data_type: NUMBER
+          - name: FEE_COMPONENT_TYPE
+            description: ''
+            data_type: NUMBER
+          - name: FILTER_TYPE
+            description: ''
+            data_type: NUMBER
+          - name: START_RANGE
+            description: ''
+            data_type: NUMBER
+          - name: RATE_PERCENT
+            description: ''
+            data_type: NUMBER
+          - name: RATE_DOLLAR
+            description: ''
+            data_type: NUMBER
+          - name: FEE_FILTER_ID
+            description: ''
+            data_type: NUMBER
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: account_fee_schedule_fee_schedule
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_ID
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: FEE_SCHEDULE_ID
+            description: ''
+            data_type: NUMBER
+          - name: BILLING_MODE_ID
+            description: ''
+            data_type: NUMBER
+          - name: FEE_NOTES
+            description: ''
+            data_type: VARCHAR
+          - name: HAS_CUSTOMER_SERVICE_FEE
+            description: ''
+            data_type: VARCHAR
+          - name: BILLING_FREQUENCY
+            description: ''
+            data_type: NUMBER
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: accountmaster_accounts
         description: ""
+        columns:
+          - name: ACCOUNT_ID
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCT_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMER_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ADVISOR_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ADVISOR_BRANCH_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REP_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTODIAN
+            description: ''
+            data_type: VARCHAR
+          - name: START_DATE
+            description: ''
+            data_type: DATE
+          - name: MAILING_LABEL
+            description: ''
+            data_type: VARCHAR
+          - name: REGISTRATION_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: STATE
+            description: ''
+            data_type: VARCHAR
+          - name: NAME_AND_ADDRESS_1
+            description: ''
+            data_type: VARCHAR
+          - name: NAME_AND_ADDRESS_2
+            description: ''
+            data_type: VARCHAR
+          - name: NAME_AND_ADDRESS_3
+            description: ''
+            data_type: VARCHAR
+          - name: NAME_AND_ADDRESS_4
+            description: ''
+            data_type: VARCHAR
+          - name: SSN_TAX_ID
+            description: ''
+            data_type: VARCHAR
+          - name: SSN_TAX_ID_FLAG
+            description: ''
+            data_type: NUMBER
+          - name: CLOSE_DATE
+            description: ''
+            data_type: DATE
+          - name: ACCOUNTING_METHOD_OF_EQUITIES
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNTING_METHOD_OF_MUTUAL_FUNDS
+            description: ''
+            data_type: NUMBER
+          - name: MASTER_ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMER_ID
+            description: ''
+            data_type: NUMBER
+          - name: PROPOSAL_GROUP_ID
+            description: ''
+            data_type: NUMBER
+          - name: CUSTOMER_REGISTRATION_ID
+            description: ''
+            data_type: NUMBER
+          - name: RECONCILED_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: LAST_RECONCILED_DATE
+            description: ''
+            data_type: DATE
+          - name: NSCC_NETWORKING_LEVEL
+            description: ''
+            data_type: NUMBER
+          - name: SWP_INDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: ACH_INDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: PAC_SPP_INDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: CHECK_WRITING
+            description: ''
+            data_type: VARCHAR
+          - name: FUND_FAMILY_ID
+            description: ''
+            data_type: NUMBER
+          - name: IMPORT_ACCOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: CROSS_FUND_REINVEST
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNT_NUMBER_INDICATOR
+            description: ''
+            data_type: NUMBER
+          - name: NF_TRANSFER_ELIGIBILITY_FLAG
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTODIAN_ID
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNT_STATUS
+            description: ''
+            data_type: NUMBER
+          - name: REGISTRATION_TYPE_ID
+            description: ''
+            data_type: NUMBER
+          - name: PRIMARY_MEMBER_FIRST_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: PRIMARY_MEMBER_MIDDLE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: PRIMARY_MEMBER_LAST_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: PARTNER_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: BRANCH_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: ALTERNATE_REP_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: ADVISOR_REP_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCT_ID
+            description: ''
+            data_type: NUMBER
+          - name: PROPOSAL_RISK_RATING
+            description: ''
+            data_type: NUMBER
+          - name: AS_OF_CLOSE_DATE
+            description: ''
+            data_type: DATE
+          - name: UN_SUPERVISED_ASSETS
+            description: ''
+            data_type: NUMBER
+          - name: TOTAL_CASH
+            description: ''
+            data_type: NUMBER
+          - name: TOTAL_MARKET_VALUE
+            description: ''
+            data_type: VARCHAR
+          - name: LAST_UPDATED_BY_CUSTODIAN
+            description: ''
+            data_type: DATE
+          - name: ACCOUNT_CREATED_DATE
+            description: ''
+            data_type: DATE
+          - name: TAX_STATUS
+            description: ''
+            data_type: NUMBER
+          - name: TICKER
+            description: ''
+            data_type: VARCHAR
+          - name: ADVISOR_ID
+            description: ''
+            data_type: NUMBER
+          - name: BENCHMARK
+            description: ''
+            data_type: VARCHAR
+          - name: GOAL_ID
+            description: ''
+            data_type: NUMBER
+          - name: GOAL_TARGET
+            description: ''
+            data_type: NUMBER
+          - name: ALTERNATE_ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: CURRENCY
+            description: ''
+            data_type: VARCHAR
+          - name: FAMILY_MEMBER_ID
+            description: ''
+            data_type: NUMBER
+          - name: CUSTODIAN_POSITION_DATE
+            description: ''
+            data_type: DATE
+          - name: PROGRAM_ID
+            description: ''
+            data_type: NUMBER
+          - name: AGGREGATE_ACCOUNT_ID
+            description: ''
+            data_type: NUMBER
+          - name: ALTERNATE_ACCOUNT_2
+            description: ''
+            data_type: VARCHAR
+          - name: FUND_FAMILY_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: AGGREGATE_ERROR_CODE
+            description: ''
+            data_type: NUMBER
+          - name: AGGREGATE_ERROR_MESSAGE
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCT_OVERLAY_FEATURE
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_REVIEW_DATE
+            description: ''
+            data_type: DATE
+          - name: INVESTMENT_GROUP_REVIEW_DATE
+            description: ''
+            data_type: DATE
+          - name: ACCOUNT_REVIEW_DATE
+            description: ''
+            data_type: DATE
+          - name: SOLICITOR_ID
+            description: ''
+            data_type: VARCHAR
+          - name: SOLICITOR_PERCENT
+            description: ''
+            data_type: NUMBER
+          - name: SOLICITOR_END_DATE
+            description: ''
+            data_type: DATE
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_account_pricing_tier
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PRICING_TIER_ID
+            description: ''
+            data_type: NUMBER
+          - name: PRICING_TIER_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_account_status
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_STATUS
+            description: ''
+            data_type: NUMBER
+          - name: DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_address_type
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ADDRESS_TYPE_ID
+            description: ''
+            data_type: NUMBER
+          - name: ADDRESS_TYPE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_advisor_status
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ADVISOR_STATUS_ID
+            description: ''
+            data_type: NUMBER
+          - name: ADVISOR_STATUS_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_asset_calculation_method
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: CALCULATION_METHOD_ID
+            description: ''
+            data_type: NUMBER
+          - name: DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_asset_category
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: FEE_FILTER_TYPE_ID
+            description: ''
+            data_type: NUMBER
+          - name: BILLING_MODE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_aum_method
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: AUM_METHOD_ID
+            description: ''
+            data_type: NUMBER
+          - name: AUM_METHOD_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_authorized_programs
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PROGRAM_ID
+            description: ''
+            data_type: NUMBER
+          - name: PROGRAM_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_billing_frequency
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: BILLING_FREQUENCY
+            description: ''
+            data_type: NUMBER
+          - name: DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_billing_mode
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: BILLING_MODE_ID
+            description: ''
+            data_type: NUMBER
+          - name: DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_client_activity
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_ACTIVITY_ID
+            description: ''
+            data_type: NUMBER
+          - name: CLIENT_ACTIVITY_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_client_restriction
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: RESTRICTION_TYPE_ID
+            description: ''
+            data_type: NUMBER
+          - name: RESTRICTION_TYPE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_contact_type
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: CONTACT_TYPE_ID
+            description: ''
+            data_type: NUMBER
+          - name: DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_country
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: COUNTRY_ID
+            description: ''
+            data_type: NUMBER
+          - name: COUNTRY_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ABBREVIATION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_currency
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: CURRENCY_ID
+            description: ''
+            data_type: NUMBER
+          - name: CURRENCY_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: CURRENCY_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_custodians
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTODIAN_ID
+            description: ''
+            data_type: NUMBER
+          - name: CUSTODIAN_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_dashboard_product_type
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: DASHBOARD_PRODUCT_TYPE_ID
+            description: ''
+            data_type: NUMBER
+          - name: DASHBOARD_PRODUCT_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_employment_status
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: EMPLOYMENT_STATUS_ID
+            description: ''
+            data_type: NUMBER
+          - name: EMPLOYMENT_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_fee_component_type
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: FEE_COMPONENT_TYPE_ID
+            description: ''
+            data_type: NUMBER
+          - name: DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_fee_filter_type
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: FEE_FILTER_TYPE_ID
+            description: ''
+            data_type: NUMBER
+          - name: DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_fee_paid_by
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: FEE_PAID_BY_ID
+            description: ''
+            data_type: NUMBER
+          - name: FEE_PAID_BY_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_fund_family
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: FUND_FAMILY_ID
+            description: ''
+            data_type: NUMBER
+          - name: FUND_FAMILY_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: NSCC_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: MSTAR_DTCC_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: DST_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_gics_sector
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: GICS_SECTOR_ID
+            description: ''
+            data_type: NUMBER
+          - name: GICS_SECTOR
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_industry
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: INDUSTRY_TYPE_ID
+            description: ''
+            data_type: NUMBER
+          - name: INDUSTRY_TYPE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_instruction_type
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: INSTRUCTION_TYPE_ID
+            description: ''
+            data_type: NUMBER
+          - name: INSTRUCTION_TYPE_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_marital_status
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: MARITAL_STATUS_ID
+            description: ''
+            data_type: NUMBER
+          - name: MARITAL_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_moody_rating
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: MOODY_RATING_ID
+            description: ''
+            data_type: VARCHAR
+          - name: MOODY_RATING
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_owner_type
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: OWNER_TYPE_ID
+            description: ''
+            data_type: NUMBER
+          - name: OWNER_TYPE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_product_class
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCT_CLASS_ID
+            description: ''
+            data_type: NUMBER
+          - name: PRODUCT_CLASS_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_product_imr_status
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: IMR_STATUS_ID
+            description: ''
+            data_type: NUMBER
+          - name: DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_product_overlay_feature
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCT_OVERLAY_FEATURE_ID
+            description: ''
+            data_type: NUMBER
+          - name: PRODUCT_OVERLAY_FEATURE_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_product_status
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: STATUS_ID
+            description: ''
+            data_type: NUMBER
+          - name: DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_product_type
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCT_TYPE_ID
+            description: ''
+            data_type: NUMBER
+          - name: PRODUCT_TYPE_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_program_type
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PROGRAM_TYPE_ID
+            description: ''
+            data_type: NUMBER
+          - name: PROGRAM_TYPE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_proposal_status
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PROPOSAL_STATUS_ID
+            description: ''
+            data_type: NUMBER
+          - name: PROPOSAL_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_registration_type
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: REGISTRATION_TYPE_ID
+            description: ''
+            data_type: NUMBER
+          - name: REGISTRATION_TYPE_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_relationship
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: RELATIONSHIP_ID
+            description: ''
+            data_type: NUMBER
+          - name: RELATIONSHIP
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_risk_scale
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: RISK_SCALE_MIN_POINT
+            description: ''
+            data_type: NUMBER
+          - name: RISK_SCALE_MAX_POINT
+            description: ''
+            data_type: NUMBER
+          - name: DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_s_and_p_rating
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: S_P_RATING_ID
+            description: ''
+            data_type: NUMBER
+          - name: S_P_RATING
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_salutation
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: SALUTATION_ID
+            description: ''
+            data_type: NUMBER
+          - name: SALUTATION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_sector
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: SECTOR_ID
+            description: ''
+            data_type: NUMBER
+          - name: SECTOR
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_security_type
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITY_TYPE_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITY_TYPE_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_service_request_type
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: SERVICE_REQUEST_ID
+            description: ''
+            data_type: NUMBER
+          - name: SERVICE_REQUEST_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_ssn_type
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: SSN_TYPE_ID
+            description: ''
+            data_type: NUMBER
+          - name: SSN_TYPE_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: codes_style_type
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: STYLE_TYPE_ID
+            description: ''
+            data_type: NUMBER
+          - name: STYLE_TYPE_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: familymember_client_activity
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ACTIVITY_ID
+            description: ''
+            data_type: NUMBER
+          - name: CUSTOMER_ID
+            description: ''
+            data_type: NUMBER
+          - name: ACTIVITY_TYPE
+            description: ''
+            data_type: NUMBER
+          - name: ACTIVITY_DETAILS
+            description: ''
+            data_type: VARCHAR
+          - name: DATE_POSTED
+            description: ''
+            data_type: DATE
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: familymember_client_restriction
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: RESTRICTION_ID
+            description: ''
+            data_type: NUMBER
+          - name: CUSTOMER_ID
+            description: ''
+            data_type: NUMBER
+          - name: RESTRICTION_TYPE
+            description: ''
+            data_type: NUMBER
+          - name: ENTITY_ID
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUED_ON
+            description: ''
+            data_type: DATE
+          - name: EXPIRED_ON
+            description: ''
+            data_type: DATE
+          - name: MEMO
+            description: ''
+            data_type: VARCHAR
+          - name: UPDATED_BY
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: familymember_contact
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: OWNER_ID
+            description: ''
+            data_type: NUMBER
+          - name: OWNER_TYPE
+            description: ''
+            data_type: NUMBER
+          - name: CONTACT_TYPE
+            description: ''
+            data_type: NUMBER
+          - name: CONTACT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ADDRESS_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ADDRESS_LINE_1
+            description: ''
+            data_type: VARCHAR
+          - name: ADDRESS_LINE_2
+            description: ''
+            data_type: VARCHAR
+          - name: CITY
+            description: ''
+            data_type: VARCHAR
+          - name: STATE
+            description: ''
+            data_type: VARCHAR
+          - name: ZIP
+            description: ''
+            data_type: VARCHAR
+          - name: COUNTRY
+            description: ''
+            data_type: VARCHAR
+          - name: PHONE_1
+            description: ''
+            data_type: VARCHAR
+          - name: PHONE_2
+            description: ''
+            data_type: VARCHAR
+          - name: FAX
+            description: ''
+            data_type: VARCHAR
+          - name: EMAIL
+            description: ''
+            data_type: VARCHAR
+          - name: USE_AS_QPR_MAILING_ADDRESS
+            description: ''
+            data_type: NUMBER
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: familymember_family
         description: ""
+        columns:
+          - name: FILENAME
+            description: ''
+            data_type: VARCHAR
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMER_ID
+            description: ''
+            data_type: NUMBER
+          - name: FAMILY_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: SPLIT_REP_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: DISABLE_QPR_DOWNLOAD_TO_PROFESSSIONAL_PRINTER_FLAG
+            description: ''
+            data_type: VARCHAR
+          - name: DISABLE_ACCESS_TO_QPR_ON_CLIENT_WEB_SITE_FLAG
+            description: ''
+            data_type: VARCHAR
+          - name: SAMPLE_CLIENT_FLAG
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: familymember_family_member
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMER_ID
+            description: ''
+            data_type: NUMBER
+          - name: ENTITY_TYPE
+            description: ''
+            data_type: NUMBER
+          - name: FAMILY_MEMBER_ID
+            description: ''
+            data_type: NUMBER
+          - name: FIRST_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: MIDDLE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: LAST_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: SALUTATION
+            description: ''
+            data_type: NUMBER
+          - name: RELATIONSHIP
+            description: ''
+            data_type: NUMBER
+          - name: DATE_OF_BIRTH
+            description: ''
+            data_type: VARCHAR
+          - name: GENDER
+            description: ''
+            data_type: NUMBER
+          - name: MARTIAL_STATUS
+            description: ''
+            data_type: NUMBER
+          - name: DEPENDENTS
+            description: ''
+            data_type: NUMBER
+          - name: SSN_TIN
+            description: ''
+            data_type: VARCHAR
+          - name: EMPLOYMENT_STATUS
+            description: ''
+            data_type: NUMBER
+          - name: OCCUPATION
+            description: ''
+            data_type: VARCHAR
+          - name: INCOME_SOURCE
+            description: ''
+            data_type: VARCHAR
+          - name: EMPLOYER_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: YEARS_EMPLOYED
+            description: ''
+            data_type: NUMBER
+          - name: COUNTRY_OF_CITIZENSHIP_ORGANIZATION
+            description: ''
+            data_type: NUMBER
+          - name: TAX_RESIDENCE_COUNTRY
+            description: ''
+            data_type: NUMBER
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: gainloss_gain_loss
         description: ""
+        columns:
+          - name: ACCOUNT_ID
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITY_ID
+            description: ''
+            data_type: NUMBER
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: TICKER
+            description: ''
+            data_type: VARCHAR
+          - name: SALES_DATE
+            description: ''
+            data_type: DATE
+          - name: PROCEEDS
+            description: ''
+            data_type: NUMBER
+          - name: SALES_UNITS
+            description: ''
+            data_type: NUMBER
+          - name: TOTAL_COST
+            description: ''
+            data_type: NUMBER
+          - name: PURCHASE_DATE
+            description: ''
+            data_type: DATE
+          - name: UNSUPERVISED_INDICATOR
+            description: ''
+            data_type: NUMBER
+          - name: SHORT_POSITION_INDICATOR
+            description: ''
+            data_type: NUMBER
+          - name: TAX_CURRENCY
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: hierarchy_advisor
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ADVISOR_ID
+            description: ''
+            data_type: NUMBER
+          - name: FIRST_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: MIDDLE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: LAST_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REP_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: USER_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ENTERPRISE_ID
+            description: ''
+            data_type: NUMBER
+          - name: FIRM_ID
+            description: ''
+            data_type: NUMBER
+          - name: BRANCH_ID
+            description: ''
+            data_type: NUMBER
+          - name: ENTITLEMENT
+            description: ''
+            data_type: VARCHAR
+          - name: MANAGER_REP_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: SSN_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: DATE_OF_BIRTH
+            description: ''
+            data_type: DATE
+          - name: CRD_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: DBA_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: START_DATE
+            description: ''
+            data_type: DATE
+          - name: TERMINATION_DATE
+            description: ''
+            data_type: DATE
+          - name: TERMINATION_REASON
+            description: ''
+            data_type: VARCHAR
+          - name: HOME_STATE
+            description: ''
+            data_type: VARCHAR
+          - name: SSO_USER_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ALTERNATE_SSO_USER_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: SELECTED_ADVISOR
+            description: ''
+            data_type: VARCHAR
+          - name: ADVISOR_STATUS
+            description: ''
+            data_type: NUMBER
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: hierarchy_branch
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: BRANCH_ID
+            description: ''
+            data_type: NUMBER
+          - name: BRANCH_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: BRANCH_SHORT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ENTERPRISE_ID
+            description: ''
+            data_type: NUMBER
+          - name: FIRM_ID
+            description: ''
+            data_type: NUMBER
+          - name: BRANCH_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: MANAGER_REP_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: hierarchy_contact
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: OWNER_ID
+            description: ''
+            data_type: NUMBER
+          - name: OWNER_TYPE_ID
+            description: ''
+            data_type: NUMBER
+          - name: CONTACT_TYPE
+            description: ''
+            data_type: NUMBER
+          - name: ADDRESS_TYPE
+            description: ''
+            data_type: NUMBER
+          - name: ADDRESS_LINE_1
+            description: ''
+            data_type: VARCHAR
+          - name: ADDRESS_LINE_2
+            description: ''
+            data_type: VARCHAR
+          - name: CITY
+            description: ''
+            data_type: VARCHAR
+          - name: STATE
+            description: ''
+            data_type: VARCHAR
+          - name: ZIP
+            description: ''
+            data_type: VARCHAR
+          - name: COUNTRY
+            description: ''
+            data_type: VARCHAR
+          - name: PHONE_1
+            description: ''
+            data_type: VARCHAR
+          - name: PHONE_2
+            description: ''
+            data_type: VARCHAR
+          - name: FAX
+            description: ''
+            data_type: VARCHAR
+          - name: EMAIL
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: hierarchy_enterprise
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ENTERPRISE_ID
+            description: ''
+            data_type: NUMBER
+          - name: ENTERPRISE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: hierarchy_entitlement
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: OWNER_TYPE
+            description: ''
+            data_type: NUMBER
+          - name: OWNER_ID
+            description: ''
+            data_type: NUMBER
+          - name: ENTITLEMENT
+            description: ''
+            data_type: VARCHAR
+          - name: ENTITLEMENT_VALUE
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: hierarchy_firm
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: FIRM_ID
+            description: ''
+            data_type: NUMBER
+          - name: FIRM_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: FIRM_SHORT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ENTERPRISE_ID
+            description: ''
+            data_type: NUMBER
+          - name: BROKER_SYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: CRD_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: BANK_ACCOUNT_TYPE
+            description: ''
+            data_type: NUMBER
+          - name: BANK_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: BANK_ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: BANK_ACCOUNT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ABA_ROUTING_NO
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: hierarchy_rep_code
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: REP_CODE_ID
+            description: ''
+            data_type: NUMBER
+          - name: REP_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: BRANCH_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: IS_SPLIT_REP_CODE
+            description: ''
+            data_type: NUMBER
+          - name: ENTERPRISE_ID
+            description: ''
+            data_type: NUMBER
+          - name: BRANCH_ID
+            description: ''
+            data_type: NUMBER
+          - name: ADVISOR_ID
+            description: ''
+            data_type: NUMBER
+          - name: PARTICIPATING_REP_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: PERCENTAGE
+            description: ''
+            data_type: FLOAT
+          - name: REP_CODE_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: IS_PRIMARY
+            description: ''
+            data_type: NUMBER
+          - name: IS_DEFAULT
+            description: ''
+            data_type: NUMBER
+          - name: ENSEMBLED_ID
+            description: ''
+            data_type: NUMBER
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: positions_positions
         description: ""
+        columns:
+          - name: ACCOUNT_ID
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: AS_OF_DATE
+            description: ''
+            data_type: DATE
+          - name: SECURITY_ID
+            description: ''
+            data_type: NUMBER
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: TICKER
+            description: ''
+            data_type: VARCHAR
+          - name: DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITY_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITY_STYLE
+            description: ''
+            data_type: NUMBER
+          - name: QUANTITY
+            description: ''
+            data_type: NUMBER
+          - name: MARKET_VALUE
+            description: ''
+            data_type: NUMBER
+          - name: TOTAL_COST
+            description: ''
+            data_type: NUMBER
+          - name: MARKET_PRICE
+            description: ''
+            data_type: NUMBER
+          - name: ACCRUED_INCOME
+            description: ''
+            data_type: NUMBER
+          - name: ACCRUED_INTEREST
+            description: ''
+            data_type: NUMBER
+          - name: UNSUPERVISED_INDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: SHORT_POSITION_INDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: UNSUPERVISED_START_DATE
+            description: ''
+            data_type: DATE
+          - name: CURRENCY
+            description: ''
+            data_type: VARCHAR
+          - name: TAX_CURRENCY
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: products_products
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCT_ID
+            description: ''
+            data_type: NUMBER
+          - name: PRODUCT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: MANAGER_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCT_TYPE_ID
+            description: ''
+            data_type: NUMBER
+          - name: TAX_EFFICIENCY
+            description: ''
+            data_type: NUMBER
+          - name: RISK_RATING
+            description: ''
+            data_type: NUMBER
+          - name: LAST_MODEL_CHANGE_DATE
+            description: ''
+            data_type: DATE
+          - name: STATUS
+            description: ''
+            data_type: NUMBER
+          - name: IMR_STATUS
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNT_MINIMUM
+            description: ''
+            data_type: NUMBER
+          - name: STYLE_TYPE
+            description: ''
+            data_type: NUMBER
+          - name: CURRENCY
+            description: ''
+            data_type: VARCHAR
+          - name: PORTFOLIO_ID
+            description: ''
+            data_type: NUMBER
+          - name: PORTFOLIO_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: MANAGER_FIRM_ID
+            description: ''
+            data_type: NUMBER
+          - name: MANAGER_FIRM_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: SLEEVE_SECURITY_ID
+            description: ''
+            data_type: NUMBER
+          - name: DASHBOARD_PRODUCT_TYPE
+            description: ''
+            data_type: NUMBER
+          - name: PRODUCT_CLASS_ID
+            description: ''
+            data_type: NUMBER
+          - name: PRICING_TIER
+            description: ''
+            data_type: NUMBER
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: proposal_asset
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PROPOSAL_GROUP_ID
+            description: ''
+            data_type: NUMBER
+          - name: PROPOSAL_ID
+            description: ''
+            data_type: NUMBER
+          - name: ASSET_ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: TICKER
+            description: ''
+            data_type: VARCHAR
+          - name: ASSET_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: ASSET_STYLE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSET_QUANTITY
+            description: ''
+            data_type: NUMBER
+          - name: ASSET_MARKET_VALUE
+            description: ''
+            data_type: NUMBER
+          - name: INVESTABLE_FLAG
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: proposal_investment
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PROPOSAL_GROUP_ID
+            description: ''
+            data_type: NUMBER
+          - name: PROPOSAL_ID
+            description: ''
+            data_type: NUMBER
+          - name: CUSTOMER_REGISTRATION_ID
+            description: ''
+            data_type: NUMBER
+          - name: PRODUCT_ID
+            description: ''
+            data_type: NUMBER
+          - name: PRODUCT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ALLOCATION_PERCENTAGE
+            description: ''
+            data_type: NUMBER
+          - name: PRODUCT_TYPE_ID
+            description: ''
+            data_type: NUMBER
+          - name: LIMITED_PARTNERSHIP
+            description: ''
+            data_type: VARCHAR
+          - name: DISCRETION
+            description: ''
+            data_type: VARCHAR
+          - name: PROGRAM
+            description: ''
+            data_type: VARCHAR
+          - name: PRICING_TIER
+            description: ''
+            data_type: NUMBER
+          - name: PRODUCT_OVERLAY_FEATURE
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: proposal_proposal
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PROPOSAL_GROUP_ID
+            description: ''
+            data_type: NUMBER
+          - name: REP_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: UPDATED_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: PROPOSAL_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: TITLE
+            description: ''
+            data_type: VARCHAR
+          - name: ADVISOR_ID
+            description: ''
+            data_type: NUMBER
+          - name: ADVISOR_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_CURRENCY
+            description: ''
+            data_type: VARCHAR
+          - name: CREATED_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMER_ID
+            description: ''
+            data_type: NUMBER
+          - name: CITY
+            description: ''
+            data_type: VARCHAR
+          - name: STATE
+            description: ''
+            data_type: VARCHAR
+          - name: ZIP
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: proposal_proposed_investment_group
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PROPOSAL_GROUP_ID
+            description: ''
+            data_type: NUMBER
+          - name: PROPOSED_INVESTMENT_GROUP_ID
+            description: ''
+            data_type: NUMBER
+          - name: RISK_TOLERANCE
+            description: ''
+            data_type: VARCHAR
+          - name: INVESTMENT_OBJECTIVE
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: proposal_registration
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PROPOSAL_GROUP_ID
+            description: ''
+            data_type: NUMBER
+          - name: PROPOSAL_ID
+            description: ''
+            data_type: NUMBER
+          - name: CUSTOMER_REGISTRATION_ID
+            description: ''
+            data_type: NUMBER
+          - name: INVESTMENT_AMOUNT
+            description: ''
+            data_type: NUMBER
+          - name: REGISTRATION_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTODIAN_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REGISTRATION_TYPE
+            description: ''
+            data_type: NUMBER
+          - name: MASTER_ACCOUNT_NEEDED
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: proposal_registration_owner
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PROPOSAL_GROUP_ID
+            description: ''
+            data_type: NUMBER
+          - name: PROPOSAL_ID
+            description: ''
+            data_type: NUMBER
+          - name: CUSTOMER_REGISTRATION_ID
+            description: ''
+            data_type: NUMBER
+          - name: OWNER_TYPE
+            description: ''
+            data_type: NUMBER
+          - name: ENTITY_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PREFIX
+            description: ''
+            data_type: VARCHAR
+          - name: FIRST_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: MIDDLE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: LAST_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: SSN_TAX_ID
+            description: ''
+            data_type: VARCHAR
+          - name: SSN_TAX_ID_FLAG
+            description: ''
+            data_type: NUMBER
+          - name: DATE_OF_BIRTH
+            description: ''
+            data_type: DATE
+          - name: ADDRESS_LINE1
+            description: ''
+            data_type: VARCHAR
+          - name: ADDRESS_LINE2
+            description: ''
+            data_type: VARCHAR
+          - name: CITY
+            description: ''
+            data_type: VARCHAR
+          - name: STATE
+            description: ''
+            data_type: VARCHAR
+          - name: ZIP_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: COUNTRY
+            description: ''
+            data_type: VARCHAR
+          - name: EMAIL
+            description: ''
+            data_type: VARCHAR
+          - name: PHONE_DAY
+            description: ''
+            data_type: VARCHAR
+          - name: PHONE_EVENING
+            description: ''
+            data_type: VARCHAR
+          - name: IDENTIFICATION_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: FAMILY_MEMBER_ID
+            description: ''
+            data_type: NUMBER
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: proposal_solution
         description: ""
+        columns:
+          - name: RECORD_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PROPOSAL_GROUP_ID
+            description: ''
+            data_type: NUMBER
+          - name: PROPOSAL_ID
+            description: ''
+            data_type: NUMBER
+          - name: TOTAL_INVESTMENT
+            description: ''
+            data_type: NUMBER
+          - name: FUNDING_METHOD
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: securitymaster_securities
         description: ""
+        columns:
+          - name: SECURITY_ID
+            description: ''
+            data_type: NUMBER
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: TICKER
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITY_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITY_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITY_STYLE
+            description: ''
+            data_type: NUMBER
+          - name: ISSUE_TYPE_MULTIPLIER
+            description: ''
+            data_type: NUMBER
+          - name: AGENCY_FACTOR
+            description: ''
+            data_type: NUMBER
+          - name: SHARE_CLASS
+            description: ''
+            data_type: VARCHAR
+          - name: CDSC_FUND_FLAG
+            description: ''
+            data_type: VARCHAR
+          - name: FUND_FAMILY_ID
+            description: ''
+            data_type: NUMBER
+          - name: CLOSED_FLAG
+            description: ''
+            data_type: VARCHAR
+          - name: S_AND_P_RATING_ID
+            description: ''
+            data_type: NUMBER
+          - name: MOODY_RATING_ID
+            description: ''
+            data_type: NUMBER
+          - name: FIRM_ELIGIBLE
+            description: ''
+            data_type: NUMBER
+          - name: ISSUE_DATE
+            description: ''
+            data_type: DATE
+          - name: MATURITY_DATE
+            description: ''
+            data_type: DATE
+          - name: CALL_DATE
+            description: ''
+            data_type: DATE
+          - name: CALL_PRICE
+            description: ''
+            data_type: NUMBER
+          - name: SECTOR
+            description: ''
+            data_type: NUMBER
+          - name: SUB_SECTOR_GICS_CODE
+            description: ''
+            data_type: NUMBER
+          - name: LAST_MODIFIED_DATE
+            description: ''
+            data_type: DATE
+          - name: INTEREST_RATE
+            description: ''
+            data_type: NUMBER
+          - name: ACCURAL_METHOD
+            description: ''
+            data_type: VARCHAR
+          - name: STATE_TAXABLE
+            description: ''
+            data_type: VARCHAR
+          - name: FEDERAL_TAXABLE
+            description: ''
+            data_type: VARCHAR
+          - name: EXCHANGE_ID
+            description: ''
+            data_type: NUMBER
+          - name: TRADE_CURRENCY
+            description: ''
+            data_type: VARCHAR
+          - name: FREQUENCY
+            description: ''
+            data_type: NUMBER
+          - name: ISIN
+            description: ''
+            data_type: VARCHAR
+          - name: SEDOL
+            description: ''
+            data_type: VARCHAR
+          - name: FIRST_COUPON_DATE
+            description: ''
+            data_type: DATE
+          - name: LAST_COUPON_DATE
+            description: ''
+            data_type: DATE
+          - name: MINIMUM_PURCHASE
+            description: ''
+            data_type: NUMBER
+          - name: INCOME_CURRENCY
+            description: ''
+            data_type: VARCHAR
+          - name: DUMMY_FLAG
+            description: ''
+            data_type: VARCHAR
+          - name: VALOR_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: FUND_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: BROADRIDGE_SEC_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: STATUS_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCT_TYPE_ID
+            description: ''
+            data_type: NUMBER
+          - name: CREATED_DATE
+            description: ''
+            data_type: DATE
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: securityprice_firm_security_price
         description: ""
+        columns:
+          - name: SECURITY_ID
+            description: ''
+            data_type: NUMBER
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: TICKER
+            description: ''
+            data_type: VARCHAR
+          - name: PRICING_CUSTODIAN
+            description: ''
+            data_type: NUMBER
+          - name: PRICE_DATE
+            description: ''
+            data_type: DATE
+          - name: PRICE
+            description: ''
+            data_type: NUMBER
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: taxlots_taxlots
         description: ""
+        columns:
+          - name: ACCOUNT_ID
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: AS_OF_DATE
+            description: ''
+            data_type: DATE
+          - name: SECURITY_ID
+            description: ''
+            data_type: NUMBER
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: TICKER
+            description: ''
+            data_type: VARCHAR
+          - name: QUANTITY
+            description: ''
+            data_type: NUMBER
+          - name: MARKET_VALUE
+            description: ''
+            data_type: NUMBER
+          - name: TOTAL_COST
+            description: ''
+            data_type: NUMBER
+          - name: MARKET_PRICE
+            description: ''
+            data_type: NUMBER
+          - name: PURCHASE_DATE
+            description: ''
+            data_type: DATE
+          - name: ACCRUED_INCOME
+            description: ''
+            data_type: NUMBER
+          - name: ACCRUED_INTEREST
+            description: ''
+            data_type: NUMBER
+          - name: UNSUPERVISED_INDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: SHORT_POSITION_INDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: ITD_PERFORMANCE
+            description: ''
+            data_type: NUMBER
+          - name: INCEPTION_DATE
+            description: ''
+            data_type: DATE
+          - name: SECURITY_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITY_STYLE
+            description: ''
+            data_type: VARCHAR
+          - name: CURRENCY
+            description: ''
+            data_type: VARCHAR
+          - name: TAX_CURRENCY
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: transactions_transactions
         description: ""
+        columns:
+          - name: TRANSACTION_ID
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_ID
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: TRANSACTION_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITY_ID
+            description: ''
+            data_type: VARCHAR
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: TICKER
+            description: ''
+            data_type: VARCHAR
+          - name: TRANSACTION_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: TRANSACTION_DATE
+            description: ''
+            data_type: DATE
+          - name: TRANSACTION_AMOUNT
+            description: ''
+            data_type: NUMBER
+          - name: TRANSACTION_UNITS
+            description: ''
+            data_type: NUMBER
+          - name: COMMISSION
+            description: ''
+            data_type: NUMBER
+          - name: DELETED_FLAG
+            description: ''
+            data_type: NUMBER
+          - name: SETTLEMENT_DATE
+            description: ''
+            data_type: DATE
+          - name: SEC_FEE
+            description: ''
+            data_type: NUMBER
+          - name: POSTAGE_FEE
+            description: ''
+            data_type: NUMBER
+          - name: CLEARING_FEE
+            description: ''
+            data_type: NUMBER
+          - name: EXCHANGE_FEE
+            description: ''
+            data_type: NUMBER
+          - name: TICKET_CHARGE
+            description: ''
+            data_type: NUMBER
+          - name: HANDLING_FEE
+            description: ''
+            data_type: NUMBER
+          - name: REDEMPTION_FEE
+            description: ''
+            data_type: NUMBER
+          - name: DEFERRED_SALES_LOAD_FEE
+            description: ''
+            data_type: NUMBER
+          - name: CONCESSION
+            description: ''
+            data_type: NUMBER
+          - name: ACCRUED_INTEREST
+            description: ''
+            data_type: NUMBER
+          - name: OWNING_REP_ID
+            description: ''
+            data_type: VARCHAR
+          - name: EXECUTING_REP_ID
+            description: ''
+            data_type: VARCHAR
+          - name: POSTED_DATE
+            description: ''
+            data_type: DATE
+          - name: TRANSACTION_MAPPING_ID
+            description: ''
+            data_type: NUMBER
+          - name: EXCHANGE_ID
+            description: ''
+            data_type: NUMBER
+          - name: REVENUE_CONCESSION
+            description: ''
+            data_type: NUMBER
+          - name: EXECUTION_PRICE
+            description: ''
+            data_type: NUMBER
+          - name: SECURITY_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITY_STYLE
+            description: ''
+            data_type: NUMBER
+          - name: TRADE_CURRENCY
+            description: ''
+            data_type: VARCHAR
+          - name: SETTLEMENT_CURRENCY
+            description: ''
+            data_type: VARCHAR
+          - name: SALES_CHARGE_PERCENTAGE
+            description: ''
+            data_type: NUMBER
+          - name: EXTERNAL_TRANSACTION_ID
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: transactions_transactions_new
         description: ""
+        columns:
+          - name: TRANSACTION_ID
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_ID
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: TRANSACTION_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITY_ID
+            description: ''
+            data_type: VARCHAR
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: TICKER
+            description: ''
+            data_type: VARCHAR
+          - name: TRANSACTION_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: TRANSACTION_DATE
+            description: ''
+            data_type: DATE
+          - name: TRANSACTION_AMOUNT
+            description: ''
+            data_type: NUMBER
+          - name: TRANSACTION_UNITS
+            description: ''
+            data_type: NUMBER
+          - name: COMMISSION
+            description: ''
+            data_type: NUMBER
+          - name: DELETED_FLAG
+            description: ''
+            data_type: NUMBER
+          - name: SETTLEMENT_DATE
+            description: ''
+            data_type: DATE
+          - name: SEC_FEE
+            description: ''
+            data_type: NUMBER
+          - name: POSTAGE_FEE
+            description: ''
+            data_type: NUMBER
+          - name: CLEARING_FEE
+            description: ''
+            data_type: NUMBER
+          - name: EXCHANGE_FEE
+            description: ''
+            data_type: NUMBER
+          - name: TICKET_CHARGE
+            description: ''
+            data_type: NUMBER
+          - name: HANDLING_FEE
+            description: ''
+            data_type: NUMBER
+          - name: REDEMPTION_FEE
+            description: ''
+            data_type: NUMBER
+          - name: DEFERRED_SALES_LOAD_FEE
+            description: ''
+            data_type: NUMBER
+          - name: CONCESSION
+            description: ''
+            data_type: NUMBER
+          - name: ACCRUED_INTEREST
+            description: ''
+            data_type: NUMBER
+          - name: OWNING_REP_ID
+            description: ''
+            data_type: VARCHAR
+          - name: EXECUTING_REP_ID
+            description: ''
+            data_type: VARCHAR
+          - name: POSTED_DATE
+            description: ''
+            data_type: DATE
+          - name: TRANSACTION_MAPPING_ID
+            description: ''
+            data_type: NUMBER
+          - name: EXCHANGE_ID
+            description: ''
+            data_type: NUMBER
+          - name: REVENUE_CONCESSION
+            description: ''
+            data_type: NUMBER
+          - name: EXECUTION_PRICE
+            description: ''
+            data_type: NUMBER
+          - name: SECURITY_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITY_STYLE
+            description: ''
+            data_type: NUMBER
+          - name: TRADE_CURRENCY
+            description: ''
+            data_type: VARCHAR
+          - name: SETTLEMENT_CURRENCY
+            description: ''
+            data_type: VARCHAR
+          - name: SALES_CHARGE_PERCENTAGE
+            description: ''
+            data_type: NUMBER
+          - name: EXTERNAL_TRANSACTION_ID
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: transactions_transactions_test
         description: ""
+        columns:
+          - name: TRANSACTION_ID
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_ID
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: TRANSACTION_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITY_ID
+            description: ''
+            data_type: VARCHAR
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: TICKER
+            description: ''
+            data_type: VARCHAR
+          - name: TRANSACTION_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: TRANSACTION_DATE
+            description: ''
+            data_type: DATE
+          - name: TRANSACTION_AMOUNT
+            description: ''
+            data_type: NUMBER
+          - name: TRANSACTION_UNITS
+            description: ''
+            data_type: NUMBER
+          - name: COMMISSION
+            description: ''
+            data_type: NUMBER
+          - name: DELETED_FLAG
+            description: ''
+            data_type: NUMBER
+          - name: SETTLEMENT_DATE
+            description: ''
+            data_type: DATE
+          - name: SEC_FEE
+            description: ''
+            data_type: NUMBER
+          - name: POSTAGE_FEE
+            description: ''
+            data_type: NUMBER
+          - name: CLEARING_FEE
+            description: ''
+            data_type: NUMBER
+          - name: EXCHANGE_FEE
+            description: ''
+            data_type: NUMBER
+          - name: TICKET_CHARGE
+            description: ''
+            data_type: NUMBER
+          - name: HANDLING_FEE
+            description: ''
+            data_type: NUMBER
+          - name: REDEMPTION_FEE
+            description: ''
+            data_type: NUMBER
+          - name: DEFERRED_SALES_LOAD_FEE
+            description: ''
+            data_type: NUMBER
+          - name: CONCESSION
+            description: ''
+            data_type: NUMBER
+          - name: ACCRUED_INTEREST
+            description: ''
+            data_type: NUMBER
+          - name: OWNING_REP_ID
+            description: ''
+            data_type: VARCHAR
+          - name: EXECUTING_REP_ID
+            description: ''
+            data_type: VARCHAR
+          - name: POSTED_DATE
+            description: ''
+            data_type: DATE
+          - name: TRANSACTION_MAPPING_ID
+            description: ''
+            data_type: NUMBER
+          - name: EXCHANGE_ID
+            description: ''
+            data_type: NUMBER
+          - name: REVENUE_CONCESSION
+            description: ''
+            data_type: NUMBER
+          - name: EXECUTION_PRICE
+            description: ''
+            data_type: NUMBER
+          - name: SECURITY_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITY_STYLE
+            description: ''
+            data_type: NUMBER
+          - name: TRADE_CURRENCY
+            description: ''
+            data_type: VARCHAR
+          - name: SETTLEMENT_CURRENCY
+            description: ''
+            data_type: VARCHAR
+          - name: SALES_CHARGE_PERCENTAGE
+            description: ''
+            data_type: NUMBER
+          - name: EXTERNAL_TRANSACTION_ID
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
   - name: envestnet_mwa_raw
     description: ""
     database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
     schema: envestnet_mwa
     tables:
-    - name: bills
+      - name: bills
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER

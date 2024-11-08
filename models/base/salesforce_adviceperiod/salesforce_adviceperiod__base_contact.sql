@@ -68,10 +68,14 @@ select
   , a.json:JIGSAW:: varchar(60)                                             as jigsaw
   , a.json:JIGSAW_CONTACT_ID:: varchar(60)                                  as jigsaw_contact_id
   , a.json:INDIVIDUAL_ID:: varchar(18)                                      as individual_id
-  , a.json:SALENTICA_LMNTS_AGE_EOY_C:: float                                as salentica_lmnts_age_eoy_c
+  {# , a.json:SALENTICA_LMNTS_AGE_EOY_C:: float                                as salentica_lmnts_age_eoy_c
   , a.json:SALENTICA_LMNTS_AGE_EOY_CALC_C:: float                           as salentica_lmnts_age_eoy_calc_c
   , a.json:SALENTICA_LMNTS_AGE_CURRENT_C:: float                            as salentica_lmnts_age_current_c
-  , a.json:SALENTICA_LMNTS_AGE_CURRENT_CALC_C:: float                       as salentica_lmnts_age_current_calc_c
+  , a.json:SALENTICA_LMNTS_AGE_CURRENT_CALC_C:: float                       as salentica_lmnts_age_current_calc_c #}
+  , null::float                                                             as salentica_lmnts_age_eoy_c
+  , null::float                                                             as salentica_lmnts_age_eoy_calc_c
+  , null::float                                                             as salentica_lmnts_age_current_c
+  , null::float                                                             as salentica_lmnts_age_current_calc_c
   , a.json:SALENTICA_LMNTS_ALTERNATE_EMAIL_C:: varchar(240)                 as salentica_lmnts_alternate_email_c
   , a.json:SALENTICA_LMNTS_ANNIVERSARY_C:: date                             as salentica_lmnts_anniversary_c
   , a.json:SALENTICA_LMNTS_ANNUAL_INCOME_C:: number                         as salentica_lmnts_annual_income_c

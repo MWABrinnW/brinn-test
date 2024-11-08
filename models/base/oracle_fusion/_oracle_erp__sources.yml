@@ -10,5 +10,31 @@ sources:
     tables:
       - name: erp_general_ledger
         description: "General Ledger dump"
+        columns:
+          - name: CONTENT
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: erp_general_ledger_exceptions
         description: "Error file, not always available"
+        columns:
+          - name: CONTENT
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR

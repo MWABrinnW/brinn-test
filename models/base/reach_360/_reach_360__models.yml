@@ -1,0 +1,266 @@
+version: 2
+models:
+  - name: reach_360__base_groups
+    columns:
+      - name: ID
+        description: ''
+        data_type: VARCHAR
+      - name: MANAGERSURL
+        description: ''
+        data_type: VARCHAR
+      - name: MEMBERSURL
+        description: ''
+        data_type: VARCHAR
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: REPORTERSURL
+        description: ''
+        data_type: VARCHAR
+      - name: URL
+        description: ''
+        data_type: VARCHAR
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: VARCHAR
+      - name: _EXTRACTED_AT
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+  - name: reach_360__base_learning_paths
+    columns:
+      - name: COURSESREPORTURL
+        description: ''
+        data_type: VARCHAR
+      - name: COURSESURL
+        description: ''
+        data_type: VARCHAR
+      - name: ID
+        description: ''
+        data_type: VARCHAR
+      - name: LEARNERSREPORTURL
+        description: ''
+        data_type: VARCHAR
+      - name: TITLE
+        description: ''
+        data_type: VARCHAR
+      - name: URL
+        description: ''
+        data_type: VARCHAR
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: VARCHAR
+      - name: _EXTRACTED_AT
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+  - name: reach_360__base_users
+    columns:
+      - name: ARTICULATE360USER
+        description: ''
+        data_type: BOOLEAN
+      - name: EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: FAVORITESURL
+        description: ''
+        data_type: VARCHAR
+      - name: FIRSTNAME
+        description: ''
+        data_type: VARCHAR
+      - name: GROUPSURL
+        description: ''
+        data_type: VARCHAR
+      - name: ID
+        description: ''
+        data_type: VARCHAR
+      - name: LASTACTIVEAT
+        description: ''
+        data_type: VARCHAR
+      - name: LASTNAME
+        description: ''
+        data_type: VARCHAR
+      - name: LEARNERREPORTURL
+        description: ''
+        data_type: VARCHAR
+      - name: ROLE
+        description: ''
+        data_type: VARCHAR
+      - name: URL
+        description: ''
+        data_type: VARCHAR
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: VARCHAR
+      - name: _EXTRACTED_AT
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+  - name: reach_360__base_reports_activity
+    columns:
+      - name: COURSEDELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: COURSEID
+        description: ''
+        data_type: VARCHAR
+      - name: COURSEREPORTURL
+        description: ''
+        data_type: VARCHAR
+      - name: COURSETITLE
+        description: ''
+        data_type: VARCHAR
+      - name: COURSEURL
+        description: ''
+        data_type: VARCHAR
+      - name: DURATION
+        description: ''
+        data_type: VARCHAR
+      - name: EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: FIRSTNAME
+        description: ''
+        data_type: VARCHAR
+      - name: LASTNAME
+        description: ''
+        data_type: VARCHAR
+      - name: LEARNERREPORTURL
+        description: ''
+        data_type: VARCHAR
+      - name: NUMBEROFLESSONSCOMPLETED
+        description: ''
+        data_type: NUMBER
+      - name: STARTEDAT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: USERDELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: USERID
+        description: ''
+        data_type: VARCHAR
+      - name: USERURL
+        description: ''
+        data_type: VARCHAR
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: VARCHAR
+      - name: _EXTRACTED_AT
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+  - name: reach_360__base_courses
+    columns:
+      - name: AUTHORURL
+        description: ''
+        data_type: VARCHAR
+      - name: CONTENTTYPE
+        description: ''
+        data_type: VARCHAR
+      - name: COURSEREPORTURL
+        description: ''
+        data_type: VARCHAR
+      - name: COVERIMAGEURL
+        description: ''
+        data_type: VARCHAR
+      - name: ID
+        description: ''
+        data_type: VARCHAR
+      - name: TITLE
+        description: ''
+        data_type: VARCHAR
+      - name: URL
+        description: ''
+        data_type: VARCHAR
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: VARCHAR
+      - name: _EXTRACTED_AT
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+  - name: reach_360__base_reports_courses
+    columns:
+      - name: COMPLETEDAT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: DUEAT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: DURATION
+        description: ''
+        data_type: VARCHAR
+      - name: EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: FIRSTNAME
+        description: ''
+        data_type: VARCHAR
+      - name: LASTACTIVITY
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: LASTNAME
+        description: ''
+        data_type: VARCHAR
+      - name: LEARNERREPORTURL
+        description: ''
+        data_type: VARCHAR
+      - name: PROGRESS
+        description: ''
+        data_type: NUMBER
+      - name: QUIZSCOREPERCENT
+        description: ''
+        data_type: NUMBER
+      - name: STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: USERDELETED
+        description: ''
+        data_type: VARCHAR
+      - name: USERID
+        description: ''
+        data_type: VARCHAR
+      - name: USERURL
+        description: ''
+        data_type: VARCHAR
+      - name: COURSE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: VARCHAR
+      - name: _EXTRACTED_AT
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER

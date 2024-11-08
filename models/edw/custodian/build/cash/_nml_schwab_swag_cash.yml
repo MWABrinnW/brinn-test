@@ -1,0 +1,48 @@
+version: 2
+models:
+  - name: nml_schwab_swag_cash
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: CUSTODIAN
+        description: 'Custodian name, lower-case, no spaces.'
+        data_type: VARCHAR
+      - name: FIRM
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: 'Firm entity associated with the link value.'
+        meta:
+          row_access_policy: rap_firm_source
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: 'End-client account number at Schwab.'
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+        data_type: VARCHAR
+      - name: TOTAL_CASH_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: MONEY_MARKET_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: OPTION_MARKET_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: MARGIN_EQUITY_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: _SOURCE_LOADED_AT
+        description: 'Time when the records were created in the source table.'
+        data_type: TIMESTAMP_NTZ

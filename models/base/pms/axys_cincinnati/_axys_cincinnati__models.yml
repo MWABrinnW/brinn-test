@@ -1,0 +1,138 @@
+version: 2
+models:
+  - name: axys_cincinnati_history__base_accounts
+    columns:
+      - name: PMS
+        description: ''
+        data_type: VARCHAR
+      - name: PMS_LOCATION
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: PORTFOLIO_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTOMER_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: CASH_AND_EQUIVALENTS
+        description: ''
+        data_type: FLOAT
+      - name: FIXED_INCOME
+        description: ''
+        data_type: FLOAT
+      - name: EQUITIES
+        description: ''
+        data_type: FLOAT
+      - name: OTHER
+        description: ''
+        data_type: FLOAT
+      - name: TOTAL
+        description: ''
+        data_type: FLOAT
+      - name: PORTFOLIO_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: START_DATE
+        description: ''
+        data_type: DATE
+      - name: COMPANY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: GOAL
+        description: ''
+        data_type: VARCHAR
+      - name: TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+  - name: axys_cincinnati_history__base_holdings
+    columns:
+      - name: PMS
+        description: ''
+        data_type: VARCHAR
+      - name: PMS_LOCATION
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: PORTFOLIO_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: MARKET_VALUE
+        description: ''
+        data_type: FLOAT
+      - name: START_DATE
+        description: ''
+        data_type: DATE
+      - name: ASSET_CLASS
+        description: ''
+        data_type: VARCHAR
+      - name: INDUSTRY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITY_SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: SECTOR
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITY_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: QUANTITY
+        description: ''
+        data_type: FLOAT
+      - name: PRICE
+        description: ''
+        data_type: FLOAT
+      - name: COST
+        description: ''
+        data_type: FLOAT
+      - name: ADJ_COST
+        description: ''
+        data_type: FLOAT
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ

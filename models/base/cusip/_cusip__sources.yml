@@ -8,19 +8,1075 @@ sources:
     tables:
       - name: allcmmaster_issue
         description: ""
+        columns:
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_NUM
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_NUM
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_CHECK
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_ADDITIONAL_INFO
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_TYPE_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: DATED_DATE
+            description: ''
+            data_type: DATE
+          - name: MATURITY_DATE
+            description: ''
+            data_type: DATE
+          - name: PARTIAL_MATURITY
+            description: ''
+            data_type: VARCHAR
+          - name: COUPON_RATE
+            description: ''
+            data_type: FLOAT
+          - name: CURRENCY_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITY_TYPE_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: FISN
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_GROUP
+            description: ''
+            data_type: VARCHAR
+          - name: ISIN
+            description: ''
+            data_type: VARCHAR
+          - name: WHERE_TRADED
+            description: ''
+            data_type: VARCHAR
+          - name: TICKER_SYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: US_CFI_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: ISO_CFI_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_ENTRY_DATE
+            description: ''
+            data_type: DATE
+          - name: ALTERNATIVE_MINIMUM_TAX
+            description: ''
+            data_type: VARCHAR
+          - name: BANK_QUALIFIED
+            description: ''
+            data_type: VARCHAR
+          - name: CALLABLE
+            description: ''
+            data_type: VARCHAR
+          - name: FIRST_COUPON_DATE
+            description: ''
+            data_type: DATE
+          - name: INITIAL_PUBLIC_OFFERING
+            description: ''
+            data_type: VARCHAR
+          - name: PAYMENT_FREQUENCY_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: CLOSING_DATE
+            description: ''
+            data_type: DATE
+          - name: DEPOSITORY_ELIGIBLE
+            description: ''
+            data_type: VARCHAR
+          - name: PRE_REFUNDED
+            description: ''
+            data_type: VARCHAR
+          - name: REFUNDABLE
+            description: ''
+            data_type: VARCHAR
+          - name: REMARKETED
+            description: ''
+            data_type: VARCHAR
+          - name: SINKING_FUND
+            description: ''
+            data_type: VARCHAR
+          - name: TAXABLE
+            description: ''
+            data_type: VARCHAR
+          - name: BOND_FORM
+            description: ''
+            data_type: VARCHAR
+          - name: ENHANCEMENTS
+            description: ''
+            data_type: VARCHAR
+          - name: FUND_DISTRIBUTION_POLICY
+            description: ''
+            data_type: VARCHAR
+          - name: FUND_INVESTMENT_POLICY
+            description: ''
+            data_type: VARCHAR
+          - name: FUND_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: GUARANTEE
+            description: ''
+            data_type: VARCHAR
+          - name: INCOME_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: INSURED_BY
+            description: ''
+            data_type: VARCHAR
+          - name: OWNERSHIP_RESTRICTIONS
+            description: ''
+            data_type: VARCHAR
+          - name: PAYMENT_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: PREFERRED_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PUTABLE
+            description: ''
+            data_type: VARCHAR
+          - name: RATE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: REDEMPTION
+            description: ''
+            data_type: VARCHAR
+          - name: SOURCE_DOCUMENT
+            description: ''
+            data_type: VARCHAR
+          - name: SPONSORING
+            description: ''
+            data_type: VARCHAR
+          - name: VOTING_RIGHTS
+            description: ''
+            data_type: VARCHAR
+          - name: WARRANT_ASSETS
+            description: ''
+            data_type: VARCHAR
+          - name: WARRANT_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: WARRANT_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: UNDERWRITER
+            description: ''
+            data_type: VARCHAR
+          - name: AUDITOR
+            description: ''
+            data_type: VARCHAR
+          - name: PAYING_AGENT
+            description: ''
+            data_type: VARCHAR
+          - name: TENDER_AGENT
+            description: ''
+            data_type: VARCHAR
+          - name: TRANSFER_AGENT
+            description: ''
+            data_type: VARCHAR
+          - name: BOND_COUNSEL
+            description: ''
+            data_type: VARCHAR
+          - name: FINANCIAL_ADVISOR
+            description: ''
+            data_type: VARCHAR
+          - name: MUNICIPAL_SALE_DATE
+            description: ''
+            data_type: DATE
+          - name: SALE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: OFFERING_AMOUNT
+            description: ''
+            data_type: FLOAT
+          - name: OFFERING_AMOUNT_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_TRANSACTION
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_LAST_UPDATE_DATE
+            description: ''
+            data_type: DATE
+          - name: RESERVED_1
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_2
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_3
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_4
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_5
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_6
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_7
+            description: ''
+            data_type: VARCHAR
+          - name: IS_13F
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_9
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_10
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: allcmmaster_issue_archive
         description: ""
+        columns:
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_NUM
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_NUM
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_CHECK
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_ADDITIONAL_INFO
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_TYPE_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: DATED_DATE
+            description: ''
+            data_type: DATE
+          - name: MATURITY_DATE
+            description: ''
+            data_type: DATE
+          - name: PARTIAL_MATURITY
+            description: ''
+            data_type: VARCHAR
+          - name: COUPON_RATE
+            description: ''
+            data_type: FLOAT
+          - name: CURRENCY_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITY_TYPE_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: FISN
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_GROUP
+            description: ''
+            data_type: VARCHAR
+          - name: ISIN
+            description: ''
+            data_type: VARCHAR
+          - name: WHERE_TRADED
+            description: ''
+            data_type: VARCHAR
+          - name: TICKER_SYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: US_CFI_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: ISO_CFI_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_ENTRY_DATE
+            description: ''
+            data_type: DATE
+          - name: ALTERNATIVE_MINIMUM_TAX
+            description: ''
+            data_type: VARCHAR
+          - name: BANK_QUALIFIED
+            description: ''
+            data_type: VARCHAR
+          - name: CALLABLE
+            description: ''
+            data_type: VARCHAR
+          - name: FIRST_COUPON_DATE
+            description: ''
+            data_type: DATE
+          - name: INITIAL_PUBLIC_OFFERING
+            description: ''
+            data_type: VARCHAR
+          - name: PAYMENT_FREQUENCY_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: CLOSING_DATE
+            description: ''
+            data_type: DATE
+          - name: DEPOSITORY_ELIGIBLE
+            description: ''
+            data_type: VARCHAR
+          - name: PRE_REFUNDED
+            description: ''
+            data_type: VARCHAR
+          - name: REFUNDABLE
+            description: ''
+            data_type: VARCHAR
+          - name: REMARKETED
+            description: ''
+            data_type: VARCHAR
+          - name: SINKING_FUND
+            description: ''
+            data_type: VARCHAR
+          - name: TAXABLE
+            description: ''
+            data_type: VARCHAR
+          - name: BOND_FORM
+            description: ''
+            data_type: VARCHAR
+          - name: ENHANCEMENTS
+            description: ''
+            data_type: VARCHAR
+          - name: FUND_DISTRIBUTION_POLICY
+            description: ''
+            data_type: VARCHAR
+          - name: FUND_INVESTMENT_POLICY
+            description: ''
+            data_type: VARCHAR
+          - name: FUND_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: GUARANTEE
+            description: ''
+            data_type: VARCHAR
+          - name: INCOME_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: INSURED_BY
+            description: ''
+            data_type: VARCHAR
+          - name: OWNERSHIP_RESTRICTIONS
+            description: ''
+            data_type: VARCHAR
+          - name: PAYMENT_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: PREFERRED_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PUTABLE
+            description: ''
+            data_type: VARCHAR
+          - name: RATE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: REDEMPTION
+            description: ''
+            data_type: VARCHAR
+          - name: SOURCE_DOCUMENT
+            description: ''
+            data_type: VARCHAR
+          - name: SPONSORING
+            description: ''
+            data_type: VARCHAR
+          - name: VOTING_RIGHTS
+            description: ''
+            data_type: VARCHAR
+          - name: WARRANT_ASSETS
+            description: ''
+            data_type: VARCHAR
+          - name: WARRANT_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: WARRANT_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: UNDERWRITER
+            description: ''
+            data_type: VARCHAR
+          - name: AUDITOR
+            description: ''
+            data_type: VARCHAR
+          - name: PAYING_AGENT
+            description: ''
+            data_type: VARCHAR
+          - name: TENDER_AGENT
+            description: ''
+            data_type: VARCHAR
+          - name: TRANSFER_AGENT
+            description: ''
+            data_type: VARCHAR
+          - name: BOND_COUNSEL
+            description: ''
+            data_type: VARCHAR
+          - name: FINANCIAL_ADVISOR
+            description: ''
+            data_type: VARCHAR
+          - name: MUNICIPAL_SALE_DATE
+            description: ''
+            data_type: DATE
+          - name: SALE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: OFFERING_AMOUNT
+            description: ''
+            data_type: FLOAT
+          - name: OFFERING_AMOUNT_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_TRANSACTION
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_LAST_UPDATE_DATE
+            description: ''
+            data_type: DATE
+          - name: RESERVED_1
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_2
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_3
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_4
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_5
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_6
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_7
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_8
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_9
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_10
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
       - name: allcmmaster_issuer
         description: ""
+        columns:
+          - name: ISSUER_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_CHECK
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_ADL
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: DOMICILE
+            description: ''
+            data_type: VARCHAR
+          - name: STATE_CD
+            description: ''
+            data_type: VARCHAR
+          - name: CABRE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: CABRE_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: LEIGMEI
+            description: ''
+            data_type: VARCHAR
+          - name: LEGAL_ENTITY_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: PREVIOUS_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_ENTRY_DATE
+            description: ''
+            data_type: DATE
+          - name: CP_INSTITUTION_TYPE_DESC
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_TRANSACTION
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_UPDATE_DATE
+            description: ''
+            data_type: DATE
+          - name: RESERVED_1
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_2
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_3
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_4
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_5
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_6
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_7
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_8
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_9
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_10
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: cfi_map
         description: ""
+        columns:
+          - name: ISO_CFI_PREFIX
+            description: ''
+            data_type: VARCHAR
+          - name: CFI_CATEGORY
+            description: ''
+            data_type: VARCHAR
+          - name: CFI_ATTRIBUTE
+            description: ''
+            data_type: VARCHAR
       - name: issue_fd
         description: ""
+        columns:
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_NUM
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_NUM
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_CHECK
+            description: ''
+            data_type: VARCHAR
+          - name: POOL_PREFIX
+            description: ''
+            data_type: VARCHAR
+          - name: POOL_SERIAL_NUM
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_DESC_1
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
       - name: issuer_fd
         description: ""
+        columns:
+          - name: ISSUER_NUM
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_CHECK
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_NAME_1
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_NAME_2
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_NAME_3
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED1
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED2
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED3
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED4
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_SORT_KEY
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED5
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_TRANSACTION
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED6
+            description: ''
+            data_type: VARCHAR
+          - name: ENTRY_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
       - name: stg_allcmmaster_issue
         description: ""
+        columns:
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_NUM
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_NUM
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_CHECK
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_ADDITIONAL_INFO
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_TYPE_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: DATED_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: MATURITY_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: PARTIAL_MATURITY
+            description: ''
+            data_type: VARCHAR
+          - name: COUPON_RATE
+            description: ''
+            data_type: VARCHAR
+          - name: CURRENCY_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITY_TYPE_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: FISN
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_GROUP
+            description: ''
+            data_type: VARCHAR
+          - name: ISIN
+            description: ''
+            data_type: VARCHAR
+          - name: WHERE_TRADED
+            description: ''
+            data_type: VARCHAR
+          - name: TICKER_SYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: US_CFI_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: ISO_CFI_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_ENTRY_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: ALTERNATIVE_MINIMUM_TAX
+            description: ''
+            data_type: VARCHAR
+          - name: BANK_QUALIFIED
+            description: ''
+            data_type: VARCHAR
+          - name: CALLABLE
+            description: ''
+            data_type: VARCHAR
+          - name: FIRST_COUPON_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: INITIAL_PUBLIC_OFFERING
+            description: ''
+            data_type: VARCHAR
+          - name: PAYMENT_FREQUENCY_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: CLOSING_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: DEPOSITORY_ELIGIBLE
+            description: ''
+            data_type: VARCHAR
+          - name: PRE_REFUNDED
+            description: ''
+            data_type: VARCHAR
+          - name: REFUNDABLE
+            description: ''
+            data_type: VARCHAR
+          - name: REMARKETED
+            description: ''
+            data_type: VARCHAR
+          - name: SINKING_FUND
+            description: ''
+            data_type: VARCHAR
+          - name: TAXABLE
+            description: ''
+            data_type: VARCHAR
+          - name: BOND_FORM
+            description: ''
+            data_type: VARCHAR
+          - name: ENHANCEMENTS
+            description: ''
+            data_type: VARCHAR
+          - name: FUND_DISTRIBUTION_POLICY
+            description: ''
+            data_type: VARCHAR
+          - name: FUND_INVESTMENT_POLICY
+            description: ''
+            data_type: VARCHAR
+          - name: FUND_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: GUARANTEE
+            description: ''
+            data_type: VARCHAR
+          - name: INCOME_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: INSURED_BY
+            description: ''
+            data_type: VARCHAR
+          - name: OWNERSHIP_RESTRICTIONS
+            description: ''
+            data_type: VARCHAR
+          - name: PAYMENT_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: PREFERRED_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PUTABLE
+            description: ''
+            data_type: VARCHAR
+          - name: RATE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: REDEMPTION
+            description: ''
+            data_type: VARCHAR
+          - name: SOURCE_DOCUMENT
+            description: ''
+            data_type: VARCHAR
+          - name: SPONSORING
+            description: ''
+            data_type: VARCHAR
+          - name: VOTING_RIGHTS
+            description: ''
+            data_type: VARCHAR
+          - name: WARRANT_ASSETS
+            description: ''
+            data_type: VARCHAR
+          - name: WARRANT_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: WARRANT_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: UNDERWRITER
+            description: ''
+            data_type: VARCHAR
+          - name: AUDITOR
+            description: ''
+            data_type: VARCHAR
+          - name: PAYING_AGENT
+            description: ''
+            data_type: VARCHAR
+          - name: TENDER_AGENT
+            description: ''
+            data_type: VARCHAR
+          - name: TRANSFER_AGENT
+            description: ''
+            data_type: VARCHAR
+          - name: BOND_COUNSEL
+            description: ''
+            data_type: VARCHAR
+          - name: FINANCIAL_ADVISOR
+            description: ''
+            data_type: VARCHAR
+          - name: MUNICIPAL_SALE_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: SALE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: OFFERING_AMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: OFFERING_AMOUNT_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_TRANSACTION
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUE_LAST_UPDATE_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_1
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_2
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_3
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_4
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_5
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_6
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_7
+            description: ''
+            data_type: VARCHAR
+          - name: IS_13F
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_9
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_10
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: stg_allcmmaster_issuer
         description: ""
+        columns:
+          - name: ISSUER_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_CHECK
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_ADL
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: DOMICILE
+            description: ''
+            data_type: VARCHAR
+          - name: STATE_CD
+            description: ''
+            data_type: VARCHAR
+          - name: CABRE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: CABRE_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: LEIGMEI
+            description: ''
+            data_type: VARCHAR
+          - name: LEGAL_ENTITY_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: PREVIOUS_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_ENTRY_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: CP_INSTITUTION_TYPE_DESC
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_TRANSACTION
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUER_UPDATE_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_1
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_2
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_3
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_4
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_5
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_6
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_7
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_8
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_9
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED_10
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: xreff_fd
         description: ""
+        columns:
+          - name: ISSUER_NUM
+            description: ''
+            data_type: VARCHAR
+          - name: AGENCY_SHORT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: RESERVED
+            description: ''
+            data_type: VARCHAR
+          - name: POOL_PREFIX
+            description: ''
+            data_type: VARCHAR
+          - name: STARTING_NUMBER
+            description: ''
+            data_type: NUMBER
+          - name: ENDING_NUMBER
+            description: ''
+            data_type: NUMBER
+          - name: ISSUE_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ

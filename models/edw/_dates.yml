@@ -1,0 +1,202 @@
+version: 2
+models:
+  - name: dates
+    columns:
+      - name: DATE_KEY
+        description: ''
+        data_type: DATE
+      - name: DATENUM
+        description: ''
+        data_type: NUMBER
+      - name: PRIOR_DAY_DATE
+        description: ''
+        data_type: DATE
+      - name: NEXT_DAY_DATE
+        description: ''
+        data_type: DATE
+      - name: PRIOR_YEAR_DAY_DATE
+        description: ''
+        data_type: DATE
+      - name: PRIOR_YEAR_OVER_YEAR_DAY_DATE
+        description: ''
+        data_type: DATE
+      - name: WEEK_DAYNUM
+        description: ''
+        data_type: NUMBER
+      - name: WEEK_ISO_DAYNUM
+        description: ''
+        data_type: NUMBER
+      - name: IS_WEEKDAY
+        description: ''
+        data_type: NUMBER
+      - name: IS_WEEKEND
+        description: ''
+        data_type: NUMBER
+      - name: DAY_OF_WEEK_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DAY_OF_WEEK_NAME_SHORT
+        description: ''
+        data_type: VARCHAR
+      - name: MONTH_DAYNUM
+        description: ''
+        data_type: NUMBER
+      - name: DM
+        description: ''
+        data_type: NUMBER
+      - name: YEAR_DAYNUM
+        description: ''
+        data_type: NUMBER
+      - name: DY
+        description: ''
+        data_type: NUMBER
+      - name: WEEK_START_DATE
+        description: ''
+        data_type: DATE
+      - name: WEEK_END_DATE
+        description: ''
+        data_type: DATE
+      - name: PRIOR_YEAR_WEEK_START_DATE
+        description: ''
+        data_type: DATE
+      - name: PRIOR_YEAR_WEEK_END_DATE
+        description: ''
+        data_type: DATE
+      - name: YEAR_WEEKNUM
+        description: ''
+        data_type: NUMBER
+      - name: WY
+        description: ''
+        data_type: NUMBER
+      - name: ISO_WEEK_START_DATE
+        description: ''
+        data_type: DATE
+      - name: ISO_WEEK_END_DATE
+        description: ''
+        data_type: DATE
+      - name: PRIOR_YEAR_ISO_WEEK_START_DATE
+        description: ''
+        data_type: DATE
+      - name: PRIOR_YEAR_ISO_WEEK_END_DATE
+        description: ''
+        data_type: DATE
+      - name: YEAR_ISO_WEEKNUM
+        description: ''
+        data_type: NUMBER
+      - name: PRIOR_YEAR_WEEKNUM
+        description: ''
+        data_type: NUMBER
+      - name: PRIOR_YEAR_ISO_WEEKNUM
+        description: ''
+        data_type: NUMBER
+      - name: MONTHNUM
+        description: ''
+        data_type: NUMBER
+      - name: MY
+        description: ''
+        data_type: NUMBER
+      - name: MONTH_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: MMMM
+        description: ''
+        data_type: VARCHAR
+      - name: MONTH_NAME_SHORT
+        description: ''
+        data_type: VARCHAR
+      - name: MONTH_START_DATE
+        description: ''
+        data_type: DATE
+      - name: MONTH_END_DATE
+        description: ''
+        data_type: DATE
+      - name: PRIOR_YEAR_MONTH_START_DATE
+        description: ''
+        data_type: DATE
+      - name: PRIOR_YEAR_MONTH_END_DATE
+        description: ''
+        data_type: DATE
+      - name: YEAR_MONTHNUM
+        description: ''
+        data_type: NUMBER
+      - name: YYYYMM
+        description: ''
+        data_type: NUMBER
+      - name: QUARTERNUM
+        description: ''
+        data_type: NUMBER
+      - name: Q
+        description: ''
+        data_type: NUMBER
+      - name: QUARTER
+        description: ''
+        data_type: VARCHAR
+      - name: QX
+        description: ''
+        data_type: VARCHAR
+      - name: YEAR_QUARTER
+        description: ''
+        data_type: VARCHAR
+      - name: YYYYQX
+        description: ''
+        data_type: VARCHAR
+      - name: QXYYYY
+        description: ''
+        data_type: VARCHAR
+      - name: XQYYYY
+        description: ''
+        data_type: VARCHAR
+      - name: QUARTER_START_DATE
+        description: ''
+        data_type: DATE
+      - name: QUARTER_END_DATE
+        description: ''
+        data_type: DATE
+      - name: IS_QUARTER_END
+        description: ''
+        data_type: NUMBER
+      - name: PRIOR_QUARTER_START_DATE
+        description: ''
+        data_type: DATE
+      - name: PRIOR_QUARTER_END_DATE
+        description: ''
+        data_type: DATE
+      - name: PRIOR_QUARTER_YYYYQX
+        description: ''
+        data_type: VARCHAR
+      - name: NEXT_QUARTER_START_DATE
+        description: ''
+        data_type: DATE
+      - name: NEXT_QUARTER_END_DATE
+        description: ''
+        data_type: DATE
+      - name: NEXT_QUARTER_YYYYQX
+        description: ''
+        data_type: VARCHAR
+      - name: YEARNUM
+        description: ''
+        data_type: NUMBER
+      - name: YEAR_START_DATE
+        description: ''
+        data_type: DATE
+      - name: YEAR_END_DATE
+        description: ''
+        data_type: DATE
+      - name: IS_HOLIDAY
+        description: ''
+        data_type: NUMBER
+      - name: IS_MARKET_DAY
+        description: ''
+        data_type: NUMBER
+      - name: PRIOR_MARKET_DATE
+        description: ''
+        data_type: DATE
+      - name: MONTH_LAST_MARKET_DATE
+        description: ''
+        data_type: DATE
+      - name: IS_MARKET_MONTH_END
+        description: ''
+        data_type: NUMBER
+      - name: MONTH_FIRST_MARKET_DATE
+        description: ''
+        data_type: DATE

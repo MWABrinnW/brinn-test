@@ -1,0 +1,2857 @@
+version: 2
+models:
+- name: salesforce_adviceperiod__base_account_contact_relation
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ROLES
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DIRECT
+    description: ''
+    data_type: BOOLEAN
+  - name: IS_ACTIVE
+    description: ''
+    data_type: BOOLEAN
+  - name: START_DATE
+    description: ''
+    data_type: DATE
+  - name: END_DATE
+    description: ''
+    data_type: DATE
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: FULL_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_adviceperiod__base_account_team_member
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: USER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TEAM_MEMBER_ROLE
+    description: ''
+    data_type: VARCHAR
+  - name: PHOTO_URL
+    description: ''
+    data_type: VARCHAR
+  - name: TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ACCESS_LEVEL
+    description: ''
+    data_type: VARCHAR
+  - name: OPPORTUNITY_ACCESS_LEVEL
+    description: ''
+    data_type: VARCHAR
+  - name: CASE_ACCESS_LEVEL
+    description: ''
+    data_type: VARCHAR
+  - name: CONTACT_ACCESS_LEVEL
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: RELATIONSHIP_OWNER_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_adviceperiod__base_contact
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: MASTER_RECORD_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SALUTATION
+    description: ''
+    data_type: VARCHAR
+  - name: MIDDLE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SUFFIX
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_STATE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: OTHER_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: OTHER_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_STATE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: MAILING_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: MAILING_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: FAX
+    description: ''
+    data_type: VARCHAR
+  - name: MOBILE_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: HOME_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: ASSISTANT_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: REPORTS_TO_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: DEPARTMENT
+    description: ''
+    data_type: VARCHAR
+  - name: ASSISTANT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LEAD_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: BIRTHDATE
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: HAS_OPTED_OUT_OF_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: DO_NOT_CALL
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: LAST_CUREQUEST_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_CUUPDATE_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: EMAIL_BOUNCED_REASON
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_BOUNCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_EMAIL_BOUNCED
+    description: ''
+    data_type: BOOLEAN
+  - name: PHOTO_URL
+    description: ''
+    data_type: VARCHAR
+  - name: JIGSAW
+    description: ''
+    data_type: VARCHAR
+  - name: JIGSAW_CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: INDIVIDUAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_AGE_EOY_C
+    description: ''
+    data_type: FLOAT
+    meta:
+      masking_policy: mp_client_pii_float
+  - name: SALENTICA_LMNTS_AGE_EOY_CALC_C
+    description: ''
+    data_type: FLOAT
+    meta:
+      masking_policy: mp_client_pii_float
+  - name: SALENTICA_LMNTS_AGE_CURRENT_C
+    description: ''
+    data_type: FLOAT
+    meta:
+      masking_policy: mp_client_pii_float
+  - name: SALENTICA_LMNTS_AGE_CURRENT_CALC_C
+    description: ''
+    data_type: FLOAT
+    meta:
+      masking_policy: mp_client_pii_float
+  - name: SALENTICA_LMNTS_ALTERNATE_EMAIL_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_ANNIVERSARY_C
+    description: ''
+    data_type: DATE
+  - name: SALENTICA_LMNTS_ANNUAL_INCOME_C
+    description: ''
+    data_type: NUMBER
+  - name: SALENTICA_LMNTS_CITIZENSHIP_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_CONTACT_SUBTYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_CONTACT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_CURRENT_EMPLOYER_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_DOB_DAY_C
+    description: ''
+    data_type: FLOAT
+  - name: SALENTICA_LMNTS_DOB_MONTH_C
+    description: ''
+    data_type: FLOAT
+  - name: SALENTICA_LMNTS_DOB_YEAR_C
+    description: ''
+    data_type: FLOAT
+  - name: SALENTICA_LMNTS_DATE_OF_DEATH_C
+    description: ''
+    data_type: DATE
+  - name: SALENTICA_LMNTS_DAYS_UNTIL_NEXT_BIRTHDAY_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_float
+    data_type: FLOAT
+  - name: SALENTICA_LMNTS_DAYS_UNTIL_NEXT_BIRTHDAY_CALC_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_float
+    data_type: FLOAT
+  - name: SALENTICA_LMNTS_EXTERNAL_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_GENDER_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_INHERIT_RELATIONSHIP_BILLING_ADDRESS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SALENTICA_LMNTS_INHERIT_RELATIONSHIP_MAILING_ADDRESS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SALENTICA_LMNTS_MARITAL_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_NEXT_BIRTHDAY_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: SALENTICA_LMNTS_NEXT_BIRTHDAY_CALC_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: SALENTICA_LMNTS_OCCUPATION_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_SSN_SIN_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_SALENTICA_DATA_BROKER_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_SPOUSE_PARTNER_C
+    description: ''
+    data_type: VARCHAR
+  - name: FSTR_DAYS_UNTIL_NEXT_BIRTHDAY_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_float
+    data_type: FLOAT
+  - name: FSTR_NEXT_BIRTHDAY_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: SALENTICA_LMNTS_NICKNAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: NOTES_C
+    description: ''
+    data_type: VARCHAR
+  - name: LAWYER_C
+    description: ''
+    data_type: VARCHAR
+  - name: CPA_C
+    description: ''
+    data_type: VARCHAR
+  - name: LINKED_IN_C
+    description: ''
+    data_type: VARCHAR
+  - name: RECEIVE_E_STATEMENTS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: STOCK_RESTRICTIONS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: TOTAL_NET_WORTH_C
+    description: ''
+    data_type: NUMBER
+  - name: FINRA_MEMBER_C
+    description: ''
+    data_type: BOOLEAN
+  - name: TOTAL_INVESTABLE_ASSETS_C
+    description: ''
+    data_type: NUMBER
+  - name: SOCIAL_SECURITY_NUMBER_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: TITLE_FUNCTION_C
+    description: ''
+    data_type: VARCHAR
+  - name: SUPERVISOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: EXTENSION_C
+    description: ''
+    data_type: VARCHAR
+  - name: LID_LANGUAGES_C
+    description: ''
+    data_type: VARCHAR
+  - name: LID_LEVEL_C
+    description: ''
+    data_type: VARCHAR
+  - name: DUPCHECK_DC_3_DISABLE_DUPLICATE_CHECK_C
+    description: ''
+    data_type: BOOLEAN
+  - name: DESCRIPTION_C
+    description: ''
+    data_type: VARCHAR
+  - name: LID_LINKED_IN_COMPANY_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: LID_LINKED_IN_MEMBER_TOKEN_C
+    description: ''
+    data_type: VARCHAR
+  - name: LID_NO_LONGER_AT_COMPANY_C
+    description: ''
+    data_type: VARCHAR
+  - name: LID_SESSION_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: REBALANCE_C
+    description: ''
+    data_type: DATE
+  - name: LAST_ACTIVITY_DATE_C
+    description: ''
+    data_type: DATE
+  - name: DAYS_SINCE_LAST_ACTIVITY_C
+    description: ''
+    data_type: FLOAT
+  - name: LAST_GOAL_C
+    description: ''
+    data_type: VARCHAR
+  - name: UPCOMING_LIFE_EVENT_C
+    description: ''
+    data_type: VARCHAR
+  - name: RELATIONSHIP_SEGMENT_C
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_YEAR_RETURN_C
+    description: ''
+    data_type: VARCHAR
+  - name: THIS_YEAR_ROTH_CONVERSION_C
+    description: ''
+    data_type: VARCHAR
+  - name: THIS_YEAR_ROTH_CONVERSION_BACKDOOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: THIS_YEAR_CHARITABLE_C
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_YEAR_ROTH_CONVERSION_C
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_YEAR_ROTH_CONVERSION_BACKDOOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_YEAR_CHARITABLE_C
+    description: ''
+    data_type: VARCHAR
+  - name: DUPCHECK_DC_3_INDEX_C
+    description: ''
+    data_type: VARCHAR
+  - name: DUPLICATES_C
+    description: ''
+    data_type: FLOAT
+  - name: SALENTICA_LMNTS_INHERIT_B_A_DEL_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SALENTICA_LMNTS_INHERIT_M_A_DEL_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SALENTICA_LMNTS_LAST_CONTACT_ACTIVITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_LAST_CONTACTED_BY_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_LAST_CONTACTED_ON_C
+    description: ''
+    data_type: DATE
+  - name: DATA_NUMBER_C
+    description: ''
+    data_type: FLOAT
+  - name: FIDELITY_APPROVED_RECRUITER_C
+    description: ''
+    data_type: BOOLEAN
+  - name: CITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: CIRRUSADV_CREATED_BY_CIRRUS_INSIGHT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: DA_SCOOP_COMPOSER_BLACK_LIST_C
+    description: ''
+    data_type: VARCHAR
+  - name: DA_SCOOP_COMPOSER_EMAIL_2_C
+    description: ''
+    data_type: VARCHAR
+  - name: DA_SCOOP_COMPOSER_EMAIL_DOMAIN_C
+    description: ''
+    data_type: VARCHAR
+  - name: DA_SCOOP_COMPOSER_GROOVE_CREATE_OPPORTUNITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: FAVORITE_FOODS_C
+    description: ''
+    data_type: VARCHAR
+  - name: HOBBIES_C
+    description: ''
+    data_type: VARCHAR
+  - name: CHARITABLE_INTERESTS_C
+    description: ''
+    data_type: VARCHAR
+  - name: FAVORITE_MUSIC_TV_SHOWS_C
+    description: ''
+    data_type: VARCHAR
+  - name: MISCELLANEOUS_NOTES_C
+    description: ''
+    data_type: VARCHAR
+  - name: EUSTACE_BOX_BOX_FOLDER_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: RH_2_CURRENCY_TEST_C
+    description: ''
+    data_type: NUMBER
+  - name: RH_2_DESCRIBE_C
+    description: ''
+    data_type: VARCHAR
+  - name: RH_2_FORMULA_TEST_C
+    description: ''
+    data_type: NUMBER
+  - name: RH_2_INTEGER_TEST_C
+    description: ''
+    data_type: FLOAT
+  - name: DA_SCOOP_COMPOSER_GROOVE_LOG_A_CALL_C
+    description: ''
+    data_type: VARCHAR
+  - name: DA_SCOOP_COMPOSER_GROOVE_NOTES_C
+    description: ''
+    data_type: VARCHAR
+  - name: DA_SCOOP_COMPOSER_NORMALIZED_MOBILE_C
+    description: ''
+    data_type: VARCHAR
+  - name: DA_SCOOP_COMPOSER_NORMALIZED_PHONE_C
+    description: ''
+    data_type: VARCHAR
+  - name: MEETING_PREFERENCES_C
+    description: ''
+    data_type: VARCHAR
+  - name: MEETING_DELIVERABLE_C
+    description: ''
+    data_type: VARCHAR
+  - name: NEXT_ACTION_NOTE_C
+    description: ''
+    data_type: VARCHAR
+  - name: ACTION_DUE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PARTNER_TEAM_C
+    description: ''
+    data_type: VARCHAR
+  - name: LAB_STANDUP_C
+    description: ''
+    data_type: BOOLEAN
+  - name: ACTION_OWNER_C
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MEETING_C
+    description: ''
+    data_type: DATE
+  - name: UPCOMING_MEETING_C
+    description: ''
+    data_type: DATE
+  - name: BEST_CONTACT_C
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_CONTRACT_C
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_PROFILE_LINK_C
+    description: ''
+    data_type: VARCHAR
+  - name: DAYS_UNTIL_MEETING_C
+    description: ''
+    data_type: FLOAT
+  - name: DAYS_UNTIL_ACTION_ITEM_C
+    description: ''
+    data_type: FLOAT
+  - name: CUSTODIAN_DATA_DUMP_C
+    description: ''
+    data_type: VARCHAR
+  - name: RELATIONSHIP_TEAM_C
+    description: ''
+    data_type: VARCHAR
+  - name: CONTACT_OWNER_C
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_OPT_OUT_TEXT_C
+    description: ''
+    data_type: VARCHAR
+  - name: MC_4_SF_MC_SUBSCRIBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: FLOW_OPS_REQUESTS_C
+    description: ''
+    data_type: VARCHAR
+  - name: FLOW_REQUEST_CATEGORY_C
+    description: ''
+    data_type: VARCHAR
+  - name: FULL_NAME_FOR_DUPES_C
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_SUBSCRIBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: ANNUAL_INCOME_SOURCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_ANNUAL_INCOME_SOURCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYMENT_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: DA_SCOOP_COMPOSER_IS_CREATED_BY_GROOVE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: TOTAL_NUMBER_OF_DEPENDENT_C
+    description: ''
+    data_type: FLOAT
+  - name: NUMBER_OF_CHILDREN_C
+    description: ''
+    data_type: FLOAT
+  - name: CHILDREN_S_NAME_AND_DOB_C
+    description: ''
+    data_type: VARCHAR
+  - name: NUMBER_OF_GRANDCHILDREN_C
+    description: ''
+    data_type: FLOAT
+  - name: LIQUID_NET_WORTH_C
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_INFORMATION_C
+    description: ''
+    data_type: VARCHAR
+  - name: ARE_YOU_CURRENTLY_TAKING_WITHDRAWAL_C
+    description: ''
+    data_type: VARCHAR
+  - name: TAX_CONSIDERATIONS_C
+    description: ''
+    data_type: VARCHAR
+  - name: MARGINAL_FEDERAL_RATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: LIFE_INSURANCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: DISABILITY_INSURANCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: LTC_INSURANCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: UMBRELLA_INSURANCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_CASUALTY_INSURANCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: COMFORTABLE_WITH_CURRENT_LEVEL_OF_RISK_C
+    description: ''
+    data_type: VARCHAR
+  - name: RISK_LEVEL_C
+    description: ''
+    data_type: VARCHAR
+  - name: INVESTMENT_RISK_SENTIMENT_C
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_RESTRICTIONS_C
+    description: ''
+    data_type: VARCHAR
+  - name: COMPLETED_FINANCIAL_PLANNING_C
+    description: ''
+    data_type: VARCHAR
+  - name: FINANCIAL_PLANNING_DATE_C
+    description: ''
+    data_type: DATE
+  - name: EMPLOYER_C
+    description: ''
+    data_type: VARCHAR
+  - name: QUESTIONNAIRE_INFORMATIONS_C
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: DRIVERS_LICENSE_STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: DRIVERS_LICENSE_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_adviceperiod__base_salentica_lmnts_financial_account_c
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: SALENTICA_LMNTS_RELATIONSHIP_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_ACCOUNT_NOTES_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_ACTIVE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SALENTICA_LMNTS_ALTERNATIVES_ACTUAL_MARKET_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: SALENTICA_LMNTS_ALTERNATIVES_ACTUAL_WEIGHT_C
+    description: ''
+    data_type: FLOAT
+  - name: SALENTICA_LMNTS_CASH_ACTUAL_MARKET_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: SALENTICA_LMNTS_CASH_ACTUAL_WEIGHT_C
+    description: ''
+    data_type: FLOAT
+  - name: SALENTICA_LMNTS_CUSTODIAN_ACCOUNT_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_CUSTODIAN_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_DATE_CLOSED_C
+    description: ''
+    data_type: DATE
+  - name: SALENTICA_LMNTS_DATE_OPENED_C
+    description: ''
+    data_type: DATE
+  - name: SALENTICA_LMNTS_DO_NOT_TRADE_NOTES_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_EQUITY_ACTUAL_MARKET_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: SALENTICA_LMNTS_EQUITY_ACTUAL_WEIGHT_C
+    description: ''
+    data_type: FLOAT
+  - name: SALENTICA_LMNTS_FIDELITY_ACCOUNT_SOURCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_FIXED_INCOME_ACTUAL_MARKET_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: SALENTICA_LMNTS_FIXED_INCOME_ACTUAL_WEIGHT_C
+    description: ''
+    data_type: FLOAT
+  - name: SALENTICA_LMNTS_FORMS_APPROVED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SALENTICA_LMNTS_FORMS_COMPLETE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SALENTICA_LMNTS_FUNDING_APPROVED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SALENTICA_LMNTS_FUNDING_METHOD_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_IS_PRIMARY_ACCOUNT_IN_RELATIONSHIP_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SALENTICA_LMNTS_OTHER_ACTUAL_MARKET_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: SALENTICA_LMNTS_OTHER_ACTUAL_WEIGHT_C
+    description: ''
+    data_type: FLOAT
+  - name: SALENTICA_LMNTS_PMS_ACCOUNT_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_PRIMARY_ACCOUNT_OWNER_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_REGISTRATION_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_SALENTICA_DATA_BROKER_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_SECONDARY_ACCOUNT_OWNER_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_TAX_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_TOTAL_MARKET_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: SALENTICA_LMNTS_TOTAL_SUPERVISED_C
+    description: ''
+    data_type: NUMBER
+  - name: SALENTICA_LMNTS_TOTAL_UNSUPERVISED_C
+    description: ''
+    data_type: NUMBER
+  - name: SALENTICA_LMNTS_TRADING_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_VALUATION_DATE_C
+    description: ''
+    data_type: DATE
+  - name: VALUATION_FREQUENCY_C
+    description: ''
+    data_type: VARCHAR
+  - name: VALUATION_REDEMPTION_DATE_C
+    description: ''
+    data_type: DATE
+  - name: NEXT_ALT_VALUATION_DATE_C
+    description: ''
+    data_type: DATE
+  - name: STATEMENT_AVAILABILITY_DAYS_C
+    description: ''
+    data_type: FLOAT
+  - name: STATEMENT_AVAILABILITY_DATE_C
+    description: ''
+    data_type: DATE
+  - name: DAYS_UNTIL_STATEMENT_AVAILABLE_C
+    description: ''
+    data_type: FLOAT
+  - name: DAYS_SINCE_ACCOUNT_OPEN_C
+    description: ''
+    data_type: FLOAT
+  - name: CASH_ACTUAL_MARKET_WEIGHT_T_1_C
+    description: ''
+    data_type: NUMBER
+  - name: CASH_ACTUAL_MARKET_VALUE_DAY_CHANGE_C
+    description: ''
+    data_type: NUMBER
+  - name: AP_MANAGED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: IPS_ACCOUNT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: CASH_BUFFER_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: CASH_BUFFER_PCT_VALUE_C
+    description: ''
+    data_type: FLOAT
+  - name: TOO_MUCH_CASH_C
+    description: ''
+    data_type: VARCHAR
+  - name: CASH_TO_INVEST_C
+    description: ''
+    data_type: NUMBER
+  - name: PCT_CASH_MGMT_C
+    description: ''
+    data_type: VARCHAR
+  - name: DOLLAR_CASH_MGMT_C
+    description: ''
+    data_type: VARCHAR
+  - name: VALUE_OF_CASH_ALTERNATIVES_C
+    description: ''
+    data_type: NUMBER
+  - name: ACTUAL_CASH_PCT_C
+    description: ''
+    data_type: FLOAT
+  - name: APPROVED_SMA_C
+    description: ''
+    data_type: BOOLEAN
+  - name: APPROVED_MARKET_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: AUM_C
+    description: ''
+    data_type: NUMBER
+  - name: APPROVED_SMA_2_C
+    description: ''
+    data_type: BOOLEAN
+  - name: NOTES_C
+    description: ''
+    data_type: VARCHAR
+  - name: FINANCIAL_ACCOUNT_TEAM_C
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MASS_UPDATE_C
+    description: ''
+    data_type: DATE
+  - name: LASTE_STATEMENT_DATE_C
+    description: ''
+    data_type: DATE
+  - name: DATA_SOURCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: WEBSITE_C
+    description: ''
+    data_type: VARCHAR
+  - name: USERNAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PASSWORD_C
+    description: ''
+    data_type: VARCHAR
+  - name: WEBSITE_NOTES_C
+    description: ''
+    data_type: VARCHAR
+  - name: STATEMENT_CONTACT_C
+    description: ''
+    data_type: VARCHAR
+  - name: STATEMENT_CONTACT_EMAIL_C
+    description: ''
+    data_type: VARCHAR
+  - name: STATEMENT_CONTACT_PHONE_C
+    description: ''
+    data_type: VARCHAR
+  - name: NEXT_VALUATION_DATE_C
+    description: ''
+    data_type: DATE
+  - name: LAST_VALUATION_DATE_C
+    description: ''
+    data_type: DATE
+  - name: NEXT_STATEMENT_DATE_C
+    description: ''
+    data_type: DATE
+  - name: DAYS_UNTIL_NEXT_STATEMENT_DATE_C
+    description: ''
+    data_type: FLOAT
+  - name: ACCOUNT_NOTES_C
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CHOICE_SET_C
+    description: ''
+    data_type: VARCHAR
+  - name: RELATIONSHIP_TEAM_C
+    description: ''
+    data_type: VARCHAR
+  - name: FIN_ACCOUNT_NOTES_C
+    description: ''
+    data_type: VARCHAR
+  - name: SENIOR_ANALYST_C
+    description: ''
+    data_type: VARCHAR
+  - name: ANALYST_C
+    description: ''
+    data_type: VARCHAR
+  - name: DATE_REVIEWED_C
+    description: ''
+    data_type: DATE
+  - name: ACTION_NEEDED_C
+    description: ''
+    data_type: VARCHAR
+  - name: LINKED_RELATIONSHIP_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PORTFOLIO_MANAGEMENT_GROUP_C
+    description: ''
+    data_type: VARCHAR
+  - name: TEMPORARY_EXCLUDE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: CASH_T_C
+    description: ''
+    data_type: FLOAT
+  - name: ADDITIONAL_BUFFER_C
+    description: ''
+    data_type: NUMBER
+  - name: BILLING_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: salesforce_adviceperiod__base_account
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_INSTANCE
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: MASTER_RECORD_ID
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_STATE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: BILLING_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: BILLING_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_STATE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: SHIPPING_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: SHIPPING_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: FAX
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: WEBSITE
+    description: ''
+    data_type: VARCHAR
+  - name: PHOTO_URL
+    description: ''
+    data_type: VARCHAR
+  - name: INDUSTRY
+    description: ''
+    data_type: VARCHAR
+  - name: ANNUAL_REVENUE
+    description: ''
+    data_type: NUMBER
+  - name: NUMBER_OF_EMPLOYEES
+    description: ''
+    data_type: NUMBER
+  - name: OWNERSHIP
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: RATING
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: JIGSAW
+    description: ''
+    data_type: VARCHAR
+  - name: JIGSAW_COMPANY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: SIC_DESC
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_ACTIVE_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_BILLING_FREQUENCY_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_BILLING_GROUP_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_CLIENT_SINCE_C
+    description: ''
+    data_type: DATE
+  - name: SALENTICA_LMNTS_DAYS_SINCE_LAST_ADV_C
+    description: ''
+    data_type: FLOAT
+  - name: SALENTICA_LMNTS_DAYS_SINCE_LAST_ADV_CALC_C
+    description: ''
+    data_type: FLOAT
+  - name: SALENTICA_LMNTS_DAYS_SINCE_LAST_REVIEW_C
+    description: ''
+    data_type: FLOAT
+  - name: SALENTICA_LMNTS_DAYS_UNTIL_NEXT_REVIEW_C
+    description: ''
+    data_type: FLOAT
+  - name: SALENTICA_LMNTS_DAYS_UNTIL_NEXT_REVIEW_CALC_C
+    description: ''
+    data_type: FLOAT
+  - name: SALENTICA_LMNTS_ESTIMATED_ASSETS_C
+    description: ''
+    data_type: NUMBER
+  - name: SALENTICA_LMNTS_ESTIMATED_REVENUE_C
+    description: ''
+    data_type: NUMBER
+  - name: SALENTICA_LMNTS_EXTERNAL_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_LAST_ADV_DATE_C
+    description: ''
+    data_type: DATE
+  - name: SALENTICA_LMNTS_LAST_CONTACT_ACTIVITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_LAST_CONTACTED_BY_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_LAST_CONTACTED_ON_C
+    description: ''
+    data_type: DATE
+  - name: SALENTICA_LMNTS_LAST_REVIEW_DATE_C
+    description: ''
+    data_type: DATE
+  - name: SALENTICA_LMNTS_MASTER_PORTFOLIO_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_NEXT_REVIEW_DATE_C
+    description: ''
+    data_type: DATE
+  - name: SALENTICA_LMNTS_NUMBEROF_LOCATIONS_C
+    description: ''
+    data_type: FLOAT
+  - name: SALENTICA_LMNTS_PRIMARY_CONTACT_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_PROSPECT_STAGE_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_REVIEW_FREQUENCY_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_SLAEXPIRATION_DATE_C
+    description: ''
+    data_type: DATE
+  - name: SALENTICA_LMNTS_SLASERIAL_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_SLA_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_SALENTICA_DATA_BROKER_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_SECONDARY_CONTACT_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_SEGMENTATION_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_TOTAL_MARKET_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: SALENTICA_LMNTS_TOTAL_SUPERVISED_C
+    description: ''
+    data_type: NUMBER
+  - name: SALENTICA_LMNTS_TOTAL_UNSUPERVISED_C
+    description: ''
+    data_type: NUMBER
+  - name: SALENTICA_LMNTS_UPSELL_OPPORTUNITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_VALUATION_DATE_C
+    description: ''
+    data_type: DATE
+  - name: SALENTICA_LMNTS_COI_PRIMARY_CONTACT_C
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: DEBITED_ACCOUNT_C
+    description: ''
+    data_type: VARCHAR
+  - name: ULTRA_HIGH_NET_WORTH_C
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_IPS_REVIEW_DATE_C
+    description: ''
+    data_type: DATE
+  - name: WIN_LOSS_REASON_C
+    description: ''
+    data_type: VARCHAR
+  - name: AUM_FEE_C
+    description: ''
+    data_type: FLOAT
+  - name: FEE_VALUATION_C
+    description: ''
+    data_type: VARCHAR
+  - name: SEC_FILING_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: FEE_INFLATOR_DATE_C
+    description: ''
+    data_type: DATE
+  - name: FEE_INFLATOR_PCT_C
+    description: ''
+    data_type: FLOAT
+  - name: HOT_PROSPECT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: STAGE_C
+    description: ''
+    data_type: VARCHAR
+  - name: CLOSE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: SOURCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: LOSS_REASON_C
+    description: ''
+    data_type: VARCHAR
+  - name: CURRENT_AUM_C
+    description: ''
+    data_type: NUMBER
+  - name: EXPECTED_AUM_C
+    description: ''
+    data_type: NUMBER
+  - name: CURRENT_NUMBER_OF_CLIENTS_C
+    description: ''
+    data_type: FLOAT
+  - name: EXPECTED_NUMBER_OF_CLIENTS_C
+    description: ''
+    data_type: FLOAT
+  - name: CURRENT_REVENUE_C
+    description: ''
+    data_type: NUMBER
+  - name: EXPECTED_REVENUE_C
+    description: ''
+    data_type: NUMBER
+  - name: PROSPECT_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: INVESTMENT_PHILOSPHPY_C
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTODIAN_C
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_CUSTODIAN_IF_APPLICABLE_C
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_LOSS_REASON_IF_APPLICABLE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PRIMARY_EMAIL_C
+    description: ''
+    data_type: VARCHAR
+  - name: REFERRED_BY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PROSPECT_DETAILS_C
+    description: ''
+    data_type: VARCHAR
+  - name: COMPANY_C
+    description: ''
+    data_type: VARCHAR
+  - name: EXIT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: QUOVO_LINK_SENT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: QUOVO_LINK_SENT_TIME_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: OUTSIDE_ACCOUNTS_LINKED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: OUTSIDE_ACCOUNTS_LINKED_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: OUTSIDE_ACCOUNTS_REVIEW_C
+    description: ''
+    data_type: BOOLEAN
+  - name: OUTSIDE_ACCOUNTS_REVIEW_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: FEE_APPROVED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: FEE_APPROVED_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONTRACT_DRAFTED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: CONTRACT_DRAFT_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IPS_DRAFTED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: IPS_DRAFT_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONTRACT_COMPLIANCE_APPROVED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: CONTRACT_COMPLIANCE_APPROVED_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IPS_COMPLIANCE_APPROVED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: IPS_COMPLIANCE_APPROVED_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONTRACT_SENT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: CONTRACT_SENT_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IPS_SENT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: IPS_SENT_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONTRACT_SIGNED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: CONTRACT_SIGNED_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IPS_SIGNED_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IPS_SIGNED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: TRIGGER_TIME_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_TRANSITION_C
+    description: ''
+    data_type: BOOLEAN
+  - name: ACCT_OPENING_TRANSFER_FORMS_DRAFTED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: ACCT_OPENING_TRANSFER_FORMS_DRAFTED_T_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ACCT_OPENING_TRANSFER_FORMS_REVIEWED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: ACCT_OPENING_TRANSFER_FORMS_REVIEWED_T_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ACCT_OPENING_TRANSFER_FORMS_SENT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: ACCT_OPENING_TRANSFER_FORMS_SENT_T_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ACCT_OPENING_TRANSFER_FORMS_SIGNED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: ACCT_OPENING_TRANSFER_FORMS_SIGNED_T_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ACCTS_OPEN_AND_FUNDED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: ACCTS_OPEN_AND_FUNDED_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: COST_BASIS_RECEIVED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: COST_BASIS_RECEIVED_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: MONEY_MOVEMENT_REVIEWED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: MONEY_MOVEMENT_REVIEWED_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: MONEY_MOVEMENT_FORMS_SENT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: MONEY_MOVEMENT_FORMS_SENT_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: MONEY_MOVEMENT_SIGNED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: MONEY_MOVEMENT_SIGNED_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PARTNER_AND_REPORTING_SUBLINK_REVIEWED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PARTNER_AND_REPORTING_SUBLINK_REVIEWED_D_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: BLACK_DIAMOND_PORTFOLIO_CREATED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: BLACK_DIAMOND_PORTFOLIO_CREATED_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: BLACK_DIAMOND_PORTFOLIO_REVIEWED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: BLACK_DIAMOND_PORTFOLIO_REVIEWED_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: BLACK_DIAMOND_INVITE_SENT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: BLACK_DIAMOND_INVITE_SENT_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: TRADE_AND_JOURNAL_PROPOSAL_C
+    description: ''
+    data_type: BOOLEAN
+  - name: TRADE_AND_JOURNAL_PROPOSAL_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: TRADE_AND_JOURNAL_PROPOSAL_APPROVED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: TRADE_AND_JOURNAL_PROPOSAL_APPROVED_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: TRADE_AND_JOURNALS_EXECUTED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: TRADE_AND_JOURNALS_EXECUTED_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: TRADE_AND_JOURNALS_SETTLED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: TRADE_AND_JOURNALS_SETTLED_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ADVIZR_CLIENT_SET_UP_C
+    description: ''
+    data_type: BOOLEAN
+  - name: ADVIZR_CLIENT_SET_UP_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ADVIZR_CLIENT_REVIEWED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: ADVIZR_CLIENT_REVIEWED_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ADVIZR_INVITE_SENT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: ADVIZR_INVITE_SENT_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: INSTITUTIONALIZED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: INSTITUTIONALIZED_DATE_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: DAYS_TO_INSTITUTIONALIZE_C
+    description: ''
+    data_type: FLOAT
+  - name: FLAT_MINIMUM_FEE_C
+    description: ''
+    data_type: NUMBER
+  - name: COMPAY_C
+    description: ''
+    data_type: VARCHAR
+  - name: DUPLICATES_C
+    description: ''
+    data_type: FLOAT
+  - name: RELATIONSHIP_CLASSIFICATION_C
+    description: ''
+    data_type: VARCHAR
+  - name: DUPCHECK_DC_3_DISABLE_DUPLICATE_CHECK_C
+    description: ''
+    data_type: BOOLEAN
+  - name: DUPCHECK_DC_3_INDEX_C
+    description: ''
+    data_type: VARCHAR
+  - name: CURRENT_FEE_STRUCTURE_C
+    description: ''
+    data_type: VARCHAR
+  - name: RELATIONSHIP_TEAM_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALENTICA_LMNTS_REFERRAL_SOURCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: SERVICES_CURRENTLY_OFFERED_C
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_SOURCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: CITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: CIRRUSADV_CREATED_BY_CIRRUS_INSIGHT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_ACTIVITY_DATE_C
+    description: ''
+    data_type: DATE
+  - name: DAYS_SINCE_LAST_ACTIVITY_C
+    description: ''
+    data_type: FLOAT
+  - name: PRIMARY_CONTACT_EMAIL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PROSPECT_CREATION_METHOD_C
+    description: ''
+    data_type: VARCHAR
+  - name: SCHWAB_MASTER_C
+    description: ''
+    data_type: VARCHAR
+  - name: FIDELITY_G_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: START_DATE_C
+    description: ''
+    data_type: DATE
+  - name: BUILDING_ACCESS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PARKING_C
+    description: ''
+    data_type: BOOLEAN
+  - name: BUSINESS_ADDRESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: SET_UP_ON_PAYCHEX_FLEX_C
+    description: ''
+    data_type: BOOLEAN
+  - name: FED_EX_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYCHEX_C
+    description: ''
+    data_type: BOOLEAN
+  - name: X_401_K_C
+    description: ''
+    data_type: BOOLEAN
+  - name: W_2_C
+    description: ''
+    data_type: BOOLEAN
+  - name: I_9_C
+    description: ''
+    data_type: BOOLEAN
+  - name: AMEX_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PREDICTIVE_INDEX_C
+    description: ''
+    data_type: VARCHAR
+  - name: SEND_FINAL_EMPLOYMENT_AGREEMENT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SERIES_65_C
+    description: ''
+    data_type: BOOLEAN
+  - name: COMPLIANCE_MANUAL_C
+    description: ''
+    data_type: BOOLEAN
+  - name: CODE_OF_ETHICS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: EMPLOYEE_MANUAL_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PERSONAL_STATEMENTS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: ACCOUNTING_SETUP_C
+    description: ''
+    data_type: BOOLEAN
+  - name: UPDATED_PHONE_LIST_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SEND_SWAG_C
+    description: ''
+    data_type: BOOLEAN
+  - name: TEMPORARY_HEADSHOT_FOR_WEBSITE_C
+    description: ''
+    data_type: VARCHAR
+  - name: BIO_FOR_WEBSITE_C
+    description: ''
+    data_type: VARCHAR
+  - name: ADDED_TO_WEBSITE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: LINKED_IN_BLOG_POST_C
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_TO_AP_4_DISTRIBUTION_LIST_C
+    description: ''
+    data_type: BOOLEAN
+  - name: BUSINESS_CARDS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PRESS_RELEASE_C
+    description: ''
+    data_type: VARCHAR
+  - name: X_3_RD_PARTY_SPLIT_C
+    description: ''
+    data_type: FLOAT
+  - name: AGE_OF_RECORD_C
+    description: ''
+    data_type: FLOAT
+  - name: COMPUTER_ORDERED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: EMAIL_SET_UP_C
+    description: ''
+    data_type: BOOLEAN
+  - name: FNF_ALIAS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: EMAIL_SIGNATURE_SET_UP_C
+    description: ''
+    data_type: BOOLEAN
+  - name: BOX_ACCESS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: BOX_EDIT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: BOX_SUBMISSION_PORTAL_C
+    description: ''
+    data_type: BOOLEAN
+  - name: BOX_FOLDERS_PROSPECT_CLIENT_RC_C
+    description: ''
+    data_type: BOOLEAN
+  - name: OFFICE_365_C
+    description: ''
+    data_type: BOOLEAN
+  - name: ADOBE_ACCESS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: RING_CENTRAL_C
+    description: ''
+    data_type: BOOLEAN
+  - name: ELEMENTS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SLACK_ACCESS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SLACK_CHANNELS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: TODOIST_C
+    description: ''
+    data_type: BOOLEAN
+  - name: HMA_C
+    description: ''
+    data_type: BOOLEAN
+  - name: FIDELITY_G_NUMBER_LOGIN_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SCHWAB_MASTER_LOGIN_C
+    description: ''
+    data_type: BOOLEAN
+  - name: BETTERMENT_LOGIN_AND_FNF_LOGIN_C
+    description: ''
+    data_type: BOOLEAN
+  - name: RIGHT_CAPITAL_ACCESS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: BLACK_DIAMOND_ACCESS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: LOGIN_DOCUMENT_C
+    description: ''
+    data_type: VARCHAR
+  - name: CAIS_ACCESS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: EMAIL_SIGNATURE_ON_CELL_C
+    description: ''
+    data_type: BOOLEAN
+  - name: DEPARTURE_PREP_GOOD_LEAVER_MEETING_C
+    description: ''
+    data_type: BOOLEAN
+  - name: OBTAIN_PROPOSED_OFFICE_SOLUTION_C
+    description: ''
+    data_type: BOOLEAN
+  - name: GENERIC_PARTNER_DECK_PROVIDED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: TALKING_POINTS_PROVIDED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: CLIENT_INVENTORY_SHEET_PROVIDED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: DAY_ONE_GAME_PLAN_DRAFTED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SUPPLIES_LIST_PROVIDED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: CALL_SCRIPT_PROVIDED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SAMPLE_PARTNER_AGREEMENT_PROVIDED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SAMPLE_PARTNER_EMPLOYEE_AGREEMENT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: FOLLOWUP_EMAIL_TEMPLATE_PROVIDED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SCHEDULE_PREP_PHONE_CALLS_MEETINGS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: BLOCK_TIME_ON_JACK_S_CALENDAR_C
+    description: ''
+    data_type: BOOLEAN
+  - name: COMPUTER_AND_SYSTEMS_CHECKED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: UPDATE_SHARED_SERVICES_ON_DAY_1_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SET_UP_EQUIPMENT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: CONFIRM_PARTNER_AGREEMENT_SIGNED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SHARE_GAME_PLAN_WITH_PARTNER_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PARTNER_LIVE_ON_WEBSITE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PRESS_RELEASE_OUT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: LINKED_IN_POST_OUT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: DAILY_LINKED_IN_POSTS_SHARED_WITH_PARTNER_C
+    description: ''
+    data_type: BOOLEAN
+  - name: GAMEPLAN_FOR_BILLABLE_ASSETS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: GAME_PLAN_FOR_LINKING_OUTSIDE_ACCOUNTS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: REVIEW_OF_ALL_DOCS_THAT_NEED_SIGNATURE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: ASK_FOR_FEEDBACK_C
+    description: ''
+    data_type: BOOLEAN
+  - name: WELCOME_TO_AP_C
+    description: ''
+    data_type: BOOLEAN
+  - name: COMMUNICATIONS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: WELCOME_TO_AP_COMPLETE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: COMMUNICATIONS_COMPLETE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: SYSTEMS_OVERVIEW_COMPLETE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: WORKING_WITH_SHARED_SERVICES_COMPLETE_DA_C
+    description: ''
+    data_type: DATE
+  - name: ELEMENTS_TRAINING_DATE_C
+    description: ''
+    data_type: DATE
+  - name: COMPANY_HYGIENE_COMPLETE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: INVESTMENTS_COMPLETE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: RESOURCES_DATE_COMPLETE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: COMPLIANCE_COMPLETE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: BLACK_DIAMOND_COMPLETE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: REBALANCING_COMPLETE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: RIGHT_CAPITAL_COMPLETE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PARTNER_BUSINESS_COMPLETE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: WHO_TO_GO_TO_FOR_WHAT_COMPLETE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: LAST_P_L_REVIEW_C
+    description: ''
+    data_type: DATE
+  - name: LAST_P_L_DRAFT_C
+    description: ''
+    data_type: DATE
+  - name: NEXT_P_L_REVIEW_C
+    description: ''
+    data_type: DATE
+  - name: CURRENT_NUMBER_OF_PROSPECTS_C
+    description: ''
+    data_type: FLOAT
+  - name: STAGE_HIDDEN_C
+    description: ''
+    data_type: VARCHAR
+  - name: AP_SPLIT_C
+    description: ''
+    data_type: FLOAT
+  - name: INDIVIDUAL_RELATIONSHIP_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PENSION_PSP_C
+    description: ''
+    data_type: BOOLEAN
+  - name: CHARITY_C
+    description: ''
+    data_type: BOOLEAN
+  - name: CORP_OTHER_BUSINESS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: ONE_TIME_PLANNING_C
+    description: ''
+    data_type: BOOLEAN
+  - name: AP_SHARE_C
+    description: ''
+    data_type: NUMBER
+  - name: X_3_RD_PARTY_SHARE_C
+    description: ''
+    data_type: NUMBER
+  - name: NET_TO_PARTNER_C
+    description: ''
+    data_type: NUMBER
+  - name: BILLING_INCEPTION_C
+    description: ''
+    data_type: DATE
+  - name: RELATIONSHIP_STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: BILL_PAY_C
+    description: ''
+    data_type: BOOLEAN
+  - name: INVESTMENT_DISCRETION_C
+    description: ''
+    data_type: VARCHAR
+  - name: EUSTACE_BOX_BOX_FOLDER_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: REFERRAL_NETWORK_C
+    description: ''
+    data_type: VARCHAR
+  - name: REFERRAL_NUMBER_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_RESPONSE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: NUMBER_OF_CONTACT_ATTEMPTS_C
+    description: ''
+    data_type: FLOAT
+  - name: DA_SCOOP_COMPOSER_ACCOUNT_TAGS_C
+    description: ''
+    data_type: VARCHAR
+  - name: DA_SCOOP_COMPOSER_ALIAS_1_C
+    description: ''
+    data_type: VARCHAR
+  - name: DA_SCOOP_COMPOSER_ALIAS_2_C
+    description: ''
+    data_type: VARCHAR
+  - name: DA_SCOOP_COMPOSER_CHURNED_CUSTOMER_C
+    description: ''
+    data_type: BOOLEAN
+  - name: DA_SCOOP_COMPOSER_DOMAIN_1_C
+    description: ''
+    data_type: VARCHAR
+  - name: DA_SCOOP_COMPOSER_DOMAIN_2_C
+    description: ''
+    data_type: VARCHAR
+  - name: DA_SCOOP_COMPOSER_DONT_MATCH_LEADS_TO_THIS_ACCOUNT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: DA_SCOOP_COMPOSER_ENGAGEMENT_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: DA_SCOOP_COMPOSER_GROOVE_NOTES_C
+    description: ''
+    data_type: VARCHAR
+  - name: DA_SCOOP_COMPOSER_HASH_1_C
+    description: ''
+    data_type: VARCHAR
+  - name: DA_SCOOP_COMPOSER_HASH_2_C
+    description: ''
+    data_type: VARCHAR
+  - name: DA_SCOOP_COMPOSER_HASH_3_C
+    description: ''
+    data_type: VARCHAR
+  - name: DA_SCOOP_COMPOSER_INFERRED_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PREFERRED_BD_3_EMAIL_ADDRESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: UNQUALIFIED_START_C
+    description: ''
+    data_type: DATE
+  - name: UNQUALIFIED_END_C
+    description: ''
+    data_type: DATE
+  - name: SUSPECT_START_C
+    description: ''
+    data_type: DATE
+  - name: SUSPECT_END_C
+    description: ''
+    data_type: DATE
+  - name: PROSPECT_START_C
+    description: ''
+    data_type: DATE
+  - name: PROSPECT_END_C
+    description: ''
+    data_type: DATE
+  - name: ASSESSMENT_START_C
+    description: ''
+    data_type: DATE
+  - name: ASSESSMENT_END_C
+    description: ''
+    data_type: DATE
+  - name: VERBAL_COMMIT_START_C
+    description: ''
+    data_type: DATE
+  - name: VERBAL_COMMIT_END_C
+    description: ''
+    data_type: DATE
+  - name: PROSPECT_WON_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PROSPECT_LOSS_DATE_C
+    description: ''
+    data_type: DATE
+  - name: DAYS_IN_UNQUALIFIED_C
+    description: ''
+    data_type: FLOAT
+  - name: DAYS_IN_SUSPECT_C
+    description: ''
+    data_type: FLOAT
+  - name: DAYS_IN_PROSPECT_C
+    description: ''
+    data_type: FLOAT
+  - name: DAYS_IN_ASSESSMENT_C
+    description: ''
+    data_type: FLOAT
+  - name: DAYS_IN_VERBAL_COMMIT_C
+    description: ''
+    data_type: FLOAT
+  - name: BEST_CONTACT_C
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: ANNUAL_SALES_TARGET_C
+    description: ''
+    data_type: NUMBER
+  - name: TOTAL_REQUESTS_C
+    description: ''
+    data_type: FLOAT
+  - name: MEETING_DELIVERABLE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PARTNER_TEAM_C
+    description: ''
+    data_type: VARCHAR
+  - name: STARTING_YEAR_REVENUE_C
+    description: ''
+    data_type: NUMBER
+  - name: STARTING_WEEK_REVENUE_C
+    description: ''
+    data_type: NUMBER
+  - name: STARTING_MONTH_REVENUE_C
+    description: ''
+    data_type: NUMBER
+  - name: STARTING_QUARTER_REVENUE_C
+    description: ''
+    data_type: NUMBER
+  - name: WTD_GROWTH_C
+    description: ''
+    data_type: FLOAT
+  - name: MTD_C
+    description: ''
+    data_type: NUMBER
+  - name: QTD_C
+    description: ''
+    data_type: NUMBER
+  - name: YTD_C
+    description: ''
+    data_type: NUMBER
+  - name: WTD_C
+    description: ''
+    data_type: NUMBER
+  - name: MTD_GROWTH_C
+    description: ''
+    data_type: FLOAT
+  - name: QTD_GROWTH_C
+    description: ''
+    data_type: FLOAT
+  - name: YTD_GROWTH_C
+    description: ''
+    data_type: FLOAT
+  - name: YTD_SALES_TARGET_C
+    description: ''
+    data_type: NUMBER
+  - name: PARTNER_COHORT_C
+    description: ''
+    data_type: VARCHAR
+  - name: NEXT_ACTION_NOTE_C
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_AUM_C
+    description: ''
+    data_type: NUMBER
+  - name: PARTNER_TOTAL_ASSETS_C
+    description: ''
+    data_type: NUMBER
+  - name: PERCENT_MANAGED_C
+    description: ''
+    data_type: FLOAT
+  - name: REVENUE_PER_CLIENT_C
+    description: ''
+    data_type: NUMBER
+  - name: AUM_PER_CLIENT_C
+    description: ''
+    data_type: NUMBER
+  - name: ACTION_DUE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: ACTION_OWNER_C
+    description: ''
+    data_type: VARCHAR
+  - name: ASSOCIATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: ADVISOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: STARTING_YEAR_AUM_C
+    description: ''
+    data_type: NUMBER
+  - name: STARTING_QUARTER_AUM_C
+    description: ''
+    data_type: NUMBER
+  - name: STARTING_MONTH_AUM_C
+    description: ''
+    data_type: NUMBER
+  - name: STARTING_WEEK_AUM_C
+    description: ''
+    data_type: NUMBER
+  - name: STARTING_YEAR_CLIENTS_C
+    description: ''
+    data_type: FLOAT
+  - name: STARTING_QUARTER_CLIENTS_C
+    description: ''
+    data_type: FLOAT
+  - name: STARTING_MONTH_CLIENTS_C
+    description: ''
+    data_type: FLOAT
+  - name: STARTING_WEEK_CLIENTS_C
+    description: ''
+    data_type: FLOAT
+  - name: YTD_AUM_GROWTH_C
+    description: ''
+    data_type: FLOAT
+  - name: QTD_AUM_GROWTH_C
+    description: ''
+    data_type: FLOAT
+  - name: MTD_AUM_GROWTH_C
+    description: ''
+    data_type: FLOAT
+  - name: WTD_AUM_GROWTH_C
+    description: ''
+    data_type: FLOAT
+  - name: YTD_AUM_PER_CLIENT_GROWTH_C
+    description: ''
+    data_type: FLOAT
+  - name: QTD_AUM_PER_CLIENT_GROWTH_C
+    description: ''
+    data_type: FLOAT
+  - name: MTD_AUM_PER_CLIENT_GROWTH_C
+    description: ''
+    data_type: FLOAT
+  - name: WTD_AUM_PER_CLIENT_GROWTH_C
+    description: ''
+    data_type: FLOAT
+  - name: YTD_PER_CLIENT_C
+    description: ''
+    data_type: NUMBER
+  - name: QTD_PER_CLIENT_C
+    description: ''
+    data_type: NUMBER
+  - name: MTD_PER_CLIENT_C
+    description: ''
+    data_type: NUMBER
+  - name: WTD_PER_CLIENT_C
+    description: ''
+    data_type: NUMBER
+  - name: YTD_PER_CLIENT_GROWTH_C
+    description: ''
+    data_type: FLOAT
+  - name: QTD_PER_CLIENT_GROWTH_C
+    description: ''
+    data_type: FLOAT
+  - name: MTD_PER_CLIENT_GROWTH_C
+    description: ''
+    data_type: FLOAT
+  - name: WTD_PER_CLIENT_GROWTH_C
+    description: ''
+    data_type: FLOAT
+  - name: PARTNER_REQUESTS_C
+    description: ''
+    data_type: FLOAT
+  - name: LAB_HOT_PROSPECT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: LARRY_MILES_CONTACT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: FLAT_FEE_CLIENTS_C
+    description: ''
+    data_type: FLOAT
+  - name: AUM_FEE_CLIENTS_C
+    description: ''
+    data_type: FLOAT
+  - name: PERCENT_FLAT_FEES_C
+    description: ''
+    data_type: FLOAT
+  - name: PERCENT_BPS_FEES_C
+    description: ''
+    data_type: FLOAT
+  - name: EFFECTIVE_FEE_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: UNMANAGED_BILLING_OPPORTUNITY_C
+    description: ''
+    data_type: NUMBER
+  - name: PARTNER_UNMANAGED_BILLING_OPPORTUNITY_C
+    description: ''
+    data_type: NUMBER
+  - name: PERCENT_TARGET_C
+    description: ''
+    data_type: FLOAT
+  - name: YTD_PERCENT_TARGET_C
+    description: ''
+    data_type: FLOAT
+  - name: PIPELINE_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: X_2020_TOTAL_FLOWS_C
+    description: ''
+    data_type: NUMBER
+  - name: ANALYST_C
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_RANK_C
+    description: ''
+    data_type: FLOAT
+  - name: PERCENT_TOTAL_REVENUE_C
+    description: ''
+    data_type: FLOAT
+  - name: CLIENT_SCORE_C
+    description: ''
+    data_type: FLOAT
+  - name: RELATED_TO_REFERRED_BY_C
+    description: ''
+    data_type: VARCHAR
+  - name: REFERRALS_C
+    description: ''
+    data_type: FLOAT
+  - name: MAX_REFERRALS_C
+    description: ''
+    data_type: FLOAT
+  - name: REFERRAL_POTENTIAL_C
+    description: ''
+    data_type: VARCHAR
+  - name: AVERAGE_CLIENT_COST_C
+    description: ''
+    data_type: NUMBER
+  - name: SENIOR_ANALYST_C
+    description: ''
+    data_type: VARCHAR
+  - name: X_2019_TOTAL_FLOWS_C
+    description: ''
+    data_type: NUMBER
+  - name: X_2018_TOTAL_FLOWS_C
+    description: ''
+    data_type: NUMBER
+  - name: NEW_CLIENTS_LAST_YEAR_C
+    description: ''
+    data_type: FLOAT
+  - name: NEW_PROSPECTS_LAST_YEAR_C
+    description: ''
+    data_type: FLOAT
+  - name: PARTNER_CLIENTS_LOST_LAST_YEAR_C
+    description: ''
+    data_type: FLOAT
+  - name: PARTNER_PROSPECT_CONVERSIONS_C
+    description: ''
+    data_type: FLOAT
+  - name: NEW_PROSPECT_C
+    description: ''
+    data_type: DATE
+  - name: NEW_CLIENT_C
+    description: ''
+    data_type: DATE
+  - name: X_2017_TOTAL_FLOWS_C
+    description: ''
+    data_type: NUMBER
+  - name: CONVERTED_C
+    description: ''
+    data_type: VARCHAR
+  - name: LOST_C
+    description: ''
+    data_type: VARCHAR
+  - name: PARTNER_CLOSE_RATE_C
+    description: ''
+    data_type: FLOAT
+  - name: PARTNER_TURNOVER_RATE_C
+    description: ''
+    data_type: FLOAT
+  - name: FEE_CALCULATOR_C
+    description: ''
+    data_type: NUMBER
+  - name: SERVICE_LEVEL_C
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_DRIVEN_COMPLEXITY_C
+    description: ''
+    data_type: BOOLEAN
+  - name: X_100_ROBO_PLATFORM_C
+    description: ''
+    data_type: BOOLEAN
+  - name: ADDITIONAL_NUCLEAR_FAMILIES_C
+    description: ''
+    data_type: FLOAT
+  - name: TOTAL_NET_WORTH_C
+    description: ''
+    data_type: NUMBER
+  - name: INVESTABLE_PORTFOLIO_AUM_C
+    description: ''
+    data_type: NUMBER
+  - name: PERCENT_AUM_C
+    description: ''
+    data_type: FLOAT
+  - name: PERCENT_AUA_C
+    description: ''
+    data_type: FLOAT
+  - name: FEE_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PRIMARY_ADVISOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: SECONDARY_ADVISOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: DESIGNEE_1_C
+    description: ''
+    data_type: VARCHAR
+  - name: DESIGNEE_2_C
+    description: ''
+    data_type: VARCHAR
+  - name: AVERAGE_CLIENT_AGE_C
+    description: ''
+    data_type: FLOAT
+    meta:
+      masking_policy: mp_client_pii_float
+  - name: TARGETED_BRANCH_C
+    description: ''
+    data_type: BOOLEAN
+  - name: REGION_C
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH_MANAGER_C
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE_TEXT_C
+    description: ''
+    data_type: VARCHAR
+  - name: LID_LINKED_IN_COMPANY_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: MULTIPLE_SELECT_SOURCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_SOLUTION_C
+    description: ''
+    data_type: VARCHAR
+  - name: VANILLA_PROSPECT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: VANILLA_STAGE_C
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_BOX_REVIEW_C
+    description: ''
+    data_type: DATE
+  - name: UPCOMING_MEETING_C
+    description: ''
+    data_type: DATE
+  - name: CFS_CHECK_C
+    description: ''
+    data_type: BOOLEAN
+  - name: WEALTH_STRATEGIST_1_C
+    description: ''
+    data_type: VARCHAR
+  - name: WEALTH_STRATEGIST_2_C
+    description: ''
+    data_type: VARCHAR
+  - name: CFO_STAGE_C
+    description: ''
+    data_type: VARCHAR
+  - name: FIDELITY_BRANCH_C
+    description: ''
+    data_type: VARCHAR
+  - name: FIDELITY_REP_C
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_LIST_SENT_C
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_QUESTIONNAIRE_C
+    description: ''
+    data_type: VARCHAR
+  - name: FOLLOW_UP_QUESTIONNAIRE_C
+    description: ''
+    data_type: VARCHAR
+  - name: WAS_REGION_C
+    description: ''
+    data_type: VARCHAR
+  - name: WAS_STAGE_C
+    description: ''
+    data_type: VARCHAR
+  - name: INSTITUTION_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PROSPECT_SUITABILITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: LIQUID_NET_WORTH_C
+    description: ''
+    data_type: NUMBER
+  - name: RISK_COMFORT_LEVEL_C
+    description: ''
+    data_type: VARCHAR
+  - name: RISK_TIME_HORIZON_C
+    description: ''
+    data_type: VARCHAR
+  - name: RISK_TIME_HORIZON_OTHER_C
+    description: ''
+    data_type: VARCHAR
+  - name: COMPLETED_FINANCIAL_PLAN_C
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_UPDATE_TO_FINANCIAL_PLAN_C
+    description: ''
+    data_type: DATE
+  - name: HAVE_YOU_SET_UP_A_REVOCABLE_TRUST_C
+    description: ''
+    data_type: VARCHAR
+  - name: HAVE_YOU_SET_UP_A_POUR_OVER_WILL_C
+    description: ''
+    data_type: VARCHAR
+  - name: HAVE_YOU_SET_UP_A_POWER_OF_ATTORNEY_C
+    description: ''
+    data_type: VARCHAR
+  - name: HAVE_YOU_SET_UP_A_HEALTH_CARE_DIRECTIVE_C
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_TIME_ESTATE_PLAN_WAS_REVIEWED_C
+    description: ''
+    data_type: DATE
+  - name: NUMBER_OF_CLIENTS_AT_ADVICE_PERIOD_C
+    description: ''
+    data_type: FLOAT
+  - name: ANNUAL_REVENUE_AT_ADVICE_PERIOD_C
+    description: ''
+    data_type: NUMBER
+  - name: ANNUAL_REVENUE_GOAL_AT_ADVICE_PERIOD_C
+    description: ''
+    data_type: NUMBER
+  - name: SIGNED_REVENUE_YTD_AT_ADVICE_PERIOD_C
+    description: ''
+    data_type: NUMBER
+  - name: YTD_REVENUE_VS_GOAL_C
+    description: ''
+    data_type: NUMBER
+  - name: LIFE_INSURANCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: DISABILITY_INSURANCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: LTC_INSURANCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: UMBRELLA_INSURANCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_CASUALTY_INSURANCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_SCHEDULE_C
+    description: ''
+    data_type: VARCHAR
+  - name: TERMINATED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: APX_CLIENT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: AT_RISK_CLIENT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: REFERRED_BY_INTERNAL_C
+    description: ''
+    data_type: VARCHAR
+  - name: STEVE_S_PROSPECT_NOTES_C
+    description: ''
+    data_type: VARCHAR
+  - name: FIDELITY_BRANCH_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: FIDELITY_REP_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: CFO_CONTRACT_DRAFTED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SUITABLE_FOR_VANILLA_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PROPOSAL_STAGE_C
+    description: ''
+    data_type: VARCHAR
+  - name: CFO_RELATIONSHIP_C
+    description: ''
+    data_type: BOOLEAN
+  - name: LAB_ONBOARDING_STAGE_C
+    description: ''
+    data_type: VARCHAR
+  - name: ASSET_FLAVOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: CASH_BUFFER_C
+    description: ''
+    data_type: VARCHAR
+  - name: IPS_PORTFOLIO_ASSET_ALLOCATION_C
+    description: ''
+    data_type: VARCHAR
+  - name: REQUEST_SCORE_CLIENT_C
+    description: ''
+    data_type: FLOAT
+  - name: NORMALIZED_REQUEST_SCORE_CLIENTS_C
+    description: ''
+    data_type: FLOAT
+  - name: STEVE_INVOLVED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: CASH_BUFFER_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: ANNUAL_GAIN_BUDGET_C
+    description: ''
+    data_type: VARCHAR
+  - name: ANNUAL_GAIN_BUDGET_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: PORTFOLIO_MANAGEMENT_GROUP_C
+    description: ''
+    data_type: VARCHAR
+  - name: ASSISTANT_EMAIL_C
+    description: ''
+    data_type: VARCHAR
+  - name: RECURRING_DISTRIBUTION_C
+    description: ''
+    data_type: VARCHAR
+  - name: RECURRING_DISTRIBUTION_MONTHLY_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: SENIOR_ADVISOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: NOTES_PM_C
+    description: ''
+    data_type: VARCHAR
+  - name: SERVICE_SEGMENTATION_C
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_SIGNATURE_PREFERENCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_PROSPECT_REVIEW_C
+    description: ''
+    data_type: DATE
+  - name: NEXT_ACTION_SHORT_NOTE_C
+    description: ''
+    data_type: VARCHAR
+  - name: SELF_BRANDED_C
+    description: ''
+    data_type: VARCHAR
+  - name: WEALTH_MANAGER_C
+    description: ''
+    data_type: VARCHAR
+  - name: BACKUP_CSA_C
+    description: ''
+    data_type: VARCHAR
+  - name: RTQ_SCORE_C
+    description: ''
+    data_type: FLOAT
+  - name: RTQ_LINK_IN_BOX_C
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: CFO_SR_STAFF_ACCOUNTANT_C
+    description: ''
+    data_type: VARCHAR
+  - name: CFO_STAFF_ACCOUNTANT_C
+    description: ''
+    data_type: VARCHAR
+  - name: CFO_CRM_C
+    description: ''
+    data_type: VARCHAR
+  - name: PARALEGAL_C
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER

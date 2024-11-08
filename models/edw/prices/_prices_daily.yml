@@ -1,0 +1,37 @@
+version: 2
+models:
+  - name: prices_daily
+    columns:
+      - name: DATE
+        description: ''
+        data_type: DATE
+      - name: SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: OPEN
+        description: ''
+        data_type: NUMBER
+      - name: CLOSE
+        description: ''
+        data_type: NUMBER
+      - name: HIGH
+        description: ''
+        data_type: NUMBER
+      - name: LOW
+        description: ''
+        data_type: NUMBER
+      - name: VOLUME
+        description: ''
+        data_type: NUMBER
+      - name: TRADE_COUNT
+        description: ''
+        data_type: NUMBER
+      - name: IS_INDEX
+        description: ''
+        data_type: NUMBER
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ

@@ -1,0 +1,1437 @@
+version: 2
+models:
+- name: dynamics_tamarac_cpg__stg_accounts
+  columns:
+  - name: ACCOUNT_CLASSIFICATION_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_RATING_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1_ADDRESS_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1_ADDRESS_TYPE_CODE
+    description: ''
+    data_type: NUMBER
+  - name: ADDRESS_1_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1_COMPOSITE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1_LINE_3
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1_STATE_OR_PROVINCE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_2_ADDRESS_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_2_FREIGHT_TERMS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_2_SHIPPING_METHOD_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: BUSINESS_TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: CREDIT_ON_HOLD
+    description: ''
+    data_type: BOOLEAN
+  - name: CUSTOMER_SIZE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: DO_NOT_BULK_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: DO_NOT_BULK_POSTAL_MAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: DO_NOT_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: DO_NOT_FAX
+    description: ''
+    data_type: BOOLEAN
+  - name: DO_NOT_PHONE
+    description: ''
+    data_type: BOOLEAN
+  - name: DO_NOT_POSTAL_MAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: DO_NOT_SEND_MM
+    description: ''
+    data_type: BOOLEAN
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: EXCHANGE_RATE
+    description: ''
+    data_type: NUMBER
+  - name: FOLLOW_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: IMPORT_SEQUENCE_NUMBER
+    description: ''
+    data_type: NUMBER
+  - name: MARKETING_ONLY
+    description: ''
+    data_type: BOOLEAN
+  - name: MERGED
+    description: ''
+    data_type: BOOLEAN
+  - name: MODIFIED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: MSDYN_GDPROP_TO_OUT
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: OPEN_DEALS
+    description: ''
+    data_type: NUMBER
+  - name: OPEN_DEALS_DATE
+    description: ''
+    data_type: DATE
+  - name: OPEN_DEALS_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: OPEN_REVENUE
+    description: ''
+    data_type: NUMBER
+  - name: OPEN_REVENUE_BASE
+    description: ''
+    data_type: NUMBER
+  - name: OPEN_REVENUE_DATE
+    description: ''
+    data_type: DATE
+  - name: OPEN_REVENUE_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: PARTICIPATES_IN_WORKFLOW
+    description: ''
+    data_type: BOOLEAN
+  - name: PREFERRED_CONTACT_METHOD_CODE
+    description: ''
+    data_type: NUMBER
+  - name: PROCESS_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_METHOD_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_CODE
+    description: ''
+    data_type: NUMBER
+  - name: STATUS_CODE
+    description: ''
+    data_type: NUMBER
+  - name: TAMC_PAYOUT_FIXED_RATE
+    description: ''
+    data_type: NUMBER
+  - name: TAMC_PAYOUT_TIERED
+    description: ''
+    data_type: VARCHAR
+  - name: TAMC_PAYOUT_TIER_1_RATE
+    description: ''
+    data_type: NUMBER
+  - name: TAMC_PAYOUT_TIER_1_THRESHOLD
+    description: ''
+    data_type: NUMBER
+  - name: TAMC_PAYOUT_TIER_1_THRESHOLD_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAMC_PAYOUT_TIER_2_RATE
+    description: ''
+    data_type: NUMBER
+  - name: TAMC_PAYOUT_TIER_2_THRESHOLD
+    description: ''
+    data_type: NUMBER
+  - name: TAMC_PAYOUT_TIER_2_THRESHOLD_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAMC_PAYOUT_TIER_3_RATE
+    description: ''
+    data_type: NUMBER
+  - name: TAMC_PAYOUT_TIER_3_THRESHOLD
+    description: ''
+    data_type: NUMBER
+  - name: TAMC_PAYOUT_TIER_3_THRESHOLD_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAMC_PAYOUT_TIER_4_RATE
+    description: ''
+    data_type: NUMBER
+  - name: TAMC_PAYOUT_TIER_4_THRESHOLD
+    description: ''
+    data_type: NUMBER
+  - name: TAMC_PAYOUT_TIER_4_THRESHOLD_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAMC_PAYOUT_TIER_5_RATE
+    description: ''
+    data_type: NUMBER
+  - name: TAMC_SOLICITOR_DISCLOSURE_ON_FILE_2
+    description: ''
+    data_type: BOOLEAN
+  - name: TAMC_SPLITS_REQUIRED
+    description: ''
+    data_type: VARCHAR
+  - name: TAMC_SPLIT_1
+    description: ''
+    data_type: VARCHAR
+  - name: TAMC_SPLIT_2
+    description: ''
+    data_type: VARCHAR
+  - name: TAMC_SPLIT_3
+    description: ''
+    data_type: VARCHAR
+  - name: TAMC_SPLIT_4
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_ACCOUNT_GUID
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_ADDRESS_UPDATED_FROM_PLUGIN
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_ADDRESS_1
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_AGREEMENT_DATE
+    description: ''
+    data_type: DATE
+  - name: TAM_ALERT
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_ASSETS
+    description: ''
+    data_type: NUMBER
+  - name: TAM_ASSETS_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_CLIENTS_SINCE_DATE
+    description: ''
+    data_type: DATE
+  - name: TAM_COI
+    description: ''
+    data_type: NUMBER
+  - name: TAM_CREATE_IN_AV_REQUEST
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_CURRENT_MAILING_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_DOCUMENT_LINK
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_GENERATION
+    description: ''
+    data_type: NUMBER
+  - name: TAM_HOLIDAY_CARDS
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_HOLIDAY_GIFT
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_LAST_ADV_SENT_DATE
+    description: ''
+    data_type: DATE
+  - name: TAM_LAST_APPOINTMENT_DATE
+    description: ''
+    data_type: DATE
+  - name: TAM_LAST_CALL_DATE
+    description: ''
+    data_type: DATE
+  - name: TAM_LAST_CONTACTED_DATE
+    description: ''
+    data_type: DATE
+  - name: TAM_LAST_PRIVACY_NOTICE_SENT_DATE
+    description: ''
+    data_type: DATE
+  - name: TAM_LAST_REVIEW_REQUEST_DATE
+    description: ''
+    data_type: DATE
+  - name: TAM_LIABILITIES
+    description: ''
+    data_type: NUMBER
+  - name: TAM_LIABILITIES_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_LINKED_TO_ADVISOR_VIEW
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_MAILING_ADDRESS_OPTION
+    description: ''
+    data_type: NUMBER
+  - name: TAM_MGMT_FEE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_MGMT_FEE_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_MOBILE_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_NET_WORTH
+    description: ''
+    data_type: NUMBER
+  - name: TAM_NET_WORTH_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_NEWSLETTERS
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_PHYSICAL_ADDRESS_OPTION
+    description: ''
+    data_type: NUMBER
+  - name: TAM_POTENTIAL_AUM
+    description: ''
+    data_type: NUMBER
+  - name: TAM_POTENTIAL_AUM_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_PREFERRED_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_PRIMARY_CONTACT_IS_BENEFICIARY
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_REVENUE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_REVENUE_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_SALUTATION
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_SECONDARY_CONTACT_IS_BENEFICIARY
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_SECONDARY_FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_SECONDARY_LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_STATE_OF_PRIMARY_RESIDENCE
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_SYNC_FAMILY_ROLLUP
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_TERMINATED_DATE
+    description: ''
+    data_type: DATE
+  - name: TAM_TOTAL_CUSTODIAN_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_TOTAL_CUSTODIAN_VALUE_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_TOTAL_REBAL_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_TOTAL_REBAL_VALUE_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_TOTAL_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_TOTAL_VALUE_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_UNMANAGED_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_UNMANAGED_VALUE_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_UPDATED_BY_TAMARAC_INTEGRATION
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_UPLOAD_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TELEPHONE_1
+    description: ''
+    data_type: VARCHAR
+  - name: TELEPHONE_2
+    description: ''
+    data_type: VARCHAR
+  - name: TELEPHONE_3
+    description: ''
+    data_type: VARCHAR
+  - name: TERRITORY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: TIME_ZONE_RULE_VERSION_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: VERSION_NUMBER
+    description: ''
+    data_type: NUMBER
+  - name: _CREATED_BY_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: NUMBER
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _MASTER_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _MODIFIED_BY_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _MODIFIED_ON_BEHALF_BY_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _ORIGINATING_LEAD_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _OWNER_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _OWNING_BUSINESS_UNIT_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _OWNING_USER_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _PRIMARY_CONTACT_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _BDM_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _ACCOUNT_TYPE_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _ADDRESS_1_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _CLIENT_CLASSIFICATION_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _CURRENT_MAILING_ADDRESS_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _FAMILY_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _REFERRED_BY_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _REGION_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _REGION_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _SECONDARY_CONTACT_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _TRANSACTION_CURRENCY_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD_FOR_DAY
+    description: ''
+    data_type: NUMBER
+- name: dynamics_tamarac_cpg__stg_account_types
+  columns:
+  - name: CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: MODIFIED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: TAM_ACCOUNT_TYPE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_CODE
+    description: ''
+    data_type: NUMBER
+  - name: STATUS_CODE
+    description: ''
+    data_type: NUMBER
+  - name: VERSION_NUMBER
+    description: ''
+    data_type: NUMBER
+  - name: _CREATED_BY_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: NUMBER
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _MODIFIED_BY_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _OWNER_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _OWNING_BUSINESS_UNIT_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _OWNING_USER_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD_FOR_DAY
+    description: ''
+    data_type: NUMBER
+- name: dynamics_tamarac_cpg__stg_contacts
+  columns:
+  - name: ADDRESS_1_ADDRESS_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1_ADDRESS_TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1_COMPOSITE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1_LINE_3
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1_STATE_OR_PROVINCE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_2_ADDRESS_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_2_FREIGHT_TERMS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_2_SHIPPING_METHOD_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_3_ADDRESS_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ADX_CONFIRM_REMOVE_PASSWORD
+    description: ''
+    data_type: BOOLEAN
+  - name: ADX_IDENTITY_EMAIL_ADDRESS_1_CONFIRMED
+    description: ''
+    data_type: BOOLEAN
+  - name: ADX_IDENTITY_LOCAL_LOGIN_DISABLED
+    description: ''
+    data_type: BOOLEAN
+  - name: ADX_IDENTITY_LOCKOUT_ENABLED
+    description: ''
+    data_type: BOOLEAN
+  - name: ADX_IDENTITY_LOGON_ENABLED
+    description: ''
+    data_type: BOOLEAN
+  - name: ADX_IDENTITY_MOBILE_PHONE_CONFIRMED
+    description: ''
+    data_type: BOOLEAN
+  - name: ADX_IDENTITY_TWO_FACTOR_ENABLED
+    description: ''
+    data_type: BOOLEAN
+  - name: ADX_PROFILE_ALERT
+    description: ''
+    data_type: BOOLEAN
+  - name: ADX_PROFILE_IS_ANONYMOUS
+    description: ''
+    data_type: BOOLEAN
+  - name: ANNUAL_INCOME
+    description: ''
+    data_type: NUMBER
+  - name: ANNUAL_INCOME_BASE
+    description: ''
+    data_type: NUMBER
+  - name: BIRTH_DATE
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: CREDIT_ON_HOLD
+    description: ''
+    data_type: BOOLEAN
+  - name: CUSTOMER_SIZE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: DO_NOT_BULK_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: DO_NOT_BULK_POSTAL_MAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: DO_NOT_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: DO_NOT_FAX
+    description: ''
+    data_type: BOOLEAN
+  - name: DO_NOT_PHONE
+    description: ''
+    data_type: BOOLEAN
+  - name: DO_NOT_POSTAL_MAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: DO_NOT_SEND_MM
+    description: ''
+    data_type: BOOLEAN
+  - name: EDUCATION_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: EMAIL_ADDRESS_1
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_ADDRESS_2
+    description: ''
+    data_type: VARCHAR
+  - name: EXCHANGE_RATE
+    description: ''
+    data_type: NUMBER
+  - name: FAMILY_STATUS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: FAX
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FOLLOW_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: FULL_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: GENDER_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: HAS_CHILDREN_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: IMPORT_SEQUENCE_NUMBER
+    description: ''
+    data_type: NUMBER
+  - name: IS_BACK_OFFICE_CUSTOMER
+    description: ''
+    data_type: BOOLEAN
+  - name: JOB_TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LEAD_SOURCE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MARKETING_ONLY
+    description: ''
+    data_type: BOOLEAN
+  - name: MERGED
+    description: ''
+    data_type: BOOLEAN
+  - name: MIDDLE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: MOBILE_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: MODIFIED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: MSDYN_DISABLE_WEB_TRACKING
+    description: ''
+    data_type: BOOLEAN
+  - name: MSDYN_GDPROP_TO_OUT
+    description: ''
+    data_type: BOOLEAN
+  - name: MSDYN_IS_ASSISTANT_IN_ORG_CHART
+    description: ''
+    data_type: BOOLEAN
+  - name: MSDYN_IS_MINOR
+    description: ''
+    data_type: BOOLEAN
+  - name: MSDYN_IS_MINOR_WITH_PARENTAL_CONSENT
+    description: ''
+    data_type: BOOLEAN
+  - name: MSDYN_ORG_CHANGE_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: NICKNAME
+    description: ''
+    data_type: VARCHAR
+  - name: PARTICIPATES_IN_WORKFLOW
+    description: ''
+    data_type: BOOLEAN
+  - name: PREFERRED_APPOINTMENT_TIME_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PREFERRED_CONTACT_METHOD_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PROCESS_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SALUTATION
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_METHOD_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: STATUS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SUFFIX
+    description: ''
+    data_type: VARCHAR
+  - name: TAMC_BOARD_MEMBER
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_ADDRESS_UPDATED_FROM_PLUGIN
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_ADDRESS_1
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_AGE_BY_END_OF_YEAR
+    description: ''
+    data_type: NUMBER
+  - name: TAM_BIRTHDAY_OF_MONTH
+    description: ''
+    data_type: NUMBER
+  - name: TAM_BIRTH_MONTH
+    description: ''
+    data_type: NUMBER
+  - name: TAM_BIRTH_YEAR
+    description: ''
+    data_type: NUMBER
+  - name: TAM_COI
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_COMPANY
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_CONTACT_GUID
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_CREATE_IN_AV_REQUEST
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_CURRENT_AGE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_DECEASED_DATE
+    description: ''
+    data_type: DATE
+  - name: TAM_DRIVERS_LICENSE_ISSUE_DATE
+    description: ''
+    data_type: DATE
+  - name: TAM_DRIVERS_LICENSE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_DRIVERS_LICENSE_STATE_OF_ISSUE
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_DRIVERS_LICENSE_EXP_DATE
+    description: ''
+    data_type: DATE
+  - name: TAM_EMAIL_TYPE_1
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_EMAIL_TYPE_2
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_IS_PRIMARY_CONTACT
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_IS_SECONDARY_CONTACT
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_LINKED_TO_ADVISOR_VIEW
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_MAILING_ADDRESS_OPTION
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_NEXT_BIRTHDAY
+    description: ''
+    data_type: DATE
+  - name: TAM_PHYSICAL_ADDRESS_OPTION
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_PORTAL_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_PREFERRED_DELIVERY_METHOD
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_PREFERRED_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_PREFIX
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_RETIRED
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_SSN
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_TERMINATED_DATE
+    description: ''
+    data_type: DATE
+  - name: TAM_TOTAL_SPOUSE_AGE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_TWO_BIRTHDAYS
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_USE_ALTERNATE_MODEL
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_USE_PRIMARY_ADDRESS
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_USE_SECONDARY_ADDRESS
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_USE_THIS_AS_PRIMARY_ADDRESS
+    description: ''
+    data_type: BOOLEAN
+  - name: TELEPHONE_1
+    description: ''
+    data_type: VARCHAR
+  - name: TELEPHONE_2
+    description: ''
+    data_type: VARCHAR
+  - name: TELEPHONE_3
+    description: ''
+    data_type: VARCHAR
+  - name: TERRITORY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: TIME_ZONE_RULE_VERSION_NUMBER
+    description: ''
+    data_type: NUMBER
+  - name: VERSION_NUMBER
+    description: ''
+    data_type: NUMBER
+  - name: YOUI_FULL_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: _CREATED_BY_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: NUMBER
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _MASTER_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _MODIFIED_BY_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _MODIFIED_ON_BEHALF_BY_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _MSA_MANAGING_PARTNER_ID_VALU
+    description: ''
+    data_type: VARCHAR
+  - name: _ORIGINATING_LEAD_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _OWNER_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _OWNING_BUSINESS_UNIT_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _OWNING_USER_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _PARENT_CUSTOMER_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _TAM_ADDRESS_1_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _TRANSACTION_CURRENCY_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD_FOR_DAY
+    description: ''
+    data_type: NUMBER
+- name: dynamics_tamarac_cpg__stg_finance_accounts
+  columns:
+  - name: CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: EXCHANGE_RATE
+    description: ''
+    data_type: NUMBER
+  - name: MODIFIED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: TAM_ADDITIONAL_HOUSEHOLDS_ACCOUNTS
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_ADVISOR_VIEW_COLUMN
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_BYPASS_PLUGIN
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_CONTRIBUTION_RATE_PREVIOUS_YEAR
+    description: ''
+    data_type: NUMBER
+  - name: TAM_CONTRIBUTIONS_PREVIOUS_YEAR
+    description: ''
+    data_type: NUMBER
+  - name: TAM_CONTRIBUTIONS_PREVIOUS_YEAR_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_CUSTODIAN_ACCT_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_CUSTODIAN_ACCT_VALUE_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_CUST_VAL_AS_OF_1231_PREV_YEAR
+    description: ''
+    data_type: NUMBER
+  - name: TAM_CUST_VAL_AS_OF_1231_PREV_YEAR_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_DEFINED_CONTRIB_PLAN
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_DISCRETIONARY_ACCOUNT
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_ENABLED_FOR_REBALANCING
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_FINANCE_ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_FINANCIAL_ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_FINANCIAL_ACCOUNT_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_FINANCIAL_ACCOUNT_VALUE_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_FINANCIAL_ACCOUNT_TRUNC_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_FINANCIAL_ACCT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_HAS_BENEFICIARIES
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_LAST_AV_UPDATE
+    description: ''
+    data_type: DATE
+  - name: TAM_LAST_ORDER_DATE
+    description: ''
+    data_type: DATE
+  - name: TAM_LAST_TRADE_DATE
+    description: ''
+    data_type: DATE
+  - name: TAM_LAST_TRADE_MODIFIED_DATE
+    description: ''
+    data_type: DATE
+  - name: TAM_MASTER_ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_MODEL
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_NET_CONTRIBUTION_PREVIOUS_YEAR
+    description: ''
+    data_type: NUMBER
+  - name: TAM_NET_CONTRIBUTION_PREVIOUS_YEAR_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_OVERRIDE_RMD_ELIGIBILITY
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_REPORTING_GROUP
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_REQUIRES_BENEFICIARY
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_RETURN_PERIOD_1_LABEL
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_RETURN_PERIOD_1_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_REVENUE_PREVIOUS_YEAR
+    description: ''
+    data_type: NUMBER
+  - name: TAM_REVENUE_PREVIOUS_YEAR_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_RMD_ELIGIBLE
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_RMD_ROTH_IRA
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_RMD_SATISFIED
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_ROTH_IRA
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_TAX_DEFERRED_EXEMPT
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_TAX_WITHHOLDING_ELECTED
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_TAX_WITHHOLDING_FEDERAL_OPTED_OUT
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_TAX_WITHHOLDING_STATE_OPTED_OUT
+    description: ''
+    data_type: BOOLEAN
+  - name: TAM_TERMINATION_DATE
+    description: ''
+    data_type: DATE
+  - name: TAM_TERMINATION_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_TERMINATION_VALUE_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_TOTAL_CASH
+    description: ''
+    data_type: NUMBER
+  - name: TAM_TOTAL_CASH_RESERVES
+    description: ''
+    data_type: NUMBER
+  - name: TAM_TOTAL_CASH_RESERVES_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_TOTAL_CASH_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_TOTAL_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_TOTAL_VALUE_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_UNMANAGED_AUM
+    description: ''
+    data_type: NUMBER
+  - name: TAM_UNMANAGED_AUM_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_UPLOAD_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TAM_WITHDRAWALS_PREVIOUS_YEAR
+    description: ''
+    data_type: NUMBER
+  - name: TAM_WITHDRAWALS_PREVIOUS_YEAR_BASE
+    description: ''
+    data_type: NUMBER
+  - name: TAM_WITHDRAWALS_YTD
+    description: ''
+    data_type: NUMBER
+  - name: TAM_WITHDRAWALS_YTD_BASE
+    description: ''
+    data_type: NUMBER
+  - name: STATUS_CODE
+    description: ''
+    data_type: NUMBER
+  - name: STATE_CODE
+    description: ''
+    data_type: NUMBER
+  - name: TIMEZONE_RULE_VERSION_NUMBER
+    description: ''
+    data_type: NUMBER
+  - name: VERSION_NUMBER
+    description: ''
+    data_type: NUMBER
+  - name: _CREATED_BY_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: NUMBER
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _MODIFIED_BY_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _MODIFIED_ON_BEHALF_BY_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _OWNER_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _OWNING_BUSINESS_UNIT_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _OWNING_USER_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _PRIMARY_CONTACT_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _SECONDARY_CONTACT_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _TAM_ACCOUNT_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _TRUST_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _TRANSACTION_CURRENCY_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD_FOR_DAY
+    description: ''
+    data_type: NUMBER
+- name: dynamics_tamarac_cpg__stg_string_map
+  columns:
+  - name: ATTRIBUTE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ATTRIBUTE_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: DISPLAY_ORDER
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: LANG_ID
+    description: ''
+    data_type: VARCHAR
+  - name: OBJECT_TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ORGANIZATION_ID
+    description: ''
+    data_type: VARCHAR
+  - name: STRING_MAP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: VERSION_NUMBER
+    description: ''
+    data_type: NUMBER
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: NUMBER
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD_FOR_DAY
+    description: ''
+    data_type: NUMBER
+- name: dynamics_tamarac_cpg__stg_connections
+  columns:
+  - name: CONNECTION_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: EFFECTIVE_END_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: EXCHANGE_RATE
+    description: ''
+    data_type: NUMBER
+  - name: IMPORT_SEQUENCE_NUMBER
+    description: ''
+    data_type: NUMBER
+  - name: IS_MASTER
+    description: ''
+    data_type: BOOLEAN
+  - name: MODIFIED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_1_OBJECT_TYPE_CODE
+    description: ''
+    data_type: NUMBER
+  - name: RECORD_2_OBJECT_TYPE_CODE
+    description: ''
+    data_type: NUMBER
+  - name: STATE_CODE
+    description: ''
+    data_type: NUMBER
+  - name: STATUS_CODE
+    description: ''
+    data_type: NUMBER
+  - name: VERSION_NUMBER
+    description: ''
+    data_type: NUMBER
+  - name: _CREATED_BY_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: NUMBER
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _MODIFIED_BY_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _OWNER_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _OWNING_BUSINESS_UNIT_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _OWNING_USER_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _RECORD_1_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _RECORD_1_ROLE_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _RECORD_2_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _RECORD_2_ROLE_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _RELATED_CONNECTION_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _CREATED_ON_BEHALF_BY_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _MODIFIED_ON_BEHALF_BY_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _TRANSACTION_CURRENCY_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD_FOR_DAY
+    description: ''
+    data_type: NUMBER
+- name: dynamics_tamarac_cpg__stg_connection_roles
+  columns:
+  - name: CATEGORY
+    description: ''
+    data_type: VARCHAR
+  - name: COMPONENT_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_ROLE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_ROLE_ID_UNIQUE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: INTRODUCED_VERSION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_CUSTOMIZABLE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_MANAGED
+    description: ''
+    data_type: BOOLEAN
+  - name: MODIFIED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: OVERWRITE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOLUTION_ID
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_CODE
+    description: ''
+    data_type: NUMBER
+  - name: STATUS_CODE
+    description: ''
+    data_type: NUMBER
+  - name: VERSION_NUMBER
+    description: ''
+    data_type: NUMBER
+  - name: _CREATED_BY_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _CREATED_ON_BEHALF_BY_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: NUMBER
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _MODIFIED_BY_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _MODIFIED_ON_BEHALF_BY_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _ORGANIZATION_ID_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD_FOR_DAY
+    description: ''
+    data_type: NUMBER

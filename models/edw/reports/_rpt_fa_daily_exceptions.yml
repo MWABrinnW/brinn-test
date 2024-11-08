@@ -1,0 +1,61 @@
+version: 2
+models:
+  - name: rpt_fa_daily_exceptions
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENT_MANAGER
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: FINANCIAL_ACCOUNT_NUMBER_CLEAN
+        description: ''
+        data_type: VARCHAR
+      - name: TYPE_OF_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: CURRENT_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: FINANCIAL_ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_ACTIVE
+        description: ''
+        data_type: BOOLEAN
+      - name: CLOSED_DATE
+        description: ''
+        data_type: DATE
+      - name: ACCOUNT_OPEN_DATE
+        description: ''
+        data_type: DATE
+      - name: LOCATION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: INTERNAL_HOUSEHOLD_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: INTERNAL_FINANCIAL_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: SF_18_DIGIT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: FEE_SCHEDULE
+        description: ''
+        data_type: VARCHAR
+      - name: MODEL_INVESTMENT_STRATEGY
+        description: ''
+        data_type: VARCHAR
+      - name: EXCEPTIONS
+        description: ''
+        data_type: VARCHAR

@@ -8,5 +8,43 @@ sources:
     tables:
       - name: json_data
         description: "Raw json data loaded as returned from the ICIMS API"
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: OBJECT_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: OBJECT_ID
+            description: ''
+            data_type: VARCHAR
+          - name: OBJECT_UPDATED_DATE
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: stg_json_data
         description: "Staging table used during engineering's load process"
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: OBJECT_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: OBJECT_ID
+            description: ''
+            data_type: VARCHAR
+          - name: OBJECT_UPDATED_DATE
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: SOURCE_FILE
+            description: ''
+            data_type: VARCHAR

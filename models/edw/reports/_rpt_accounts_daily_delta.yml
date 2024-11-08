@@ -1,0 +1,34 @@
+version: 2
+models:
+  - name: rpt_accounts_daily_delta
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: IS_CURRENT
+        description: ''
+        data_type: BOOLEAN
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CNT
+        description: ''
+        data_type: VARCHAR
+      - name: CNT_01_EFFDAY_AGO
+        description: ''
+        data_type: VARCHAR
+      - name: CNT_01_DELTA
+        description: ''
+        data_type: VARCHAR
+      - name: CNT_15_EFFDAY_AGO
+        description: ''
+        data_type: VARCHAR
+      - name: CNT_15_DELTA
+        description: ''
+        data_type: VARCHAR
+      - name: CNT_30_EFFDAY_AGO
+        description: ''
+        data_type: VARCHAR
+      - name: CNT_30_DELTA
+        description: ''
+        data_type: VARCHAR

@@ -8,3 +8,22 @@ sources:
     tables:
       - name: fund
         description: ""
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: MTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER

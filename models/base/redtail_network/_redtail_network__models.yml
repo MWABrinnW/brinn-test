@@ -1,0 +1,941 @@
+version: 2
+models:
+  - name: redtail_network__base_contacts
+    columns:
+      - name: CONTACT_ID
+        description: ''
+        data_type: NUMBER
+      - name: BUSINESS
+        description: ''
+        data_type: VARCHAR
+      - name: FIRST_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: MIDDLE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LAST_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: COMPANY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: FULL_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: NICKNAME
+        description: ''
+        data_type: VARCHAR
+      - name: SUFFIX_ID
+        description: ''
+        data_type: NUMBER
+      - name: SUFFIX
+        description: ''
+        data_type: VARCHAR
+      - name: JOB_TITLE
+        description: ''
+        data_type: VARCHAR
+      - name: FAVORITE
+        description: ''
+        data_type: VARCHAR
+      - name: PRONOUNS
+        description: ''
+        data_type: VARCHAR
+      - name: IS_DELETED
+        description: ''
+        data_type: NUMBER
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: SALUTATION_ID
+        description: ''
+        data_type: NUMBER
+      - name: SALUTATION
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE_ID
+        description: ''
+        data_type: NUMBER
+      - name: SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: STATUS_ID
+        description: ''
+        data_type: NUMBER
+      - name: STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: CATEGORY_ID
+        description: ''
+        data_type: NUMBER
+      - name: CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: GENDER_ID
+        description: ''
+        data_type: NUMBER
+      - name: GENDER
+        description: ''
+        data_type: VARCHAR
+      - name: GENDER_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: SPOUSE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TAX_ID
+        description: ''
+        data_type: VARCHAR
+      - name: DOB
+        description: ''
+        data_type: DATE
+      - name: DEATH_DATE
+        description: ''
+        data_type: DATE
+      - name: CLIENT_SINCE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: CLIENT_TERMINATION_DATE
+        description: ''
+        data_type: DATE
+      - name: MARITAL_STATUS_ID
+        description: ''
+        data_type: NUMBER
+      - name: MARITAL_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: MARITAL_DATE
+        description: ''
+        data_type: DATE
+      - name: EMPLOYER_ID
+        description: ''
+        data_type: NUMBER
+      - name: EMPLOYER
+        description: ''
+        data_type: VARCHAR
+      - name: DESIGNATION
+        description: ''
+        data_type: VARCHAR
+      - name: REFERRED_BY
+        description: ''
+        data_type: VARCHAR
+      - name: SERVICING_ADVISOR_ID
+        description: ''
+        data_type: NUMBER
+      - name: SERVICING_ADVISOR
+        description: ''
+        data_type: VARCHAR
+      - name: WRITING_ADVISOR_ID
+        description: ''
+        data_type: NUMBER
+      - name: WRITING_ADVISOR
+        description: ''
+        data_type: VARCHAR
+      - name: ADDED_BY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ADDED_BY
+        description: ''
+        data_type: NUMBER
+      - name: FAMILY
+        description: ''
+        data_type: VARIANT
+      - name: ADDRESSES
+        description: ''
+        data_type: VARIANT
+      - name: PHONES
+        description: ''
+        data_type: VARIANT
+      - name: EMAILS
+        description: ''
+        data_type: VARIANT
+      - name: URLS
+        description: ''
+        data_type: VARIANT
+      - name: TAG_MEMBERSHIPS
+        description: ''
+        data_type: VARIANT
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: EFFECTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+  - name: redtail_network__base_contact_addresses
+    columns:
+      - name: CONTACT_ID
+        description: ''
+        data_type: NUMBER
+      - name: ADDRESS_ID
+        description: ''
+        data_type: NUMBER
+      - name: ADDRESS_TYPE
+        description: ''
+        data_type: NUMBER
+      - name: ADDRESS_TYPE_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: STREET_ADDRESS
+        description: ''
+        data_type: VARCHAR
+      - name: SECONDARY_ADDRESS
+        description: ''
+        data_type: VARCHAR
+      - name: CITY
+        description: ''
+        data_type: VARCHAR
+      - name: STATE
+        description: ''
+        data_type: VARCHAR
+      - name: ZIP
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRY
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTOM_TYPE_TITLE
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: ADDRESSABLE_ID
+        description: ''
+        data_type: NUMBER
+      - name: ADDRESSABLE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: IS_PREFERRED
+        description: ''
+        data_type: NUMBER
+      - name: IS_PRIMARY
+        description: ''
+        data_type: NUMBER
+      - name: IS_SHARED
+        description: ''
+        data_type: NUMBER
+      - name: IS_DELETED
+        description: ''
+        data_type: NUMBER
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: EFFECTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+  - name: redtail_network__base_contact_email_addresses
+    columns:
+      - name: CONTACT_ID
+        description: ''
+        data_type: NUMBER
+      - name: EMAIL_ID
+        description: ''
+        data_type: NUMBER
+      - name: EMAIL_TYPE
+        description: ''
+        data_type: NUMBER
+      - name: EMAIL_TYPE_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: EMAIL_ADDRESS
+        description: ''
+        data_type: VARCHAR
+      - name: EMAILABLE_ID
+        description: ''
+        data_type: NUMBER
+      - name: EMAILABLE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTOM_TYPE_TITLE
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: IS_DELETED
+        description: ''
+        data_type: NUMBER
+      - name: IS_PREFERRED
+        description: ''
+        data_type: NUMBER
+      - name: IS_PRIMARY
+        description: ''
+        data_type: NUMBER
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: EFFECTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+  - name: redtail_network__base_contact_keywords
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: KEYWORD_ID
+        description: ''
+        data_type: NUMBER
+      - name: CONTACT_ID
+        description: ''
+        data_type: NUMBER
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: IS_DELETED
+        description: ''
+        data_type: NUMBER
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: EFFECTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+  - name: redtail_network__base_contact_phone_numbers
+    columns:
+      - name: CONTACT_ID
+        description: ''
+        data_type: NUMBER
+      - name: PHONE_ID
+        description: ''
+        data_type: NUMBER
+      - name: PHONE_TYPE
+        description: ''
+        data_type: NUMBER
+      - name: PHONE_TYPE_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: PHONE_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: EXTENSION
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRY_CODE
+        description: ''
+        data_type: NUMBER
+      - name: CALLABLE_ID
+        description: ''
+        data_type: NUMBER
+      - name: CALLABLE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTOM_TYPE_TITLE
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: IS_DELETED
+        description: ''
+        data_type: NUMBER
+      - name: IS_PREFERRED
+        description: ''
+        data_type: NUMBER
+      - name: IS_PRIMARY
+        description: ''
+        data_type: NUMBER
+      - name: IS_SHARED
+        description: ''
+        data_type: NUMBER
+      - name: SPEED_DIAL
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: EFFECTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+  - name: redtail_network__base_contact_tag_memberships
+    columns:
+      - name: CONTACT_ID
+        description: ''
+        data_type: NUMBER
+      - name: TAG_ID
+        description: ''
+        data_type: NUMBER
+      - name: TAG_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TAG_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: IS_DELETED
+        description: ''
+        data_type: NUMBER
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: EFFECTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+  - name: redtail_network__int_contact_udfs
+    columns:
+      - name: UDF_ID
+        description: ''
+        data_type: NUMBER
+      - name: CONTACT_ID
+        description: ''
+        data_type: NUMBER
+      - name: CONTACT_UDF_FIELD_ID
+        description: ''
+        data_type: NUMBER
+      - name: FIELD_TYPE
+        description: ''
+        data_type: NUMBER
+      - name: FIELD_TYPE_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: IS_DELETED
+        description: ''
+        data_type: NUMBER
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: EFFECTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: "'ACCOUNT AGGREGATION SYSTEM'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'BASIC DATA LAST VERIFIED(PERSON/DATE)'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'BOOKS CHECKED OUT'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'BRANCH ID - NON OSJ'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'BRANCH ID - NON OSJ - #2'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'BRANCH ID - NON OSJ - #3'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'BRANCH ID - NON OSJ - #4'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'BRANCH ID - OSJ'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'BRANCH ID - SATELLITE OFFICE'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'CRD #'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'CRM SYSTEM'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'CLUB LEVEL 2012'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'CURRENT BD'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'DESIGNATED IAR (PAA PROGRAM)'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'DOCUPACE USERNAME'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'EMPLOYING REP (NAME)'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'ENTITY ID'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'ENTITY NAME'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'FP SOFTWARE'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'FIDELITY G#'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'HYBRID REP ID'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'HYBRID SECONDARY ID 1'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'HYBRID SECONDARY ID 2'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'HYBRID SECONDARY ID 3'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'HYBRID SECONDARY ID 4'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'INSTITUTIONAL PAA ID'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'INSURANCE LICENSE (#/STATE)'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'INSURANCE ONLY REP ID'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'LPL AFFILIATION DATE '"
+        description: ''
+        data_type: VARCHAR
+      - name: "'MASTER REP ID'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'MODELS'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'MONEYGUIDEPRO USERNAME'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'NLA LPL ID'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'NETWORK ALLIANCE FEE ($)'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'PCS BILL RATE'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'PCS LAST QUARTERLY AUM'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'PCS LAST QUARTERLY FEES'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'PREVIOUS BD'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'PRIORITY 1'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'PRIORITY 2'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'PRIORITY 3'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'RIA HYBRID FIRM LPL ID'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'RIA HYBRID FIRM NAME'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'RPCP (YES)'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'RECRUIT APPROX GDC'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'REHIRE DATE'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SCHWAB LPL ID'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SCHWAB MASTER ACCOUNT NUMBER(S)'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SECONDARY REP ID'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SECONDARY REP ID 1'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SECONDARY REP ID 2'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SECONDARY REP ID 3'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SECONDARY REP ID 4'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SECONDARY REP ID 5'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SECONDARY REP ID 6'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SIG GAR STAMP (#)'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SPLIT REP ID'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SPLIT REP ID 1'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SPLIT REP ID 10'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SPLIT REP ID 11'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SPLIT REP ID 12'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SPLIT REP ID 2'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SPLIT REP ID 3'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SPLIT REP ID 4'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SPLIT REP ID 5'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SPLIT REP ID 6'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SPLIT REP ID 7'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SPLIT REP ID 8'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SPLIT REP ID 9'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'SUCCESSION/CONTINGENCY PLAN(YES/WHO WITH)'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'TD AMERITRADE MASTER ACCOUNT NUMBER'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'TERMINATION DATE'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'TRANSITION SPECIALIST'"
+        description: ''
+        data_type: VARCHAR
+      - name: "'WEBSITE VENDOR'"
+        description: ''
+        data_type: VARCHAR
+  - name: redtail_network__base_contact_udfs
+    columns:
+      - name: UDF_ID
+        description: ''
+        data_type: NUMBER
+      - name: CONTACT_ID
+        description: ''
+        data_type: NUMBER
+      - name: CONTACT_UDF_FIELD_ID
+        description: ''
+        data_type: NUMBER
+      - name: CONTACT_UDF_FIELD_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: FIELD_TYPE
+        description: ''
+        data_type: NUMBER
+      - name: FIELD_TYPE_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: FIELD_VALUE
+        description: ''
+        data_type: VARCHAR
+      - name: IS_DELETED
+        description: ''
+        data_type: NUMBER
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: EFFECTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+  - name: redtail_network__nml_contacts
+    columns:
+      - name: CONTACT_ID
+        description: ''
+        data_type: NUMBER
+      - name: BUSINESS
+        description: ''
+        data_type: VARCHAR
+      - name: FIRST_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: MIDDLE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LAST_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: COMPANY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: FULL_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: NICKNAME
+        description: ''
+        data_type: VARCHAR
+      - name: SUFFIX_ID
+        description: ''
+        data_type: NUMBER
+      - name: SUFFIX
+        description: ''
+        data_type: VARCHAR
+      - name: JOB_TITLE
+        description: ''
+        data_type: VARCHAR
+      - name: FAVORITE
+        description: ''
+        data_type: VARCHAR
+      - name: PRONOUNS
+        description: ''
+        data_type: VARCHAR
+      - name: IS_DELETED
+        description: ''
+        data_type: NUMBER
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: SALUTATION_ID
+        description: ''
+        data_type: NUMBER
+      - name: SALUTATION
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE_ID
+        description: ''
+        data_type: NUMBER
+      - name: SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: STATUS_ID
+        description: ''
+        data_type: NUMBER
+      - name: STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: CATEGORY_ID
+        description: ''
+        data_type: NUMBER
+      - name: CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: GENDER_ID
+        description: ''
+        data_type: NUMBER
+      - name: GENDER
+        description: ''
+        data_type: VARCHAR
+      - name: GENDER_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: SPOUSE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TAX_ID
+        description: ''
+        data_type: VARCHAR
+      - name: DOB
+        description: ''
+        data_type: DATE
+      - name: DEATH_DATE
+        description: ''
+        data_type: DATE
+      - name: CLIENT_SINCE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: CLIENT_TERMINATION_DATE
+        description: ''
+        data_type: DATE
+      - name: MARITAL_STATUS_ID
+        description: ''
+        data_type: NUMBER
+      - name: MARITAL_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: MARITAL_DATE
+        description: ''
+        data_type: DATE
+      - name: EMPLOYER_ID
+        description: ''
+        data_type: NUMBER
+      - name: EMPLOYER
+        description: ''
+        data_type: VARCHAR
+      - name: DESIGNATION
+        description: ''
+        data_type: VARCHAR
+      - name: REFERRED_BY
+        description: ''
+        data_type: VARCHAR
+      - name: SERVICING_ADVISOR_ID
+        description: ''
+        data_type: NUMBER
+      - name: SERVICING_ADVISOR
+        description: ''
+        data_type: VARCHAR
+      - name: WRITING_ADVISOR_ID
+        description: ''
+        data_type: NUMBER
+      - name: WRITING_ADVISOR
+        description: ''
+        data_type: VARCHAR
+      - name: ADDED_BY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ADDED_BY
+        description: ''
+        data_type: NUMBER
+      - name: FAMILY
+        description: ''
+        data_type: VARIANT
+      - name: ADDRESSES
+        description: ''
+        data_type: VARIANT
+      - name: PHONES
+        description: ''
+        data_type: VARIANT
+      - name: EMAILS
+        description: ''
+        data_type: VARIANT
+      - name: URLS
+        description: ''
+        data_type: VARIANT
+      - name: TAG_MEMBERSHIPS
+        description: ''
+        data_type: VARIANT
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: EFFECTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR

@@ -4,7 +4,7 @@ models:
     columns:
       - name: EFFECTIVE_AT
         description: The datetime this record was pulled from the source system (previously ADP, now Oracle HCM)
-        data_type: VARCHAR
+        data_type: TIMESTAMP_NTZ
       - name: ORACLE_EMPLOYEE_NUM
         description: 'System identifier for the associate (ex. HCM Oracle EE #)'
         data_type: VARCHAR
@@ -239,11 +239,11 @@ models:
       - name: FUTURE_HIRE
         description: Indicates if the new hire has a hire date in the future
         data_type: VARCHAR
-      - name: EFFECTIVE_DATE
-        description: 'The source file date/when it was extracted from HCM.'
-        data_type: DATE
       - name: IS_HEAD
         description: 'Returns the latest version of the demographics file from HCM.'
+        data_type: NUMBER
+      - name: IS_HEAD_FOR_DAY
+        description: ''
         data_type: NUMBER
       - name: _CREATED_AT
         description: 'Datetime when the record was created in Snowflake.'

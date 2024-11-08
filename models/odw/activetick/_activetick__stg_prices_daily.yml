@@ -1,0 +1,28 @@
+version: 2
+models:
+  - name: activetick__stg_prices_daily
+    columns:
+      - name: ACTIVETICK_SYMBOL
+        description: ''
+      - name: SYMBOL
+        description: ''
+      - name: OPEN_PRICE
+        description: ''
+      - name: CLOSE_PRICE
+        description: ''
+      - name: HIGH_PRICE
+        description: ''
+      - name: LOW_PRICE
+        description: ''
+      - name: VOLUME
+        description: ''
+      - name: TRADE_COUNT
+        description: ''
+      - name: AT_TIMESTAMP
+        description: ''
+      - name: IS_INDEX
+        description: ''
+      - name: _CREATED_AT
+        description: ''
+      - name: IS_LATEST
+        description: ''

@@ -1,0 +1,90 @@
+version: 2
+models:
+  - name: locations_active
+    description: Same as `locations` but filtered for `active = 1`
+
+    columns:
+      - name: LOCATION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: START_DATE
+        description: ''
+        data_type: DATE
+      - name: END_DATE
+        description: ''
+        data_type: DATE
+      - name: ACTIVE
+        description: ''
+        data_type: NUMBER
+      - name: BUSINESS_UNIT
+        description: ''
+        data_type: VARCHAR
+      - name: SECTOR
+        description: ''
+        data_type: VARCHAR
+      - name: DIVISION
+        description: ''
+        data_type: VARCHAR
+      - name: REGION_NAME
+        description: 'Region name, markets are grouped into a region'
+        data_type: VARCHAR
+      - name: MARKET_NAME
+        description: 'Market name, locations are grouped into a market'
+        data_type: VARCHAR
+      - name: LOCATION_NAME
+        description: 'Location name, offices are grouped into a location'
+        data_type: VARCHAR
+      - name: OFFICE_NAME
+        description: 'Office name/location in the format of ''City, State'''
+        data_type: VARCHAR
+      - name: DEPARTMENT
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_CITY
+        description: 'Location city'
+        data_type: VARCHAR
+      - name: LOCATION_STATE
+        description: 'Location state'
+        data_type: VARCHAR
+      - name: ACCOUNTING_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNTING_ID_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: ACQUISITION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACQUISITION_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: LEADER_1
+        description: ''
+        data_type: VARCHAR
+      - name: LEADER_1_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: LEADER_2
+        description: ''
+        data_type: VARCHAR
+      - name: LEADER_2_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: HR_BUSINESS_PARTNER
+        description: ''
+        data_type: VARCHAR
+      - name: IS_GREENFIELD
+        description: ''
+        data_type: NUMBER
+      - name: ACQUISITION_START_MONTH
+        description: ''
+        data_type: DATE
+      - name: INCEPTION_DATE
+        description: ''
+        data_type: DATE
+      - name: _SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ

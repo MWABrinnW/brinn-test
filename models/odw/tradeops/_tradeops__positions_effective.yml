@@ -1,0 +1,84 @@
+version: 2
+models:
+  - name: tradeops__positions_effective
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: PLATFORM
+        description: ''
+        data_type: VARCHAR
+      - name: VENUE
+        description: ''
+        data_type: VARCHAR
+        meta:
+          row_access_policy: rap_tradeops_venue
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_ID
+        description: ''
+        data_type: NUMBER
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_ID
+        description: ''
+        data_type: NUMBER
+      - name: PRODUCT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: ACTUAL_QUANTITY
+        description: ''
+        data_type: NUMBER
+      - name: RESTRICTED_QUANTITY
+        description: ''
+        data_type: NUMBER
+      - name: LAST_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: BID_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: ASK_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: PRICE_UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: PREV_CLOSE_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: RESTRICTION_DETAILS
+        description: ''
+        data_type: VARCHAR
+      - name: VALUE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_HAS_OMIT_RESTRICTIONS
+        description: ''
+        data_type: NUMBER
+      - name: ACCOUNT_HAS_LIMIT_RESTRICTIONS
+        description: ''
+        data_type: NUMBER
+      - name: ACCOUNT_HAS_TARGET_RESTRICTIONS
+        description: ''
+        data_type: NUMBER
+      - name: IS_EXCLUDED
+        description: ''
+        data_type: NUMBER
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: LAST_COLLECTED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ

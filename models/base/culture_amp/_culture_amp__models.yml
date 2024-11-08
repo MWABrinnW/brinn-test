@@ -1,0 +1,34 @@
+version: 2
+models:
+  - name: culture_amp__base_survey
+    columns:
+      - name: SURVEY_ID
+        description: ''
+        data_type: VARCHAR
+      - name: SURVEY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: EMPLOYEE_ID
+        description: ''
+        data_type: NUMBER
+      - name: QUESTION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: QUESTION_TEXT
+        description: ''
+        data_type: VARCHAR
+      - name: RESPONSE
+        description: ''
+        data_type: VARCHAR
+      - name: SUBMITTED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: RECORD_DATE
+        description: ''
+        data_type: DATE
+      - name: RECORD_DATETIME
+        description: ''
+        data_type: TIMESTAMP_LTZ

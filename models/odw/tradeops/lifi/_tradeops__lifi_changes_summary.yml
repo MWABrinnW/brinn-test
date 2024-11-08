@@ -1,0 +1,49 @@
+version: 2
+models:
+  - name: tradeops__lifi_changes_summary
+    columns:
+      - name: SALESFORCE_NEEDS_UPDATED
+        description: ''
+        data_type: NUMBER
+      - name: CHANGE_SUMMARY
+        description: ''
+        data_type: VARCHAR
+      - name: SHOULD_BE_LIFI
+        description: ''
+        data_type: NUMBER
+      - name: LIFI_REASON
+        description: ''
+        data_type: VARCHAR
+      - name: IS_SALESFORCE_LIFI
+        description: ''
+        data_type: NUMBER
+      - name: IS_IN_ORION
+        description: ''
+        data_type: NUMBER
+      - name: IS_IN_SCHWAB
+        description: ''
+        data_type: NUMBER
+      - name: IS_IN_FIDELITY
+        description: ''
+        data_type: NUMBER
+      - name: IS_CUSTODIAN_LIFI
+        description: ''
+        data_type: NUMBER
+      - name: IS_SUBADVISOR_LIFI
+        description: ''
+        data_type: NUMBER
+      - name: IS_SF_CLOSED
+        description: ''
+        data_type: NUMBER
+      - name: IS_SF__STATUS_OPEN
+        description: ''
+        data_type: NUMBER
+      - name: IS_LINKED_AT_ALL
+        description: ''
+        data_type: NUMBER
+      - name: IS_CUSTODIAN_ACCOUNT_VALUE_NONZERO
+        description: ''
+        data_type: NUMBER
+      - name: CNT
+        description: ''
+        data_type: NUMBER

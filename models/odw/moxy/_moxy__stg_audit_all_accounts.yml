@@ -1,0 +1,206 @@
+version: 2
+models:
+- name: moxy__stg_audit_all_accounts
+  columns:
+  - name: CLIENT_ID
+    description: ''
+  - name: REGISTRATION_ID
+    description: ''
+  - name: ACCOUNT_ID
+    description: ''
+  - name: FIRST_NAME
+    description: ''
+  - name: LAST_NAME
+    description: ''
+  - name: CLIENT_NAME
+    description: ''
+  - name: REG_NAME
+    description: ''
+  - name: REP_NAME
+    description: ''
+  - name: REP_NUMBER
+    description: ''
+  - name: ADDRESS1
+    description: ''
+  - name: ADDRESS2
+    description: ''
+  - name: ADDRESS3
+    description: ''
+  - name: CITY
+    description: ''
+  - name: STATE
+    description: ''
+  - name: ZIP
+    description: ''
+  - name: EMAIL
+    description: ''
+  - name: PHONE_HOME
+    description: ''
+  - name: PHONE_BUSINESS
+    description: ''
+  - name: STATEMENT_TRANSMIT_METHOD
+    description: ''
+  - name: REG_DESCRIPTION
+    description: ''
+  - name: FUND_NAME
+    description: ''
+  - name: ACCOUNT_NUMBER
+    description: ''
+  - name: MGMT_STYLE
+    description: ''
+  - name: FEE_SCHEDULE
+    description: ''
+  - name: FEE_TYPE
+    description: ''
+  - name: MASTER_PAYOUT_SCHEDULE
+    description: ''
+  - name: PAY_METHOD_INSTRUCTION
+    description: ''
+  - name: BILL_FREQUENCY
+    description: ''
+  - name: BILL_STYLE
+    description: ''
+  - name: CUSTODIAN
+    description: ''
+  - name: OUTSIDE_ID
+    description: ''
+  - name: SUBADVISORNAME
+    description: ''
+  - name: IS_PERFORMANCE_BILLED
+    description: ''
+  - name: LAST_PERFORMANCE_BILL_DATE
+    description: ''
+  - name: CREATEDDATE
+    description: ''
+  - name: EDITEDDATE
+    description: ''
+  - name: INVESTMENTOBJECTIVE
+    description: ''
+  - name: PLANNAME
+    description: ''
+  - name: PLANSPONSOR
+    description: ''
+  - name: PLANADMINISTRATORNAME
+    description: ''
+  - name: ACCOUNT_START_DATE
+    description: ''
+  - name: BILL_START_DATE
+    description: ''
+  - name: FKPLAN
+    description: ''
+  - name: CURRENT_VALUE
+    description: ''
+  - name: PKACCT_THAT_DOES_PAYING
+    description: ''
+  - name: PERCENT_PAID_BY_ACCOUNT
+    description: ''
+  - name: ACCT_VALUE_THAT_DOES_PAYING
+    description: ''
+  - name: ACCT_NO_THAT_DOES_PAYING
+    description: ''
+  - name: TIME_HORIZON
+    description: ''
+  - name: RETURN_OBJECTIVE
+    description: ''
+  - name: STOCK_PERCENTAGE
+    description: ''
+  - name: RISK_TOLERANCE
+    description: ''
+  - name: MODEL_NAME
+    description: ''
+  - name: BD_NAME
+    description: ''
+  - name: VALUATION_METHOD
+    description: ''
+  - name: CREDIT_REMAINING
+    description: ''
+  - name: SALUTATION
+    description: ''
+  - name: NET_WORTH
+    description: ''
+  - name: CYCLE_MONTH
+    description: ''
+  - name: ISQUAL
+    description: ''
+  - name: TRADE_INSTRUCTION
+    description: ''
+  - name: BUSINESS_LINE
+    description: ''
+  - name: CUSTODIAN_CODE
+    description: ''
+  - name: PLAN_NUMBER
+    description: ''
+  - name: MGMT_STYLE_CODE
+    description: ''
+  - name: SUB_ADVISOR_CODE
+    description: ''
+  - name: ADDITIONAL_CHARGE_CREDIT_AMOUNT
+    description: ''
+  - name: ADDITIONAL_CHARGE_CREDIT_TYPE
+    description: ''
+  - name: MODEL_GROUP_NUM
+    description: ''
+  - name: MINIMUM_INCEPTION_DATE
+    description: ''
+  - name: TRUE_ACCOUNT_START_DATE
+    description: ''
+  - name: REPONSIBLE_PARTY
+    description: ''
+  - name: ACCOUNT_STATUS
+    description: ''
+  - name: INCLUDE_IN_QPE
+    description: ''
+  - name: INCLUDE_IN_TWR
+    description: ''
+  - name: BILLINGNONMGDACCTNO
+    description: ''
+  - name: BILLINGNONMGDACCTNAME
+    description: ''
+  - name: BILLINGNONMGDCLIENT
+    description: ''
+  - name: SSN
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: ISACCOUNTACTIVE
+    description: ''
+  - name: BRANCHID
+    description: ''
+  - name: CLIENTCREATEDDATE
+    description: ''
+  - name: LASTTRXDATE
+    description: ''
+  - name: LASTINVOICECREATIONDATE
+    description: ''
+  - name: FKACCOUNTHISTORY
+    description: ''
+  - name: TEAM
+    description: ''
+  - name: OUTSIDE_ID_HOUSEHOLD
+    description: ''
+  - name: OUTSIDE_THIRD_PARTY
+    description: ''
+  - name: INTRODUCERS_WHOLESALERS
+    description: ''
+  - name: PAYOUT_ANNIVERSARY_DATE
+    description: ''
+  - name: CANCEL_DATE
+    description: ''
+  - name: HOUSEHOLD_CLOSE_DATE
+    description: ''
+  - name: KEEP_OPEN
+    description: ''
+  - name: ISMANAGED
+    description: ''
+  - name: RECONDATE
+    description: ''
+  - name: SOURCE
+    description: ''
+  - name: HOUSEHOLDSTARTDATE
+    description: ''
+  - name: OTHER_MGRS_SEC_NUMBER
+    description: ''
+  - name: RECORD_DATETIME
+    description: ''
+  - name: RECORD_DATE
+    description: ''

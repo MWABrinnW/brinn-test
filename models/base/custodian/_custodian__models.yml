@@ -1,0 +1,7 @@
+version: 2
+models:
+  - name: pershing_udfs
+    columns:
+      - name: _DUMMY
+        description: ''
+        data_type: NUMBER

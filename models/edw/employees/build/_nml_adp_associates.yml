@@ -29,6 +29,12 @@ models:
       - name: JOB_FUNCTION_CODE
         description: ''
         data_type: VARCHAR
+      - name: JOB_FUNCTION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: JOB_FAMILY
+        description: ''
+        data_type: VARCHAR
       - name: CHANGE_REASON_CODE
         description: ''
         data_type: VARCHAR
@@ -39,6 +45,9 @@ models:
         description: ''
         data_type: VARCHAR
       - name: WORK_FROM_HOME
+        description: ''
+        data_type: VARCHAR
+      - name: WORKPLACE
         description: ''
         data_type: VARCHAR
       - name: PERSON_SOURCE
@@ -68,6 +77,8 @@ models:
       - name: ASSOCIATE_BIRTH_DATE
         description: ''
         data_type: DATE
+        meta:
+          masking_policy: mp_associate_pii_date
       - name: ASSOCIATE_GENDER_CODE
         description: ''
         data_type: VARCHAR
@@ -236,6 +247,9 @@ models:
       - name: JOB_LEVEL
         description: ''
         data_type: VARCHAR
+      - name: ADVISOR_NONADVISOR
+        description: ''
+        data_type: VARCHAR
       - name: POSITION_DEPARTMENT_NAME
         description: ''
         data_type: VARCHAR
@@ -252,16 +266,16 @@ models:
         description: ''
         data_type: VARCHAR
       - name: OFFICE_NAME
-        description: ''
+        description: 'Office name/location in the format of ''City, State'''
         data_type: VARCHAR
       - name: LOCATION_NAME
-        description: ''
+        description: 'Location name, offices are grouped into a location'
         data_type: VARCHAR
       - name: DEPARTMENT
         description: ''
         data_type: VARCHAR
       - name: REGION_NAME
-        description: ''
+        description: 'Region name, markets are grouped into a region'
         data_type: VARCHAR
       - name: DIVISION
         description: ''
@@ -285,6 +299,15 @@ models:
         description: ''
         data_type: VARCHAR
       - name: AD_MANAGER_DISTINGUISHEDNAME
+        description: ''
+        data_type: VARCHAR
+      - name: RN_EMPLOYEE_NUM
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
         description: ''
         data_type: VARCHAR
       - name: IS_HEAD

@@ -1,7 +1,8 @@
 with cte_effective_dates as (
     select distinct effective_date
     from {{ ref('morningstar_hfw__base_accounts') }}
-    where effective_date >= '2/1/2023'-- excluding pre 202302, not all dataset were being collected consistently
+    -- excluding pre 202302, not all dataset were being collected consistently
+    where effective_date >= '2/1/2023'
     order by effective_date
 )
 
@@ -64,7 +65,8 @@ with cte_effective_dates as (
         , client_name
         , account_owner
         , portfolio_risk_score
-        , coalesce(nullif(trim(open_date) , '') , '2022-08-01')                                               as open_date-- logic pulled from Alteryx flow
+        -- logic pulled from Alteryx flow
+        , coalesce(nullif(trim(open_date) , '') , '2022-08-01')                                               as open_date
         , closed_date
         , performance_start_date
         , investment_strategy
@@ -310,9 +312,11 @@ with cte_effective_dates as (
             when m_acc.effective_date is not null then m_acc.effective_date
             else hfw.effective_at::date
         end                                                                    as as_of_date
-        , null                                                                 as aum_status-- calculated in next cte
+        , null                                                                 as aum_status
+        -- calculated in next cte
         , b.effective_date                                                     as effective_date
-        , last_day(b.effective_date)                                           as month_end_date-- last day of previous month
+        -- last day of previous month
+        , last_day(b.effective_date)                                           as month_end_date
         , case
             when olap.client_name is not null then m_acc._source_file
             when t_acc.effective_date is not null then t_acc.source_file

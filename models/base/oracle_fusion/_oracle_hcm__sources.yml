@@ -10,4 +10,19 @@ sources:
     tables:
       - name: hcm_employee_demographics
         description: ""
-
+        columns:
+          - name: CONTENT
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ

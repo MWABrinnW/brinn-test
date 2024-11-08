@@ -1,0 +1,91 @@
+version: 2
+models:
+  - name: bld_securities
+    columns:
+      - name: SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSET_CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: ASSET_CLASS
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP_SECURITY_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP_SECURITY_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP_FUND_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP_INCOME_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP_BOND_FORM
+        description: ''
+        data_type: VARCHAR
+      - name: MATURITY_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: COUPON_RATE
+        description: ''
+        data_type: FLOAT
+      - name: CLOSING_DATE
+        description: ''
+        data_type: DATE
+      - name: IS_13F
+        description: ''
+        data_type: NUMBER
+      - name: WHERE_TRADED
+        description: ''
+        data_type: VARCHAR
+      - name: ISIN
+        description: ''
+        data_type: VARCHAR
+      - name: US_CFI_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: ISO_CFI_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP_ISSUER_NUM
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP_ISSUE_NUM
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP_ISSUE_CHECK
+        description: ''
+        data_type: VARCHAR
+      - name: ORION_INSTANCE_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: ORION_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: RN_TICKER
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR

@@ -1,0 +1,96 @@
+version: 2
+models:
+  - name: tradeops__allocations_oms
+    columns:
+      - name: PLATFORM
+        description: ''
+        data_type: VARCHAR
+      - name: VENUE
+        description: ''
+        data_type: VARCHAR
+        meta:
+          row_access_policy: rap_tradeops_venue
+      - name: ORDER_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: ALLOCATION_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: TRADE_DATE
+        description: ''
+        data_type: DATE
+      - name: TRADE_EXECUTED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: ORDER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_ID_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: BLOCK_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ALLOCATION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ALLOCATION_ID_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: BROKER_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: IS_TRADE_AWAY
+        description: ''
+        data_type: NUMBER
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ASSET_CLASS
+        description: ''
+        data_type: VARCHAR
+      - name: TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: QUANTITY
+        description: ''
+        data_type: NUMBER
+      - name: PRICE
+        description: ''
+        data_type: NUMBER
+      - name: AVERAGE_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: NET_AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: ORDER_SIDE
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_EFFECT
+        description: ''
+        data_type: VARCHAR
+      - name: PRINCIPAL
+        description: ''
+        data_type: NUMBER
+      - name: COMMISSION
+        description: ''
+        data_type: NUMBER
+      - name: INTEREST
+        description: ''
+        data_type: NUMBER
+      - name: FEES
+        description: ''
+        data_type: NUMBER
+      - name: CREATED_BY
+        description: ''
+        data_type: VARCHAR
+      - name: LAST_COLLECTED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _EXTRA_FIELDS
+        description: ''
+        data_type: OBJECT

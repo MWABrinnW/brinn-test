@@ -1,0 +1,37 @@
+version: 2
+models:
+  - name: edm__stg_legal_entity_level5
+    columns:
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: PARENT
+        description: ''
+        data_type: VARCHAR
+      - name: LEVEL
+        description: ''
+        data_type: NUMBER
+      - name: HIERARCHY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: IS_ENABLED
+        description: ''
+        data_type: NUMBER
+      - name: END_DATE
+        description: ''
+        data_type: DATE
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR

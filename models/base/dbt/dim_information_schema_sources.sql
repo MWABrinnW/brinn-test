@@ -1,3 +1,5 @@
+{{ config(enabled = true) }}
+
 with cte_all_table_sources as
 (
     select *
@@ -9,12 +11,16 @@ with cte_all_table_sources as
     where table_type = 'BASE TABLE'
     union all
     select *
-    from devops.information_schema.tables
+    from odw.information_schema.tables
+    where table_type = 'BASE TABLE'
+    union all
+    select *
+    from raw.information_schema.tables
     where table_type = 'BASE TABLE'
 )
 ,cte_dbt_sources as
 (
-    select * 
+    select *
     from dbt.elementary.dbt_sources
 )
 

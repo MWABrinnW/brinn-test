@@ -1,0 +1,37 @@
+version: 2
+models:
+  - name: ref__index_performance
+    columns:
+      - name: MARKET_DATE
+        description: ''
+        data_type: DATE
+      - name: MONTH_END_DATE
+        description: ''
+        data_type: DATE
+      - name: TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: OPEN
+        description: ''
+        data_type: NUMBER
+      - name: HIGH
+        description: ''
+        data_type: NUMBER
+      - name: LOW
+        description: ''
+        data_type: NUMBER
+      - name: CLOSE
+        description: ''
+        data_type: NUMBER
+      - name: VOLUME
+        description: ''
+        data_type: NUMBER
+      - name: DIVIDENDS
+        description: ''
+        data_type: NUMBER
+      - name: STOCK_SPLITS
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ

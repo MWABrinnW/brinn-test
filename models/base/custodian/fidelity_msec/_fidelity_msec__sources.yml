@@ -7,8 +7,104 @@ sources:
     loaded_at_field: record_datetime
     tables:
       - name: acctbald
+        columns:
+          - name: CONTENT
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: actvyd
+        columns:
+          - name: CONTENT
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: nabase
+        columns:
+          - name: CONTENT
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: positd
+        columns:
+          - name: CONTENT
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: secmast
+        columns:
+          - name: CONTENT
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: trdrev_td
+        columns:
+          - name: CONTENT
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: SOURCE_FILE
+            description: ''
+            data_type: VARCHAR

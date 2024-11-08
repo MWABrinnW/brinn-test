@@ -12,7 +12,7 @@ select
   , json:c10::varchar(100)      as city
   , json:c11::varchar(100)      as state
   , json:c12::varchar(50)       as zip_code
-  , json:c13::number            as ssn
+  , json:c13::text              as ssn
   , json:c14::varchar(100)      as account_number
   , json:c15::varchar(100)      as advisor_id
   , json:c16::varchar(100)      as taxable

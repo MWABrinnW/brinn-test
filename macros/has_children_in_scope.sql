@@ -13,7 +13,7 @@
     {% set has_children = namespace(value=false) %}
 
     {# Iterate through the selected models to check for children of the target model #}
-    {{ log("Iterating selected models to check for children of " ~ target_model, info=true) }}
+    {{ log("Checking if any selected models are children of " ~ target_model, info=true) }}
     {% for model in selected_resources if has_children.value == false %}
 
         {# Pull up the node from the graph #}

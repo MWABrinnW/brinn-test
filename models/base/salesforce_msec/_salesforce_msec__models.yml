@@ -1,0 +1,6512 @@
+version: 2
+models:
+- name: salesforce_msec__base_payout_advisor_confidential_information_c
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONNECTION_RECEIVED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_SENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ACCOUNT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_NOTES_C
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_beneficiary_c
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: CONNECTION_RECEIVED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_SENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_commission_batch_c
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONNECTION_RECEIVED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_SENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CHECK_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_DEPOSIT_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_LINE_OF_BUSINESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PAYOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATEMENT_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_BD_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_COMMISSION_RUN_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PAYOUT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BATCH_PROCESSED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_CHECK_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_X_12_B_1_BATCH_C
+    description: ''
+    data_type: BOOLEAN
+  - name: RECONCILED_BY_FINANCE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SOURCE_DATAS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_COMMISSION_BATCH_UNIQUE_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATEMENT_BEG_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_COMMENTS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_AUTO_CALC_TOTAL_GROSS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_TOTAL_GROSS_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_ADD_DST_REP_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_CREATE_CLIENT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_CREATE_FINANCIAL_ACCOUNT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_CREATE_HOLDING_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_CURRENT_FILE_POSITION_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_FILE_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_FIRM_AFFILIATION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_IGNORE_FA_CHARACTERS_AFTER_DASH_C
+    description: ''
+    data_type: BOOLEAN
+  - name: CHECK_DATE_C
+    description: ''
+    data_type: DATE
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PAYOUT_BATCH_UPLOAD_ERRORS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BATCH_UPLOAD_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ACCOUNT_PRODUCT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CHECK_AMOUNT_FLAG_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PAYOR_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DESCRIPTION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOR_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LOB_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_RUN_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_REVERSAL_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_COMMISSION_TRANSACTION_GROSS_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_WF_RULE_FIRED_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CB_IN_PROOF_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_ADV_LEDGER_GROSS_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_CT_GROSS_LESS_AL_GROSS_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_FILENAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_COMMISSION_CALCULATION_ENDED_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PAYOUT_COMMISSION_CALCULATION_STARTED_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_dashboard_review_c
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: CONNECTION_RECEIVED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_SENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_finra_licensing_c
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONNECTION_RECEIVED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_SENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_finra_update_c
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONNECTION_RECEIVED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_SENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_line_of_authority_c
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONNECTION_RECEIVED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_SENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATE_LICENSE_C
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_naf_c
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONNECTION_RECEIVED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_SENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ANNUAL_INCOME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ANNUITIES_YEARS_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_ANNUITIES_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BOND_YEARS_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_BONDS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLIENT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DESCRIPTION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_FINANCIAL_ACCOUNT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_INVESTMENT_HORIZON_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LIQUID_NET_WORTH_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LIQUIDITY_NEEDS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MUTUAL_FUND_YEARS_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_MUTUAL_FUNDS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_NET_WORTH_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRIMARY_INVESTMENT_OBJECTIVE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_RISK_TOLERANCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SOURCE_OF_FUNDS_OTHER_DESCRIPTION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SOURCE_OF_FUNDS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STOCK_YEARS_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_STOCKS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_VARIABLE_LIFE_YEARS_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_VARIABLE_LIFE_C
+    description: ''
+    data_type: VARCHAR
+  - name: YEARS_OF_INVESTMENT_EXPERIENCE_C
+    description: ''
+    data_type: FLOAT
+  - name: STOCKS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_DATE_OF_LAST_UPDATE_C
+    description: ''
+    data_type: DATE
+  - name: MUTUAL_FUNDS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: BONDS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: VARIABLE_CONTRACTS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: LIMITED_PARTNERSHIPS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PRESERVATION_OF_CAPITAL_C
+    description: ''
+    data_type: FLOAT
+  - name: INCOME_C
+    description: ''
+    data_type: FLOAT
+  - name: CAPITAL_APPRECIATION_C
+    description: ''
+    data_type: FLOAT
+  - name: TRADING_PROFITS_C
+    description: ''
+    data_type: FLOAT
+  - name: SPECULATION_C
+    description: ''
+    data_type: FLOAT
+  - name: OTHER_C
+    description: ''
+    data_type: FLOAT
+  - name: COMBINATION_DESCRIPTION_C
+    description: ''
+    data_type: VARCHAR
+  - name: MORE_THAN_5_C
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_ACCOUNTS_C
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_SECURITY_ACCOUNTS_DETAIL_C
+    description: ''
+    data_type: VARCHAR
+  - name: I_CONSULT_WITH_MY_BROKER_C
+    description: ''
+    data_type: VARCHAR
+  - name: CONSULT_WITH_BROKER_DETAIL_C
+    description: ''
+    data_type: VARCHAR
+  - name: I_MAKE_MY_OWN_DECISIONS_C
+    description: ''
+    data_type: VARCHAR
+  - name: MAKE_OWN_DECISIONS_DETAIL_C
+    description: ''
+    data_type: VARCHAR
+  - name: I_CONSULT_WITH_FAMILY_FRIENDS_C
+    description: ''
+    data_type: VARCHAR
+  - name: CONSULT_WITH_FAMILY_FRIENDS_DETAIL_C
+    description: ''
+    data_type: VARCHAR
+  - name: STOCKS_HELD_AWAY_C
+    description: ''
+    data_type: FLOAT
+  - name: MUTUAL_FUNDS_HELD_AWAY_C
+    description: ''
+    data_type: FLOAT
+  - name: CDS_BANK_ACCOUNTS_HELD_AWAY_C
+    description: ''
+    data_type: FLOAT
+  - name: BONDS_HELD_AWAY_C
+    description: ''
+    data_type: FLOAT
+  - name: LIMITED_PARTNERSHIPS_HELD_AWAY_C
+    description: ''
+    data_type: FLOAT
+  - name: VARIABLE_CONTRACTS_HELD_AWAY_C
+    description: ''
+    data_type: FLOAT
+  - name: FIXED_ANNUITIES_HELD_AWAY_C
+    description: ''
+    data_type: FLOAT
+  - name: OTHER_HELD_AWAY_C
+    description: ''
+    data_type: FLOAT
+  - name: STOCKS_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: MUTUAL_FUNDS_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: CDS_BANK_ACCOUNTS_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: BONDS_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: LIMITED_PARTNERSHIPS_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: VARIABLE_CONTRACTS_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: FIXED_ANNUITIES_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: OTHER_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_OWNER_SIGNATURE_C
+    description: ''
+    data_type: DATE
+  - name: JOINT_OWNER_SIGNATURE_C
+    description: ''
+    data_type: DATE
+  - name: REP_SIGNATURE_C
+    description: ''
+    data_type: DATE
+  - name: PRINCIPAL_SIGNATURE_C
+    description: ''
+    data_type: DATE
+  - name: INVESTMENT_OBJECTIVE_OTHER_DESCRIPTION_C
+    description: ''
+    data_type: VARCHAR
+  - name: VARIABLE_CONTRACTS_EXP_C
+    description: ''
+    data_type: VARCHAR
+  - name: LIMITED_PARTNERSHIPS_EXP_C
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_INTEREST_C
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITION_INTEREST_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_NAF_SIGNATURE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_ALTERNATIVE_ADDRESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CARE_OF_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MOST_RECENT_36_MONTH_LETTER_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_NEW_ACCOUNT_17_A_3_LETTER_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_USE_CLIENT_ADDRESS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_X_17_A_3_ADDRESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_X_17_A_3_CITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_X_17_A_3_STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_X_17_A_3_ZIP_C
+    description: ''
+    data_type: VARCHAR
+  - name: NAF_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: MASS_UPDATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ADVISOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_KEY_FIELD_CHANGE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: TRUSTED_CONTACT_PERSON_C
+    description: ''
+    data_type: VARCHAR
+  - name: TRUSTED_CONTACT_PERSON_PHONE_C
+    description: ''
+    data_type: VARCHAR
+  - name: DATE_PAPERWORK_SENT_TO_CARRIER_C
+    description: ''
+    data_type: DATE
+  - name: OFAC_DTEC_APPROVAL_DATE_C
+    description: ''
+    data_type: DATE
+  - name: OFAC_DTEC_APPROVED_BY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAPERWORK_ENTERED_BY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAPERWORK_ENTERED_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAPERWORK_RECEIVED_BY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAPERWORK_RECEIVED_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAPERWORK_SENT_TO_CARRIER_BY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAPERWORK_STAGE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAPERWORK_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAPERWORK_URL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PRINCIPAL_APPROVAL_BY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PRINCIPAL_APPROVAL_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PRINCIPAL_APPROVAL_NOTIFIED_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PRINCIPAL_REJECTED_BY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PRINCIPAL_REJECTED_DATE_C
+    description: ''
+    data_type: DATE
+  - name: SIGNED_PAPERWORK_URL_C
+    description: ''
+    data_type: VARCHAR
+  - name: TRUSTED_CONTACT_PERSON_EMAIL_C
+    description: ''
+    data_type: VARCHAR
+  - name: YEARS_OF_INVESTMENT_EXPERIENCE_PICKLIST_C
+    description: ''
+    data_type: VARCHAR
+  - name: CRS_DELIVERY_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SR_OFFICER_C
+    description: ''
+    data_type: VARCHAR
+  - name: DIRECTOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: CONT_SH_C
+    description: ''
+    data_type: VARCHAR
+  - name: ASSOCIATED_WITH_BROKER_DEALER_C
+    description: ''
+    data_type: VARCHAR
+  - name: FINRA_AFFILIATED_C
+    description: ''
+    data_type: VARCHAR
+  - name: SR_POLICITAL_FIGURE_C
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: FINANCIAL_ACCOUNT_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_CHANGE_OF_ADDRESS_C
+    description: ''
+    data_type: DATE
+  - name: TOTAL_AMOUNT_HELD_AWAY_C
+    description: ''
+    data_type: NUMBER
+  - name: TOTAL_HELD_AWAY_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_NEXT_RECOMMENDED_36_MONTH_LETTER_C
+    description: ''
+    data_type: DATE
+  - name: ADDITIONAL_INTEREST_BIRTHDATE_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: PAYOUT_LAST_17_A_3_LETTER_C
+    description: ''
+    data_type: DATE
+  - name: PRIVACY_POLICY_C
+    description: ''
+    data_type: BOOLEAN
+  - name: COUNTRY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRIMARY_INVESTMENT_OBJECTIVE_PL_C
+    description: ''
+    data_type: VARCHAR
+  - name: MIGRATION_TRACK_ID_C
+    description: ''
+    data_type: VARCHAR
+- name: salesforce_msec__base_payout_ofac_c
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONNECTION_RECEIVED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_SENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_COUNTRY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DATE_OF_BIRTH_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: PAYOUT_DESCRIPTION_2_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DESCRIPTION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MIDDLE_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_NUMBER_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PHONE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PROGRAM_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SSN_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: PAYOUT_SDN_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STREET_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SUFFIX_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TITLE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TRACKING_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_UID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ZIP_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CALL_SIGN_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_GROSS_REGISTERED_TONNAGE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TONNAGE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_VESSEL_FLAG_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_VESSEL_OWNER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_VESSEL_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PAYOUT_FIRST_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LAST_NAME_C
+    description: ''
+    data_type: VARCHAR
+- name: salesforce_msec__base_payout_ofac_cs_c
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SETUP_OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PAYOUT_CLIENT_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLIENT_SECRET_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ENDPOINT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PASSWORD_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_USERNAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_payout_summary_c
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONNECTION_RECEIVED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_SENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ADVISOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_portfolio_c
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONNECTION_RECEIVED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_SENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_product_line_loa_c
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONNECTION_RECEIVED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_SENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CARRIER_APPOINTMENT_C
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_beneficiary_history
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: FIELD
+    description: ''
+    data_type: VARCHAR
+  - name: DATA_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: OLD_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: NEW_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_regulatory_action_history
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: FIELD
+    description: ''
+    data_type: VARCHAR
+  - name: DATA_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: OLD_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: NEW_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_tab_access_to_profile
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SETUP_OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PAYOUT_PROFILE_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_ticket_charge_rule_c
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONNECTION_RECEIVED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_SENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_FIRM_NAME_OPERATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_FIRM_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DESCRIPTION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PER_UNIT_CHARGE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_TICKET_CHARGE_SCHEDULE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TICKET_CHARGE_TO_ADVISOR_C
+    description: ''
+    data_type: NUMBER
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_ticket_charge_rule_history
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: FIELD
+    description: ''
+    data_type: VARCHAR
+  - name: DATA_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: OLD_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: NEW_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_seller
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PARTY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SALES_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: SELLER_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SELLER_TIER
+    description: ''
+    data_type: VARCHAR
+  - name: ACTIVE_FROM_DATE
+    description: ''
+    data_type: DATE
+  - name: ACTIVE_TO_DATE
+    description: ''
+    data_type: DATE
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_user
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: USERNAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: COMPANY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: DIVISION
+    description: ''
+    data_type: VARCHAR
+  - name: DEPARTMENT
+    description: ''
+    data_type: VARCHAR
+  - name: TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: STREET
+    description: ''
+    data_type: VARCHAR
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: STATE
+    description: ''
+    data_type: VARCHAR
+  - name: POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_PREFERENCES_AUTO_BCC
+    description: ''
+    data_type: BOOLEAN
+  - name: EMAIL_PREFERENCES_AUTO_BCC_STAY_IN_TOUCH
+    description: ''
+    data_type: BOOLEAN
+  - name: EMAIL_PREFERENCES_STAY_IN_TOUCH_REMINDER
+    description: ''
+    data_type: BOOLEAN
+  - name: SENDER_EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: SENDER_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SIGNATURE
+    description: ''
+    data_type: VARCHAR
+  - name: STAY_IN_TOUCH_SUBJECT
+    description: ''
+    data_type: VARCHAR
+  - name: STAY_IN_TOUCH_SIGNATURE
+    description: ''
+    data_type: VARCHAR
+  - name: STAY_IN_TOUCH_NOTE
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: FAX
+    description: ''
+    data_type: VARCHAR
+  - name: MOBILE_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: ALIAS
+    description: ''
+    data_type: VARCHAR
+  - name: COMMUNITY_NICKNAME
+    description: ''
+    data_type: VARCHAR
+  - name: BADGE_TEXT
+    description: ''
+    data_type: VARCHAR
+  - name: IS_ACTIVE
+    description: ''
+    data_type: BOOLEAN
+  - name: TIME_ZONE_SID_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: USER_ROLE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LOCALE_SID_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: RECEIVES_INFO_EMAILS
+    description: ''
+    data_type: BOOLEAN
+  - name: RECEIVES_ADMIN_INFO_EMAILS
+    description: ''
+    data_type: BOOLEAN
+  - name: EMAIL_ENCODING_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: PROFILE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: USER_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: LANGUAGE_LOCALE_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYEE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: DELEGATED_APPROVER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: MANAGER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_LOGIN_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_PASSWORD_CHANGE_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: NUMBER_OF_FAILED_LOGINS
+    description: ''
+    data_type: NUMBER
+  - name: OFFLINE_TRIAL_EXPIRATION_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: OFFLINE_PDA_TRIAL_EXPIRATION_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: USER_PERMISSIONS_MARKETING_USER
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PERMISSIONS_OFFLINE_USER
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PERMISSIONS_AVANTGO_USER
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PERMISSIONS_CALL_CENTER_AUTO_LOGIN
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PERMISSIONS_SFCONTENT_USER
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PERMISSIONS_INTERACTION_USER
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PERMISSIONS_SUPPORT_USER
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PERMISSIONS_CHATTER_ANSWERS_USER
+    description: ''
+    data_type: BOOLEAN
+  - name: FORECAST_ENABLED
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_ACTIVITY_REMINDERS_POPUP
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_EVENT_REMINDERS_CHECKBOX_DEFAULT
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_TASK_REMINDERS_CHECKBOX_DEFAULT
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_REMINDER_SOUND_OFF
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_DISABLE_ALL_FEEDS_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_DISABLE_FOLLOWERS_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_DISABLE_PROFILE_POST_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_DISABLE_CHANGE_COMMENT_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_DISABLE_LATER_COMMENT_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_DIS_PROF_POST_COMMENT_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_CONTENT_NO_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_CONTENT_EMAIL_AS_AND_WHEN
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_APEX_PAGES_DEVELOPER_MODE
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_RECEIVE_NO_NOTIFICATIONS_AS_APPROVER
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_RECEIVE_NOTIFICATIONS_AS_DELEGATED_APPROVER
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HIDE_CSNGET_CHATTER_MOBILE_TASK
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_DISABLE_MENTIONS_POST_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_DIS_MENTIONS_COMMENT_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HIDE_CSNDESKTOP_TASK
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HIDE_CHATTER_ONBOARDING_SPLASH
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HIDE_SECOND_CHATTER_ONBOARDING_SPLASH
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_DIS_COMMENT_AFTER_LIKE_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_DISABLE_LIKE_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SORT_FEED_BY_COMMENT
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_DISABLE_MESSAGE_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_DISABLE_BOOKMARK_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_DISABLE_SHARE_POST_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_ENABLE_AUTO_SUB_FOR_FEEDS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_DISABLE_FILE_SHARE_NOTIFICATIONS_FOR_API
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_TITLE_TO_EXTERNAL_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_MANAGER_TO_EXTERNAL_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_EMAIL_TO_EXTERNAL_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_WORK_PHONE_TO_EXTERNAL_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_MOBILE_PHONE_TO_EXTERNAL_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_FAX_TO_EXTERNAL_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_STREET_ADDRESS_TO_EXTERNAL_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_CITY_TO_EXTERNAL_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_STATE_TO_EXTERNAL_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_POSTAL_CODE_TO_EXTERNAL_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_COUNTRY_TO_EXTERNAL_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_PROFILE_PIC_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_TITLE_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_CITY_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_STATE_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_POSTAL_CODE_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_COUNTRY_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HIDE_S_1_BROWSER_UI
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_DISABLE_ENDORSEMENT_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_PATH_ASSISTANT_COLLAPSED
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_CACHE_DIAGNOSTICS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_EMAIL_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_MANAGER_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_WORK_PHONE_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_MOBILE_PHONE_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_FAX_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_STREET_ADDRESS_TO_GUEST_USERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_LIGHTNING_EXPERIENCE_PREFERRED
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_PREVIEW_LIGHTNING
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HIDE_END_USER_ONBOARDING_ASSISTANT_MODAL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HIDE_LIGHTNING_MIGRATION_MODAL
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HIDE_SFX_WELCOME_MAT
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HIDE_BIGGER_PHOTO_CALLOUT
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_GLOBAL_NAV_BAR_WTSHOWN
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_GLOBAL_NAV_GRID_MENU_WTSHOWN
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_CREATE_LEXAPPS_WTSHOWN
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_FAVORITES_WTSHOWN
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_RECORD_HOME_SECTION_COLLAPSE_WTSHOWN
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_RECORD_HOME_RESERVED_WTSHOWN
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_FAVORITES_SHOW_TOP_FAVORITES
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_EXCLUDE_MAIL_APP_ATTACHMENTS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SUPPRESS_TASK_SFXREMINDERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SUPPRESS_EVENT_SFXREMINDERS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_PREVIEW_CUSTOM_THEME
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HAS_CELEBRATION_BADGE
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_USER_DEBUG_MODE_PREF
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SRHOVERRIDE_ACTIVITIES
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_NEW_LIGHTNING_REPORT_RUN_PAGE_ENABLED
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_NATIVE_EMAIL_CLIENT
+    description: ''
+    data_type: BOOLEAN
+  - name: CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CALL_CENTER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EXTENSION
+    description: ''
+    data_type: VARCHAR
+  - name: FEDERATION_IDENTIFIER
+    description: ''
+    data_type: VARCHAR
+  - name: ABOUT_ME
+    description: ''
+    data_type: VARCHAR
+  - name: FULL_PHOTO_URL
+    description: ''
+    data_type: VARCHAR
+  - name: SMALL_PHOTO_URL
+    description: ''
+    data_type: VARCHAR
+  - name: IS_EXT_INDICATOR_VISIBLE
+    description: ''
+    data_type: BOOLEAN
+  - name: OUT_OF_OFFICE_MESSAGE
+    description: ''
+    data_type: VARCHAR
+  - name: MEDIUM_PHOTO_URL
+    description: ''
+    data_type: VARCHAR
+  - name: DIGEST_FREQUENCY
+    description: ''
+    data_type: VARCHAR
+  - name: DEFAULT_GROUP_NOTIFICATION_FREQUENCY
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: BANNER_PHOTO_URL
+    description: ''
+    data_type: VARCHAR
+  - name: SMALL_BANNER_PHOTO_URL
+    description: ''
+    data_type: VARCHAR
+  - name: MEDIUM_BANNER_PHOTO_URL
+    description: ''
+    data_type: VARCHAR
+  - name: IS_PROFILE_PHOTO_ACTIVE
+    description: ''
+    data_type: BOOLEAN
+  - name: INDIVIDUAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SKYVVASOLUTIONS_CIM_LICENCE_KEY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MANAGER_C
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HIDE_STATEMENTS_REDIRECT_CONFIRMATION
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HIDE_INVOICES_REDIRECT_CONFIRMATION
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HIDE_BROWSE_PRODUCT_REDIRECT_CONFIRMATION
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HIDE_ONLINE_SALES_APP_WELCOME_MAT
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_REVERSE_OPEN_ACTIVITIES_VIEW
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_SHOW_FORECASTING_CHANGE_SIGNALS
+    description: ''
+    data_type: BOOLEAN
+  - name: USER_PREFERENCES_HAS_SENT_WARNING_EMAIL
+    description: ''
+    data_type: BOOLEAN
+- name: salesforce_msec__base_payout_payout_summary_history
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: FIELD
+    description: ''
+    data_type: VARCHAR
+  - name: DATA_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: OLD_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: NEW_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_financial_account_c
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONNECTION_RECEIVED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_SENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLIENT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ACCOUNT_CLOSE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_ACCOUNT_DESCRIPTION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ACCOUNT_OPENING_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_ACCOUNT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_AD_REP_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ADVISOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ALBRIDGE_TITLE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_APPROVAL_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BENEFICIARY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CUSTODIAN_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DATE_OF_NAF_APPROVAL_OR_REJECTION_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_DATE_OF_NAF_SUBMISSION_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_FI_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_FEE_BASED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_FEED_BASE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_FINANCIAL_ACCOUNT_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_INST_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_INVESTMENT_OBJECTIVE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_JOINT_PARTY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MANAGED_ELSEWHERE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_MANAGED_BY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MARGIN_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_NAF_APPROVED_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_OWNERSHIP_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_POA_CONTACT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PORTFOLIO_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_POWER_OF_ATTORNEY_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_RATE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_RISK_TOLERANCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SEG_DICTATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATEMENT_ADDRESS_1_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATEMENT_ADDRESS_2_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATEMENT_CITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATEMENT_COUNTRY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATEMENT_STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATEMENT_ZIP_POSTAL_CODE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TAX_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TITLE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TRUSTEE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_YEARS_OF_INVESTMENT_EXPERIENCE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_COMMISSION_HOLD_C
+    description: ''
+    data_type: BOOLEAN
+  - name: MARINER_FINANCIAL_ACCOUNT_NUM_C
+    description: ''
+    data_type: VARCHAR
+  - name: LINE_OF_BUSINESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CUM_DISC_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PLAN_GROUP_C
+    description: ''
+    data_type: VARCHAR
+  - name: DST_REG_LINE_1_C
+    description: ''
+    data_type: VARCHAR
+  - name: DST_REG_LINE_2_C
+    description: ''
+    data_type: VARCHAR
+  - name: DST_REG_LINE_3_C
+    description: ''
+    data_type: VARCHAR
+  - name: DST_REG_LINE_4_C
+    description: ''
+    data_type: VARCHAR
+  - name: MANUFACTURER_C
+    description: ''
+    data_type: VARCHAR
+  - name: DST_NFS_REP_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: QUARTERBACK_C
+    description: ''
+    data_type: VARCHAR
+  - name: INTRODUCER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PORTFOLIO_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MANUFACTURER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_REGISTRATION_LINE_1_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_REGISTRATION_LINE_2_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_REGISTRATION_LINE_3_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_REGISTRATION_LINE_4_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_VARIABLE_PRODUCT_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: AUM_ADVISOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: FINANCIAL_ACCOUNT_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: SSN_FA_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: MARINER_SYNC_C
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_BY_DST_03_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_HOLD_EFFECTIVE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_HOLD_REASON_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_NAF_C
+    description: ''
+    data_type: VARCHAR
+  - name: MSEC_ACCOUNT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: JOINT_PARTY_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: MSEC_SUB_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: MSEC_OTHER_DESCRIPTION_C
+    description: ''
+    data_type: VARCHAR
+  - name: X_529_ACCOUNT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_ACCOUNT_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CIRRUS_SSN_FA_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: PAYOUT_CIRRUS_SOURCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LIQUIDITY_ORDER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MASS_UPDATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_SYSTEMATIC_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_SYSTEMATIC_PLAN_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SYSTEMATIC_TIMEFRAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ACCOUNT_TYPE_TEXT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_X_529_PLAN_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_AUM_BILLING_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_AUM_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_ADVANCE_OR_ARREARS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BILL_TO_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BILLING_CYCLE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CIRRUS_UNIQUE_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LAST_REVENUE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_NEW_ACCOUNT_17_A_3_LETTER_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_OPENING_BALANCE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_X_36_MONTH_17_A_3_LETTER_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_USE_PLAN_GROUP_ADVISOR_FOR_PAYOUT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_Z_TRIGGER_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PAYOUT_PREV_STATEMENT_ADDRESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PREV_STATEMENT_CITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PREV_STATEMENT_STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PREV_STATEMENT_ZIP_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATEMENT_ADDRESS_CHANGE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_TEMP_STATEMENT_ADDRESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TEMP_STATEMENT_CITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TEMP_STATEMENT_STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TEMP_STATEMENT_ZIP_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ALPHA_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_AUTHORIZED_TO_WITHDRAW_OR_TAKE_ACTION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DATA_SOURCE_ACCOUNT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DATA_SOURCE_REP_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_FIRST_REVENUE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_LAST_REVENUE_DATE_EXCL_TRAILS_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_MERGE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_MGT_START_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_OVERRIDE_CIRRUS_DATA_SOURCE_SSN_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_PAYOUT_ADVISOR_ACCOUNT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PLATFORM_RECORD_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PORTFOLIO_RECORD_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_POSSIBLE_SWITCH_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_RMD_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_REPARENT_TO_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SERVICING_ADVISOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SURRENDER_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_TOTAL_REVENUE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_USE_MAILING_STATE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_YTD_REVENUE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_CASH_BALANCE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_PAYOUT_ADVISOR_CHANGE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_DIVIDENDS_INTEREST_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_FUND_COMPANY_CODE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_INSTITUTIONAL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LONG_MARKET_VALUE_CASH_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_LONG_MARKET_VALUE_MARGIN_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_MARGIN_BALANCE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_MONEY_MARKET_BALANCE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_NON_PURPOSE_LOAN_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_SHORT_MARKET_VALUE_MARGIN_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_STATEMENT_REP_TEXT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TOTAL_ACCOUNT_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_VALUE_OF_LINKED_POSITIONS_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_PAYOUT_ADV_AD_REP_REVIEWED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_CLEARING_FIRM_ACCOUNT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_USE_FA_ADVISOR_FOR_PAYOUT_ADVISOR_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_DISCRETIONARY_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_ADVISOR_CODE_C
+    description: ''
+    data_type: VARCHAR
+  - name: DATA_IMPORT_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_AMA_INDICATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ACCOUNT_TYPE_CODE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ACCT_FOREIGN_FINANCIAL_INST_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_AGE_TO_TERMINATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_AGREEMENT_EXECUTION_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_AMENDED_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_CUSTODIAN_ACCT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DATE_GIFT_GIVEN_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_EMPLOYEE_INDICATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_FULLY_PAID_LENDING_AGREEMENT_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_FULLY_PAID_LENDING_AGREEMENT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_INSTITUTIONAL_DEAL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_INVESTMENT_ADVISOR_DISCRETION_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_INVESTMENT_PROFESSIONAL_DISCRETION_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_JOINT_TENANCY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LAST_DATE_INVESTMENT_OBJECTIVES_MAILED_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_LAST_DATE_INVESTMENT_OBJECTIVES_PROVIDED_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_MANNER_OF_GIFT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_NON_CUSTOMER_INDICATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_OPTION_CURRENCY_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_OPTION_DEBT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_OPTION_EQUITIES_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_OPTION_INDEX_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_OPTION_LEVEL_1_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_OPTION_LEVEL_2_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_OPTION_LEVEL_3_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_OPTION_LEVEL_4_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_OPTION_PAPERS_ON_FILE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_PLEDGE_COLLATERAL_INDICATOR_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_STATE_GIFT_GIVEN_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SWEEP_STATUS_INDICATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TRUSTEE_INDEPENDENT_ACTION_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_ORION_ACCOUNT_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_NUMBER_OF_TRADES_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_YTD_NUMBER_OF_TRADES_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_ORIGINAL_ACCOUNT_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLIENT_CHANGED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_TEST_CLIENT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TEST_MANUFACTURER_C
+    description: ''
+    data_type: VARCHAR
+  - name: REPAPERED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_FEE_BASED_LICENSE_EXCEPTION_C
+    description: ''
+    data_type: BOOLEAN
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PAYOUT_AGENT_IRS_CODE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_AGENT_SSN_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: PAYOUT_FLOW_TO_UPDATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_FOREIGN_ADDRESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CONTRACT_DATE_QUALIFIER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PARTY_NON_NATURAL_ENTITY_DATE_QUALIFIER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_AGENT_ROLE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_NATIONAL_PRODUCER_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ADDRESS_LINE_5_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BENEFICIARY_AMOUNT_QUANTITY_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_AGENT_NATURAL_NON_NATURAL_NAME_IND_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PLAN_ACCOUNT_NUMBER_IND_TEXT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CONT_ENTITY_NATURAL_NON_NATURAL_NAME_IND_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PLAN_ACCOUNT_NUMBER_IND_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_PARTY_NATURAL_NON_NATURAL_ENTITY_NAME_IND_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BENEFICIARY_QUANTITY_QUALIFIER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PLAN_ACCOUNT_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: QUARTERBACK_2_C
+    description: ''
+    data_type: VARCHAR
+  - name: INTRODUCER_2_C
+    description: ''
+    data_type: VARCHAR
+  - name: FA_LENGTH_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_ACCOUNT_PRODUCT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRODUCT_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLIENT_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_FA_ADV_ACCOUNT_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_REPARENT_ACCOUNT_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: MANUFACTURER_PRODUCT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: CIRRUS_UNIQUE_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_NET_WORTH_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_NO_OF_HOLDINGS_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_SPOUSE_AGE_THIS_YEAR_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_float
+    data_type: FLOAT
+  - name: PAYOUT_EMPLOYMENT_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_EMPLOYER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BLUE_SKY_LICENSE_C
+    description: ''
+    data_type: VARCHAR
+  - name: ADVISOR_DST_REP_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRORATED_FEE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_QUARTERLY_FEE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_FEE_OPENING_CALC_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_ADREP_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_TOTAL_INCOME_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_SERIES_6_AND_7_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_VARIABLE_ASSET_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_RMD_APPLIES_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CURRENT_ACCOUNT_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_PAYOUT_ADVISOR_SOURCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: ADVISOR_ON_CLIENT_C
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_REVENUE_MORE_THAN_180_DAYS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_LAST_TRANSACTION_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_LICENSED_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_EXP_COMMISSION_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_FEDERAL_TAX_BRACKET_C
+    description: ''
+    data_type: VARCHAR
+  - name: CIRRUS_UNIQUE_ID_CHECK_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_TOTAL_FEE_C
+    description: ''
+    data_type: NUMBER
+  - name: SHORT_ACCOUNT_NUM_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_X_529_PRODUCT_SPONSOR_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_FA_NAME_MFR_NUMBER_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATE_OF_RESIDENCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LAST_17_A_3_LETTER_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_STATE_REGISTRATION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ADVISOR_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_FEE_BASED_LICENSE_FLAG_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LICENSE_FLAG_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DATA_SOURCE_ACCOUNT_SSN_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: IS_529_ACCOUNT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ADVISOR_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CREDITED_FEE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_PAYOUT_ADVISOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_NEW_OR_RENEWAL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLIENT_AGE_THIS_YEAR_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_float
+    data_type: FLOAT
+  - name: PAYOUT_LIQUID_ASSETS_C
+    description: ''
+    data_type: NUMBER
+- name: salesforce_msec__base_customer
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PARTY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TOTAL_LIFE_TIME_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: CUSTOMER_STATUS_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_regulatory_action_c
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONNECTION_RECEIVED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_SENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ADVISOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_create_payments_settings_c
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SETUP_OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PAYOUT_VALUE_CURRENCY_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_VALUE_STRING_C
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_advisor_confidential_information_history
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: FIELD
+    description: ''
+    data_type: VARCHAR
+  - name: DATA_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: OLD_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: NEW_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_ticket_charge_configuration_c
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONNECTION_RECEIVED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_SENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TICKET_CHARGE_RULE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_CLEARING_ADDL_FEE_CODE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_CLEARING_ADV_FEE_CODE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_CLEARING_CHARGE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_CLEARING_EXECUTION_COUNT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_CLEARING_MF_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_CLEARING_MARKET_CODE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_CLEARING_NOTES_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_CLEARING_ORDER_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_CLEARING_PRODUCT_CODE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_CLEARING_PRODUCT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_CLEARING_SECURITY_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_CLEARING_SPLIT_PERCENTAGE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_CLEARING_TOTAL_UNITS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_CLEARING_TRADE_CANCEL_INDICATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_FA_CLEARING_FIRM_ACCOUNT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_FIELD_TO_UPDATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_GROSS_COMMISSION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_PRICE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_TRAIL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_TRANS_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_UNITS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_ADDL_FEE_CODE_OPERATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_ADDL_FEE_CODE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_ADV_FEE_CODE_OPERATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_ADV_FEE_CODE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_CHARGE_OPERATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_CHARGE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_CLEARING_EXECUTION_COUNT_OPERATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_EXECUTION_COUNT_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_CLEARING_FIRM_ACCOUNT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_MF_TYPE_OPERATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_MF_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_MARKET_CODE_OPERATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_MARKET_CODE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_NOTES_OPERATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_NOTES_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_ORDER_TYPE_OPERATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_ORDER_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_PRODUCT_CODE_OPERATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_PRODUCT_CODE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_PRODUCT_TYPE_OPERATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_PRODUCT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_SECURITY_TYPE_OPERATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_SECURITY_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_SPLIT_PERCENTAGE_OPERATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_SPLIT_PERCENTAGE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_CLEARING_TOTAL_UNITS_OPERATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_TOTAL_UNITS_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_CLEARING_TRADE_CANCEL_INDICATOR_OPERATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_TRADE_CANCEL_INDICATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DESCRIPTION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_EXECUTION_ORDER_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_FA_CLEARING_FIRM_ACCOUNT_TYPE_OPERATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_GROSS_COMMISSION_OPERATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_GROSS_COMMISSION_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_PRICE_OPERATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRICE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_RECORD_TYPE_OPERATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_RECORD_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TRAIL_OPERATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TRAIL_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_TRANS_TYPE_OPERATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TRANS_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_UNITS_OPERATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_UNITS_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_WORKFLOW_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PAYOUT_SCHEDULE_NAME_C
+    description: ''
+    data_type: VARCHAR
+- name: salesforce_msec__base_payout_ticket_charge_configuration_history
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: FIELD
+    description: ''
+    data_type: VARCHAR
+  - name: DATA_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: OLD_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: NEW_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_nipr_update_c
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONNECTION_RECEIVED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_SENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_business_brand
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: ORG_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_ofac_history
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: FIELD
+    description: ''
+    data_type: VARCHAR
+  - name: DATA_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: OLD_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: NEW_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_finra_licensing_history
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: FIELD
+    description: ''
+    data_type: VARCHAR
+  - name: DATA_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: OLD_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: NEW_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_payout_commission_transactions_c
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CONNECTION_RECEIVED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_SENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ACCOUNT_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_CHARGES_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_COMMISSION_BATCH_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_FEE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_FINANCIAL_ACCOUNT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_GROSS_COMMISSION_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_HOLDING_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_INSURANCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRICE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_TICKET_CHARGE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_TRAN_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_UNITS_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_REP_MADE_SALE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TRADE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_RECONCILED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_MANAGEMENT_FEE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_NEW_OR_RENEWAL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TRANSACTION_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_TRANSACTION_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_SECURITY_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SOURCE_DATA_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_ADDL_FEE_CODE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_ADDL_FEE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_CLEARING_BLOTTER_CODE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_CHARGE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_CLEARING_COMMISSION_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_CLEARING_CONCESSION_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_CLEARING_EXECUTION_FEE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_CLEARING_FIRM_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_MARKET_CODE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_MISC_FEE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_CLEARING_MUTUAL_FUND_DTC_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_NET_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_CLEARING_OFFSET_ACCOUNT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_OFFSET_REP_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_ORDER_REF_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_PRIMARY_EXCHANGE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_PRODUCT_CODE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_PURCHASE_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_REG_REP_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_RUN_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_CLEARING_SECURITY_TYPE_MODIFIER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_SECURITY_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_SHORT_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_SYMBOL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_TRADE_REF_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TICKET_CHARGE_MARK_UP_RULE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TICKET_CHARGE_MARK_UP_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_UNIQUE_TRANSACTION_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_CHARGE_SCHEDULE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TRAIL_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_CUSIP_VALUE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_WM_ASSET_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CHANGE_PAYOUT_ADV_TO_STATEMENT_ADV_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_CLEARING_BRANCH_PREFIX_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_EXECUTION_COUNT_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_CLEARING_MF_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_PRODUCT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLIENT_ACCOUNT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_COMPLIANCE_APPROVALS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DESCRIPTION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PAYOUT_ADVISOR_ACCOUNT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATEMENT_ADVISOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATEMENT_REP_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATEMENT_REP_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ZZ_TRIGGER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_POSTAGE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_CLEARING_TRADE_CANCEL_INDICATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PAYOUT_CLEARING_PERCENT_SALES_CHARGE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_CARRIER_ASSIGNED_AGENT_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_NSCC_SETTLE_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_DISTRIBUTOR_AGENT_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_OF_DAYS_BILLED_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_ZZ_TICKET_CHARGE_RULE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ADVISOR_CRD_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_NATIONAL_PRODUCER_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_COMMISSION_PERCENTAGE_C
+    description: ''
+    data_type: FLOAT
+  - name: GROSS_PRIOR_TO_TICKET_CHARGE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: SECURITY_TYPE_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_EXPECTED_COMMISSION_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_TRANSACTION_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_FINANCIAL_ACCOUNT_NUM_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LOB_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_FA_CLEARING_FIRM_ACCOUNT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_HOLDING_FINANCIAL_ACCOUNT_C
+    description: ''
+    data_type: VARCHAR
+  - name: X_529_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_CLIENT_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ASSET_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CUSIP_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_X_529_PLAN_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_LICENSE_FLAG_INVESTMENTS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PAYOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: ASSET_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_COMMISSION_4_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_POLICY_NUM_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ACCOUNT_GROUP_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TOTAL_TICKET_CHARGE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_TRANSACTION_FLAG_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ADVISOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_RUN_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_TERMED_REP_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PAYOUT_ADVISOR_INSURANCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATEMENT_DATE_C
+    description: ''
+    data_type: DATE
+  - name: SYMBOL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ADV_ACCOUNT_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_NET_C
+    description: ''
+    data_type: NUMBER
+  - name: X_12_B_1_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_LICENSE_FLAG_ADVISORY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DIFFERENCE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_PAYOUT_ADVISOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_COMMISSION_HOLD_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLIENT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PAYOUT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_OUT_OF_PROOF_C
+    description: ''
+    data_type: BOOLEAN
+- name: salesforce_msec__base_payout_line_of_authority_history
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: FIELD
+    description: ''
+    data_type: VARCHAR
+  - name: DATA_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: OLD_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: NEW_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_contact
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: MASTER_RECORD_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_PERSON_ACCOUNT
+    description: ''
+    data_type: BOOLEAN
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SALUTATION
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: OTHER_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: OTHER_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: MAILING_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: MAILING_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: FAX
+    description: ''
+    data_type: VARCHAR
+  - name: MOBILE_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: HOME_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: ASSISTANT_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: REPORTS_TO_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: DEPARTMENT
+    description: ''
+    data_type: VARCHAR
+  - name: ASSISTANT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LEAD_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: BIRTHDATE
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: HAS_OPTED_OUT_OF_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: HAS_OPTED_OUT_OF_FAX
+    description: ''
+    data_type: BOOLEAN
+  - name: DO_NOT_CALL
+    description: ''
+    data_type: BOOLEAN
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: LAST_CUREQUEST_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_CUUPDATE_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: EMAIL_BOUNCED_REASON
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_BOUNCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: IS_EMAIL_BOUNCED
+    description: ''
+    data_type: BOOLEAN
+  - name: PHOTO_URL
+    description: ''
+    data_type: VARCHAR
+  - name: USE_SALESFORCE
+    description: ''
+    data_type: VARCHAR
+  - name: JIGSAW
+    description: ''
+    data_type: VARCHAR
+  - name: JIGSAW_CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_RECEIVED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_SENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: INDIVIDUAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TEST_EMAIL_ADDRESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: LEGAL_STREET_ADDRESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: LEGAL_CITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: LEGAL_STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: LEGAL_ZIP_C
+    description: ''
+    data_type: VARCHAR
+  - name: LEGAL_COUNTRY_C
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE_OF_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: ID_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_OF_ISSUANCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: ID_EXPIRATION_DATE_C
+    description: ''
+    data_type: DATE
+  - name: CITIZENSHIP_C
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYMENT_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: INCOME_SOURCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: OCCUPATION_C
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_ADDRESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: SENIOR_POLITICAL_FIGURE_C
+    description: ''
+    data_type: VARCHAR
+  - name: CONTROL_PERSON_C
+    description: ''
+    data_type: VARCHAR
+  - name: COMPANY_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: CUSIP_OR_SYMBOL_C
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYED_BY_FINANCIAL_COMPANY_C
+    description: ''
+    data_type: VARCHAR
+  - name: ENTITY_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: ENTITY_ADDRESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: ID_ISSUANCE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_ANNUAL_INCOME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ASSISTANT_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ASSISTANT_PHONE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BIRTHDAY_CARD_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_BUSINESS_EMAIL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLIENT_PREFERENCES_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DO_NOT_CALL_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_HEAD_OF_HOUSEHOLD_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_HEALTH_MEDICAL_CONCERNS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_HOBBIES_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_INVESTMENT_INTERESTS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_KEY_NOTES_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LANGUAGES_1_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LANGUAGES_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LEVEL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MARITAL_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MIDDLE_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_NAME_PRONUNCIATION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PERSONAL_INTERESTS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PREFERRED_CONTACT_METHOD_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PREFERRED_CONTACT_TIME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PROFESSIONAL_INTERESTS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SOCIAL_SECURITY_TAX_ID_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: PAYOUT_SUFFIX_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_U_S_CITIZENSHIP_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_OF_DEPENDENTS_C
+    description: ''
+    data_type: FLOAT
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PAYOUT_REGULATORY_DISCLOSURES_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DATE_ADDED_TO_DISCOVERY_DB_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_EMAIL_PERSONAL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_KNOWN_NON_ADVISOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRIOR_FIRM_5_NUMBER_OF_YEARS_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_PRIOR_FIRM_2_NUMBER_OF_YEARS_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_REP_CRD_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BRANCH_PHONE_DO_NOT_CALL_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_HOME_CITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_HOME_STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_AUM_SELF_REPORTED_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_CANDIDATE_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DBA_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LICENCES_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CREDENTIALS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRIMARY_BD_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ROLE_AT_CURRENT_FIRM_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DISCOVERY_PROFILE_URL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRIOR_FIRM_1_NUMBER_OF_YEARS_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_HOME_ADDRESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLEARING_FIRM_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRIOR_FIRM_4_NUMBER_OF_YEARS_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_PRIOR_FIRM_2_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRIOR_FIRM_1_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRIOR_FIRM_4_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRIOR_FIRM_3_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRIOR_FIRM_5_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRIOR_FIRM_3_NUMBER_OF_YEARS_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_BROKER_DEALER_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_HOME_POSTAL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DATE_BECAMOE_REP_FULL_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_SOCIAL_MEDIA_LINKED_IN_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: PAYOUT_CANDIDATE_STAGE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TEAM_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRODUCTION_SELF_REPORTED_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_DATE_OF_HIRE_AT_CURRENT_FIRM_FULL_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_LAST_PAYOUT_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_BIRTHDAY_THIS_YEAR_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: CLIENT_AGE_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_float
+    data_type: FLOAT
+  - name: PAYOUT_NEXT_BIRTHDAY_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+- name: salesforce_msec__base_payout_product_line_loa_history
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: FIELD
+    description: ''
+    data_type: VARCHAR
+  - name: DATA_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: OLD_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: NEW_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+- name: salesforce_msec__base_account
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELETED
+    description: ''
+    data_type: BOOLEAN
+  - name: MASTER_RECORD_ID
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SALUTATION
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PARENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: BILLING_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: BILLING_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: SHIPPING_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: SHIPPING_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: SHIPPING_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: FAX
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: WEBSITE
+    description: ''
+    data_type: VARCHAR
+  - name: PHOTO_URL
+    description: ''
+    data_type: VARCHAR
+  - name: SIC
+    description: ''
+    data_type: VARCHAR
+  - name: INDUSTRY
+    description: ''
+    data_type: VARCHAR
+  - name: ANNUAL_REVENUE
+    description: ''
+    data_type: NUMBER
+  - name: NUMBER_OF_EMPLOYEES
+    description: ''
+    data_type: NUMBER
+  - name: OWNERSHIP
+    description: ''
+    data_type: VARCHAR
+  - name: TICKER_SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: RATING
+    description: ''
+    data_type: VARCHAR
+  - name: SITE
+    description: ''
+    data_type: VARCHAR
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: CREATED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MODIFIED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_MODIFIED_BY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SYSTEM_MODSTAMP
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: LAST_VIEWED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: LAST_REFERENCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PERSON_CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_PERSON_ACCOUNT
+    description: ''
+    data_type: BOOLEAN
+  - name: PERSON_MAILING_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_MAILING_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_MAILING_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_MAILING_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_MAILING_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_MAILING_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: PERSON_MAILING_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: PERSON_MAILING_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_OTHER_STREET
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_OTHER_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_OTHER_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_OTHER_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_OTHER_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_OTHER_LATITUDE
+    description: ''
+    data_type: FLOAT
+  - name: PERSON_OTHER_LONGITUDE
+    description: ''
+    data_type: FLOAT
+  - name: PERSON_OTHER_GEOCODE_ACCURACY
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_MOBILE_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_HOME_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_OTHER_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_ASSISTANT_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_DEPARTMENT
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_ASSISTANT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_LEAD_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_BIRTHDATE
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: PERSON_HAS_OPTED_OUT_OF_EMAIL
+    description: ''
+    data_type: BOOLEAN
+  - name: PERSON_HAS_OPTED_OUT_OF_FAX
+    description: ''
+    data_type: BOOLEAN
+  - name: PERSON_DO_NOT_CALL
+    description: ''
+    data_type: BOOLEAN
+  - name: PERSON_LAST_CUREQUEST_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PERSON_LAST_CUUPDATE_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PERSON_EMAIL_BOUNCED_REASON
+    description: ''
+    data_type: VARCHAR
+  - name: PERSON_EMAIL_BOUNCED_DATE
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PERSON_INDIVIDUAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: JIGSAW
+    description: ''
+    data_type: VARCHAR
+  - name: JIGSAW_COMPANY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: SIC_DESC
+    description: ''
+    data_type: VARCHAR
+  - name: SALESFORCE_CUSTOMER
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_RECEIVED_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_SENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SOC_SEC_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: ABC_MONEY_MANAGER_C
+    description: ''
+    data_type: BOOLEAN
+  - name: SPOUSE_LICENSE_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSE_LICENSE_EXP_DATE_C
+    description: ''
+    data_type: DATE
+  - name: SPOUSE_EMAIL_C
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSE_GENDER_C
+    description: ''
+    data_type: VARCHAR
+  - name: ANNIVERSARY_C
+    description: ''
+    data_type: DATE
+  - name: CLIENT_LEVEL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PLACE_OF_BIRTH_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: SPOUSE_PLACE_OF_BIRTH_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: SPOUSE_EMPLOYER_C
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSE_WORK_PHONE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE_EXTENSION_C
+    description: ''
+    data_type: VARCHAR
+  - name: ID_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: MARITAL_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: MAIDEN_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: OTHER_EXTENSION_C
+    description: ''
+    data_type: VARCHAR
+  - name: OCCUPATION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAGER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PERSONAL_EMAIL_C
+    description: ''
+    data_type: VARCHAR
+  - name: SALUTATION_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSE_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSE_BIRTHDATE_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: SPOUSE_LICENSE_STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSE_SSN_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: SPOUSE_NICKNAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: HOME_ADDRESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: HOME_CITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: HOME_STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: HOME_ZIP_C
+    description: ''
+    data_type: VARCHAR
+  - name: TEST_PERCENT_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_ADVISOR_PAYOUT_GRID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_COMMISSION_ADVISOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_COMMISSION_SPLIT_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_FIXED_ADVISORY_PAYOUT_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_FIXED_ADVISORY_RATE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_FIXED_PAYOUT_RATE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_FIXED_SPLIT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_OVERRIDE_PAID_TO_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_OVERRIDE_PERCENTAGE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_OVERRIDE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_PAYOUT_GRID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STARTING_TIERED_PAYOUT_RATE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_TRACK_LEDGER_AT_GROUP_LEVEL_C
+    description: ''
+    data_type: BOOLEAN
+  - name: QUARTERBACK_C
+    description: ''
+    data_type: VARCHAR
+  - name: INTRODUCER_C
+    description: ''
+    data_type: VARCHAR
+  - name: MONTAGE_ACCOUNT_OPEN_C
+    description: ''
+    data_type: DATE
+  - name: COMPANY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ADVISORY_GROSS_YTD_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_ADVISORY_STARTING_TIERED_PAYOUT_RATE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_CLIENT_BIRTHDATE_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: PAYOUT_INSURANCE_FIXED_PAYOUT_RATE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_INSURANCE_FIXED_SPLIT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_INSURANCE_GROSS_YTD_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_INSURANCE_PAYOUT_GRID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_INSURANCE_STARTING_TIERED_PAYOUT_RATE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_INVESTMENT_GROSS_YTD_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_PAYOUT_TIER_LOOKUP_BASIS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SPOUSE_BIRTHDATE_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: PAYOUT_SPOUSE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ACCOUNT_CREATION_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_ACTIVE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ADDRESS_CHANGED_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_ADVISOR_MAILING_LIST_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ADVISOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ALBRIDGE_TITLE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_APPT_FREQUENCY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BONUS_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_CONTRACT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CUSTOMER_PRIORITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DIVIDEND_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_EMP_ADDRESS_1_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_EMP_ADDRESS_2_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_EMP_CITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_EMP_START_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_EMP_STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_EMP_ZIP_CODE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_EMPLOYER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_EMPLOYMENT_REMARKS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_EMPLOYMENT_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_FI_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_FACT_FINDER_CLIENT_ID_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_FEDERAL_TAX_BRAKET_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_GENDER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_INCOME_REMARKS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_INTEREST_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_LAST_APPOINTMENT_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_LAST_UPDATE_BY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LAST_UPDATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_LICENSE_EXP_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_LICENSE_ISSUE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_LICENSE_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LICENSE_STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MAILING_ADDRESS_1_TEMP_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MAILING_CITY_TEMP_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MAILING_LISTS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MAILING_STATE_TEMP_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MAILING_ZIP_TEMP_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MIDDLE_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MISC_DESCRIPTION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MISC_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_NEXT_APPOINTMENT_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_NEXT_MEETING_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_NICKNAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_NUMBEROF_LOCATIONS_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_ORIGINAL_ENTRY_BY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ORIGINAL_ENTRY_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_OTHER_INCOME_DESCRIPTION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_OTHER_INCOME_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_OTHER_PHONE_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PENSION_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_REAL_ESTATE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_REFERRED_BY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SLAEXPIRATION_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_SLASERIAL_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SSN_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: PAYOUT_SALARY_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_SCANNED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_SECURITY_LICENSE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SOCIAL_SECURITY_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_number
+    data_type: NUMBER
+  - name: PAYOUT_START_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_UPSELL_OPPORTUNITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_YEARS_EMPLOYED_C
+    description: ''
+    data_type: FLOAT
+  - name: DST_DEALER_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: CIRRUS_UNIQUE_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: COMMISSION_SWITCH_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_GROSS_OR_NET_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_OVERRIDE_PAID_BY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_OVERRIDE_PAYOUT_GRID_C
+    description: ''
+    data_type: VARCHAR
+  - name: CIRRUS_ADDRESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: CIRRUS_CITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: CIRRUS_STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: CIRRUS_ZIP_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_HOUSEHOLDS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PLAN_MANUFACTURER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATE_HOLDER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATES_ADVISORY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATES_TEXT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATES_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TICKET_CHARGE_SCHEDULE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PASSWORD_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SALT_C
+    description: ''
+    data_type: VARCHAR
+  - name: CITIZENSHIP_C
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE_OF_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYERS_ADDRESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: OWNERS_ANNUAL_INCOME_C
+    description: ''
+    data_type: VARCHAR
+  - name: OWNERS_ESTIMATED_NET_WORTH_C
+    description: ''
+    data_type: VARCHAR
+  - name: INVESTABLE_LIQUID_ASSETS_C
+    description: ''
+    data_type: VARCHAR
+  - name: SPECIAL_EXPENSE_C
+    description: ''
+    data_type: VARCHAR
+  - name: SPECIAL_EXPENSE_TIME_FRAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PASSPORT_ID_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: FBO_C
+    description: ''
+    data_type: VARCHAR
+  - name: DATE_OF_TRUST_C
+    description: ''
+    data_type: DATE
+  - name: IRS_TAX_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: IRS_TAX_NUMBER_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_AUM_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_ACCOUNT_REFERRED_BY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ALBRIDGE_MGT_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BUSINESS_ACCOUNT_SITE_EMAIL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLIENT_ADDRESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLIENT_CITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLIENT_EMAIL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLIENT_FIRST_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLIENT_LAST_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLIENT_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLIENT_STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLIENT_ZIP_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_COPY_FROM_EMPLOYER_ACCOUNT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_COPY_FROM_HOUSEHOLD_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_EMPLOYEE_ACCOUNT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_EMPLOYER_ACCOUNT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_EMPLOYER_PHONE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ID_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ID_ON_FILE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_LAST_POSITION_UPDATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_MASS_UPDATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_PLAN_CLIENT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_RESET_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SESSION_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SPOUSE_ACCOUNT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TAX_ID_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_X_529_PRODUCT_SPONSOR_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_AUTO_REFRESH_HOLDINGS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_REFRESH_HOLDINGS_DAYS_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_ADVISOR_USER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DEDUCT_MGT_FEE_AFTER_PAYOUT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_DEDUCT_TICKET_CHARGE_AFTER_PAYOUT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_HOUSEHOLD_17_A_3_START_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_TOKEN_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_USE_HOUSEHOLD_36_MONTH_DATE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_USE_SUGGESTED_36_MONTH_DATE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_ADVISORY_LICENSE_RENEWAL_COST_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_INVESTMENT_LICENSE_RENEWAL_COST_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_POPULATE_FROM_CRD_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_TOTAL_HOUSEHOLD_HOLDINGS_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_ZZ_TRIGGER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_APPROVAL_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_ASSIGNED_BRANCH_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_AUM_REPORTS_BILLING_FORWARDED_TO_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_AUM_REPORTS_SALES_FORWARDED_TO_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_AUM_TARGETS_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_ADVISOR_CRD_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ADVISOR_HOLD_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_ADVISOR_TERMINATION_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_AFFILIATED_WITH_MEMBER_OF_ANY_EXCHANGE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ALT_ADDRESS_DESCRIPTION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ALT_ADDRESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ALT_CITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ALT_PHONE_DESCRIPTION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ALT_PHONE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ALT_ZIP_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BD_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BALANCE_AS_OF_LAST_PAYMENT_ADVISORY_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_BALANCE_AS_OF_LAST_PAYMENT_INSURANCE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_BALANCE_AS_OF_LAST_PAYMENT_INVESTMENTS_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_BALANCE_AS_OF_LAST_PAYMENT_OTHER_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_BALANCE_AS_OF_LAST_PAYMENT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_BANK_ACCOUNT_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BANK_ACCOUNT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BANK_PAYMENT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BANK_ROUTING_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BRANCH_CRD_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BRANCH_MANAGER_FEE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_BRANCH_MANAGER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BRANCH_OFFICE_RATING_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BRANCH_OFFICE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BRANCH_YTD_ADVISORY_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_BRANCH_YTD_INSURANCE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_BRANCH_YTD_INVESTMENTS_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_BRANCH_YTD_TOTAL_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_BROKER_DEALER_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CIRRUS_UNIQUE_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DBA_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DST_ACCOUNT_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DST_CITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DST_FIRST_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DST_LAST_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DST_STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DST_STREET_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DST_ZIP_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DUE_DILIGENCE_ONGOING_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DUE_DILIGENCE_PROVIDED_BY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_EMPLOYEE_OF_ANOTHER_BROKER_DEALER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_EMPLOYER_ADDRESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_EMPLOYER_CITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_EMPLOYER_STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_EMPLOYER_ZIP_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_FIRM_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_HEIGHTENED_SUPERVISION_END_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_HEIGHTENED_SUPERVISION_REASON_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_HEIGHTENED_SUPERVISION_START_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_HOLD_REASON_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_INVOICE_FREQUENCY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_INVOICE_METHOD_1_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_INVOICE_METHOD_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LAST_REVIEW_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_LAST_PAYMENT_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_LAST_TEMP_ADDRESS_UPDATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_LINE_OF_BUSINESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MAILING_ADDRESS_SAME_AS_RESIDENCE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_MAINTAINING_OTHER_BROKERAGE_ACCOUNTS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MIN_FA_LENGTH_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_MINIMUM_FA_CHECK_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_NEXT_AUDIT_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_OCCUPATION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PFS_MODEL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PAY_TRAILS_TO_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PLATFORF_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_RESIDENCE_ADDRESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_RESIDENCE_CITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_RESIDENCE_STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_RESIDENCE_ZIP_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SENIOR_MILITARY_GOV_OR_POLITICAL_OFFI_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SENIOR_OFFICER_DIRECTORY_OR_OWN_10_MOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SERVICE_MODEL_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SERVICE_MODEL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SHARE_IN_NEGATIVE_TRANSACTIONS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_SPOUSE_EMAIL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SPOUSE_EMPLOYER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SPOUSE_FIRST_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SPOUSE_GENDER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SPOUSE_LAST_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SPOUSE_LICENSE_EXP_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_SPOUSE_LICENSE_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SPOUSE_LICENSE_STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SPOUSE_MOBILE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SPOUSE_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SPOUSE_SSN_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: PAYOUT_SPOUSE_WORK_ADDRESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SPOUSE_WORK_CITY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SPOUSE_WORK_PHONE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SPOUSE_WORK_STATE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SPOUSE_WORK_ZIP_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATES_ADVISORY_TEXT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SUPERVISING_PRINCIPAL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TERMINATED_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_TRADING_TOOL_USED_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_USE_ADVISOR_GRID_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_YTD_ADVISOR_LEDGER_GROSS_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_DL_ACCOUNT_NUMBER_DEL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DST_RAW_XML_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BALANCE_AS_OF_LAST_LOCKED_PAYOUT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_BRANCH_LICENSED_PRINCIPAL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DESIGNATIONS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LAST_LOCKED_PAYOUT_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_ADVISORY_BANK_ACCOUNT_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ADVISORY_BANK_ACCOUNT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ADVISORY_BANK_INFORMATION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ADVISORY_BANK_PAYMENT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ADVISORY_BANK_ROUTING_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_INSURANCE_BANK_ACCOUNT_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_INSURANCE_BANK_ACCOUNT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_INSURANCE_BANK_INFORMATION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_INSURANCE_BANK_PAYMENT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_INSURANCE_BANK_ROUTING_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_INVESTMENTS_BANK_INFORMATION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_T_12_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_T_12_GROSS_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_WF_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DELETE_ACCOUNT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_T_12_BRANCH_TOTAL_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_CLIENT_HOLD_REASON_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLIENT_HOLD_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_EMERGENCY_CONTACT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MTD_ADV_GROSS_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_NEXT_OVERRIDE_RATE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_OVERRIDE_EXP_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_PREVIOUS_CITY_FOR_BA_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PREVIOUS_STATE_FOR_BA_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PREVIOUS_STREET_FOR_BA_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PREVIOUS_ZIP_FOR_BA_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_X_36_MONTH_LETTER_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_TRAIL_FREQUENCY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_HOURS_OF_OPERATION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MAY_WE_DROP_OFF_FLYERS_IN_THE_TEACHERS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MAY_WE_EMAIL_TEACHERS_DIRECTLY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MAY_WE_WALK_THROUGH_THE_HALLS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LAST_OFAC_REVIEW_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_LAST_OFAC_RUN_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_BRANCH_ADVISOR_ADVISORY_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_BRANCH_ADVISOR_INSURANCE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_BRANCH_ADVISOR_INVESTMENTS_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_NOTIFICATION_EMAIL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_USE_BRANCH_PAYOUT_RATES_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_MTD_COMMISSION_PAYABLE_C
+    description: ''
+    data_type: NUMBER
+  - name: SOURCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BAD_ADDRESS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_BUSINESS_NATURE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DATA_IMPORT_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DATE_OF_DEATH_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_OFAC_LAST_HIT_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_OFAC_MATCH_RESOLUTION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ORION_REGISTRATION_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_OVERRIDE_LINE_OF_BUSINESS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRIMARY_COUNTRY_CITIZENSHIP_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_RETIRED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_STATES_GLOBAL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TAX_STATUS_REASON_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_USA_PATRIOT_ACT_EXEMPT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_W_8_W_9_DATE_SIGNED_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_W_8_W_9_DOCUMENT_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_W_8_W_9_EFFECTIVE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_W_8_W_9_INDICATOR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TRUST_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_RETROACTIVE_BONUS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_TIER_1_AMT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_TIER_1_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_TIER_2_AMT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_TIER_2_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_TIER_3_AMT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_TIER_3_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_TIER_4_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_TIER_4_AMT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_TIER_5_AMT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_TIER_5_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_TIER_6_AMT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_TIER_6_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_TIER_7_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_ADVISOR_GROUP_SUB_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LAST_CRD_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_TIER_7_AMT_C
+    description: ''
+    data_type: NUMBER
+  - name: OF_DEPENDENTS_C
+    description: ''
+    data_type: FLOAT
+  - name: ELECTRONIC_DELIVERY_CONSENT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: TEST_EMAIL_ADDRESS_PC
+    description: ''
+    data_type: VARCHAR
+  - name: LEGAL_STREET_ADDRESS_PC
+    description: ''
+    data_type: VARCHAR
+  - name: LEGAL_CITY_PC
+    description: ''
+    data_type: VARCHAR
+  - name: LEGAL_STATE_PC
+    description: ''
+    data_type: VARCHAR
+  - name: LEGAL_ZIP_PC
+    description: ''
+    data_type: VARCHAR
+  - name: LEGAL_COUNTRY_PC
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE_OF_ID_PC
+    description: ''
+    data_type: VARCHAR
+  - name: ID_NUMBER_PC
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_OF_ISSUANCE_PC
+    description: ''
+    data_type: VARCHAR
+  - name: ID_EXPIRATION_DATE_PC
+    description: ''
+    data_type: DATE
+  - name: CITIZENSHIP_PC
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYMENT_STATUS_PC
+    description: ''
+    data_type: VARCHAR
+  - name: INCOME_SOURCE_PC
+    description: ''
+    data_type: VARCHAR
+  - name: OCCUPATION_PC
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_NAME_PC
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_ADDRESS_PC
+    description: ''
+    data_type: VARCHAR
+  - name: SENIOR_POLITICAL_FIGURE_PC
+    description: ''
+    data_type: VARCHAR
+  - name: CONTROL_PERSON_PC
+    description: ''
+    data_type: VARCHAR
+  - name: COMPANY_NAME_PC
+    description: ''
+    data_type: VARCHAR
+  - name: CUSIP_OR_SYMBOL_PC
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYED_BY_FINANCIAL_COMPANY_PC
+    description: ''
+    data_type: VARCHAR
+  - name: ENTITY_NAME_PC
+    description: ''
+    data_type: VARCHAR
+  - name: ENTITY_ADDRESS_PC
+    description: ''
+    data_type: VARCHAR
+  - name: ID_ISSUANCE_DATE_PC
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_ANNUAL_INCOME_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ASSISTANT_NAME_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ASSISTANT_PHONE_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BIRTHDAY_CARD_PC
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_BUSINESS_EMAIL_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CLIENT_PREFERENCES_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DO_NOT_CALL_PC
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_HEAD_OF_HOUSEHOLD_PC
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_HEALTH_MEDICAL_CONCERNS_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_HOBBIES_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_INVESTMENT_INTERESTS_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_KEY_NOTES_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LANGUAGES_1_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LANGUAGES_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LEVEL_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MARITAL_STATUS_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MIDDLE_NAME_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_NAME_PRONUNCIATION_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PERSONAL_INTERESTS_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PREFERRED_CONTACT_METHOD_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PREFERRED_CONTACT_TIME_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PROFESSIONAL_INTERESTS_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SOCIAL_SECURITY_TAX_ID_PC
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: PAYOUT_SUFFIX_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_U_S_CITIZENSHIP_PC
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_OF_DEPENDENTS_PC
+    description: ''
+    data_type: FLOAT
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PAYOUT_ATTENTION_LINE_PREFIX_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_OFAC_MATCH_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_HOME_STATE_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BROKER_DEALER_NAME_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRIOR_FIRM_2_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BACKGROUND_CREDIT_CHECK_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LICENCES_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CONTACT_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CANDIDATE_STATUS_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRIOR_FIRM_5_NUMBER_OF_YEARS_PC
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_LETTER_OF_EXPLANATION_FOR_FINDINGS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_ROLE_AT_CURRENT_FIRM_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DATE_OF_HIRE_AT_CURRENT_FIRM_FULL_PC
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_PRIOR_FIRM_3_NUMBER_OF_YEARS_PC
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_TEAM_NAME_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CONSENT_TO_BACKGROUND_CREDIT_CHECKS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_PRIOR_FIRM_1_NUMBER_OF_YEARS_PC
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_PRIOR_FIRM_3_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LIST_OF_OBAS_REC_D_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_CLEARING_FIRM_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRIMARY_BD_TYPE_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_REGULATORY_DISCLOSURES_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_EMAIL_PERSONAL_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_BRANCH_PHONE_DO_NOT_CALL_PC
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_SOCIAL_MEDIA_LINKED_IN_PC
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: PAYOUT_HOW_WAS_FORM_CRS_DELIVERED_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LAST_CRS_FORM_SENT_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_AUM_SELF_REPORTED_PC
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_DATE_ADDED_TO_DISCOVERY_DB_PC
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_ATTENTION_COUNTRY_CODE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRIOR_FIRM_4_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CANDIDATE_STAGE_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_KNOWN_NON_ADVISOR_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CONFIDENTIAL_PROFILE_REC_D_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_HOME_CITY_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRIOR_FIRM_4_NUMBER_OF_YEARS_PC
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_PRIOR_FIRM_2_NUMBER_OF_YEARS_PC
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_HOUSE_ADVISOR_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_DATE_BECAMOE_REP_FULL_PC
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_PRIOR_FIRM_5_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_EMAIL_OPT_OUT_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_PROSPECTIVE_ADVISOR_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRIOR_FIRM_1_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CREDENTIALS_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_HOME_POSTAL_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_HOME_ADDRESS_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DBA_NAME_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PRODUCTION_SELF_REPORTED_PC
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_REP_CRD_PC
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DISCOVERY_PROFILE_URL_PC
+    description: ''
+    data_type: VARCHAR
+  - name: MWAHOUSEHOLD_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LAST_PAYOUT_RUN_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_TIERED_PAYOUT_RATE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_BALANCE_SINCE_LAST_LOCKED_PAYOUT_RUN_C
+    description: ''
+    data_type: NUMBER
+  - name: CLIENT_AGE_PC
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_float
+    data_type: FLOAT
+  - name: PAYOUT_NET_ADVISOR_PAYABLE_C
+    description: ''
+    data_type: NUMBER
+  - name: STATE_LENGTH_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_ACCOUNT_NAME_ACCOUNT_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_MTD_INVESTMENT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_NEXT_TARGET_MEETING_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_NAP_OTHER_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_TOTAL_MONTHLY_PAYMENTS_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_BIRTHDAY_THIS_YEAR_PC
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: PAYOUT_INVESTMENT_PAYOUT_GRID_F_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_YEARS_SINCE_START_DATE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_YTD_ADVISORY_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_TOTAL_NET_CASH_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_YTD_CREDITS_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_ADVISORY_TIERED_PAYOUT_RATE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_YTD_TOTAL_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_DAYS_SINCE_LAST_REVIEW_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_ADVISOR_PAYABLE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_ON_HOLD_C
+    description: ''
+    data_type: NUMBER
+  - name: ADVISOR_ON_HOUSEHOLD_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_YTD_PAYMENTS_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_NAP_INVESTMENTS_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_NEXT_36_MONTH_REVIEW_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_TOTAL_INCOME_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_ADVISORY_PAYOUT_GRID_F_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TOTAL_BANK_ACCOUNTS_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_INSURANCE_PAYOUT_GRID_F_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_YTD_INSURANCE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_LAST_PAYMENT_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_TOTAL_NET_EQUITY_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_TOTAL_ASSESTS_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_YTD_GROSS_COMMISSION_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_OTHER_INVESTMENTS_NET_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: UNIQUE_ID_CHECK_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_LAST_PAYOUT_PC
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_FINANCIAL_ACCOUNT_CURRENT_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_LAA_BILLING_STREET_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DAYS_SINCE_LAST_ACTIVITY_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_SPOUSE_BIRTHDAY_THIS_YEAR_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: PAYOUT_RECORD_TYPE_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CHECK_ACC_RECORD_TYPE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_TOTAL_DEBT_OWED_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_DAYS_SINCE_LAST_APPT_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_LAA_PERSON_MAILING_STREET_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DAYS_SINCE_START_DATE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_FEE_BASED_CURRENT_ACCOUNT_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_NET_EQUITY_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_INSURANCE_TIERED_PAYOUT_RATE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_NEXT_BIRTHDAY_PC
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: PAYOUT_PAYOUT_RATE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_INVESTMENTS_LOOKUP_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_INSURANCE_PAYOUT_RATE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_YTD_PAYABLE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_BALANCE_SINCE_LAST_LOCKED_PAYOUT_RUN_2_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_HOUSEHOLD_LAST_CLIENT_MEETING_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_HOUSEHOLD_36_MONTH_REVIEW_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_ADVISORY_PAYOUT_RATE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_MTD_INSURANCE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_MTD_ADVISORY_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_LAST_CLIENT_REVIEW_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: PAYOUT_CLIENT_AGE_C
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_float
+    data_type: FLOAT
+  - name: PAYOUT_DAYS_SINCE_LAST_PAYOUT_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_INSURANCE_LOOKUP_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_ADVISOR_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_NAP_ADVISORY_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_NAP_INSURANCE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_EXPIRED_ID_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_APPOINTMENT_FLAG_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ADVISORY_LOOKUP_AMOUNT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_HH_ADDRESS_DIFF_FROM_MAILING_ADD_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LAST_MEETING_C
+    description: ''
+    data_type: TIMESTAMP_TZ
+  - name: TAX_BRACKET_C
+    description: ''
+    data_type: VARCHAR
+  - name: MIGRATION_TRACK_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PLAN_CONTACT_PHONE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_FINCEN_LAST_HIT_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_FIDUCIARY_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PLAN_YEAR_END_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ERSPLAN_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_REFERRAL_PERCENTAGE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_ERSPLAN_CREATE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_MANUAL_HOUSEHOLD_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_REGION_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ERSRECORD_KEEPER_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PA_FROM_CT_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_FORM_CRS_SENT_FROM_BUTTON_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_PLAN_CONTACT_NAME_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_NUMOF_ELIG_EMPLOYEES_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_FINCEN_MATCH_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_HOUSEHOLD_CODE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_LAST_FINCEN_RUN_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_PERCENTAGE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_NUMOF_PARTICIPANTS_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_HOUSEHOLD_CODE_CHANGED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_ENGAGED_SINCE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_FINCEN_CLEARED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_REFERRAL_PAID_TO_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_UNAFFILIATED_RIA_CRD_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_PLAN_CONTACT_EMAIL_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_REFERRAL_BONUS_CALC_BASED_ON_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TOT_MKT_VALUE_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_COPY_FROM_SPOUSE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_CUSTODIAL_DATA_SOURCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATE_OF_RESIDENCY_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TOT_DIST_AMT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_COMMISSION_FILE_PDF_TYPE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DATA_SOURCE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_DAYS_ENGAGED_SINCE_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_OFAC_CLEARED_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_COMPANY_NAME_NIPR_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TOT_CONTRIB_AMT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_TOTAL_RATE_TO_BE_PAID_OUT_C
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_COMPANY_FEIN_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ADDED_TO_PDB_ALERTS_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_COPY_FROM_SPOUSE_ON_SPOUSE_C
+    description: ''
+    data_type: BOOLEAN
+  - name: PAYOUT_NPN_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_ADVISOR_TYPE_PICKLIST_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_STATE_DOMICILE_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CT_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_CIRRUS_RECORD_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_SELLING_AGREEMENT_STATUS_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_TOT_PLAN_AMT_C
+    description: ''
+    data_type: NUMBER
+  - name: PAYOUT_DEALER_NUMBER_C
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_EFFECTIVE_DATE_C
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_STATE_CO_ID_C
+    description: ''
+    data_type: VARCHAR
+  - name: X_3_P_RATE_C
+    description: ''
+    data_type: FLOAT
+  - name: X_3_P_INTRO_C
+    description: ''
+    data_type: VARCHAR

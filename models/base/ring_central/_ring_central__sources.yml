@@ -7,3 +7,7 @@ sources:
     tables:
       - name: sms
         description: ""
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT

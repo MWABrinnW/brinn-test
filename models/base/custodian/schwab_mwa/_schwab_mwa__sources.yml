@@ -7,17 +7,1109 @@ sources:
     loaded_at_field: record_datetime
     tables:
       - name: accounts
+        columns:
+          - name: CUSTODIANID
+            description: ''
+            data_type: VARCHAR
+          - name: MASTERACCOUNTNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: MASTERACCOUNTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSDATE
+            description: ''
+            data_type: DATE
+          - name: ACCOUNTID
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTTITLELINE1
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTTITLELINE2
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTTITLELINE3
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTSTATUS
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTREGISTRATION
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: TAXPAYERTITLE
+            description: ''
+            data_type: VARCHAR
+          - name: TAXPAYERFIRSTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: TAXPAYERMIDDLENAME
+            description: ''
+            data_type: VARCHAR
+          - name: TAXPAYERLASTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: TAXPAYERSUFFIX
+            description: ''
+            data_type: VARCHAR
+          - name: TAXWITHHOLDCODE
+            description: ''
+            data_type: VARCHAR
+          - name: PRIMARYCONTACT
+            description: ''
+            data_type: VARCHAR
+          - name: ALIASNAME
+            description: ''
+            data_type: VARCHAR
+          - name: MAILINGADDRESSLINE1
+            description: ''
+            data_type: VARCHAR
+          - name: MAILINGADDRESSLINE2
+            description: ''
+            data_type: VARCHAR
+          - name: MAILINGADDRESSLINE3
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTMAILINGCITY
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTMAILINGSTATE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTMAILINGZIP
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTMAILINGCOUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: EMAILADDRESS
+            description: ''
+            data_type: VARCHAR
+          - name: PHONE
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSPHONE
+            description: ''
+            data_type: VARCHAR
+          - name: DATEOPENED
+            description: ''
+            data_type: DATE
+          - name: SCHWABBRANCHCODE
+            description: ''
+            data_type: VARCHAR
+          - name: SWEEPSTATUSCODE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTCASHINSTRUCTIONSCASH
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTCASHINSTRUCTIONSMARGIN
+            description: ''
+            data_type: VARCHAR
+          - name: MARGINACCOUNTINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTRESTRICTIONS
+            description: ''
+            data_type: VARCHAR
+          - name: ADDITIONALMAILINGS
+            description: ''
+            data_type: VARCHAR
+          - name: NUMBEROFADDITIONALMAILINGS
+            description: ''
+            data_type: VARCHAR
+          - name: APPROVEDOPTIONLEVEL
+            description: ''
+            data_type: NUMBER
+          - name: BENEFICIARYONFILE
+            description: ''
+            data_type: VARCHAR
+          - name: NUMBEROFBENEFICIARIES
+            description: ''
+            data_type: NUMBER
+          - name: PAYMENTFEATURESCHECKS
+            description: ''
+            data_type: VARCHAR
+          - name: PAYMENTFEATUREDEBITCARD
+            description: ''
+            data_type: VARCHAR
+          - name: PAYMENTFEATURESBILLPAY
+            description: ''
+            data_type: VARCHAR
+          - name: UNDELIVERABLEMAILFLAG
+            description: ''
+            data_type: VARCHAR
+          - name: FAFEESTATUS
+            description: ''
+            data_type: VARCHAR
+          - name: INTERESTBEARINGFEATURECODE
+            description: ''
+            data_type: VARCHAR
+          - name: INTERESTBEARINGFEATUREMONEYMARKETCODE
+            description: ''
+            data_type: VARCHAR
+          - name: INTERESTBEARINGFEATURETICKERSYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: INTERESTBEARINGFEATUREITEMISSUEID
+            description: ''
+            data_type: VARCHAR
+          - name: INTERESTBEARINGFEATURERULESETSUFFIX
+            description: ''
+            data_type: VARCHAR
+          - name: PROXYVOTINGAUTHORITY
+            description: ''
+            data_type: VARCHAR
+          - name: PROXYMAILING
+            description: ''
+            data_type: VARCHAR
+          - name: STATEMENTPREFERENCES
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTTAXABLEINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: DEFAULTLOTSELECTIONMETHOD
+            description: ''
+            data_type: VARCHAR
+          - name: COSTMETHOD
+            description: ''
+            data_type: VARCHAR
+          - name: COSTBASISMETHODFORMUTUALFUNDS
+            description: ''
+            data_type: VARCHAR
+          - name: COSTBASISMETHODNONMUTUALFUNDS
+            description: ''
+            data_type: VARCHAR
+          - name: COSTBASISMETHODDATE
+            description: ''
+            data_type: DATE
+          - name: VERSIONMARKERNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMERTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ORGANIZATIONPRIMARYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: RESTRICTIONREASONCODE1
+            description: ''
+            data_type: VARCHAR
+          - name: RESTRICTIONREASONCODE2
+            description: ''
+            data_type: VARCHAR
+          - name: RESTRICTIONREASONCODE3
+            description: ''
+            data_type: VARCHAR
+          - name: RESTRICTIONREASONCODE4
+            description: ''
+            data_type: VARCHAR
+          - name: RESTRICTIONREASONCODE5
+            description: ''
+            data_type: VARCHAR
+          - name: VERSIONMARKERNUMBER2
+            description: ''
+            data_type: VARCHAR
+          - name: SCHWABBANKINVESTORCHECKINGACCOUNTNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: VERSIONMARKERNUMBER3
+            description: ''
+            data_type: VARCHAR
+          - name: SSN_TIN
+            description: ''
+            data_type: VARCHAR
+          - name: VERSIONMARKERNUMBER4
+            description: ''
+            data_type: VARCHAR
+          - name: PRIMEBROKERENABLEDINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: MANAGEDACCOUNTPLATFORMCODE
+            description: ''
+            data_type: VARCHAR
+          - name: MANAGEDACCOUNTMONEYMANAGER
+            description: ''
+            data_type: VARCHAR
+          - name: MANAGEDACCOUNTINVESTMENTSTRATEGY
+            description: ''
+            data_type: VARCHAR
+          - name: VERSIONMARKERNUMBER5
+            description: ''
+            data_type: VARCHAR
+          - name: BANKSWEEPDISPLAYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: customer
+        columns:
+          - name: ACCOUNTNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTDESC
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTADDR1
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTADDR2
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTADDR3
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTADDR4
+            description: ''
+            data_type: VARCHAR
+          - name: PHONE1
+            description: ''
+            data_type: VARCHAR
+          - name: PHONE2
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTOPENDATE
+            description: ''
+            data_type: DATE
+          - name: BRANCHID
+            description: ''
+            data_type: VARCHAR
+          - name: TAXID
+            description: ''
+            data_type: VARCHAR
+          - name: MMF
+            description: ''
+            data_type: VARCHAR
+          - name: CASHINSTRUCTIONS
+            description: ''
+            data_type: VARCHAR
+          - name: MARGININSTRUCTIONS
+            description: ''
+            data_type: VARCHAR
+          - name: RESTRICTIONS
+            description: ''
+            data_type: VARCHAR
+          - name: OPTIONLEVEL
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: positions
+        columns:
+          - name: SECURITYSYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: LONGSHORT
+            description: ''
+            data_type: VARCHAR
+          - name: UNITS
+            description: ''
+            data_type: FLOAT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: positions_cost_basis
+        columns:
+          - name: RECORDTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTODIAN
+            description: ''
+            data_type: VARCHAR
+          - name: MSTRACCTNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: MASTERACCOUNTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSDATE
+            description: ''
+            data_type: DATE
+          - name: ACCOUNTID
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITYTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PRODCODE
+            description: ''
+            data_type: VARCHAR
+          - name: PRODCATGCODE
+            description: ''
+            data_type: VARCHAR
+          - name: TAXCODE
+            description: ''
+            data_type: VARCHAR
+          - name: TICKERSYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: SCHWABSECNBR
+            description: ''
+            data_type: VARCHAR
+          - name: ITEMISSUEID
+            description: ''
+            data_type: VARCHAR
+          - name: ISIN
+            description: ''
+            data_type: VARCHAR
+          - name: SEDOL
+            description: ''
+            data_type: VARCHAR
+          - name: OPTIONSDISPLAYSYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: UNDERLYINGTICKERSYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: UNDERLYINGCUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: UNDERLYINGSCHWABNBR
+            description: ''
+            data_type: VARCHAR
+          - name: UNDERLYINGITMISSID
+            description: ''
+            data_type: VARCHAR
+          - name: UNDERLYINGISIN
+            description: ''
+            data_type: VARCHAR
+          - name: UNDERLYINGSEDOL
+            description: ''
+            data_type: VARCHAR
+          - name: CURRENTQUANTITY
+            description: ''
+            data_type: FLOAT
+          - name: LS
+            description: ''
+            data_type: VARCHAR
+          - name: CURRENTMARKETVALUE
+            description: ''
+            data_type: FLOAT
+          - name: ACCRUEDINTEREST
+            description: ''
+            data_type: FLOAT
+          - name: COSTBASISUNAMORTIZED
+            description: ''
+            data_type: FLOAT
+          - name: COSTPERSHARE
+            description: ''
+            data_type: FLOAT
+          - name: ADJCOSTBASISAMORTIZED
+            description: ''
+            data_type: FLOAT
+          - name: ADJCOSTPERSHARE
+            description: ''
+            data_type: FLOAT
+          - name: URGL
+            description: ''
+            data_type: FLOAT
+          - name: CB
+            description: ''
+            data_type: VARCHAR
+          - name: CT
+            description: ''
+            data_type: VARCHAR
+          - name: AT
+            description: ''
+            data_type: VARCHAR
+          - name: CF
+            description: ''
+            data_type: VARCHAR
+          - name: ORIGINALFACE
+            description: ''
+            data_type: FLOAT
+          - name: DFLOTTSELCT
+            description: ''
+            data_type: VARCHAR
+          - name: CM
+            description: ''
+            data_type: VARCHAR
+          - name: PRINCPAYDOWNFACTOR
+            description: ''
+            data_type: FLOAT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: securities
+        columns:
+          - name: SECURITYSYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITYTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITYDESC1
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITYDESC2
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITYDESC3
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITYDESC4
+            description: ''
+            data_type: VARCHAR
+          - name: PRICE
+            description: ''
+            data_type: FLOAT
+          - name: PRICEDATE
+            description: ''
+            data_type: DATE
+          - name: VALUATIONUNIT
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: tax_lots
+        columns:
+          - name: RECORDTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTODIAN
+            description: ''
+            data_type: VARCHAR
+          - name: MSTRACCTNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: MASTERACCOUNTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSDATE
+            description: ''
+            data_type: DATE
+          - name: ACCOUNTID
+            description: ''
+            data_type: VARCHAR
+          - name: PRODCODE
+            description: ''
+            data_type: VARCHAR
+          - name: PRODCATGCODE
+            description: ''
+            data_type: VARCHAR
+          - name: TAXCODE
+            description: ''
+            data_type: VARCHAR
+          - name: TICKERSYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: SCHWABSECNBR
+            description: ''
+            data_type: VARCHAR
+          - name: ITEMISSUEID
+            description: ''
+            data_type: VARCHAR
+          - name: ISIN
+            description: ''
+            data_type: VARCHAR
+          - name: SEDOL
+            description: ''
+            data_type: VARCHAR
+          - name: OPTIONSDISPLAYSYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: UNDERLYINGTICKERSYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: UNDERLYINGCUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: UNDERLYINGSCHWABNBR
+            description: ''
+            data_type: VARCHAR
+          - name: UNDERLYINGITMISSID
+            description: ''
+            data_type: VARCHAR
+          - name: UNDERLYINGISIN
+            description: ''
+            data_type: VARCHAR
+          - name: UNDERLYINGSEDOL
+            description: ''
+            data_type: VARCHAR
+          - name: CURRENTQUANTITY
+            description: ''
+            data_type: FLOAT
+          - name: LS
+            description: ''
+            data_type: VARCHAR
+          - name: TRANSCODE
+            description: ''
+            data_type: VARCHAR
+          - name: CURRENTMARKETVALUE
+            description: ''
+            data_type: FLOAT
+          - name: ACCRUEDINTEREST
+            description: ''
+            data_type: FLOAT
+          - name: ACQUIREDDATE
+            description: ''
+            data_type: DATE
+          - name: ORIGPURCHASEDATE
+            description: ''
+            data_type: DATE
+          - name: ORGPURCHASEPRICE
+            description: ''
+            data_type: FLOAT
+          - name: YIELDTOMATURITY
+            description: ''
+            data_type: FLOAT
+          - name: COSTBASISUNAMORTIZED
+            description: ''
+            data_type: FLOAT
+          - name: COSTPERSHARE
+            description: ''
+            data_type: FLOAT
+          - name: ADJUSTEDCOSTBASISAMORTIZED
+            description: ''
+            data_type: FLOAT
+          - name: ADJUSTEDCOSTPERSHARE
+            description: ''
+            data_type: FLOAT
+          - name: URGL
+            description: ''
+            data_type: FLOAT
+          - name: DAYSHELD
+            description: ''
+            data_type: NUMBER
+          - name: HT
+            description: ''
+            data_type: VARCHAR
+          - name: CB
+            description: ''
+            data_type: VARCHAR
+          - name: CT
+            description: ''
+            data_type: VARCHAR
+          - name: AT
+            description: ''
+            data_type: VARCHAR
+          - name: CF
+            description: ''
+            data_type: VARCHAR
+          - name: ORIGINALFACE
+            description: ''
+            data_type: FLOAT
+          - name: DFLOTSELCT
+            description: ''
+            data_type: VARCHAR
+          - name: WS
+            description: ''
+            data_type: VARCHAR
+          - name: VERSIONMRKR1
+            description: ''
+            data_type: VARCHAR
+          - name: DISALLOWEDLOSSAMOUNT
+            description: ''
+            data_type: FLOAT
+          - name: TRANSACTIONCOST
+            description: ''
+            data_type: FLOAT
+          - name: TRANSACTIONCOSTPERSHARE
+            description: ''
+            data_type: FLOAT
+          - name: VERSMRKR2
+            description: ''
+            data_type: VARCHAR
+          - name: GI
+            description: ''
+            data_type: VARCHAR
+          - name: ORIGINALCOSTBASIS
+            description: ''
+            data_type: FLOAT
+          - name: VERSMRKR3
+            description: ''
+            data_type: VARCHAR
+          - name: ADJUSTEDCOSTINCLUDGUNPDAMORT
+            description: ''
+            data_type: FLOAT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: transactions
+        columns:
+          - name: RECORDTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTODIANID
+            description: ''
+            data_type: VARCHAR
+          - name: MSTRACCTNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: MASTERACCOUNTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSDATE
+            description: ''
+            data_type: DATE
+          - name: ACCOUNTID
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTTITLE1
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTTITLE2
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTTITLE3
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTREGIS
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PRODCODE
+            description: ''
+            data_type: VARCHAR
+          - name: PRODCATGCODE
+            description: ''
+            data_type: VARCHAR
+          - name: TAXCODE
+            description: ''
+            data_type: VARCHAR
+          - name: LYST
+            description: ''
+            data_type: VARCHAR
+          - name: TICKERSYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: INDUSTRYTICKERSYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: SCHWABSECNBR
+            description: ''
+            data_type: VARCHAR
+          - name: ITEMISSUEID
+            description: ''
+            data_type: VARCHAR
+          - name: RULSTSUFID
+            description: ''
+            data_type: VARCHAR
+          - name: ISIN
+            description: ''
+            data_type: VARCHAR
+          - name: SEDOL
+            description: ''
+            data_type: VARCHAR
+          - name: OPTIONSDISPLAYSYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: UNDERLYINGTICKERSYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: UNDERLYINGINDUSTRYTICKERSYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: UNDERLYINGCUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: UNDERLYINGSCHWABNMBR
+            description: ''
+            data_type: VARCHAR
+          - name: UNDERLYINGITMISSID
+            description: ''
+            data_type: VARCHAR
+          - name: UNRULSUFID
+            description: ''
+            data_type: VARCHAR
+          - name: UNDERLYINGISN
+            description: ''
+            data_type: VARCHAR
+          - name: UNDERLYINGSEDOL
+            description: ''
+            data_type: VARCHAR
+          - name: MNYMKCODE
+            description: ''
+            data_type: VARCHAR
+          - name: TRCD
+            description: ''
+            data_type: VARCHAR
+          - name: SBCD
+            description: ''
+            data_type: VARCHAR
+          - name: TRANSACTIONCATEGORY
+            description: ''
+            data_type: VARCHAR
+          - name: TRANSRCCDE
+            description: ''
+            data_type: VARCHAR
+          - name: TRANSACTIONSOURCECODEDESC
+            description: ''
+            data_type: VARCHAR
+          - name: TRANSACTIONDETAILDESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: TRADETYPECD
+            description: ''
+            data_type: VARCHAR
+          - name: TC
+            description: ''
+            data_type: VARCHAR
+          - name: TRADEDATE
+            description: ''
+            data_type: DATE
+          - name: SETTLEMENTDATE
+            description: ''
+            data_type: DATE
+          - name: TRADDATE
+            description: ''
+            data_type: DATE
+          - name: EDDIVDNDDATE
+            description: ''
+            data_type: DATE
+          - name: QUANTITY
+            description: ''
+            data_type: FLOAT
+          - name: PRICE
+            description: ''
+            data_type: FLOAT
+          - name: GROSSAMOUNT
+            description: ''
+            data_type: FLOAT
+          - name: DEBITCREDIT
+            description: ''
+            data_type: VARCHAR
+          - name: NETAMOUNT
+            description: ''
+            data_type: FLOAT
+          - name: COMMISSION
+            description: ''
+            data_type: FLOAT
+          - name: EXCHANGEPROCESSINGFEE
+            description: ''
+            data_type: FLOAT
+          - name: BROKERSERVICEFEE
+            description: ''
+            data_type: FLOAT
+          - name: PRIMEBROKERFEE
+            description: ''
+            data_type: FLOAT
+          - name: TRADEAWAYFEE
+            description: ''
+            data_type: FLOAT
+          - name: REDEMPTIONFEE
+            description: ''
+            data_type: FLOAT
+          - name: OTHERFEE
+            description: ''
+            data_type: FLOAT
+          - name: FEDERALTEFRAWITHHOLDING
+            description: ''
+            data_type: FLOAT
+          - name: STATETAXWITHHOLDING
+            description: ''
+            data_type: FLOAT
+          - name: STTX
+            description: ''
+            data_type: VARCHAR
+          - name: ACCRUEDINTEREST
+            description: ''
+            data_type: FLOAT
+          - name: ACCOUNTINGRULECODE
+            description: ''
+            data_type: VARCHAR
+          - name: ORDERSRCD
+            description: ''
+            data_type: VARCHAR
+          - name: ORDERNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: TRADEORDERENTRYTIMESTAMP
+            description: ''
+            data_type: VARCHAR
+          - name: TRADEORDEREXECUTIONTIMESTAMP
+            description: ''
+            data_type: VARCHAR
+          - name: BROKERCODE
+            description: ''
+            data_type: VARCHAR
+          - name: BROKERNAME
+            description: ''
+            data_type: VARCHAR
+          - name: SWBFROMACCOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: SWBTOACCOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: S1CHECK
+            description: ''
+            data_type: VARCHAR
+          - name: SI
+            description: ''
+            data_type: VARCHAR
+          - name: STOCKEXCHG
+            description: ''
+            data_type: VARCHAR
+          - name: IE
+            description: ''
+            data_type: VARCHAR
+          - name: DISTRIBUTIONRATE
+            description: ''
+            data_type: FLOAT
+          - name: CASHINLIEUSHAREQTY
+            description: ''
+            data_type: FLOAT
+          - name: DIVINTSHAREQTY
+            description: ''
+            data_type: FLOAT
+          - name: CASHINLIEURATE
+            description: ''
+            data_type: FLOAT
+          - name: ASSETBACKEDFACTOR
+            description: ''
+            data_type: FLOAT
+          - name: SRSY
+            description: ''
+            data_type: VARCHAR
+          - name: JNTP
+            description: ''
+            data_type: VARCHAR
+          - name: DM
+            description: ''
+            data_type: VARCHAR
+          - name: CASHIERINGID
+            description: ''
+            data_type: VARCHAR
+          - name: RECIPMAKERNAME1
+            description: ''
+            data_type: VARCHAR
+          - name: RECIPMAKERNAME2
+            description: ''
+            data_type: VARCHAR
+          - name: RECIPMAKERNAME3
+            description: ''
+            data_type: VARCHAR
+          - name: FREQUENCY
+            description: ''
+            data_type: VARCHAR
+          - name: DISBURSECHECKNUM
+            description: ''
+            data_type: VARCHAR
+          - name: FEDERALBANKREFNUM
+            description: ''
+            data_type: VARCHAR
+          - name: RECIPMAKERACCTNUM
+            description: ''
+            data_type: VARCHAR
+          - name: BANKACCTTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: BANKNAMEPART1
+            description: ''
+            data_type: VARCHAR
+          - name: BANKNAMEPART2
+            description: ''
+            data_type: VARCHAR
+          - name: BANKABA
+            description: ''
+            data_type: VARCHAR
+          - name: INTERMEDNAME
+            description: ''
+            data_type: VARCHAR
+          - name: CHECKMEMO1
+            description: ''
+            data_type: VARCHAR
+          - name: CHECKMEMO2
+            description: ''
+            data_type: VARCHAR
+          - name: RETFEDINCOMETAX
+            description: ''
+            data_type: FLOAT
+          - name: RETSTATEINCTAX
+            description: ''
+            data_type: FLOAT
+          - name: RTTX
+            description: ''
+            data_type: VARCHAR
+          - name: PUBTIMESTAMP
+            description: ''
+            data_type: VARCHAR
+          - name: VERSMRKR1
+            description: ''
+            data_type: VARCHAR
+          - name: TIPSFACTOR
+            description: ''
+            data_type: FLOAT
+          - name: CLOSINGPRICE
+            description: ''
+            data_type: FLOAT
+          - name: VERSMRKR2
+            description: ''
+            data_type: VARCHAR
+          - name: TRANSMEMO
+            description: ''
+            data_type: VARCHAR
+          - name: VERSMRKR3
+            description: ''
+            data_type: VARCHAR
+          - name: CLOSINGPRICEUNFACTORED
+            description: ''
+            data_type: FLOAT
+          - name: FACTOR
+            description: ''
+            data_type: FLOAT
+          - name: FACTORDATE
+            description: ''
+            data_type: DATE
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: master_accounts_mapping
+        columns:
+          - name: MASTER_ACCOUNT_ID
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_ID
+            description: ''
+            data_type: VARCHAR
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
       - name: referral_fees_prior_quarter
+        columns:
+          - name: CONTENT
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: referral_fees_current_quarter
+        columns:
+          - name: CONTENT
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: referral_fees_advisor_network
+        columns:
+          - name: CONTENT
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: master_account_relationships
+        columns:
+          - name: FA_MASTER_ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: FA_MASTER_ACCOUNT_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: FA_REP_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: SUB_ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: SUB_ACCOUNT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: SUB_ACCOUNT_TAX_ID_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: sec
         description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
         columns:

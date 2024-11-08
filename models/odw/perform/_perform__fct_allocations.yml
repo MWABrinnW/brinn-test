@@ -1,0 +1,62 @@
+version: 2
+models:
+  - name: perform__fct_allocations
+    columns:
+      - name: ORDER_ID
+        description: ''
+      - name: TRADE_DATE
+        description: ''
+      - name: SETTLE_DATE
+        description: ''
+      - name: CUSIP
+        description: ''
+      - name: SOURCE_SECURITY_TYPE
+        description: ''
+      - name: SOURCE_SECURITY_DESCRIPTION
+        description: ''
+      - name: ORDER_SIDE
+        description: ''
+      - name: ORDER_EFFECT
+        description: ''
+      - name: UNITS
+        description: ''
+      - name: UNIT_PRICE
+        description: ''
+      - name: PRINCIPAL
+        description: ''
+      - name: INTEREST
+        description: ''
+      - name: NET
+        description: ''
+      - name: FINANCIAL_ACCOUNT
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: BROKER_NAME
+        description: ''
+      - name: BROKER_ID
+        description: ''
+      - name: OWNER
+        description: ''
+      - name: TRADE_AWAY
+        description: ''
+      - name: FIRM
+        description: ''
+      - name: VENUE
+        description: ''
+      - name: PLATFORM
+        description: ''
+      - name: TRADER
+        description: ''
+      - name: TRADE_START_UTC
+        description: ''
+      - name: TRADE_END_UTC
+        description: ''
+      - name: SOURCE_TRADE_DATETIME
+        description: ''
+      - name: SOURCE_TRADE_TZ
+        description: ''
+      - name: RECORD_DATE
+        description: ''
+      - name: RECORD_DATETIME
+        description: ''

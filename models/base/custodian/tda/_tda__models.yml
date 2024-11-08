@@ -1,98 +1,1058 @@
 version: 2
-
 models:
-  - name: tda__base_pos
-    columns:
-      - name: custodial_id
-      - name: business_date
-      - name: account_number
-      - name: account_type
-      - name: security_type
-      - name: symbol
-      - name: current_quantity
-      - name: cost_basis
-      - name: adjusted_cost_basis
-      - name: unrealized_gain_loss
-      - name: cost_basis_fully_known
-      - name: certified_flag
-      - name: original_purchase_date
-      - name: original_purchase_price
-      - name: wash_sale_indicator
-      - name: disallowed_amount
-      - name: averaged_cost
-      - name: book_cost
-      - name: book_proceeds
-      - name: fixed_income_cost_adjustment
-      - name: id
-      - name: security_name
-      - name: covered
-      - name: unknown_total
-      - name: rep_code_firm
-        tests:
-          - not_null
-      - name: effective_date
-      - name: _rep_code
-      - name: _file_type
-      - name: _source_file 
-      - name: _created_at
+- name: tda__base_pos
+  columns:
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: account_number
+  - name: account_type
+  - name: security_type
+  - name: symbol
+  - name: QUANTITY
+    description: ''
+    data_type: FLOAT
+  - name: AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: rep_code_firm
+    tests:
+    - not_null
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM
+    description: Firm name
+    data_type: VARCHAR
+  - name: effective_date
+  - name: _rep_code
+  - name: _file_type
+  - name: _source_file
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+- name: tda__base_accounts
+  description: 'This table represents the tda account feed in its entirety. With other
+    custodial feeds we know when an account is delinked because it no longer feeds
+    in the files we are sent. TDA does not use this mechanism and does not offer an
+    alternative for understanding when and if an account is not linked to a firm any
+    longer. Accounts which may have left Mariner service weeks or months ago may still
+    appear in this data.
 
-
-  - name: tda__base_accounts
-    description: >
-      This table represents the tda account feed in its entirety.
-      With other custodial feeds we know when an account is delinked because it no longer feeds in the files we are sent.
-      TDA does not use this mechanism and does not offer an alternative for understanding when and if an account is not linked to a firm any longer.
-      Accounts which may have left Mariner service weeks or months ago may still appear in this data.
-    columns:
-      - name: effective_date
-      - name: account_number
-      - name: advisor_id
-      - name: account_type
-      - name: taxable
-      - name: has_positions
-      - name: first_positions_date
-      - name: last_positions_date
-      - name: objective
-      - name: company_name
-      - name: last_name
-      - name: first_name
-      - name: street
-      - name: address_2
-      - name: address_3
-      - name: address_4
-      - name: address_5
-      - name: address_6
-      - name: city
-      - name: state
-      - name: zip_code
-      - name: ssn
-      - name: phone_number
-      - name: fax_number
-      - name: billing_account_number
-      - name: default_account
-      - name: state_of_primary_residence
-      - name: performance_inception_date
-      - name: billing_inception_date
-      - name: federal_tax_rate
-      - name: state_tax_rate
-      - name: months_in_short_term_holding_period
-      - name: fiscal_year_end
-      - name: use_average_cost_accounting
-      - name: display_accrued_interest
-      - name: display_accrued_dividends
-      - name: display_accrued_gains
-      - name: birth_date
-      - name: discount_rate
-      - name: payout_rate
-      - name: rep_code_firm
-        tests:
-          - not_null
-      - name: rep_code_status
-      - name: rep_code_description
-      - name: is_head
-      - name: is_current
-      - name: _rep_code
-      - name: _file_type
-      - name: _source_file
-      - name: _source_loaded_at
-      - name: _created_at
+    '
+  columns:
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: company_name
+  - name: last_name
+  - name: first_name
+  - name: street
+  - name: address_2
+  - name: address_3
+  - name: address_4
+  - name: address_5
+  - name: address_6
+  - name: city
+  - name: state
+  - name: zip_code
+  - name: ssn
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: account_number
+  - name: advisor_id
+  - name: taxable
+  - name: phone_number
+  - name: fax_number
+  - name: account_type
+  - name: objective
+  - name: billing_account_number
+  - name: default_account
+  - name: state_of_primary_residence
+  - name: performance_inception_date
+  - name: billing_inception_date
+  - name: federal_tax_rate
+  - name: state_tax_rate
+  - name: months_in_short_term_holding_period
+  - name: fiscal_year_end
+  - name: use_average_cost_accounting
+  - name: display_accrued_interest
+  - name: display_accrued_dividends
+  - name: display_accrued_gains
+  - name: birth_date
+    data_type: DATE
+  - name: discount_rate
+  - name: payout_rate
+  - name: effective_date
+  - name: rep_code_firm
+    tests:
+    - not_null
+  - name: _rep_code
+  - name: _file_type
+  - name: _source_file
+  - name: _source_loaded_at
+- name: tda__base_accounts_balances
+  columns:
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: OPEN_DATE
+    description: ''
+    data_type: DATE
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: REP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: MARKET_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: SWEEP
+    description: ''
+    data_type: VARCHAR
+  - name: BUYING_POWER
+    description: ''
+    data_type: NUMBER
+  - name: NET_BALANCE
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: _EXTRACTED_AT
+    description: ''
+    data_type: TIMESTAMP_LTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_LTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _CHECKSUM
+    description: ''
+    data_type: VARCHAR
+- name: tda__base_trd
+  columns:
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: COMPANY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: STREET
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_2
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_3
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_4
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_5
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_6
+    description: ''
+    data_type: VARCHAR
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: STATE
+    description: ''
+    data_type: VARCHAR
+  - name: ZIP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SSN
+    description: ''
+    data_type: NUMBER
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ADVISOR_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TAXABLE
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE_NUMBER
+    description: ''
+    data_type: NUMBER
+  - name: FAX_NUMBER
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: OBJECTIVE
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: DEFAULT_ACCOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_OF_PRIMARY_RESIDENCE
+    description: ''
+    data_type: BOOLEAN
+  - name: PERFORMANCE_INCEPTION_DATE
+    description: ''
+    data_type: DATE
+  - name: BILLING_INCEPTION_DATE
+    description: ''
+    data_type: DATE
+  - name: FEDERAL_TAX_RATE
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_TAX_RATE
+    description: ''
+    data_type: VARCHAR
+  - name: MONTHS_IN_SHORT_TERM_HOLDING_PERIOD
+    description: ''
+    data_type: VARCHAR
+  - name: FISCAL_YEAR_END
+    description: ''
+    data_type: VARCHAR
+  - name: USE_AVERAGE_COST_ACCOUNTING
+    description: ''
+    data_type: NUMBER
+  - name: DISPLAY_ACCRUED_INTEREST
+    description: ''
+    data_type: NUMBER
+  - name: DISPLAY_ACCRUED_DIVIDENDS
+    description: ''
+    data_type: NUMBER
+  - name: DISPLAY_ACCRUED_GAINS
+    description: ''
+    data_type: NUMBER
+  - name: BIRTH_DATE
+    description: ''
+    data_type: DATE
+    meta:
+      masking_policy: mp_client_pii_date
+  - name: DISCOUNT_RATE
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_RATE
+    description: ''
+    data_type: FLOAT
+  - name: REP_CODE_FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _REP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: _FILE_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+- name: tda__base_trn
+  columns:
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: ADVISOR_REP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: FILE_DATE
+    description: ''
+    data_type: DATE
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSACTION_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CANCEL_STATUS_FLAG
+    description: ''
+    data_type: VARCHAR
+  - name: SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_DATE
+    description: ''
+    data_type: DATE
+  - name: QUANTITY
+    description: ''
+    data_type: VARCHAR
+  - name: NET_AMOUNT
+    description: ''
+    data_type: FLOAT
+  - name: PRINCIPAL
+    description: ''
+    data_type: NUMBER
+  - name: BROKER_FEE
+    description: ''
+    data_type: NUMBER
+  - name: OTHER_FEE
+    description: ''
+    data_type: NUMBER
+  - name: SETTLE_DATE
+    description: ''
+    data_type: DATE
+  - name: FROM_TO_ACCOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCRUED_INTEREST
+    description: ''
+    data_type: NUMBER
+  - name: CLOSING_ACCOUNTING_METHOD
+    description: ''
+    data_type: VARCHAR
+  - name: COMMENT
+    description: ''
+    data_type: VARCHAR
+  - name: REP_CODE_FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _REP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: _FILE_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+- name: tda__int_accounts
+  columns:
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ADVISOR_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: TAXABLE
+    description: ''
+    data_type: VARCHAR
+  - name: HAS_POSITIONS
+    description: ''
+    data_type: NUMBER
+  - name: FIRST_POSITIONS_DATE
+    description: ''
+    data_type: DATE
+  - name: LAST_POSITIONS_DATE
+    description: ''
+    data_type: DATE
+  - name: ACCOUNT_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: IS_ACTIVE
+    description: ''
+    data_type: NUMBER
+  - name: STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: CLOSED_DATE
+    description: ''
+    data_type: DATE
+  - name: OBJECTIVE
+    description: ''
+    data_type: VARCHAR
+  - name: COMPANY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: STREET
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_2
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_3
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_4
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_5
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_6
+    description: ''
+    data_type: VARCHAR
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: STATE
+    description: ''
+    data_type: VARCHAR
+  - name: ZIP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SSN
+    description: ''
+    data_type: NUMBER
+    meta:
+      masking_policy: mp_client_pii_number
+  - name: PHONE_NUMBER
+    description: ''
+    data_type: NUMBER
+  - name: FAX_NUMBER
+    description: ''
+    data_type: NUMBER
+  - name: BILLING_ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: DEFAULT_ACCOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_OF_PRIMARY_RESIDENCE
+    description: ''
+    data_type: BOOLEAN
+  - name: PERFORMANCE_INCEPTION_DATE
+    description: ''
+    data_type: DATE
+  - name: BILLING_INCEPTION_DATE
+    description: ''
+    data_type: DATE
+  - name: FEDERAL_TAX_RATE
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_TAX_RATE
+    description: ''
+    data_type: VARCHAR
+  - name: MONTHS_IN_SHORT_TERM_HOLDING_PERIOD
+    description: ''
+    data_type: VARCHAR
+  - name: FISCAL_YEAR_END
+    description: ''
+    data_type: VARCHAR
+  - name: USE_AVERAGE_COST_ACCOUNTING
+    description: ''
+    data_type: NUMBER
+  - name: DISPLAY_ACCRUED_INTEREST
+    description: ''
+    data_type: NUMBER
+  - name: DISPLAY_ACCRUED_DIVIDENDS
+    description: ''
+    data_type: NUMBER
+  - name: DISPLAY_ACCRUED_GAINS
+    description: ''
+    data_type: NUMBER
+  - name: BIRTH_DATE
+    description: ''
+    data_type: DATE
+    meta:
+      masking_policy: mp_client_pii_date
+  - name: DISCOUNT_RATE
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_RATE
+    description: ''
+    data_type: FLOAT
+  - name: REP_CODE_FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: EXISTS_IN_ACCOUNTS_BALANCES_FILE
+    description: ''
+    data_type: NUMBER
+  - name: _REP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: _FILE_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: tda__base_cbl
+  columns:
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTODIAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: BUSINESS_DATE
+    description: ''
+    data_type: DATE
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: CURRENT_QUANTITY
+    description: ''
+    data_type: FLOAT
+  - name: COST_BASIS
+    description: ''
+    data_type: NUMBER
+  - name: ADJUSTED_COST_BASIS
+    description: ''
+    data_type: NUMBER
+  - name: UNREALIZED_GAIN_LOSS
+    description: ''
+    data_type: NUMBER
+  - name: COST_BASIS_FULLY_KNOWN
+    description: ''
+    data_type: BOOLEAN
+  - name: CERTIFIED_FLAG
+    description: ''
+    data_type: VARCHAR
+  - name: ORIGINAL_PURCHASE_DATE
+    description: ''
+    data_type: DATE
+  - name: ORIGINAL_PURCHASE_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: WASH_SALE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: DISALLOWED_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: AVERAGED_COST
+    description: ''
+    data_type: VARCHAR
+  - name: BOOK_COST
+    description: ''
+    data_type: NUMBER
+  - name: BOOK_PROCEEDS
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_INCOME_COST_ADJUSTMENT
+    description: ''
+    data_type: NUMBER
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: COVERED
+    description: ''
+    data_type: VARCHAR
+  - name: UNKNOWN_TOTAL
+    description: ''
+    data_type: VARCHAR
+  - name: REP_CODE_FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _REP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: _FILE_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+- name: tda__base_pri
+  columns:
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: DATE
+    description: ''
+    data_type: DATE
+  - name: PRICE
+    description: ''
+    data_type: NUMBER
+  - name: FACTOR
+    description: ''
+    data_type: VARCHAR
+  - name: REP_CODE_FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _REP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: _FILE_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+- name: tda__base_sec
+  columns:
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: EXP_DATE
+    description: ''
+    data_type: DATE
+  - name: CALL_DATE
+    description: ''
+    data_type: DATE
+  - name: CALL_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: ISSUE_DATE
+    description: ''
+    data_type: DATE
+  - name: FIRST_COUPON
+    description: ''
+    data_type: VARCHAR
+  - name: INTEREST_RATE
+    description: ''
+    data_type: FLOAT
+  - name: SHARE_PER_CONTRACT
+    description: ''
+    data_type: FLOAT
+  - name: ANNUAL_INCOME_AMOUNT
+    description: ''
+    data_type: FLOAT
+  - name: COMMENT
+    description: ''
+    data_type: VARCHAR
+  - name: REP_CODE_FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _REP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: _FILE_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+- name: tda__base_trf
+  columns:
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: COMPANY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: STREET
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_2
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_3
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_4
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_5
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_6
+    description: ''
+    data_type: VARCHAR
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: STATE
+    description: ''
+    data_type: VARCHAR
+  - name: ZIP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SSN
+    description: ''
+    data_type: NUMBER
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ADVISOR_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TAXABLE
+    description: ''
+    data_type: VARCHAR
+  - name: PHONE_NUMBER
+    description: ''
+    data_type: NUMBER
+  - name: FAX_NUMBER
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: OBJECTIVE
+    description: ''
+    data_type: VARCHAR
+  - name: BILLING_ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: DEFAULT_ACCOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_OF_PRIMARY_RESIDENCE
+    description: ''
+    data_type: BOOLEAN
+  - name: PERFORMANCE_INCEPTION_DATE
+    description: ''
+    data_type: DATE
+  - name: BILLING_INCEPTION_DATE
+    description: ''
+    data_type: DATE
+  - name: FEDERAL_TAX_RATE
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_TAX_RATE
+    description: ''
+    data_type: VARCHAR
+  - name: MONTHS_IN_SHORT_TERM_HOLDING_PERIOD
+    description: ''
+    data_type: VARCHAR
+  - name: FISCAL_YEAR_END
+    description: ''
+    data_type: VARCHAR
+  - name: USE_AVERAGE_COST_ACCOUNTING
+    description: ''
+    data_type: NUMBER
+  - name: DISPLAY_ACCRUED_INTEREST
+    description: ''
+    data_type: NUMBER
+  - name: DISPLAY_ACCRUED_DIVIDENDS
+    description: ''
+    data_type: NUMBER
+  - name: DISPLAY_ACCRUED_GAINS
+    description: ''
+    data_type: NUMBER
+  - name: BIRTH_DATE
+    description: ''
+    data_type: DATE
+    meta:
+      masking_policy: mp_client_pii_date
+  - name: DISCOUNT_RATE
+    description: ''
+    data_type: FLOAT
+  - name: PAYOUT_RATE
+    description: ''
+    data_type: FLOAT
+  - name: REP_CODE_FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _REP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: _FILE_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+- name: tda__int_cost_basis_aggregated
+  columns:
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTODIAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: BUSINESS_DATE
+    description: ''
+    data_type: DATE
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: IS_COST_BASIS_FULLY_KNOWN
+    description: ''
+    data_type: NUMBER
+  - name: QUANTITY
+    description: ''
+    data_type: FLOAT
+  - name: AVG_COST_BASIS
+    description: ''
+    data_type: NUMBER
+  - name: TOTAL_COST_BASIS
+    description: ''
+    data_type: NUMBER
+  - name: TOTAL_ADJUSTED_COST_BASIS
+    description: ''
+    data_type: NUMBER
+  - name: UNREALIZED_GAIN_LOSS
+    description: ''
+    data_type: NUMBER
+  - name: MIN_ORIGINAL_PURCHASE_DATE
+    description: ''
+    data_type: DATE
+  - name: REP_CODE_FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: _REP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: _FILE_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: tda__rep_code_comparison
+  columns:
+  - name: REP_CODE
+    description: TDA rep code
+    data_type: VARCHAR
+  - name: EXISTS_IN_DATALAKE
+    description: ''
+    data_type: NUMBER
+  - name: EXISTS_IN_MAP
+    description: ''
+    data_type: NUMBER
+  - name: EXISTS_IN_VEO
+    description: ''
+    data_type: NUMBER
+  - name: FILE_COUNT
+    description: ''
+    data_type: NUMBER
+  - name: DATALAKE_MIN_EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: DATALAKE_MAX_EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: VEO_MARKET_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNTS
+    description: ''
+    data_type: NUMBER
+- name: tda__int_positions
+  columns:
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: MARKET_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: QUANTITY
+    description: ''
+    data_type: FLOAT
+  - name: PRICE
+    description: ''
+    data_type: NUMBER
+  - name: PRICE_UNFACTORED
+    description: ''
+    data_type: NUMBER
+  - name: FACTOR
+    description: ''
+    data_type: VARCHAR
+  - name: REP_CODE_FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM
+    description: Firm name
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _REP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: _FILE_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER

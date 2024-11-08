@@ -1,0 +1,2848 @@
+version: 2
+models:
+- name: envestnet_mwa_history__base_account_fee_schedule_fee_component
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: FEE_SCHEDULE_ID
+    description: ''
+  - name: FEE_COMPONENT_TYPE
+    description: ''
+  - name: IS_DERIVED_COMPONENT
+    description: ''
+  - name: FEE_MINIMUM
+    description: ''
+  - name: FEE_MAXIMUM
+    description: ''
+  - name: IS_LINEAR
+    description: ''
+  - name: IS_HOUSEHOLD
+    description: ''
+  - name: ASSET_CALCULATION_METHOD
+    description: ''
+  - name: AUM_FEE_SCHEDULE_ID
+    description: ''
+  - name: AUM_METHOD
+    description: ''
+  - name: AUM_RULE
+    description: ''
+  - name: FEE_PAID_BY
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_account_fee_schedule_fee_filter
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: FEE_SCHEDULE_ID
+    description: ''
+  - name: FEE_COMPONENT_TYPE
+    description: ''
+  - name: FILTER_TYPE
+    description: ''
+  - name: FILER_VALUE
+    description: ''
+  - name: IS_EXCLUSION_DISCOUNT_CUSTOM_FEE
+    description: ''
+  - name: EXCLUSION_END_DATE
+    description: ''
+  - name: ADVISOR_CANNOT_EDIT
+    description: ''
+  - name: DESCRIPTION
+    description: ''
+  - name: REGISTRATION_TYPE
+    description: ''
+  - name: EXCLUSION_FACTOR
+    description: ''
+  - name: EXCLUSION_FACTORY_TYPE
+    description: ''
+  - name: CUMULATIVE_DISCOUNT_CAP
+    description: ''
+  - name: ADJUST_DISCOUNT_TO
+    description: ''
+  - name: FEE_FILTER_ID
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_account_fee_schedule_fee_rate
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: FEE_SCHEDULE_ID
+    description: ''
+  - name: FEE_COMPONENT_TYPE
+    description: ''
+  - name: FILTER_TYPE
+    description: ''
+  - name: START_RANGE
+    description: ''
+  - name: RATE_PERCENT
+    description: ''
+  - name: RATE_DOLLAR
+    description: ''
+  - name: FEE_FILTER_ID
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_advisor_status
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: ADVISOR_STATUS_ID
+    description: ''
+  - name: ADVISOR_STATUS_NAME
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_billing_frequency
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: BILLING_FREQUENCY
+    description: ''
+  - name: DESCRIPTION
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_billing_mode
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: BILLING_MODE_ID
+    description: ''
+  - name: DESCRIPTION
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_client_restriction
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: RESTRICTION_TYPE_ID
+    description: ''
+  - name: RESTRICTION_TYPE_NAME
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_accountmaster_accounts
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: ACCOUNT_ID
+    description: ''
+  - name: ACCOUNT_NUMBER
+    description: ''
+  - name: ACCOUNT_NAME
+    description: ''
+  - name: PRODUCT_NAME
+    description: ''
+  - name: PRODUCT_TYPE
+    description: ''
+  - name: CUSTOMER_NAME
+    description: ''
+  - name: ADVISOR_NAME
+    description: ''
+  - name: ADVISOR_BRANCH_NAME
+    description: ''
+  - name: REP_CODE
+    description: ''
+  - name: CUSTODIAN
+    description: ''
+  - name: START_DATE
+    description: ''
+  - name: MAILING_LABEL
+    description: ''
+  - name: REGISTRATION_TYPE
+    description: ''
+  - name: STATE
+    description: ''
+  - name: NAME_AND_ADDRESS_1
+    description: ''
+  - name: NAME_AND_ADDRESS_2
+    description: ''
+  - name: NAME_AND_ADDRESS_3
+    description: ''
+  - name: NAME_AND_ADDRESS_4
+    description: ''
+  - name: SSN_TAX_ID
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: SSN_TAX_ID_FLAG
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: CLOSE_DATE
+    description: ''
+  - name: ACCOUNTING_METHOD_OF_EQUITIES
+    description: ''
+  - name: ACCOUNTING_METHOD_OF_MUTUAL_FUNDS
+    description: ''
+  - name: MASTER_ACCOUNT_NUMBER
+    description: ''
+  - name: CUSTOMER_ID
+    description: ''
+  - name: PROPOSAL_GROUP_ID
+    description: ''
+  - name: CUSTOMER_REGISTRATION_ID
+    description: ''
+  - name: RECONCILED_STATUS
+    description: ''
+  - name: LAST_RECONCILED_DATE
+    description: ''
+  - name: NSCC_NETWORKING_LEVEL
+    description: ''
+  - name: SWP_INDICATOR
+    description: ''
+  - name: ACH_INDICATOR
+    description: ''
+  - name: PAC_SPP_INDICATOR
+    description: ''
+  - name: CHECK_WRITING
+    description: ''
+  - name: FUND_FAMILY_ID
+    description: ''
+  - name: IMPORT_ACCOUNT
+    description: ''
+  - name: CROSS_FUND_REINVEST
+    description: ''
+  - name: ACCOUNT_NUMBER_INDICATOR
+    description: ''
+  - name: NF_TRANSFER_ELIGIBILITY_FLAG
+    description: ''
+  - name: CUSTODIAN_ID
+    description: ''
+  - name: ACCOUNT_STATUS
+    description: ''
+  - name: REGISTRATION_TYPE_ID
+    description: ''
+  - name: PRIMARY_MEMBER_FIRST_NAME
+    description: ''
+  - name: PRIMARY_MEMBER_MIDDLE_NAME
+    description: ''
+  - name: PRIMARY_MEMBER_LAST_NAME
+    description: ''
+  - name: PARTNER_CODE
+    description: ''
+  - name: BRANCH_CODE
+    description: ''
+  - name: ALTERNATE_REP_CODE
+    description: ''
+  - name: ADVISOR_REP_NUMBER
+    description: ''
+  - name: PRODUCT_ID
+    description: ''
+  - name: PROPOSAL_RISK_RATING
+    description: ''
+  - name: AS_OF_CLOSE_DATE
+    description: ''
+  - name: UN_SUPERVISED_ASSETS
+    description: ''
+  - name: TOTAL_CASH
+    description: ''
+  - name: TOTAL_MARKET_VALUE
+    description: ''
+  - name: LAST_UPDATED_BY_CUSTODIAN
+    description: ''
+  - name: ACCOUNT_CREATED_DATE
+    description: ''
+  - name: TAX_STATUS
+    description: ''
+  - name: TICKER
+    description: ''
+  - name: ADVISOR_ID
+    description: ''
+  - name: BENCHMARK
+    description: ''
+  - name: GOAL_ID
+    description: ''
+  - name: GOAL_TARGET
+    description: ''
+  - name: ALTERNATE_ACCOUNT_NUMBER
+    description: ''
+  - name: CURRENCY
+    description: ''
+  - name: FAMILY_MEMBER_ID
+    description: ''
+  - name: CUSTODIAN_POSITION_DATE
+    description: ''
+  - name: PROGRAM_ID
+    description: ''
+  - name: AGGREGATE_ACCOUNT_ID
+    description: ''
+  - name: ALTERNATE_ACCOUNT_2
+    description: ''
+  - name: FUND_FAMILY_CODE
+    description: ''
+  - name: AGGREGATE_ERROR_CODE
+    description: ''
+  - name: AGGREGATE_ERROR_MESSAGE
+    description: ''
+  - name: PRODUCT_OVERLAY_FEATURE
+    description: ''
+  - name: CLIENT_REVIEW_DATE
+    description: ''
+  - name: INVESTMENT_GROUP_REVIEW_DATE
+    description: ''
+  - name: ACCOUNT_REVIEW_DATE
+    description: ''
+  - name: SOLICITOR_ID
+    description: ''
+  - name: SOLICITOR_PERCENT
+    description: ''
+  - name: SOLICITOR_END_DATE
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_custodians
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: CUSTODIAN_ID
+    description: ''
+  - name: CUSTODIAN_NAME
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_employment_status
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: EMPLOYMENT_STATUS_ID
+    description: ''
+  - name: EMPLOYMENT_STATUS
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_account_fee_schedule_fee_schedule
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: ACCOUNT_ID
+    description: ''
+  - name: ACCOUNT_NUMBER
+    description: ''
+  - name: FEE_SCHEDULE_ID
+    description: ''
+  - name: BILLING_MODE_ID
+    description: ''
+  - name: FEE_NOTES
+    description: ''
+  - name: HAS_CUSTOMER_SERVICE_FEE
+    description: ''
+  - name: BILLING_FREQUENCY
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_account_pricing_tier
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: PRICING_TIER_ID
+    description: ''
+  - name: PRICING_TIER_NAME
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_account_status
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: ACCOUNT_STATUS
+    description: ''
+  - name: DESCRIPTION
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_address_type
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: ADDRESS_TYPE_ID
+    description: ''
+  - name: ADDRESS_TYPE_NAME
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_gics_sector
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: GICS_SECTOR_ID
+    description: ''
+  - name: GICS_SECTOR
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_industry
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: INDUSTRY_TYPE_ID
+    description: ''
+  - name: INDUSTRY_TYPE_NAME
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_moody_rating
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: MOODY_RATING_ID
+    description: ''
+  - name: MOODY_RATING
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_owner_type
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: OWNER_TYPE_ID
+    description: ''
+  - name: OWNER_TYPE_NAME
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_product_imr_status
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: IMR_STATUS_ID
+    description: ''
+  - name: DESCRIPTION
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_product_type
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: PRODUCT_TYPE_ID
+    description: ''
+  - name: PRODUCT_TYPE_DESCRIPTION
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_program_type
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: PROGRAM_TYPE_ID
+    description: ''
+  - name: PROGRAM_TYPE_NAME
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_proposal_status
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: PROPOSAL_STATUS_ID
+    description: ''
+  - name: PROPOSAL_STATUS
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_registration_type
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: REGISTRATION_TYPE_ID
+    description: ''
+  - name: REGISTRATION_TYPE_DESCRIPTION
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_relationship
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: RELATIONSHIP_ID
+    description: ''
+  - name: RELATIONSHIP
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_dashboard_product_type
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: DASHBOARD_PRODUCT_TYPE_ID
+    description: ''
+  - name: DASHBOARD_PRODUCT_TYPE
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_fee_component_type
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: FEE_COMPONENT_TYPE_ID
+    description: ''
+  - name: DESCRIPTION
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_service_request_type
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: SERVICE_REQUEST_ID
+    description: ''
+  - name: SERVICE_REQUEST_DESCRIPTION
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_ssn_type
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: SSN_TYPE_ID
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: SSN_TYPE_DESCRIPTION
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_style_type
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: STYLE_TYPE_ID
+    description: ''
+  - name: STYLE_TYPE_DESCRIPTION
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_instruction_type
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: INSTRUCTION_TYPE_ID
+    description: ''
+  - name: INSTRUCTION_TYPE_DESCRIPTION
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_familymember_contact
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURC
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: OWNER_ID
+    description: ''
+  - name: OWNER_TYPE
+    description: ''
+  - name: CONTACT_TYPE
+    description: ''
+  - name: CONTACT_NAME
+    description: ''
+  - name: ADDRESS_TYPE
+    description: ''
+  - name: ADDRESS_LINE_1
+    description: ''
+  - name: ADDRESS_LINE_2
+    description: ''
+  - name: CITY
+    description: ''
+  - name: STATE
+    description: ''
+  - name: ZIP
+    description: ''
+  - name: COUNTRY
+    description: ''
+  - name: PHONE_1
+    description: ''
+  - name: PHONE_2
+    description: ''
+  - name: FAX
+    description: ''
+  - name: EMAIL
+    description: ''
+  - name: USE_AS_QPR_MAILING_ADDRESS
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_familymember_family_member
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: CUSTOMER_ID
+    description: ''
+  - name: ENTITY_TYPE
+    description: ''
+  - name: FAMILY_MEMBER_ID
+    description: ''
+  - name: FIRST_NAME
+    description: ''
+  - name: MIDDLE_NAME
+    description: ''
+  - name: LAST_NAME
+    description: ''
+  - name: SALUTATION
+    description: ''
+  - name: RELATIONSHIP
+    description: ''
+  - name: DATE_OF_BIRTH
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: GENDER
+    description: ''
+  - name: MARTIAL_STATUS
+    description: ''
+  - name: DEPENDENTS
+    description: ''
+  - name: SSN_TIN
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: EMPLOYMENT_STATUS
+    description: ''
+  - name: OCCUPATION
+    description: ''
+  - name: INCOME_SOURCE
+    description: ''
+  - name: EMPLOYER_NAME
+    description: ''
+  - name: YEARS_EMPLOYED
+    description: ''
+  - name: COUNTRY_OF_CITIZENSHIP_ORGANIZATION
+    description: ''
+  - name: TAX_RESIDENCE_COUNTRY
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_product_status
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: STATUS_ID
+    description: ''
+  - name: DESCRIPTION
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_hierarchy_contact
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: OWNER_ID
+    description: ''
+  - name: OWNER_TYPE_ID
+    description: ''
+  - name: CONTACT_TYPE
+    description: ''
+  - name: ADDRESS_TYPE
+    description: ''
+  - name: ADDRESS_LINE_1
+    description: ''
+  - name: ADDRESS_LINE_2
+    description: ''
+  - name: CITY
+    description: ''
+  - name: STATE
+    description: ''
+  - name: ZIP
+    description: ''
+  - name: COUNTRY
+    description: ''
+  - name: PHONE_1
+    description: ''
+  - name: PHONE_2
+    description: ''
+  - name: FAX
+    description: ''
+  - name: EMAIL
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_contact_type
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: CONTACT_TYPE_ID
+    description: ''
+  - name: DESCRIPTION
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_country
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: COUNTRY_ID
+    description: ''
+  - name: COUNTRY_NAME
+    description: ''
+  - name: ABBREVIATION
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_hierarchy_rep_code
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: REP_CODE_ID
+    description: ''
+  - name: REP_CODE
+    description: ''
+  - name: BRANCH_CODE
+    description: ''
+  - name: IS_SPLIT_REP_CODE
+    description: ''
+  - name: ENTERPRISE_ID
+    description: ''
+  - name: BRANCH_ID
+    description: ''
+  - name: ADVISOR_ID
+    description: ''
+  - name: PARTICIPATING_REP_CODE
+    description: ''
+  - name: PERCENTAGE
+    description: ''
+  - name: REP_CODE_DESCRIPTION
+    description: ''
+  - name: IS_PRIMARY
+    description: ''
+  - name: IS_DEFAULT
+    description: ''
+  - name: ENSEMBLED_ID
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_sector
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: SECTOR_ID
+    description: ''
+  - name: SECTOR
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_security_type
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: SECURITY_TYPE_CODE
+    description: ''
+  - name: SECURITY_TYPE_DESCRIPTION
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_fee_filter_type
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: FEE_FILTER_TYPE_ID
+    description: ''
+  - name: DESCRIPTION
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_proposal_proposed_investment_group
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: PROPOSAL_GROUP_ID
+    description: ''
+  - name: PROPOSED_INVESTMENT_GROUP_ID
+    description: ''
+  - name: RISK_TOLERANCE
+    description: ''
+  - name: INVESTMENT_OBJECTIVE
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_asset_calculation_method
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: CALCULATION_METHOD_ID
+    description: ''
+  - name: DESCRIPTION
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_proposal_registration_owner
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: PROPOSAL_GROUP_ID
+    description: ''
+  - name: PROPOSAL_ID
+    description: ''
+  - name: CUSTOMER_REGISTRATION_ID
+    description: ''
+  - name: OWNER_TYPE
+    description: ''
+  - name: ENTITY_TYPE
+    description: ''
+  - name: PREFIX
+    description: ''
+  - name: FIRST_NAME
+    description: ''
+  - name: MIDDLE_NAME
+    description: ''
+  - name: LAST_NAME
+    description: ''
+  - name: SSN_TAX_ID
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: SSN_TAX_ID_FLAG
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: DATE_OF_BIRTH
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: ADDRESS_LINE1
+    description: ''
+  - name: ADDRESS_LINE2
+    description: ''
+  - name: CITY
+    description: ''
+  - name: STATE
+    description: ''
+  - name: ZIP_CODE
+    description: ''
+  - name: COUNTRY
+    description: ''
+  - name: EMAIL
+    description: ''
+  - name: PHONE_DAY
+    description: ''
+  - name: PHONE_EVENING
+    description: ''
+  - name: IDENTIFICATION_NUMBER
+    description: ''
+  - name: FAMILY_MEMBER_ID
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_proposal_solution
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: PROPOSAL_GROUP_ID
+    description: ''
+  - name: PROPOSAL_ID
+    description: ''
+  - name: TOTAL_INVESTMENT
+    description: ''
+  - name: FUNDING_METHOD
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_securitymaster_securities
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: SECURITY_ID
+    description: ''
+  - name: CUSIP
+    description: ''
+  - name: TICKER
+    description: ''
+  - name: SECURITY_DESCRIPTION
+    description: ''
+  - name: SECURITY_TYPE
+    description: ''
+  - name: SECURITY_STYLE
+    description: ''
+  - name: ISSUE_TYPE_MULTIPLIER
+    description: ''
+  - name: AGENCY_FACTOR
+    description: ''
+  - name: SHARE_CLASS
+    description: ''
+  - name: CDSC_FUND_FLAG
+    description: ''
+  - name: FUND_FAMILY_ID
+    description: ''
+  - name: CLOSED_FLAG
+    description: ''
+  - name: S_AND_P_RATING_ID
+    description: ''
+  - name: MOODY_RATING_ID
+    description: ''
+  - name: FIRM_ELIGIBLE
+    description: ''
+  - name: ISSUE_DATE
+    description: ''
+  - name: MATURITY_DATE
+    description: ''
+  - name: CALL_DATE
+    description: ''
+  - name: CALL_PRICE
+    description: ''
+  - name: SECTOR
+    description: ''
+  - name: SUB_SECTOR_GICS_CODE
+    description: ''
+  - name: LAST_MODIFIED_DATE
+    description: ''
+  - name: INTEREST_RATE
+    description: ''
+  - name: ACCURAL_METHOD
+    description: ''
+  - name: STATE_TAXABLE
+    description: ''
+  - name: FEDERAL_TAXABLE
+    description: ''
+  - name: EXCHANGE_ID
+    description: ''
+  - name: TRADE_CURRENCY
+    description: ''
+  - name: FREQUENCY
+    description: ''
+  - name: ISIN
+    description: ''
+  - name: SEDOL
+    description: ''
+  - name: FIRST_COUPON_DATE
+    description: ''
+  - name: LAST_COUPON_DATE
+    description: ''
+  - name: MINIMUM_PURCHASE
+    description: ''
+  - name: INCOME_CURRENCY
+    description: ''
+  - name: DUMMY_FLAG
+    description: ''
+  - name: VALOR_NUMBER
+    description: ''
+  - name: ISSUER_NAME
+    description: ''
+  - name: FUND_CODE
+    description: ''
+  - name: BROADRIDGE_SEC_NUMBER
+    description: ''
+  - name: STATUS_CODE
+    description: ''
+  - name: PRODUCT_TYPE_ID
+    description: ''
+  - name: CREATED_DATE
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_securityprice_firm_security_price
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: SECURITY_ID
+    description: ''
+  - name: CUSIP
+    description: ''
+  - name: TICKER
+    description: ''
+  - name: PRICING_CUSTODIAN
+    description: ''
+  - name: PRICE_DATE
+    description: ''
+  - name: PRICE
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_product_overlay_feature
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: PRODUCT_OVERLAY_FEATURE_ID
+    description: ''
+  - name: PRODUCT_OVERLAY_FEATURE_DESCRIPTION
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_client_activity
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: CLIENT_ACTIVITY_ID
+    description: ''
+  - name: CLIENT_ACTIVITY_NAME
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_transactions_transactions_test
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: TRANSACTION_ID
+    description: ''
+  - name: ACCOUNT_ID
+    description: ''
+  - name: ACCOUNT_NUMBER
+    description: ''
+  - name: TRANSACTION_TYPE
+    description: ''
+  - name: SECURITY_ID
+    description: ''
+  - name: CUSIP
+    description: ''
+  - name: TICKER
+    description: ''
+  - name: TRANSACTION_DESCRIPTION
+    description: ''
+  - name: TRANSACTION_DATE
+    description: ''
+  - name: TRANSACTION_AMOUNT
+    description: ''
+  - name: TRANSACTION_UNITS
+    description: ''
+  - name: COMMISSION
+    description: ''
+  - name: DELETED_FLAG
+    description: ''
+  - name: SETTLEMENT_DATE
+    description: ''
+  - name: SEC_FEE
+    description: ''
+  - name: POSTAGE_FEE
+    description: ''
+  - name: CLEARING_FEE
+    description: ''
+  - name: EXCHANGE_FEE
+    description: ''
+  - name: TICKET_CHARGE
+    description: ''
+  - name: HANDLING_FEE
+    description: ''
+  - name: REDEMPTION_FEE
+    description: ''
+  - name: DEFERRED_SALES_LOAD_FEE
+    description: ''
+  - name: CONCESSION
+    description: ''
+  - name: ACCRUED_INTEREST
+    description: ''
+  - name: OWNING_REP_ID
+    description: ''
+  - name: EXECUTING_REP_ID
+    description: ''
+  - name: POSTED_DATE
+    description: ''
+  - name: TRANSACTION_MAPPING_ID
+    description: ''
+  - name: EXCHANGE_ID
+    description: ''
+  - name: REVENUE_CONCESSION
+    description: ''
+  - name: EXECUTION_PRICE
+    description: ''
+  - name: SECURITY_TYPE
+    description: ''
+  - name: SECURITY_STYLE
+    description: ''
+  - name: TRADE_CURRENCY
+    description: ''
+  - name: SETTLEMENT_CURRENCY
+    description: ''
+  - name: SALES_CHARGE_PERCENTAGE
+    description: ''
+  - name: EXTERNAL_TRANSACTION_ID
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_hierarchy_entitlement
+  columns: []
+- name: envestnet_mwa_history__base_hierarchy_firm
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: FIRM_ID
+    description: ''
+  - name: FIRM_NAME
+    description: ''
+  - name: FIRM_SHORT_NAME
+    description: ''
+  - name: ENTERPRISE_ID
+    description: ''
+  - name: BROKER_SYMBOL
+    description: ''
+  - name: CRD_NUMBER
+    description: ''
+  - name: BANK_ACCOUNT_TYPE
+    description: ''
+  - name: BANK_NAME
+    description: ''
+  - name: BANK_ACCOUNT_NUMBER
+    description: ''
+  - name: BANK_ACCOUNT_NAME
+    description: ''
+  - name: ABA_ROUTING_NO
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_currency
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: CURRENCY_ID
+    description: ''
+  - name: CURRENCY_CODE
+    description: ''
+  - name: CURRENCY_DESCRIPTION
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_products_products
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: PRODUCT_ID
+    description: ''
+  - name: PRODUCT_NAME
+    description: ''
+  - name: MANAGER_NAME
+    description: ''
+  - name: PRODUCT_TYPE_ID
+    description: ''
+  - name: TAX_EFFICIENCY
+    description: ''
+  - name: RISK_RATING
+    description: ''
+  - name: LAST_MODEL_CHANGE_DATE
+    description: ''
+  - name: STATUS
+    description: ''
+  - name: IMR_STATUS
+    description: ''
+  - name: ACCOUNT_MINIMUM
+    description: ''
+  - name: STYLE_TYPE
+    description: ''
+  - name: CURRENCY
+    description: ''
+  - name: PORTFOLIO_ID
+    description: ''
+  - name: PORTFOLIO_NAME
+    description: ''
+  - name: MANAGER_FIRM_ID
+    description: ''
+  - name: MANAGER_FIRM_NAME
+    description: ''
+  - name: SLEEVE_SECURITY_ID
+    description: ''
+  - name: DASHBOARD_PRODUCT_TYPE
+    description: ''
+  - name: PRODUCT_CLASS_ID
+    description: ''
+  - name: PRICING_TIER
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_proposal_asset
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: PROPOSAL_GROUP_ID
+    description: ''
+  - name: PROPOSAL_ID
+    description: ''
+  - name: ASSET_ACCOUNT_NUMBER
+    description: ''
+  - name: TICKER
+    description: ''
+  - name: ASSET_DESCRIPTION
+    description: ''
+  - name: ASSET_STYLE
+    description: ''
+  - name: ASSET_QUANTITY
+    description: ''
+  - name: ASSET_MARKET_VALUE
+    description: ''
+  - name: INVESTABLE_FLAG
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_proposal_investment
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: PROPOSAL_GROUP_ID
+    description: ''
+  - name: PROPOSAL_ID
+    description: ''
+  - name: CUSTOMER_REGISTRATION_ID
+    description: ''
+  - name: PRODUCT_ID
+    description: ''
+  - name: PRODUCT_NAME
+    description: ''
+  - name: ALLOCATION_PERCENTAGE
+    description: ''
+  - name: PRODUCT_TYPE_ID
+    description: ''
+  - name: LIMITED_PARTNERSHIP
+    description: ''
+  - name: DISCRETION
+    description: ''
+  - name: PROGRAM
+    description: ''
+  - name: PRICING_TIER
+    description: ''
+  - name: PRODUCT_OVERLAY_FEATURE
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_proposal_proposal
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: PROPOSAL_GROUP_ID
+    description: ''
+  - name: REP_CODE
+    description: ''
+  - name: UPDATED_DATE
+    description: ''
+  - name: PROPOSAL_TYPE
+    description: ''
+  - name: TITLE
+    description: ''
+  - name: ADVISOR_ID
+    description: ''
+  - name: ADVISOR_NAME
+    description: ''
+  - name: CLIENT_CURRENCY
+    description: ''
+  - name: CREATED_DATE
+    description: ''
+  - name: CUSTOMER_ID
+    description: ''
+  - name: CITY
+    description: ''
+  - name: STATE
+    description: ''
+  - name: ZIP
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_proposal_registration
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: PROPOSAL_GROUP_ID
+    description: ''
+  - name: PROPOSAL_ID
+    description: ''
+  - name: CUSTOMER_REGISTRATION_ID
+    description: ''
+  - name: INVESTMENT_AMOUNT
+    description: ''
+  - name: REGISTRATION_NAME
+    description: ''
+  - name: CUSTODIAN_NAME
+    description: ''
+  - name: REGISTRATION_TYPE
+    description: ''
+  - name: MASTER_ACCOUNT_NEEDED
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_aum_method
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: AUM_METHOD_ID
+    description: ''
+  - name: AUM_METHOD_NAME
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_familymember_family
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: FILENAME
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: CUSTOMER_ID
+    description: ''
+  - name: FAMILY_NAME
+    description: ''
+  - name: SPLIT_REP_CODE
+    description: ''
+  - name: DISABLE_QPR_DOWNLOAD_TO_PROFESSSIONAL_PRINTER_FLAG
+    description: ''
+  - name: DISABLE_ACCESS_TO_QPR_ON_CLIENT_WEB_SITE_FLAG
+    description: ''
+  - name: SAMPLE_CLIENT_FLAG
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_product_class
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: PRODUCT_CLASS_ID
+    description: ''
+  - name: PRODUCT_CLASS_NAME
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_hierarchy_advisor
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: ADVISOR_ID
+    description: ''
+  - name: FIRST_NAME
+    description: ''
+  - name: MIDDLE_NAME
+    description: ''
+  - name: LAST_NAME
+    description: ''
+  - name: REP_CODE
+    description: ''
+  - name: USER_NAME
+    description: ''
+  - name: ENTERPRISE_ID
+    description: ''
+  - name: FIRM_ID
+    description: ''
+  - name: BRANCH_ID
+    description: ''
+  - name: ENTITLEMENT
+    description: ''
+  - name: MANAGER_REP_CODE
+    description: ''
+  - name: SSN_NUMBER
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: DATE_OF_BIRTH
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: CRD_NUMBER
+    description: ''
+  - name: DBA_NAME
+    description: ''
+  - name: START_DATE
+    description: ''
+  - name: TERMINATION_DATE
+    description: ''
+  - name: TERMINATION_REASON
+    description: ''
+  - name: HOME_STATE
+    description: ''
+  - name: SSO_USER_NAME
+    description: ''
+  - name: ALTERNATE_SSO_USER_NAME
+    description: ''
+  - name: SELECTED_ADVISOR
+    description: ''
+  - name: ADVISOR_STATUS
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_risk_scale
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: RISK_SCALE_MIN_POINT
+    description: ''
+  - name: RISK_SCALE_MAX_POINT
+    description: ''
+  - name: DESCRIPTION
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_fund_family
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: FUND_FAMILY_ID
+    description: ''
+  - name: FUND_FAMILY_NAME
+    description: ''
+  - name: NSCC_CODE
+    description: ''
+  - name: MSTAR_DTCC_CODE
+    description: ''
+  - name: DST_CODE
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_familymember_client_restriction
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: RESTRICTION_ID
+    description: ''
+  - name: CUSTOMER_ID
+    description: ''
+  - name: RESTRICTION_TYPE
+    description: ''
+  - name: ENTITY_ID
+    description: ''
+  - name: ISSUED_ON
+    description: ''
+  - name: EXPIRED_ON
+    description: ''
+  - name: MEMO
+    description: ''
+  - name: UPDATED_BY
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_authorized_programs
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: PROGRAM_ID
+    description: ''
+  - name: PROGRAM_NAME
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_hierarchy_branch
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: BRANCH_ID
+    description: ''
+  - name: BRANCH_NAME
+    description: ''
+  - name: BRANCH_SHORT_NAME
+    description: ''
+  - name: ENTERPRISE_ID
+    description: ''
+  - name: FIRM_ID
+    description: ''
+  - name: BRANCH_CODE
+    description: ''
+  - name: MANAGER_REP_CODE
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_salutation
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: SALUTATION_ID
+    description: ''
+  - name: SALUTATION
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_s_and_p_rating
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: S_P_RATING_ID
+    description: ''
+  - name: S_P_RATING
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_asset_category
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: FEE_FILTER_TYPE_ID
+    description: ''
+  - name: BILLING_MODE_ID
+    description: ''
+  - name: DESCRIPTION
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_transactions_transactions
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: TRANSACTION_ID
+    description: ''
+  - name: ACCOUNT_ID
+    description: ''
+  - name: ACCOUNT_NUMBER
+    description: ''
+  - name: TRANSACTION_TYPE
+    description: ''
+  - name: SECURITY_ID
+    description: ''
+  - name: CUSIP
+    description: ''
+  - name: TICKER
+    description: ''
+  - name: TRANSACTION_DESCRIPTION
+    description: ''
+  - name: TRANSACTION_DATE
+    description: ''
+  - name: TRANSACTION_AMOUNT
+    description: ''
+  - name: TRANSACTION_UNITS
+    description: ''
+  - name: COMMISSION
+    description: ''
+  - name: DELETED_FLAG
+    description: ''
+  - name: SETTLEMENT_DATE
+    description: ''
+  - name: SEC_FEE
+    description: ''
+  - name: POSTAGE_FEE
+    description: ''
+  - name: CLEARING_FEE
+    description: ''
+  - name: EXCHANGE_FEE
+    description: ''
+  - name: TICKET_CHARGE
+    description: ''
+  - name: HANDLING_FEE
+    description: ''
+  - name: REDEMPTION_FEE
+    description: ''
+  - name: DEFERRED_SALES_LOAD_FEE
+    description: ''
+  - name: CONCESSION
+    description: ''
+  - name: ACCRUED_INTEREST
+    description: ''
+  - name: OWNING_REP_ID
+    description: ''
+  - name: EXECUTING_REP_ID
+    description: ''
+  - name: POSTED_DATE
+    description: ''
+  - name: TRANSACTION_MAPPING_ID
+    description: ''
+  - name: EXCHANGE_ID
+    description: ''
+  - name: REVENUE_CONCESSION
+    description: ''
+  - name: EXECUTION_PRICE
+    description: ''
+  - name: SECURITY_TYPE
+    description: ''
+  - name: SECURITY_STYLE
+    description: ''
+  - name: TRADE_CURRENCY
+    description: ''
+  - name: SETTLEMENT_CURRENCY
+    description: ''
+  - name: SALES_CHARGE_PERCENTAGE
+    description: ''
+  - name: EXTERNAL_TRANSACTION_ID
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_transactions_transactions_new
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: TRANSACTION_ID
+    description: ''
+  - name: ACCOUNT_ID
+    description: ''
+  - name: ACCOUNT_NUMBER
+    description: ''
+  - name: TRANSACTION_TYPE
+    description: ''
+  - name: SECURITY_ID
+    description: ''
+  - name: CUSIP
+    description: ''
+  - name: TICKER
+    description: ''
+  - name: TRANSACTION_DESCRIPTION
+    description: ''
+  - name: TRANSACTION_DATE
+    description: ''
+  - name: TRANSACTION_AMOUNT
+    description: ''
+  - name: TRANSACTION_UNITS
+    description: ''
+  - name: COMMISSION
+    description: ''
+  - name: DELETED_FLAG
+    description: ''
+  - name: SETTLEMENT_DATE
+    description: ''
+  - name: SEC_FEE
+    description: ''
+  - name: POSTAGE_FEE
+    description: ''
+  - name: CLEARING_FEE
+    description: ''
+  - name: EXCHANGE_FEE
+    description: ''
+  - name: TICKET_CHARGE
+    description: ''
+  - name: HANDLING_FEE
+    description: ''
+  - name: REDEMPTION_FEE
+    description: ''
+  - name: DEFERRED_SALES_LOAD_FEE
+    description: ''
+  - name: CONCESSION
+    description: ''
+  - name: ACCRUED_INTEREST
+    description: ''
+  - name: OWNING_REP_ID
+    description: ''
+  - name: EXECUTING_REP_ID
+    description: ''
+  - name: POSTED_DATE
+    description: ''
+  - name: TRANSACTION_MAPPING_ID
+    description: ''
+  - name: EXCHANGE_ID
+    description: ''
+  - name: REVENUE_CONCESSION
+    description: ''
+  - name: EXECUTION_PRICE
+    description: ''
+  - name: SECURITY_TYPE
+    description: ''
+  - name: SECURITY_STYLE
+    description: ''
+  - name: TRADE_CURRENCY
+    description: ''
+  - name: SETTLEMENT_CURRENCY
+    description: ''
+  - name: SALES_CHARGE_PERCENTAGE
+    description: ''
+  - name: EXTERNAL_TRANSACTION_ID
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_fee_paid_by
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: FEE_PAID_BY_ID
+    description: ''
+  - name: FEE_PAID_BY_NAME
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_familymember_client_activity
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: ACTIVITY_ID
+    description: ''
+  - name: CUSTOMER_ID
+    description: ''
+  - name: ACTIVITY_TYPE
+    description: ''
+  - name: ACTIVITY_DETAILS
+    description: ''
+  - name: DATE_POSTED
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_taxlots_taxlots
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: ACCOUNT_ID
+    description: ''
+  - name: ACCOUNT_NUMBER
+    description: ''
+  - name: AS_OF_DATE
+    description: ''
+  - name: SECURITY_ID
+    description: ''
+  - name: CUSIP
+    description: ''
+  - name: TICKER
+    description: ''
+  - name: QUANTITY
+    description: ''
+  - name: MARKET_VALUE
+    description: ''
+  - name: TOTAL_COST
+    description: ''
+  - name: MARKET_PRICE
+    description: ''
+  - name: PURCHASE_DATE
+    description: ''
+  - name: ACCRUED_INCOME
+    description: ''
+  - name: ACCRUED_INTEREST
+    description: ''
+  - name: UNSUPERVISED_INDICATOR
+    description: ''
+  - name: SHORT_POSITION_INDICATOR
+    description: ''
+  - name: ITD_PERFORMANCE
+    description: ''
+  - name: INCEPTION_DATE
+    description: ''
+  - name: SECURITY_TYPE
+    description: ''
+  - name: SECURITY_STYLE
+    description: ''
+  - name: CURRENCY
+    description: ''
+  - name: TAX_CURRENCY
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_codes_marital_status
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: MARITAL_STATUS_ID
+    description: ''
+  - name: MARITAL_STATUS
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_positions_positions
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: ACCOUNT_ID
+    description: ''
+  - name: ACCOUNT_NUMBER
+    description: ''
+  - name: AS_OF_DATE
+    description: ''
+  - name: SECURITY_ID
+    description: ''
+  - name: CUSIP
+    description: ''
+  - name: TICKER
+    description: ''
+  - name: DESCRIPTION
+    description: ''
+  - name: SECURITY_TYPE
+    description: ''
+  - name: SECURITY_STYLE
+    description: ''
+  - name: QUANTITY
+    description: ''
+  - name: MARKET_VALUE
+    description: ''
+  - name: TOTAL_COST
+    description: ''
+  - name: MARKET_PRICE
+    description: ''
+  - name: ACCRUED_INCOME
+    description: ''
+  - name: ACCRUED_INTEREST
+    description: ''
+  - name: UNSUPERVISED_INDICATOR
+    description: ''
+  - name: SHORT_POSITION_INDICATOR
+    description: ''
+  - name: UNSUPERVISED_START_DATE
+    description: ''
+  - name: CURRENCY
+    description: ''
+  - name: TAX_CURRENCY
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_gainloss_gain_loss
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: ACCOUNT_ID
+    description: ''
+  - name: ACCOUNT_NUMBER
+    description: ''
+  - name: SECURITY_ID
+    description: ''
+  - name: CUSIP
+    description: ''
+  - name: TICKER
+    description: ''
+  - name: SALES_DATE
+    description: ''
+  - name: PROCEEDS
+    description: ''
+  - name: SALES_UNITS
+    description: ''
+  - name: TOTAL_COST
+    description: ''
+  - name: PURCHASE_DATE
+    description: ''
+  - name: UNSUPERVISED_INDICATOR
+    description: ''
+  - name: SHORT_POSITION_INDICATOR
+    description: ''
+  - name: TAX_CURRENCY
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''
+- name: envestnet_mwa_history__base_hierarchy_enterprise
+  columns:
+  - name: SYSTEM_NAME
+    description: ''
+  - name: SYSTEM_INSTANCE
+    description: ''
+  - name: SYSTEM_KEY
+    description: ''
+  - name: FIRM_SOURCE
+    description: ''
+  - name: EFFECTIVE_DATE
+    description: ''
+  - name: RECORD_TYPE
+    description: ''
+  - name: ENTERPRISE_ID
+    description: ''
+  - name: ENTERPRISE_NAME
+    description: ''
+  - name: IS_HEAD
+    description: ''
+  - name: IS_CURRENT
+    description: ''
+  - name: _SOURCE_LOADED_AT
+    description: ''

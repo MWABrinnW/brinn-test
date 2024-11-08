@@ -36,7 +36,7 @@ sources:
           - name: effective_at
           - name: _created_at
 
-# Not sure about this one. 
+# Not sure about this one. 
   - name: salesforce_adviceperiod_fivetran
     description: ""
     database: fivetran

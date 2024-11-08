@@ -12,13 +12,4503 @@ sources:
         description: "Json worker assignments (positions) from ADP"
         freshness:
           error_after: {count: 25, period: hour}
+        columns:
+          - name: ACTUALSTARTDATE
+            description: ''
+            data_type: VARCHAR
+          - name: ADDITIONALREMUNERATIONS_0_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: ADDITIONALREMUNERATIONS_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: ADDITIONALREMUNERATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ADDITIONALREMUNERATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ADDITIONALREMUNERATIONS_0_RATE_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_0_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_0_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_1_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_1_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_2_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_2_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_2_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_CITYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_LINEONE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_LINETHREE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_LINETWO
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_POSTALCODE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNMENT
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNMENTSTATUS_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNMENTSTATUS_REASONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNMENTSTATUS_REASONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNMENTSTATUS_REASONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNMENTSTATUS_STATUSCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNMENTSTATUS_STATUSCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNMENTSTATUS_STATUSCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSOCIATEOID
+            description: ''
+            data_type: VARCHAR
+          - name: BARGAININGUNIT_BARGAININGUNITCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: BARGAININGUNIT_BARGAININGUNITCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: BASEREMUNERATION_ANNUALRATEAMOUNT_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: BASEREMUNERATION_ANNUALRATEAMOUNT_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: BASEREMUNERATION_ANNUALRATEAMOUNT_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: BASEREMUNERATION_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: BASEREMUNERATION_HOURLYRATEAMOUNT_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: BASEREMUNERATION_HOURLYRATEAMOUNT_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: BASEREMUNERATION_HOURLYRATEAMOUNT_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: BASEREMUNERATION_PAYPERIODRATEAMOUNT_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: BASEREMUNERATION_PAYPERIODRATEAMOUNT_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: BASEREMUNERATION_PAYPERIODRATEAMOUNT_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: FULLTIMEEQUIVALENCERATIO
+            description: ''
+            data_type: VARCHAR
+          - name: HIREDATE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_0_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_0_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_1_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_1_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_1_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_2_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_2_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_2_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_ADDRESS_CITYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_ADDRESS_COUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_ADDRESS_LINEONE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_ADDRESS_LINETHREE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_ADDRESS_LINETWO
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_ADDRESS_POSTALCODE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: INDUSTRYCLASSIFICATIONS_0_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: INDUSTRYCLASSIFICATIONS_0_CLASSIFICATIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: INDUSTRYCLASSIFICATIONS_0_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: INDUSTRYCLASSIFICATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: INDUSTRYCLASSIFICATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: JOBCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: JOBCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: JOBCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: JOBTITLE
+            description: ''
+            data_type: VARCHAR
+          - name: LABORUNION_LABORUNIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: LABORUNION_LABORUNIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: LABORUNION_LABORUNIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: MANAGEMENTPOSITIONINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_1_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_1_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_2_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_2_CLASSIFICATIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_2_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_2_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PAYCYCLECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PAYCYCLECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PAYROLLFILENUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: PAYROLLGROUPCODE
+            description: ''
+            data_type: VARCHAR
+          - name: PAYROLLPROCESSINGSTATUSCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PAYROLLSCHEDULEGROUPID
+            description: ''
+            data_type: VARCHAR
+          - name: POSITIONID
+            description: ''
+            data_type: VARCHAR
+          - name: PRIMARYINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: REPORTSTO_0_ASSOCIATEOID
+            description: ''
+            data_type: VARCHAR
+          - name: REPORTSTO_0_POSITIONID
+            description: ''
+            data_type: VARCHAR
+          - name: REPORTSTO_0_REPORTSTOWORKERNAME_FORMATTEDNAME
+            description: ''
+            data_type: VARCHAR
+          - name: REPORTSTO_0_WORKERID_IDVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: REPORTSTO_0_WORKERID_SCHEMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: REPORTSTO_0_WORKERID_SCHEMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: SENIORITYDATE
+            description: ''
+            data_type: VARCHAR
+          - name: STANDARDHOURS_HOURSQUANTITY
+            description: ''
+            data_type: VARCHAR
+          - name: STANDARDHOURS_UNITCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: STANDARDHOURS_UNITCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: STANDARDPAYPERIODHOURS_HOURSQUANTITY
+            description: ''
+            data_type: VARCHAR
+          - name: TERMINATIONDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WAGELAWCOVERAGE_COVERAGECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WAGELAWCOVERAGE_COVERAGECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WAGELAWCOVERAGE_WAGELAWNAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WAGELAWCOVERAGE_WAGELAWNAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERGROUPS_0_GROUPCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERGROUPS_0_GROUPCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERGROUPS_0_GROUPCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERGROUPS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERGROUPS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERTIMEPROFILE_TIMEANDATTENDANCEINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERTIMEPROFILE_TIMEZONECODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERTYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERTYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: worker_history
         description: "Json workers (employees) from ADP"
         freshness:
           error_after: {count: 25, period: hour}
+        columns:
+          - name: ASSOCIATEOID
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_EMAILS_0_EMAILURI
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_EMAILS_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_EMAILS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_EMAILS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_FAXES_0_ACCESS
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_FAXES_0_AREADIALING
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_FAXES_0_COUNTRYDIALING
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_FAXES_0_DIALNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_FAXES_0_FORMATTEDNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_FAXES_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_FAXES_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_FAXES_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_LANDLINES_0_ACCESS
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_LANDLINES_0_AREADIALING
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_LANDLINES_0_COUNTRYDIALING
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_LANDLINES_0_DIALNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_LANDLINES_0_EXTENSION
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_LANDLINES_0_FORMATTEDNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_LANDLINES_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_LANDLINES_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_LANDLINES_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_MOBILES_0_ACCESS
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_MOBILES_0_AREADIALING
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_MOBILES_0_COUNTRYDIALING
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_MOBILES_0_DIALNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_MOBILES_0_FORMATTEDNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_MOBILES_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_MOBILES_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_MOBILES_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_PAGERS_0_ACCESS
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_PAGERS_0_AREADIALING
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_PAGERS_0_COUNTRYDIALING
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_PAGERS_0_DIALNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_PAGERS_0_FORMATTEDNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_PAGERS_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_PAGERS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_PAGERS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_CODEFIELDS_0_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_CODEFIELDS_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_CODEFIELDS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_CODEFIELDS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_CODEFIELDS_0_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_INDICATORFIELDS_0_INDICATORVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_INDICATORFIELDS_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_INDICATORFIELDS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_INDICATORFIELDS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_STRINGFIELDS_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_STRINGFIELDS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_STRINGFIELDS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_STRINGFIELDS_0_STRINGVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_STRINGFIELDS_1_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_STRINGFIELDS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_STRINGFIELDS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_STRINGFIELDS_1_STRINGVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_BIRTHDATE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_BIRTHNAME_FAMILYNAME1
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_EMAILS_0_EMAILURI
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_EMAILS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_EMAILS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_FAXES_0_ACCESS
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_FAXES_0_AREADIALING
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_FAXES_0_COUNTRYDIALING
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_FAXES_0_DIALNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_FAXES_0_FORMATTEDNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_FAXES_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_FAXES_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_FAXES_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_LANDLINES_0_ACCESS
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_LANDLINES_0_AREADIALING
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_LANDLINES_0_COUNTRYDIALING
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_LANDLINES_0_DIALNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_LANDLINES_0_FORMATTEDNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_LANDLINES_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_LANDLINES_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_LANDLINES_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_MOBILES_0_ACCESS
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_MOBILES_0_AREADIALING
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_MOBILES_0_COUNTRYDIALING
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_MOBILES_0_DIALNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_MOBILES_0_FORMATTEDNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_MOBILES_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_MOBILES_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_MOBILES_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_DISABILITYTYPECODES_0_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_DISABILITYTYPECODES_0_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_DISABLEDINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_ETHNICITYCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_ETHNICITYCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_ETHNICITYCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_GENDERCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_GENDERCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_GENDERCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_GOVERNMENTIDS_0_COUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_GOVERNMENTIDS_0_IDVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_GOVERNMENTIDS_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_GOVERNMENTIDS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_GOVERNMENTIDS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_HIGHESTEDUCATIONLEVELCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_CITYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_COUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_COUNTRYSUBDIVISIONLEVEL1_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_COUNTRYSUBDIVISIONLEVEL1_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_COUNTRYSUBDIVISIONLEVEL1_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_COUNTRYSUBDIVISIONLEVEL2_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_COUNTRYSUBDIVISIONLEVEL2_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_COUNTRYSUBDIVISIONLEVEL2_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_LINEONE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_LINETWO
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_POSTALCODE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALNAME_FAMILYNAME1
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALNAME_FORMATTEDNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALNAME_GENERATIONAFFIXCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALNAME_GENERATIONAFFIXCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALNAME_GIVENNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALNAME_MIDDLENAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALNAME_NICKNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALNAME_PREFERREDSALUTATIONS_0_SALUTATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALNAME_PREFERREDSALUTATIONS_0_SALUTATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALNAME_QUALIFICATIONAFFIXCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALNAME_QUALIFICATIONAFFIXCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MARITALSTATUSCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MARITALSTATUSCODE_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MARITALSTATUSCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MILITARYCLASSIFICATIONCODES_0_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MILITARYCLASSIFICATIONCODES_0_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MILITARYCLASSIFICATIONCODES_0_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MILITARYCLASSIFICATIONCODES_1_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MILITARYCLASSIFICATIONCODES_1_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MILITARYCLASSIFICATIONCODES_2_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MILITARYCLASSIFICATIONCODES_2_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MILITARYDISCHARGEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MILITARYSTATUSCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MILITARYSTATUSCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_CITYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_COUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_COUNTRYSUBDIVISIONLEVEL1_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_COUNTRYSUBDIVISIONLEVEL1_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_COUNTRYSUBDIVISIONLEVEL1_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_COUNTRYSUBDIVISIONLEVEL2_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_COUNTRYSUBDIVISIONLEVEL2_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_COUNTRYSUBDIVISIONLEVEL2_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_LINEONE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_LINETWO
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_POSTALCODE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_PREFERREDNAME_FAMILYNAME1
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_PREFERREDNAME_GIVENNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_PREFERREDNAME_MIDDLENAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_RACECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_RACECODE_IDENTIFICATIONMETHODCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_RACECODE_IDENTIFICATIONMETHODCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_RACECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_RACECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_SOCIALINSURANCEPROGRAMS_0_COVEREDINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_SOCIALINSURANCEPROGRAMS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_SOCIALINSURANCEPROGRAMS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_SOCIALINSURANCEPROGRAMS_1_COVEREDINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_SOCIALINSURANCEPROGRAMS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_SOCIALINSURANCEPROGRAMS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_TOBACCOUSERINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: PHOTOS_0_LINKS_0_HREF
+            description: ''
+            data_type: VARCHAR
+          - name: PHOTOS_0_LINKS_0_MEDIATYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PHOTOS_0_LINKS_0_METHOD
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ACTUALSTARTDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ADDITIONALREMUNERATIONS_0_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ADDITIONALREMUNERATIONS_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ADDITIONALREMUNERATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ADDITIONALREMUNERATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ADDITIONALREMUNERATIONS_0_RATE_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_0_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_0_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_1_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_1_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_2_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_2_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_2_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_CITYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_LINEONE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_LINETHREE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_LINETWO
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_POSTALCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNMENTSTATUS_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNMENTSTATUS_REASONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNMENTSTATUS_REASONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNMENTSTATUS_REASONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNMENTSTATUS_STATUSCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNMENTSTATUS_STATUSCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNMENTSTATUS_STATUSCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BARGAININGUNIT_BARGAININGUNITCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BARGAININGUNIT_BARGAININGUNITCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BASEREMUNERATION_ANNUALRATEAMOUNT_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BASEREMUNERATION_ANNUALRATEAMOUNT_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BASEREMUNERATION_ANNUALRATEAMOUNT_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BASEREMUNERATION_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BASEREMUNERATION_HOURLYRATEAMOUNT_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BASEREMUNERATION_HOURLYRATEAMOUNT_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BASEREMUNERATION_HOURLYRATEAMOUNT_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BASEREMUNERATION_PAYPERIODRATEAMOUNT_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BASEREMUNERATION_PAYPERIODRATEAMOUNT_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BASEREMUNERATION_PAYPERIODRATEAMOUNT_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_FULLTIMEEQUIVALENCERATIO
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HIREDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_0_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_0_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_1_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_1_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_1_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_2_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_2_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_2_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_ADDRESS_CITYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_ADDRESS_COUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_ADDRESS_LINEONE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_ADDRESS_LINETHREE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_ADDRESS_LINETWO
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_ADDRESS_POSTALCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_INDUSTRYCLASSIFICATIONS_0_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_INDUSTRYCLASSIFICATIONS_0_CLASSIFICATIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_INDUSTRYCLASSIFICATIONS_0_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_INDUSTRYCLASSIFICATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_INDUSTRYCLASSIFICATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_JOBCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_JOBCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_JOBCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_JOBTITLE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_LABORUNION_LABORUNIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_LABORUNION_LABORUNIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_LABORUNION_LABORUNIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_MANAGEMENTPOSITIONINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_1_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_1_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_2_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_2_CLASSIFICATIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_2_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_2_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_PAYCYCLECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_PAYCYCLECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_PAYROLLFILENUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_PAYROLLGROUPCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_PAYROLLPROCESSINGSTATUSCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_PAYROLLSCHEDULEGROUPID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_POSITIONID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_PRIMARYINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_REPORTSTO_0_ASSOCIATEOID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_REPORTSTO_0_POSITIONID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_REPORTSTO_0_REPORTSTOWORKERNAME_FORMATTEDNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_REPORTSTO_0_WORKERID_IDVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_REPORTSTO_0_WORKERID_SCHEMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_REPORTSTO_0_WORKERID_SCHEMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_SENIORITYDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_STANDARDHOURS_HOURSQUANTITY
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_STANDARDHOURS_UNITCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_STANDARDHOURS_UNITCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_STANDARDPAYPERIODHOURS_HOURSQUANTITY
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_TERMINATIONDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WAGELAWCOVERAGE_COVERAGECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WAGELAWCOVERAGE_COVERAGECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WAGELAWCOVERAGE_WAGELAWNAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WAGELAWCOVERAGE_WAGELAWNAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WAGELAWCOVERAGE_WAGELAWNAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WORKERGROUPS_0_GROUPCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WORKERGROUPS_0_GROUPCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WORKERGROUPS_0_GROUPCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WORKERGROUPS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WORKERGROUPS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WORKERTIMEPROFILE_TIMEANDATTENDANCEINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WORKERTIMEPROFILE_TIMEZONECODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WORKERTYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WORKERTYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ACTUALSTARTDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ADDITIONALREMUNERATIONS_0_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ADDITIONALREMUNERATIONS_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ADDITIONALREMUNERATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ADDITIONALREMUNERATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ADDITIONALREMUNERATIONS_0_RATE_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_0_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_0_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_1_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_1_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_2_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_2_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_2_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_CITYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_LINEONE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_LINETHREE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_LINETWO
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_POSTALCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNMENTSTATUS_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNMENTSTATUS_REASONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNMENTSTATUS_REASONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNMENTSTATUS_REASONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNMENTSTATUS_STATUSCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNMENTSTATUS_STATUSCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNMENTSTATUS_STATUSCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BARGAININGUNIT_BARGAININGUNITCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BARGAININGUNIT_BARGAININGUNITCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BASEREMUNERATION_ANNUALRATEAMOUNT_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BASEREMUNERATION_ANNUALRATEAMOUNT_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BASEREMUNERATION_ANNUALRATEAMOUNT_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BASEREMUNERATION_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BASEREMUNERATION_HOURLYRATEAMOUNT_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BASEREMUNERATION_HOURLYRATEAMOUNT_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BASEREMUNERATION_HOURLYRATEAMOUNT_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BASEREMUNERATION_PAYPERIODRATEAMOUNT_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BASEREMUNERATION_PAYPERIODRATEAMOUNT_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BASEREMUNERATION_PAYPERIODRATEAMOUNT_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_FULLTIMEEQUIVALENCERATIO
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HIREDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_0_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_0_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_1_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_1_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_1_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_2_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_2_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_2_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_ADDRESS_CITYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_ADDRESS_COUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_ADDRESS_LINEONE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_ADDRESS_LINETHREE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_ADDRESS_LINETWO
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_ADDRESS_POSTALCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_INDUSTRYCLASSIFICATIONS_0_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_INDUSTRYCLASSIFICATIONS_0_CLASSIFICATIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_INDUSTRYCLASSIFICATIONS_0_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_INDUSTRYCLASSIFICATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_INDUSTRYCLASSIFICATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_JOBCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_JOBCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_JOBCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_JOBTITLE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_LABORUNION_LABORUNIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_LABORUNION_LABORUNIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_LABORUNION_LABORUNIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_MANAGEMENTPOSITIONINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_1_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_1_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_2_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_2_CLASSIFICATIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_2_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_2_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_PAYCYCLECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_PAYCYCLECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_PAYROLLFILENUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_PAYROLLGROUPCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_PAYROLLPROCESSINGSTATUSCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_PAYROLLSCHEDULEGROUPID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_POSITIONID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_PRIMARYINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_REPORTSTO_0_ASSOCIATEOID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_REPORTSTO_0_POSITIONID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_REPORTSTO_0_REPORTSTOWORKERNAME_FORMATTEDNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_REPORTSTO_0_WORKERID_IDVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_REPORTSTO_0_WORKERID_SCHEMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_REPORTSTO_0_WORKERID_SCHEMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_SENIORITYDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_STANDARDHOURS_HOURSQUANTITY
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_STANDARDHOURS_UNITCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_STANDARDHOURS_UNITCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_STANDARDPAYPERIODHOURS_HOURSQUANTITY
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_TERMINATIONDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WAGELAWCOVERAGE_COVERAGECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WAGELAWCOVERAGE_COVERAGECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WAGELAWCOVERAGE_WAGELAWNAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WAGELAWCOVERAGE_WAGELAWNAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WAGELAWCOVERAGE_WAGELAWNAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WORKERGROUPS_0_GROUPCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WORKERGROUPS_0_GROUPCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WORKERGROUPS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WORKERGROUPS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WORKERTIMEPROFILE_TIMEANDATTENDANCEINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WORKERTIMEPROFILE_TIMEZONECODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WORKERTYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WORKERTYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ACTUALSTARTDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ADDITIONALREMUNERATIONS_0_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ADDITIONALREMUNERATIONS_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ADDITIONALREMUNERATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ADDITIONALREMUNERATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ADDITIONALREMUNERATIONS_0_RATE_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_0_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_0_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_1_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_1_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_2_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_2_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_2_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_CITYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_LINEONE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_POSTALCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNMENTSTATUS_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNMENTSTATUS_REASONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNMENTSTATUS_REASONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNMENTSTATUS_REASONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNMENTSTATUS_STATUSCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNMENTSTATUS_STATUSCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNMENTSTATUS_STATUSCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_BARGAININGUNIT_BARGAININGUNITCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_BARGAININGUNIT_BARGAININGUNITCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_BASEREMUNERATION_ANNUALRATEAMOUNT_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_BASEREMUNERATION_ANNUALRATEAMOUNT_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_BASEREMUNERATION_ANNUALRATEAMOUNT_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_BASEREMUNERATION_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_BASEREMUNERATION_PAYPERIODRATEAMOUNT_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_BASEREMUNERATION_PAYPERIODRATEAMOUNT_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_BASEREMUNERATION_PAYPERIODRATEAMOUNT_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_FULLTIMEEQUIVALENCERATIO
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HIREDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_0_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_0_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_1_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_1_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_1_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_2_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_2_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_2_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_ADDRESS_CITYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_ADDRESS_COUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_ADDRESS_LINEONE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_ADDRESS_LINETHREE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_ADDRESS_LINETWO
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_ADDRESS_POSTALCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_INDUSTRYCLASSIFICATIONS_0_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_INDUSTRYCLASSIFICATIONS_0_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_INDUSTRYCLASSIFICATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_INDUSTRYCLASSIFICATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_JOBCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_JOBCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_JOBCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_JOBTITLE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_LABORUNION_LABORUNIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_LABORUNION_LABORUNIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_LABORUNION_LABORUNIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_MANAGEMENTPOSITIONINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_1_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_1_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_2_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_2_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_2_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_PAYCYCLECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_PAYCYCLECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_PAYROLLFILENUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_PAYROLLGROUPCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_PAYROLLPROCESSINGSTATUSCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_PAYROLLSCHEDULEGROUPID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_POSITIONID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_PRIMARYINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_REPORTSTO_0_ASSOCIATEOID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_REPORTSTO_0_POSITIONID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_REPORTSTO_0_REPORTSTOWORKERNAME_FORMATTEDNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_REPORTSTO_0_WORKERID_IDVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_REPORTSTO_0_WORKERID_SCHEMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_REPORTSTO_0_WORKERID_SCHEMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_SENIORITYDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_STANDARDHOURS_HOURSQUANTITY
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_STANDARDPAYPERIODHOURS_HOURSQUANTITY
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_TERMINATIONDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WAGELAWCOVERAGE_COVERAGECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WAGELAWCOVERAGE_COVERAGECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WAGELAWCOVERAGE_WAGELAWNAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WAGELAWCOVERAGE_WAGELAWNAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WAGELAWCOVERAGE_WAGELAWNAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WORKERGROUPS_0_GROUPCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WORKERGROUPS_0_GROUPCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WORKERGROUPS_0_GROUPCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WORKERGROUPS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WORKERGROUPS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WORKERTIMEPROFILE_TIMEANDATTENDANCEINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WORKERTYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WORKERTYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERDATES_ORIGINALHIREDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERDATES_REHIREDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERDATES_TERMINATIONDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERID_IDVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERSTATUS_STATUSCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: worker_assignment_history_backup
         description: "Original worker assignment table containing data until 2021-08-11."
+        columns:
+          - name: ACTUALSTARTDATE
+            description: ''
+            data_type: VARCHAR
+          - name: ADDITIONALREMUNERATIONS_0_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: ADDITIONALREMUNERATIONS_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: ADDITIONALREMUNERATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ADDITIONALREMUNERATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ADDITIONALREMUNERATIONS_0_RATE_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_0_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_0_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_1_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_1_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_2_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_2_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDORGANIZATIONALUNITS_2_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_CITYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_LINEONE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_LINETHREE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_LINETWO
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNEDWORKLOCATIONS_0_ADDRESS_POSTALCODE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNMENT
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNMENTSTATUS_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNMENTSTATUS_REASONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNMENTSTATUS_REASONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNMENTSTATUS_REASONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNMENTSTATUS_STATUSCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNMENTSTATUS_STATUSCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSIGNMENTSTATUS_STATUSCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ASSOCIATEOID
+            description: ''
+            data_type: VARCHAR
+          - name: BARGAININGUNIT_BARGAININGUNITCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: BARGAININGUNIT_BARGAININGUNITCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: BASEREMUNERATION_ANNUALRATEAMOUNT_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: BASEREMUNERATION_ANNUALRATEAMOUNT_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: BASEREMUNERATION_ANNUALRATEAMOUNT_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: BASEREMUNERATION_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: BASEREMUNERATION_HOURLYRATEAMOUNT_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: BASEREMUNERATION_HOURLYRATEAMOUNT_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: BASEREMUNERATION_HOURLYRATEAMOUNT_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: BASEREMUNERATION_PAYPERIODRATEAMOUNT_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: BASEREMUNERATION_PAYPERIODRATEAMOUNT_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: BASEREMUNERATION_PAYPERIODRATEAMOUNT_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: FULLTIMEEQUIVALENCERATIO
+            description: ''
+            data_type: VARCHAR
+          - name: HIREDATE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_0_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_0_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_1_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_1_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_1_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_2_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_2_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEORGANIZATIONALUNITS_2_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_ADDRESS_CITYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_ADDRESS_COUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_ADDRESS_LINEONE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_ADDRESS_LINETHREE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_ADDRESS_LINETWO
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_ADDRESS_POSTALCODE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEWORKLOCATION_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: INDUSTRYCLASSIFICATIONS_0_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: INDUSTRYCLASSIFICATIONS_0_CLASSIFICATIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: INDUSTRYCLASSIFICATIONS_0_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: INDUSTRYCLASSIFICATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: INDUSTRYCLASSIFICATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: JOBCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: JOBCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: JOBCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: JOBTITLE
+            description: ''
+            data_type: VARCHAR
+          - name: LABORUNION_LABORUNIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: LABORUNION_LABORUNIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: LABORUNION_LABORUNIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: MANAGEMENTPOSITIONINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_1_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_1_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_2_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_2_CLASSIFICATIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_2_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATIONALCLASSIFICATIONS_2_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PAYCYCLECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PAYCYCLECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PAYROLLFILENUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: PAYROLLGROUPCODE
+            description: ''
+            data_type: VARCHAR
+          - name: PAYROLLPROCESSINGSTATUSCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PAYROLLSCHEDULEGROUPID
+            description: ''
+            data_type: VARCHAR
+          - name: POSITIONID
+            description: ''
+            data_type: VARCHAR
+          - name: PRIMARYINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: REPORTSTO_0_ASSOCIATEOID
+            description: ''
+            data_type: VARCHAR
+          - name: REPORTSTO_0_POSITIONID
+            description: ''
+            data_type: VARCHAR
+          - name: REPORTSTO_0_REPORTSTOWORKERNAME_FORMATTEDNAME
+            description: ''
+            data_type: VARCHAR
+          - name: REPORTSTO_0_WORKERID_IDVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: REPORTSTO_0_WORKERID_SCHEMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: REPORTSTO_0_WORKERID_SCHEMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: SENIORITYDATE
+            description: ''
+            data_type: VARCHAR
+          - name: STANDARDHOURS_HOURSQUANTITY
+            description: ''
+            data_type: VARCHAR
+          - name: STANDARDHOURS_UNITCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: STANDARDHOURS_UNITCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: STANDARDPAYPERIODHOURS_HOURSQUANTITY
+            description: ''
+            data_type: VARCHAR
+          - name: TERMINATIONDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WAGELAWCOVERAGE_COVERAGECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WAGELAWCOVERAGE_COVERAGECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WAGELAWCOVERAGE_WAGELAWNAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WAGELAWCOVERAGE_WAGELAWNAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERGROUPS_0_GROUPCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERGROUPS_0_GROUPCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERGROUPS_0_GROUPCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERGROUPS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERGROUPS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERTIMEPROFILE_TIMEANDATTENDANCEINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERTIMEPROFILE_TIMEZONECODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERTYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERTYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: worker_history_backup
         description: "Original worker table containing data until 2021-08-11."
+        columns:
+          - name: ASSOCIATEOID
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_EMAILS_0_EMAILURI
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_EMAILS_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_EMAILS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_EMAILS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_FAXES_0_ACCESS
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_FAXES_0_AREADIALING
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_FAXES_0_COUNTRYDIALING
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_FAXES_0_DIALNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_FAXES_0_FORMATTEDNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_FAXES_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_FAXES_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_FAXES_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_LANDLINES_0_ACCESS
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_LANDLINES_0_AREADIALING
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_LANDLINES_0_COUNTRYDIALING
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_LANDLINES_0_DIALNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_LANDLINES_0_EXTENSION
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_LANDLINES_0_FORMATTEDNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_LANDLINES_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_LANDLINES_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_LANDLINES_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_MOBILES_0_ACCESS
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_MOBILES_0_AREADIALING
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_MOBILES_0_COUNTRYDIALING
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_MOBILES_0_DIALNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_MOBILES_0_FORMATTEDNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_MOBILES_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_MOBILES_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_MOBILES_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_PAGERS_0_ACCESS
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_PAGERS_0_AREADIALING
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_PAGERS_0_COUNTRYDIALING
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_PAGERS_0_DIALNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_PAGERS_0_FORMATTEDNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_PAGERS_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_PAGERS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCOMMUNICATION_PAGERS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_CODEFIELDS_0_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_CODEFIELDS_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_CODEFIELDS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_CODEFIELDS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_CODEFIELDS_0_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_INDICATORFIELDS_0_INDICATORVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_INDICATORFIELDS_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_INDICATORFIELDS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_INDICATORFIELDS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_STRINGFIELDS_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_STRINGFIELDS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_STRINGFIELDS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_STRINGFIELDS_0_STRINGVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_STRINGFIELDS_1_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_STRINGFIELDS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_STRINGFIELDS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMFIELDGROUP_STRINGFIELDS_1_STRINGVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_BIRTHDATE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_BIRTHNAME_FAMILYNAME1
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_EMAILS_0_EMAILURI
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_EMAILS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_EMAILS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_FAXES_0_ACCESS
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_FAXES_0_AREADIALING
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_FAXES_0_COUNTRYDIALING
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_FAXES_0_DIALNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_FAXES_0_FORMATTEDNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_FAXES_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_FAXES_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_FAXES_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_LANDLINES_0_ACCESS
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_LANDLINES_0_AREADIALING
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_LANDLINES_0_COUNTRYDIALING
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_LANDLINES_0_DIALNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_LANDLINES_0_FORMATTEDNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_LANDLINES_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_LANDLINES_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_LANDLINES_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_MOBILES_0_ACCESS
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_MOBILES_0_AREADIALING
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_MOBILES_0_COUNTRYDIALING
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_MOBILES_0_DIALNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_MOBILES_0_FORMATTEDNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_MOBILES_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_MOBILES_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_COMMUNICATION_MOBILES_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_DISABILITYTYPECODES_0_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_DISABILITYTYPECODES_0_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_DISABLEDINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_ETHNICITYCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_ETHNICITYCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_ETHNICITYCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_GENDERCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_GENDERCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_GENDERCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_GOVERNMENTIDS_0_COUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_GOVERNMENTIDS_0_IDVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_GOVERNMENTIDS_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_GOVERNMENTIDS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_GOVERNMENTIDS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_HIGHESTEDUCATIONLEVELCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_CITYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_COUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_COUNTRYSUBDIVISIONLEVEL1_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_COUNTRYSUBDIVISIONLEVEL1_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_COUNTRYSUBDIVISIONLEVEL1_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_COUNTRYSUBDIVISIONLEVEL2_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_COUNTRYSUBDIVISIONLEVEL2_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_COUNTRYSUBDIVISIONLEVEL2_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_LINEONE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_LINETWO
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALADDRESS_POSTALCODE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALNAME_FAMILYNAME1
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALNAME_FORMATTEDNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALNAME_GENERATIONAFFIXCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALNAME_GENERATIONAFFIXCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALNAME_GIVENNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALNAME_MIDDLENAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALNAME_NICKNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALNAME_PREFERREDSALUTATIONS_0_SALUTATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALNAME_PREFERREDSALUTATIONS_0_SALUTATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALNAME_QUALIFICATIONAFFIXCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_LEGALNAME_QUALIFICATIONAFFIXCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MARITALSTATUSCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MARITALSTATUSCODE_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MARITALSTATUSCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MILITARYCLASSIFICATIONCODES_0_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MILITARYCLASSIFICATIONCODES_0_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MILITARYCLASSIFICATIONCODES_0_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MILITARYCLASSIFICATIONCODES_1_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MILITARYCLASSIFICATIONCODES_1_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MILITARYCLASSIFICATIONCODES_2_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MILITARYCLASSIFICATIONCODES_2_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MILITARYDISCHARGEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MILITARYSTATUSCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_MILITARYSTATUSCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_CITYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_COUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_COUNTRYSUBDIVISIONLEVEL1_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_COUNTRYSUBDIVISIONLEVEL1_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_COUNTRYSUBDIVISIONLEVEL1_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_COUNTRYSUBDIVISIONLEVEL2_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_COUNTRYSUBDIVISIONLEVEL2_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_COUNTRYSUBDIVISIONLEVEL2_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_LINEONE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_LINETWO
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_OTHERPERSONALADDRESSES_0_POSTALCODE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_PREFERREDNAME_FAMILYNAME1
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_PREFERREDNAME_GIVENNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_PREFERREDNAME_MIDDLENAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_RACECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_RACECODE_IDENTIFICATIONMETHODCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_RACECODE_IDENTIFICATIONMETHODCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_RACECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_RACECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_SOCIALINSURANCEPROGRAMS_0_COVEREDINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_SOCIALINSURANCEPROGRAMS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_SOCIALINSURANCEPROGRAMS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_SOCIALINSURANCEPROGRAMS_1_COVEREDINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_SOCIALINSURANCEPROGRAMS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_SOCIALINSURANCEPROGRAMS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PERSON_TOBACCOUSERINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: PHOTOS_0_LINKS_0_HREF
+            description: ''
+            data_type: VARCHAR
+          - name: PHOTOS_0_LINKS_0_MEDIATYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PHOTOS_0_LINKS_0_METHOD
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ACTUALSTARTDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ADDITIONALREMUNERATIONS_0_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ADDITIONALREMUNERATIONS_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ADDITIONALREMUNERATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ADDITIONALREMUNERATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ADDITIONALREMUNERATIONS_0_RATE_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_0_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_0_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_1_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_1_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_2_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_2_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDORGANIZATIONALUNITS_2_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_CITYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_LINEONE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_LINETHREE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_LINETWO
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNEDWORKLOCATIONS_0_ADDRESS_POSTALCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNMENTSTATUS_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNMENTSTATUS_REASONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNMENTSTATUS_REASONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNMENTSTATUS_REASONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNMENTSTATUS_STATUSCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNMENTSTATUS_STATUSCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ASSIGNMENTSTATUS_STATUSCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BARGAININGUNIT_BARGAININGUNITCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BARGAININGUNIT_BARGAININGUNITCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BASEREMUNERATION_ANNUALRATEAMOUNT_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BASEREMUNERATION_ANNUALRATEAMOUNT_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BASEREMUNERATION_ANNUALRATEAMOUNT_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BASEREMUNERATION_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BASEREMUNERATION_HOURLYRATEAMOUNT_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BASEREMUNERATION_HOURLYRATEAMOUNT_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BASEREMUNERATION_HOURLYRATEAMOUNT_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BASEREMUNERATION_PAYPERIODRATEAMOUNT_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BASEREMUNERATION_PAYPERIODRATEAMOUNT_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_BASEREMUNERATION_PAYPERIODRATEAMOUNT_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_FULLTIMEEQUIVALENCERATIO
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HIREDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_0_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_0_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_1_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_1_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_1_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_2_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_2_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEORGANIZATIONALUNITS_2_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_ADDRESS_CITYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_ADDRESS_COUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_ADDRESS_LINEONE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_ADDRESS_LINETHREE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_ADDRESS_LINETWO
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_ADDRESS_POSTALCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_HOMEWORKLOCATION_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_INDUSTRYCLASSIFICATIONS_0_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_INDUSTRYCLASSIFICATIONS_0_CLASSIFICATIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_INDUSTRYCLASSIFICATIONS_0_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_INDUSTRYCLASSIFICATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_INDUSTRYCLASSIFICATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_JOBCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_JOBCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_JOBCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_JOBTITLE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_LABORUNION_LABORUNIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_LABORUNION_LABORUNIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_LABORUNION_LABORUNIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_MANAGEMENTPOSITIONINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_1_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_1_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_2_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_2_CLASSIFICATIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_2_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_OCCUPATIONALCLASSIFICATIONS_2_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_PAYCYCLECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_PAYCYCLECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_PAYROLLFILENUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_PAYROLLGROUPCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_PAYROLLPROCESSINGSTATUSCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_PAYROLLSCHEDULEGROUPID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_POSITIONID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_PRIMARYINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_REPORTSTO_0_ASSOCIATEOID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_REPORTSTO_0_POSITIONID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_REPORTSTO_0_REPORTSTOWORKERNAME_FORMATTEDNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_REPORTSTO_0_WORKERID_IDVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_REPORTSTO_0_WORKERID_SCHEMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_REPORTSTO_0_WORKERID_SCHEMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_SENIORITYDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_STANDARDHOURS_HOURSQUANTITY
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_STANDARDHOURS_UNITCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_STANDARDHOURS_UNITCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_STANDARDPAYPERIODHOURS_HOURSQUANTITY
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_TERMINATIONDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WAGELAWCOVERAGE_COVERAGECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WAGELAWCOVERAGE_COVERAGECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WAGELAWCOVERAGE_WAGELAWNAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WAGELAWCOVERAGE_WAGELAWNAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WAGELAWCOVERAGE_WAGELAWNAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WORKERGROUPS_0_GROUPCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WORKERGROUPS_0_GROUPCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WORKERGROUPS_0_GROUPCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WORKERGROUPS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WORKERGROUPS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WORKERTIMEPROFILE_TIMEANDATTENDANCEINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WORKERTIMEPROFILE_TIMEZONECODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WORKERTYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_0_WORKERTYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ACTUALSTARTDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ADDITIONALREMUNERATIONS_0_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ADDITIONALREMUNERATIONS_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ADDITIONALREMUNERATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ADDITIONALREMUNERATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ADDITIONALREMUNERATIONS_0_RATE_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_0_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_0_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_1_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_1_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_2_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_2_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDORGANIZATIONALUNITS_2_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_CITYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_LINEONE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_LINETHREE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_LINETWO
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNEDWORKLOCATIONS_0_ADDRESS_POSTALCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNMENTSTATUS_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNMENTSTATUS_REASONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNMENTSTATUS_REASONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNMENTSTATUS_REASONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNMENTSTATUS_STATUSCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNMENTSTATUS_STATUSCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ASSIGNMENTSTATUS_STATUSCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BARGAININGUNIT_BARGAININGUNITCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BARGAININGUNIT_BARGAININGUNITCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BASEREMUNERATION_ANNUALRATEAMOUNT_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BASEREMUNERATION_ANNUALRATEAMOUNT_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BASEREMUNERATION_ANNUALRATEAMOUNT_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BASEREMUNERATION_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BASEREMUNERATION_HOURLYRATEAMOUNT_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BASEREMUNERATION_HOURLYRATEAMOUNT_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BASEREMUNERATION_HOURLYRATEAMOUNT_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BASEREMUNERATION_PAYPERIODRATEAMOUNT_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BASEREMUNERATION_PAYPERIODRATEAMOUNT_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_BASEREMUNERATION_PAYPERIODRATEAMOUNT_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_FULLTIMEEQUIVALENCERATIO
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HIREDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_0_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_0_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_1_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_1_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_1_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_2_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_2_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEORGANIZATIONALUNITS_2_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_ADDRESS_CITYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_ADDRESS_COUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_ADDRESS_LINEONE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_ADDRESS_LINETHREE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_ADDRESS_LINETWO
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_ADDRESS_POSTALCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_HOMEWORKLOCATION_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_INDUSTRYCLASSIFICATIONS_0_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_INDUSTRYCLASSIFICATIONS_0_CLASSIFICATIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_INDUSTRYCLASSIFICATIONS_0_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_INDUSTRYCLASSIFICATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_INDUSTRYCLASSIFICATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_JOBCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_JOBCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_JOBCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_JOBTITLE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_LABORUNION_LABORUNIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_LABORUNION_LABORUNIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_LABORUNION_LABORUNIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_MANAGEMENTPOSITIONINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_1_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_1_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_2_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_2_CLASSIFICATIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_2_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_OCCUPATIONALCLASSIFICATIONS_2_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_PAYCYCLECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_PAYCYCLECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_PAYROLLFILENUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_PAYROLLGROUPCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_PAYROLLPROCESSINGSTATUSCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_PAYROLLSCHEDULEGROUPID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_POSITIONID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_PRIMARYINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_REPORTSTO_0_ASSOCIATEOID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_REPORTSTO_0_POSITIONID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_REPORTSTO_0_REPORTSTOWORKERNAME_FORMATTEDNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_REPORTSTO_0_WORKERID_IDVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_REPORTSTO_0_WORKERID_SCHEMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_REPORTSTO_0_WORKERID_SCHEMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_SENIORITYDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_STANDARDHOURS_HOURSQUANTITY
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_STANDARDHOURS_UNITCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_STANDARDHOURS_UNITCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_STANDARDPAYPERIODHOURS_HOURSQUANTITY
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_TERMINATIONDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WAGELAWCOVERAGE_COVERAGECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WAGELAWCOVERAGE_COVERAGECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WAGELAWCOVERAGE_WAGELAWNAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WAGELAWCOVERAGE_WAGELAWNAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WAGELAWCOVERAGE_WAGELAWNAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WORKERGROUPS_0_GROUPCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WORKERGROUPS_0_GROUPCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WORKERGROUPS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WORKERGROUPS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WORKERTIMEPROFILE_TIMEANDATTENDANCEINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WORKERTIMEPROFILE_TIMEZONECODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WORKERTYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_1_WORKERTYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ACTUALSTARTDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ADDITIONALREMUNERATIONS_0_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ADDITIONALREMUNERATIONS_0_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ADDITIONALREMUNERATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ADDITIONALREMUNERATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ADDITIONALREMUNERATIONS_0_RATE_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_0_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_0_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_1_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_1_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_2_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_2_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDORGANIZATIONALUNITS_2_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_CITYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_COUNTRYSUBDIVISIONLEVEL2_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_LINEONE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNEDWORKLOCATIONS_0_ADDRESS_POSTALCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNMENTSTATUS_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNMENTSTATUS_REASONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNMENTSTATUS_REASONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNMENTSTATUS_REASONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNMENTSTATUS_STATUSCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNMENTSTATUS_STATUSCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ASSIGNMENTSTATUS_STATUSCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_BARGAININGUNIT_BARGAININGUNITCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_BARGAININGUNIT_BARGAININGUNITCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_BASEREMUNERATION_ANNUALRATEAMOUNT_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_BASEREMUNERATION_ANNUALRATEAMOUNT_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_BASEREMUNERATION_ANNUALRATEAMOUNT_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_BASEREMUNERATION_EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_BASEREMUNERATION_PAYPERIODRATEAMOUNT_CURRENCYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_BASEREMUNERATION_PAYPERIODRATEAMOUNT_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_BASEREMUNERATION_PAYPERIODRATEAMOUNT_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_FULLTIMEEQUIVALENCERATIO
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HIREDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_0_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_0_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_1_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_1_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_1_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_2_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_2_TYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEORGANIZATIONALUNITS_2_TYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_ADDRESS_CITYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_ADDRESS_COUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_ADDRESS_COUNTRYSUBDIVISIONLEVEL1_SUBDIVISIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_ADDRESS_LINEONE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_ADDRESS_LINETHREE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_ADDRESS_LINETWO
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_ADDRESS_POSTALCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_HOMEWORKLOCATION_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_INDUSTRYCLASSIFICATIONS_0_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_INDUSTRYCLASSIFICATIONS_0_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_INDUSTRYCLASSIFICATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_INDUSTRYCLASSIFICATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_ITEMID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_JOBCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_JOBCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_JOBCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_JOBTITLE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_LABORUNION_LABORUNIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_LABORUNION_LABORUNIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_LABORUNION_LABORUNIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_MANAGEMENTPOSITIONINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_0_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_0_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_1_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_1_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_1_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_1_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_2_CLASSIFICATIONCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_2_CLASSIFICATIONCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_2_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_OCCUPATIONALCLASSIFICATIONS_2_NAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_PAYCYCLECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_PAYCYCLECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_PAYROLLFILENUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_PAYROLLGROUPCODE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_PAYROLLPROCESSINGSTATUSCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_PAYROLLSCHEDULEGROUPID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_POSITIONID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_PRIMARYINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_REPORTSTO_0_ASSOCIATEOID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_REPORTSTO_0_POSITIONID
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_REPORTSTO_0_REPORTSTOWORKERNAME_FORMATTEDNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_REPORTSTO_0_WORKERID_IDVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_REPORTSTO_0_WORKERID_SCHEMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_REPORTSTO_0_WORKERID_SCHEMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_SENIORITYDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_STANDARDHOURS_HOURSQUANTITY
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_STANDARDPAYPERIODHOURS_HOURSQUANTITY
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_TERMINATIONDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WAGELAWCOVERAGE_COVERAGECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WAGELAWCOVERAGE_COVERAGECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WAGELAWCOVERAGE_WAGELAWNAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WAGELAWCOVERAGE_WAGELAWNAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WAGELAWCOVERAGE_WAGELAWNAMECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WORKERGROUPS_0_GROUPCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WORKERGROUPS_0_GROUPCODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WORKERGROUPS_0_GROUPCODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WORKERGROUPS_0_NAMECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WORKERGROUPS_0_NAMECODE_LONGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WORKERTIMEPROFILE_TIMEANDATTENDANCEINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WORKERTYPECODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKASSIGNMENTS_2_WORKERTYPECODE_SHORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERDATES_ORIGINALHIREDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERDATES_REHIREDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERDATES_TERMINATIONDATE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERID_IDVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: WORKERSTATUS_STATUSCODE_CODEVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: worker_json_history
         description: ""
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_ID
+            description: ''
+            data_type: NUMBER

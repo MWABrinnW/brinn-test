@@ -1,0 +1,126 @@
+version: 2
+models:
+  - name: nml_schwab_tax_lots
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: CUSTODIAN
+        description: 'Custodian name, lower-case, no spaces.'
+        data_type: VARCHAR
+      - name: FIRM
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: 'Firm entity associated with the link value.'
+        meta:
+          row_access_policy: rap_firm_source
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: 'End client account number at Schwab'
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+        data_type: VARCHAR
+      - name: SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: 'CUSIP'
+        data_type: VARCHAR
+      - name: QUANTITY
+        description: ''
+        data_type: NUMBER
+      - name: COST_PER_SHARE
+        description: ''
+        data_type: NUMBER
+      - name: COST_BASIS
+        description: ''
+        data_type: NUMBER
+      - name: CURRENT_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: CURRENT_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: TRADE_DATE
+        description: ''
+        data_type: DATE
+      - name: SETTLEMENT_DATE
+        description: ''
+        data_type: DATE
+      - name: ENTRY_DATE_SOURCE
+        description: ''
+        data_type: DATE
+      - name: IS_CASH
+        description: ''
+        data_type: NUMBER
+      - name: IS_SWEEP
+        description: ''
+        data_type: NUMBER
+      - name: IS_SHORT
+        description: ''
+        data_type: NUMBER
+      - name: IS_WASH_SALE
+        description: ''
+        data_type: NUMBER
+      - name: LOT_ID_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITY_ID_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: OPTION_TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: OPTION_INDICATOR
+        description: ''
+        data_type: VARCHAR
+      - name: OPTION_EXPIRATION_DATE
+        description: ''
+        data_type: DATE
+      - name: OPTION_STRIKE_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: ISIN
+        description: 'International Securities Identification Number.  A unique international code which identifies a securities issue.'
+        data_type: VARCHAR
+      - name: SEDOL
+        description: 'The Stock Exchange Daily Official List number; a code used by the London Stock Exchange to identify foreign stocks'
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE_SOURCE_DEFINITION
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE_SOURCE_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: LEGACY_PRODUCT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: LEGACY_PRODUCT_TYPE_SOURCE_DEFINITION
+        description: ''
+        data_type: VARCHAR
+      - name: LEGACY_PRODUCT_TYPE_SOURCE_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: 'Time when the records were created in the source table.'
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: _EXTRA_FIELDS
+        description: ''
+        data_type: VARIANT

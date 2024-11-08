@@ -1,0 +1,78 @@
+version: 2
+models:
+  - name: tradeops__orders
+    columns:
+      - name: PLATFORM
+        description: ''
+        data_type: VARCHAR
+      - name: VENUE
+        description: ''
+        data_type: VARCHAR
+        meta:
+          row_access_policy: rap_tradeops_venue
+      - name: TRADE_DATE
+        description: ''
+        data_type: DATE
+      - name: TRADE_EXECUTED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: BLOCK_ID
+        description: ''
+        data_type: VARCHAR
+      - name: BROKER_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_SIDE
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_EFFECT
+        description: ''
+        data_type: VARCHAR
+      - name: ASSET_CLASS
+        description: ''
+        data_type: VARCHAR
+      - name: TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: QUANTITY
+        description: ''
+        data_type: NUMBER
+      - name: AVG_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: MIN_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: MAX_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: NET_AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: COMMISSION
+        description: ''
+        data_type: NUMBER
+      - name: PRINCIPAL
+        description: ''
+        data_type: NUMBER
+      - name: INTEREST
+        description: ''
+        data_type: NUMBER
+      - name: FEES
+        description: ''
+        data_type: NUMBER
+      - name: CREATED_BY
+        description: ''
+        data_type: VARCHAR
+      - name: ALLOCATIONS
+        description: ''
+        data_type: NUMBER
+      - name: LAST_COLLECTED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ

@@ -1,0 +1,118 @@
+version: 2
+models:
+  - name: nml_fidelity_mwa_holdings
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+        data_type: VARCHAR
+      - name: SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITY_NAME_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: IS_CASH
+        description: ''
+        data_type: NUMBER
+      - name: IS_SWEEP
+        description: ''
+        data_type: NUMBER
+      - name: MARKET_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: UNITS_SHARES
+        description: ''
+        data_type: NUMBER
+      - name: QUANTITY
+        description: ''
+        data_type: NUMBER
+      - name: QUANTITY_SETTLED
+        description: ''
+        data_type: NUMBER
+      - name: QUANTITY_UNSETTLED
+        description: ''
+        data_type: NUMBER
+      - name: PRICE
+        description: ''
+        data_type: NUMBER
+      - name: PRICE_UNFACTORED
+        description: ''
+        data_type: NUMBER
+      - name: FACTOR
+        description: ''
+        data_type: NUMBER
+      - name: COST_BASIS
+        description: ''
+        data_type: NUMBER
+      - name: SECURITY_ID_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: UNDERLYING_TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: UNDERLYING_CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: UNDERLYING_SECURITY_ID_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE_SOURCE_DEFINITION
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE_SOURCE_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_TYPE_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_TYPE_SOURCE_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: ISIN
+        description: ''
+        data_type: VARCHAR
+      - name: SEDOL
+        description: ''
+        data_type: VARCHAR
+      - name: EXTRA_FIELDS
+        description: ''
+        data_type: VARIANT
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR

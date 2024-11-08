@@ -1,0 +1,136 @@
+version: 2
+models:
+  - name: erp__stg_general_ledger_inbound
+    columns:
+      - name: GL_ENTRY_DATE
+        description: ''
+        data_type: DATE
+      - name: GL_EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: GL_JE_POSTED_DATE
+        description: ''
+        data_type: DATE
+      - name: GL_JE_BATCH_ID
+        description: ''
+        data_type: VARCHAR
+      - name: GL_JE_BATCH_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: GL_JE_BATCH_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: GL_JE_HEADER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: GL_JE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: GL_JE_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: GL_JE_LINE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: GL_JE_LINE_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: GL_REVERSED_JE_HEADER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: GL_REVERSED_JE_HEADER_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: _0_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: _1_LEGAL_ENTITY_ID
+        description: ''
+        data_type: VARCHAR
+      - name: _2_PRODUCT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: _3_ACCOUNTING_ID
+        description: ''
+        data_type: VARCHAR
+      - name: _4_TEAM_ID
+        description: ''
+        data_type: VARCHAR
+      - name: _5_NATURAL_ACCOUNT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: _6_INITIATIVE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: _7_INTERCOMPANY_ID
+        description: ''
+        data_type: VARCHAR
+      - name: _8_FUTURE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: LEGAL_ENTITY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNTING_ID_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TEAM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: NATURAL_ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: INITIATIVE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: INTERCOMPANY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: FUTURE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: JOURNAL_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: JOURNAL_CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: ENTERED_DEBIT_AMOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: ENTERED_CREDIT_AMOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: CONVERTED_DEBIT_AMOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: CONVERTED_CREDIT_AMOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: GL_JE_CREATED_BY
+        description: ''
+        data_type: VARCHAR
+      - name: EXTRACT_DATETIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: MARINER_GL_RECORD_ID
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: _RECORD_ID
+        description: ''
+        data_type: VARCHAR

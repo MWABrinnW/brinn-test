@@ -57,9 +57,9 @@ select
   , custom_digital_marketing_opt_out_wealth_
   , custom_digital_marketing_options_wealth_
   , custom_marketing_record_type
-  , custom_birthdate
+  , custom_birthdate::date as custom_birthdate
   , custom_tags
-  , custom_age
+  , custom_age::float as custom_age
   , custom_force_sync
   , custom_marketing_account
   , custom_digital_marketing_options_retirement_
@@ -79,7 +79,7 @@ select
   , custom_have_children_you_claim_as_dependents
   , custom_aware_of_the_impact_of_tcja
   , custom_who_prepares_your_taxes
-  , custom_age_range
+  , custom_age_range::text as custom_age_range
   , custom_tax_bracket
   , custom_any_questions_or_concerns_we_could_answer
   , custom_nickname

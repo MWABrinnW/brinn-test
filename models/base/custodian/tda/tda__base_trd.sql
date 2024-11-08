@@ -12,7 +12,7 @@ select
   , json:c10::varchar(100)      as city
   , json:c11::varchar(100)      as state
   , json:c12::varchar(50)       as zip_code
-  , json:c13::number            as ssn
+  , json:c13::text              as ssn
   , json:c14::varchar(100)      as account_number
   , json:c15::varchar(100)      as advisor_id
   , json:c16::varchar(100)      as taxable
@@ -40,7 +40,7 @@ select
   , effective_date::date        as effective_date
   , _rep_code::varchar(10)      as _rep_code
   , _file_type::varchar(100)    as _file_type
-  , _source_file::varchar(100)  as _source_file 
+  , _source_file::varchar(100)  as _source_file
   , _created_at::timestamp      as _source_loaded_at
   , {{ col_is_head(reference=source('tda', 'trd')) }}
   , {{ col_is_current(date_col='effective_date') }}

@@ -1,0 +1,89 @@
+version: 2
+models:
+  - name: locations
+    config:
+      tags: ['locations']
+    description: |
+      Primary purpose for this table is to assign a Mariner Location ID to each Mariner Location.
+      That ID/name is used throughout a number of systems (ex. Great Plains, ADP, Salesforce, Enterprise Reporting, etc).
+      The Location Master is also where the the hierarchy of Region/Market/Location is kept, along with other ancillary levels (Division, Legal, and Tax hierarchy) will be found.
+
+      DW1 equivalent: `edw.vw.enterprise_locations`
+    columns:
+      - name: location_code
+        description: Mariner Location ID for the location (ex. 100, L-10015)
+      - name: start_date
+        description: Unique identifier for each Location Master record.
+        tests:
+          - not_null
+      - name: end_date
+        description: Start date the new location is active.
+      - name: ACTIVE
+        description: ''
+        data_type: NUMBER
+      - name: BUSINESS_UNIT
+        description: ''
+        data_type: VARCHAR
+      - name: SECTOR
+        description: ''
+        data_type: VARCHAR
+      - name: division
+        description: "Division: separates Wealth, Advisory Solutions, and HQ"
+      - name: region_name
+        description: Region name, markets are grouped into a region
+      - name: market_name
+        description: Market name, locations are grouped into a market
+      - name: location_name
+        description: Location name, offices are grouped into a location
+      - name: office_name
+        description: "Office name/location in the format of 'City, State'"
+      - name: DEPARTMENT
+        description: ''
+        data_type: VARCHAR
+      - name: location_city
+        description: Location city
+      - name: location_state
+        description: Location state
+      - name: accounting_id
+        description: Great Plains accounting/cost code (ex. 1104, 7704, 8804),
+      - name: accounting_id_description
+        description: Great Plains accounting/cost code description (ex. Costa Mesa, CA; Costa Mesa, CA - MSEC; Costa Mesa, CA - MIR),
+      - name: acquisition_name
+        description: Name of firm purchase/acquisition or advisor lift-out,
+      - name: acquisition_type
+        description: Type of acquisition (ex. Advisor lift-out, Firm purchase, Significant hire, Greenfield, Tax Acquisition),
+      - name: LEADER_1
+        description: ''
+        data_type: VARCHAR
+      - name: LEADER_1_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: LEADER_2
+        description: ''
+        data_type: VARCHAR
+      - name: LEADER_2_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: HR_BUSINESS_PARTNER
+        description: ''
+        data_type: VARCHAR
+      - name: IS_GREENFIELD
+        description: ''
+        data_type: NUMBER
+      - name: ACQUISITION_START_MONTH
+        description: ''
+        data_type: DATE
+      - name: INCEPTION_DATE
+        description: ''
+        data_type: DATE
+      - name: IGO_SEGMENT
+        description: ''
+        data_type: VARCHAR
+      - name: _SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: _created_at
+        description: Datetime representing when the record was loaded into the table from the source file.
+        tests:
+          - not_null
+

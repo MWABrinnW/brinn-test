@@ -2,98 +2,34 @@ version: 2
 models:
   - name: advisors_network_monthly
     columns:
-      - name: advisor_active_ind
-        description: "indicates if this advisor is active for the current month-end.  1=true, 0=false"
-      - name: advisor_age_band
-        description: "age band the advisor fits within (ex. < 30yrs, 30 - 39yrs, 40 - 49yrs, 50 - 59yrs, > 60yrs)"
-      - name: advisor_firm_name
-        description: "firm/employer for the advisor"
-      - name: advisor_first_name
-        description: "first name of the advisor"
-      - name: advisor_full_name
-        description: "full name for the advisor in the format of <first name> <last name>"
-      - name: advisor_last_name
-        description: "last name of the advisor"
-      - name: advisor_start_date
-        description: "date the advisor started with mariner advisor network (mps/network)"
-      - name: advisor_status_change_date
-        description: "date the advisor status changed, used primarily to indicate when a registered admin role is promoted to advisor"
-      - name: advisor_status_notes
-        description: "additional detail around a change in advisor status that impacts the total advisor count for the current month"
-      - name: advisor_termination_date
-        description: "date the advisor left the mariner advisor network platform"
-      - name: advisor_years_of_service
-        description: "years and months of service for the advisor, calculated using advisor start date (ex. 1 years, 2 months)"
-      - name: affiliation_model
-        description: "which network affiliation model does this advisor fall into?"
-      - name: affiliation_model_change
-        description: "count (integer) that indicates if the affiliation model for the advisor changed from prior month to current month"
-      - name: broker_dealer
-        description: "name of the broker-dealer used by this advisor (ex. lpl financial)"
-      - name: crm_system
-        description: "customer relationship management system used b y the advisor"
-      - name: custodian
-        description: "name of the advisory custodian(s) used by this advisor (ex. fidelity, schwab, td ameritrade, pershing)"
-      - name: effective_date
-        description: "state of the data - reporting period as of date"
-      - name: end_this_month
-        description: "count (integer) that indicates if this advisor was present at the end of this month."
-      - name: firm_id
-        description: "lpl firm id"
-      - name: house_accounts_ind
-        description: "indicates if this advisor/team is a house accounts advisor (mariner employee where mps gets 100% of the revenue)"
-      - name: hubspot_deal_id
-        description: "deal id associated with the firm the advisor is a part of.  will be used to monitor onboarding, growth, and performance of advisors/firms that are new to the network."
-      - name: legacy_mps_advisor_ind
-        description: "indicates if this advisor was an mps or ap4 advsior prior to the network acquisition"
-      - name: location_code
-        description: "mariner location code this advisor should be reported under (303, 609, or l-10010)"
-      - name: lost_this_month
-        description: "count (integer) that indicates if the advisor was lost/terminated this month."
-      - name: lpl_master_rep_id
-        description: "lpl / custodian rep id(s) for the advisor"
-      - name: month_end_date
-        description: "calendar month end period associated with effective date"
-      - name: new_this_month
-        description: "count (integer) that indicates if this advisor is new this month."
-      - name: other_adj_this_month
-        description: "count (integer) that indicates a change in advisor status outside of new/lost scenarios."
-      - name: pms_system
-        description: "portfolio management system used by the advisor"
-      - name: prior_affiliation_model
-        description: "this field will have the affiliation model assigned to the advisor in the prior month if there was an affiliation model change between last month and current month"
-      - name: record_date
-        description: "date in which the record was loaded/updated in the table"
-      - name: record_datetime
-        description: "date-time in which the record was loaded/updated in the table"
       - name: record_id
         description: "unique identifier for each advisor record"
         tests:
           - unique
-      - name: redtail_category
-        description: "advisor category from redtail (ex. advisor - lpl corporate ria, advisor - mian, advisor - hybrid ria, etc.)"
-      - name: redtail_id
-        description: "system/contact id from redtail (ex. 2732328)"
-      - name: redtail_status
-        description: "advisor status from redtail (ex. tfsn advisor affiliate, licensed bank employee, etc.)"
-      - name: service_tier
-        description: "service tier for the advisor (ex. select, select+, a la carte)"
-      - name: source_system_client_manager
-        description: "pms manager name (ex. black diamond team)"
-      - name: start_this_month
-        description: "count (integer) that indicates if this advisor was present and active at the start of this month."
-      - name: system_details
-        description: "table or data source information in which the data comes from (pms, crm, template, file name, etc.)"
       - name: system_name
         description: "system information in which the data comes from (pms, crm, etc.)"
-      - name: termination_reason
-        description: "explains the termination reason for the advisor.  this will be a picklist of values, additional detail can be found in redtail."
-      - name: termination_type
-        description: "type of termination, valid values are voluntary, involuntary, other"
-      - name: work_email
-        description: "business/work email address"
-      - name: work_phone
-        description: "business/work phone number"
+      - name: system_details
+        description: "table or data source information in which the data comes from (pms, crm, template, file name, etc.)"
+      - name: redtail_id
+        description: "system/contact id from redtail (ex. 2732328)"
+      - name: advisor_full_name
+        description: "full name for the advisor in the format of <first name> <last name>"
+      - name: advisor_first_name
+        description: "first name of the advisor"
+      - name: advisor_last_name
+        description: "last name of the advisor"
+      - name: advisor_active_ind
+        description: "indicates if this advisor is active for the current month-end.  1=true, 0=false"
+      - name: advisor_firm_name
+        description: "firm/employer for the advisor"
+      - name: advisor_start_date
+        description: "date the advisor started with mariner advisor network (mps/network)"
+      - name: advisor_termination_date
+        description: "date the advisor left the mariner advisor network platform"
+      - name: advisor_age_band
+        description: "age band the advisor fits within (ex. < 30yrs, 30 - 39yrs, 40 - 49yrs, 50 - 59yrs, > 60yrs)"
+      - name: advisor_years_of_service
+        description: "years and months of service for the advisor, calculated using advisor start date (ex. 1 years, 2 months)"
       - name: work_site_address_1
         description: "business/work address line 1 for the advisor"
       - name: work_site_address_2
@@ -104,5 +40,88 @@ models:
         description: "business/work address state (2 letter state abbreviation)"
       - name: work_site_zip_code
         description: "business/work address zip code"
+      - name: work_phone
+        description: "business/work phone number"
+      - name: work_email
+        description: "business/work email address"
+      - name: redtail_category
+        description: "advisor category from redtail (ex. advisor - lpl corporate ria, advisor - mian, advisor - hybrid ria, etc.)"
+      - name: redtail_status
+        description: "advisor status from redtail (ex. tfsn advisor affiliate, licensed bank employee, etc.)"
+      - name: service_tier
+        description: "service tier for the advisor (ex. select, select+, a la carte)"
+      - name: house_accounts_ind
+        description: "indicates if this advisor/team is a house accounts advisor (mariner employee where mps gets 100% of the revenue)"
+      - name: legacy_mps_advisor_ind
+        description: "indicates if this advisor was an mps or ap4 advsior prior to the network acquisition"
+      - name: affiliation_model
+        description: "which network affiliation model does this advisor fall into?"
+      - name: start_this_month
+        description: "count (integer) that indicates if this advisor was present and active at the start of this month."
+      - name: end_this_month
+        description: "count (integer) that indicates if this advisor was present at the end of this month."
+      - name: new_this_month
+        description: "count (integer) that indicates if this advisor is new this month."
+      - name: lost_this_month
+        description: "count (integer) that indicates if the advisor was lost/terminated this month."
+      - name: other_adj_this_month
+        description: "count (integer) that indicates a change in advisor status outside of new/lost scenarios."
+      - name: affiliation_model_change
+        description: "count (integer) that indicates if the affiliation model for the advisor changed from prior month to current month"
+      - name: prior_affiliation_model
+        description: "this field will have the affiliation model assigned to the advisor in the prior month if there was an affiliation model change between last month and current month"
+      - name: advisor_status_change_date
+        description: "date the advisor status changed, used primarily to indicate when a registered admin role is promoted to advisor"
+      - name: advisor_status_notes
+        description: "additional detail around a change in advisor status that impacts the total advisor count for the current month"
+      - name: termination_type
+        description: "type of termination, valid values are voluntary, involuntary, other"
+      - name: termination_reason
+        description: "explains the termination reason for the advisor.  this will be a picklist of values, additional detail can be found in redtail."
+      - name: firm_id
+        description: "lpl firm id"
+      - name: lpl_master_rep_id
+        description: "lpl / custodian rep id(s) for the advisor"
+      - name: INDIVIDUAL_CRD
+        description: ''
+        data_type: VARCHAR
+      - name: broker_dealer
+        description: "name of the broker-dealer used by this advisor (ex. lpl financial)"
+      - name: custodian
+        description: "name of the advisory custodian(s) used by this advisor (ex. fidelity, schwab, td ameritrade, pershing)"
+      - name: pms_system
+        description: "portfolio management system used by the advisor"
+      - name: crm_system
+        description: "customer relationship management system used b y the advisor"
+      - name: location_code
+        description: "mariner location code this advisor should be reported under (303, 609, or l-10010)"
+      - name: source_system_client_manager
+        description: "pms manager name (ex. black diamond team)"
+      - name: PORTFOLIO_CONSULTING_IND
+        description: ''
+        data_type: VARCHAR
+      - name: PIPELINE_DEAL_ID
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE_CREATED_DATETIME
+        description: ''
+        data_type: VARCHAR
+      - name: ADDED_BY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: effective_date
+        description: "state of the data - reporting period as of date"
+      - name: month_end_date
+        description: "calendar month end period associated with effective date"
+      - name: record_date
+        description: "date in which the record was loaded/updated in the table"
+      - name: record_datetime
+        description: "date-time in which the record was loaded/updated in the table"
+      - name: ADVISOR_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
       - name: _created_at
         description: internally generated timestamp

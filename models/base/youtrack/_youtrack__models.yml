@@ -1,0 +1,144 @@
+version: 2
+models:
+  - name: youtrack__dim_issues
+    columns:
+      - name: ID
+        description: ''
+      - name: ISSUE_ID
+        description: ''
+      - name: SUMMARY
+        description: ''
+      - name: DESCRIPTION
+        description: ''
+      - name: REPORTER
+        description: ''
+      - name: CREATED_AT
+        description: ''
+      - name: UPDATED_AT
+        description: ''
+      - name: RESOLVED_AT
+        description: ''
+      - name: ISSUE_ID_PARENT
+        description: ''
+      - name: IS_DRAFT
+        description: ''
+      - name: PROJECT
+        description: ''
+      - name: GROUPS
+        description: ''
+      - name: TYPE
+        description: ''
+      - name: PRIORITY
+        description: ''
+      - name: STATE
+        description: ''
+      - name: STATUS
+        description: ''
+      - name: STAKEHOLDER
+        description: ''
+      - name: ASSIGNEE
+        description: ''
+      - name: START_DATE
+        description: ''
+      - name: END_DATE
+        description: ''
+      - name: DUE_DATE
+        description: ''
+      - name: SYSTEM
+        description: ''
+      - name: COMMENTS_COUNT
+        description: ''
+      - name: _CREATED_AT
+        description: ''
+      - name: _UPDATED_AT
+        description: ''
+      - name: _ID
+        description: ''
+  - name: youtrack__stg_issues
+    columns:
+      - name: ID
+        description: ''
+        data_type: VARCHAR
+      - name: ISSUE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: SUMMARY
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: REPORTER
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: RESOLVED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: ISSUE_ID_PARENT
+        description: ''
+        data_type: VARCHAR
+      - name: IS_DRAFT
+        description: ''
+        data_type: NUMBER
+      - name: PROJECT
+        description: ''
+        data_type: VARCHAR
+      - name: COMMENTS_COUNT
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTOM_FIELDS
+        description: ''
+        data_type: VARIANT
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _ID
+        description: ''
+        data_type: NUMBER
+  - name: youtrack__stg_users
+    columns:
+      - name: ID
+        description: ''
+        data_type: VARCHAR
+      - name: FULL_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: LOGIN
+        description: ''
+        data_type: VARCHAR
+      - name: PROFILES
+        description: ''
+        data_type: VARCHAR
+      - name: GUEST
+        description: ''
+        data_type: VARCHAR
+      - name: BANNED
+        description: ''
+        data_type: VARCHAR
+      - name: ONLINE
+        description: ''
+        data_type: VARCHAR
+      - name: AVATAR_URL
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _ID
+        description: ''
+        data_type: NUMBER

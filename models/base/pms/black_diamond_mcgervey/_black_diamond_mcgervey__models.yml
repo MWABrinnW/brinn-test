@@ -2,18 +2,18 @@ version: 2
 models:
   - name: black_diamond_mcgervey__base_accounts
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
         description: ''
         data_type: VARCHAR
-      - name: EFFECTIVE_DATE
-        description: ''
-        data_type: DATE
       - name: ACCOUNT_NUMBER
         description: ''
         data_type: VARCHAR
@@ -62,7 +62,7 @@ models:
       - name: DISCRETIONARY
         description: ''
         data_type: BOOLEAN
-      - name: EXTERNAL_BILLING_ACCOUNT_ID
+      - name: EXTERNAL_BILLING_ACCOUNTID
         description: ''
         data_type: VARCHAR
       - name: HISTORY_START_DATE
@@ -71,7 +71,7 @@ models:
       - name: ID
         description: ''
         data_type: VARCHAR
-      - name: LAST_RECONCILE_DATE
+      - name: LAST_RECONCILED_DATE
         description: ''
         data_type: DATE
       - name: LONG_NUMBER
@@ -80,7 +80,7 @@ models:
       - name: MANAGER
         description: ''
         data_type: VARCHAR
-      - name: NAME
+      - name: ACCOUNT_NAME
         description: ''
         data_type: VARCHAR
       - name: OTHER_BILLING_METHOD
@@ -89,7 +89,7 @@ models:
       - name: PAY_BY_INVOICE
         description: ''
         data_type: BOOLEAN
-      - name: PERFORMANCE_START_DATE
+      - name: PERFORMANCESTARTDATE
         description: ''
         data_type: DATE
       - name: START_DATE
@@ -98,42 +98,33 @@ models:
       - name: SUPERVISED
         description: ''
         data_type: BOOLEAN
-      - name: TOTAL_EMV
-        description: ''
-        data_type: NUMBER
-      - name: STYLE
-        description: ''
-        data_type: VARCHAR
       - name: TAX_STATUS
         description: ''
         data_type: VARCHAR
-      - name: REP_CODE
+      - name: TEAM
         description: ''
         data_type: VARCHAR
+      - name: TOTAL_EMV
+        description: ''
+        data_type: NUMBER
+      - name: STYLE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: FEE_SCHEDULE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: FEE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: RATE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
       - name: RECORD_ID
         description: ''
         data_type: NUMBER
-      - name: NOTES_1
-        description: ''
-        data_type: VARCHAR
-      - name: NOTES_1_2
-        description: ''
-        data_type: VARCHAR
-      - name: NOTES_2
-        description: ''
-        data_type: VARCHAR
-      - name: SELECT_ALTERNATIVES
-        description: ''
-        data_type: VARCHAR
-      - name: SELECT_EQUITIES
-        description: ''
-        data_type: VARCHAR
-      - name: SELECT_FIXED_INCOME
-        description: ''
-        data_type: VARCHAR
-      - name: SELECT_PROGRAM
-        description: ''
-        data_type: VARCHAR
       - name: IS_HEAD
         description: ''
         data_type: NUMBER
@@ -143,12 +134,18 @@ models:
       - name: _SOURCE_LOADED_AT
         description: ''
         data_type: TIMESTAMP_LTZ
-  - name: black_diamond_mcgervey__base_account_fees
-    columns:
-      - name: PMS
+      - name: NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+  - name: black_diamond_mcgervey__base_account_fees
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
@@ -186,10 +183,13 @@ models:
         data_type: TIMESTAMP_LTZ
   - name: black_diamond_mcgervey__base_portfolio_groups
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
@@ -201,7 +201,7 @@ models:
       - name: PORTFOLIO_GROUP_ID
         description: ''
         data_type: VARCHAR
-      - name: ASPORTFOLIO_GROUP_NAME
+      - name: PORTFOLIO_GROUP_NAME
         description: ''
         data_type: VARCHAR
       - name: PORTFOLIO_ID
@@ -218,10 +218,13 @@ models:
         data_type: TIMESTAMP_LTZ
   - name: black_diamond_mcgervey__base_account_benchmarks
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
@@ -250,10 +253,13 @@ models:
         data_type: TIMESTAMP_LTZ
   - name: black_diamond_mcgervey__base_holdings
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
@@ -339,10 +345,13 @@ models:
         data_type: TIMESTAMP_LTZ
   - name: black_diamond_mcgervey__base_tax_lots
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
@@ -413,10 +422,13 @@ models:
         data_type: TIMESTAMP_LTZ
   - name: black_diamond_mcgervey__base_account_tags
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
@@ -454,10 +466,13 @@ models:
         data_type: TIMESTAMP_LTZ
   - name: black_diamond_mcgervey__base_relationships
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
@@ -470,6 +485,9 @@ models:
         description: ''
         data_type: VARCHAR
       - name: RELATIONSHIP_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: RELATIONSHIP_CLIENT_TYPE_ID
         description: ''
         data_type: VARCHAR
       - name: HISTORY_START_DATE
@@ -490,6 +508,9 @@ models:
       - name: PORTFOLIO_DISPLAY_NAME
         description: ''
         data_type: VARCHAR
+      - name: IS_MASTER_PORTFOLIO
+        description: ''
+        data_type: NUMBER
       - name: ACCOUNT_ID
         description: ''
         data_type: VARCHAR
@@ -509,5 +530,67 @@ models:
         description: ''
         data_type: NUMBER
       - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+  - name: black_diamond_mcgervey__base_contacts
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: RELATIONSHIP_ID
+        description: ''
+        data_type: VARCHAR
+      - name: RELATIONSHIP_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CONTACT_ID
+        description: ''
+        data_type: NUMBER
+      - name: CONTACT_FIRST_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CONTACT_LAST_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: EMAIL_ADDRESS_1
+        description: ''
+        data_type: VARCHAR
+      - name: EMAIL_ADDRESS_1_LABEL
+        description: ''
+        data_type: VARCHAR
+      - name: EMAIL_ADDRESS_1_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: EMAIL_ADDRESS_2
+        description: ''
+        data_type: VARCHAR
+      - name: EMAIL_ADDRESS_2_LABEL
+        description: ''
+        data_type: VARCHAR
+      - name: EMAIL_ADDRESS_2_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_LOADED_AT_2
         description: ''
         data_type: TIMESTAMP_LTZ

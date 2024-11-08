@@ -1,0 +1,26 @@
+version: 2
+models:
+  - name: locations_cost_center_history
+    config:
+      tags: ['locations']
+    description: >
+      Primary purpose for this table is to track prior accounting codes/cost centers for each location and the corresponding current accounting code.
+      These accounting codes tie to Great Plains and ADP.
+    columns:
+      - name: start_date
+        description: Start date the new location is active
+      - name: end_date
+        description: End date of current location OR date that current record will be modified and new record will start
+      - name: old_code
+        description: Great Plains accounting/cost code (ex. 1104, 7704, 8804) - prior code
+        tests:
+          - not_null
+      - name: current_code
+        description: Great Plains accounting/cost code (ex. 1104, 7704, 8804) - current code
+        tests:
+          - not_null
+      - name: _created_at
+        description: Datetime representing when the record was loaded into the table from the source file.
+        tests:
+          - not_null
+

@@ -17,6 +17,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_accountbondtrade
         columns:
           - name: content
@@ -28,6 +31,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_accountmanager
         columns:
           - name: content
@@ -39,6 +45,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_accountstatus
         columns:
           - name: content
@@ -50,6 +59,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_accounttype
         columns:
           - name: content
@@ -61,6 +73,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_asset
         columns:
           - name: content
@@ -72,6 +87,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_assetlevelstrategy
         columns:
           - name: content
@@ -83,6 +101,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_assetvalue
         columns:
           - name: content
@@ -94,6 +115,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_benchmarkallocation
         columns:
           - name: content
@@ -105,6 +129,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_bill
         columns:
           - name: content
@@ -116,6 +143,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_billaccount
         columns:
           - name: content
@@ -127,6 +157,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_billaccountitem
         columns:
           - name: content
@@ -138,6 +171,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_billasset
         columns:
           - name: content
@@ -149,6 +185,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_billassetitem
         columns:
           - name: content
@@ -160,6 +199,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_billclient
         columns:
           - name: content
@@ -171,6 +213,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_billentity
         columns:
           - name: content
@@ -182,6 +227,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_billinstance
         columns:
           - name: content
@@ -193,6 +241,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_billmasterschedule
         columns:
           - name: content
@@ -204,6 +255,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_billpaymethod
         columns:
           - name: content
@@ -215,6 +269,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_billschedule
         columns:
           - name: content
@@ -226,6 +283,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_billschedulestatementdeliverymethod
         columns:
           - name: content
@@ -237,6 +297,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_billtype
         columns:
           - name: content
@@ -248,6 +311,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_bondrate
         columns:
           - name: content
@@ -259,6 +325,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_bondrating
         columns:
           - name: content
@@ -270,6 +339,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_brokerdealer
         columns:
           - name: content
@@ -281,6 +353,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_clientinfo
         columns:
           - name: content
@@ -292,6 +367,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_contribcode
         columns:
           - name: content
@@ -303,6 +381,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_contribcodeext
         columns:
           - name: content
@@ -314,6 +395,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_costbasisunrealized
         columns:
           - name: content
@@ -325,6 +409,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_custodian
         columns:
           - name: content
@@ -336,6 +423,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_d_account
         columns:
           - name: content
@@ -347,6 +437,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_d_asset
         columns:
           - name: content
@@ -358,6 +451,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_distcode
         columns:
           - name: content
@@ -369,6 +465,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_distcodeext
         columns:
           - name: content
@@ -380,6 +479,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_downloadsource
         columns:
           - name: content
@@ -391,6 +493,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_enumclass
         columns:
           - name: content
@@ -402,6 +507,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_eoallow
         columns:
           - name: content
@@ -413,6 +521,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_feehierarchy
         columns:
           - name: content
@@ -424,6 +535,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_feehierarchycollectfrom
         columns:
           - name: content
@@ -435,6 +549,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_fundfamily
         columns:
           - name: content
@@ -446,6 +563,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_gicscodesindustry
         columns:
           - name: content
@@ -457,6 +577,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_gicscodesindustrygroup
         columns:
           - name: content
@@ -468,6 +591,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_gicscodessector
         columns:
           - name: content
@@ -479,6 +605,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_gicscodessubindustry
         columns:
           - name: content
@@ -490,6 +619,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_gicsmapping
         columns:
           - name: content
@@ -501,6 +633,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_historicactivity
         columns:
           - name: content
@@ -512,6 +647,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_household
         columns:
           - name: content
@@ -523,6 +661,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_model
         columns:
           - name: content
@@ -534,6 +675,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_modelagg
         columns:
           - name: content
@@ -545,6 +689,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_modelaggdtl
         columns:
           - name: content
@@ -556,6 +703,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_modelaggentity
         columns:
           - name: content
@@ -567,6 +717,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_modelitem
         columns:
           - name: content
@@ -578,6 +731,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_modelrange
         columns:
           - name: content
@@ -589,6 +745,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_personal
         columns:
           - name: content
@@ -600,6 +759,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_personal_brokerdealer
         columns:
           - name: content
@@ -611,6 +773,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_personal_household
         columns:
           - name: content
@@ -622,6 +787,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_personal_registration
         columns:
           - name: content
@@ -633,6 +801,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_personal_representative
         columns:
           - name: content
@@ -644,6 +815,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_personalssn
         columns:
           - name: content
@@ -655,6 +829,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_platform
         columns:
           - name: content
@@ -666,6 +843,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_portfoliogroup
         columns:
           - name: content
@@ -677,6 +857,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_price
         columns:
           - name: content
@@ -688,6 +871,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_product
         columns:
           - name: content
@@ -699,6 +885,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_productcategory
         columns:
           - name: content
@@ -710,6 +899,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_productclass
         columns:
           - name: content
@@ -721,6 +913,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_productequivalent
         columns:
           - name: content
@@ -732,6 +927,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_productrelated
         columns:
           - name: content
@@ -743,6 +941,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_productsubtype
         columns:
           - name: content
@@ -754,6 +955,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_producttype
         columns:
           - name: content
@@ -765,6 +969,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_productbondcall
         columns:
           - name: content
@@ -787,6 +994,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_registrationtype
         columns:
           - name: content
@@ -798,6 +1008,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_representative
         columns:
           - name: content
@@ -809,6 +1022,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_riskcategory
         columns:
           - name: content
@@ -820,6 +1036,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_rmdaccount
         columns:
           - name: content
@@ -831,6 +1050,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_rmdregistration
         columns:
           - name: content
@@ -842,6 +1064,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_savedperformance
         columns:
           - name: content
@@ -853,6 +1078,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_sleevestrategy
         columns:
           - name: content
@@ -864,6 +1092,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_storedperformance
         columns:
           - name: content
@@ -875,6 +1106,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_strategist
         columns:
           - name: content
@@ -886,6 +1120,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_subadvisor
         columns:
           - name: content
@@ -897,6 +1134,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_swpaccount
         columns:
           - name: content
@@ -908,6 +1148,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_tradestatus
         columns:
           - name: content
@@ -919,6 +1162,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_transaction
         columns:
           - name: content
@@ -930,6 +1176,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_transactiontype
         columns:
           - name: content
@@ -941,6 +1190,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_user
         columns:
           - name: content
@@ -952,6 +1204,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_userdefinedfields
         columns:
           - name: content
@@ -963,6 +1218,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_userdefinedfields_account
         columns:
           - name: content
@@ -974,6 +1232,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_userdefinedfields_asset
         columns:
           - name: content
@@ -985,6 +1246,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_userdefinedfields_database
         columns:
           - name: content
@@ -996,6 +1260,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_userdefinedfields_household
         columns:
           - name: content
@@ -1007,6 +1274,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_userdefinedfields_product
         columns:
           - name: content
@@ -1018,6 +1288,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_userdefinedfields_registration
         columns:
           - name: content
@@ -1029,6 +1302,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_userdefinedfields_rep
         columns:
           - name: content
@@ -1040,6 +1316,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_userdetail
         columns:
           - name: content
@@ -1051,6 +1330,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_userlogin
         columns:
           - name: content
@@ -1062,6 +1344,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_userprivilegealclient
         columns:
           - name: content
@@ -1073,6 +1358,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_userprivilegeallowentity
         columns:
           - name: content
@@ -1084,6 +1372,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_userrole
         columns:
           - name: content
@@ -1095,6 +1386,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_userroleprivilege
         columns:
           - name: content
@@ -1106,6 +1400,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_wholesaler
         columns:
           - name: content
@@ -1117,6 +1414,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_account
         columns:
           - name: content
@@ -1128,6 +1428,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_accountbondtrade
         columns:
           - name: content
@@ -1139,6 +1442,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_accountmanager
         columns:
           - name: content
@@ -1150,6 +1456,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_accountstatus
         columns:
           - name: content
@@ -1161,6 +1470,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_asset
         columns:
           - name: content
@@ -1172,6 +1484,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_assetlevelstrategy
         columns:
           - name: content
@@ -1183,6 +1498,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_assetvalue
         columns:
           - name: content
@@ -1194,6 +1512,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_benchmarkallocation
         columns:
           - name: content
@@ -1205,6 +1526,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_bill
         columns:
           - name: content
@@ -1216,6 +1540,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_billaccount
         columns:
           - name: content
@@ -1227,6 +1554,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_billaccountitem
         columns:
           - name: content
@@ -1238,6 +1568,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_billasset
         columns:
           - name: content
@@ -1249,6 +1582,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_billassetitem
         columns:
           - name: content
@@ -1260,6 +1596,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_billclient
         columns:
           - name: content
@@ -1271,6 +1610,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_billentity
         columns:
           - name: content
@@ -1282,6 +1624,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_billinstance
         columns:
           - name: content
@@ -1293,6 +1638,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_billmasterschedule
         columns:
           - name: content
@@ -1304,6 +1652,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_billpaymethod
         columns:
           - name: content
@@ -1315,6 +1666,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_billschedule
         columns:
           - name: content
@@ -1326,6 +1680,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_billschedulestatementdeliverymethod
         columns:
           - name: content
@@ -1337,6 +1694,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_billtype
         columns:
           - name: content
@@ -1348,6 +1708,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_bondrate
         columns:
           - name: content
@@ -1359,6 +1722,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_bondrating
         columns:
           - name: content
@@ -1370,6 +1736,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_brokerdealer
         columns:
           - name: content
@@ -1381,6 +1750,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_clientinfo
         columns:
           - name: content
@@ -1392,6 +1764,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_contribcode
         columns:
           - name: content
@@ -1403,6 +1778,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_contribcodeext
         columns:
           - name: content
@@ -1414,6 +1792,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_costbasisunrealized
         columns:
           - name: content
@@ -1425,6 +1806,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_custodian
         columns:
           - name: content
@@ -1436,6 +1820,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_d_account
         columns:
           - name: content
@@ -1447,6 +1834,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_d_asset
         columns:
           - name: content
@@ -1458,6 +1848,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_distcode
         columns:
           - name: content
@@ -1469,6 +1862,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_distcodeext
         columns:
           - name: content
@@ -1480,6 +1876,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_downloadsource
         columns:
           - name: content
@@ -1491,6 +1890,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_enumclass
         columns:
           - name: content
@@ -1502,6 +1904,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_eoallow
         columns:
           - name: content
@@ -1513,6 +1918,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_feehierarchy
         columns:
           - name: content
@@ -1524,6 +1932,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_feehierarchycollectfrom
         columns:
           - name: content
@@ -1535,6 +1946,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_fundfamily
         columns:
           - name: content
@@ -1546,6 +1960,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_gicscodesindustry
         columns:
           - name: content
@@ -1557,6 +1974,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_gicscodesindustrygroup
         columns:
           - name: content
@@ -1568,6 +1988,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_gicscodessector
         columns:
           - name: content
@@ -1579,6 +2002,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_gicscodessubindustry
         columns:
           - name: content
@@ -1590,6 +2016,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_gicsmapping
         columns:
           - name: content
@@ -1601,6 +2030,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_historicactivity
         columns:
           - name: content
@@ -1612,6 +2044,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_household
         columns:
           - name: content
@@ -1623,6 +2058,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_model
         columns:
           - name: content
@@ -1634,6 +2072,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_modelagg
         columns:
           - name: content
@@ -1645,6 +2086,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_modelaggdtl
         columns:
           - name: content
@@ -1656,6 +2100,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_modelaggentity
         columns:
           - name: content
@@ -1667,6 +2114,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_modelitem
         columns:
           - name: content
@@ -1678,6 +2128,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_modelrange
         columns:
           - name: content
@@ -1689,6 +2142,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_personal
         columns:
           - name: content
@@ -1700,6 +2156,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_personal_brokerdealer
         columns:
           - name: content
@@ -1711,6 +2170,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_personal_household
         columns:
           - name: content
@@ -1722,6 +2184,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_personal_registration
         columns:
           - name: content
@@ -1733,6 +2198,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_personal_representative
         columns:
           - name: content
@@ -1744,6 +2212,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_personalssn
         columns:
           - name: content
@@ -1755,6 +2226,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_platform
         columns:
           - name: content
@@ -1766,6 +2240,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_portfoliogroup
         columns:
           - name: content
@@ -1777,6 +2254,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_price
         columns:
           - name: content
@@ -1788,6 +2268,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_product
         columns:
           - name: content
@@ -1799,6 +2282,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_productcategory
         columns:
           - name: content
@@ -1810,6 +2296,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_productclass
         columns:
           - name: content
@@ -1821,6 +2310,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_productequivalent
         columns:
           - name: content
@@ -1832,6 +2324,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_productrelated
         columns:
           - name: content
@@ -1843,6 +2338,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_productsubtype
         columns:
           - name: content
@@ -1854,6 +2352,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_producttype
         columns:
           - name: content
@@ -1865,6 +2366,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_registration
         columns:
           - name: content
@@ -1876,6 +2380,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_registrationtype
         columns:
           - name: content
@@ -1887,6 +2394,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_representative
         columns:
           - name: content
@@ -1898,6 +2408,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_riskcategory
         columns:
           - name: content
@@ -1909,6 +2422,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_rmdaccount
         columns:
           - name: content
@@ -1920,6 +2436,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_rmdregistration
         columns:
           - name: content
@@ -1931,6 +2450,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_savedperformance
         columns:
           - name: content
@@ -1942,6 +2464,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_sleevestrategy
         columns:
           - name: content
@@ -1953,6 +2478,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_storedperformance
         columns:
           - name: content
@@ -1964,6 +2492,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_strategist
         columns:
           - name: content
@@ -1975,6 +2506,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_subadvisor
         columns:
           - name: content
@@ -1986,6 +2520,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_swpaccount
         columns:
           - name: content
@@ -1997,6 +2534,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_tradestatus
         columns:
           - name: content
@@ -2008,6 +2548,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_transaction
         columns:
           - name: content
@@ -2019,6 +2562,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_transactiontype
         columns:
           - name: content
@@ -2030,6 +2576,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_user
         columns:
           - name: content
@@ -2041,6 +2590,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_userdefinedfields
         columns:
           - name: content
@@ -2052,6 +2604,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_userdefinedfields_account
         columns:
           - name: content
@@ -2063,6 +2618,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_userdefinedfields_asset
         columns:
           - name: content
@@ -2074,6 +2632,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_userdefinedfields_database
         columns:
           - name: content
@@ -2085,6 +2646,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_userdefinedfields_household
         columns:
           - name: content
@@ -2096,6 +2660,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_userdefinedfields_product
         columns:
           - name: content
@@ -2107,6 +2674,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_userdefinedfields_registration
         columns:
           - name: content
@@ -2118,6 +2688,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_userdefinedfields_rep
         columns:
           - name: content
@@ -2129,6 +2702,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_userdetail
         columns:
           - name: content
@@ -2140,6 +2716,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_userlogin
         columns:
           - name: content
@@ -2151,6 +2730,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_userprivilegealclient
         columns:
           - name: content
@@ -2162,6 +2744,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_userprivilegeallowentity
         columns:
           - name: content
@@ -2173,6 +2758,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_userrole
         columns:
           - name: content
@@ -2184,6 +2772,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_userroleprivilege
         columns:
           - name: content
@@ -2195,6 +2786,9 @@ sources:
           - name: _source_file
           - name: _checksum
 
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_wholesaler
         columns:
           - name: content
@@ -2205,3 +2799,6 @@ sources:
           - name: _created_at
           - name: _source_file
           - name: _checksum
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ

@@ -1,0 +1,6366 @@
+version: 2
+models:
+- name: fidelity_mwa_history__vw_raw_acctbald_account_balance
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_UPDATE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_1
+    description: ''
+    data_type: VARCHAR
+  - name: NETWORTH
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_2
+    description: ''
+    data_type: VARCHAR
+  - name: CASH_COLLECTED_BALANCE
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_3
+    description: ''
+    data_type: VARCHAR
+  - name: COLLECTED_BALANCE
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_4
+    description: ''
+    data_type: VARCHAR
+  - name: NET_TRADE_DATE_BALANCE
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_5
+    description: ''
+    data_type: VARCHAR
+  - name: NETWORTH_MARKET_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_6
+    description: ''
+    data_type: VARCHAR
+  - name: CASH_MONEY_MARKETS
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_7
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_MARKET_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_8
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_IN_MONEY_AMT
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_9
+    description: ''
+    data_type: VARCHAR
+  - name: MEMO_ADJUSTMENTS
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_10
+    description: ''
+    data_type: VARCHAR
+  - name: AVAILABLE_TO_PURCHASE_MARGIN
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_11
+    description: ''
+    data_type: VARCHAR
+  - name: BUYING_POWER_CORP_BONDS
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_12
+    description: ''
+    data_type: VARCHAR
+  - name: BUYING_POWER_MUNI_BONDS
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_13
+    description: ''
+    data_type: VARCHAR
+  - name: BUYING_POWER_GOVT_BONDS
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_14
+    description: ''
+    data_type: VARCHAR
+  - name: HOUSE_SURPLUS_CALL
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_15
+    description: ''
+    data_type: VARCHAR
+  - name: NYSE_SURPLUS_CALL
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_16
+    description: ''
+    data_type: VARCHAR
+  - name: SMA_FED_CALL
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_17
+    description: ''
+    data_type: VARCHAR
+  - name: MINIMUM_EQUITY_CALL
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_18
+    description: ''
+    data_type: VARCHAR
+  - name: TOTAL_CORE_MONEY_MARKETS
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_19
+    description: ''
+    data_type: VARCHAR
+  - name: MARGIN_EQUITY
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_20
+    description: ''
+    data_type: VARCHAR
+  - name: MARGIN_LIQUIDATING_EQUITY
+    description: ''
+    data_type: VARCHAR
+  - name: MARGIN_EQUITY_PERCENTAGE
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_21
+    description: ''
+    data_type: VARCHAR
+  - name: FED_CALL_REDUCTION
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_22
+    description: ''
+    data_type: VARCHAR
+  - name: HOUSE_CALL_REDUCTION
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_23
+    description: ''
+    data_type: VARCHAR
+  - name: NYSE_CALL_REDUCTION
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_24
+    description: ''
+    data_type: VARCHAR
+  - name: UNCOLLECTED_BALANCE
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_25
+    description: ''
+    data_type: VARCHAR
+  - name: MINIMUM_EQUITY_CALL_REDUCTION
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSFER_LEGEND_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MARGIN_PAPERS_SWITCH
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_SWITCH
+    description: ''
+    data_type: VARCHAR
+  - name: UNPRICED_POSITIONS_SWITCH
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYEE_ACCOUNT_SWITCH
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE_OF_ACCOUNT_SWITCH
+    description: ''
+    data_type: VARCHAR
+  - name: SHORT_POSITION_SWITCH
+    description: ''
+    data_type: VARCHAR
+  - name: LONG_POSITION_SWITCH
+    description: ''
+    data_type: VARCHAR
+  - name: MEMO_ENTRIES_SWITCH
+    description: ''
+    data_type: VARCHAR
+  - name: DAY_TRADES_SWITCH
+    description: ''
+    data_type: VARCHAR
+  - name: POSSIBLE_LIQUIDATIONS_SWITCH
+    description: ''
+    data_type: VARCHAR
+  - name: MINIMUM_FEDCALL_TRANS_SWITCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE_RECORD_COUNT
+    description: ''
+    data_type: VARCHAR
+  - name: SUPER_BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_26
+    description: ''
+    data_type: VARCHAR
+  - name: AVAILABLE_TO_PURCHASE_CASH
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_27
+    description: ''
+    data_type: VARCHAR
+  - name: AVAILABLE_TO
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_28
+    description: ''
+    data_type: VARCHAR
+  - name: AVAILABLE_TO_PURCHASE_NON_MGN
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_29
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_FACING_NETWORTH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE_1
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_30
+    description: ''
+    data_type: VARCHAR
+  - name: MARKET_VALUE_1
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_31
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_DATE_BALANCE_1
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_32
+    description: ''
+    data_type: VARCHAR
+  - name: SETTLEMENT_DATE_BALANCE_1
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE_2
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_33
+    description: ''
+    data_type: VARCHAR
+  - name: MARKET_VALUE_2
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_34
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_DATE_BALANCE_2
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_35
+    description: ''
+    data_type: VARCHAR
+  - name: SETTLEMENT_DATE_BALANCE_2
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE_3
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_36
+    description: ''
+    data_type: VARCHAR
+  - name: MARKET_VALUE_3
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_37
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_DATE_BALANCE_3
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_38
+    description: ''
+    data_type: VARCHAR
+  - name: SETTLEMENT_DATE_BALANCE_3
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE_4
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_39
+    description: ''
+    data_type: VARCHAR
+  - name: MARKET_VALUE_4
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_40
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_DATE_BALANCE_4
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_41
+    description: ''
+    data_type: VARCHAR
+  - name: SETTLEMENT_DATE_BALANCE_4
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE_5
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_42
+    description: ''
+    data_type: VARCHAR
+  - name: MARKET_VALUE_5
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_43
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_DATE_BALANCE_5
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_44
+    description: ''
+    data_type: VARCHAR
+  - name: SETTLEMENT_DATE_BALANCE_5
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE_6
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_45
+    description: ''
+    data_type: VARCHAR
+  - name: MARKET_VALUE_6
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_46
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_DATE_BALANCE_6
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_47
+    description: ''
+    data_type: VARCHAR
+  - name: SETTLEMENT_DATE_BALANCE_6
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE_7
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_48
+    description: ''
+    data_type: VARCHAR
+  - name: MARKET_VALUE_7
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_49
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_DATE_BALANCE_7
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_50
+    description: ''
+    data_type: VARCHAR
+  - name: SETTLEMENT_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE_8
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_51
+    description: ''
+    data_type: VARCHAR
+  - name: MARKET_VALUE_8
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_52
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_DATE_BALANCE_8
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_53
+    description: ''
+    data_type: VARCHAR
+  - name: SETTLEMENT_DATE_BALANCE_7
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE_9
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_54
+    description: ''
+    data_type: VARCHAR
+  - name: MARKET_VALUE_9
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_55
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_DATE_BALANCE_9
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_56
+    description: ''
+    data_type: VARCHAR
+  - name: SETTLEMENT_DATE_BALANCE_8
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE_10
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_57
+    description: ''
+    data_type: VARCHAR
+  - name: MARKET_VALUE_10
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_58
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_DATE_BALANCE_10
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_59
+    description: ''
+    data_type: VARCHAR
+  - name: SETTLEMENT_DATE_BALANCE_9
+    description: ''
+    data_type: VARCHAR
+  - name: PORTFOLIO_MARGIN_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: MASTER_SECURITY_LENDING_AGREEMENT_MSLA_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: RELATIONSHIP_TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MULTI_CURRENCY_ACCOUNT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: TRUST_ACCOUNTING
+    description: ''
+    data_type: VARCHAR
+  - name: NON_PURPOSE_LOAN_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: NET_CASH_SETTLEMENT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: WHEN_ISSUED_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE_5_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_60
+    description: ''
+    data_type: VARCHAR
+  - name: AVAILABLE_TO_BORROW
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_61
+    description: ''
+    data_type: VARCHAR
+  - name: CASH_AVAILABLE_TO_WITHDRAW
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_62
+    description: ''
+    data_type: VARCHAR
+  - name: SETTLED_CASH
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_63
+    description: ''
+    data_type: VARCHAR
+  - name: UNSETTLED_CASH_CREDIT
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_64
+    description: ''
+    data_type: VARCHAR
+  - name: UNSETTLED_CASH_DEBIT
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_65
+    description: ''
+    data_type: VARCHAR
+  - name: AVAILABLE_TO_PAY
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_66
+    description: ''
+    data_type: VARCHAR
+  - name: CORE_SWEEP_FUND
+    description: ''
+    data_type: VARCHAR
+  - name: BALANCE_FIELD_SIGN_67
+    description: ''
+    data_type: VARCHAR
+  - name: NON_CORE_MONEY_MARKET_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_actvyd_activity
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: KEY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSACTION_TYPE_MNEMONIC
+    description: ''
+    data_type: VARCHAR
+  - name: BKPG_REFERENCE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: RUN_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: ENTRY_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: OFFSET_ACCT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: BOOKKEEPING_QUANTITY
+    description: ''
+    data_type: VARCHAR
+  - name: BOOKKEEPING_QUANTITY_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: BOOKKEEPING_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: BOOKKEEPING_AMOUNT_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: BOOKKEEPING_MARKET_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: BOOKKEEPING_MARKET_VALUE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: NUMBER_OF_SECURITY_DESCRIPTION_LINES
+    description: ''
+    data_type: VARCHAR
+  - name: BKPG_DESCRIPTION_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: BKPG_DESCRIPTION_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: BKPG_DESCRIPTION_LINE_3
+    description: ''
+    data_type: VARCHAR
+  - name: BKPG_DESCRIPTION_LINE_4
+    description: ''
+    data_type: VARCHAR
+  - name: BKPG_DESCRIPTION_LINE_5
+    description: ''
+    data_type: VARCHAR
+  - name: BKPG_DESCRIPTION_LINE_6
+    description: ''
+    data_type: VARCHAR
+  - name: BKPG_DESCRIPTION_LINE_7
+    description: ''
+    data_type: VARCHAR
+  - name: BKPG_DESCRIPTION_LINE_8
+    description: ''
+    data_type: VARCHAR
+  - name: BKPG_DESCRIPTION_LINE_9
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITIES_INSTRUCTIONS
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSFER_LEGEND_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ALPHAPRICE_DOLLAR
+    description: ''
+    data_type: VARCHAR
+  - name: ALPHAPRICE_SPACE
+    description: ''
+    data_type: VARCHAR
+  - name: ALPHAPRICE_FRACTION
+    description: ''
+    data_type: VARCHAR
+  - name: ACCRUED_INTEREST
+    description: ''
+    data_type: VARCHAR
+  - name: BOOKKEEPING_ACCRUED_INTEREST_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: COMMISSION
+    description: ''
+    data_type: VARCHAR
+  - name: COMMISSION_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: CONCESSION
+    description: ''
+    data_type: VARCHAR
+  - name: CONCESSION_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: BUY_SELL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MARKET_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: BLOTTER_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CANCEL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: BKPG_CORRECTION_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: BATCH
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTERED_REP_ENTER_REP
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE_MODIFIER
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE_CALCULATION
+    description: ''
+    data_type: VARCHAR
+  - name: ORDER_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: AGENCY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTERED_REP_OWNING_REP_RR
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTERED_REP_EXEC_REP_RR2
+    description: ''
+    data_type: VARCHAR
+  - name: MULTI_CURRENCY_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: CONSOLIDATED_PRIME_BROKER_FEES
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_SYMBOL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_CONTRACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_EXPIRATION_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_CALL_PUT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_STRIKE_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: PRINCIPAL
+    description: ''
+    data_type: VARCHAR
+  - name: PRINCIPAL_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: PRICE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: PRORATED_COMMISSION
+    description: ''
+    data_type: VARCHAR
+  - name: PRORATED_COMMISSION_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_TAX
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_TAX_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: TICKET_CHARGE
+    description: ''
+    data_type: VARCHAR
+  - name: TICKET_CHARGE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: OPTIONS_REGULATORY_FEE
+    description: ''
+    data_type: VARCHAR
+  - name: OPTIONS_REGULATORY_FEE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: FUND_LOAD_PERCENT
+    description: ''
+    data_type: VARCHAR
+  - name: FUND_LOAD_OVERRIDE
+    description: ''
+    data_type: VARCHAR
+  - name: SEC_FEE
+    description: ''
+    data_type: VARCHAR
+  - name: SEC_FEE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: SERVICE_CHARGE_MISC_FEE
+    description: ''
+    data_type: VARCHAR
+  - name: SERVICE_CHARGE_MISC_FEE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_AMOUNT_1
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_AMOUNT_SIGN_1
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_AMOUNT_2
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_AMOUNT_SIGN_2
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_CODE_3
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_AMOUNT_3
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_AMOUNT_SIGN_3
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_CODE_4
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_AMOUNT_4
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_AMOUNT_SIGN_4
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_CODE_5
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_AMOUNT_5
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_AMOUNT_SIGN_5
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_CODE_6
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_AMOUNT_6
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_AMOUNT_SIGN_6
+    description: ''
+    data_type: VARCHAR
+  - name: MINOR_EXECUTING_BROKER
+    description: ''
+    data_type: VARCHAR
+  - name: MINOR_CLEARING_BROKER
+    description: ''
+    data_type: VARCHAR
+  - name: MAJOR_EXECUTING_BROKER
+    description: ''
+    data_type: VARCHAR
+  - name: MAJOR_CLEARING_BROKER
+    description: ''
+    data_type: VARCHAR
+  - name: CHECK_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: TRUST_ACCOUNT_TAX_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: TRUST_ACCOUNT_TRANSACTION_CATEGORY
+    description: ''
+    data_type: VARCHAR
+  - name: TRUST_ACCOUNT_ADDITIONAL_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: BOOKKEEPING_QUANTITY_EXPANDED
+    description: ''
+    data_type: VARCHAR
+  - name: BOOKKEEPING_QUANTITY_SIGN_EXPANDED
+    description: ''
+    data_type: VARCHAR
+  - name: BOOKKEEPING_AMOUNT_EXPANDED
+    description: ''
+    data_type: VARCHAR
+  - name: BOOKKEEPING_AMOUNT_SIGN_EXPANDED
+    description: ''
+    data_type: VARCHAR
+  - name: BOOKKEEPING_MARKET_VALUE_EXPANDED
+    description: ''
+    data_type: VARCHAR
+  - name: BOOKKEEPING_MARKET_VALUE_SIGN_EXPANDED
+    description: ''
+    data_type: VARCHAR
+  - name: ACCRUED_INTEREST_EXPANDED
+    description: ''
+    data_type: VARCHAR
+  - name: BOOKKEEPING_ACCRUED_INTEREST_SIGN_EXPANDED
+    description: ''
+    data_type: VARCHAR
+  - name: COMMISSION_EXPANDED
+    description: ''
+    data_type: VARCHAR
+  - name: COMMISSION_SIGN_EXPANDED
+    description: ''
+    data_type: VARCHAR
+  - name: ISIN
+    description: ''
+    data_type: VARCHAR
+  - name: SEDOL
+    description: ''
+    data_type: VARCHAR
+  - name: CURRENCY_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: CURRENCY_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_FEES
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_FEES_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: REPORTING_CURRENCY_CONVERSION_RATE
+    description: ''
+    data_type: VARCHAR
+  - name: SHADO_PARENT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: SHADO_CHILD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: REPORTING_CURRENCY_CONVERSION_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: FX_TRADE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: FX_TRADE_LINK
+    description: ''
+    data_type: VARCHAR
+  - name: SHADO_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_PRINCIPAL
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_PRINCIPAL_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_COMMISSION
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_COMMISSION_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_INTEREST
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_INTEREST_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_nabase_101_account
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: NUMBER_OF_CONFIRMS
+    description: ''
+    data_type: VARCHAR
+  - name: NUMBER_OF_STATEMENTS
+    description: ''
+    data_type: VARCHAR
+  - name: IRS_NO
+    description: ''
+    data_type: VARCHAR
+  - name: IRS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ZIP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SEPARATE_ACCOUNT_MANAGER_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: SHORT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSFER_LEGEND_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MANAGED_ACCOUNT_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_UPDATE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_UPDATE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTERED_REP_OWNING_REP_RR
+    description: ''
+    data_type: VARCHAR
+  - name: TRADING_AUTH_CODE_BNAM
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYEE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CITIZEN_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: COUNTRY_OF_TAX_RESIDENCY
+    description: ''
+    data_type: VARCHAR
+  - name: DO_NOT_PURGE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CLASSIFICATION
+    description: ''
+    data_type: VARCHAR
+  - name: PROCEEDS_INSTRUCTIONS
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITIES_INSTRUCTIONS
+    description: ''
+    data_type: VARCHAR
+  - name: CASH_DIVIDEND_INSTRUCTIONS
+    description: ''
+    data_type: VARCHAR
+  - name: DIVIDEND_ROUNDOUT_INSTRUCTION_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: NON_OBJECTING_BENEFICIAL_OWNER_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: COMMISSION_CLASS
+    description: ''
+    data_type: VARCHAR
+  - name: COMMISSION_DISCOUNT_PERCENT
+    description: ''
+    data_type: VARCHAR
+  - name: COMMISSION_SCHEDULE
+    description: ''
+    data_type: VARCHAR
+  - name: PARENT_BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: PARENT_ACCOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: AGENCY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTERED_REP_EXEC_REP_RR2
+    description: ''
+    data_type: VARCHAR
+  - name: NAP_RAP_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: NAP_RAP_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: INSTITUTIONAL_DELIVERY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: INSTITUTIONAL_DELIVERY_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: AGENT_BANK_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ESTABLISH_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: RESTRICTION_CODE_PARTIAL
+    description: ''
+    data_type: VARCHAR
+  - name: BYPASS_MISC_FEE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: INVESTMENT_CLUB_AGREEMENT
+    description: ''
+    data_type: VARCHAR
+  - name: JOINT_ACCOUNT_AGREEMENT
+    description: ''
+    data_type: VARCHAR
+  - name: TRUST_SERVICE_PROVIDER_TLA
+    description: ''
+    data_type: VARCHAR
+  - name: CORPORATE_AGREEMENT
+    description: ''
+    data_type: VARCHAR
+  - name: TRUST_ACCOUNTING
+    description: ''
+    data_type: VARCHAR
+  - name: PARTNER_AGREEMENT
+    description: ''
+    data_type: VARCHAR
+  - name: MARGIN_AGREEMENT
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_AGREEMENT
+    description: ''
+    data_type: VARCHAR
+  - name: NON_PURPOSE_LOAN_AGREEMENT
+    description: ''
+    data_type: VARCHAR
+  - name: TRUST_AGREEMENT
+    description: ''
+    data_type: VARCHAR
+  - name: NEW_ACCOUNT_PAPERS
+    description: ''
+    data_type: VARCHAR
+  - name: SPECIAL_PRODUCT_PAPERS
+    description: ''
+    data_type: VARCHAR
+  - name: OMNIBUS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SEGREGATION_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SPECIAL_MARGIN_RATE
+    description: ''
+    data_type: VARCHAR
+  - name: MONEY_MOVEMENT_AUTHORIZATION_LEVEL
+    description: ''
+    data_type: VARCHAR
+  - name: MASTER_SECURITY_LENDING_AGREEMENT_MSLA_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: CORPORATE_TAX_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: COST_BASIS_DISPOSAL_METHOD_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: DVP_SUPPRESSION_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: ABANDONED_PROPERTY_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PREFERRED_CUSTOMER_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PREFERRED_ZIP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: OASYS_ACCESS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: OASYS_INSTITUTION
+    description: ''
+    data_type: VARCHAR
+  - name: NUMBER_OF_ADDRESS_LINES
+    description: ''
+    data_type: VARCHAR
+  - name: NAME_AND_ADDRESS_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: NAME_AND_ADDRESS_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: NAME_AND_ADDRESS_LINE_3
+    description: ''
+    data_type: VARCHAR
+  - name: NAME_AND_ADDRESS_LINE_4
+    description: ''
+    data_type: VARCHAR
+  - name: NAME_AND_ADDRESS_LINE_5
+    description: ''
+    data_type: VARCHAR
+  - name: NAME_AND_ADDRESS_LINE_6
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTRATION_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: BIRTH_DATE
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: PRODUCT_LEVEL
+    description: ''
+    data_type: VARCHAR
+  - name: BIRTH_DATE_SHADOW
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: MULTI_CURRENCY_ACCOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: PORTFOLIO_MARGIN_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: ADVISOR_REPORTING_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: LATE_TRADE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: MARGIN_SWEEP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SETUP_FEE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_LEVEL_SUBTYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: W_8_FORM_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: W_8_CERTIFICATION_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_SOURCE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: BDA_PARENT_ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: NET_ASSET_VALUE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: PLAN_NAME_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: TEAM_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: FIAG_ACCOUNT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: PROXY_VOTE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: PRIME_BROKER_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSFER_AGENT_FEE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSFER_AGENT_MANAGEMENT_FEE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_REGULATORY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: EXCHANGE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: CASH_MANAGEMENT_FEE_SCHEDULE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MULTIPLE_MARGIN_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: ASSET_DISTRIBUTION_ACCOUNT_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CONFIRM_PRINT_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: FAMILY_OFFICE_TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SHADOSUITE_DVP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: VENDOR_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CHARGEBACK_TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CASH_MOVEMENT_TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: FUTURES_STATUS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: BROKER_DEALER_SOLD_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: FEE_AUTHORIZATION_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MUTUAL_FUND_FEE_REBATE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SPECIAL_ACCOUNT_USAGE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_AWAY_ELIGIBLE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: COVERDELL_SPECIAL_NEEDS_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: MULTIPLE_MARGIN_MODEL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MUTUAL_FUND_INVESTMENT_IRA_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: MONEY_MARKET_ACCOUNT_DESIGNATION
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_CLASS
+    description: ''
+    data_type: VARCHAR
+  - name: PLATFORM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: FIDUCIARY_APPROACH_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: FIDUCIARY_APPROACH_LAST_UPDATE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_nabase_102_business
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: EXCEPTION_REGISTRATION_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_TRUST_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: MINOR_RESIDENCE_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: AUTO_ADDRESS_UPDATE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: NCOA_ADDRESS_UPDATE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: FOREIGN_ADDRESS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_ADDRESS_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_ADDRESS_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_ADDRESS_LINE_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_CITY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PROVINCE
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_NAME_COUNT
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TYPE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PRIMARY_NAME_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_BUSINESS_TRUST_NAME_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_RELATIONSHIP_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_SSN_NUMBER_1
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FIXED_FORMAT_SSN_CODE_1
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_XREF_1
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_CUSTOMER_ESTABLISH_DATE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TYPE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PRIMARY_NAME_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_BUSINESS_TRUST_NAME_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_RELATIONSHIP_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_SSN_NUMBER_2
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FIXED_FORMAT_SSN_CODE_2
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_XREF_2
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_CUSTOMER_ESTABLISH_DATE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TYPE_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PRIMARY_NAME_CODE_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_BUSINESS_TRUST_NAME_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_RELATIONSHIP_CODE_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_SSN_NUMBER_3
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FIXED_FORMAT_SSN_CODE_3
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_XREF_3
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_CUSTOMER_ESTABLISH_DATE_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_TRUSTED_CONTACT_STATUS_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_TRUSTED_CONTACT_STATUS_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_TRUSTED_CONTACT_STATUS_CODE_3
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_nabase_103_business
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_NAME_COUNT
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TYPE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PRIMARY_NAME_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_BUSINESS_TRUST_NAME_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_RELATIONSHIP_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_SSN_NUMBER_1
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FIXED_FORMAT_SSN_CODE_1
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_XREF_1
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_CUSTOMER_ESTABLISH_DATE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TYPE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PRIMARY_NAME_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_BUSINESS_TRUST_NAME_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_RELATIONSHIP_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_SSN_NUMBER_2
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FIXED_FORMAT_SSN_CODE_2
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_XREF_2
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_CUSTOMER_ESTABLISH_DATE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TYPE_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PRIMARY_NAME_CODE_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_BUSINESS_TRUST_NAME_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_RELATIONSHIP_CODE_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_SSN_NUMBER_3
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FIXED_FORMAT_SSN_CODE_3
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_XREF_3
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_CUSTOMER_ESTABLISH_DATE_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_TRUSTED_CONTACT_STATUS_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_TRUSTED_CONTACT_STATUS_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_TRUSTED_CONTACT_STATUS_CODE_3
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_nabase_104_telephone_and_bank
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: CALL_BACK_NO_1
+    description: ''
+    data_type: VARCHAR
+  - name: CALL_BACK_NAME_1
+    description: ''
+    data_type: VARCHAR
+  - name: AUTHORIZED_TRADER_FIXED_FORMAT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: TRADING_AUTH_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: TRADING_AUTH_NAME_1
+    description: ''
+    data_type: VARCHAR
+  - name: TRADING_AUTH_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: TRADING_AUTH_NAME_2
+    description: ''
+    data_type: VARCHAR
+  - name: TRADING_AUTH_CODE_3
+    description: ''
+    data_type: VARCHAR
+  - name: TRADING_AUTH_NAME_3
+    description: ''
+    data_type: VARCHAR
+  - name: CALL_BACK_NO_2
+    description: ''
+    data_type: VARCHAR
+  - name: CALL_BACK_NAME_2
+    description: ''
+    data_type: VARCHAR
+  - name: RT_ABA_NO_BASE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_BANK_ACCOUNT_NO
+    description: ''
+    data_type: VARCHAR
+  - name: ACH_ACCOUNT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CORE_SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_nabase_113_business
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_NAME_COUNT
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TYPE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PRIMARY_NAME_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_BUSINESS_TRUST_NAME_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_RELATIONSHIP_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_SSN_NUMBER_1
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FIXED_FORMAT_SSN_CODE_1
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_XREF_1
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_CUSTOMER_ESTABLISH_DATE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TYPE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PRIMARY_NAME_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_BUSINESS_TRUST_NAME_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_RELATIONSHIP_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_SSN_NUMBER_2
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FIXED_FORMAT_SSN_CODE_2
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_XREF_2
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_CUSTOMER_ESTABLISH_DATE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_TRUSTED_CONTACT_STATUS_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_TRUSTED_CONTACT_STATUS_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_nabase_2x0_customer
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_XREF
+    description: ''
+    data_type: VARCHAR
+  - name: MAIL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: LEGAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: AFF_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: DAY_TEL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: NTE_TEL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: BOOK_NAME_COUNT
+    description: ''
+    data_type: VARCHAR
+  - name: CUST_STATE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CUST_STATE_ID_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CUST_STATE_ISSUED
+    description: ''
+    data_type: VARCHAR
+  - name: BROKER_AFFILIATION_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYEE_OCCUPATION
+    description: ''
+    data_type: VARCHAR
+  - name: CITIZEN_ORGANIZATION_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MAINT_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATE_USER_1
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATE_TIME_STAMP_1
+    description: ''
+    data_type: VARCHAR
+  - name: NAME_FORMAT
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_TITLE_FORMAT_NAME_PREFIX
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_TITLE_FORMAT_NAME_SUFFIX
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_NAME_FORMAT_FIRST
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_NAME_FORMAT_MIDDLE
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_NAME_FORMAT_LAST
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_RELATIONSHIP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: IRS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: IRS_NO
+    description: ''
+    data_type: VARCHAR
+  - name: BIRTH_DATE
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: TELEPHONE_TYPE_1
+    description: ''
+    data_type: VARCHAR
+  - name: TELEPHONE_FORMAT_1
+    description: ''
+    data_type: VARCHAR
+  - name: TELEPHONE_NUMBER_1
+    description: ''
+    data_type: VARCHAR
+  - name: TELEPHONE_EXTENSION_1
+    description: ''
+    data_type: VARCHAR
+  - name: TELEPHONE_PIN_1
+    description: ''
+    data_type: VARCHAR
+  - name: CONTACT_NAME_1
+    description: ''
+    data_type: VARCHAR
+  - name: PRIORITY_NUMBER_1
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATE_USER_2
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATE_TIME_STAMP_2
+    description: ''
+    data_type: VARCHAR
+  - name: TELEPHONE_TYPE_2
+    description: ''
+    data_type: VARCHAR
+  - name: TELEPHONE_FORMAT_2
+    description: ''
+    data_type: VARCHAR
+  - name: TELEPHONE_NUMBER_2
+    description: ''
+    data_type: VARCHAR
+  - name: TELEPHONE_EXTENSION_2
+    description: ''
+    data_type: VARCHAR
+  - name: TELEPHONE_PIN_2
+    description: ''
+    data_type: VARCHAR
+  - name: CONTACT_NAME_2
+    description: ''
+    data_type: VARCHAR
+  - name: PRIORITY_NUMBER_2
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATE_USER_3
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATE_TIME_STAMP_3
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_nabase_2x1_mailing_address
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: LABEL_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: LABEL_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: AUTO_ADDRESS_UPDATE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: NCOA_ADDRESS_UPDATE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_ADDRESS_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_ADDRESS_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_ADDRESS_LINE_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PO_BOX
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_CITY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_EXTENDED_ZIP
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PROVINCE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MAINT_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: FOREIGN_ADDRESS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: COUNTRY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: INTERNATIONAL_PO_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATE_USER
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATE_TIME_STAMP
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_nabase_2x2_legal_address
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: LABEL_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: LABEL_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: AUTO_ADDRESS_UPDATE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: NCOA_ADDRESS_UPDATE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_ADDRESS_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_ADDRESS_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_ADDRESS_LINE_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PO_BOX
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_CITY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_EXTENDED_ZIP
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PROVINCE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MAINT_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_FORMAT
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: COUNTRY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: INTERNATIONAL_PO_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATE_USER
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATE_TIME_STAMP
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_nabase_900_stakeholder_and_contact
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_TCPN_FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_TCPN_MIDDLE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_TCPN_LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_TCPN_CUSTOMER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_TCPN_ADDRESS_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_TCPN_ADDRESS_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_TCPN_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_TCPN_PROVINCE
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_TCPN_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_TCPN_ZIP_5
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_TCPN_ZIP_4
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_TCPN_DATE_OF_BIRTH
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: CITIZEN_STATUS_CODE
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: CITIZEN_ORGANIZATION_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_TCPN_MAIL_ADDRESS_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: IRS_NO
+    description: ''
+    data_type: VARCHAR
+  - name: IRS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_TCPN_RELATIONSHIP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_TCPN_STAKEHOLDER_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_TCPN_NAME_FORMAT_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_INSTITUTION_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: TRUSTED_CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TRUSTED_CONTACT_PRIMARY_SECONDARY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: TRUSTED_CONTACT_RELATIONSHIP_TO_OWNER
+    description: ''
+    data_type: VARCHAR
+  - name: TRUSTED_CONTACT_PREFIX
+    description: ''
+    data_type: VARCHAR
+  - name: TRUSTED_CONTACT_SUFFIX
+    description: ''
+    data_type: VARCHAR
+  - name: TRUSTED_CONTACT_ADDRESS_FORMAT
+    description: ''
+    data_type: VARCHAR
+  - name: TRUSTED_CONTACT_ATTENTION_LINE
+    description: ''
+    data_type: VARCHAR
+  - name: TRUSTED_CONTACT_EMAIL_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: TRUSTED_CONTACT_DAY_PHONE_FORMAT
+    description: ''
+    data_type: VARCHAR
+  - name: TRUSTED_CONTACT_DAY_PHONE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: TRUSTED_CONTACT_DAY_PHONE_EXTENSION
+    description: ''
+    data_type: VARCHAR
+  - name: TRUSTED_CONTACT_DAY_MOBILE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: TRUSTED_CONTACT_NIGHT_PHONE_FORMAT
+    description: ''
+    data_type: VARCHAR
+  - name: TRUSTED_CONTACT_NIGHT_PHONE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: TRUSTED_CONTACT_NIGHT_PHONE_EXTENSION
+    description: ''
+    data_type: VARCHAR
+  - name: TRUSTED_CONTACT_NIGHT_MOBILE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_PRIMARY_ID_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_PRIMARY_ID_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_PRIMARY_ID_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_PRIMARY_ID_ISSUE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_PRIMARY_ID_EXPIRATION_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: ASTK_PERCENT_OWNERSHIP
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_positd_position
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_DELTA_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE_MODIFIER
+    description: ''
+    data_type: VARCHAR
+  - name: PRIMARY_EXCHANGE
+    description: ''
+    data_type: VARCHAR
+  - name: DTC_ELIGIBILITY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTERED_REP_OWNING_REP_RR
+    description: ''
+    data_type: VARCHAR
+  - name: MARGIN_LAST_ACTIVITY_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: STOCK_RECORD_LAST_ACTIVITY_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: MARKET_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_FIELD_SIGN_1
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_DATE_QUANTITY
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_FIELD_SIGN_2
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_STRIKE_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: SETTLEMENT_DATE_QUANTITY
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_FIELD_SIGN_3
+    description: ''
+    data_type: VARCHAR
+  - name: SEGREGATED_QUANTITY
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_FIELD_SIGN_4
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSIT_QUANTITY
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_FIELD_SIGN_5
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSFER_QUANTITY
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_FIELD_SIGN_6
+    description: ''
+    data_type: VARCHAR
+  - name: LEGAL_TRANSFER_QUANTITY
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_FIELD_SIGN_7
+    description: ''
+    data_type: VARCHAR
+  - name: NON_NEGOTIABLE_QUANTITY
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_FIELD_SIGN_8
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_DATE_SHORT_SALE_QUANTITY
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_FIELD_SIGN_9
+    description: ''
+    data_type: VARCHAR
+  - name: SETTLEMENT_DATE_SHORT_SALE_QUANTITY
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_FIELD_SIGN_10
+    description: ''
+    data_type: VARCHAR
+  - name: MTD_POSITION_TRADE_DATE_BALANCE
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_FIELD_SIGN_11
+    description: ''
+    data_type: VARCHAR
+  - name: MTD_POSITION_SETTLEMENT_DATE_BALANCE
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_FIELD_SIGN_12
+    description: ''
+    data_type: VARCHAR
+  - name: MTD_TRADE_DATE_POSITION_COMMISSION
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_FIELD_SIGN_13
+    description: ''
+    data_type: VARCHAR
+  - name: MTD_SETTLE_DATE_POSITION_COMMISSION
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_FIELD_SIGN_14
+    description: ''
+    data_type: VARCHAR
+  - name: COUPON_RATE
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_FIELD_SIGN_15
+    description: ''
+    data_type: VARCHAR
+  - name: NUMBER_OF_SECURITY_DESCRIPTION_LINES
+    description: ''
+    data_type: VARCHAR
+  - name: SHORT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_3
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_4
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_5
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_6
+    description: ''
+    data_type: VARCHAR
+  - name: DIVIDEND_INSTRUCTION_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SHORT_TERM_CAPITAL_GAINS_INSTRUCTION_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: LONG_TERM_CAPITAL_GAINS_INSTRUCTION_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: DIVIDEND_CAPITAL_GAINS_UPDATE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: DIVIDEND_CAPITAL_GAINS_UPDATE_USER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: MTD_POSITION_INCOME_TRADE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_FIELD_SIGN_16
+    description: ''
+    data_type: VARCHAR
+  - name: MTD_POSITION_INCOME_SETTLE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_FIELD_SIGN_17
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTERED_REP_EXEC_REP_RR2
+    description: ''
+    data_type: VARCHAR
+  - name: AGENCY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MATURITY_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: CASH_AVAILABLE_TO_PAY
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_FIELD_SIGN_18
+    description: ''
+    data_type: VARCHAR
+  - name: MULTI_CURRENCY_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_MARKET_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_FIELD_SIGN_19
+    description: ''
+    data_type: VARCHAR
+  - name: CURRENT_FACTOR_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: UNFACTORED_PRICE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: UNFACTORED_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: CPI_RATIO_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: CPI_RATIO
+    description: ''
+    data_type: VARCHAR
+  - name: CPI_RATIO_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: DATED_DATE_CPI_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: DATED_DATE_CPI
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_CONTRACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_EXPIRATION_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_CALL_PUT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_SYMBOL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ELIGIBLE_SETTLEMENT_DATE_QUANTITY
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_FIELD_SIGN_20
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_INCOME_ACCRUED_INTEREST
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_FIELD_SIGN_21
+    description: ''
+    data_type: VARCHAR
+  - name: ISIN
+    description: ''
+    data_type: VARCHAR
+  - name: SEDOL
+    description: ''
+    data_type: VARCHAR
+  - name: CURRENCY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: REPORTING_CURRENCY_CONVERSION_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_MARKET_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: MARKET_PRICE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: CONVERSION_PRICE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_FIXED_INCOME_ACCRUED_INTEREST
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_FIELD_SIGN_22
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DELTA
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_secmast_1_security
+  columns:
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_STATUS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: FLOOR_TRADING_SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE_MODIFIER
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE_CALCULATION
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_3
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_4
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_5
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_6
+    description: ''
+    data_type: VARCHAR
+  - name: ISSUE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: ISSUER_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: PRIMARY_EXCHANGE_1
+    description: ''
+    data_type: VARCHAR
+  - name: DTC_ELIGIBILITY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_RIGHTS_WTS_EXPIRE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: DISTRIBUTION_FREQUENCY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_SHORT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: DATED_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: ISIN
+    description: ''
+    data_type: VARCHAR
+  - name: SEDOL
+    description: ''
+    data_type: VARCHAR
+  - name: CURRENCY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: FOREIGN
+    description: ''
+    data_type: VARCHAR
+  - name: ISSUER_STATE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: UNDERLYING_CUSIP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: UNDERLYING_CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: USER_CUSIP_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: PIP_ELIGIBLE
+    description: ''
+    data_type: VARCHAR
+  - name: SWP_ELIGIBLE
+    description: ''
+    data_type: VARCHAR
+  - name: BASE_INTEREST_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: INTEREST_DAYS
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_COUPON_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: DEBT_INTEREST_RATE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: DEBT_INTEREST_RATE
+    description: ''
+    data_type: VARCHAR
+  - name: DEBT_MATURITY_DATE_1
+    description: ''
+    data_type: VARCHAR
+  - name: BOND_CLASS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: EXCHANGE_GROUP_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FUND_FAMILY_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FUND_FAMILY_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: FUND_LOAD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: FUND_CLASS_OF_SHARES
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE_OF_FUND
+    description: ''
+    data_type: VARCHAR
+  - name: REORGANIZATION_PENDING_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: INITIAL_MINIMUM
+    description: ''
+    data_type: VARCHAR
+  - name: SUBSEQUENT_MINIMUM
+    description: ''
+    data_type: VARCHAR
+  - name: REDEMPTION_MINIMUM
+    description: ''
+    data_type: VARCHAR
+  - name: REDEMPTION_MAXIMUM
+    description: ''
+    data_type: VARCHAR
+  - name: RATING_AGENT_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: RATING_1
+    description: ''
+    data_type: VARCHAR
+  - name: RATING_AGENT_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: RATING_2
+    description: ''
+    data_type: VARCHAR
+  - name: RATING_AGENT_CODE_3
+    description: ''
+    data_type: VARCHAR
+  - name: RATING_3
+    description: ''
+    data_type: VARCHAR
+  - name: CURRENT_FACTOR_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: CURRENT_FACTOR_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: ZERO_COUPON_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_COUPON_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_ACTIVITY_BEGIN_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_ACTIVITY_END_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: CBL_COVERED_SECURITY_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: CBL_COVERED_SECURITY_EFFECTIVE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: BID_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: ASK_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: CLOSING_MARKET_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: PRICE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: UNFACTORED_PRICE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: UNFACTORED_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: FACTORED_PRICE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: FACTORED_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: PREVIOUS_FACTOR_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: PREVIOUS_FACTOR_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: SECOND_PREVIOUS_FACTOR_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: SECOND_PREVIOUS_FACTOR_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: DAY_DELAY
+    description: ''
+    data_type: VARCHAR
+  - name: CPI_RATIO_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: CPI_RATIO
+    description: ''
+    data_type: VARCHAR
+  - name: CPI_RATIO_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: DATED_DATE_CPI_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: DATED_DATE_CPI
+    description: ''
+    data_type: VARCHAR
+  - name: CURRENT_COUPON_EFFECTIVE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: NEXT_STEPPED_COUPON_RATE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: NEXT_STEPPED_COUPON_RATE
+    description: ''
+    data_type: VARCHAR
+  - name: NEXT_COUPON_RESET_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: COUPON_RESET_FREQUENCY
+    description: ''
+    data_type: VARCHAR
+  - name: COUPON_RATE_MINIMUM_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: COUPON_RATE_MINIMUM
+    description: ''
+    data_type: VARCHAR
+  - name: COUPON_RATE_MAXIMUM_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: COUPON_RATE_MAXIMUM
+    description: ''
+    data_type: VARCHAR
+  - name: COUPON_TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: COUPON_FORMULA_TEXT
+    description: ''
+    data_type: VARCHAR
+  - name: COUPON_FORMULA_EFFECTIVE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: COUPON_FORMULA_BENCHMARK_SEQUENCE_NUMBER_1
+    description: ''
+    data_type: VARCHAR
+  - name: COUPON_FORMULA_BENCHMARK_1
+    description: ''
+    data_type: VARCHAR
+  - name: COUPON_FORMULA_BENCHMARK_SEQUENCE_NUMBER_2
+    description: ''
+    data_type: VARCHAR
+  - name: COUPON_FORMULA_BENCHMARK_2
+    description: ''
+    data_type: VARCHAR
+  - name: COUPON_FORMULA_BENCHMARK_SEQUENCE_NUMBER_3
+    description: ''
+    data_type: VARCHAR
+  - name: COUPON_FORMULA_BENCHMARK_3
+    description: ''
+    data_type: VARCHAR
+  - name: DEFAULT_TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: DEFAULT_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: CALL_FREQUENCY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MAKE_WHOLE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: EXTRAORDINARY_CALL_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: MUNICIPAL_REDEMPTION_TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MUNICIPAL_REDEMPTION_TYPE_LONG_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: MANDATORY_PUT_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: MANDATORY_PUT_PRICE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: MANDATORY_PUT_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: NEXT_CALL_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: NEXT_CALL_PRICE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: NEXT_CALL_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_PAR_CALL_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_PAR_CALL_PRICE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_PAR_CALL_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: NEXT_PUT_PRICE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: NEXT_PUT_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: NEXT_PUT_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: CALL_NOTIFICATION_MINIMUM
+    description: ''
+    data_type: VARCHAR
+  - name: CONTINUOUSLY_CALLABLE_EFFECTIVE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: NEXT_SINK_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: NEXT_SINK_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: NEXT_SINK_PRICE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: NEXT_SINK_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: NEXT_SINK_AMOUNT_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: NEXT_SINK_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: AUCTION_RATE_PREFERRED_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: VARIABLE_RATE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: UIT_FUND_FAMILY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: UIT_FUND_FAMILY_SPONSOR
+    description: ''
+    data_type: VARCHAR
+  - name: UIT_FUND_FAMILY_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: REDEMPTION_CALL_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: REDEMPTION_PUT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_CONTRACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_SYMBOL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_CALL_PUT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: CONVERSION_RATIO_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: CONVERSION_RATIO
+    description: ''
+    data_type: VARCHAR
+  - name: PRIMARY_EXCHANGE_2
+    description: ''
+    data_type: VARCHAR
+  - name: TRADABLE_FLAG
+    description: ''
+    data_type: VARCHAR
+  - name: CALL_DEFEASED_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: SINK_DEFEASED_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: BANK_QUALIFIED_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: ALTERNATIVE_INVESTMENT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: CALLABLE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: MARGIN_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MARGIN_PRICE_EFFECTIVE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: MARGIN_PRICE_EXPIRE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: STRIKE_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: WORTHLESS_SECURITY_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: INTEREST_POSTING_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: DEBT_MATURITY_DATE_2
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_CHANGED_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: MONEY_MARKET_FUND_DESIGNATION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_secmast_21
+  columns:
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CLOSED_END_FUND_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: EXCHANGE_TRADED_FUND_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_secmast_22
+  columns:
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CLOSED_END_FUND_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: EXCHANGE_TRADED
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_secmast_23
+  columns:
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: INITIAL_EXPIRATION_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_secmast_25
+  columns:
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_nabase_107_employer
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: AFFILIATION_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: NYSE_RULE_407_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: FINANCIAL_INSTITUTION_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FINANCIAL_INSTITUTION_ADDRESS_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FINANCIAL_INSTITUTION_ADDRESS_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FINANCIAL_INSTITUTION_ADDRESS_LINE_3
+    description: ''
+    data_type: VARCHAR
+  - name: OCCUPATION
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_ADDRESS_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_ADDRESS_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_ADDRESS_LINE_3
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_ADDRESS_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CONTROL_RELATIONSHIP_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: CONTROL_RELATIONSHIP_COMPANY_NAME_1
+    description: ''
+    data_type: VARCHAR
+  - name: CONTROL_RELATIONSHIP_CUSIP_1
+    description: ''
+    data_type: VARCHAR
+  - name: CONTROL_RELATIONSHIP_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: CONTROL_RELATIONSHIP_COMPANY_NAME_2
+    description: ''
+    data_type: VARCHAR
+  - name: CONTROL_RELATIONSHIP_CUSIP_2
+    description: ''
+    data_type: VARCHAR
+  - name: CONTROL_RELATIONSHIP_CODE_3
+    description: ''
+    data_type: VARCHAR
+  - name: CONTROL_RELATIONSHIP_COMPANY_NAME_3
+    description: ''
+    data_type: VARCHAR
+  - name: CONTROL_RELATIONSHIP_CUSIP_3
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_nabase_113_person
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_NAME_COUNT
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TYPE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PRIMARY_NAME_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_FIRST_NAME_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_MIDDLE_NAME_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_LAST_NAME_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TITLE_PREFIX_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TITLE_SUFFIX_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_DATE_OF_BIRTH_1
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_DATE_OF_DEATH_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_RELATIONSHIP_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_SSN_NUMBER_1
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FIXED_FORMAT_SSN_CODE_1
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_XREF_1
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_CUSTOMER_ESTABLISH_DATE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TYPE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PRIMARY_NAME_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_FIRST_NAME_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_MIDDLE_NAME_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_LAST_NAME_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TITLE_PREFIX_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TITLE_SUFFIX_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_DATE_OF_BIRTH_2
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_DATE_OF_DEATH_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_RELATIONSHIP_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_SSN_NUMBER_2
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FIXED_FORMAT_SSN_CODE_2
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_XREF_2
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_CUSTOMER_ESTABLISH_DATE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_TRUSTED_CONTACT_STATUS_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_TRUSTED_CONTACT_STATUS_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_secmast_29
+  columns:
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: LIMITED_PARTNERSHIP_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: MASTER_LIMITED_PARTNERSHIP_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: UNIT_INVESTMENT_TRUST_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: UIT_TERMINATION_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: REAL_ESTATE_INVESTMENT_TRUST_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_secmast_2c
+  columns:
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CD_ISSUER_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_secmast_2f
+  columns:
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: DAILY_ACCRUAL_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: EXCHANGE_IN_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: EXCHANGE_OUT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: OPEN_FOR_ADDITIONAL_PURCHASES
+    description: ''
+    data_type: VARCHAR
+  - name: OPEN_FOR_NEW_PURCHASES
+    description: ''
+    data_type: VARCHAR
+  - name: QUALIFIED_INVESTMENT_ADVISOR_NAV_ELIGIBLE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: NTF_END_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: NTF_START_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: 12B_1_ELIGIBLE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: MAXIMUM_DEALER_CONCESSION
+    description: ''
+    data_type: VARCHAR
+  - name: REDEMPTION_FEE_DAYS
+    description: ''
+    data_type: VARCHAR
+  - name: REDEMPTION_FEE_EFFECTIVE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: REDEMPTION_FEE_PERCENT
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_BUY_TIME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_EXCHANGE_TIME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_SELL_TIME
+    description: ''
+    data_type: VARCHAR
+  - name: SETTLEMENT_DAYS
+    description: ''
+    data_type: VARCHAR
+  - name: TOA_ELIGIBLE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: LOAD_PERCENTAGE
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_CTN_FMR_FUNDS
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_CTN_FPCMS_IA_FOF
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_CTN_SAI_PAS
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_CTN_SAI_CGF_FUNDS
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_FFOS_FAMILY_OFFICE
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_IWS_BANK_EB_CUSTODY
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_IWS_BANK_TR_CUSTODY
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_IWS_BROKERAGEFLEX
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_IWS_BROKERAGELINK
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_IWS_PERSONAL_TRUST
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_IWS_RIA
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_IWS_TPA
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_NF_COMMISSION_BASED
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_NF_F2J_CLEARING
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_NF_FEE_BASED
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_PI_RETAIL
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_PI_SAI
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_PI_SDB
+    description: ''
+    data_type: VARCHAR
+  - name: NO_TRANSACTION_FEE_NTF_PRODUCT_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_nabase_2x3_affiliation_address
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_SEGMENT
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: LABEL_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: LABEL_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_ADDRESS_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_ADDRESS_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_ADDRESS_LINE_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PO_BOX
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_CITY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_EXTENDED_ZIP
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PROVINCE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_MAINT_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_FORMAT
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: COUNTRY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: INTERNATIONAL_PO_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATE_USER
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATE_TIME_STAMP
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_nabase_3x0_notification
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_XREF
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_ADDRESS_OF_RECORD
+    description: ''
+    data_type: VARCHAR
+  - name: STATEMENT_SUPPRESSION_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: STATEMENT_SUPPRESSION_PENDING_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: CONFIRM_SUPPRESSION_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: CONFIRM_SUPPRESSION_PENDING_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: RAP_SUPPRESSION_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: RAP_SUPPRESSION_PENDING_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: SHAREHOLDER_DOCUMENTS_SUPPRESSION_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: SHAREHOLDER_DOCUMENTS_SUPPRESSION_PENDING_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: TAX_FORMS_SUPPRESSION_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: TAX_FORMS_SUPPRESSION_PENDING_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: QPR_SUPPRESSION_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: QPR_SUPPRESSION_PENDING_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_nabase_901_interested_party
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: IPCS_NUMBER_OF_CONFIRMS
+    description: ''
+    data_type: VARCHAR
+  - name: IPCS_NO_STATEMENTS
+    description: ''
+    data_type: VARCHAR
+  - name: IPCS_ZIP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_UPDATE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_UPDATE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: NUMBER_OF_ADDRESS_LINES
+    description: ''
+    data_type: VARCHAR
+  - name: IPCS_ADDRESS_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: IPCS_ADDRESS_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: IPCS_ADDRESS_LINE_3
+    description: ''
+    data_type: VARCHAR
+  - name: IPCS_ADDRESS_LINE_4
+    description: ''
+    data_type: VARCHAR
+  - name: IPCS_ADDRESS_LINE_5
+    description: ''
+    data_type: VARCHAR
+  - name: IPCS_ADDRESS_LINE_6
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_secmast_20
+  columns:
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: DAILY_ACCRUAL_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: EXCHANGE_IN_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: EXCHANGE_OUT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: OPEN_FOR_ADDITIONAL_PURCHASES
+    description: ''
+    data_type: VARCHAR
+  - name: OPEN_FOR_NEW_PURCHASES
+    description: ''
+    data_type: VARCHAR
+  - name: QUALIFIED_INVESTMENT_ADVISOR_NAV_ELIGIBLE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: NTF_END_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: NTF_START_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: 12B_1_ELIGIBLE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: MAXIMUM_DEALER_CONCESSION
+    description: ''
+    data_type: VARCHAR
+  - name: REDEMPTION_FEE_DAYS
+    description: ''
+    data_type: VARCHAR
+  - name: REDEMPTION_FEE_EFFECTIVE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: REDEMPTION_FEE_PERCENT
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_BUY_TIME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_EXCHANGE_TIME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_SELL_TIME
+    description: ''
+    data_type: VARCHAR
+  - name: SETTLEMENT_DAYS
+    description: ''
+    data_type: VARCHAR
+  - name: TOA_ELIGIBLE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: LOAD_PERCENTAGE
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_CTN_FMR_FUNDS
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_CTN_FPCMS_IA_FOF
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_CTN_SAI_PAS
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_CTN_SAI_CGF_FUNDS
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_FFOS_FAMILY_OFFICE
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_IWS_BANK_EB_CUSTODY
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_IWS_BANK_TR_CUSTODY
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_IWS_BROKERAGEFLEX
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_IWS_BROKERAGELINK
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_IWS_PERSONAL_TRUST
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_IWS_RIA
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_IWS_TPA
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_NF_COMMISSION_BASED
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_NF_F2J_CLEARING
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_NF_FEE_BASED
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_PI_RETAIL
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_PI_SAI
+    description: ''
+    data_type: VARCHAR
+  - name: BSPS_PI_SDB
+    description: ''
+    data_type: VARCHAR
+  - name: NON_PAYING_FUND_EXCLUSION_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: NO_TRANSACTION_FEE_NTF_PRODUCT_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_secmast_24
+  columns:
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_secmast_26
+  columns:
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: IFM_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_secmast_27
+  columns:
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_nabase_115_account_legal
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: AUTO_ADDRESS_UPDATE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_ADDRESS_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_ADDRESS_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_ADDRESS_LINE_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_CITY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_EXTENDED_ZIP
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PROVINCE
+    description: ''
+    data_type: VARCHAR
+  - name: COUNTRY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATE_USER
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_UPDATE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: SEASONAL_ADDRESS_TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SEASONAL_ADDRESS_STATUS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SEASONAL_ADDRESS_START_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: SEASONAL_ADDRESS_END_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: SEASONAL_ADDRESS_AUTO_ADDRESS_UPDATE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: SEASONAL_ADDRESS_NCOA_ADDRESS_UPDATE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: SEASONAL_ADDRESS_FIXED_FORMAT_ADDRESS_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: SEASONAL_ADDRESS_FIXED_FORMAT_ADDRESS_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: SEASONAL_ADDRESS_FIXED_FORMAT_ADDRESS_LINE_3
+    description: ''
+    data_type: VARCHAR
+  - name: SEASONAL_ADDRESS_FOREIGN_ADDRESS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SEASONAL_ADDRESS_FIXED_FORMAT_CITY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SEASONAL_ADDRESS_FIXED_FORMAT_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: SEASONAL_ADDRESSFIXED_FORMAT_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SEASONAL_ADDRESS_FIXED_FORMAT_PROVINCE
+    description: ''
+    data_type: VARCHAR
+  - name: SEASONAL_ADDRESS_STATE_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SEASONAL_ADDRESS_UPDATE_USER
+    description: ''
+    data_type: VARCHAR
+  - name: SEASONAL_ADDRESS_LAST_UPDATE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_secmast_2p
+  columns:
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_tlaopenfull
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: TAS_DELTA_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINES_1_6
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CLOSING_MARKET_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: CLOSING_MARKET_PRICE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: LOT_QUANTITY
+    description: ''
+    data_type: VARCHAR
+  - name: LOT_QUANTITY_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: LOT_MARKET_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: LOT_MARKET_VALUE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: TAS_COST_BASIS_AMOUNT_PROCEEDS
+    description: ''
+    data_type: VARCHAR
+  - name: TAS_COST_BASIS_AMOUNT_PROCEEDS_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: UNREALIZED_GAIN_LOSS_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: UNREALIZED_GAIN_LOSS_AMOUNT_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: COST_BASIS_EVENT_SOURCE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: TAS_LOT_ACQUIRED_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: LOT_COST_BASIS_METHOD_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: HOLDING_PERIOD_FRACTURED_LOT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: WASH_SALE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: LONG_SHORT_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MARK_TO_MARKET_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: RETIREMENT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_INCOME_UNADJUSTED_COST_BASIS_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_INCOME_UNADJUSTED_COST_BASIS_AMOUNT_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_INCOME_ADJUSTED_COST_BASIS_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: YTD_ACQUISITION_PREMIUM
+    description: ''
+    data_type: VARCHAR
+  - name: YTD_ACQUISITION_PREMIUM_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: YTD_AMORTIZED_PREMIUM
+    description: ''
+    data_type: VARCHAR
+  - name: YTD_AMORTIZED_PREMIUM_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: YTD_MARKET_DISCOUNT_INCOME
+    description: ''
+    data_type: VARCHAR
+  - name: YTD_MARKET_DISCOUNT_INCOME_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_CONTRACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_EXPIRATION_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_CALL_PUT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_STRIKE_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_SYMBOL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CBL_COVERED_LOT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: CBL_GIFTED_INHERITED_LOT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: GIFTED_LOT_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: GIFTED_LOT_FAIR_MARKET_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: GIFTED_LOT_FAIR_MARKET_VALUE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: CBL_COVERED_REASON_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: WASH_SALE_HOLDING_PERIOD_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: OPEN_LOT_IDENTIFIER
+    description: ''
+    data_type: VARCHAR
+  - name: NIGO_OUT_OF_BALANCE_EXCEPTION_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: NIGO_TECH_SHORT_EXCEPTION_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: NIGO_COST_EXCEPTION_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_COST_BASIS_METHOD_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: OPEN_LOT_SETTLEMENT_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: ORIGINAL_LOT_QUANTITY
+    description: ''
+    data_type: VARCHAR
+  - name: ORIGINAL_LOT_QUANTITY_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: ORIGINAL_LOT_COST
+    description: ''
+    data_type: VARCHAR
+  - name: ORIGINAL_LOT_COST_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: CURRENT_COST_UNADJUSTED_WASH
+    description: ''
+    data_type: VARCHAR
+  - name: CURRENT_COST_UNADJUSTED_WASH_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: OPEN_RUN_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: SEDOL
+    description: ''
+    data_type: VARCHAR
+  - name: YTD_ORIGINAL_ISSUE_DISCOUNT_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: YTD_ORIGINAL_ISSUE_DISCOUNT_AMOUNT_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_AMOUNT_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: LOT_RECEIVED_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: YTD_NON_QUALIFIED_STATED_INTEREST_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: YTD_NON_QUALIFIED_STATED_INTEREST_AMOUNT_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_nabase_102_person
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: EXCEPTION_REGISTRATION_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_TRUST_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: MINOR_RESIDENCE_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: AUTO_ADDRESS_UPDATE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: NCOA_ADDRESS_UPDATE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: FOREIGN_ADDRESS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_ADDRESS_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_ADDRESS_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_ADDRESS_LINE_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_CITY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PROVINCE
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_NAME_COUNT
+    description: ''
+    data_type: NUMBER
+  - name: FIXED_FORMAT_NAME_TYPE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PRIMARY_NAME_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_FIRST_NAME_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_MIDDLE_NAME_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_LAST_NAME_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TITLE_PREFIX_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TITLE_SUFFIX_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_DATE_OF_BIRTH_1
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_DATE_OF_DEATH_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_RELATIONSHIP_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_SSN_NUMBER_1
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FIXED_FORMAT_SSN_CODE_1
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_XREF_1
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_CUSTOMER_ESTABLISH_DATE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TYPE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PRIMARY_NAME_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_FIRST_NAME_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_MIDDLE_NAME_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_LAST_NAME_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TITLE_PREFIX_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TITLE_SUFFIX_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_DATE_OF_BIRTH_2
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_DATE_OF_DEATH_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_RELATIONSHIP_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_SSN_NUMBER_2
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FIXED_FORMAT_SSN_CODE_2
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_XREF_2
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_CUSTOMER_ESTABLISH_DATE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TYPE_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PRIMARY_NAME_CODE_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_FIRST_NAME_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_MIDDLE_NAME_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_LAST_NAME_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TITLE_PREFIX_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TITLE_SUFFIX_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_DATE_OF_BIRTH_3
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_DATE_OF_DEATH_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_RELATIONSHIP_CODE_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_SSN_NUMBER_3
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FIXED_FORMAT_SSN_CODE_3
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_XREF_3
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_CUSTOMER_ESTABLISH_DATE_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_TRUSTED_CONTACT_STATUS_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_TRUSTED_CONTACT_STATUS_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_TRUSTED_CONTACT_STATUS_CODE_3
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_nabase_103_person
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_NAME_COUNT
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TYPE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PRIMARY_NAME_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_FIRST_NAME_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_MIDDLE_NAME_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_LAST_NAME_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TITLE_PREFIX_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TITLE_SUFFIX_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_DATE_OF_BIRTH_1
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_DATE_OF_DEATH_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_RELATIONSHIP_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_SSN_NUMBER_1
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FIXED_FORMAT_SSN_CODE_1
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_XREF_1
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_CUSTOMER_ESTABLISH_DATE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TYPE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PRIMARY_NAME_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_FIRST_NAME_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_MIDDLE_NAME_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_LAST_NAME_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TITLE_PREFIX_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TITLE_SUFFIX_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_DATE_OF_BIRTH_2
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_DATE_OF_DEATH_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_RELATIONSHIP_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_SSN_NUMBER_2
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FIXED_FORMAT_SSN_CODE_2
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_XREF_2
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_CUSTOMER_ESTABLISH_DATE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TYPE_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_PRIMARY_NAME_CODE_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_FIRST_NAME_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_MIDDLE_NAME_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_LAST_NAME_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TITLE_PREFIX_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_NAME_TITLE_SUFFIX_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_DATE_OF_BIRTH_3
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_DATE_OF_DEATH_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_RELATIONSHIP_CODE_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_SSN_NUMBER_3
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FIXED_FORMAT_SSN_CODE_3
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: FFR_XREF_3
+    description: ''
+    data_type: VARCHAR
+  - name: FFR_CUSTOMER_ESTABLISH_DATE_3
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_TRUSTED_CONTACT_STATUS_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_TRUSTED_CONTACT_STATUS_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_FORMAT_TRUSTED_CONTACT_STATUS_CODE_3
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_secmast_28
+  columns:
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_trdrev_td
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: BUY_SELL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: SETTLEMENT_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: MARKET_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: BLOTTER_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CANCEL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CORRECTION_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: BASIS_PRICE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: RUN_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_REFERENCE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: USER_REFERENCE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: CANCELED_COMBINED_REFERENCE
+    description: ''
+    data_type: VARCHAR
+  - name: BATCH
+    description: ''
+    data_type: VARCHAR
+  - name: COUNT
+    description: ''
+    data_type: VARCHAR
+  - name: SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE_MODIFIER
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE_CALCULATION
+    description: ''
+    data_type: VARCHAR
+  - name: CNS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PRIMARY_EXCHANGE
+    description: ''
+    data_type: VARCHAR
+  - name: DTC_ELIGIBILITY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: FOREIGN_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTERED_REP_ENTER_REP
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITIES_INSTRUCTIONS
+    description: ''
+    data_type: VARCHAR
+  - name: PARENT_ACCOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: AGENCY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PROCEEDS_INSTRUCTIONS
+    description: ''
+    data_type: VARCHAR
+  - name: CASH_DIVIDEND_INSTRUCTIONS
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_UNIT
+    description: ''
+    data_type: VARCHAR
+  - name: SHORT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CLASSIFICATION
+    description: ''
+    data_type: VARCHAR
+  - name: CITIZEN_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: COUNTRY_OF_TAX_RESIDENCY
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSFER_LEGEND_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MARKET_MAKER_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MINOR_EXECUTING_BROKER
+    description: ''
+    data_type: VARCHAR
+  - name: MINOR_CLEARING_BROKER
+    description: ''
+    data_type: VARCHAR
+  - name: OFFSET_ACCOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: OFFSET_SHORTNAME
+    description: ''
+    data_type: VARCHAR
+  - name: OFFSET_RR
+    description: ''
+    data_type: VARCHAR
+  - name: OFFSET_COMMISSION
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE_OF_ORDER
+    description: ''
+    data_type: VARCHAR
+  - name: CONFIRMATION_PRINT
+    description: ''
+    data_type: VARCHAR
+  - name: COMMISSION_ACCUMULATION
+    description: ''
+    data_type: VARCHAR
+  - name: COMMISSION_SCHEDULE
+    description: ''
+    data_type: VARCHAR
+  - name: BLOTTER_OVERRIDE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: NSCC_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: COMMISSION_CONCESSION_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: QUANTITY
+    description: ''
+    data_type: VARCHAR
+  - name: PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: ALPHAPRICE_DOLLAR
+    description: ''
+    data_type: VARCHAR
+  - name: ALPHAPRICE_SPACE
+    description: ''
+    data_type: VARCHAR
+  - name: ALPHAPRICE_FRACTION
+    description: ''
+    data_type: VARCHAR
+  - name: PLUS_MINUS
+    description: ''
+    data_type: VARCHAR
+  - name: PRINCIPAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCRUED_INTEREST
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_COMMISSION
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_TAX
+    description: ''
+    data_type: VARCHAR
+  - name: SEC_FEE
+    description: ''
+    data_type: VARCHAR
+  - name: OPTIONS_REGULATORY_FEE
+    description: ''
+    data_type: VARCHAR
+  - name: SERVICE_CHARGE_MISC_FEE
+    description: ''
+    data_type: VARCHAR
+  - name: NET
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_CONCESSION
+    description: ''
+    data_type: VARCHAR
+  - name: STANDARD_COMMISSION
+    description: ''
+    data_type: VARCHAR
+  - name: NUMBER_OF_SECURITY_DESCRIPTION_LINES
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_3
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_4
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_5
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_6
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_7
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_8
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_9
+    description: ''
+    data_type: VARCHAR
+  - name: CONFIRM_LEGEND_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: CONFIRM_LEGEND_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTERED_REP_EXEC_REP_RR2
+    description: ''
+    data_type: VARCHAR
+  - name: COMMISSION_DISCOUNT_PERCENT
+    description: ''
+    data_type: VARCHAR
+  - name: STRIKE_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: COMMISSION_CONCESSION_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: FUND_LOAD_OVERRIDE
+    description: ''
+    data_type: VARCHAR
+  - name: QUANTITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CONFIRM_LINE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: EXCHANGE_LINE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: YIELD
+    description: ''
+    data_type: VARCHAR
+  - name: YIELD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: YIELD_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: YIELD_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: TRADING_AWAY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MAJOR_CLEARING_BROKER
+    description: ''
+    data_type: VARCHAR
+  - name: MAJOR_EXECUTING_BROKER
+    description: ''
+    data_type: VARCHAR
+  - name: EXECUTION_TIME_1
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH_2
+    description: ''
+    data_type: VARCHAR
+  - name: COMPLEX_ORDER_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: MARKET_PLACE
+    description: ''
+    data_type: VARCHAR
+  - name: MARKET_SEQUENCE
+    description: ''
+    data_type: VARCHAR
+  - name: TIME_IN_FORCE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: AUTO_EXEC_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ISSUER
+    description: ''
+    data_type: VARCHAR
+  - name: ISSUER_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: BOND_TRADER
+    description: ''
+    data_type: VARCHAR
+  - name: BOND_CLASS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_MARKUP
+    description: ''
+    data_type: VARCHAR
+  - name: TERMINAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTERED_REP_SIGNON_REP
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTERED_REP_OWNING_REP_RR
+    description: ''
+    data_type: VARCHAR
+  - name: FUND_LOAD_PERCENT
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: TRADING_FLAT_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: 12B1_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_AMOUNT_1
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_AMOUNT_2
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_CODE_3
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_AMOUNT_3
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_CODE_4
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_AMOUNT_4
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_CODE_5
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_AMOUNT_5
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_CODE_6
+    description: ''
+    data_type: VARCHAR
+  - name: ADDITIONAL_FEE_AMOUNT_6
+    description: ''
+    data_type: VARCHAR
+  - name: INSTITUTIONAL_THIRD_PARTY
+    description: ''
+    data_type: VARCHAR
+  - name: BORD_TORD_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MUTUAL_FUND_DTC_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_ENTRY
+    description: ''
+    data_type: VARCHAR
+  - name: ENTRY_SEQUENCE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: SOLICITED_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ELECTRONIC_TRADE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ROLLUP_COUNT
+    description: ''
+    data_type: VARCHAR
+  - name: CONFIRM_LEGEND_CODE_3
+    description: ''
+    data_type: VARCHAR
+  - name: CONFIRM_LEGEND_CODE_4
+    description: ''
+    data_type: VARCHAR
+  - name: RELATIONSHIP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CAPACITY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CONFIRM_LEGEND_CODE_5
+    description: ''
+    data_type: VARCHAR
+  - name: CONFIRM_LEGEND_CODE_6
+    description: ''
+    data_type: VARCHAR
+  - name: ALTERNATIVE_INVESTMENT_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: EXPANDED_YIELD
+    description: ''
+    data_type: VARCHAR
+  - name: EXPANDED_YIELD_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_CONTRACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_EXPIRATION_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_CALL_PUT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_STRIKE_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_SYMBOL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: COST_BASIS_DISPOSAL_METHOD_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: REVENUE_CLEARING_CHARGE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: REVENUE_CLEARING_CHARGE_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: REVENUE_MISCELLANEOUS_FEE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: REVENUE_MISCELLANEOUS_FEE_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_LEVEL
+    description: ''
+    data_type: VARCHAR
+  - name: CONCESSION_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PURCHASE_TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_DEFINITION_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_DEFINITION_TRADE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: REVENUE_COMMISSION_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: REVENUE_COMMISSION_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: REVENUE_CONCESSION_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: REVENUE_CONCESSION_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: REVENUE_LOAD_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: REVENUE_LOAD_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: ORDER_REFERENCE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: INPUT_COMMISSION_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: INPUT_COMMISSION_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: CONFIRM_LEGEND_CODE_7
+    description: ''
+    data_type: VARCHAR
+  - name: CONFIRM_LEGEND_CODE_8
+    description: ''
+    data_type: VARCHAR
+  - name: ORIGINAL_DESCRIPTION_1
+    description: ''
+    data_type: VARCHAR
+  - name: ORIGINAL_DESCRIPTION_2
+    description: ''
+    data_type: VARCHAR
+  - name: EXECUTION_TIME_2
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTERED_REP_PAY_TO_REP
+    description: ''
+    data_type: VARCHAR
+  - name: CLEARING_CHARGE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: CLEARING_CHARGE
+    description: ''
+    data_type: VARCHAR
+  - name: EXECUTION_FEE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: EXECUTION_FEE
+    description: ''
+    data_type: VARCHAR
+  - name: FOREIGN_SURCHARGE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: FOREIGN_SURCHARGE
+    description: ''
+    data_type: VARCHAR
+  - name: SPAWNING_SYSTEM_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CLEARING_PRODUCT_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CLEARING_PRODUCT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: MANAGED_ACCOUNT_SOLUTIONS_MAS_CUSTODY_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: ISIN
+    description: ''
+    data_type: VARCHAR
+  - name: SEDOL
+    description: ''
+    data_type: VARCHAR
+  - name: CURRENCY_CODE_1
+    description: ''
+    data_type: VARCHAR
+  - name: CURRENCY_CODE_2
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_FEES_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_FEES
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_COMMISSION_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_COMMISSION
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_PRINCIPAL_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_PRINCIPAL
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_INTEREST_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_INTEREST
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_CAPITALIZED_INTEREST_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_CAPITALIZED_INTEREST
+    description: ''
+    data_type: VARCHAR
+  - name: REPORTING_CURRENCY_CONVERSION_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: FX_TRADE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: FX_TRADE_LINK
+    description: ''
+    data_type: VARCHAR
+  - name: SHADO_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_CONCESSION_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: LOCAL_CURRENCY_CONCESSION
+    description: ''
+    data_type: VARCHAR
+  - name: REPORTING_CURRENCY_CONVERSION_RATE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_secmast_2b
+  columns:
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: fidelity_mwa_history__vw_raw_tlaopendelta
+  columns:
+  - name: ACCOUNT_CUSTODIAL
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CUSTODIAL_FORMATTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: TAS_DELTA_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINES_1_6
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CLOSING_MARKET_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: CLOSING_MARKET_PRICE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: LOT_QUANTITY
+    description: ''
+    data_type: VARCHAR
+  - name: LOT_QUANTITY_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: LOT_MARKET_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: LOT_MARKET_VALUE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: TAS_COST_BASIS_AMOUNT_PROCEEDS
+    description: ''
+    data_type: VARCHAR
+  - name: TAS_COST_BASIS_AMOUNT_PROCEEDS_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: UNREALIZED_GAIN_LOSS_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: UNREALIZED_GAIN_LOSS_AMOUNT_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: COST_BASIS_EVENT_SOURCE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: TAS_LOT_ACQUIRED_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: LOT_COST_BASIS_METHOD_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: HOLDING_PERIOD_FRACTURED_LOT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: WASH_SALE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: LONG_SHORT_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MARK_TO_MARKET_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: RETIREMENT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_INCOME_UNADJUSTED_COST_BASIS_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_INCOME_UNADJUSTED_COST_BASIS_AMOUNT_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: FIXED_INCOME_ADJUSTED_COST_BASIS_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: YTD_ACQUISITION_PREMIUM
+    description: ''
+    data_type: VARCHAR
+  - name: YTD_ACQUISITION_PREMIUM_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: YTD_AMORTIZED_PREMIUM
+    description: ''
+    data_type: VARCHAR
+  - name: YTD_AMORTIZED_PREMIUM_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: YTD_MARKET_DISCOUNT_INCOME
+    description: ''
+    data_type: VARCHAR
+  - name: YTD_MARKET_DISCOUNT_INCOME_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_CONTRACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_EXPIRATION_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_CALL_PUT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_STRIKE_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_SYMBOL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CBL_COVERED_LOT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: CBL_GIFTED_INHERITED_LOT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: GIFTED_LOT_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: GIFTED_LOT_FAIR_MARKET_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: GIFTED_LOT_FAIR_MARKET_VALUE_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: CBL_COVERED_REASON_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: WASH_SALE_HOLDING_PERIOD_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: OPEN_LOT_IDENTIFIER
+    description: ''
+    data_type: VARCHAR
+  - name: NIGO_OUT_OF_BALANCE_EXCEPTION_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: NIGO_TECH_SHORT_EXCEPTION_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: NIGO_COST_EXCEPTION_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_COST_BASIS_METHOD_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: OPEN_LOT_SETTLEMENT_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: ORIGINAL_LOT_QUANTITY
+    description: ''
+    data_type: VARCHAR
+  - name: ORIGINAL_LOT_QUANTITY_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: ORIGINAL_LOT_COST
+    description: ''
+    data_type: VARCHAR
+  - name: ORIGINAL_LOT_COST_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: CURRENT_COST_UNADJUSTED_WASH
+    description: ''
+    data_type: VARCHAR
+  - name: CURRENT_COST_UNADJUSTED_WASH_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: OPEN_RUN_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: SEDOL
+    description: ''
+    data_type: VARCHAR
+  - name: YTD_ORIGINAL_ISSUE_DISCOUNT_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: YTD_ORIGINAL_ISSUE_DISCOUNT_AMOUNT_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: THIRD_PARTY_FIXED_INCOME_ADJUSTMENT_AMOUNT_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: LOT_RECEIVED_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: YTD_NON_QUALIFIED_STATED_INTEREST_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: YTD_NON_QUALIFIED_STATED_INTEREST_AMOUNT_SIGN
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR

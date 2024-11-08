@@ -464,7 +464,8 @@ select
   , a.json:SECONDARY_ADVISOR_C:: varchar(18)                              as secondary_advisor_c
   , a.json:DESIGNEE_1_C:: varchar(18)                                     as designee_1_c
   , a.json:DESIGNEE_2_C:: varchar(18)                                     as designee_2_c
-  , a.json:AVERAGE_CLIENT_AGE_C:: float                                   as average_client_age_c
+  --, a.json:AVERAGE_CLIENT_AGE_C:: float                                   as average_client_age_c
+  , null::float                                                           as average_client_age_c
   , a.json:TARGETED_BRANCH_C:: boolean                                    as targeted_branch_c
   , a.json:REGION_C:: varchar(765)                                        as region_c
   , a.json:BRANCH_MANAGER_C:: varchar(18)                                 as branch_manager_c

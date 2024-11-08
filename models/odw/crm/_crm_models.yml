@@ -1,0 +1,188 @@
+version: 2
+models:
+  - name: salesforce_compass_accounts
+    columns:
+      - name: EFFECTIVE_AT
+        description: ''
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: FIRM_SOURCE
+        description: ''
+      - name: ID
+        description: ''
+      - name: ESTATE_ITEM_ID
+        description: ''
+      - name: OWNER_ID
+        description: ''
+      - name: IS_DELETED
+        description: ''
+      - name: AS_OF_DATE
+        description: ''
+      - name: ACCOUNT_NAME
+        description: ''
+      - name: REGISTRANT_NAME
+        description: ''
+      - name: ORION_ACCOUNT_ID
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: ACCOUNT_TYPE
+        description: ''
+      - name: REGISTRATION_TYPE_ID
+        description: ''
+      - name: REGISTRATION_TYPE
+        description: ''
+      - name: IS_QUALIFIED
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: CUSTODIAN_KEY
+        description: ''
+      - name: IS_ACTIVE
+        description: ''
+      - name: ACCOUNT_VALUE
+        description: ''
+      - name: OPENED_DATE
+        description: ''
+      - name: CLOSED_DATE
+        description: ''
+      - name: LOCATION_NAME
+        description: ''
+      - name: RECORD_TYPE_ID
+        description: ''
+      - name: CREATED_AT
+        description: ''
+      - name: CREATED_BY_ID
+        description: ''
+      - name: LAST_MODIFIED_AT
+        description: ''
+      - name: LAST_MODIFIED_BY_ID
+        description: ''
+      - name: SYSTEM_MODSTAMP_AT
+        description: ''
+      - name: AUM_CLASSIFICATION
+        description: ''
+      - name: AUM_CLASSIFICATION_NOTES
+        description: ''
+      - name: IS_ERISA
+        description: ''
+      - name: IS_PRIME_BROKER
+        description: ''
+      - name: IS_DISCRETIONARY
+        description: ''
+      - name: IS_BROKER_DEALER_ACCOUNT
+        description: ''
+      - name: IS_VOTING_PROXIED
+        description: ''
+      - name: FEE_SCHEDULE
+        description: ''
+      - name: HOUSEHOLD_ID
+        description: ''
+      - name: CLIENT_ID
+        description: ''
+      - name: UNIQUE_IDENTIFIER
+        description: ''
+      - name: HOUSEHOLD_NAME
+        description: ''
+      - name: ORION_CLIENT_ID
+        description: ''
+      - name: HOUSEHOLD_TYPE
+        description: ''
+      - name: HOUSEHOLD_OPENED_DATE
+        description: ''
+      - name: HOUSEHOLD_LOCATION_ID
+        description: ''
+      - name: HOUSEHOLD_LOCATION_CODE
+        description: ''
+      - name: HOUSEHOLD_ACCOUNTING_ID
+        description: ''
+      - name: HOUSEHOLD_LEAD_SOURCE
+        description: ''
+      - name: HOUSEHOLD_ACCOUNT_SOURCE
+        description: ''
+      - name: HOUSEHOLD_LEGAL_FIRM
+        description: ''
+      - name: BILLING_STREET
+        description: ''
+      - name: BILLING_CITY
+        description: ''
+      - name: BILLING_STATE
+        description: ''
+      - name: BILLING_POSTAL_CODE
+        description: ''
+      - name: BILLING_COUNTRY
+        description: ''
+      - name: LEGAL_STREET_ADDRESS
+        description: ''
+      - name: LEGAL_ADDRESS_CITY
+        description: ''
+      - name: LEGAL_ADDRESS_STATE
+        description: ''
+      - name: LEGAL_ADDRESS_POSTAL_CODE
+        description: ''
+      - name: MAILING_STREET_ADDRESS
+        description: ''
+      - name: MAILING_STREET_ADDRESS_2
+        description: ''
+      - name: MAILING_STREET_ADDRESS_3
+        description: ''
+      - name: MAILING_CITY
+        description: ''
+      - name: MAILING_STATE
+        description: ''
+      - name: MAILING_POSTAL_CODE
+        description: ''
+      - name: SHIPPING_STREET
+        description: ''
+      - name: SHIPPING_CITY
+        description: ''
+      - name: SHIPPING_STATE
+        description: ''
+      - name: SHIPPING_POSTAL_CODE
+        description: ''
+      - name: SHIPPING_COUNTRY
+        description: ''
+      - name: OTHER_STREET_ADDRESS
+        description: ''
+      - name: OTHER_STREET_ADDRESS_2
+        description: ''
+      - name: OTHER_CITY
+        description: ''
+      - name: OTHER_STATE
+        description: ''
+      - name: OTHER_POSTAL_CODE
+        description: ''
+      - name: KEY_TAGS
+        description: ''
+      - name: OWNER_NAME
+        description: ''
+      - name: CLIENT_MANAGER
+        description: ''
+      - name: CLIENT_MANAGER_EMAIL
+        description: ''
+      - name: EMPLOYEE_NUMBER
+        description: ''
+      - name: INVESTMENT_STRATEGY
+        description: ''
+      - name: PARTNER_FIRM
+        description: ''
+      - name: TRADING_SYSTEM
+        description: ''
+      - name: _FIVETRAN_SYNCED
+        description: ''
+      - name: _CREATED_AT
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: IS_HEAD
+        description: ''
+      - name: IS_LATEST
+        description: ''

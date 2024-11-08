@@ -128,3 +128,71 @@ models:
       - name: REPORTING_OFFICE
         description: ''
         data_type: VARCHAR
+  - name: edw_legacy__base_revenue_referral_fees
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE_FILE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: STATEMENT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: STATEMENT_DATE
+        description: ''
+        data_type: DATE
+      - name: REVENUE_QUARTER
+        description: ''
+        data_type: DATE
+      - name: CLIENT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENT_MANAGER
+        description: ''
+        data_type: VARCHAR
+      - name: FINANCIAL_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: REFERRAL_PARTY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: REFERRAL_PARTY_ID
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENT_NET_FEE
+        description: ''
+        data_type: NUMBER
+      - name: REFERRAL_RATE
+        description: ''
+        data_type: NUMBER
+      - name: REFERRAL_FEE
+        description: ''
+        data_type: NUMBER
+      - name: KEY
+        description: ''
+        data_type: VARCHAR
+      - name: RECORD_DATETIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: RECORD_DATE
+        description: ''
+        data_type: DATE
+      - name: ID
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_LOCATION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_LOCATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNTING_ID
+        description: ''
+        data_type: VARCHAR

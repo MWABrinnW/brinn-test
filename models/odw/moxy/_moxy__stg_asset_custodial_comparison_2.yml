@@ -1,0 +1,56 @@
+version: 2
+models:
+  - name: moxy__stg_asset_custodial_comparison_2
+    columns:
+      - name: PKACCOUNT
+        description: ''
+      - name: ACCTSTATUS
+        description: ''
+      - name: ACCTSOURCE
+        description: ''
+      - name: FUNDNAME
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: PKPRODUCT
+        description: ''
+      - name: PRODUCTNAME
+        description: ''
+      - name: TICKER
+        description: ''
+      - name: EFFECTIVEDATE
+        description: ''
+      - name: CALCULATEDVALUE
+        description: ''
+      - name: FILEASSETVALUE
+        description: ''
+      - name: VALUEDIFF
+        description: ''
+      - name: SYSTEMUNITBALANCE
+        description: ''
+      - name: FILEUNITBALANCE
+        description: ''
+      - name: UNITDIFF
+        description: ''
+      - name: SYSTEMPRICE
+        description: ''
+      - name: FILEPRICE
+        description: ''
+      - name: REG_NAME
+        description: ''
+      - name: CLIENT_ID
+        description: ''
+      - name: REG_ID
+        description: ''
+      - name: PKASSET
+        description: ''
+      - name: PRODUCTTYPE
+        description: ''
+      - name: ACCTCODE
+        description: ''
+      - name: DOWNLOADDESC
+        description: ''
+      - name: RECORD_DATETIME
+        description: ''
+      - name: RECORD_DATE
+        description: ''

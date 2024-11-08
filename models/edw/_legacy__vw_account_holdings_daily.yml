@@ -1,0 +1,139 @@
+version: 2
+models:
+  - name: legacy__vw_account_holdings_daily
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_DETAILS
+        description: ''
+        data_type: VARCHAR
+      - name: FINANCIAL_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: FINANCIAL_ACCOUNT_NUMBER_CLEAN
+        description: ''
+        data_type: VARCHAR
+      - name: INTERNAL_FINANCIAL_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: INTERNAL_HOUSEHOLD_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: REGISTRANT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: FINANCIAL_ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: AUM_CLASSIFICATION_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TYPE_OF_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: DISCRETION_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: PROXY_VOTING_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: MODEL_INVESTMENT_STRATEGY
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP_TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE_SECURITY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: MARKET_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: UNITS_SHARES
+        description: ''
+        data_type: NUMBER
+      - name: PRICE
+        description: ''
+        data_type: NUMBER
+      - name: COST_BASIS
+        description: ''
+        data_type: NUMBER
+      - name: AS_OF_DATE
+        description: ''
+        data_type: DATE
+      - name: SOURCE_OF_TRUTH_FINAL
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_SUB_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_CLASS
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_CATEGORY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_ISO_CFI_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_ISO_CFI_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_CFI_CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_CFI_ATTRIBUTE
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE_SECURITY_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: RECORD_DATETIME
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: RECORD_DATE
+        description: ''
+        data_type: DATE
+      - name: ACCOUNT_HOLDINGS_ID
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER

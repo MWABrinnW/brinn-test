@@ -8,27 +8,1276 @@ sources:
     tables:
       - name: accountext
         description: "This file represents all brokerage, advisory and direct business accounts associated with your organization. Each account is uniquely represented by a numeric account key which is distinct from brokerage and sponsor account numbers."
+        columns:
+          - name: ACCOUNTID
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENTID
+            description: ''
+            data_type: VARCHAR
+          - name: LPLACCOUNTNO
+            description: ''
+            data_type: VARCHAR
+          - name: SPONSORNAME
+            description: ''
+            data_type: VARCHAR
+          - name: SPONSORACCOUNTNO
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTCLASSCODE
+            description: ''
+            data_type: VARCHAR
+          - name: INSTITUTIONCODE
+            description: ''
+            data_type: VARCHAR
+          - name: REPID
+            description: ''
+            data_type: VARCHAR
+          - name: REPSSN
+            description: ''
+            data_type: VARCHAR
+          - name: REPNAME
+            description: ''
+            data_type: VARCHAR
+          - name: SUBSCRIBERID
+            description: ''
+            data_type: VARCHAR
+          - name: SUBSCRIBERNAME
+            description: ''
+            data_type: VARCHAR
+          - name: FISBRANCHID
+            description: ''
+            data_type: VARCHAR
+          - name: FISBRANCHNAME
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENTSSNTIN
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: REGISTRATIONLINE1
+            description: ''
+            data_type: VARCHAR
+          - name: REGISTRATIONCITY
+            description: ''
+            data_type: VARCHAR
+          - name: REGISTRATIONSTATE
+            description: ''
+            data_type: VARCHAR
+          - name: REGISTRATIONZIPCODE
+            description: ''
+            data_type: VARCHAR
+          - name: REGISTRATIONCOUNTRY
+            description: ''
+            data_type: VARCHAR
+          - name: OPENDATE
+            description: ''
+            data_type: VARCHAR
+          - name: CLOSEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: DDANO
+            description: ''
+            data_type: VARCHAR
+          - name: REGISTRATIONLINE2
+            description: ''
+            data_type: VARCHAR
+          - name: REGISTRATIONLINE3
+            description: ''
+            data_type: VARCHAR
+          - name: REGISTRATIONLINE4
+            description: ''
+            data_type: VARCHAR
+          - name: REGISTRATIONLINE5
+            description: ''
+            data_type: VARCHAR
+          - name: REGISTRATIONLINE6
+            description: ''
+            data_type: VARCHAR
+          - name: REGISTRATIONLINE7
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEPHONENO
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSPHONENO
+            description: ''
+            data_type: VARCHAR
+          - name: FAXNO
+            description: ''
+            data_type: VARCHAR
+          - name: MOBILEPHONENO
+            description: ''
+            data_type: VARCHAR
+          - name: EMAILADDRESS
+            description: ''
+            data_type: VARCHAR
+          - name: FEESCHEDULE
+            description: ''
+            data_type: VARCHAR
+          - name: OPENNOTIFICATIONCOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: BOOKSANDRECORDSSTATUS
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTNICKNAME
+            description: ''
+            data_type: VARCHAR
+          - name: SECONDARYREPID
+            description: ''
+            data_type: VARCHAR
+          - name: REFERRALREPID
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTMARKETVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: NETWORKEDACCOUNTMARKETVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTLOCATIONCODE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTSOCIALCODE
+            description: ''
+            data_type: VARCHAR
+          - name: INVESTMENTOBJECTIVECODE
+            description: ''
+            data_type: VARCHAR
+          - name: ANNUALINCOMECODE
+            description: ''
+            data_type: VARCHAR
+          - name: NETWORTHCODE
+            description: ''
+            data_type: VARCHAR
+          - name: LIQUIDNETWORTHCODE
+            description: ''
+            data_type: VARCHAR
+          - name: APPROXIMATEACCOUNTVALUECODE
+            description: ''
+            data_type: VARCHAR
+          - name: PROCEEDSINSTRUCTIONSCODE
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITYINSTRUCTIONCODE
+            description: ''
+            data_type: VARCHAR
+          - name: DIVIDENDSINSTRUCTIONCODE
+            description: ''
+            data_type: VARCHAR
+          - name: DIVIDENDREINVESTINSTRUCTIONCODE
+            description: ''
+            data_type: VARCHAR
+          - name: ISCOSTBASISONSTATEMENTS
+            description: ''
+            data_type: VARCHAR
+          - name: W9STATUSCODE
+            description: ''
+            data_type: VARCHAR
+          - name: OPTIONLEVELCODE
+            description: ''
+            data_type: VARCHAR
+          - name: OLDACCOUNTNO
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTMODIFIEDDATE
+            description: ''
+            data_type: VARCHAR
+          - name: COMMISSIONACCOUNTNO
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENTISSSN
+            description: ''
+            data_type: VARCHAR
+          - name: SPONSORCODE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: ISSUPPRESSED
+            description: ''
+            data_type: VARCHAR
+          - name: ERISA
+            description: ''
+            data_type: VARCHAR
+          - name: TIMEHORIZON
+            description: ''
+            data_type: VARCHAR
+          - name: INSTITUTIONTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: EMPLOYEECLASSCODE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTCLASSIFICATIONCODE
+            description: ''
+            data_type: VARCHAR
+          - name: MKTG_OPT_OUT
+            description: ''
+            data_type: VARCHAR
+          - name: FIRM_ID
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: VALUATIONDATE
+            description: ''
+            data_type: DATE
       - name: accountparticipantext
         description: "The Account Participant file represents client information on individuals identified as participants (i.e. owners) on LPL Financial accounts under Rep IDs associated with your organization."
+        columns:
+          - name: ACCOUNTID
+            description: ''
+            data_type: VARCHAR
+          - name: LPLACCOUNTNO
+            description: ''
+            data_type: VARCHAR
+          - name: REPID
+            description: ''
+            data_type: VARCHAR
+          - name: FIRSTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: MIDDLENAME
+            description: ''
+            data_type: VARCHAR
+          - name: LASTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: SSNTIN
+            description: ''
+            data_type: VARCHAR
+          - name: BIRTHDATE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTROLE
+            description: ''
+            data_type: VARCHAR
+          - name: IDNO
+            description: ''
+            data_type: VARCHAR
+          - name: IDPLACEOFISSUE
+            description: ''
+            data_type: VARCHAR
+          - name: EMPLOYERNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ISEMPLOYEEINDUSTRYAFFILIATION
+            description: ''
+            data_type: VARCHAR
+          - name: EMPLOYERINDUSTRY
+            description: ''
+            data_type: VARCHAR
+          - name: CORPAFFILIATION
+            description: ''
+            data_type: VARCHAR
+          - name: OCCUPATION
+            description: ''
+            data_type: VARCHAR
+          - name: EMPLOYERADDRESS1
+            description: ''
+            data_type: VARCHAR
+          - name: EMPLOYERADDRESS2
+            description: ''
+            data_type: VARCHAR
+          - name: EMPLOYERADDRESS3
+            description: ''
+            data_type: VARCHAR
+          - name: EMPLOYERCITY
+            description: ''
+            data_type: VARCHAR
+          - name: EMPLOYERSTATE
+            description: ''
+            data_type: VARCHAR
+          - name: EMPLOYERPROVINCE
+            description: ''
+            data_type: VARCHAR
+          - name: EMPLOYERZIPCODE
+            description: ''
+            data_type: VARCHAR
+          - name: EMPLOYERFOREIGNZIPCODE
+            description: ''
+            data_type: VARCHAR
+          - name: EMPLOYERPHONECOUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: EMPLOYERPHONECITYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: EMPLOYERPHONEPHONENO
+            description: ''
+            data_type: VARCHAR
+          - name: EMPLOYERCOUNTRY
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMERADDRESS1
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMERADDRESS2
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMERADDRESS3
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMERCITY
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMERSTATE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMERPROVINCE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMERZIPCODE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMERFOREIGNZIPCODE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEPHONECOUNTRYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEPHONECITYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEPHONEPHONENO
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMERCOUNTRY
+            description: ''
+            data_type: VARCHAR
+          - name: ISSSN
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTFEEBASED
+            description: ''
+            data_type: VARCHAR
+          - name: RISKTOLERANCE
+            description: ''
+            data_type: VARCHAR
+          - name: ENTITYINCOME
+            description: ''
+            data_type: VARCHAR
+          - name: ENTITYSTATECODE
+            description: ''
+            data_type: VARCHAR
+          - name: ENTITYTAXBRACKET
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTPLANTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTEMPLOYEEOWNED
+            description: ''
+            data_type: VARCHAR
+          - name: ENTITYCITIZENSHIP
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMERID
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMERTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTREGTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMERGOVTIDTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMERGOVTIDISSUEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMERGOVTIDEXPDATE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMERDEATHDATE
+            description: ''
+            data_type: VARCHAR
+          - name: FIRM_ID
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: client
         description: "The Client File represents clients associated with Rep IDs that belong to your organization. The Client File data is sourced from Client Groups and does not include User-Defined or Household Groups."
+        columns:
+          - name: CLIENTID
+            description: ''
+            data_type: VARCHAR
+          - name: REPID
+            description: ''
+            data_type: VARCHAR
+          - name: SUBSCRIBERID
+            description: ''
+            data_type: VARCHAR
+          - name: SSNTIN
+            description: ''
+            data_type: VARCHAR
+          - name: ISSSN
+            description: ''
+            data_type: VARCHAR
+          - name: BIRTHDATE
+            description: ''
+            data_type: VARCHAR
+          - name: FIRSTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: MIDDLENAME
+            description: ''
+            data_type: VARCHAR
+          - name: LASTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ADDRESS1
+            description: ''
+            data_type: VARCHAR
+          - name: ADDRESS2
+            description: ''
+            data_type: VARCHAR
+          - name: ADDRESS3
+            description: ''
+            data_type: VARCHAR
+          - name: CITY
+            description: ''
+            data_type: VARCHAR
+          - name: STATE
+            description: ''
+            data_type: VARCHAR
+          - name: ZIPCODE
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEPHONENO
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSPHONENO
+            description: ''
+            data_type: VARCHAR
+          - name: EMAILADDRESS
+            description: ''
+            data_type: VARCHAR
+          - name: CREATEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: MODIFIEDDATE
+            description: ''
+            data_type: VARCHAR
+          - name: MOBILEPHONENO
+            description: ''
+            data_type: VARCHAR
+          - name: MARKETVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: ISFOREIGN
+            description: ''
+            data_type: VARCHAR
+          - name: FIRM_ID
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: commissionsecurity
         description: "The records in the Commission Security file contain only those securities which are referenced in the Commission Transaction file. All securities which appear in the Commission Transaction file should have an entry in this file"
+        columns:
+          - name: SECURITYID
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITYSOURCECODE
+            description: ''
+            data_type: VARCHAR
+          - name: TTSSECURITYID
+            description: ''
+            data_type: VARCHAR
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITYDESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCTTYPECODE
+            description: ''
+            data_type: VARCHAR
+          - name: SPONSORID
+            description: ''
+            data_type: VARCHAR
+          - name: SPONSORNAME
+            description: ''
+            data_type: VARCHAR
+          - name: SYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: SHARECLASSCODE
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITYSOURCENAME
+            description: ''
+            data_type: VARCHAR
+          - name: SPONSORCODE
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITYTYPECODE
+            description: ''
+            data_type: VARCHAR
+          - name: FIRM_ID
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: commissiontransactionext
         description: "The Commission Transaction file contains records which are the basis for LPL Financial payouts. Types of transactions include receipts, trails, adjustments, and bonus transactions."
+        columns:
+          - name: TRANSACTIONID
+            description: ''
+            data_type: VARCHAR
+          - name: SUBSCRIBERID
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTID
+            description: ''
+            data_type: VARCHAR
+          - name: LPLACCOUNTNO
+            description: ''
+            data_type: VARCHAR
+          - name: PRIMARYREPID
+            description: ''
+            data_type: VARCHAR
+          - name: PRIMARYREPNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PAYEEREPID
+            description: ''
+            data_type: VARCHAR
+          - name: COMMISSIONTYPECODE
+            description: ''
+            data_type: VARCHAR
+          - name: BATCHNO
+            description: ''
+            data_type: VARCHAR
+          - name: LINENO
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCTTYPECODE
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITYID
+            description: ''
+            data_type: VARCHAR
+          - name: TRADEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: SETTLEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: BUYSELLINDICATORCODE
+            description: ''
+            data_type: VARCHAR
+          - name: QUANTITY
+            description: ''
+            data_type: VARCHAR
+          - name: PRICE
+            description: ''
+            data_type: VARCHAR
+          - name: GROSSTRANSACTIONAMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: GROSSCOMMISSIONAMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: REPPAYOUTPERCENTAGE
+            description: ''
+            data_type: VARCHAR
+          - name: REPADJUSTEDNETAMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: REPNETAMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: FISBRANCHID
+            description: ''
+            data_type: VARCHAR
+          - name: FISBRANCHNAME
+            description: ''
+            data_type: VARCHAR
+          - name: SECONDARYREPID
+            description: ''
+            data_type: VARCHAR
+          - name: INSIDESALESAMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: OUTSIDESALESAMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: REPINVESTEDSPLITAMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: REPGROSSCOMMISSIONSPLITAMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: MONEYSOURCEDESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: REFERRALID
+            description: ''
+            data_type: VARCHAR
+          - name: LPLPAYCYCLE
+            description: ''
+            data_type: VARCHAR
+          - name: TICKETCHARGEAMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: FLOORCHARGEAMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: ENHANCEDREPORTINGPRODUCTGROUPCODE
+            description: ''
+            data_type: VARCHAR
+          - name: EMPLOYEEINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: ADJUSTMENTTYPECODE
+            description: ''
+            data_type: VARCHAR
+          - name: SPLITPERCENTAGE
+            description: ''
+            data_type: VARCHAR
+          - name: POSTEDDATE
+            description: ''
+            data_type: VARCHAR
+          - name: UPDATEDDATE
+            description: ''
+            data_type: VARCHAR
+          - name: ISTRAIL
+            description: ''
+            data_type: VARCHAR
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: COMMISSIONACCOUNTNO
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENTSSNTIN
+            description: ''
+            data_type: VARCHAR
+          - name: SECONDARYREPNAME
+            description: ''
+            data_type: VARCHAR
+          - name: MONEYSOURCECOMMENTS
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCTID
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: TRAILREPID
+            description: ''
+            data_type: VARCHAR
+          - name: FIRM_ID
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: position
         description: "The records in this file represent the positions held in the accounts which are presented in the Account File. Note that the frequency with which the position data is updated depends on where the account is held. Brokerage account positions are updated daily, whereas direct account positions may be fully refreshed only after month-end."
+        columns:
+          - name: REPID
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTID
+            description: ''
+            data_type: VARCHAR
+          - name: SUBSCRIBERID
+            description: ''
+            data_type: VARCHAR
+          - name: LPLACCOUNTNO
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITYID
+            description: ''
+            data_type: VARCHAR
+          - name: PRICE
+            description: ''
+            data_type: VARCHAR
+          - name: QUANTITY
+            description: ''
+            data_type: VARCHAR
+          - name: POSITIONVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: POSITIONVALUEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: SPONSORACCOUNTNO
+            description: ''
+            data_type: VARCHAR
+          - name: SPONSORCODE
+            description: ''
+            data_type: VARCHAR
+          - name: SPONSORNAME
+            description: ''
+            data_type: VARCHAR
+          - name: SYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: ENHANCEDREPORTINGPRODUCTGROUPCODE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTLOCATIONCODE
+            description: ''
+            data_type: VARCHAR
+          - name: FIRM_ID
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: positionsecurity
         description: "The records in the Position Security file contain only those securities which are referenced in the Position file. All securities which appear in the Position file should have an entry in this file. The records in the Position Security File may also be used to cross-reference securities in the Transaction Activity file."
+        columns:
+          - name: SECURITYID
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITYSOURCECODE
+            description: ''
+            data_type: VARCHAR
+          - name: TTSSECURITYID
+            description: ''
+            data_type: VARCHAR
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITYDESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCTTYPECODE
+            description: ''
+            data_type: VARCHAR
+          - name: SPONSORID
+            description: ''
+            data_type: VARCHAR
+          - name: SPONSORNAME
+            description: ''
+            data_type: VARCHAR
+          - name: SYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: SHARECLASSCODE
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITYSOURCENAME
+            description: ''
+            data_type: VARCHAR
+          - name: SPONSORCODE
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITYTYPECODE
+            description: ''
+            data_type: VARCHAR
+          - name: FIRM_ID
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: reference
         description: "The Reference File contains descriptions for the various codes within the other LPL Financial Data Feed files. This file contains all possible scenarios and is not specific to an Institution. This file replicates what will be seen in ClientWorks."
+        columns:
+          - name: REFERENCETYPE
+            description: ''
+            data_type: VARCHAR
+          - name: CODE
+            description: ''
+            data_type: VARCHAR
+          - name: DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: SHORTDESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: FIRM_ID
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: rep
         description: "The Rep File contains basic information on each Rep ID that belongs to your organization. Please note that blocked secondary IDs are included in the file. If you desire to suppress these IDs, please use the flag ISBlockedSecondaryRepID."
+        columns:
+          - name: REPID
+            description: ''
+            data_type: VARCHAR
+          - name: LASTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: FIRSTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: MIDDLENAME
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSPHONENO
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSPHONENOEXTENSION
+            description: ''
+            data_type: VARCHAR
+          - name: SSNTIN
+            description: ''
+            data_type: VARCHAR
+          - name: ISSSN
+            description: ''
+            data_type: VARCHAR
+          - name: CRD
+            description: ''
+            data_type: VARCHAR
+          - name: BRANCHID
+            description: ''
+            data_type: VARCHAR
+          - name: OSJBRANCHID
+            description: ''
+            data_type: VARCHAR
+          - name: BRANCHMANAGERREPID
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSADDRESS1
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSADDRESS2
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSCITY
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSSTATE
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSZIPCODE
+            description: ''
+            data_type: VARCHAR
+          - name: MAILINGADDRESS1
+            description: ''
+            data_type: VARCHAR
+          - name: MAILINGADDRESS2
+            description: ''
+            data_type: VARCHAR
+          - name: MAILINGCITY
+            description: ''
+            data_type: VARCHAR
+          - name: MAILINGSTATE
+            description: ''
+            data_type: VARCHAR
+          - name: MAILINGZIPCODE
+            description: ''
+            data_type: VARCHAR
+          - name: MAILINGPHONENO
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEPHONENO
+            description: ''
+            data_type: VARCHAR
+          - name: REPTYPEDESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: MASTERREPID
+            description: ''
+            data_type: VARCHAR
+          - name: OSJMANAGERREPID
+            description: ''
+            data_type: VARCHAR
+          - name: EMAILADDRESS
+            description: ''
+            data_type: VARCHAR
+          - name: REPSTATUSCODE
+            description: ''
+            data_type: VARCHAR
+          - name: REPSTATUSDATE
+            description: ''
+            data_type: VARCHAR
+          - name: APPROVEDDATE
+            description: ''
+            data_type: VARCHAR
+          - name: ISADVISORFORMCOMPLETE
+            description: ''
+            data_type: VARCHAR
+          - name: ISBLOCKEDSECONDARYREPID
+            description: ''
+            data_type: VARCHAR
+          - name: FIRM_ID
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: INSTITUTIONID
+            description: ''
+            data_type: VARCHAR
+          - name: INSTITUTIONNAME
+            description: ''
+            data_type: VARCHAR
+          - name: FIRMID
+            description: ''
+            data_type: VARCHAR
+          - name: BRANCHCRD
+            description: ''
+            data_type: VARCHAR
+          - name: PARENTORGID
+            description: ''
+            data_type: VARCHAR
       - name: repiar
         description: "The Rep IAR File contains information regarding the Investment Advisor Registration for each Rep ID that belongs to your organization."
+        columns:
+          - name: REPID
+            description: ''
+            data_type: VARCHAR
+          - name: STATE
+            description: ''
+            data_type: VARCHAR
+          - name: ISSTATEREGISTERED
+            description: ''
+            data_type: VARCHAR
+          - name: ISIARREGISTERED
+            description: ''
+            data_type: VARCHAR
+          - name: APPROVEDDATE
+            description: ''
+            data_type: VARCHAR
+          - name: UPDATEDDATE
+            description: ''
+            data_type: VARCHAR
+          - name: FIRM_ID
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: repinsurance
         description: "The Rep Insurance File contains information on the life insurance appointments for each Rep ID that belongs to your organization."
+        columns:
+          - name: REPID
+            description: ''
+            data_type: VARCHAR
+          - name: STATE
+            description: ''
+            data_type: VARCHAR
+          - name: INSURANCELINECODE
+            description: ''
+            data_type: VARCHAR
+          - name: PENDINGDATE
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: EXPIRATIONDATE
+            description: ''
+            data_type: VARCHAR
+          - name: LICENSENO
+            description: ''
+            data_type: VARCHAR
+          - name: INSURANCESTATUSCODE
+            description: ''
+            data_type: VARCHAR
+          - name: INSURANCESTATUSDATE
+            description: ''
+            data_type: VARCHAR
+          - name: APPOINTMENTNO
+            description: ''
+            data_type: VARCHAR
+          - name: SPONSORNAME
+            description: ''
+            data_type: VARCHAR
+          - name: FIRM_ID
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: replicense
         description: "The Rep License File contains information on the FINRA licenses for each Rep ID that belongs to your organization."
+        columns:
+          - name: REPID
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES01
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES02
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES03
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES04
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES05
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES06
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES07
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES08
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES09
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES10
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES11
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES15
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES16
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES22
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES24
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES26
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES27
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES28
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES30
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES31
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES39
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES42
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES51
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES52
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES53
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES55
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES62
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES63
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES64
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES65
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES66
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES90
+            description: ''
+            data_type: VARCHAR
+          - name: SERIESAP
+            description: ''
+            data_type: VARCHAR
+          - name: SERIESLA
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES86
+            description: ''
+            data_type: VARCHAR
+          - name: SERIES87
+            description: ''
+            data_type: VARCHAR
+          - name: FIRM_ID
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: transactionactivityext
         description: "The Transaction Activity file contains account activity records for accounts under Rep IDs that belong to your organization. Types of transactions include deposits/withdrawals, dividends/interest, buys/sells and redemptions. Activity is limited to what is available via ClientWorks."
+        columns:
+          - name: ACCOUNTID
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTLOCATIONCODE
+            description: ''
+            data_type: VARCHAR
+          - name: TRANSACTIONDATE
+            description: ''
+            data_type: VARCHAR
+          - name: LPLACCOUNTNO
+            description: ''
+            data_type: VARCHAR
+          - name: SPONSORACCOUNTNO
+            description: ''
+            data_type: VARCHAR
+          - name: SPONSORCODE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ACTIVITYDESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: QUANTITY
+            description: ''
+            data_type: VARCHAR
+          - name: PRICE
+            description: ''
+            data_type: VARCHAR
+          - name: AMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: CREDITDEBITINDICATOR
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITYID
+            description: ''
+            data_type: VARCHAR
+          - name: ASSETCLASSCODE
+            description: ''
+            data_type: VARCHAR
+          - name: SPONSORNAME
+            description: ''
+            data_type: VARCHAR
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: SYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITYDESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: ORDERNO
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVEDATE
+            description: ''
+            data_type: VARCHAR
+          - name: SOURCEORDER
+            description: ''
+            data_type: VARCHAR
+          - name: FIRM_ID
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR

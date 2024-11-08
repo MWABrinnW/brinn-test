@@ -34,14 +34,17 @@ sources:
             data_type: TIMESTAMP_NTZ
             description: ''
           - name: _BOX_FILE_ID
-            data_type: NUMBER
-            description: ''
-          - name: _BOX_META
-            data_type: VARIANT
+            data_type: VARCHAR
             description: ''
           - name: _BOX_FILE_NAME
             data_type: VARCHAR
             description: ''
+          - name: _BOX_META
+            data_type: VARIANT
+            description: ''
+          - name: _ID
+            description: ''
+            data_type: NUMBER
       - name: client
         description: ""
         columns:

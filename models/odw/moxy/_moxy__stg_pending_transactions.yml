@@ -1,0 +1,40 @@
+version: 2
+models:
+  - name: moxy__stg_pending_transactions
+    columns:
+      - name: SUBADVISORID
+        description: ''
+      - name: ACCTCODE
+        description: ''
+      - name: REG_NAME
+        description: ''
+      - name: TRANSDATE
+        description: ''
+      - name: TRANDESC
+        description: ''
+      - name: TRANSTOTAL
+        description: ''
+      - name: TICKER
+        description: ''
+      - name: PRODUCTNAME
+        description: ''
+      - name: PAR_VALUE
+        description: ''
+      - name: REAL_PRICE
+        description: ''
+      - name: NAVPRICE
+        description: ''
+      - name: FUNDNAME
+        description: ''
+      - name: MGMTSTYLE
+        description: ''
+      - name: ACCT_ID
+        description: ''
+      - name: REP_NAME
+        description: ''
+      - name: SUBADVISOR
+        description: ''
+      - name: RECORD_DATETIME
+        description: ''
+      - name: RECORD_DATE
+        description: ''

@@ -38,7 +38,7 @@ select
     , ca.first_name
     , ca.middle_name
     , ca.last_name
-    {# , irs_id #}
+    , ca.irs_id
     , ca.irs_id_type
     , ca.birth_date
     , ca.email_address

@@ -1,0 +1,160 @@
+version: 2
+models:
+  - name: employee_census
+    columns:
+      - name: EMPLOYEE_REPORTING_ID
+        description: ''
+        data_type: VARCHAR
+      - name: EMPLOYEE_NUM
+        description: ''
+        data_type: VARCHAR
+      - name: COMPANY_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: LEGALNAME_FULL
+        description: ''
+        data_type: VARCHAR
+      - name: EMPLOYMENT_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: WORKER_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: BENEFITSGROUP_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: FT_PT_TEMP
+        description: ''
+        data_type: VARCHAR
+      - name: DATE_OF_HIRE
+        description: ''
+        data_type: DATE
+      - name: HIRE_REASON
+        description: ''
+        data_type: VARCHAR
+      - name: HIRE_DETAILS
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATE_FINAL_TERMINATION_DATE
+        description: ''
+        data_type: DATE
+      - name: VOL_INVOL
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNTING_ID
+        description: 'Great Plains accounting/cost code (ex. 1104, 7704, 8804),'
+        data_type: VARCHAR
+      - name: LOCATION_CODE
+        description: 'Mariner Location ID for the location (ex. 100, L-10015)'
+        data_type: VARCHAR
+      - name: LOCATION_NAME
+        description: 'Location name, offices are grouped into a location'
+        data_type: VARCHAR
+      - name: COST_NUM
+        description: ''
+        data_type: VARCHAR
+      - name: ADVISOR_NONADVISOR
+        description: ''
+        data_type: VARCHAR
+      - name: CLASS
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_REGION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_LOCATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_DEPARTMENT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: WORK_SITE_LOCATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: REPORTING_OFFICE
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION_TITLE
+        description: ''
+        data_type: VARCHAR
+      - name: JOB_FUNCTION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: YEARS_OF_SERVICE
+        description: ''
+        data_type: VARCHAR
+      - name: AGE_BAND
+        description: ''
+        data_type: VARCHAR
+      - name: GENDER
+        description: ''
+        data_type: VARCHAR
+      - name: FTE
+        description: ''
+        data_type: FLOAT
+      - name: MANAGER_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: MANAGER_POSITION_ID
+        description: ''
+        data_type: VARCHAR
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: IS_START
+        description: ''
+        data_type: NUMBER
+      - name: IS_END
+        description: ''
+        data_type: NUMBER
+      - name: IS_TERM
+        description: ''
+        data_type: NUMBER
+      - name: IS_NEW
+        description: ''
+        data_type: NUMBER
+      - name: IS_INVOL_TERM
+        description: ''
+        data_type: NUMBER
+      - name: IS_VOL_TERM
+        description: ''
+        data_type: NUMBER
+      - name: DATA_LAST_REFRESHED_DATE
+        description: ''
+        data_type: DATE
+      - name: POSITION_START_DATE
+        description: ''
+        data_type: DATE
+      - name: SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: TITLE_CHANGE_REASON
+        description: ''
+        data_type: VARCHAR
+      - name: JOB_ID
+        description: ''
+        data_type: VARCHAR
+      - name: BU_ALLOCATION
+        description: ''
+        data_type: VARCHAR
+      - name: MONTH_END_DATE
+        description: ''
+        data_type: DATE
+      - name: FIRST_DAY_OF_MONTH
+        description: ''
+        data_type: DATE
+      - name: LAST_DAY_OF_MONTH
+        description: ''
+        data_type: DATE
+      - name: EFFECTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: IS_MONTH_END
+        description: ''
+        data_type: NUMBER
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER

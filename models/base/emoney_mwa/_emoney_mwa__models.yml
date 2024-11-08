@@ -1,0 +1,2278 @@
+version: 2
+models:
+- name: emoney_mwa_history__base_investment_deposit_accounts
+  columns:
+  - name: CLIENTID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNTID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNTNAME
+    description: ''
+    data_type: VARCHAR
+  - name: TOTALVALUE
+    description: ''
+    data_type: NUMBER
+  - name: AMOUNTASOF
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: INSTITUTIONNAME
+    description: ''
+    data_type: VARCHAR
+  - name: HOLDINGSVALUE
+    description: ''
+    data_type: NUMBER
+  - name: CASHBALANCE
+    description: ''
+    data_type: NUMBER
+  - name: MARGINBALANCE
+    description: ''
+    data_type: NUMBER
+  - name: COSTBASIS
+    description: ''
+    data_type: NUMBER
+  - name: FACTTYPENAME
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SUBTYPE
+    description: ''
+    data_type: VARCHAR
+  - name: INCLUDED
+    description: ''
+    data_type: NUMBER
+  - name: CONNECTED
+    description: ''
+    data_type: NUMBER
+  - name: UNDEROURMANAGEMENT
+    description: ''
+    data_type: VARCHAR
+  - name: COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: ISEMPLOYEEBENEFIT
+    description: ''
+    data_type: VARCHAR
+  - name: DEFERREDTAXRATE
+    description: ''
+    data_type: VARCHAR
+  - name: DATEESTABLISHED
+    description: ''
+    data_type: VARCHAR
+  - name: ESTABLISHEDTYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ESTABLISHEDVALUE
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _ID
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_businesses
+  columns:
+  - name: CLIENTID
+    description: ''
+    data_type: VARCHAR
+  - name: FACTID
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: TYPECODE
+    description: ''
+    data_type: VARCHAR
+  - name: SUBTYPE
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: AMOUNTASOF
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: COSTBASIS
+    description: ''
+    data_type: NUMBER
+  - name: COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: REMCAPITALCOMMITMENT
+    description: ''
+    data_type: VARCHAR
+  - name: VALUATIONDATE
+    description: ''
+    data_type: VARCHAR
+  - name: INITIALINVESTMENTDATE
+    description: ''
+    data_type: VARCHAR
+  - name: CAPITALCOMMITMENT
+    description: ''
+    data_type: VARCHAR
+  - name: CAPITALCALLED
+    description: ''
+    data_type: VARCHAR
+  - name: NONRECALLABLECAPITALDISTRIBUTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECALLABLECAPITALDISTRIBUTED
+    description: ''
+    data_type: VARCHAR
+  - name: TOTALCAPITALDISTRIBUTED
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _ID
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_advisors
+  columns:
+  - name: ADVISORID
+    description: ''
+    data_type: VARCHAR
+  - name: FIRSTNAME
+    description: ''
+    data_type: VARCHAR
+  - name: LASTNAME
+    description: ''
+    data_type: VARCHAR
+  - name: COMPANYNAME
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS1
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS2
+    description: ''
+    data_type: VARCHAR
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: STATEORPROVINCE
+    description: ''
+    data_type: VARCHAR
+  - name: POSTALCODE
+    description: ''
+    data_type: VARCHAR
+  - name: BUSINESSPHONE
+    description: ''
+    data_type: VARCHAR
+  - name: CELLPHONE
+    description: ''
+    data_type: VARCHAR
+  - name: FAX
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: OFFICEID
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _ID
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_charities
+  columns:
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_alliances
+  columns:
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ALLIANCE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_account_interests
+  columns:
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: INTEREST_ID
+    description: ''
+    data_type: VARCHAR
+  - name: INTEREST_OWNER_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: INTEREST_PERCENT
+    description: ''
+    data_type: NUMBER
+  - name: INTEREST_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_account_history
+  columns:
+  - name: VALUE
+    description: ''
+    data_type: NUMBER
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: AS_OF_DATE
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_alerts
+  columns:
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: MESSAGE_READ
+    description: ''
+    data_type: NUMBER
+  - name: MESSAGE_SUBJECT
+    description: ''
+    data_type: VARCHAR
+  - name: TRIGGERED_ON
+    description: ''
+    data_type: VARCHAR
+  - name: ALERT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: MESSAGE_BODY
+    description: ''
+    data_type: VARCHAR
+  - name: ALERT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TRIGGERED
+    description: ''
+    data_type: VARCHAR
+  - name: ENABLED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_external_user_ids
+  columns:
+  - name: ROLE
+    description: ''
+    data_type: VARCHAR
+  - name: EXTERNAL_USER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: USER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: DOMAIN
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_disability_ltc_insurance_accounts
+  columns:
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: BENEFIT_PERIOD
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TOTAL_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: ANNUAL_PREMIUM
+    description: ''
+    data_type: NUMBER
+  - name: BENEFIT_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: BENEFIT_PERCENT
+    description: ''
+    data_type: NUMBER
+  - name: BUSINESS_ENTITY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: UNDER_OUR_MANAGEMENT
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: BENEFIT_PERIOD_IN_DAYS
+    description: ''
+    data_type: NUMBER
+  - name: BENEFIT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ELIMINATION_PERIOD
+    description: ''
+    data_type: VARCHAR
+  - name: INSTITUTION_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: MAXIMUM_ANNUAL_BENEFIT
+    description: ''
+    data_type: NUMBER
+  - name: BENEFIT_FREQUENCY
+    description: ''
+    data_type: VARCHAR
+  - name: ELIMINATION_PERIOD_IN_DAYS
+    description: ''
+    data_type: VARCHAR
+  - name: FACT_TYPE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: IS_BENEFIT_TAXABLE
+    description: ''
+    data_type: NUMBER
+  - name: OWN_OCCUPATION
+    description: ''
+    data_type: NUMBER
+  - name: AMOUNT_AS_OF
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PREMIUM_TERM_IN_YEARS
+    description: ''
+    data_type: VARCHAR
+  - name: PURCHASE_DATE
+    description: ''
+    data_type: DATE
+  - name: SUBTYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTED
+    description: ''
+    data_type: DATE
+  - name: INCLUDED
+    description: ''
+    data_type: NUMBER
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_entity_interests
+  columns:
+  - name: CLIENTID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNTID
+    description: ''
+    data_type: VARCHAR
+  - name: INTERESTID
+    description: ''
+    data_type: VARCHAR
+  - name: INTERESTOWNERTYPE
+    description: ''
+    data_type: VARCHAR
+  - name: INTERESTTYPE
+    description: ''
+    data_type: VARCHAR
+  - name: INTERESTPERCENT
+    description: ''
+    data_type: NUMBER
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _ID
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_flows
+  columns:
+  - name: AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SUBTYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: COST_BASIS
+    description: ''
+    data_type: NUMBER
+  - name: GUARANTEED_YEARS_OF_PAYOUT
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: INSTITUTION_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: TERM_IN_YEARS
+    description: ''
+    data_type: NUMBER
+  - name: FACT_TYPE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: AMOUNT_AS_OF
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: DESTINATION_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EXCLUSION_RATIO
+    description: ''
+    data_type: NUMBER
+  - name: PURCHASE_DATE
+    description: ''
+    data_type: DATE
+  - name: RETIREMENT_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_stock_option_accounts
+  columns:
+  - name: PRICE
+    description: ''
+    data_type: NUMBER
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTED
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: UNDER_OUR_MANAGEMENT
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: INSTITUTION_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FACT_TYPE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: AMOUNT_AS_OF
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: TICKER
+    description: ''
+    data_type: VARCHAR
+  - name: INCLUDED
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_nexus_accounts
+  columns:
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: LIABILITY
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: CASH_BALANCE
+    description: ''
+    data_type: NUMBER
+  - name: IS_ADVISOR_SOURCE
+    description: ''
+    data_type: NUMBER
+  - name: MARGIN_BALANCE
+    description: ''
+    data_type: NUMBER
+  - name: TOTAL_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: CONNECTED_ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CURRENCY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SOURCE_ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTED_CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: COST_BASIS
+    description: ''
+    data_type: NUMBER
+  - name: DEATH_BENEFIT
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: AS_OF
+    description: ''
+    data_type: VARCHAR
+  - name: SURRENDER_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: HOLDINGS_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: SOURCE_ID
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_medical_insurance_accounts
+  columns:
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: GROUP_HEALTH_PLAN_SPONSER
+    description: ''
+    data_type: VARCHAR
+  - name: ANNUAL_PREMIUM
+    description: ''
+    data_type: NUMBER
+  - name: BENEFIT_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: UNDER_OUR_MANAGEMENT
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: INSTITUTION_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FACT_TYPE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: AMOUNT_AS_OF
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PREMIUM_TERM_IN_YEARS
+    description: ''
+    data_type: NUMBER
+  - name: PURCHASE_DATE
+    description: ''
+    data_type: DATE
+  - name: DEDUCTIBLE
+    description: ''
+    data_type: NUMBER
+  - name: SUBTYPE
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTED
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_liability_note_accounts
+  columns:
+  - name: INCLUDED
+    description: ''
+    data_type: NUMBER
+  - name: SUBTYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTED
+    description: ''
+    data_type: NUMBER
+  - name: CASH_BALANCE
+    description: ''
+    data_type: NUMBER
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_INTEREST_DEDUCTIBLE
+    description: ''
+    data_type: NUMBER
+  - name: LOAN_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: MARGIN_BALANCE
+    description: ''
+    data_type: NUMBER
+  - name: ORIGINAL_LOAN_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: PAYMENT_FREQUENCY
+    description: ''
+    data_type: VARCHAR
+  - name: REPAYMENT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: TOTAL_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: COST_BASIS
+    description: ''
+    data_type: NUMBER
+  - name: ANNUAL_FEE
+    description: ''
+    data_type: NUMBER
+  - name: BALOON_PERIOD_IN_YEARS
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LOAN_TERM_IN_YEARS
+    description: ''
+    data_type: NUMBER
+  - name: NUMBER_OF_PAYMENTS
+    description: ''
+    data_type: NUMBER
+  - name: UNDER_OUR_MANAGEMENT
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: INSTITUTION_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FACT_TYPE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: HOLDINGS_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: INTEREST_RATE
+    description: ''
+    data_type: NUMBER
+  - name: REAL_ESTATE_ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: AMOUNT_AS_OF
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_nexus_investment_transactions
+  columns:
+  - name: AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: NUMBER
+  - name: CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: CLEARED
+    description: ''
+    data_type: NUMBER
+  - name: TICKER
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTED_ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSACTION_ID
+    description: ''
+    data_type: NUMBER
+  - name: CONNECTED_CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SETTLEMENT_DATE
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: ACCRUED_INTEREST
+    description: ''
+    data_type: NUMBER
+  - name: POST_DATE
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: TRANSACTION_DATE
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: HOLDING_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: NUMBER
+  - name: UNIT_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: UNITS
+    description: ''
+    data_type: NUMBER
+  - name: COMMISSION
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_flp_entities
+  columns:
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: DATE_ESTABLISHED
+    description: ''
+    data_type: DATE
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_nexus_advisors
+  columns:
+  - name: BUSINESS_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: POSTAL_CODE
+    description: ''
+    data_type: NUMBER
+  - name: STATE_OR_PROVINCE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1
+    description: ''
+    data_type: VARCHAR
+  - name: ADVISOR_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: COMPANY_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FAX
+    description: ''
+    data_type: VARCHAR
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: OFFICE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_nexus_deleted_bank_transactions
+  columns:
+  - name: RAW_DATA
+    description: ''
+    data_type: VARIANT
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_client_groups
+  columns:
+  - name: GROUP_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: GROUP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_nexus_bank_transactions
+  columns:
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: CHECK_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTED_ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSACTION_ID
+    description: ''
+    data_type: NUMBER
+  - name: CONNECTED_CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: POST_DATE
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: TRANSACTION_DATE
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: USER_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: CATEGORY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: NUMBER
+  - name: TYPE
+    description: ''
+    data_type: NUMBER
+  - name: MEMO
+    description: ''
+    data_type: VARCHAR
+  - name: AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_trust_entities
+  columns:
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: INCOME_INTEREST
+    description: ''
+    data_type: NUMBER
+  - name: ANNUITY_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: RETAINED_INTEREST
+    description: ''
+    data_type: NUMBER
+  - name: REMAINDER_INTEREST
+    description: ''
+    data_type: NUMBER
+  - name: ESTABLISHED_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PAYOUT_RATE
+    description: ''
+    data_type: NUMBER
+  - name: TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: TERM_IN_YEARS
+    description: ''
+    data_type: NUMBER
+  - name: TERM_LIFETIME
+    description: ''
+    data_type: VARCHAR
+  - name: REAL_ESTATE_ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: DATE_ESTABLISHED
+    description: ''
+    data_type: DATE
+  - name: PAYOUT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: WITH_REVERSION
+    description: ''
+    data_type: NUMBER
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_assumptions
+  columns:
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_BENEFIT_CALC_METHOD
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSE_BENEFIT_CALC_METHOD
+    description: ''
+    data_type: VARCHAR
+  - name: FACT_TYPE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_personal_property_accounts
+  columns:
+  - name: CONNECTED
+    description: ''
+    data_type: NUMBER
+  - name: INCLUDED
+    description: ''
+    data_type: NUMBER
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CASH_BALANCE
+    description: ''
+    data_type: NUMBER
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: MARGIN_BALANCE
+    description: ''
+    data_type: NUMBER
+  - name: TOTAL_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: COST_BASIS
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: INSTITUTION_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FACT_TYPE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: HOLDINGS_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: AMOUNT_AS_OF
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_client_group_members
+  columns:
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: GROUP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_notes
+  columns:
+  - name: TEXT
+    description: ''
+    data_type: VARCHAR
+  - name: DATE
+    description: ''
+    data_type: VARCHAR
+  - name: EDITOR
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: NOTE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: NULL_COLUMN_NAME
+    description: ''
+    data_type: VARIANT
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_net_worth_history
+  columns:
+  - name: CLIENTID
+    description: ''
+    data_type: VARCHAR
+  - name: AMOUNTASOF
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: ASSETVALUE
+    description: ''
+    data_type: NUMBER
+  - name: LIABILITYVALUE
+    description: ''
+    data_type: NUMBER
+  - name: INVESTIBLEVALUE
+    description: ''
+    data_type: NUMBER
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _ID
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_nexus_holdings
+  columns:
+  - name: VALUE
+    description: ''
+    data_type: NUMBER
+  - name: CONNECTED_ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTION_OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CURRENCY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTED_CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: COST_BASIS
+    description: ''
+    data_type: NUMBER
+  - name: AS_OF
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: NUMBER
+  - name: ACQUIRE_DATE
+    description: ''
+    data_type: NUMBER
+  - name: CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: TICKER
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: UNITS
+    description: ''
+    data_type: NUMBER
+  - name: PRICE
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_property_casualty_insurance_accounts
+  columns:
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ANNUAL_PREMIUM
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: UNDER_OUR_MANAGEMENT
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: INSTITUTION_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: MAXIMUM_ANNUAL_BENEFIT
+    description: ''
+    data_type: NUMBER
+  - name: FACT_TYPE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: REPLACEMENT_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: AMOUNT_AS_OF
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PREMIUM_TERM_IN_YEARS
+    description: ''
+    data_type: NUMBER
+  - name: PURCHASE_DATE
+    description: ''
+    data_type: DATE
+  - name: RENEWAL_DATE
+    description: ''
+    data_type: DATE
+  - name: SUBTYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTED
+    description: ''
+    data_type: NUMBER
+  - name: INCLUDED
+    description: ''
+    data_type: NUMBER
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_clients
+  columns:
+  - name: CLIENTID
+    description: ''
+    data_type: VARCHAR
+  - name: ADVISORID
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENTNAME
+    description: ''
+    data_type: VARCHAR
+  - name: FIRSTNAME
+    description: ''
+    data_type: VARCHAR
+  - name: LASTNAME
+    description: ''
+    data_type: VARCHAR
+  - name: GENDER
+    description: ''
+    data_type: VARCHAR
+  - name: MARITALSTATUS
+    description: ''
+    data_type: VARCHAR
+  - name: CITIZENSHIP
+    description: ''
+    data_type: VARCHAR
+  - name: COMPANYNAME
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSEFIRSTNAME
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSELASTNAME
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS1
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS2
+    description: ''
+    data_type: VARCHAR
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: STATEORPROVINCE
+    description: ''
+    data_type: VARCHAR
+  - name: POSTALCODE
+    description: ''
+    data_type: VARCHAR
+  - name: HOMEPHONE
+    description: ''
+    data_type: VARCHAR
+  - name: BUSINESSPHONE
+    description: ''
+    data_type: VARCHAR
+  - name: CELLPHONE
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSECELLPHONE
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSEBUSINESSPHONE
+    description: ''
+    data_type: VARCHAR
+  - name: FAX
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSEEMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: EMPNAME
+    description: ''
+    data_type: VARCHAR
+  - name: EMPADDRESS1
+    description: ''
+    data_type: VARCHAR
+  - name: EMPADDRESS2
+    description: ''
+    data_type: VARCHAR
+  - name: EMPCITY
+    description: ''
+    data_type: VARCHAR
+  - name: EMPSTATE
+    description: ''
+    data_type: VARCHAR
+  - name: EMPPOSTALCODE
+    description: ''
+    data_type: VARCHAR
+  - name: EMPBUSINESSFAX
+    description: ''
+    data_type: VARCHAR
+  - name: EMPEMAILADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: EMPJOBTITLE
+    description: ''
+    data_type: VARCHAR
+  - name: EMPYEARSEMPLOYED
+    description: ''
+    data_type: VARCHAR
+  - name: EMPPREVEMPNAME
+    description: ''
+    data_type: VARCHAR
+  - name: EMPPREVJOBTITLE
+    description: ''
+    data_type: VARCHAR
+  - name: EMPPREVYEARSEMPLOYED
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSEEMPNAME
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSEEMPADDRESS_1
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSEEMPADDRESS_2
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUCEEMPCITY
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSEEMPSTATE
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSEEMPPOSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSEEMPBUSINESS_FAX
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSEEMPEMAIL_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSEEMPJOBTITLE
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSEEMPYEARSEMPLOYED
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSEEMPPREVEMPNAME
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSEEMPPREVJOBTITLE
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSEEMPPREVYEARSEMPLOYED
+    description: ''
+    data_type: VARCHAR
+  - name: USERROLE
+    description: ''
+    data_type: VARCHAR
+  - name: USERROLEINT
+    description: ''
+    data_type: NUMBER
+  - name: ENTITLEMENTS
+    description: ''
+    data_type: VARCHAR
+  - name: CREATETIMESTAMP
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: DELETETIMESTAMP
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _ID
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_holdings
+  columns:
+  - name: VALUE
+    description: ''
+    data_type: NUMBER
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: COST_BASIS
+    description: ''
+    data_type: VARCHAR
+  - name: AS_OF
+    description: ''
+    data_type: VARCHAR
+  - name: ASSET_CLASS
+    description: ''
+    data_type: VARCHAR
+  - name: HOLDING_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: INVESTMENT_STYLE
+    description: ''
+    data_type: VARCHAR
+  - name: HOLDING_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACQUIRE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: INDUSTRY_SECTOR
+    description: ''
+    data_type: VARCHAR
+  - name: MARKET_PRICE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: TICKER
+    description: ''
+    data_type: VARCHAR
+  - name: UNITS
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_nexus_deleted_investment_transactions
+  columns:
+  - name: RAW_DATA
+    description: ''
+    data_type: VARIANT
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_tasks
+  columns:
+  - name: COMPLETED
+    description: ''
+    data_type: NUMBER
+  - name: TEXT
+    description: ''
+    data_type: VARCHAR
+  - name: SUBJECT
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ASSIGNED_TO
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: DUE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_EDITED_BY
+    description: ''
+    data_type: VARCHAR
+  - name: REMINDER_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: REQUESTED_BY
+    description: ''
+    data_type: VARCHAR
+  - name: TASK_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_real_estate_assets
+  columns:
+  - name: CLIENTID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNTID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNTNAME
+    description: ''
+    data_type: VARCHAR
+  - name: TOTALVALUE
+    description: ''
+    data_type: NUMBER
+  - name: AMOUNTASOF
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: INSTITUTIONNAME
+    description: ''
+    data_type: VARCHAR
+  - name: HOLDINGSVALUE
+    description: ''
+    data_type: NUMBER
+  - name: CASHBALANCE
+    description: ''
+    data_type: NUMBER
+  - name: MARGINBALANCE
+    description: ''
+    data_type: NUMBER
+  - name: COSTBASIS
+    description: ''
+    data_type: NUMBER
+  - name: FACTTYPENAME
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: SUBTYPE
+    description: ''
+    data_type: VARCHAR
+  - name: INCLUDED
+    description: ''
+    data_type: VARCHAR
+  - name: CONNECTED
+    description: ''
+    data_type: NUMBER
+  - name: UNDEROURMANAGEMENT
+    description: ''
+    data_type: VARCHAR
+  - name: HOMEVALUE
+    description: ''
+    data_type: NUMBER
+  - name: ADDRESS1
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS2
+    description: ''
+    data_type: VARCHAR
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: STATE
+    description: ''
+    data_type: VARCHAR
+  - name: POSTALCODE
+    description: ''
+    data_type: VARCHAR
+  - name: PURCHASEYEAR
+    description: ''
+    data_type: VARCHAR
+  - name: PURCHASEAMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _ID
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_people
+  columns:
+  - name: CLIENTID
+    description: ''
+    data_type: VARCHAR
+  - name: PEOPLEID
+    description: ''
+    data_type: VARCHAR
+  - name: FACTTYPENAME
+    description: ''
+    data_type: VARCHAR
+  - name: FIRSTNAME
+    description: ''
+    data_type: VARCHAR
+  - name: LASTNAME
+    description: ''
+    data_type: VARCHAR
+  - name: GENDER
+    description: ''
+    data_type: VARCHAR
+  - name: MARITALSTATUS
+    description: ''
+    data_type: VARCHAR
+  - name: CITIZENSHIP
+    description: ''
+    data_type: VARCHAR
+  - name: DATEOFBIRTH
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: SPOUSEFIRSTNAME
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSELASTNAME
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSEGENDER
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSECITIZENSHIP
+    description: ''
+    data_type: VARCHAR
+  - name: SPOUSEDATEOFBIRTH
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: PARENTID
+    description: ''
+    data_type: VARCHAR
+  - name: ISFROMPREVIOUSMARRAIGE
+    description: ''
+    data_type: VARCHAR
+  - name: ISFINANCIALLYDEPENDENT
+    description: ''
+    data_type: VARCHAR
+  - name: SKIPPERSON
+    description: ''
+    data_type: VARCHAR
+  - name: HASSPECIALNEEDS
+    description: ''
+    data_type: BOOLEAN
+  - name: ISINGOODHEALTH
+    description: ''
+    data_type: BOOLEAN
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _ID
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_stock_option_grants
+  columns:
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EXPIRATION_DATE
+    description: ''
+    data_type: DATE
+  - name: SHARES_GRANTED
+    description: ''
+    data_type: NUMBER
+  - name: EXERCISE_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: GRANT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_PLAN_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SHARES_SOLD
+    description: ''
+    data_type: NUMBER
+  - name: FIRST_VEST_DATE
+    description: ''
+    data_type: DATE
+  - name: GRANT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: VESTING_FREQUENCY
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: VESTING_PERIODS
+    description: ''
+    data_type: NUMBER
+  - name: GRANT_DATE
+    description: ''
+    data_type: DATE
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_life_insurance_annuity_accounts
+  columns:
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: CASH_BALANCE
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: MARGIN_BALANCE
+    description: ''
+    data_type: VARCHAR
+  - name: TOTAL_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: ANNUAL_PREMIUM
+    description: ''
+    data_type: NUMBER
+  - name: COST_BASIS
+    description: ''
+    data_type: VARCHAR
+  - name: DEATH_BENEFIT
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SURRENDER_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: UNDER_OUR_MANAGEMENT
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: INSTITUTION_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PREMIUM_EXCLUSION
+    description: ''
+    data_type: NUMBER
+  - name: TERM_IN_YEARS
+    description: ''
+    data_type: NUMBER
+  - name: FACT_TYPE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: HOLDINGS_VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: AMOUNT_AS_OF
+    description: ''
+    data_type: NUMBER
+  - name: PREMIUM_TERM_IN_YEARS
+    description: ''
+    data_type: NUMBER
+  - name: PURCHASE_DATE
+    description: ''
+    data_type: DATE
+  - name: SUBTYPE
+    description: ''
+    data_type: VARCHAR
+  - name: COUNTRY
+    description: ''
+    data_type: DATE
+  - name: CONNECTED
+    description: ''
+    data_type: NUMBER
+  - name: INCLUDED
+    description: ''
+    data_type: NUMBER
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_facts
+  columns:
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: AMOUNT_AS_OF
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_users
+  columns:
+  - name: DOMAIN
+    description: ''
+    data_type: VARCHAR
+  - name: USERID
+    description: ''
+    data_type: VARCHAR
+  - name: EXTERNALID
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_DATE
+    description: ''
+    data_type: DATE
+  - name: RECORD_DATETIME
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _ID
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+- name: emoney_mwa_history__base_nexus_clients
+  columns:
+  - name: BUSINESS_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: POSTAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: STATE_OR_PROVINCE
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_2
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1
+    description: ''
+    data_type: VARCHAR
+  - name: ADVISOR_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: FAX
+    description: ''
+    data_type: VARCHAR
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: OFFICE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER

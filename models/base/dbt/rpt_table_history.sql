@@ -1,3 +1,5 @@
+{{ config(enabled = false) }}
+
 -- date spine
 with dates as (
   select date_key as _date

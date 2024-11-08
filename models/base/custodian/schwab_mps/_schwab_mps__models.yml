@@ -1,0 +1,1989 @@
+version: 2
+models:
+- name: schwab_mps_history__base_rps_positions
+  columns:
+  - name: CUSTODIAN
+    description: Custodian name, lower-case, no spaces.
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: Firm entity associated with the link value.
+    meta:
+      row_access_policy: rap_firm_source
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE
+    description: Identifies the record type (Header, Detail, Trailer) & Count (D1,
+      D2)
+    data_type: VARCHAR
+  - name: CUSTODIAN_ID
+    description: Custodian ID
+    data_type: VARCHAR
+  - name: MASTER_ACCOUNT_NUMBER
+    description: Identifies the Master Account Number.
+    data_type: VARCHAR
+  - name: MASTER_ACCOUNT_NAME
+    description: Identifies the Master Account by Name.
+    data_type: VARCHAR
+  - name: BUSINESS_DATE
+    description: Business date for this record
+    data_type: DATE
+  - name: ACCOUNT_NUMBER
+    description: End-client account number at Schwab.
+    data_type: VARCHAR
+  - name: PRODUCT_CODE
+    description: Further defines Product Category Code.   Identifies type of security
+      (e.g. Common Stock, GNMA, Unit Trust, Mutual Fund, etc.) FNM, FMC, COM, BMU,
+      CDO, MMS (there are several dozen)
+    data_type: VARCHAR
+  - name: PRODUCT_CATEGORY_CODE
+    description: 'Highest level of security classification.
+
+      DEBT - Includes all fixed income
+
+      DERV - (Derivatives) Options, Warrants
+
+      EQTY - Equity/Stock (Common, Preferred, ADR, MLP, REIT)
+
+      O - (Other)  Includes all types of mutual funds.
+
+      '
+    data_type: VARCHAR
+  - name: TAX_CODE
+    description: A security type classification related to the tax status of the security.
+    data_type: VARCHAR
+  - name: LEGACY_SECURITY_TYPE
+    description: These security type codes are considered obsolete and are provided
+      only for backwards compatibility. Interface developers are encouraged instead
+      to use the Product Code, Product Category Code, And Tax Code because these codes
+      offer greater specificity and will always match Schwab's broker dealer system.
+    data_type: VARCHAR
+  - name: TICKER_SYMBOL
+    description: An arrangement of characters (usually letters) representing a particular
+      security listed on an exchange or otherwise traded publicly which may have been
+      modified by Schwab.  MAI2Z, COL2Z or DPB1Z
+    data_type: VARCHAR
+  - name: INDUSTRY_TICKER_SYMBOL
+    description: This field will match the Ticker Symbol field in most cases. MAIVX,
+      COLFX or PTEBX
+    data_type: VARCHAR
+  - name: CUSIP
+    description: Committee on Uniform Securities Identification Procedures. A CUSIP
+      number identifies most securities.
+    data_type: VARCHAR
+  - name: SCHWAB_SECURITY_NUMBER
+    description: Inernal Schwab security identifier
+    data_type: VARCHAR
+  - name: ITEM_ISSUE_ID
+    description: Unique internal Schwab security identifier when combined with following
+      field "Rule Set Suffix ID"
+    data_type: VARCHAR
+  - name: RULE_SET_SUFFIX_ID
+    description: Combine with prior field  "Item Issue ID" to yield a unique identifier.
+    data_type: VARCHAR
+  - name: ISIN
+    description: International Securities Identification Number. A unique international
+      code which identifies a securities issue.
+    data_type: VARCHAR
+  - name: SEDOL
+    description: The Stock Exchange Daily Official List number, a code used by the
+      London Stock Exchange to identify foreign stocks.
+    data_type: VARCHAR
+  - name: OPTIONS_DISPLAY_SYMBOL
+    description: Schwab formatted symbol for Options on confirms and statements.
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_1
+    description: Full Name of the Security
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_2
+    description: Full Name of the Security
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_3
+    description: Full Name of the Security
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_4
+    description: Full Name of the Security
+    data_type: VARCHAR
+  - name: UNDERLYING_TICKER_SYMBOL
+    description: An arrangement of characters (usually letters) representing a particular
+      parent security listed on an exchange or otherwise traded publicly.
+    data_type: VARCHAR
+  - name: UNDERLYING_INDUSTRY_TICKER_SYMBOL
+    description: This field will match the Underlying Ticker Symbol field in most
+      cases.
+    data_type: VARCHAR
+  - name: UNDERLYNG_CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: UNDERLYING_SCHWAB_SECURITY_NUMBER
+    description: Internal Schwab parent security identifier.
+    data_type: VARCHAR
+  - name: UNDERLYING_ITEM_ISSUE_ID
+    description: Unique internal Schwab parent security identifier when combined with
+      following fields
+    data_type: VARCHAR
+  - name: UNDERLYING_RULE_SET_SUFFIX_ID
+    description: Combine with prior field to yield a unique parent identifier.
+    data_type: VARCHAR
+  - name: UNDERLYING_ISIN
+    description: International Securities Identification Number. A unique international
+      code which identifies a parent securities issue.
+    data_type: VARCHAR
+  - name: UNDERLYING_SEDOL
+    description: The Stock Exchange Daily Official List number, a code used by the
+      London Stock Exchange to identify foreign stocks. Underlying SEDOL being specific
+      to the parent SEDOL.
+    data_type: VARCHAR
+  - name: MONEY_MARKET_CODE
+    description: Unique code to identify Schwab money market products.
+    data_type: VARCHAR
+  - name: DIVIDEND_REINVEST
+    description: Indicates whether dividends are reinvested for this security. Blank
+      means there is no explicit instruction specified by the customer, and by default
+      cash dividends will not be reinvested.
+    data_type: VARCHAR
+  - name: CAPITAL_GAINS_REINVEST
+    description: Indicates whether capital gains are reinvested for this security.
+      Blank means there is no explicit instruction specified by the customer, and
+      by default capital gains distributions will not be reinvested.
+    data_type: VARCHAR
+  - name: CLOSING_PRICE
+    description: 'Closing price in Schwab systems.
+
+      OBSOLETE field, use \"Closing Price - Unfactored.\"
+
+      '
+    data_type: NUMBER
+  - name: SECURITY_PRICE_UPDATE_DATE
+    description: Last Security Price Update Date
+    data_type: DATE
+  - name: QUANTITY_SETTLED_UNSETTLED
+    description: ''
+    data_type: FLOAT
+  - name: LONG_SHORT_INDICATOR
+    description: Indicates whether "Quantity (Settled and Unsettled)" is long or short.
+    data_type: VARCHAR
+  - name: MARKET_VALUE_SETTLED_UNSETTLED
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNTING_RULE_CODE
+    description: Identifies the type of account associated with the position. Previously
+      account type was only Cash or Margin. (Margin previously included Margin, Short
+      and When Issued) CASH, MARGIN, WHEN ISSUED, SHORT
+    data_type: VARCHAR
+  - name: QUANTITY_SETTLED
+    description: Total number of settled shares
+    data_type: NUMBER
+  - name: QUANTITY_UNSETTLED_LONG
+    description: Total number of unsettled shares held long
+    data_type: NUMBER
+  - name: QUANTITY_UNSETTLED_SHORT
+    description: Total number of unsettled shares held short
+    data_type: NUMBER
+  - name: TIPS_FACTOR
+    description: 'The inflation factor associated with Treasury Inflation-Protected
+      Securities. Use this value to calculate the \"clean\" price.  This data element,
+      if available, is also included in the Security Description fields. For securities
+      that are not TIPS (Product Code not equal to \"TIP\") then this field will be
+      zero-filled.
+
+      OBSOLETE field, use \"Factor.\"
+
+      '
+    data_type: NUMBER
+  - name: ASSET_BACKED_FACTOR
+    description: 'The security''s current factor. This data element, if available,
+      is also included in the Security Description fields. For securities without
+      a factor this field will be zero-filled.
+
+      OBSOLETE field, use \"Factor.\"
+
+      '
+    data_type: NUMBER
+  - name: CLOSING_PRICE_UNFACTORED
+    description: Closing price in Schwab systems. For securities where a factor applies,
+      the value provided does not reflect the factor. Multiply by the Factor  value
+      in the next field for a factored price.
+    data_type: NUMBER
+  - name: FACTOR
+    description: The security's current factor. For securities without a factor, the
+      factor value will default to 1. Applies to TIPS, asset-backed securities, and
+      other securities where a factor exists.
+    data_type: NUMBER
+  - name: FACTOR_DATE
+    description: The date associated with the Factor value provided in the previous
+      field.
+    data_type: DATE
+  - name: MASTER_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: Time when the records were created in the source table.
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: schwab_mps_history__base_transactions
+  columns:
+  - name: RECORD_TYPE
+    description: Identifies the record type (Header, Detail, Trailer) & Count (D1,
+      D2)
+    data_type: VARCHAR
+  - name: CUSTODIAN
+    description: Custodian name, lower-case, no spaces.
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: Firm entity associated with the link value.
+    meta:
+      row_access_policy: rap_firm_source
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTODIAN_ID
+    description: Custodian ID
+    data_type: VARCHAR
+  - name: MASTER_ACCOUNT_NUMBER
+    description: Identifies the Master Account Number.
+    data_type: VARCHAR
+  - name: MASTER_ACCOUNT_NAME
+    description: Identifies the Master Account by Name.
+    data_type: VARCHAR
+  - name: BUSINESS_DATE
+    description: Business date for this transaction
+    data_type: DATE
+  - name: ACCOUNT_NUMBER
+    description: End-client account number at Schwab
+    data_type: VARCHAR
+  - name: ACCOUNT_TITLE_LINE_1
+    description: May contain name, company or trust information, depending on account
+      type.
+    data_type: VARCHAR
+  - name: ACCOUNT_TITLE_LINE_2
+    description: May contain name, company or trust information, depending on account
+      type.
+    data_type: VARCHAR
+  - name: ACCOUNT_TITLE_LINE_3
+    description: May contain name, company or trust information, depending on account
+      type.
+    data_type: VARCHAR
+  - name: ACCOUNT_REGISTRATION
+    description: Registration at Schwab (Testamentary Trust, Living Trust, etc.) FEE,
+      HOLD, JT, SIMPL, I401K, OMNI
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE
+    description: Type of account (Brokerage, Schwab One, IRA, etc.) SCHWAB ONE, QUALIFIED
+      RETIREMENT PLAN, BROKERAGE
+    data_type: VARCHAR
+  - name: PRODUCT_CODE
+    description: Further defines Product Category Code.   Identifies type of security
+      (e.g. Common Stock, GNMA, Unit Trust, Mutual Fund, etc.) FNM, FMC, COM, BMU,
+      CDO, COM, MMS (there are several dozen)
+    data_type: VARCHAR
+  - name: PRODUCT_CATEGORY_CODE
+    description: 'Highest level of security classification.
+
+      DEBT - Includes all fixed income
+
+      DERV - (Derivatives) Options, Warrants
+
+      EQTY - Equity/Stock (Common, Preferred, ADR, MLP, REIT)
+
+      O - (Other)  Includes all types of mutual funds.
+
+      '
+    data_type: VARCHAR
+  - name: TAX_CODE
+    description: Determines where security payments appear on tax forms.
+    data_type: VARCHAR
+  - name: LEGACY_SECURITY_TYPE
+    description: These security type codes are considered obsolete and are provided
+      only for backwards compatibility. Interface developers are encouraged instead
+      to use the Product Code, Product Category Code, And Tax Code because these codes
+      offer greater specificity and will always match Schwab's broker dealer system
+    data_type: VARCHAR
+  - name: TICKER_SYMBOL
+    description: An arrangement of characters (usually letters) representing a particular
+      security listed on an exchange or otherwise traded publicly which may have been
+      modified by Schwab. MAI2Z, COL2Z, DPBIZ
+    data_type: VARCHAR
+  - name: INDUSTRY_TICKER_SYMBOL
+    description: This field will match the Ticker Symbol field in most cases   MAIVX,
+      COLFX, PTEBX
+    data_type: VARCHAR
+  - name: CUSIP
+    description: Committee on Uniform Securities Identification Procedures. A CUSIP
+      number identifies most securities
+    data_type: VARCHAR
+  - name: SCHWAB_SECURITY_NUMBER
+    description: Internal Schwab security identifier
+    data_type: VARCHAR
+  - name: ITEM_ISSUE_ID
+    description: Unique internal Schwab security identifier when combined with the
+      following field "Rule Set Suffix ID".
+    data_type: VARCHAR
+  - name: RULE_SET_SUFFIX_ID
+    description: Combine with prior field "Item Issue ID" to yield a unique identifier.
+    data_type: VARCHAR
+  - name: ISIN
+    description: International Securities Identification Number. A unique international
+      code which identifies a securities issue
+    data_type: VARCHAR
+  - name: SEDOL
+    description: The Stock Exchange Daily Official List number, a code used by the
+      London Stock Exchange to identify foreign stocks
+    data_type: VARCHAR
+  - name: OPTIONS_DISPLAY_SYMBOL
+    description: Schwab formatted symbol for Options on confirms and statements.
+    data_type: VARCHAR
+  - name: UNDERLYING_TICKER_SYMBOL
+    description: An arrangement of characters (usually letters) representing a particular
+      parent security listed on an exchange or otherwise traded publicly
+    data_type: VARCHAR
+  - name: UNDERLYING_INDUSTRY_TICKER_SYMBOL
+    description: This field will match the Underlying Ticker Symbol field in most
+      cases
+    data_type: VARCHAR
+  - name: UNDERLYING_CUSIP
+    description: Committee on Uniform Securities Identification Procedures. A CUSIP
+      number identifies most securities. Underlying CUSIP being specific to the parent
+      security.
+    data_type: VARCHAR
+  - name: UNDERLYING_SCHWAB_SECURITY_NUMBER
+    description: Internal Schwab parent security identifier
+    data_type: VARCHAR
+  - name: UNDERLYING_ITEM_ISSUE_ID
+    description: Unique internal Schwab parent security identifier when combined with
+      following fields
+    data_type: VARCHAR
+  - name: UNDERLYING_RULE_SET_SUFFIX_ID
+    description: Combine with prior field to yield a unique parent identifier
+    data_type: VARCHAR
+  - name: UNDERLYING_ISIN
+    description: International Securities Identification Number. A unique international
+      code which identifies a parent securities issue
+    data_type: VARCHAR
+  - name: UNDERLYING_SEDOL
+    description: The Stock Exchange Daily Official List number, a code used by the
+      London Stock Exchange to identify foreign stocks. Underlying SEDOL being specific
+      to the parent SEDOL.
+    data_type: VARCHAR
+  - name: MONEY_MARKET_CODE
+    description: Unique code to identify Schwab money market products.
+    data_type: VARCHAR
+  - name: TRANSACTION_TYPE_CODE
+    description: 'Specifies the highest-level transaction type:
+
+      FC = Funds Cashiering,
+
+      IC = Issue Cashiering,
+
+      TR = Trade
+
+      '
+    data_type: VARCHAR
+  - name: TRANSACTION_SUBTYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSACTION_CATEGORY
+    description: Matches the transaction filtering options available on SchwabAdvisorCenter.com
+    data_type: VARCHAR
+  - name: TRANSACTION_SOURCE_CODE
+    description: Lowest-level transaction type. Regular trades will have the value,
+      "TRADE," refer to "Action Code" field below for trade details. See "Transaction
+      Source Codes."
+    data_type: VARCHAR
+  - name: TRANSACTION_SOURCE_CODE_DESCRIPTION
+    description: Provides a short text description of the source code
+    data_type: VARCHAR
+  - name: TRANSACTION_DETAIL_DESCRIPTION
+    description: Provides a detailed text description of the transaction
+    data_type: VARCHAR
+  - name: ACTION_CODE
+    description: 'For trades only. Populated for all regular trades. Not just used
+      for options trades. Examples: BUY, SELL, BCC, SCC, BPC, SPC, BCO, SCO, BPO,
+      SCO.'
+    data_type: VARCHAR
+  - name: TRANSACTION_CANCEL_CODE
+    description: 'Indicates a cancelled transaction. Y - Yes N - No
+
+      '
+    data_type: VARCHAR
+  - name: TRADE_DATE
+    description: 'The date the trade was executed. NOTE: This field is not the same
+      as the "Transaction Date" in Schwab''s legacy transaction files. To match the
+      Transaction Date in the legacy files, use ''Transaction Date'' instead.'
+    data_type: DATE
+  - name: SETTLEMENT_DATE
+    description: The expected trade settlement date.
+    data_type: DATE
+  - name: TRANSACTION_DATE
+    description: The actual date the transaction is to be recognized. The effective
+      date of the transaction. This will be identical to the trade date in most cases.
+      This date can, however, be different from trade date in rare instances, for
+      example, if the trade was processed through a foreign exchange with a holiday
+      schedule that differs from domestic exchanges.
+    data_type: DATE
+  - name: EX_DIVIDEND_DATE
+    description: if applicable
+    data_type: DATE
+  - name: QUANTITY
+    description: Number of units relevant to a record.
+    data_type: FLOAT
+  - name: PRICE
+    description: Amount or value per unit or Quantity of a record.
+    data_type: FLOAT
+  - name: GROSS_AMOUNT
+    description: Total amount or value of a trade record before deductions (Gross
+      Amount = [Quantity * Price] + [Other Credits])
+    data_type: FLOAT
+  - name: DEBIT_CREDIT_INDICATOR
+    description: Resolves direction and method of a record (In vs. Out and Cash vs.
+      Trade/Exchange) CREDIT, DEBIT, LONG, SHORT
+    data_type: VARCHAR
+  - name: NET_AMOUNT
+    description: Final amount or value of a record (Net Amount = Gross Amount - [All
+      Fees and Withholdings]). May be zero for non-trade activity. Provides a negative
+      sign for sell transactions. Interfaces may want to use absolute value instead.
+    data_type: FLOAT
+  - name: COMMISSION
+    description: Amount or value of fee type - Commission
+    data_type: FLOAT
+  - name: EXCHANGE_PROCESSING_FEE
+    description: Amount or value of fee type -  Exchange Processing. Formerly SEC
+      fee.
+    data_type: FLOAT
+  - name: BROKER_SERVICE_FEE
+    description: Amount or value of fee type - Broker Service. Formerly Handling fee.
+    data_type: FLOAT
+  - name: PRIME_BROKER_FEE
+    description: Amount or value of fee type - Prime Broker.
+    data_type: FLOAT
+  - name: TRADE_AWAY_FEE
+    description: Amount or value of fee type - Trade Away.
+    data_type: FLOAT
+  - name: REDEMPTION_FEE
+    description: Amount or value of fee type -  Redemption.
+    data_type: FLOAT
+  - name: OTHER_FEE
+    description: Amount or value of fee type - Other.
+    data_type: FLOAT
+  - name: FEDERAL_TEFRA_WITHHOLDING
+    description: Valued for trades only.
+    data_type: FLOAT
+  - name: STATE_TAX_WITHHOLDING
+    description: Only used for Hawaii and New Mexico. All other tax withholding is
+      done with specific source codes in separate transactions
+    data_type: FLOAT
+  - name: STATE_RECEIVING_TAX
+    description: 'State in which state tax implications due to transaction are implied.
+      Note: The state provided in the transaction record will match the state in the
+      address for the account in the build files and the Core Account Information
+      file.'
+    data_type: VARCHAR
+  - name: ACCRUED_INTEREST
+    description: Amount or value of interest relevant to a record
+    data_type: FLOAT
+  - name: ACCOUNTING_RULE_CODE
+    description: Identifies the type of account associated with the transaction. Previously
+      account type was only Cash or Margin. (Margin previously included Margin, Short
+      and When Issued) CASH, MARGIN, WHEN ISSUED, SHORT
+    data_type: VARCHAR
+  - name: ORDER_SOURCE_CODE
+    description: Code of the product or individual initiating trade.
+    data_type: VARCHAR
+  - name: ORDER_NUMBER
+    description: The unique trade number assigned by Schwab for trade tracking purposes.
+    data_type: NUMBER
+  - name: TRADE_ORDER_ENTRY_TIME_STAMP
+    description: The date and time stamp when the Order is entered.
+    data_type: TIMESTAMP_NTZ
+  - name: TRADE_ORDER_EXECUTION_TIME_STAMP
+    description: The date and time stamp when the Order is executed.
+    data_type: TIMESTAMP_NTZ
+  - name: BROKER_CODE
+    description: The unique number assigned to each executing broker.
+    data_type: VARCHAR
+  - name: BROKER_NAME
+    description: Full name of executing broker
+    data_type: VARCHAR
+  - name: SCHWAB_FROM_ACCOUNT
+    description: Schwab account from which value is drawn in a defined transfer (i.e.
+      Fees or Journals).
+    data_type: VARCHAR
+  - name: SCHWAB_TO_ACCOUNT
+    description: Schwab account to which value is added in a defined transfer (i.e.
+      Fees or Journals).
+    data_type: VARCHAR
+  - name: SCHWAB1_CHECK_NUMBER
+    description: Number of check issued in recorded transaction.
+    data_type: VARCHAR
+  - name: SWEEP_INDICATOR
+    description: Indicates a sweep transaction Y - Yes N - No
+    data_type: VARCHAR
+  - name: STOCK_EXCHANGE_CODE
+    description: Identifies the exchange that executed the trade OTC = Over The Counter,
+      OTHR =  Others, PB = Prime Broker, TA = Trade Away, CBOE = Chicago Board Options
+      Exchange, AM =  American Stock Exchange
+    data_type: VARCHAR
+  - name: INTER_CLASS_EXCHANGE_CODE
+    description: Indicates an interclass exchange for mutual funds Y - Yes N - No
+    data_type: VARCHAR
+  - name: DISTRIBUTION_RATE
+    description: Per share value of distribution. Used in combination with the Share
+      Quantity to determine the total gross amount. Used for dividends, splits and
+      spin offs
+    data_type: FLOAT
+  - name: CASH_IN_LIEU_SHARE_QUANTITY
+    description: Number of shares used to calculate cash issued in place of share
+      quantity on trades.
+    data_type: FLOAT
+  - name: DIVIDEND_INTEREST_SHARE_QUANTITY
+    description: Number of Shares in the account on Record Date.
+    data_type: FLOAT
+  - name: CASH_IN_LIEU_RATE
+    description: Per share value of cash issued in lieu of shares on trades.
+    data_type: FLOAT
+  - name: ASSET_BACKED_FACTOR
+    description: 'The security''s current factor. This data element, if available,
+      is also included in the Security Description fields. For securities without
+      a factor this field will be zero-filled.
+
+      OBSOLETE field, use \"Factor.\"
+
+      '
+    data_type: FLOAT
+  - name: SOURCE_SYSTEM
+    description: Describes the Schwab system that created the transaction. IC - Integrated
+      Cashiering, ML - MoneyLink, TO - Transfer of Accounts
+    data_type: VARCHAR
+  - name: JOURNAL_TYPE
+    description: Defines whether a journal transaction is for cash or stock. 01 -
+      Cash  02 - Stock Space  - None (blank)
+    data_type: VARCHAR
+  - name: DEPOSIT_MEDIA
+    description: Describes the form of deposit delivered to Schwab C - Check W - Wire
+      J - Journal A - ACH (MoneyLink)
+    data_type: VARCHAR
+  - name: SCHWAB_CASHIERING_UNIQUE_IDENTIFIER
+    description: Unique identifier generated by the Schwab Cashiering systems used
+      to reconcile online requests with cashiering transactions in this file.
+    data_type: VARCHAR
+  - name: RECIPIENT_MAKER_NAME_1
+    description: ''
+    data_type: VARCHAR
+  - name: RECIPIENT_MAKER_NAME_2
+    description: ''
+    data_type: VARCHAR
+  - name: RECIPIENT_MAKER_NAME_3
+    description: ''
+    data_type: VARCHAR
+  - name: FREQUENCY
+    description: Indicates the frequency of the disbursement. ONE-TIME, WEEKLY, MONTHLY,
+      QUARTERLY, ANNUAL, SEMI-ANNUAL
+    data_type: VARCHAR
+  - name: DISBURSED_CHECK_NUMBER
+    description: This field may or may not be valued due to the account type.
+    data_type: VARCHAR
+  - name: FED_REFERENCE_NUMBER
+    description: Tracking number assigned by the Fed Bank for Fed wire transactions.
+    data_type: VARCHAR
+  - name: FED_REFERENCE_NUMBER_2
+    description: ''
+    data_type: VARCHAR
+  - name: BANK_ACCOUNT_TYPE
+    description: Describes the type of account that is the source or destination of
+      the funds. CHECKING, SAVINGS, UNKNOWN
+    data_type: VARCHAR
+  - name: BANK_NAME_PART_1
+    description: Name of the Bank receiving or sending the funds.
+    data_type: VARCHAR
+  - name: BANK_NAME_PART_2
+    description: Name of the Bank receiving or sending the funds.
+    data_type: VARCHAR
+  - name: BANK_ABA_NUMBER
+    description: Unique account number assigned to sending or receiving bank.
+    data_type: VARCHAR
+  - name: INTERMEDIARY_NAME
+    description: Name of the middle Bank assisting in the transfer of wired funds
+    data_type: VARCHAR
+  - name: TRANSACTION_CHECK_MEMO_1
+    description: Memo line printed on the actual check.  This only applies to check
+      disbursements.
+    data_type: VARCHAR
+  - name: TRANSACTION_CHECK_MEMO_2
+    description: Memo line printed on the actual check.  This only applies to check
+      disbursements.
+    data_type: VARCHAR
+  - name: RETIREMENT_FEDERAL_INCOME_TAX
+    description: Amount of disbursement allocated to Federal tax.
+    data_type: FLOAT
+  - name: RETIREMENT_STATE_INCOME_TAX
+    description: Amount of disbursement allocated to State tax.
+    data_type: FLOAT
+  - name: RETIREMENT_INCOME_TAX_STATE
+    description: Two digit state code in which the state tax is being assessed.
+    data_type: NUMBER
+  - name: PUBLICATION_TIME_STAMP
+    description: Use to match trade records with data found in the RGL files. Values
+      are not meaningful except for trades.
+    data_type: TIMESTAMP_NTZ
+  - name: TIPS_FACTOR
+    description: 'The inflation factor associated with Treasury Inflation-Protected
+      Securities. Use this value to calculate the \"clean\" price.  This data element,
+      if available, is also included in the Security Description fields. For securities
+      that are not TIPS (Product Code not equal to \"TIP\") then this field will be
+      zero-filled.
+
+      OBSOLETE field, use \"Factor.\"
+
+      '
+    data_type: FLOAT
+  - name: CLOSING_PRICE
+    description: 'Closing price in Schwab systems.
+
+      OBSOLETE field, use \"Closing Price - Unfactored.\"
+
+      '
+    data_type: FLOAT
+  - name: TRANSACTION_MEMO
+    description: 'Provides additional detail for some cashiering transactions on certain
+      accounts.
+
+      Most accounts do not use this field.
+
+      '
+    data_type: VARCHAR
+  - name: CLOSING_PRICE_UNFACTORED
+    description: Closing price in Schwab systems. For securities where a factor applies,
+      the value provided does not reflect the factor. Multiply by the Factor  value
+      in the next field for a factored price.
+    data_type: FLOAT
+  - name: FACTOR
+    description: The security's current factor. For securities without a factor, the
+      factor value will default to 1. Applies to TIPS, asset-backed securities, and
+      other securities where a factor exists.
+    data_type: FLOAT
+  - name: FACTOR_DATE
+    description: The date associated with the Factor value provided in the previous
+      field.
+    data_type: DATE
+  - name: MASTER_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: Time when the records were created in the source table.
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: schwab_mps_history__base_positions_cost_basis
+  columns:
+  - name: RECORD_TYPE
+    description: Identifies whether a header, detail, or trailer record, and if a
+      detail record, what type.
+    data_type: VARCHAR
+  - name: CUSTODIAN
+    description: Custodian name, lower-case, no spaces.
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: Firm entity associated with the link value.
+    meta:
+      row_access_policy: rap_firm_source
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTODIAN_ID
+    description: Identifies Schwab as the source of the file.
+    data_type: VARCHAR
+  - name: MASTER_ACCOUNT_NUMBER
+    description: Identifies the master account number associated with creating this
+      record.
+    data_type: VARCHAR
+  - name: MASTER_ACCOUNT_NAME
+    description: Identifies the master account name associated with creating this
+      record.
+    data_type: VARCHAR
+  - name: BUSINESS_DATE
+    description: Date for which data content is current.
+    data_type: DATE
+  - name: ACCOUNT_NUMBER
+    description: End client account number at Schwab.
+    data_type: VARCHAR
+  - name: SECURITY_TYPE
+    description: 'Identifies type of security:
+
+      Fixed
+
+      Deriv
+
+      Eqty/MF
+
+      Cash Eq
+
+      Futures
+
+      Forwards
+
+      Index
+
+      Option
+
+      ST Debt
+
+      If no data is available, the field will be blank.
+
+      '
+    data_type: VARCHAR
+  - name: PROD_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PROD_CATEGORY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: TAX_CODE
+    description: OBSOLETE Determines where security payments appear on tax forms.
+    data_type: VARCHAR
+  - name: TICKER_SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: CUSIP
+    description: CUSIP
+    data_type: VARCHAR
+  - name: SCHWAB_SEC_NBR
+    description: ''
+    data_type: VARCHAR
+  - name: ITEM_ISSUE_ID
+    description: 'Unique internal Schwab security identifier. If no data is available,
+      the field will be blank.  NOTE:  This is highly unlikely to happen.'
+    data_type: VARCHAR
+  - name: ISIN
+    description: International Securities Identification Number.  A unique international
+      code which identifies a securities issue.
+    data_type: VARCHAR
+  - name: SEDOL
+    description: The Stock Exchange Daily Official List number; a code used by the
+      London Stock Exchange to identify foreign stocks.
+    data_type: VARCHAR
+  - name: OPTION_DISPLAY_SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: UNDERLYING_TICKER_SYMBOL
+    description: Ticker symbol representing a particular parent security.
+    data_type: VARCHAR
+  - name: UNDERLYING_CUSIP
+    description: CUSIP specific to the parent security.
+    data_type: VARCHAR
+  - name: UNDERLYING_SCHWAB_NBR
+    description: ''
+    data_type: VARCHAR
+  - name: UNDERLYING_ITMISSID
+    description: ''
+    data_type: VARCHAR
+  - name: UNDERLYING_ISIN
+    description: International Securities Identification Number. A unique international
+      code which identifies a parent securities issue.
+    data_type: VARCHAR
+  - name: UNDERLYING_SEDOL
+    description: The Stock Exchange Daily Official List number, a code used by the
+      London Stock Exchange to identify foreign stocks. Underlying SEDOL being specific
+      to the parent SEDOL.
+    data_type: VARCHAR
+  - name: CURRENT_QUANTITY
+    description: 'Number of shares that are open. If no data is available, the field
+      will be zero-filled.  NOTE:  This is highly unlikely to happen if the lot is
+      open.'
+    data_type: FLOAT
+  - name: LS
+    description: ''
+    data_type: VARCHAR
+  - name: CURRENT_MARKET_VALUE
+    description: Identifies a position value as of the close of the prior business
+      day.
+    data_type: FLOAT
+  - name: ACCRUED_INTEREST
+    description: ''
+    data_type: FLOAT
+  - name: COST_BASIS_UNAMORTIZED
+    description: ''
+    data_type: FLOAT
+  - name: COSTPERSHARE
+    description: ''
+    data_type: FLOAT
+  - name: ADJ_COST_BASIS_AMORTIZED
+    description: ''
+    data_type: FLOAT
+  - name: ADJ_COST_PER_SHARE
+    description: ''
+    data_type: FLOAT
+  - name: UNREALIZED_GAIN_LOSS
+    description: ''
+    data_type: FLOAT
+  - name: COST_BASIS
+    description: ''
+    data_type: VARCHAR
+  - name: CT
+    description: ''
+    data_type: VARCHAR
+  - name: AT
+    description: ''
+    data_type: VARCHAR
+  - name: CF
+    description: ''
+    data_type: VARCHAR
+  - name: ORIGINAL_FACE
+    description: The par value of a mortgage-backed security at the time it is issued.
+      If no data is available, the field will be zero-filled.
+    data_type: FLOAT
+  - name: DF_LOTT_SELECT
+    description: ''
+    data_type: VARCHAR
+  - name: CM
+    description: ''
+    data_type: VARCHAR
+  - name: PRINC_PAY_DOWN_FACTOR
+    description: ''
+    data_type: FLOAT
+  - name: MASTER_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: Time when the records were created in the source table.
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: schwab_mps_history__base_tax_lots
+  columns:
+  - name: RECORD_TYPE
+    description: Identifies whether a header, detail, or trailer record, and if a
+      detail record, what type.
+    data_type: VARCHAR
+  - name: CUSTODIAN
+    description: Custodian name, lower-case, no spaces.
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: Firm entity associated with the link value.
+    meta:
+      row_access_policy: rap_firm_source
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTODIAN_ID
+    description: Identifies Schwab as the source of the file.
+    data_type: VARCHAR
+  - name: MASTER_ACCOUNT_NUMBER
+    description: Identifies the master account number associated with creating this
+      record.
+    data_type: VARCHAR
+  - name: MASTER_ACCOUNT_NAME
+    description: Identifies the master account name associated with creating this
+      record.
+    data_type: VARCHAR
+  - name: BUSINESS_DATE
+    description: Date for which data content is current.
+    data_type: DATE
+  - name: ACCOUNT_NUMBER
+    description: End client account number at Schwab
+    data_type: VARCHAR
+  - name: PRODUCT_CODE
+    description: 'Further defines Product Category Code.   Identifies type of security:
+      FNM, FMC, COM, BMU, CDO, COM, MMS (there are several dozen)'
+    data_type: VARCHAR
+  - name: PRODUCT_CATEGORY_CODE
+    description: OBSOLETE Highest level of security classification. Identifies type
+      of security.
+    data_type: VARCHAR
+  - name: TAX_CODE
+    description: OBSOLETE Determines where security payments appear on tax forms.
+    data_type: VARCHAR
+  - name: TICKER_SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: CUSIP
+    description: CUSIP
+    data_type: VARCHAR
+  - name: SCHWAB_SECURITY_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ITEM_ISSUE_ID
+    description: 'Unique internal Schwab security identifier. If no data is available,
+      the field will be blank.  NOTE:  This is highly unlikely to happen.'
+    data_type: VARCHAR
+  - name: ISIN
+    description: International Securities Identification Number.  A unique international
+      code which identifies a securities issue.
+    data_type: VARCHAR
+  - name: SEDOL
+    description: The Stock Exchange Daily Official List number; a code used by the
+      London Stock Exchange to identify foreign stocks
+    data_type: VARCHAR
+  - name: OPTION_DISPLAY_SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: UNDERLYING_TICKER_SYMBOL
+    description: Ticker symbol representing a particular parent security.
+    data_type: VARCHAR
+  - name: UNDERLYING_CUSIP
+    description: CUSIP specific to the parent security.
+    data_type: VARCHAR
+  - name: UNDERLYING_SCHWAB_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: UNDERLYING_ITEM_ISSUE_ID
+    description: Unique internal Schwab parent security identifier.
+    data_type: VARCHAR
+  - name: UNDERLYING_ISIN
+    description: International Securities Identification Number. A unique international
+      code which identifies a parent securities issue.
+    data_type: VARCHAR
+  - name: UNDERLYING_SEDOL
+    description: The Stock Exchange Daily Official List number, a code used by the
+      London Stock Exchange to identify foreign stocks. Underlying SEDOL being specific
+      to the parent SEDOL.
+    data_type: VARCHAR
+  - name: CURRENT_QUANTITY
+    description: 'Number of shares currently open on the lot. If no data is available,
+      the field will be zero-filled.  NOTE:  This is highly unlikely to happen if
+      the lot is open.'
+    data_type: FLOAT
+  - name: LONG_SHORT_INDICATOR
+    description: 'Denotes whether shares are held long or short:
+
+      S = Short
+
+      L = Long
+
+      If no data is available, the field will be set to L.
+
+      '
+    data_type: VARCHAR
+  - name: TRANSACTION_CODE
+    description: 'Describes reason for the opening activity.
+
+      See tab \"Transaction Codes\" in this Workbook for values used exclusively in
+      the Cost Basis Data files.
+
+      See Schwab B/D Core Data Files Technical Specifications for a list of additional
+      codes in the tab \"Transaction Source Codes.\"
+
+      If no data is available, the field will be set to blank.
+
+      '
+    data_type: VARCHAR
+  - name: CURRENT_MARKET_VALUE
+    description: Identifies a position value as of the close of the prior business
+      day.
+    data_type: FLOAT
+  - name: ACCRUED_INTEREST
+    description: ''
+    data_type: FLOAT
+  - name: ACQUIRED_DATE
+    description: 'Date the security was acquired. This is generally the trade date
+      on the purchase of a stock. If Acquired Date is unavailable, this field will
+      be blank.
+
+      Use this field to match lots, not Original Purchase Date.
+
+      '
+    data_type: DATE
+  - name: ORIGINAL_PURCHASE_DATE
+    description: Field is necessary for VSP (Versus Purchase) processing. If Original
+      Purchase Date is unknown, this field will be blank. If no data is available,
+      the field will be set to blank.
+    data_type: DATE
+  - name: ORIGINAL_PURCHASE_PRICE
+    description: Field is necessary for VSP (Versus Purchase) processing.  If Original
+      Purchase Price is unknown, This field will have a zero value. If no data is
+      available, the field will be zero-filled.
+    data_type: FLOAT
+  - name: YIELD_TO_MATURITY
+    description: ''
+    data_type: FLOAT
+  - name: COST_BASIS_UNAMORTIZED
+    description: ''
+    data_type: FLOAT
+  - name: COST_PER_SHARE
+    description: ''
+    data_type: FLOAT
+  - name: ADJUSTED_COST_BASISI_AMORTIZED
+    description: ''
+    data_type: FLOAT
+  - name: ADJUSTED_COST_PER_SHARE
+    description: Adjusted Cost Per Share.  Total adjusted cost of the lot including
+      commissions and/or fees divided by the number of shares purchased.  Calculated
+      after lot has been amortized.  If no data is available (when cost basis is unknown
+      for the lot) this field will be zero-filled.
+    data_type: FLOAT
+  - name: UNREALIZED_GAIN_LOSS
+    description: ''
+    data_type: FLOAT
+  - name: DAYS_HELD
+    description: ''
+    data_type: NUMBER
+  - name: HT
+    description: ''
+    data_type: VARCHAR
+  - name: COST_BASIS_FULLY_KNOWN
+    description: 'Indicates if cost basis is fully known:
+
+      T (= True when the lot has known cost basis)
+
+      F (= False when the lot has unknown cost basis)
+
+      If no data is available, the field will be set to F.
+
+      '
+    data_type: VARCHAR
+  - name: COST_BASIS_TYPE
+    description: 'The event origin of the cost basis:
+
+      A (= Advisor ) Cost Basis provided by a financial advisor.
+
+      B (= Back Office ) Cost Basis provided by a Schwab customer rep.
+
+      E (= End Customer) Cost Basis was provided by the customer.
+
+      F (= Trade) Cost Basis provided by Schwab systems.
+
+      T (= Third party) Cost Basis provided by a third party.
+
+      U (= Unknown) Lot has unknown Cost Basis.
+
+      If no data is available, the field will be set to blank.
+
+      '
+    data_type: VARCHAR
+  - name: ACCOUNT_TAXABLE_INDICATOR
+    description: "Account Taxable Indicator indicates whether Schwab will report taxes.\n\
+      \ Y = Account is tax reportable\n N = Account is non-tax reportable\n"
+    data_type: VARCHAR
+  - name: CERTIFIED_INDICATOR
+    description: 'Indicates whether there is a full set of Cost Basis data:
+
+      Y( = Certified) Deliver cost basis and adjusted cost basis data as appropriate.
+
+      N (= Not Certified) Deliver no cost basis data.
+
+      B (= Basic Certified) Deliver cost basis data only (no adjusted cost basis).
+
+      If no data is available, the field will be blank.
+
+      '
+    data_type: VARCHAR
+  - name: ORIGINAL_FACE
+    description: The par value of a mortgage-backed security at the time it is issued.  This
+      field will have a zero value for non-fixed income securities. If no data is
+      available, the field will be zero-filled.
+    data_type: FLOAT
+  - name: ACCOUNT_LOT_SELECTION_METHOD_DEFAULT
+    description: 'Default lot selection method set for the account. Values can be
+      one of the following:
+
+      FIFO -- First In, First Out
+
+      LIFO -- Last In, First Out
+
+      HCLOT -- Highest Cost Lot
+
+      LCLOT -- Lowest Cost Lot
+
+      BTAX -- Tax Lot Optimizer
+
+      If no data is available, the field will be blank.
+
+      '
+    data_type: VARCHAR
+  - name: COST_METHOD
+    description: ''
+    data_type: VARCHAR
+  - name: DISALLOWED_LOSS_AMOUNT
+    description: ''
+    data_type: FLOAT
+  - name: TRANSACTION_COST
+    description: The cost without the effect of wash sale processing.
+    data_type: FLOAT
+  - name: TRANSACTION_COST_PER_SHARE
+    description: The cost per share based on the Transaction Cost.
+    data_type: FLOAT
+  - name: GI
+    description: ''
+    data_type: VARCHAR
+  - name: ORIGINAL_COST_BASIS
+    description: The original cost basis is the original purchase price per share
+      multiplied by the current quantity.  The original price per share has not been
+      adjusted for items such as return of capital, wash sales, or amortization and
+      accretion.  This field can be used to compare or reconcile original cost basis
+      of fixed income to original cost basis tracked in  Portfolio Management Systems.  This
+      field can be used to determine the original purchase price of any security before
+      any adjustments.  The field will not include commissions for Corporate, Municipal
+      and Agency bonds.
+    data_type: FLOAT
+  - name: ADJUSTED_COST_INCLUDED_GUNP_AMORTIZED
+    description: ''
+    data_type: FLOAT
+  - name: MASTER_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: Time when the records were created in the source table.
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: schwab_mps_history__base_accounts
+  columns:
+  - name: CUSTODIAN
+    description: Custodian name, lower-case, no spaces.
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: Firm entity associated with the link value.
+    meta:
+      row_access_policy: rap_firm_source
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: MASTER_ACCOUNT_NUMBER
+    description: Identifies the master account number associated with creating this
+      record.
+    data_type: VARCHAR
+  - name: MASTER_ACCOUNT_NAME
+    description: Identifies the master account name associated with creating this
+      record.
+    data_type: VARCHAR
+  - name: BUSINESS_DATE
+    description: Business date for this record.
+    data_type: DATE
+  - name: ACCOUNT_NUMBER
+    description: End-client account number at Schwab.
+    data_type: VARCHAR
+  - name: ACCOUNT_TITLE_LINE_1
+    description: Account title used for account registration.
+    data_type: VARCHAR
+  - name: ACCOUNT_TITLE_LINE_2
+    description: Account title used for account registration.
+    data_type: VARCHAR
+  - name: ACCOUNT_TITLE_LINE_3
+    description: Account title used for account registration.
+    data_type: VARCHAR
+  - name: ACCOUNT_STATUS
+    description: 'Indicates the status of the account
+
+      O = Open
+
+      C = Closed
+
+      I = Inactive
+
+      '
+    data_type: VARCHAR
+  - name: ACCOUNT_REGISTRATION
+    description: Registration at Schwab. For a full list of codes and definitions
+      see the tab "Account Registration Codes."
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE
+    description: Type of account at Schwab. For a full list of codes and definitions
+      see the tab "Account Type Codes."
+    data_type: VARCHAR
+  - name: TAX_PAYER_TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: TAX_PAYER_FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: TAX_PAYER_MIDDLE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: TAX_PAYER_LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: TAX_PAYER_SUFFIX
+    description: ''
+    data_type: VARCHAR
+  - name: TAX_WITHHOLD_CODE
+    description: Indicates the account tax code for reporting purposes
+    data_type: VARCHAR
+  - name: PRIMARY_CONTACT
+    description: Indicates the primary end-client contact for the account
+    data_type: VARCHAR
+  - name: ALIAS_NAME
+    description: Applicable only if additional names apply
+    data_type: VARCHAR
+  - name: MAILING_ADDRESS_LINE_1
+    description: Concatenate mailing address lines 1-3 for complete address
+    data_type: VARCHAR
+  - name: MAILING_ADDRESS_LINE_2
+    description: Concatenate mailing address lines 1-3 for complete address
+    data_type: VARCHAR
+  - name: MAILING_ADDRESS_LINE_3
+    description: Concatenate mailing address lines 1-3 for complete address
+    data_type: VARCHAR
+  - name: ACCOUNT_MAILING_CITY
+    description: City of the Account's mailing address
+    data_type: VARCHAR
+  - name: ACCOUNT_MAILING_STATE
+    description: State of the Account's mailing address
+    data_type: VARCHAR
+  - name: ACCOUNT_MAILING_ZIP
+    description: Zip Code (9 for US, up to 10 for foreign) of the Account's Mailing
+      Address
+    data_type: VARCHAR
+  - name: ACCOUNT_MAILING_COUNTRY_CODE
+    description: Country Code of the primary account holder
+    data_type: VARCHAR
+  - name: EMAIL_ADDRESS
+    description: Email Address of the Primary Contact.
+    data_type: VARCHAR
+  - name: PHONE
+    description: Client Telephone
+    data_type: VARCHAR
+  - name: BUSINESS_PHONE
+    description: Business Telephone
+    data_type: VARCHAR
+  - name: DATE_OPENED
+    description: ''
+    data_type: DATE
+  - name: SCHWAB_BRANCH_CODE
+    description: Schwab Branch Code
+    data_type: VARCHAR
+  - name: SWEEP_STATUS_CODE
+    description: 1 for New, 2 for Auto Transfer, 3 for Manual Transfer, 4 for Close
+      Pending (CLP) and 5 for closed.  TEF is an exception with codes of E, T, W,
+      H, and K, respectively.
+    data_type: VARCHAR
+  - name: ACCOUNT_CASH_INSTRUCTIONS_CASH
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CASH_INSTRUCTIONS_MARGIN
+    description: ''
+    data_type: VARCHAR
+  - name: MARGIN_ACCOUNT_INDICATOR
+    description: Set to yes when the account has the margin feature, otherwise no
+    data_type: VARCHAR
+  - name: ACCOUNT_RESTRICTIONS
+    description: 'Obsolete field. Use Restriction Reason Code fields below.
+
+      A = Abandoned Account
+
+      B = Blocked account due to Exception Reg.
+
+      C = Cash & Stock Up Front
+
+      D = Required Documents or Information Missing
+
+      L = Liquidations Only
+
+      M = Mail Undeliverable
+
+      P = No Activity Pending Receipt of Documentation
+
+      S = Student - Cash & Stock Up Front
+
+      T = Outgoing Transfer of Account in Progress
+
+      U = Unemployed - Cash & Stock Up Front
+
+      X = Closed per Internal Schwab Request
+
+      Z = Closed per Customer Request
+
+      '
+    data_type: VARCHAR
+  - name: ADDITIONAL_MAILING
+    description: ''
+    data_type: VARCHAR
+  - name: NUMBER_OF_ADDITIONAL_MAILINGS
+    description: Identifies how many mailings are being sent to a 3rd party
+    data_type: NUMBER
+  - name: APPROVED_OPTION_LEVEL
+    description: '0 = Covered Options
+
+      1 = Purchasing Options
+
+      2 = Creating Spreads
+
+      3 = Uncovered Option Writing
+
+      '
+    data_type: NUMBER
+  - name: BENEFICIARY_ON_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: NUMBER_OF_BENEFICIARIES
+    description: Identifies how many beneficiaries are on the account. Does not include
+      contingent beneficiaries. Primary beneficiaries only.
+    data_type: NUMBER
+  - name: PAYMENT_FEATURES_CHECKS
+    description: Set to yes when the account has checks issued on the account, otherwise
+      no
+    data_type: VARCHAR
+  - name: PAYMENT_FEATURE_DEBIT_CARD
+    description: ''
+    data_type: VARCHAR
+  - name: PAYMENT_FEATURES_BILL_PAY
+    description: Set to yes when the account has billpay activated on the account,
+      otherwise no
+    data_type: VARCHAR
+  - name: UNDELIVERABLE_MAIL_FLAG
+    description: Set to yes when the account has an 'M' restriction, otherwise no
+    data_type: VARCHAR
+  - name: FA_FEE_STATUS
+    description: Indicates if client has given fee payment authorization to FA.
+    data_type: VARCHAR
+  - name: INTEREST_BEARING_FEATURE_CODE
+    description: 'Identifies the unique interest bearing value on the account depending
+      on the interest bearing feature
+
+      BKOMS-Bank Sweep
+
+      S1INT-Schwab One Interest
+
+      SWEEP-Money Market Sweep fund
+
+      '
+    data_type: VARCHAR
+  - name: INTEREST_BERAING_FEATURE_MONEY_MARKET_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: INTEREST_BEARING_FEATURE_TICKER_SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: INTEREST_BEARING_FEATURE_ITEM_ISSUE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: INTEREST_BEARING_FEATURE_RULE_SET_SUFFIX
+    description: ''
+    data_type: VARCHAR
+  - name: PROXY_VOTING_AUTHORITY
+    description: Indicates who will receive the proxy voting ballot - currently in
+      Client Preferences application D, M, A
+    data_type: VARCHAR
+  - name: PROXY_MAILING
+    description: Indicates if duplicate copy is mailed to client, IA, or neither.
+      D, M, A, S, N
+    data_type: VARCHAR
+  - name: STATEMENT_PREFERENCES
+    description: Displays the current statement type for the account. TTST, CMPT
+    data_type: VARCHAR
+  - name: ACCOUNT_TAXABLE_INDICATOR
+    description: "Account Taxable Indicator indicates whether Schwab will report taxes.\n\
+      \ Y = Account is tax reportable\n N = Account is non-tax reportable\n"
+    data_type: VARCHAR
+  - name: DEFAULT_LOT_SELECTION_METHOD
+    description: 'Default account level lot selection method:
+
+      FIFO -- First In, First Out
+
+      LIFO -- Last In, First Out
+
+      HCLOT -- Highest Cost Lot
+
+      LCLOT -- Lowest Cost Lot
+
+      BTAX -- Tax Lot Optimizer.
+
+      '
+    data_type: VARCHAR
+  - name: COST_METHOD
+    description: 'Default account level cost method
+
+      A = Average
+
+      I = Identified
+
+      M = Mixed
+
+      Blank = unknown
+
+      The value of Mixed results in Mutual Funds set as Average and all other securities
+      set as Identified.
+
+      '
+    data_type: VARCHAR
+  - name: COST_BASIS_METHOD_FOR_MUTUAL_FUNDS
+    description: 'Default accounting method for mutual funds held in the account.
+
+      FIFO = first in, first out
+
+      LIFO = last in, first out
+
+      HCLOT = high cost
+
+      LCLOT = low cost
+
+      BTAX = Tax Lot Optimizer
+
+      AVG = Average
+
+      '
+    data_type: VARCHAR
+  - name: COST_BASIS_METHOD_NON_MUTUAL_FUNDS
+    description: 'Default accounting method for securities other than mutual funds
+      in the account.
+
+      FIFO = first in, first out
+
+      LIFO = last in, first out
+
+      HCLOT = high cost
+
+      LCLOT = low cost
+
+      BTAX = Tax Lot Optimizer
+
+      '
+    data_type: VARCHAR
+  - name: COST_BASIS_METHOD_DATE
+    description: Effective date for Cost Basis Method
+    data_type: DATE
+  - name: CUSTOMER_TYPE
+    description: 'Shows whether the customer is an individual person, a trust, or
+      an organization. Possible values are "IND" (an individual person)
+
+      "TRUST" (a trust)
+
+      "ORG" (an organization, e.g. corporation)
+
+      '
+    data_type: VARCHAR
+  - name: ORGANIZATION_PRIMARY_NAME
+    description: 'If Customer Type is a trust or organization ("TRUST" or "ORG" )
+      then this field will be populated with the name of the trust or organization
+      associated with the account. If Customer Type is an individual person (IND)
+      then this field will be blank (spaces.)
+
+      '
+    data_type: VARCHAR
+  - name: RESTRICTION_REASON_CODE_1
+    description: Indicates which restrictions apply to the account. May be blank (spaces).
+    data_type: VARCHAR
+  - name: RESTRICTION_REASON_CODE_2
+    description: Indicates which restrictions apply to the account. May be blank (spaces).
+    data_type: VARCHAR
+  - name: RESTRICTION_REASON_CODE_3
+    description: Indicates which restrictions apply to the account. May be blank (spaces).
+    data_type: VARCHAR
+  - name: RESTRICTION_REASON_CODE_4
+    description: Indicates which restrictions apply to the account. May be blank (spaces).
+    data_type: VARCHAR
+  - name: RESTRICTION_REASON_CODE_5
+    description: Indicates which restrictions apply to the account. May be blank (spaces).
+    data_type: VARCHAR
+  - name: SCHCWAB_BANK_INVESTOR_CHECKING_ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: SSN_TIN
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: PRIME_BROKER_ENABLED_INDICATOR
+    description: "Indicates whether the account is enabled for Prime Broker trading.\n\
+      \ Y = Account is enabled for Prime Broker Trading\n N = Account is not enabled\
+      \ for Prime Broker trading\n"
+    data_type: VARCHAR
+  - name: MANAGED_ACCOUNT_PLATFORM_CODE
+    description: 'Identifies the Schwab Managed Account Platform. May be blank.
+
+      ACC = Managed Account Access
+
+      MAA = Managed Account Connection (formerly Affiliates)
+
+      MAM = Managed Account Marketplace
+
+      MAS = Managed Account Select
+
+      SMPF = Schwab Managed Portfolios - Mutual Funds
+
+      SMPS = Schwab Managed Portfolios - ETFs
+
+      '
+    data_type: VARCHAR
+  - name: MANAGED_ACCOUNT_MONEY_MANAGER
+    description: Identifies the Schwab Managed Account Money Manager. May be blank.
+    data_type: VARCHAR
+  - name: MANAGED_ACCOUNT_INVESTMENT_STRATEGY
+    description: Identifies the Schwab Managed Account Investment Strategy. May be
+      blank.
+    data_type: VARCHAR
+  - name: BANK_SWEEP_DISPLAY_NAME
+    description: If the Interest Bearing Feature Code at offset 923-927  is 'BKOMS'
+      then this field provides the full name of the bank sweep feature as displayed
+      on other client-facing channels. If the Interest Bearing Feature Code is not
+      'BKOMS' then this field will be blank [space-filled].
+    data_type: VARCHAR
+  - name: MASTER_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: IS_DECEASED
+    description: Is this a master/link designated for deceased clients.
+    data_type: NUMBER
+  - name: IS_FROM_TDA_MIGRATION
+    description: Is the Schwab master (link) related to the TDA migration in September
+      2023.
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: Time when the records were created in the source table.
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: schwab_mps_history__base_rps_cash
+  columns:
+  - name: CUSTODIAN
+    description: Custodian name, lower-case, no spaces.
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: Firm entity associated with the link value.
+    meta:
+      row_access_policy: rap_firm_source
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE
+    description: Identifies the record type (Header, Detail, Trailer) & Count (D1,
+      D2)
+    data_type: VARCHAR
+  - name: CUSTODIAN_ID
+    description: Custodian ID
+    data_type: VARCHAR
+  - name: MASTER_ACCOUNT_NUMBER
+    description: Identifies the Master Account Number.
+    data_type: VARCHAR
+  - name: MASTER_ACCOUNT_NAME
+    description: Identifies the Master Account by Name.
+    data_type: VARCHAR
+  - name: BUSINESS_DATE
+    description: Business date for this transaction
+    data_type: DATE
+  - name: ACCOUNT_NUMBER
+    description: End-client account number at Schwab.
+    data_type: VARCHAR
+  - name: ACCOUNT_TITLE_LINE_1
+    description: May contain name, company or trust information, depending on account
+      type.
+    data_type: VARCHAR
+  - name: ACCOUNT_TITLE_LINE_2
+    description: May contain name, company or trust information, depending on account
+      type.
+    data_type: VARCHAR
+  - name: ACCOUNT_TITLE_LINE_3
+    description: May contain name, company or trust information, depending on account
+      type.
+    data_type: VARCHAR
+  - name: ACCOUNT_REGISTRATION
+    description: Registration at Schwab (Testamentary Trust, Living Trust, etc.) FEE,
+      HOLD, JT, SIMPL, I401K, OMNI
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE
+    description: Type of account (Brokerage, Schwab One, IRA, etc.) SCHWAB ONE, QUALIFIED
+      RETIREMENT PLAN, BROKERAGE
+    data_type: VARCHAR
+  - name: NET_CREDIT_DEBIT
+    description: ''
+    data_type: NUMBER
+  - name: MARGIN_BALANCE
+    description: ''
+    data_type: NUMBER
+  - name: AVAILABLE_TO_PAY
+    description: ''
+    data_type: NUMBER
+  - name: MARGIN_BUYING_POWER
+    description: The maximum value of additional marginable securities that may be
+      invested in, without deposit in equity in the margin account. Equivalent to
+      SchwabLink "Cash05"
+    data_type: NUMBER
+  - name: MONEY_MARKET_FUNDS
+    description: ''
+    data_type: NUMBER
+  - name: MTD_MARGIN_INTEREST
+    description: Indicates the amount of interest that has accrued on the margin debit
+      from the beginning of the interest period based on settled amount. Equivalent
+      to SchwabLink "Cash09"
+    data_type: NUMBER
+  - name: DAILY_MARGIN_INTEREST
+    description: The amount of margin interest accrued in the account today based
+      on the previous business days debit balance based on settled amount. Equivalent
+      to SchwabLink "Cash10"
+    data_type: NUMBER
+  - name: EQUITY_EXCLUDING_OPTIONS
+    description: The dollar value of securities in the margin account less any amount
+      owed to Schwab plus any cash in the margin account. Equivalent to SchwabLink
+      "Cash11"
+    data_type: NUMBER
+  - name: EQUITY_PERCENTAGE
+    description: The equity in the margin account divided by the market value of positions
+      held. Equivalent to SchwabLink "Cash12"
+    data_type: NUMBER
+  - name: MARKET_VALUE_LONG
+    description: The market value of security positions held in the margin account,
+      excluding options and non-marginable securities. Equivalent to SchwabLink "Cash13"
+    data_type: NUMBER
+  - name: MARKET_VALUE_SHORT
+    description: Total market value of all securities excluding options held short.
+      Equivalent to SchwabLink "Cash14"
+    data_type: NUMBER
+  - name: EQUITY_INCLUDING_OPTIONS
+    description: The dollar value of securities in the margin account less any amount
+      owed to Schwab plus any cash in the margin account. Margin Equity + Margin Option
+      MVL + Margin Option MVS. Equivalent to SchwabLink "Cash15"
+    data_type: NUMBER
+  - name: OPTION_REQUIREMENTS
+    description: Total equity requirement to maintain the current option position.
+      Do not use (always zero). Equivalent to SchwabLink "Cash16"
+    data_type: NUMBER
+  - name: MONTH_END_DIVIDEND_PAYOUT
+    description: Total dividends to be mailed out at the end of the month. Equivalent
+      to SchwabLink "Cash17"
+    data_type: NUMBER
+  - name: MAINTENANCE_CALL
+    description: Total amount required to maintain the account at Schwabs minimum
+      equity level. Equivalent to Schwablink "Cash18"
+    data_type: NUMBER
+  - name: MARKET_VALUE_CASH_ACCOUNT_EXCLUDING_OPTIONS
+    description: ''
+    data_type: NUMBER
+  - name: NET_MARKET_VALUE_POSITIONS_ONLY
+    description: Net (long minus short) market value of all securities (including
+      options) held in both the Cash Account and the Margin Account. Equivalent to
+      PCRA Cash19.
+    data_type: NUMBER
+  - name: NET_MARKET_VALUE_POSITIONS_PLUS_CASH_AND_MONEY_MARKET
+    description: Equal to "Net Market Value (Positions Only)" above, plus uninvested
+      cash and sweep money market. Equivalent to PCRA Cash20.
+    data_type: NUMBER
+  - name: CASH_BALANCE_SETTLED_ONLY
+    description: Amount or value of cash in the Cash accounting pool. Settled only.
+    data_type: NUMBER
+  - name: CASH_MARGIN_BALANCE_SETTLED
+    description: ''
+    data_type: NUMBER
+  - name: BANK_SWEEP_INTEREST_BEARING_FEATURE
+    description: Dollar amount of the bank sweep IBF. For accounts with the bank sweep
+      IBF, subtract this value from 'Net Credit or Debit  Settled & Unsettled' to
+      get uninvested cash.
+    data_type: NUMBER
+  - name: MASTER_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: Time when the records were created in the source table.
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: schwab_mps_history__base_master_account_relationships
+  columns:
+  - name: CUSTODIAN
+    description: Custodian name, lower-case, no spaces.
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: Firm entity associated with the link value.
+    meta:
+      row_access_policy: rap_firm_source
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: FA_MASTER_ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: FA_MASTER_ACCOUNT_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: FA_REP_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TAX_ID_NUMBER
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: MASTER_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: RN
+    description: ''
+    data_type: NUMBER
+  - name: RN_FIRM_SOURCE
+    description: ''
+    data_type: NUMBER
+  - name: RN_GLOBAL
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _SOURCE_LOADED_AT
+    description: Time when the records were created in the source table.
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: _MD5
+    description: ''
+    data_type: VARCHAR
+- name: schwab_mps_history__base_sec_securities
+  columns:
+  - name: CUSTODIAN
+    description: Custodian name, lower-case, no spaces.
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: Firm entity associated with the link value.
+    meta:
+      row_access_policy: rap_firm_source
+    data_type: VARCHAR
+  - name: FIRM
+    description: ''
+    data_type: VARCHAR
+  - name: RECORD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTODIAN_ID
+    description: ''
+    data_type: VARCHAR
+  - name: MASTER_ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: MASTER_ACCOUNT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: BUSINESS_DATE
+    description: ''
+    data_type: DATE
+  - name: PRODUCT_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_CATEGORY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: TAX_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: LEGACY_SECURITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: TICKER_SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: INDUSTRY_TICKER_SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: SCHWAB_SEC_NBR
+    description: ''
+    data_type: VARCHAR
+  - name: REORG_SEC_NBR
+    description: ''
+    data_type: VARCHAR
+  - name: ITEM_ISSUE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: RULE_SET_SUFFIX
+    description: ''
+    data_type: VARCHAR
+  - name: ISIN
+    description: ''
+    data_type: VARCHAR
+  - name: SEDOL
+    description: ''
+    data_type: VARCHAR
+  - name: OPTIONS_DISPLAY_SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_3
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION_LINE_4
+    description: ''
+    data_type: VARCHAR
+  - name: UNDERLYING_TICKER_SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: UNDERLYING_INDUSTRY_TICKER_SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: UNDERLYING_CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: UNDERLYING_SCHWAB_SECURITY_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: UNDERLYING_ITEM_ISSUE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: UNDERLYING_RULE_SET_SUFFIX_ID
+    description: ''
+    data_type: VARCHAR
+  - name: UNDERLYING_ISIN
+    description: ''
+    data_type: VARCHAR
+  - name: UNDERLYING_SEDOL
+    description: ''
+    data_type: VARCHAR
+  - name: MONEY_MARKET_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_UPDATE_DATE
+    description: ''
+    data_type: DATE
+  - name: SWEEP_FUND_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: CLOSING_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: SECURITY_PRICE_UPDATE_DATE
+    description: ''
+    data_type: DATE
+  - name: SECURITY_VALUATION_UNIT
+    description: ''
+    data_type: NUMBER
+  - name: OPTION_ROOT_SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_EXPIRATION_DATE
+    description: ''
+    data_type: DATE
+  - name: OPTION_CALL_OR_PUT_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: STRIKE_PRICE
+    description: ''
+    data_type: NUMBER
+  - name: INTEREST_RATE
+    description: ''
+    data_type: NUMBER
+  - name: MATURITY_DATE
+    description: ''
+    data_type: DATE
+  - name: TIPS_FACTOR
+    description: ''
+    data_type: NUMBER
+  - name: ASSET_BACKED_FACTOR
+    description: ''
+    data_type: NUMBER
+  - name: FACE_VALUE_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: ISSUER_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: VERSMRKR_1
+    description: ''
+    data_type: VARCHAR
+  - name: SCHWAB_PROPIETARY_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: SCHWAB_ONE_SOURCE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: VERSMRKR_2
+    description: ''
+    data_type: VARCHAR
+  - name: CLOSING_PRICE_UNFACTORED
+    description: ''
+    data_type: NUMBER
+  - name: FACTOR
+    description: ''
+    data_type: NUMBER
+  - name: FACTOR_DATE
+    description: ''
+    data_type: DATE
+  - name: MASTER_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: _SOURCE_LOADED_AT
+    description: Time when the records were created in the source table.
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR

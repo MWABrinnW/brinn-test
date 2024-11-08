@@ -1,0 +1,139 @@
+version: 2
+models:
+- name: legacy__vw_employees
+  columns:
+  - name: EMPLOYEE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LEGAL_NAME_FIRST
+    description: ''
+    data_type: VARCHAR
+  - name: LEGAL_NAME_MIDDLE
+    description: ''
+    data_type: VARCHAR
+  - name: LEGAL_NAME_LAST
+    description: ''
+    data_type: VARCHAR
+  - name: LEGAL_NAME_SUFFIX
+    description: ''
+    data_type: VARCHAR
+  - name: LEGAL_NAME_FULL
+    description: ''
+    data_type: VARCHAR
+  - name: PREFERRED_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: BIRTH_DATE_MASKED
+    description: ''
+    data_type: DATE
+  - name: BIRTH_DATE
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
+    data_type: VARCHAR
+  - name: BIRTH_MONTH
+    description: ''
+    data_type: VARCHAR
+  - name: WORK_EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: WORK_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: WORK_CELL_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: WORK_SITE_ADDRESS_LINE1
+    description: ''
+    data_type: VARCHAR
+  - name: WORK_SITE_ADDRESS_LINE2
+    description: ''
+    data_type: VARCHAR
+  - name: WORK_SITE_ADDRESS_LINE3
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYMENT_STATUS
+    description: '"Active" or "Terminated"'
+    data_type: VARCHAR
+  - name: TITLE
+    description: ''
+    data_type: VARCHAR
+  - name: JOB_FUNCTION_CODE
+    description: System ID or code for the primary job function of the associate
+    data_type: VARCHAR
+  - name: POSITION_CLASS
+    description: ''
+    data_type: VARCHAR
+  - name: ADVISOR_NONADVISOR
+    description: Indicates if this associate is in an advisor or non-advisor role
+      Added to HCM field list on 5/24/2024
+    data_type: VARCHAR
+  - name: WORKER_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: COMPANY_CODE
+    description: ''
+    data_type: VARIANT
+  - name: MANAGER_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: MANAGER_POSITION_ID
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_REGION_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_MARKET_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: POSITION_DEPARTMENT_NAME
+    description: Org Office or Department Name
+    data_type: VARCHAR
+  - name: WORK_SITE_LOCATION_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: WORK_SITE_ADDRESS_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: WORK_SITE_ADDRESS_STATE_ABB
+    description: ''
+    data_type: VARCHAR
+  - name: WORK_SITE_ADDRESS_ZIP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: LOCATION_CODE
+    description: Mariner Location ID for the location (ex. 100, L-10015)
+    data_type: VARCHAR
+  - name: COST_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: REPORTING_OFFICE
+    description: ''
+    data_type: VARCHAR
+  - name: ORIGINAL_HIRE_DATE
+    description: ''
+    data_type: DATE
+  - name: SENIORITY_HIRE_DATE
+    description: ''
+    data_type: DATE
+  - name: REHIRE_DATE
+    description: ''
+    data_type: DATE
+  - name: FINAL_TERMINATION_DATE
+    description: ''
+    data_type: DATE
+  - name: ADP_LAST_UPDATE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: DATA_LAST_REFRESHED_DATE
+    description: ''
+    data_type: DATE
+  - name: ACCOUNTING_ID
+    description: Great Plains accounting/cost code (ex. 1104, 7704, 8804),
+    data_type: VARCHAR
+  - name: SOURCE
+    description: ''
+    data_type: VARCHAR

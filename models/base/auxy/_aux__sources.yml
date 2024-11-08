@@ -6,7 +6,6 @@ sources:
       The sources represent auxillary source systems and files,
       Typically resulting in the use of Box or Smartsheets files used for mapping or as supplemntary data not available elsewhere."
     database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
-
     tables:
       - name: locations
         tags: ['locations']
@@ -14,41 +13,535 @@ sources:
           Primary purpose for this table is to assign a Mariner Location ID to each Mariner Location.
           That ID/name is used throughout a number of systems (ex. Great Plains, ADP, Salesforce, Enterprise Reporting, etc).
           The Location Master is also where the the hierarchy of Region/Market/Location is kept, along with other ancillary levels (Division, Legal, and Tax hierarchy) will be found.
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: employee_overrides
         tags: ['employees']
         description: >
           "Employee record value overrides and manual entries (box file id: 1085269023169)."
           Used by the HR team to make modification to employee records before they appear in the EDW.
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
       - name: integration_roadmap
         description: This smartsheets file is maintained by the platforms team and details the roadmap for various location Orion integration activities.
+        columns:
+          - name: ACQUISITION NAME
+            description: ''
+            data_type: VARCHAR
+          - name: INTEGRATION MILESTONE
+            description: ''
+            data_type: VARCHAR
+          - name: STANDARD APPROACH
+            description: ''
+            data_type: VARCHAR
+          - name: STRATEGY
+            description: ''
+            data_type: VARCHAR
+          - name: STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: TARGET START
+            description: ''
+            data_type: VARCHAR
+          - name: TARGET END
+            description: ''
+            data_type: VARCHAR
+          - name: LOE
+            description: ''
+            data_type: VARCHAR
+          - name: RISK
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESS PRIORITY/RATIONALE
+            description: ''
+            data_type: VARCHAR
+          - name: ESS AND OPS TEAMS NEEDED FOR PROJECT
+            description: ''
+            data_type: VARCHAR
+          - name: ESS & OPS TEAM RESOURCE NAMES (HEAVY SUPPORT)
+            description: ''
+            data_type: VARCHAR
+          - name: ESS & OPS RESOURCE NAMES (LIGHT SUPPORT)
+            description: ''
+            data_type: VARCHAR
+          - name: HEALTH
+            description: ''
+            data_type: VARCHAR
+          - name: ALERTED HEALTH REASON
+            description: ''
+            data_type: VARCHAR
+          - name: ADDITIONAL HEALTH COMMENTS
+            description: ''
+            data_type: VARCHAR
+          - name: LINKS TO ADD'L DETAIL (IF APPLICABLE)
+            description: ''
+            data_type: VARCHAR
+          - name: LEGACY SYSTEM (IF APPLICABLE)
+            description: ''
+            data_type: VARCHAR
+          - name: LEGACY SYSTEM CONTRACT TERM DATE (IF APPLICABLE)
+            description: ''
+            data_type: VARCHAR
+          - name: OWNER
+            description: ''
+            data_type: VARCHAR
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: executive_wealth_account_data
         description: Supplemental data for Executive Wealth accounts that doesn't exist in Morningstar.
+        columns:
+          - name: FINANCIAL_ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: FINANCIAL_ACCOUNT_NUMBER_CLEAN
+            description: ''
+            data_type: VARCHAR
+          - name: INTERNAL_FINANCIAL_ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: INTERNAL_HOUSEHOLD_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: REGISTRANT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: FINANCIAL_ACCOUNT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOUSEHOLD_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: LOCATION_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: LOCATION_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: TYPE_OF_ACCOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTODIAN
+            description: ''
+            data_type: VARCHAR
+          - name: SOURCE_SYSTEM_CUSTODIAN
+            description: ''
+            data_type: VARCHAR
+          - name: VERIFIED_CUSTODIAN
+            description: ''
+            data_type: VARCHAR
+          - name: MODEL_INVESTMENT_STRATEGY
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_MANAGER
+            description: ''
+            data_type: VARCHAR
+          - name: SOURCE_SYSTEM_CLIENT_MANAGER
+            description: ''
+            data_type: VARCHAR
+          - name: PRIMARY_CLIENT_MANAGER
+            description: ''
+            data_type: VARCHAR
+          - name: FEE_SCHEDULE
+            description: ''
+            data_type: VARCHAR
+          - name: ERISA
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_ACTIVE
+            description: ''
+            data_type: VARCHAR
+          - name: AUM_CLASSIFICATION_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: DISCRETION_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: PROXY_VOTING_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: COST_BASIS_DISPOSAL_METHOD
+            description: ''
+            data_type: VARCHAR
+          - name: PRIME_BROKER_ENABLED
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_OPEN_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: CLOSED_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: AS_OF_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: AUM_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: UPDATE_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: NOTES
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
       - name: hfw_acct_data
         description: Supplemental data for HFW accounts that doesn't exist in Morningstar or TPG.
+        columns:
+          - name: FINANCIAL_ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: FINANCIAL_ACCOUNT_NUMBER_CLEAN
+            description: ''
+            data_type: VARCHAR
+          - name: INTERNAL_FINANCIAL_ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: INTERNAL_HOUSEHOLD_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: REGISTRANT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: FINANCIAL_ACCOUNT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOUSEHOLD_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: LOCATION_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: LOCATION_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: TYPE_OF_ACCOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTODIAN
+            description: ''
+            data_type: VARCHAR
+          - name: SOURCE_SYSTEM_CUSTODIAN
+            description: ''
+            data_type: VARCHAR
+          - name: VERIFIED_CUSTODIAN
+            description: ''
+            data_type: VARCHAR
+          - name: MODEL_INVESTMENT_STRATEGY
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_MANAGER
+            description: ''
+            data_type: VARCHAR
+          - name: SOURCE_SYSTEM_CLIENT_MANAGER
+            description: ''
+            data_type: VARCHAR
+          - name: PRIMARY_CLIENT_MANAGER
+            description: ''
+            data_type: VARCHAR
+          - name: FEE_SCHEDULE
+            description: ''
+            data_type: VARCHAR
+          - name: ERISA
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_ACTIVE
+            description: ''
+            data_type: VARCHAR
+          - name: AUM_CLASSIFICATION_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: DISCRETION_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: PROXY_VOTING_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: COST_BASIS_DISPOSAL_METHOD
+            description: ''
+            data_type: VARCHAR
+          - name: PRIME_BROKER_ENABLED
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_OPEN_DATE
+            description: ''
+            data_type: DATE
+          - name: CLOSED_DATE
+            description: ''
+            data_type: DATE
+          - name: SYSTEM_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: UPDATE_DATE
+            description: ''
+            data_type: DATE
+          - name: NOTES
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
       - name: hfw_tpg_mstar_overlap
         description: Supplemental mapping for HFW accounts that exist in both Morningstar and TPG.
+        columns:
+          - name: CLIENT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: TPG_ID_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: MORNINGSTAR_ACCT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: MORNINGSTAR_ACCOUNT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
       - name: custodian_codes_master_list
         description: "Custodian codes master list meant to catalog custodian masters/gnumbers/rep codes/etc (box file id: 490214713493)."
-
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
       - name: vault
         description: Collection of various files and sources stored as json for schema on read.
 
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: NAME
+            description: ''
+            data_type: VARCHAR
+          - name: FILE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: custodian_links
         description: "Custodian links master list (box file id: 1255316443171)."
-
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
       - name: tda_account_mappings
         description: TDA account to Schwab account number mappings from the TDA to Schwab merger.
+        columns:
+          - name: SCHWAB_ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: TDA_ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_REGISTRATION
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: NUMBER
+          - name: FIRM_SOURCE
+            description: ''
+            data_type: VARCHAR
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: lifi_exclusions
         description: Accounts that we want to exclude from daily LIFI updates.
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
       - name: custodian_mappings
         tags: ['custodian', 'custodial']
         description: "[Mapping file](https://marinerholdingsllc.app.box.com/file/1310490455898) used to resolve custodian codes to the custodian definition and normalize to a Mariner value."
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
       - name: referral_fees_san_adjustments
         description: Adjustment records for Schwab referral fees.
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
       - name: referral_fees_lock_dates
         description: Instructions for which date to use for the final referral fees files. Only related to SAN2 right now.
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
       - name: rev_black_diamond_mcgervey
         description: revenue records for the black diamond mcgervey pms instance.
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: NUMBER
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
       - name: financials_fee_type
-        tags: ["financials","billing"]
-        description: Reference data for mapping revenue category and billing frequency based on fee type 
+        tags: ["financials", "billing"]
+        description: Reference data for mapping revenue category and billing frequency based on fee type
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER

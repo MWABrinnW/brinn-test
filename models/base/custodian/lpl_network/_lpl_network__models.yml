@@ -1,0 +1,1429 @@
+version: 2
+models:
+- name: lpl_network__base_accounts
+  columns:
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: SUBSCRIBER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: SPONSOR_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SPONSOR_ACCOUNT_NO
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CLASS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: INSTITUTION_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: REP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: REP_SSN
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: REP_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SUBSCRIBER_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FIS_BRANCH_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIS_BRANCH_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_SSN_TIN
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: ACCOUNT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTRATION_LINE_1
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTRATIONCITY
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTRATIONSTATE
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTRATIONZIPCODE
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTRATIONCOUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: OPEN_DATE
+    description: ''
+    data_type: DATE
+  - name: CLOSE_DATE
+    description: ''
+    data_type: DATE
+  - name: DDANO
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTRATION_LINE_2
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTRATION_LINE_3
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTRATION_LINE_4
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTRATION_LINE_5
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTRATION_LINE_6
+    description: ''
+    data_type: VARCHAR
+  - name: REGISTRATION_LINE_7
+    description: ''
+    data_type: VARCHAR
+  - name: HOME_PHONE_NO
+    description: ''
+    data_type: NUMBER
+  - name: BUSINESS_PHONE_NO
+    description: ''
+    data_type: NUMBER
+  - name: FAX_NO
+    description: ''
+    data_type: NUMBER
+  - name: MOBILE_PHONE_NO
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: FEE_SCHEDULE
+    description: ''
+    data_type: VARCHAR
+  - name: OPEN_NOTIFICATION_COUNT
+    description: ''
+    data_type: NUMBER
+  - name: BOOKS_AND_RECORD_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NICKNAME
+    description: ''
+    data_type: VARCHAR
+  - name: SECONDARY_REP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: REFERRAL_REP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_MARKET_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: NETWORKED_ACCOUNT_MARKET_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_LOCATION_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_SOCIAL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: INVESTMENT_OBJECTIVE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ANNUAL_INCOME_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: NETWORTH_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: LIQUID_NETWORTH_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: APPROXIMATE_ACCOUNT_VALUE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PROCEEDS_INSTRUCTIONS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_INSTRUCTION_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: DIVIDENDS_INSTRUCTION_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: DIVIDEN_REINVEST_INSTRUCTION_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_COST_BASIS_ON_STATEMENTS
+    description: ''
+    data_type: NUMBER
+  - name: W9_STATUS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: OPTION_LEVEL_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: OLD_ACCOUNT_NO
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_MODIFIED_DATE
+    description: ''
+    data_type: DATE
+  - name: COMMISSION_ACCOUNT_NO
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_ISSSN
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: SPONSOR_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: IS_SUPPRESSED
+    description: ''
+    data_type: NUMBER
+  - name: ERISA
+    description: ''
+    data_type: VARCHAR
+  - name: TIME_HORIZON
+    description: ''
+    data_type: VARCHAR
+  - name: INSTITUTION_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYEE_CLASS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_CLASSIFICATION_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MARKETING_OPT_OUT
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+  - name: VALUATIONDATE
+    description: ''
+    data_type: DATE
+- name: lpl_network__base_account_participants
+  columns:
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: SUBSCRIBER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: NUMBER
+  - name: REP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: MIDDLE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SSN_TIN
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: BIRTH_DATE
+    description: ''
+    data_type: DATE
+    meta:
+      masking_policy: mp_client_pii_date
+  - name: ACCOUNT_ROLE
+    description: ''
+    data_type: VARCHAR
+  - name: ID_NO
+    description: ''
+    data_type: VARCHAR
+  - name: ID_PLACE_OF_ISSUE
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: IS_EMPLOYEE_INDUSTRY_AFFILILATION
+    description: ''
+    data_type: NUMBER
+  - name: EMPLOYER_INDUSTRY
+    description: ''
+    data_type: VARCHAR
+  - name: CORP_AFFILIATION
+    description: ''
+    data_type: VARCHAR
+  - name: OCCUPATION
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_ADDRESS_1
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_ADDRESS_2
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_ADDRESS_3
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_PROVINCE
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_ZIP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_FOREIGN_ZIP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_PHONE_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_PHONE_CITY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_PHONE_PHONE_NO
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYER_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_ADDRESS_1
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_ADDRESS_2
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_ADDRESS_3
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_PROVINCE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_ZIP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_FOREIGN_ZIP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: HOME_PHONE_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: HOME_PHONE_CITY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: HOME_PHONE_PHONE_NO
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: IS_SSN
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: ACCOUNT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_FEE_BASED
+    description: ''
+    data_type: VARCHAR
+  - name: RISK_TOLERANCE
+    description: ''
+    data_type: VARCHAR
+  - name: ENTITY_INCOME
+    description: ''
+    data_type: VARCHAR
+  - name: ENTITY_STATE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ENTITY_TAX_BRACKET
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_PLAN_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_EMPLOYEE_OWNED
+    description: ''
+    data_type: VARCHAR
+  - name: ENTITY_CITIZENSHIP
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_REG_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_GOVT_ID_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_GOVT_ISSUE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_VOT_ID_EXP_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: CUSTOMER_DEATH_DATE
+    description: ''
+    data_type: DATE
+  - name: FIRM_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: lpl_network__base_reps
+  columns:
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: SUBSCRIBER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: REP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: MIDDLE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: BUSINESS_PHONE_NO
+    description: ''
+    data_type: VARCHAR
+  - name: BUSINESS_PHONE_NO_EXTENSION
+    description: ''
+    data_type: VARCHAR
+  - name: SSN_TIN
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: IS_SSN
+    description: ''
+    data_type: NUMBER
+    meta:
+      masking_policy: mp_client_pii_number
+  - name: CRD
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH_ID
+    description: ''
+    data_type: VARCHAR
+  - name: OSJ_BRANCH_ID
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH_MANAGER_REP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: BUSINESS_ADDRESS_1
+    description: ''
+    data_type: VARCHAR
+  - name: BUSINESS_ADDRESS_2
+    description: ''
+    data_type: VARCHAR
+  - name: BUSINESS_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: BUSINESS_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: BUSINESS_ZIP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_ADDRESS_1
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_ADDRESS_2
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_ZIP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: MAILING_PHONE_NO
+    description: ''
+    data_type: VARCHAR
+  - name: HOME_PHONE_NO
+    description: ''
+    data_type: VARCHAR
+  - name: REP_TYPE_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: MASTER_REP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: OSJ_MANAGER_REP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: REP_STATUS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: REP_STATUS_DATE
+    description: ''
+    data_type: DATE
+  - name: APPROVED_DATE
+    description: ''
+    data_type: DATE
+  - name: IS_ADVISOR_FORM_COMPLETE
+    description: ''
+    data_type: NUMBER
+  - name: IS_BLOCKED_SECONDARY_REP_ID
+    description: ''
+    data_type: NUMBER
+  - name: INSTITUTION_ID
+    description: ''
+    data_type: VARCHAR
+  - name: INSTITUTION_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_ID
+    description: ''
+    data_type: VARCHAR
+  - name: BRANCH_CRD
+    description: ''
+    data_type: VARCHAR
+  - name: PARENT_ORG_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: lpl_network__base_clients
+  columns:
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: SUBSCRIBER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_ID
+    description: ''
+    data_type: NUMBER
+  - name: REP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SSN_TIN
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: IS_SSN
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: BIRTH_DATE
+    description: ''
+    data_type: DATE
+    meta:
+      masking_policy: mp_client_pii_date
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: MIDDLE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_1
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_2
+    description: ''
+    data_type: VARCHAR
+  - name: ADDRESS_3
+    description: ''
+    data_type: VARCHAR
+  - name: CITY
+    description: ''
+    data_type: VARCHAR
+  - name: STATE
+    description: ''
+    data_type: VARCHAR
+  - name: ZIP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: HOME_PHONE_NO
+    description: ''
+    data_type: VARCHAR
+  - name: BUSINESS_PHONE_NO
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: CREATE_DATE
+    description: ''
+    data_type: DATE
+  - name: MODIFIED_DATE
+    description: ''
+    data_type: DATE
+  - name: MOBILE_PHONE_NO
+    description: ''
+    data_type: VARCHAR
+  - name: MARKET_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: IS_FOREIGN
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: lpl_network__base_commission_transactions
+  columns:
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: SUBSCRIBER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSACTION_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SUBSCRIBER_ID_2
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: PRIMARY_REP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PRIMARY_REP_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PAYEE_REP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: COMMISSION_TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: BATCH_NO
+    description: ''
+    data_type: NUMBER
+  - name: LINE_NO
+    description: ''
+    data_type: NUMBER
+  - name: PRODUCT_TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TRADE_DATE
+    description: ''
+    data_type: DATE
+  - name: SETTLE_DATE
+    description: ''
+    data_type: DATE
+  - name: BUY_SELL_INDICATOR_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: QUANTITY
+    description: ''
+    data_type: NUMBER
+  - name: PRICE
+    description: ''
+    data_type: NUMBER
+  - name: GROSS_TRANSACTION_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: GROSS_COMMISSION_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: REP_PAYOUT_PERCENTAGE
+    description: ''
+    data_type: NUMBER
+  - name: REP_ADJUSTED_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: REP_NET_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: FIS_BRANCH_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIS_BRANCH_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SECONDARY_REP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: INSIDE_SALES_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: OUTSIDE_SALES_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: REP_INVESTED_SPLIT_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: REP_GROSS_COMMISSION_SPLIT_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: MONEY_SOURCE_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: REFERRAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: LPL_PAY_CYCLE
+    description: ''
+    data_type: VARCHAR
+  - name: TICKET_CHARGE_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: FLOOR_CHARGE_AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: ENHANCED_REPORTING_PRODUCT_GROUP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: EMPLOYEE_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: ADJUSTMENT_TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SPLIT_PERCENTAGE
+    description: ''
+    data_type: NUMBER
+  - name: POSTED_DATE
+    description: ''
+    data_type: DATE
+  - name: UPDATED_DATE
+    description: ''
+    data_type: DATE
+  - name: IS_TRAIL
+    description: ''
+    data_type: NUMBER
+  - name: CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: COMMISSION_ACCOUNT_NO
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_SSN_TIN
+    description: ''
+    data_type: VARCHAR
+    meta:
+      masking_policy: mp_client_pii_text
+  - name: SECONDARY_REP_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: MONEY_SOURCE_COMMENTS
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CLIENT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: TRAIL_REP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: lpl_network__base_repiars
+  columns:
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: SUBSCRIBER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: REP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: STATE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_STATE_REGISTERED
+    description: ''
+    data_type: NUMBER
+  - name: IS_IAR_REGISTERED
+    description: ''
+    data_type: NUMBER
+  - name: APPROVED_DATE
+    description: ''
+    data_type: DATE
+  - name: UPDATED_DATE
+    description: ''
+    data_type: DATE
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: lpl_network__base_transaction_activities
+  columns:
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: SUBSCRIBER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: NUMBER
+  - name: ACCOUNT_LOCATION_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: TRANSACTION_DATE
+    description: ''
+    data_type: DATE
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: SPONSOR_ACCOUNT_NO
+    description: ''
+    data_type: VARCHAR
+  - name: SPONSOR_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: ACTIVITY_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: QUANTITY
+    description: ''
+    data_type: NUMBER
+  - name: PRICE
+    description: ''
+    data_type: NUMBER
+  - name: AMOUNT
+    description: ''
+    data_type: NUMBER
+  - name: CREDIT_DEBIT_INDICATOR
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ASSET_CLASS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SPONSOR_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: ORDER_NO
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVEDATE
+    description: ''
+    data_type: DATE
+  - name: SOURCE_ORDER
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: lpl_network__base_position_securities
+  columns:
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: SUBSCRIBER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_SOURCE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: TTS_SECURITY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SPONSOR_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SPONSOR_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: SHARE_CLASS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_SOURCE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SPONSOR_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: lpl_network__base_commission_securities
+  columns:
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: SUBSCRIBER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_SOURCE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: TTS_SECURITY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: PRODUCT_TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SPONSOR_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SPONSOR_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: SHARE_CLASS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_SOURCE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SPONSOR_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_TYPE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: lpl_network__base_rep_licenses
+  columns:
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: SUBSCRIBER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: REP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: SERIES_01
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_02
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_03
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_04
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_05
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_06
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_07
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_08
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_09
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_10
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_11
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_15
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_16
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_22
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_24
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_26
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_27
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_28
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_30
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_31
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_39
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_42
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_51
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_52
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_53
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_55
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_62
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_63
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_64
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_65
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_66
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_90
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_AP
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_LA
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_86
+    description: ''
+    data_type: NUMBER
+  - name: SERIES_87
+    description: ''
+    data_type: NUMBER
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: lpl_network__base_references
+  columns:
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: REFERENCE_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CODE
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: SHORT_DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+- name: lpl_network__base_rep_insurances
+  columns:
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: SUBSCRIBER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: REP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: STATE
+    description: ''
+    data_type: VARCHAR
+  - name: INSURANCE_LINE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: INSURANCE_PENDING_DATE
+    description: ''
+    data_type: DATE
+  - name: INSURANCE_EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: EXPIRATION_DATE
+    description: ''
+    data_type: DATE
+  - name: LICENSE_NO
+    description: ''
+    data_type: VARCHAR
+  - name: INSURANCE_STATUS_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: INSURANCE_STATUS_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: APPOINTMENT_NO
+    description: ''
+    data_type: VARCHAR
+  - name: SPONSOR_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR
+- name: lpl_network__base_position
+  columns:
+  - name: CUSTODIAN
+    description: ''
+    data_type: VARCHAR
+  - name: SUBSCRIBER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIRM_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: REP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: SECURITY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PRICE
+    description: ''
+    data_type: NUMBER
+  - name: QUANTITY
+    description: ''
+    data_type: NUMBER
+  - name: POSITION_VALUE
+    description: ''
+    data_type: NUMBER
+  - name: POSITION_VALUE_DATE
+    description: ''
+    data_type: DATE
+  - name: SPONSOR_ACCOUNT_NO
+    description: ''
+    data_type: VARCHAR
+  - name: SPONSOR_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: SPONSOR_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: SYMBOL
+    description: ''
+    data_type: VARCHAR
+  - name: CUSIP
+    description: ''
+    data_type: VARCHAR
+  - name: ENHANCED_REPORTING_PRODUCT_GROUP_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: ACCOUNT_LOCATION_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_CURRENT
+    description: ''
+    data_type: NUMBER
+  - name: EFFECTIVE_DATE
+    description: ''
+    data_type: DATE
+  - name: _SOURCE_LOADED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _SOURCE_FILE
+    description: ''
+    data_type: VARCHAR

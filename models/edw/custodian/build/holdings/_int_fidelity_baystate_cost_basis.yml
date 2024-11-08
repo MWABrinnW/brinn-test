@@ -1,0 +1,16 @@
+version: 2
+models:
+  - name: int_fidelity_baystate_cost_basis
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: ACCOUNT_CUSTODIAL
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: COST_BASIS
+        description: ''
+        data_type: NUMBER

@@ -42,7 +42,7 @@ sources:
             data_type: VARCHAR
             description: ''
           - name: _ID
-            data_type: INT
+            data_type: NUMBER
             description: ''
       - name: client
         description: ""

@@ -14,6 +14,27 @@ sources:
           - name: _fivetran_deleted
           - name: _fivetran_synced
 
+          - name: PARENT_CAMPAIGN_ID
+            description: ''
+            data_type: VARCHAR
+          - name: UPDATED_AT
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_TZ
+          - name: UPDATED_BY_ID
+            description: ''
+            data_type: NUMBER
+          - name: CREATED_BY_ID
+            description: ''
+            data_type: NUMBER
+          - name: FOLDER_ID
+            description: ''
+            data_type: NUMBER
+          - name: SALESFORCE_ID
+            description: ''
+            data_type: VARCHAR
       - name: campaign_tag
         columns:
           - name: campaign_id
@@ -68,6 +89,21 @@ sources:
           - name: updated_at
           - name: _fivetran_synced
 
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
+          - name: UPDATED_BY_ID
+            description: ''
+            data_type: NUMBER
+          - name: CREATED_BY_ID
+            description: ''
+            data_type: NUMBER
+          - name: FOLDER_ID
+            description: ''
+            data_type: NUMBER
+          - name: CAMPAIGN_ID
+            description: ''
+            data_type: NUMBER
       - name: list_email
         columns:
           - name: id
@@ -101,6 +137,12 @@ sources:
           - name: _fivetran_deleted
           - name: _fivetran_synced
 
+          - name: UPDATED_BY_ID
+            description: ''
+            data_type: NUMBER
+          - name: CREATED_BY_ID
+            description: ''
+            data_type: NUMBER
       - name: list_tag
         columns:
           - name: list_id
@@ -218,6 +260,21 @@ sources:
           - name: custom_original_oppty_stage
           - name: custom_years_until_retirement
 
+          - name: DELETED
+            description: ''
+            data_type: BOOLEAN
+          - name: CUSTOM_BUSINESS_EMPLOYER_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOM_HOTEL_CONFIRMATION_NUMBER
+            description: ''
+            data_type: NUMBER
+          - name: CUSTOM_HOTEL_CHECK_IN_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOM_HOTEL_CHECK_OUT_DATE
+            description: ''
+            data_type: VARCHAR
       - name: prospect_account
         columns:
           - name: id
@@ -295,6 +352,18 @@ sources:
           - name: hostname
           - name: _fivetran_synced
 
+          - name: IS_IDENTIFIED
+            description: ''
+            data_type: BOOLEAN
+          - name: _FIVETRAN_DELETED
+            description: ''
+            data_type: BOOLEAN
+          - name: DO_NOT_SELL
+            description: ''
+            data_type: BOOLEAN
+          - name: CAMPAIGN_ID
+            description: ''
+            data_type: NUMBER
       - name: visitor_activity
         columns:
           - name: id
@@ -321,6 +390,9 @@ sources:
           - name: created_at
           - name: _fivetran_synced
 
+          - name: UPDATED_AT
+            description: ''
+            data_type: TIMESTAMP_TZ
       - name: visitor_page_view
         columns:
           - name: id
@@ -329,3 +401,15 @@ sources:
           - name: visit_id
           - name: created_at
           - name: _fivetran_synced
+          - name: VISITOR_ID
+            description: ''
+            data_type: NUMBER
+          - name: CAMPAIGN_ID
+            description: ''
+            data_type: NUMBER
+          - name: DURATION_IN_SECONDS
+            description: ''
+            data_type: NUMBER
+          - name: SALESFORCE_ID
+            description: ''
+            data_type: VARCHAR

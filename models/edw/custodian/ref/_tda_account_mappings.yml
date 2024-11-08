@@ -1,0 +1,19 @@
+version: 2
+models:
+  - name: tda_account_mappings
+    columns:
+      - name: TDA_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: SCHWAB_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: _BOX_FILE_ID
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ

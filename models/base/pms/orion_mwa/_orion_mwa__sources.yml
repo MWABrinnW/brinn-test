@@ -8,10 +8,532 @@ sources:
     tables:
       - name: as_of_value_by_account_6473_history
         description: ""
+        columns:
+          - name: ACCOUNT_ID
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNTSTATUS
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNTVALUE
+            description: ''
+            data_type: FLOAT
+          - name: ACCRUEDINT
+            description: ''
+            data_type: FLOAT
+          - name: ACCT_IS_MANAGED
+            description: ''
+            data_type: BOOLEAN
+          - name: ACCTCODE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCTSTARTDATE
+            description: ''
+            data_type: DATE
+          - name: ADDR1
+            description: ''
+            data_type: VARCHAR
+          - name: ADDR2
+            description: ''
+            data_type: VARCHAR
+          - name: ASOFDATE
+            description: ''
+            data_type: DATE
+          - name: BROKER_DEALER_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESSLINENAME
+            description: ''
+            data_type: VARCHAR
+          - name: CANCELDATE
+            description: ''
+            data_type: DATE
+          - name: CANCELDATE1
+            description: ''
+            data_type: DATE
+          - name: CITY
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_ID
+            description: ''
+            data_type: NUMBER
+          - name: CLIENT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENTADDRESS
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENTADDRESS2
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENTCITY
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENTEMAIL
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENTZIP
+            description: ''
+            data_type: VARCHAR
+          - name: FEESCHEDULE
+            description: ''
+            data_type: VARCHAR
+          - name: FUND_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: INCLUDE_IN_QPE
+            description: ''
+            data_type: BOOLEAN
+          - name: INCLUDE_IN_TWR
+            description: ''
+            data_type: VARCHAR
+          - name: ISACTIVE
+            description: ''
+            data_type: BOOLEAN
+          - name: ISANNUITY
+            description: ''
+            data_type: BOOLEAN
+          - name: ISQUALIFIED
+            description: ''
+            data_type: BOOLEAN
+          - name: LNAME
+            description: ''
+            data_type: VARCHAR
+          - name: MGMT_STYLE
+            description: ''
+            data_type: VARCHAR
+          - name: MODEL_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: OUTSIDEID
+            description: ''
+            data_type: VARCHAR
+          - name: PAY_METHOD
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUTSCHEDULE
+            description: ''
+            data_type: VARCHAR
+          - name: PLANNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PLANNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: RECONDATE
+            description: ''
+            data_type: VARCHAR
+          - name: REG_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: REG_ID
+            description: ''
+            data_type: NUMBER
+          - name: REG_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REP_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REPNO
+            description: ''
+            data_type: VARCHAR
+          - name: SSN_TAXID
+            description: ''
+            data_type: VARCHAR
+          - name: STARTDATE
+            description: ''
+            data_type: DATE
+          - name: STATE
+            description: ''
+            data_type: VARCHAR
+          - name: SUBADVISORNAME
+            description: ''
+            data_type: VARCHAR
+          - name: TOTALACCOUNTVALUE
+            description: ''
+            data_type: FLOAT
+          - name: ZIP
+            description: ''
+            data_type: VARCHAR
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
       - name: asset_query_mwa_5896_history
         description: ""
+        columns:
+          - name: ACCOUNT_ID
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNT_ISMANAGED
+            description: ''
+            data_type: BOOLEAN
+          - name: ACCOUNTISACTIVE
+            description: ''
+            data_type: BOOLEAN
+          - name: ACCOUNTSTATUS
+            description: ''
+            data_type: VARCHAR
+          - name: ACCTCODE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCTSTARTDATE
+            description: ''
+            data_type: DATE
+          - name: ASOFDATE
+            description: ''
+            data_type: DATE
+          - name: ASSET_ID
+            description: ''
+            data_type: NUMBER
+          - name: ASSET_ISMANAGED
+            description: ''
+            data_type: BOOLEAN
+          - name: ASSETCLASS
+            description: ''
+            data_type: VARCHAR
+          - name: ASSETISACTIVE
+            description: ''
+            data_type: BOOLEAN
+          - name: ASSETVALUE
+            description: ''
+            data_type: FLOAT
+          - name: BUSINESSLINE
+            description: ''
+            data_type: VARCHAR
+          - name: CAPITAL_GAINS_REINVESTED
+            description: ''
+            data_type: BOOLEAN
+          - name: CATEGORY
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_ID
+            description: ''
+            data_type: NUMBER
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTODIAN
+            description: ''
+            data_type: VARCHAR
+          - name: DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: DIVIDENDS_REINVESTED
+            description: ''
+            data_type: BOOLEAN
+          - name: DOWNLOADSYMBOL
+            description: ''
+            data_type: VARCHAR
+          - name: EXCLUDE_FROM_REBALANCE
+            description: ''
+            data_type: VARCHAR
+          - name: FEE_SCHEDULE
+            description: ''
+            data_type: VARCHAR
+          - name: FIDELITY_TRANSACTION_FEE
+            description: ''
+            data_type: FLOAT
+          - name: FUND_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: INCLUDE_IN_GAIN_LOSS
+            description: ''
+            data_type: BOOLEAN
+          - name: INCLUDE_IN_QPE
+            description: ''
+            data_type: BOOLEAN
+          - name: INCLUDE_IN_TWR
+            description: ''
+            data_type: VARCHAR
+          - name: ISFEEEXCLUDED
+            description: ''
+            data_type: BOOLEAN
+          - name: LAST_TRANSACTION_DATE
+            description: ''
+            data_type: DATE
+          - name: LNAME
+            description: ''
+            data_type: VARCHAR
+          - name: LT_CAPITAL_GAINS_REINVESTED
+            description: ''
+            data_type: BOOLEAN
+          - name: MGMT_STYLE
+            description: ''
+            data_type: VARCHAR
+          - name: MODEL_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: NAVPRICE
+            description: ''
+            data_type: FLOAT
+          - name: OUTSIDE_ID_HOUSEHOLD
+            description: ''
+            data_type: VARCHAR
+          - name: OUTSIDEID
+            description: ''
+            data_type: VARCHAR
+          - name: PLANNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCT_ID
+            description: ''
+            data_type: NUMBER
+          - name: PRODUCT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCTCATEGORY
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCTTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: REG_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: REG_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REP_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: SCHWAB_TRANSACTION_FEE
+            description: ''
+            data_type: FLOAT
+          - name: SSN_TAXID
+            description: ''
+            data_type: VARCHAR
+          - name: TICKER
+            description: ''
+            data_type: VARCHAR
+          - name: UNITBALANCE
+            description: ''
+            data_type: FLOAT
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: COST_BASIS
+            description: ''
+            data_type: FLOAT
       - name: audit_all_advisors_1922_history
         description: ""
+        columns:
+          - name: ACCOUNT_ID
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_START_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: ACCTCANCELDATE
+            description: ''
+            data_type: DATE
+          - name: ADDRESS1
+            description: ''
+            data_type: VARCHAR
+          - name: ADDRESS2
+            description: ''
+            data_type: VARCHAR
+          - name: ADDRESS3
+            description: ''
+            data_type: VARCHAR
+          - name: BD_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: BILL_FREQUENCY
+            description: ''
+            data_type: VARCHAR
+          - name: BILL_START_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: BILL_STYLE
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESS_LINE
+            description: ''
+            data_type: VARCHAR
+          - name: CITY
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_ID
+            description: ''
+            data_type: NUMBER
+          - name: CLIENT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENTCREATEDDATE
+            description: ''
+            data_type: DATE
+          - name: CREATEDDATE
+            description: ''
+            data_type: DATE
+          - name: CURRENT_VALUE
+            description: ''
+            data_type: FLOAT
+          - name: CUSTODIAN
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTODIAN_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: EDITEDDATE
+            description: ''
+            data_type: DATE
+          - name: EMAIL
+            description: ''
+            data_type: VARCHAR
+          - name: EXCLUDE_FROM_COST_BASIS
+            description: ''
+            data_type: VARCHAR
+          - name: FEE_SCHEDULE
+            description: ''
+            data_type: VARCHAR
+          - name: FEE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: FIRST_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: FUND_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: INCLUDE_IN_QPE
+            description: ''
+            data_type: BOOLEAN
+          - name: INCLUDE_IN_TWR
+            description: ''
+            data_type: VARCHAR
+          - name: INVESTMENTOBJECTIVE
+            description: ''
+            data_type: VARCHAR
+          - name: ISACCOUNTACTIVE
+            description: ''
+            data_type: BOOLEAN
+          - name: ISDISCRETIONARY
+            description: ''
+            data_type: BOOLEAN
+          - name: ISMANAGED
+            description: ''
+            data_type: BOOLEAN
+          - name: ISQUAL
+            description: ''
+            data_type: BOOLEAN
+          - name: LAST_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: LASTINVOICECREATIONDATE
+            description: ''
+            data_type: DATE
+          - name: LASTTRXDATE
+            description: ''
+            data_type: DATE
+          - name: MASTER_PAYOUT_SCHEDULE
+            description: ''
+            data_type: VARCHAR
+          - name: MGMT_STYLE
+            description: ''
+            data_type: VARCHAR
+          - name: MGMT_STYLE_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: MINIMUM_CASH_BALANCE
+            description: ''
+            data_type: FLOAT
+          - name: MODEL_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: NET_WORTH
+            description: ''
+            data_type: FLOAT
+          - name: PAY_METHOD_INSTRUCTION
+            description: ''
+            data_type: VARCHAR
+          - name: PHONE_BUSINESS
+            description: ''
+            data_type: VARCHAR
+          - name: PHONE_HOME
+            description: ''
+            data_type: VARCHAR
+          - name: REG_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: REG_F_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REG_L_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REG_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REGISACTIVE
+            description: ''
+            data_type: BOOLEAN
+          - name: REGISTRATION_ID
+            description: ''
+            data_type: NUMBER
+          - name: REP_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REP_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: RISK_TOLERANCE
+            description: ''
+            data_type: NUMBER
+          - name: SALUTATION
+            description: ''
+            data_type: VARCHAR
+          - name: SSN
+            description: ''
+            data_type: VARCHAR
+          - name: STATE
+            description: ''
+            data_type: VARCHAR
+          - name: STATEMENT_TRANSMIT_METHOD
+            description: ''
+            data_type: VARCHAR
+          - name: SUB_ADVISOR_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: SUBADVISORNAME
+            description: ''
+            data_type: VARCHAR
+          - name: TRADE_INSTRUCTION
+            description: ''
+            data_type: VARCHAR
+          - name: TRUE_ACCOUNT_START_DATE
+            description: ''
+            data_type: DATE
+          - name: ZIP
+            description: ''
+            data_type: VARCHAR
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
   - name: orion_mwa_bulk
     description: ""
     database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
@@ -19,13 +541,562 @@ sources:
     tables:
       - name: assetbasiscostlots
         description: ""
+        columns:
+          - name: ACCOUNTID
+            description: ''
+            data_type: NUMBER
+          - name: ACQUIREDDATE
+            description: ''
+            data_type: DATE
+          - name: AMORTIZATIONAMOUNT
+            description: ''
+            data_type: FLOAT
+          - name: ASOFDATE
+            description: ''
+            data_type: DATE
+          - name: ASSETID
+            description: ''
+            data_type: NUMBER
+          - name: COSTBASIS
+            description: ''
+            data_type: FLOAT
+          - name: FIRMID
+            description: ''
+            data_type: NUMBER
+          - name: ISLONGTERM
+            description: ''
+            data_type: BOOLEAN
+          - name: UNITS
+            description: ''
+            data_type: FLOAT
+          - name: FILE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
       - name: assets
         description: ""
+        columns:
+          - name: ACCOUNTID
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNTNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTVALUE
+            description: ''
+            data_type: FLOAT
+          - name: ASOFDATE
+            description: ''
+            data_type: DATE
+          - name: ASSETCLASS
+            description: ''
+            data_type: VARCHAR
+          - name: ASSETID
+            description: ''
+            data_type: NUMBER
+          - name: ASSETPERCENTOFACCOUNT
+            description: ''
+            data_type: FLOAT
+          - name: ASSETSTRATEGY
+            description: ''
+            data_type: VARCHAR
+          - name: ASSETSTRATEGYID
+            description: ''
+            data_type: NUMBER
+          - name: ASSETVALUE
+            description: ''
+            data_type: FLOAT
+          - name: BONDMATURITYDATE
+            description: ''
+            data_type: DATE
+          - name: BONDRATE
+            description: ''
+            data_type: FLOAT
+          - name: CREATEDBY
+            description: ''
+            data_type: VARCHAR
+          - name: CREATEDDATE
+            description: ''
+            data_type: DATE
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: EDITEDBY
+            description: ''
+            data_type: VARCHAR
+          - name: EDITEDDATE
+            description: ''
+            data_type: DATE
+          - name: EXCLUDEFROMREBAL
+            description: ''
+            data_type: NUMBER
+          - name: EXTERNALID
+            description: ''
+            data_type: VARCHAR
+          - name: FIRMID
+            description: ''
+            data_type: NUMBER
+          - name: FUNDFAMILYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ISMANAGED
+            description: ''
+            data_type: BOOLEAN
+          - name: PRICE
+            description: ''
+            data_type: FLOAT
+          - name: PRICEDATE
+            description: ''
+            data_type: DATE
+          - name: PRODUCTCATEGORY
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCTCATEGORYCODE
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCTCLASSCODE
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCTID
+            description: ''
+            data_type: NUMBER
+          - name: PRODUCTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCTTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: RISKCATEGORY
+            description: ''
+            data_type: VARCHAR
+          - name: SECONDARYACCTCODE
+            description: ''
+            data_type: VARCHAR
+          - name: TICKER
+            description: ''
+            data_type: VARCHAR
+          - name: UNITBALANCE
+            description: ''
+            data_type: VARCHAR
+          - name: FILE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
       - name: financial_accounts
         description: ""
+        columns:
+          - name: ACCOUNTID
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNTNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTSTATUS
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNTVALUE
+            description: ''
+            data_type: FLOAT
+          - name: ASOFDATE
+            description: ''
+            data_type: DATE
+          - name: BUSINESSLINEID
+            description: ''
+            data_type: NUMBER
+          - name: CASHVALUE
+            description: ''
+            data_type: FLOAT
+          - name: CLOSEDDATE
+            description: ''
+            data_type: DATE
+          - name: CUSTODIAN
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTODIANID
+            description: ''
+            data_type: NUMBER
+          - name: FIRMID
+            description: ''
+            data_type: NUMBER
+          - name: FUNDFAMILYID
+            description: ''
+            data_type: NUMBER
+          - name: FUNDFAMILYNAME
+            description: ''
+            data_type: VARCHAR
+          - name: GROUPNUMBER
+            description: ''
+            data_type: BOOLEAN
+          - name: HISTORICALACCOUNTID
+            description: ''
+            data_type: NUMBER
+          - name: HOUSEHOLDID
+            description: ''
+            data_type: NUMBER
+          - name: INCEPTIONDATE
+            description: ''
+            data_type: DATE
+          - name: ISACTIVE
+            description: ''
+            data_type: BOOLEAN
+          - name: ISMANAGED
+            description: ''
+            data_type: BOOLEAN
+          - name: ISOUTSIDEMODEL
+            description: ''
+            data_type: BOOLEAN
+          - name: ISTRADEBLOCKED
+            description: ''
+            data_type: BOOLEAN
+          - name: MANAGEMENTSTYLE
+            description: ''
+            data_type: VARCHAR
+          - name: MANAGEMENTSTYLEID
+            description: ''
+            data_type: NUMBER
+          - name: MINIMUMCASHBALANCE
+            description: ''
+            data_type: FLOAT
+          - name: MINIMUMCASHBALANCETYPE
+            description: ''
+            data_type: VARCHAR
+          - name: MODELID
+            description: ''
+            data_type: NUMBER
+          - name: MODELNAME
+            description: ''
+            data_type: VARCHAR
+          - name: OPENDATE
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: OPENVALUE
+            description: ''
+            data_type: FLOAT
+          - name: OUTSIDEID
+            description: ''
+            data_type: VARCHAR
+          - name: PERFORMANCEASOFDATE
+            description: ''
+            data_type: VARCHAR
+          - name: PERFORMANCEASOFDATE_ASUTCDATE
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: PERFORMANCEDAY
+            description: ''
+            data_type: FLOAT
+          - name: PERFORMANCEMTD
+            description: ''
+            data_type: FLOAT
+          - name: PERFORMANCEONEYEAR
+            description: ''
+            data_type: FLOAT
+          - name: PERFORMANCEQTD
+            description: ''
+            data_type: FLOAT
+          - name: PERFORMANCETHREEYEAR
+            description: ''
+            data_type: FLOAT
+          - name: PERFORMANCEYTD
+            description: ''
+            data_type: FLOAT
+          - name: PLANID
+            description: ''
+            data_type: BOOLEAN
+          - name: REALIZEDGAINLOSS_PREVIOUSYEAR
+            description: ''
+            data_type: FLOAT
+          - name: REALIZEDGAINLOSS_YTD
+            description: ''
+            data_type: FLOAT
+          - name: REGISTRATIONID
+            description: ''
+            data_type: NUMBER
+          - name: REPID
+            description: ''
+            data_type: NUMBER
+          - name: REPLENISHMINIMUMCASH
+            description: ''
+            data_type: BOOLEAN
+          - name: SHARECLASSID
+            description: ''
+            data_type: NUMBER
+          - name: SUBADVISORID
+            description: ''
+            data_type: NUMBER
+          - name: TRADINGINSTRUCTIONS
+            description: ''
+            data_type: VARCHAR
+          - name: UNREALIZEDGAINLOSS
+            description: ''
+            data_type: FLOAT
+          - name: FILE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
       - name: households
         description: ""
+        columns:
+          - name: ASOFDATE
+            description: ''
+            data_type: DATE
+          - name: BIRTHDATE
+            description: ''
+            data_type: VARCHAR
+          - name: CITY
+            description: ''
+            data_type: VARCHAR
+          - name: CLOSEDDATE
+            description: ''
+            data_type: DATE
+          - name: EMAIL
+            description: ''
+            data_type: VARCHAR
+          - name: FAXPHONE
+            description: ''
+            data_type: VARCHAR
+          - name: FIRMID
+            description: ''
+            data_type: NUMBER
+          - name: FIRSTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: FULLNAME
+            description: ''
+            data_type: VARCHAR
+          - name: HOMEPHONE
+            description: ''
+            data_type: VARCHAR
+          - name: HOUSEHOLDCASHVALUE
+            description: ''
+            data_type: FLOAT
+          - name: HOUSEHOLDID
+            description: ''
+            data_type: NUMBER
+          - name: HOUSEHOLDVALUE
+            description: ''
+            data_type: FLOAT
+          - name: ISACTIVE
+            description: ''
+            data_type: BOOLEAN
+          - name: LASTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: MOBILEPHONE
+            description: ''
+            data_type: VARCHAR
+          - name: OPENDATE
+            description: ''
+            data_type: DATE
+          - name: PERFORMANCEASOFDATE
+            description: ''
+            data_type: DATE
+          - name: PERFORMANCEDAY
+            description: ''
+            data_type: FLOAT
+          - name: PERFORMANCEMTD
+            description: ''
+            data_type: FLOAT
+          - name: PERFORMANCEONEYEAR
+            description: ''
+            data_type: FLOAT
+          - name: PERFORMANCEQTD
+            description: ''
+            data_type: FLOAT
+          - name: PERFORMANCETHREEYEAR
+            description: ''
+            data_type: FLOAT
+          - name: PERFORMANCEYTD
+            description: ''
+            data_type: FLOAT
+          - name: REPID
+            description: ''
+            data_type: NUMBER
+          - name: REPORTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: SALUTATION
+            description: ''
+            data_type: VARCHAR
+          - name: SSN
+            description: ''
+            data_type: VARCHAR
+          - name: STATE
+            description: ''
+            data_type: VARCHAR
+          - name: STATEMENTDELIVERY
+            description: ''
+            data_type: VARCHAR
+          - name: STREET
+            description: ''
+            data_type: VARCHAR
+          - name: TITLE
+            description: ''
+            data_type: BOOLEAN
+          - name: WEBSITE
+            description: ''
+            data_type: BOOLEAN
+          - name: WORKPHONE
+            description: ''
+            data_type: VARCHAR
+          - name: ZIP
+            description: ''
+            data_type: VARCHAR
+          - name: FILE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
       - name: registrations
         description: ""
+        columns:
+          - name: ACCOUNTTYPE
+            description: ''
+            data_type: NUMBER
+          - name: ASOFDATE
+            description: ''
+            data_type: DATE
+          - name: BIRTHDATE
+            description: ''
+            data_type: DATE
+          - name: CLIENTID
+            description: ''
+            data_type: NUMBER
+          - name: FIRMID
+            description: ''
+            data_type: NUMBER
+          - name: FIRSTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: FULLNAME
+            description: ''
+            data_type: VARCHAR
+          - name: INVESTMENTAMOUNT
+            description: ''
+            data_type: FLOAT
+          - name: ISACTIVE
+            description: ''
+            data_type: BOOLEAN
+          - name: LASTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: NETINCOME
+            description: ''
+            data_type: FLOAT
+          - name: NETWORTH
+            description: ''
+            data_type: FLOAT
+          - name: REGISTRATIONID
+            description: ''
+            data_type: NUMBER
+          - name: RISKTOLERANCE
+            description: ''
+            data_type: NUMBER
+          - name: SSN
+            description: ''
+            data_type: VARCHAR
+          - name: STOCKPERCENT
+            description: ''
+            data_type: NUMBER
+          - name: FILE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: DATE
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
       - name: transactions
         description: ""
+        columns:
+          - name: ACCOUNTID
+            description: ''
+            data_type: NUMBER
+          - name: ACCOUNTNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: ASOFDATE
+            description: ''
+            data_type: DATE
+          - name: ASSETID
+            description: ''
+            data_type: NUMBER
+          - name: FIRMID
+            description: ''
+            data_type: NUMBER
+          - name: NAVPRICE
+            description: ''
+            data_type: FLOAT
+          - name: NOUNITS
+            description: ''
+            data_type: FLOAT
+          - name: PRODUCTID
+            description: ''
+            data_type: NUMBER
+          - name: STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: TICKER
+            description: ''
+            data_type: VARCHAR
+          - name: TRANSACTIONID
+            description: ''
+            data_type: NUMBER
+          - name: TRANSAMOUNT
+            description: ''
+            data_type: FLOAT
+          - name: TRANSDATE
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: TRANSTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: FILE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE

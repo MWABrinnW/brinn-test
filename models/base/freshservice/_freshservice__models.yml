@@ -1,0 +1,2151 @@
+version: 2
+models:
+  - name: freshservice__base_agent_role
+    columns:
+      - name: AGENT_ID
+        description: ''
+        data_type: NUMBER
+      - name: ROLE_ID
+        description: ''
+        data_type: NUMBER
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_announcement
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: CREATED_BY
+        description: ''
+        data_type: NUMBER
+      - name: STATE
+        description: ''
+        data_type: VARCHAR
+      - name: TITLE
+        description: ''
+        data_type: VARCHAR
+      - name: BODY
+        description: ''
+        data_type: VARCHAR
+      - name: BODY_HTML
+        description: ''
+        data_type: VARCHAR
+      - name: VISIBLE_FROM
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: VISIBLE_TILL
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: VISIBILITY
+        description: ''
+        data_type: VARCHAR
+      - name: IS_READ
+        description: ''
+        data_type: BOOLEAN
+      - name: SEND_EMAIL
+        description: ''
+        data_type: BOOLEAN
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_announcement_relation
+    columns:
+      - name: ANNOUNCEMENT_ID
+        description: ''
+        data_type: NUMBER
+      - name: RELATION_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ENTITY_ID
+        description: ''
+        data_type: NUMBER
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_asset_component
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: ASSET_ID
+        description: ''
+        data_type: NUMBER
+      - name: COMPONENT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: COMPONENT_DATA
+        description: ''
+        data_type: VARIANT
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_asset_type
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: PARENT_ASSET_TYPE_ID
+        description: ''
+        data_type: NUMBER
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: VISIBLE
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_change
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: REQUESTER_ID
+        description: ''
+        data_type: NUMBER
+      - name: AGENT_ID
+        description: ''
+        data_type: NUMBER
+      - name: DEPARTMENT_ID
+        description: ''
+        data_type: NUMBER
+      - name: GROUP_ID
+        description: ''
+        data_type: NUMBER
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: DUE_BY
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: PRIORITY
+        description: ''
+        data_type: NUMBER
+      - name: STATUS
+        description: ''
+        data_type: NUMBER
+      - name: IMPACT
+        description: ''
+        data_type: NUMBER
+      - name: CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: SUB_CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: ITEM_CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION_TEXT
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: PLANNED_START_DATE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: PLANNED_END_DATE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: RISK
+        description: ''
+        data_type: NUMBER
+      - name: CHANGE_TYPE
+        description: ''
+        data_type: NUMBER
+      - name: APPROVAL_STATUS
+        description: ''
+        data_type: NUMBER
+      - name: KNOWN_ERROR
+        description: ''
+        data_type: BOOLEAN
+      - name: SUBJECT
+        description: ''
+        data_type: VARCHAR
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_change_approvers
+    columns:
+      - name: BO_DISPLAY_ID
+        description: ''
+        data_type: NUMBER
+      - name: BO_CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: BO_UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: BO_CREATED_BY
+        description: ''
+        data_type: NUMBER
+      - name: BO_UPDATED_BY
+        description: ''
+        data_type: NUMBER
+      - name: CATEGORY_DD_1
+        description: ''
+        data_type: VARCHAR
+      - name: CATEGORY_DD_2
+        description: ''
+        data_type: VARCHAR
+      - name: CATEGORY_DD_3
+        description: ''
+        data_type: VARCHAR
+      - name: CAB
+        description: ''
+        data_type: NUMBER
+      - name: CHANGE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: RISK_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_fivetran_audit
+    columns:
+      - name: ID
+        description: ''
+        data_type: VARCHAR
+      - name: MESSAGE
+        description: ''
+        data_type: VARCHAR
+      - name: UPDATE_STARTED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: SCHEMA
+        description: ''
+        data_type: VARCHAR
+      - name: TABLE
+        description: ''
+        data_type: VARCHAR
+      - name: START
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: DONE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: ROWS_UPDATED_OR_INSERTED
+        description: ''
+        data_type: NUMBER
+      - name: STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: PROGRESS
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_location
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: PARENT_LOCATION_ID
+        description: ''
+        data_type: NUMBER
+      - name: PRIMARY_CONTACT_ID
+        description: ''
+        data_type: NUMBER
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: PHONE
+        description: ''
+        data_type: VARCHAR
+      - name: ADDRESS_LINE_1
+        description: ''
+        data_type: VARCHAR
+      - name: ADDRESS_LINE_2
+        description: ''
+        data_type: VARCHAR
+      - name: ADDRESS_CITY
+        description: ''
+        data_type: VARCHAR
+      - name: ADDRESS_STATE
+        description: ''
+        data_type: VARCHAR
+      - name: ADDRESS_COUNTRY
+        description: ''
+        data_type: VARCHAR
+      - name: ADDRESS_ZIPCODE
+        description: ''
+        data_type: VARCHAR
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_associated_attachment
+    columns:
+      - name: PARENT_ENTITY_ID
+        description: ''
+        data_type: NUMBER
+      - name: PARENT_ENTITY_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: CONTENT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: SIZE
+        description: ''
+        data_type: NUMBER
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ATTACHMENT_URL
+        description: ''
+        data_type: VARCHAR
+      - name: CANONICAL_URL
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_associated_change
+    columns:
+      - name: RELEASE_ID
+        description: ''
+        data_type: NUMBER
+      - name: CHANGE_ID
+        description: ''
+        data_type: NUMBER
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_project_membership
+    columns:
+      - name: PROJECT_ID
+        description: ''
+        data_type: NUMBER
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: USER_ID
+        description: ''
+        data_type: NUMBER
+      - name: ACCESS_TYPE
+        description: ''
+        data_type: NUMBER
+      - name: PROJECT_MANAGER
+        description: ''
+        data_type: BOOLEAN
+      - name: MANAGE_SETTINGS
+        description: ''
+        data_type: BOOLEAN
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_project_task_status
+    columns:
+      - name: PROJECT_ID
+        description: ''
+        data_type: NUMBER
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: CATEGORY_CODE
+        description: ''
+        data_type: NUMBER
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_purchase_order_item
+    columns:
+      - name: ORDER_ID
+        description: ''
+        data_type: NUMBER
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: ITEM_ID
+        description: ''
+        data_type: NUMBER
+      - name: ITEM_TYPE
+        description: ''
+        data_type: NUMBER
+      - name: ITEM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: COST
+        description: ''
+        data_type: FLOAT
+      - name: QUANTITY
+        description: ''
+        data_type: NUMBER
+      - name: RECEIVED
+        description: ''
+        data_type: NUMBER
+      - name: TAX_PERCENTAGE
+        description: ''
+        data_type: FLOAT
+      - name: TOTAL_COST
+        description: ''
+        data_type: FLOAT
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_service_category
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: POSITION
+        description: ''
+        data_type: NUMBER
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_agent_department
+    columns:
+      - name: AGENT_ID
+        description: ''
+        data_type: NUMBER
+      - name: DEPARTMENT_ID
+        description: ''
+        data_type: NUMBER
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_service_item
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: DISPLAY_ID
+        description: ''
+        data_type: NUMBER
+      - name: CATEGORY_ID
+        description: ''
+        data_type: NUMBER
+      - name: PRODUCT_ID
+        description: ''
+        data_type: NUMBER
+      - name: CI_TYPE_ID
+        description: ''
+        data_type: NUMBER
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: ICON_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CONFIGS
+        description: ''
+        data_type: VARIANT
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DELIVERY_TIME
+        description: ''
+        data_type: NUMBER
+      - name: QUANTITY
+        description: ''
+        data_type: NUMBER
+      - name: VISIBILITY
+        description: ''
+        data_type: NUMBER
+      - name: GROUP_VISIBILITY
+        description: ''
+        data_type: NUMBER
+      - name: ITEM_TYPE
+        description: ''
+        data_type: NUMBER
+      - name: BOTIFIED
+        description: ''
+        data_type: BOOLEAN
+      - name: COST_VISIBILITY
+        description: ''
+        data_type: BOOLEAN
+      - name: DELIVERY_TIME_VISIBILITY
+        description: ''
+        data_type: BOOLEAN
+      - name: ALLOW_ATTACHMENTS
+        description: ''
+        data_type: BOOLEAN
+      - name: ALLOW_QUANTITY
+        description: ''
+        data_type: BOOLEAN
+      - name: IS_BUNDLE
+        description: ''
+        data_type: BOOLEAN
+      - name: CREATE_CHILD
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_service_user
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: REPORTING_MANAGER_ID
+        description: ''
+        data_type: NUMBER
+      - name: LOCATION_ID
+        description: ''
+        data_type: NUMBER
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: LAST_LOGIN_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: LAST_ACTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: SIGNATURE
+        description: ''
+        data_type: VARCHAR
+      - name: ADDRESS
+        description: ''
+        data_type: VARCHAR
+      - name: PRIMARY_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: JOB_TITLE
+        description: ''
+        data_type: VARCHAR
+      - name: FIRST_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LAST_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: OCCASIONAL
+        description: ''
+        data_type: BOOLEAN
+      - name: ACTIVE
+        description: ''
+        data_type: BOOLEAN
+      - name: BLOCKED
+        description: ''
+        data_type: BOOLEAN
+      - name: IS_AGENT
+        description: ''
+        data_type: BOOLEAN
+      - name: VIP_USER
+        description: ''
+        data_type: BOOLEAN
+      - name: TIME_ZONE
+        description: ''
+        data_type: VARCHAR
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: LANGUAGE
+        description: ''
+        data_type: VARCHAR
+      - name: MOBILE_PHONE_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: WORK_PHONE_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTOM_BUILDING_BADGE_NUMBER
+        description: ''
+        data_type: NUMBER
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: CUSTOM_REGIONAL_DIRECTOR
+        description: ''
+        data_type: VARCHAR
+  - name: freshservice__base_note
+    columns:
+      - name: PARENT_ENTITY_ID
+        description: ''
+        data_type: NUMBER
+      - name: PARENT_ENTITY_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: USER_ID
+        description: ''
+        data_type: NUMBER
+      - name: BODY_TEXT
+        description: ''
+        data_type: VARCHAR
+      - name: BODY
+        description: ''
+        data_type: VARCHAR
+      - name: FROM_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_notify_email
+    columns:
+      - name: PARENT_ENTITY_ID
+        description: ''
+        data_type: NUMBER
+      - name: PARENT_ENTITY_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_problem
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: REQUESTER_ID
+        description: ''
+        data_type: NUMBER
+      - name: AGENT_ID
+        description: ''
+        data_type: NUMBER
+      - name: DEPARTMENT_ID
+        description: ''
+        data_type: NUMBER
+      - name: GROUP_ID
+        description: ''
+        data_type: NUMBER
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: DUE_BY
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: PRIORITY
+        description: ''
+        data_type: NUMBER
+      - name: STATUS
+        description: ''
+        data_type: NUMBER
+      - name: IMPACT
+        description: ''
+        data_type: NUMBER
+      - name: CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: SUB_CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: ITEM_CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION_TEXT
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: KNOWN_ERROR
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_solution_category
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: POSITION
+        description: ''
+        data_type: NUMBER
+      - name: DEFAULT_CATEGORY
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_solution_folder_approval
+    columns:
+      - name: APPROVAL_TYPE
+        description: ''
+        data_type: NUMBER
+      - name: FOLDER_ID
+        description: ''
+        data_type: NUMBER
+      - name: APPROVER_ID
+        description: ''
+        data_type: NUMBER
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_task
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: GROUP_ID
+        description: ''
+        data_type: NUMBER
+      - name: AGENT_ID
+        description: ''
+        data_type: NUMBER
+      - name: PARENT_OBJECT_ID
+        description: ''
+        data_type: NUMBER
+      - name: PARENT_OBJECT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: STATUS
+        description: ''
+        data_type: NUMBER
+      - name: TITLE
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: CLOSED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: DUE_DATE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_ticket
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: REQUESTER_ID
+        description: ''
+        data_type: NUMBER
+      - name: RESPONDER_ID
+        description: ''
+        data_type: NUMBER
+      - name: DEPARTMENT_ID
+        description: ''
+        data_type: NUMBER
+      - name: GROUP_ID
+        description: ''
+        data_type: NUMBER
+      - name: REQUESTED_FOR_ID
+        description: ''
+        data_type: NUMBER
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: DUE_BY
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: FR_DUE_BY
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: PRIORITY
+        description: ''
+        data_type: VARCHAR
+      - name: STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: SUBJECT
+        description: ''
+        data_type: VARCHAR
+      - name: TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: IS_ESCALATED
+        description: ''
+        data_type: BOOLEAN
+      - name: DESCRIPTION_TEXT
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: ASSOCIATION_TYPE
+        description: ''
+        data_type: NUMBER
+      - name: APPROVAL_STATUS
+        description: ''
+        data_type: NUMBER
+      - name: APPROVAL_STATUS_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: CUSTOM_ACCOUNT_NUMBER
+        description: ''
+        data_type: NUMBER
+      - name: CUSTOM_YT
+        description: ''
+        data_type: VARCHAR
+      - name: WORKSPACE_ID
+        description: ''
+        data_type: NUMBER
+      - name: SUB_CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: ITEM_CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTOM_FOLLOW_UP_DATE
+        description: ''
+        data_type: DATE
+  - name: freshservice__base_ticket_email
+    columns:
+      - name: TICKET_ID
+        description: ''
+        data_type: NUMBER
+      - name: TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_purchase_order
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: DEPARTMENT_ID
+        description: ''
+        data_type: NUMBER
+      - name: VENDOR_ID
+        description: ''
+        data_type: NUMBER
+      - name: CREATED_BY
+        description: ''
+        data_type: NUMBER
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: PO_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: VENDOR_DETAILS
+        description: ''
+        data_type: VARCHAR
+      - name: SHIPPING_ADDRESS
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_SAME_AS_SHIPPING
+        description: ''
+        data_type: BOOLEAN
+      - name: BILLING_ADDRESS
+        description: ''
+        data_type: VARCHAR
+      - name: STATUS
+        description: ''
+        data_type: NUMBER
+      - name: DISCOUNT_PERCENTAGE
+        description: ''
+        data_type: NUMBER
+      - name: TAX_PERCENTAGE
+        description: ''
+        data_type: NUMBER
+      - name: SHIPPING_COST
+        description: ''
+        data_type: NUMBER
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: EXPECTED_DELIVERY_DATE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: CURRENCY_ID
+        description: ''
+        data_type: VARCHAR
+      - name: CURRENCY_CONVERSION_RATE
+        description: ''
+        data_type: NUMBER
+      - name: CURRENCY_SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: CURRENCY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CURRENCY_SEPARATOR
+        description: ''
+        data_type: VARCHAR
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: CUSTOM_SUPPLIER
+        description: ''
+        data_type: NUMBER
+      - name: CUSTOM_VENDOR_ORDER_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: CUSTOM_TRACKING_NUMBER
+        description: ''
+        data_type: VARCHAR
+  - name: freshservice__base_ticket_tag
+    columns:
+      - name: TICKET_ID
+        description: ''
+        data_type: NUMBER
+      - name: TAG_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_time_entry
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: AGENT_ID
+        description: ''
+        data_type: NUMBER
+      - name: PARENT_ENTITY_ID
+        description: ''
+        data_type: NUMBER
+      - name: PARENT_ENTITY_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: TASK_ID
+        description: ''
+        data_type: NUMBER
+      - name: BILLABLE
+        description: ''
+        data_type: BOOLEAN
+      - name: NOTE
+        description: ''
+        data_type: VARCHAR
+      - name: TIMER_RUNNING
+        description: ''
+        data_type: BOOLEAN
+      - name: TIME_SPENT
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: EXECUTED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: START_TIME
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_user_group
+    columns:
+      - name: TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: USER_ID
+        description: ''
+        data_type: NUMBER
+      - name: GROUP_ID
+        description: ''
+        data_type: NUMBER
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_department_domain
+    columns:
+      - name: DEPARTMENT_ID
+        description: ''
+        data_type: NUMBER
+      - name: DOMAIN
+        description: ''
+        data_type: VARCHAR
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_service_group
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: ESCALATE_TO
+        description: ''
+        data_type: NUMBER
+      - name: BUSINESS_HOUR_ID
+        description: ''
+        data_type: NUMBER
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: IS_REQUESTER_GROUP
+        description: ''
+        data_type: BOOLEAN
+      - name: UNASSIGNED_FOR
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: AUTO_TICKET_ASSIGN
+        description: ''
+        data_type: BOOLEAN
+      - name: APPROVAL_REQUIRED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_associated_asset
+    columns:
+      - name: PARENT_ENTITY_ID
+        description: ''
+        data_type: NUMBER
+      - name: PARENT_ENTITY_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSET_DISPLAY_ID
+        description: ''
+        data_type: NUMBER
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_project
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: GROUP_ID
+        description: ''
+        data_type: NUMBER
+      - name: MANAGER_ID
+        description: ''
+        data_type: NUMBER
+      - name: VISIBILITY
+        description: ''
+        data_type: NUMBER
+      - name: SPRINT_DURATION
+        description: ''
+        data_type: NUMBER
+      - name: ARCHIVED
+        description: ''
+        data_type: BOOLEAN
+      - name: PROJECT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: KEY
+        description: ''
+        data_type: VARCHAR
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: CLOSED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: START_DATE
+        description: ''
+        data_type: DATE
+      - name: END_DATE
+        description: ''
+        data_type: DATE
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: STATUS_CODE
+        description: ''
+        data_type: NUMBER
+      - name: PRIORITY_CODE
+        description: ''
+        data_type: NUMBER
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_change_type_matrix
+    columns:
+      - name: BO_DISPLAY_ID
+        description: ''
+        data_type: NUMBER
+      - name: BO_CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: BO_UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: BO_CREATED_BY
+        description: ''
+        data_type: NUMBER
+      - name: BO_UPDATED_BY
+        description: ''
+        data_type: NUMBER
+      - name: CHANGE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: IMPACT
+        description: ''
+        data_type: VARCHAR
+      - name: PRIORITY
+        description: ''
+        data_type: VARCHAR
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_release
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: REQUESTER_ID
+        description: ''
+        data_type: NUMBER
+      - name: AGENT_ID
+        description: ''
+        data_type: NUMBER
+      - name: DEPARTMENT_ID
+        description: ''
+        data_type: NUMBER
+      - name: GROUP_ID
+        description: ''
+        data_type: NUMBER
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: DUE_BY
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: PRIORITY
+        description: ''
+        data_type: NUMBER
+      - name: STATUS
+        description: ''
+        data_type: NUMBER
+      - name: IMPACT
+        description: ''
+        data_type: NUMBER
+      - name: CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: SUB_CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: ITEM_CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION_TEXT
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: PLANNED_START_DATE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: PLANNED_END_DATE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: WORK_START_DATE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: WORK_END_DATE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: RISK
+        description: ''
+        data_type: NUMBER
+      - name: RELEASE_TYPE
+        description: ''
+        data_type: NUMBER
+      - name: APPROVAL_STATUS
+        description: ''
+        data_type: NUMBER
+      - name: KNOWN_ERROR
+        description: ''
+        data_type: BOOLEAN
+      - name: SUBJECT
+        description: ''
+        data_type: VARCHAR
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_role
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: DEFAULT
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_vendor
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: PRIMARY_CONTACT_ID
+        description: ''
+        data_type: NUMBER
+      - name: ADDRESS_LINE_1
+        description: ''
+        data_type: VARCHAR
+      - name: ADDRESS_CITY
+        description: ''
+        data_type: VARCHAR
+      - name: ADDRESS_STATE
+        description: ''
+        data_type: VARCHAR
+      - name: ADDRESS_COUNTRY
+        description: ''
+        data_type: VARCHAR
+      - name: ADDRESS_ZIPCODE
+        description: ''
+        data_type: VARCHAR
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: CONTACT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: MOBILE
+        description: ''
+        data_type: VARCHAR
+      - name: PHONE
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_software_installation
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: SOFTWARE_ID
+        description: ''
+        data_type: NUMBER
+      - name: USER_ID
+        description: ''
+        data_type: NUMBER
+      - name: DEPARTMENT_ID
+        description: ''
+        data_type: NUMBER
+      - name: INSTALLATION_MACHINE_ID
+        description: ''
+        data_type: NUMBER
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: INSTALLATION_PATH
+        description: ''
+        data_type: VARCHAR
+      - name: VERSION
+        description: ''
+        data_type: VARCHAR
+      - name: INSTALLATION_DATE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_solution_article_feature
+    columns:
+      - name: ARTICLE_ID
+        description: ''
+        data_type: NUMBER
+      - name: TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: VALUE
+        description: ''
+        data_type: VARCHAR
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_project_task_priority
+    columns:
+      - name: PROJECT_ID
+        description: ''
+        data_type: NUMBER
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_product
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: ASSET_TYPE_ID
+        description: ''
+        data_type: NUMBER
+      - name: DEPRECIATION_TYPE_ID
+        description: ''
+        data_type: NUMBER
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: MANUFACTURER
+        description: ''
+        data_type: VARCHAR
+      - name: STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: MODE_OF_PROCUREMENT
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION_TEXT
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_solution_folder
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: CATEGORY_ID
+        description: ''
+        data_type: NUMBER
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: POSITION
+        description: ''
+        data_type: NUMBER
+      - name: DEFAULT_FOLDER
+        description: ''
+        data_type: BOOLEAN
+      - name: VISIBILITY
+        description: ''
+        data_type: NUMBER
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_asset
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: USER_ID
+        description: ''
+        data_type: NUMBER
+      - name: DEPARTMENT_ID
+        description: ''
+        data_type: NUMBER
+      - name: AGENT_ID
+        description: ''
+        data_type: NUMBER
+      - name: GROUP_ID
+        description: ''
+        data_type: NUMBER
+      - name: ASSET_TYPE_ID
+        description: ''
+        data_type: NUMBER
+      - name: LOCATION_ID
+        description: ''
+        data_type: NUMBER
+      - name: DISPLAY_ID
+        description: ''
+        data_type: NUMBER
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: IMPACT
+        description: ''
+        data_type: VARCHAR
+      - name: AUTHOR_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: USAGE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSET_TAG
+        description: ''
+        data_type: VARCHAR
+      - name: ASSIGNED_ON
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_software
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: PUBLISHER_ID
+        description: ''
+        data_type: NUMBER
+      - name: MANAGED_BY_ID
+        description: ''
+        data_type: NUMBER
+      - name: USER_COUNT
+        description: ''
+        data_type: NUMBER
+      - name: INSTALLATION_COUNT
+        description: ''
+        data_type: NUMBER
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: NOTES
+        description: ''
+        data_type: VARCHAR
+      - name: APPLICATION_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_solution_article
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: FOLDER_ID
+        description: ''
+        data_type: NUMBER
+      - name: CATEGORY_ID
+        description: ''
+        data_type: NUMBER
+      - name: USER_ID
+        description: ''
+        data_type: NUMBER
+      - name: MODIFIED_BY
+        description: ''
+        data_type: NUMBER
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION_TEXT
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: TITLE
+        description: ''
+        data_type: VARCHAR
+      - name: STATUS
+        description: ''
+        data_type: NUMBER
+      - name: APPROVAL_STATUS
+        description: ''
+        data_type: NUMBER
+      - name: POSITION
+        description: ''
+        data_type: NUMBER
+      - name: THUMBS_UP
+        description: ''
+        data_type: NUMBER
+      - name: THUMBS_DOWN
+        description: ''
+        data_type: NUMBER
+      - name: MODIFIED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: INSERTED_INTO_TICKETS
+        description: ''
+        data_type: NUMBER
+      - name: URL
+        description: ''
+        data_type: VARCHAR
+      - name: ARTICLE_TYPE
+        description: ''
+        data_type: NUMBER
+      - name: VIEWS
+        description: ''
+        data_type: NUMBER
+      - name: REVIEW_DATE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_project_task
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: PROJECT_ID
+        description: ''
+        data_type: NUMBER
+      - name: STATUS_ID
+        description: ''
+        data_type: NUMBER
+      - name: TYPE_ID
+        description: ''
+        data_type: NUMBER
+      - name: ASSIGNEE_ID
+        description: ''
+        data_type: NUMBER
+      - name: PRIORITY_ID
+        description: ''
+        data_type: NUMBER
+      - name: REPORTER_ID
+        description: ''
+        data_type: NUMBER
+      - name: SPRINT_ID
+        description: ''
+        data_type: NUMBER
+      - name: VERSION_ID
+        description: ''
+        data_type: NUMBER
+      - name: PARENT_ID
+        description: ''
+        data_type: NUMBER
+      - name: PLANNED_EFFORT
+        description: ''
+        data_type: VARCHAR
+      - name: PLANNED_DURATION
+        description: ''
+        data_type: VARCHAR
+      - name: STORY_POINTS
+        description: ''
+        data_type: NUMBER
+      - name: TITLE
+        description: ''
+        data_type: VARCHAR
+      - name: START_DATE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: END_DATE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: PLANNED_START_DATE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: PLANNED_END_DATE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: DISPLAY_KEY
+        description: ''
+        data_type: VARCHAR
+  - name: freshservice__base_change_risk_matrix
+    columns:
+      - name: BO_DISPLAY_ID
+        description: ''
+        data_type: NUMBER
+      - name: BO_CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: BO_UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: BO_CREATED_BY
+        description: ''
+        data_type: NUMBER
+      - name: BO_UPDATED_BY
+        description: ''
+        data_type: NUMBER
+      - name: IMPACT_PROBABILITY
+        description: ''
+        data_type: VARCHAR
+      - name: IMPACT_SEVERITY
+        description: ''
+        data_type: VARCHAR
+      - name: RISK_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_conversation
+    columns:
+      - name: BODY_TEXT
+        description: ''
+        data_type: VARCHAR
+      - name: BODY
+        description: ''
+        data_type: VARCHAR
+      - name: INCOMING
+        description: ''
+        data_type: BOOLEAN
+      - name: SUPPORT_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: FROM_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: PRIVATE
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: USER_ID
+        description: ''
+        data_type: NUMBER
+      - name: SOURCE
+        description: ''
+        data_type: NUMBER
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: TICKET_ID
+        description: ''
+        data_type: NUMBER
+  - name: freshservice__base_department
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: HEAD_USER_ID
+        description: ''
+        data_type: NUMBER
+      - name: PRIME_USER_ID
+        description: ''
+        data_type: NUMBER
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: NOTE
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_contract
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: VENDOR_ID
+        description: ''
+        data_type: NUMBER
+      - name: APPROVER_ID
+        description: ''
+        data_type: NUMBER
+      - name: REQUESTER_ID
+        description: ''
+        data_type: NUMBER
+      - name: DELEGATEE_ID
+        description: ''
+        data_type: NUMBER
+      - name: FUTURE_CONTRACT_ID
+        description: ''
+        data_type: NUMBER
+      - name: VISIBLE_TO_ID
+        description: ''
+        data_type: NUMBER
+      - name: CONTRACT_TYPE_ID
+        description: ''
+        data_type: NUMBER
+      - name: SOFTWARE_ID
+        description: ''
+        data_type: NUMBER
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: AUTO_RENEW
+        description: ''
+        data_type: BOOLEAN
+      - name: NOTIFY_EXPIRY
+        description: ''
+        data_type: BOOLEAN
+      - name: NOTIFY_BEFORE
+        description: ''
+        data_type: NUMBER
+      - name: COST
+        description: ''
+        data_type: FLOAT
+      - name: STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: CONTRACT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: HAS_ASSOCIATED_ASSETS
+        description: ''
+        data_type: BOOLEAN
+      - name: HAS_ATTACHMENTS
+        description: ''
+        data_type: BOOLEAN
+      - name: EXPIRY_NOTIFIED
+        description: ''
+        data_type: BOOLEAN
+      - name: LICENSE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_CYCLE
+        description: ''
+        data_type: VARCHAR
+      - name: LICENSE_KEY
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: END_DATE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: START_DATE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_contract_type
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: NEEDS_APPROVAL
+        description: ''
+        data_type: BOOLEAN
+      - name: IS_DEFAULT
+        description: ''
+        data_type: BOOLEAN
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_project_task_type
+    columns:
+      - name: PROJECT_ID
+        description: ''
+        data_type: NUMBER
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: _FIVETRAN_DELETED
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_ticket_item
+    columns:
+      - name: ID
+        description: ''
+        data_type: NUMBER
+      - name: TICKET_ID
+        description: ''
+        data_type: NUMBER
+      - name: SERVICE_ITEM_ID
+        description: ''
+        data_type: NUMBER
+      - name: CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: QUANTITY
+        description: ''
+        data_type: NUMBER
+      - name: STAGE
+        description: ''
+        data_type: NUMBER
+      - name: LOANED
+        description: ''
+        data_type: BOOLEAN
+      - name: COST_PER_REQUEST
+        description: ''
+        data_type: FLOAT
+      - name: REMARKS
+        description: ''
+        data_type: VARCHAR
+      - name: DELIVERY_TIME
+        description: ''
+        data_type: NUMBER
+      - name: IS_PARENT
+        description: ''
+        data_type: BOOLEAN
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_change_workflow
+    columns:
+      - name: BO_DISPLAY_ID
+        description: ''
+        data_type: NUMBER
+      - name: BO_CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: BO_UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: BO_CREATED_BY
+        description: ''
+        data_type: NUMBER
+      - name: BO_UPDATED_BY
+        description: ''
+        data_type: NUMBER
+      - name: CHANGE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ
+  - name: freshservice__base_solution_folder_relation_id
+    columns:
+      - name: FOLDER_ID
+        description: ''
+        data_type: NUMBER
+      - name: RELATION_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ENTITY_ID
+        description: ''
+        data_type: NUMBER
+      - name: _FIVETRAN_SYNCED
+        description: ''
+        data_type: TIMESTAMP_TZ

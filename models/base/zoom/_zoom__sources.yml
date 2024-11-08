@@ -7,4 +7,30 @@ sources:
     loaded_at_field: _created_at
     tables:
       - name: account_phone_numbers
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: phone_users
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ

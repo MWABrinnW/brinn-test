@@ -617,3 +617,86 @@ models:
       - name: _CREATED_AT
         description: ''
         data_type: TIMESTAMP_NTZ
+  - name: cch_dau__stg_artransaction
+    columns:
+      - name: ARIDENT
+        description: ''
+        data_type: NUMBER
+      - name: CLIENT_IDENT
+        description: ''
+        data_type: NUMBER
+      - name: POSTED_BY_STAFFIDENT
+        description: ''
+        data_type: NUMBER
+      - name: TRANSACTION_DATE_TIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: POSTED_DATE_TIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: REFERENCE_DATE_TIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: AR_ENTRY_TYPE_INT_CODE
+        description: ''
+        data_type: NUMBER
+      - name: AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: UNDISTRIBUTED_AMOUT
+        description: ''
+        data_type: NUMBER
+      - name: REFERENCE_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: DISTRIBUTION_METHOD_CODE
+        description: ''
+        data_type: NUMBER
+      - name: FULLY_DISTRIBUTED
+        description: ''
+        data_type: NUMBER
+      - name: POSTED
+        description: ''
+        data_type: NUMBER
+      - name: CORRECTION_STATUS_CODE
+        description: ''
+        data_type: NUMBER
+      - name: CREATED_DATE_TIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: LAST_UPDATED_DATE_TIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: BANK_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: BANK_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: PAYMENT_METHOD
+        description: ''
+        data_type: VARCHAR
+      - name: PAYMENT_METHOD_CODE
+        description: ''
+        data_type: NUMBER
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: CREATED_BY_IDENT
+        description: ''
+        data_type: NUMBER
+      - name: LAST_UPDATED_BY_IDENT
+        description: ''
+        data_type: NUMBER
+      - name: ARORIGINALIDENT
+        description: ''
+        data_type: NUMBER
+      - name: AR_GROUP_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: REGISTRATION_TYPE__R_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ

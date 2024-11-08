@@ -8,12 +8,277 @@ sources:
     tables:
       - name: aum
         description: ""
+        columns:
+          - name: ADVISOR_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: CURRENT_CUSTODIAN
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_MANAGED_BY
+            description: ''
+            data_type: VARCHAR
+          - name: INVESTMENT_STRATEGY
+            description: ''
+            data_type: VARCHAR
+          - name: CASH_AMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: CASH_PERCENT
+            description: ''
+            data_type: VARCHAR
+          - name: US_STOCK_AMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: US_STOCK_PERCENT
+            description: ''
+            data_type: VARCHAR
+          - name: NON_US_STOCK_AMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: NON_US_STOCK_PERCENT
+            description: ''
+            data_type: VARCHAR
+          - name: BOND_AMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: BOND_PERCENT
+            description: ''
+            data_type: VARCHAR
+          - name: OTHER_AMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: OTHER_PERCENT
+            description: ''
+            data_type: VARCHAR
+          - name: NOT_CLASSIFIED_AMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: NOT_CLASSIFIED_PERCENT
+            description: ''
+            data_type: VARCHAR
+          - name: TOTAL_ACCOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _MD5
+            description: ''
+            data_type: VARCHAR
       - name: gain_loss
         description: ""
+        columns:
+          - name: ADVISOR_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: SECURITY_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: SYMBOL_CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: ACQUISITION_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: SHORT_TERM_UNREALIZED_G_L
+            description: ''
+            data_type: VARCHAR
+          - name: LONG_TERM_UNREALIZED_G_L
+            description: ''
+            data_type: VARCHAR
+          - name: PERCENT_G_L
+            description: ''
+            data_type: VARCHAR
+          - name: UNIT_COST
+            description: ''
+            data_type: VARCHAR
+          - name: PRICE
+            description: ''
+            data_type: VARCHAR
+          - name: QUANTITY
+            description: ''
+            data_type: VARCHAR
+          - name: MARKET_VALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PERCENT_OF_ASSET_PERCENT
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _MD5
+            description: ''
+            data_type: VARCHAR
       - name: accounts
         description: ""
+        columns:
+          - name: NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: MARKET_VALUE_USD
+            description: ''
+            data_type: VARCHAR
+          - name: MARKET_VALUE_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_OWNER
+            description: ''
+            data_type: VARCHAR
+          - name: PORTFOLIO_RISK_SCORE
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_ACCOUNT_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: OPEN_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: CLOSED_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: PERFORMANCE_START_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: INVESTMENT_STRATEGY
+            description: ''
+            data_type: VARCHAR
+          - name: INVESTMENT_OBJECTIVE
+            description: ''
+            data_type: VARCHAR
+          - name: PRIMARY_BENCHMARK
+            description: ''
+            data_type: VARCHAR
+          - name: SECONDARY_BENCHMARK
+            description: ''
+            data_type: VARCHAR
+          - name: TERTIARY_BENCHMARK
+            description: ''
+            data_type: VARCHAR
+          - name: TRACKING_METHOD
+            description: ''
+            data_type: VARCHAR
+          - name: LAST_RECONCILED_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: CURRENT_CUSTODIAN
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_AUTHORIZATION
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_AGGREGATE_CALCULATION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _MD5
+            description: ''
+            data_type: VARCHAR
       - name: clients
         description: ""
+        columns:
+          - name: NAME
+            description: ''
+            data_type: VARCHAR
+          - name: MARKET_VALUE_USD
+            description: ''
+            data_type: VARCHAR
+          - name: MARKET_VALUE_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_ACCOUNT_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: PRIMARY_BENCHMARK
+            description: ''
+            data_type: VARCHAR
+          - name: SECONDARY_BENCHMARK
+            description: ''
+            data_type: VARCHAR
+          - name: TERTIARY_BENCHMARK
+            description: ''
+            data_type: VARCHAR
+          - name: NUMBER_OF_ACCOUNTS
+            description: ''
+            data_type: VARCHAR
+          - name: ADVISOR
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_WEB_PORTAL_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: LAST_CLIENT_WEB_PORTAL_LOGIN
+            description: ''
+            data_type: VARCHAR
+          - name: PERMISSION
+            description: ''
+            data_type: VARCHAR
+          - name: REVIEW_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_AGGREGATE_CALCULATION
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _MD5
+            description: ''
+            data_type: VARCHAR
   - name: tpg_hfw
     description: ""
     database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
@@ -21,3 +286,49 @@ sources:
     tables:
       - name: holdings
         description: ""
+        columns:
+          - name: ASOFDATE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMERACCOUNTNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMERNAME
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMERTYPEDESC
+            description: ''
+            data_type: VARCHAR
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: CUSIPDESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: HOLDINGTYPEDESC
+            description: ''
+            data_type: VARCHAR
+          - name: POSITIONID
+            description: ''
+            data_type: VARCHAR
+          - name: PURCHASEPRICE
+            description: ''
+            data_type: VARCHAR
+          - name: MARKETPRICEAOD
+            description: ''
+            data_type: VARCHAR
+          - name: FAIRVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PARVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: SOURCE_FILE
+            description: ''
+            data_type: VARCHAR

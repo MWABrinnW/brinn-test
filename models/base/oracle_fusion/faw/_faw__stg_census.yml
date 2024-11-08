@@ -1,0 +1,106 @@
+version: 2
+models:
+  - name: faw__stg_census
+    columns:
+      - name: AGE_IN_YEARS
+        description: ''
+        data_type: NUMBER
+      - name: ASSIGNMENT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ASSIGNMENT_STATUS_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: BUSINESS_UNIT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CALENDAR_DATE
+        description: ''
+        data_type: DATE
+      - name: DATE_START
+        description: ''
+        data_type: DATE
+      - name: DEPARTMENT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: DIVISION
+        description: ''
+        data_type: VARCHAR
+      - name: EMPLOYEE_REPORTING_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ETHNICITY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: FTE
+        description: ''
+        data_type: NUMBER
+      - name: FULL_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: FULL_PART_TIME_FLAG
+        description: ''
+        data_type: VARCHAR
+      - name: JOB_FAMILY_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: JOB_FAMILY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: JOB_FUNCTION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: JOB_ID
+        description: ''
+        data_type: VARCHAR
+      - name: LEGAL_EMPLOYER_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: LOCATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: MGMT_LVL
+        description: ''
+        data_type: VARCHAR
+      - name: MGR_ASSGN_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: MGR_FULL_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: MGR_PERSON_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: PER_SYSTEM_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: PERSON_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: REAL_ESTATE_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: REGION
+        description: ''
+        data_type: VARCHAR
+      - name: SECTOR
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_PERSON_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: TENURE_IN_YEARS
+        description: ''
+        data_type: NUMBER
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _ID
+        description: ''
+        data_type: NUMBER

@@ -8,3 +8,16 @@ sources:
     tables:
       - name: survey
         description: "Survey level data from Culture Amp"
+        columns:
+          - name: SURVEY_DATA
+            description: ''
+            data_type: VARIANT
+          - name: SURVEY_ID
+            description: ''
+            data_type: VARCHAR
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE

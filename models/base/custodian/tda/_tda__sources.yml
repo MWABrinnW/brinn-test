@@ -8,17 +8,166 @@ sources:
     tables:
       - name: cbl
         description: Cost basis
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _FILE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: _REP_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: pos
         description: Positions
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _FILE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: _REP_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: pri
         description: Security prices
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _FILE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: _REP_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: sec
         description: Securities
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _FILE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: _REP_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: trd
         description: Account demographics delta file
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _FILE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: _REP_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: trf
         description: Account demographics full file. This is not delivered on a schedule and is by request only.
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _FILE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: _REP_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: trn
         description: Transactions
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _FILE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: _REP_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: accounts_balances
         description: File from TDA VEO (website) that shows all accounts and associated rep code.
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _EXTRACTED_AT
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _CHECKSUM
+            description: ''
+            data_type: VARCHAR

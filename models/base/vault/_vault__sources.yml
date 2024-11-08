@@ -7,3 +7,22 @@ sources:
     tables:
       - name: vault
         description: ""
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: NAME
+            description: ''
+            data_type: VARCHAR
+          - name: FILENAME
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ

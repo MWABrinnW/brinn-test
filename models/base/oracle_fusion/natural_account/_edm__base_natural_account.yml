@@ -1,0 +1,46 @@
+version: 2
+models:
+  - name: edm__base_natural_account
+    columns:
+      - name: SOURCE_LEVEL
+        description: ''
+        data_type: NUMBER
+      - name: NATURAL_ACCOUNT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: IS_ENABLED
+        description: ''
+        data_type: NUMBER
+      - name: END_DATE
+        description: ''
+        data_type: DATE
+      - name: ACCOUNT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: LEVEL8_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LEVEL7_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LEVEL6_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LEVEL5_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LEVEL4_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LEVEL3_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LEVEL2_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LEVEL1_NAME
+        description: ''
+        data_type: VARCHAR

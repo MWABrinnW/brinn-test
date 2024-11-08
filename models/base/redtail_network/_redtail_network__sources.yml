@@ -8,7 +8,46 @@ sources:
     tables:
       - name: contacts
         description: "Contact records from redtail"
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: contact_udfs
         description: "User defined contact fields from redtail"
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: contact_keywords
         description: "User defined contact keywords from redtail"
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR

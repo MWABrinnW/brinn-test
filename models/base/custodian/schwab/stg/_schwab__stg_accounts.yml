@@ -6,8 +6,10 @@ models:
     columns:
       - name: custodian
         description: ""
+        data_type: VARCHAR
       - name: firm_source
         description: ""
+        data_type: VARCHAR
       - name: firm
         description: ""
       - name: record_type
@@ -236,17 +238,19 @@ models:
         description: Identifies the Schwab Managed Account Money Manager. May be blank.
       - name: managed_account_investment_strategy
         description: Identifies the Schwab Managed Account Investment Strategy. May be blank.
-      - name: VERSION_MARKER_NUMBER_5_2
-        data_type: VARCHAR
+      - name: VERSION_MARKER_NUMBER_6
         description: ''
+        data_type: VARCHAR
       - name: bank_sweep_display_name
         description: If the Interest Bearing Feature Code at offset 923-927  is 'BKOMS' then this field provides the full name of the bank sweep feature as displayed on other client-facing channels. If the Interest Bearing Feature Code is not 'BKOMS' then this field will be blank [space-filled].
       - name: master_number
         description: ""
       - name: is_deceased
         description: ""
+        data_type: NUMBER
       - name: is_from_tda_migration
         description: ""
+        data_type: NUMBER
       - name: effective_date
         description: ""
       - name: RN
@@ -260,7 +264,7 @@ models:
         description: ''
       - name: _SOURCE_LOADED_AT
         data_type: TIMESTAMP_NTZ
-        description: ''
+        description: 'Time when the records were created in the source table.'
       - name: _SOURCE_FILE
         data_type: VARCHAR
         description: ''
