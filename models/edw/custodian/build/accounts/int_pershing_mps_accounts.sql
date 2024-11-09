@@ -593,7 +593,7 @@ select
   , ama_indicator
   , for_pershing_internal_use_only_2
   , tax_id_type
-  , tax_id_number
+  , tax_id_number::text(500) as tax_id_number
   , tax_status
   , email_address_1
   , telephone_number_1

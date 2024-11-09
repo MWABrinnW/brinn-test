@@ -65,6 +65,10 @@ models:
   - name: LAST_NAME
     description: ''
     data_type: VARCHAR
+  - name: IRS_ID
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_text
   - name: IRS_ID_TYPE
     description: ''
     data_type: VARCHAR
