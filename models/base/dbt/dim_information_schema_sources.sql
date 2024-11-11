@@ -1,4 +1,4 @@
-{{ config(enabled = true) }}
+{{ config(enabled = false) }}
 
 with cte_all_table_sources as
 (
