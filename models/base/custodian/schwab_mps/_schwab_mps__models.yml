@@ -7,8 +7,7 @@ models:
     data_type: VARCHAR
   - name: FIRM_SOURCE
     description: Firm entity associated with the link value.
-    meta:
-      row_access_policy: rap_firm_source
+
     data_type: VARCHAR
   - name: FIRM
     description: ''
@@ -244,8 +243,7 @@ models:
     data_type: VARCHAR
   - name: FIRM_SOURCE
     description: Firm entity associated with the link value.
-    meta:
-      row_access_policy: rap_firm_source
+
     data_type: VARCHAR
   - name: FIRM
     description: ''
@@ -707,8 +705,7 @@ models:
     data_type: VARCHAR
   - name: FIRM_SOURCE
     description: Firm entity associated with the link value.
-    meta:
-      row_access_policy: rap_firm_source
+
     data_type: VARCHAR
   - name: FIRM
     description: ''
@@ -893,8 +890,7 @@ models:
     data_type: VARCHAR
   - name: FIRM_SOURCE
     description: Firm entity associated with the link value.
-    meta:
-      row_access_policy: rap_firm_source
+
     data_type: VARCHAR
   - name: FIRM
     description: ''
@@ -1177,8 +1173,7 @@ models:
     data_type: VARCHAR
   - name: FIRM_SOURCE
     description: Firm entity associated with the link value.
-    meta:
-      row_access_policy: rap_firm_source
+
     data_type: VARCHAR
   - name: FIRM
     description: ''
@@ -1584,8 +1579,7 @@ models:
     data_type: VARCHAR
   - name: FIRM_SOURCE
     description: Firm entity associated with the link value.
-    meta:
-      row_access_policy: rap_firm_source
+
     data_type: VARCHAR
   - name: FIRM
     description: ''
@@ -1738,8 +1732,7 @@ models:
     data_type: VARCHAR
   - name: FIRM_SOURCE
     description: Firm entity associated with the link value.
-    meta:
-      row_access_policy: rap_firm_source
+
     data_type: VARCHAR
   - name: FIRM
     description: ''
@@ -1801,8 +1794,7 @@ models:
     data_type: VARCHAR
   - name: FIRM_SOURCE
     description: Firm entity associated with the link value.
-    meta:
-      row_access_policy: rap_firm_source
+
     data_type: VARCHAR
   - name: FIRM
     description: ''

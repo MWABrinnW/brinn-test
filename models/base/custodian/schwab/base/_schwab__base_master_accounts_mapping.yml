@@ -11,8 +11,6 @@ models:
       - name: FIRM_SOURCE
         description: 'Firm entity associated with the link value.'
         data_type: VARCHAR
-        meta:
-          row_access_policy: rap_firm_source
       - name: MASTER_ACCOUNT_NUMBER
         description: 'Identifies the master account number associated with creating this record.'
         data_type: VARCHAR

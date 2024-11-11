@@ -2135,8 +2135,6 @@ sources:
           - name: ACCOUNT_TAX_ID_NUMBER
             data_type: VARCHAR
             description: ''
-            meta:
-              masking_policy: mp_client_pii_text
           - name: RN
             data_type: NUMBER
             description: ''
