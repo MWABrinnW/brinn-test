@@ -27,8 +27,6 @@ models:
       - name: FIRM_SOURCE
         description: 'Firm entity associated with the link value.'
         data_type: VARCHAR
-        meta:
-          row_access_policy: rap_firm_source
       - name: REFERRAL_PARTY_NAME
         description: ''
         data_type: VARCHAR

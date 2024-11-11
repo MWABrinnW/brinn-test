@@ -16,11 +16,6 @@ packages:
     # https://github.com/calogica/dbt-date/
     # https://github.com/dbt-labs/dbt-utils
 
-  - package: elementary-data/elementary
-    version: [">=0.14.1", "<0.15.0"]
-    ## Docs: https://docs.elementary-data.com
-    ## https://github.com/elementary-data/elementary
-
   - package: get-select/dbt_snowflake_query_tags
     version: [">=2.3.3", "<2.4.0"]
     ## https://github.com/get-select/dbt-snowflake-query-tags

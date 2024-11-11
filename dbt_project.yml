@@ -90,19 +90,6 @@ tests:
 # [Configuring models]
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 models:
-  ## see docs: https://docs.elementary-data.com/
-  elementary:
-    +database: |
-      {%- if  target.name == "dev" -%} dbt
-      {%- elif target.name == "prod"  -%} dbt
-      {%- elif target.name == "test"  -%} dbt_dev
-      {%- else -%} dbt_dev
-      {%- endif -%}
-    +schema: "elementary"
-    +grants:
-      select: "{{ ['engineering'] if target.name in ['prod','test'] else []}}"
-    enabled: "{{ target.name in ['prod', 'test'] and env_var('DBT_ELEMENTARY_ENABLED', True) != False }}"
-
   github_source:
     +tags: ["github", "daily"]
     +grants:
@@ -151,11 +138,6 @@ models:
       relation: true
       columns: true
     +dbt-osmosis: "_{parent}__models.yml"
-    # post-hook:
-      # - "{{ apply_policies(meta_key='row_access_policy') }}"
-      # - "{{ apply_policies(meta_key='masking_policy') }}"
-      # - "{{ apply_row_access_policies() }}"
-      # - "{{ apply_masking_policies() }}"
 
     # By default models will go in the datalake db
     +database: |

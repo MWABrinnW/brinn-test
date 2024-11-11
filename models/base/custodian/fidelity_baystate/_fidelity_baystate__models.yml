@@ -2419,8 +2419,6 @@ models:
     data_type: VARCHAR
   - name: FIRM_SOURCE
     description: ''
-    meta:
-      row_access_policy: rap_firm_source
     data_type: VARCHAR
   - name: ACCOUNT_NUMBER_FORMATTED
     description: ''

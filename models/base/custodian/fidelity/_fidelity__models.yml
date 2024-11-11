@@ -11,8 +11,6 @@ models:
       - name: FIRM_SOURCE
         description: ''
         data_type: VARCHAR
-        meta:
-          row_access_policy: rap_firm_source
       - name: ACCOUNT_NUMBER_FORMATTED
         description: ''
         data_type: VARCHAR
@@ -61,8 +59,6 @@ models:
         description: ''
         data_type: DATE
       - name: FIRM_SOURCE
-        meta:
-          row_access_policy: rap_firm_source
         description: ''
         data_type: VARCHAR
       - name: ACCOUNT_NUMBER_FORMATTED

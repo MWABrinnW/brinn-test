@@ -2977,8 +2977,6 @@ models:
   - name: FIRM_SOURCE
     description: ''
     data_type: VARCHAR
-    meta:
-      row_access_policy: rap_firm_source
   - name: ACCOUNT_NUMBER_FORMATTED
     description: ''
     data_type: VARCHAR
