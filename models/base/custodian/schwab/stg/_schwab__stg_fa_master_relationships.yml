@@ -29,8 +29,6 @@ models:
       - name: ACCOUNT_TAX_ID_NUMBER
         description: ''
         data_type: VARCHAR
-        meta:
-          masking_policy: mp_client_pii_text
       - name: RN
         description: ''
         data_type: NUMBER

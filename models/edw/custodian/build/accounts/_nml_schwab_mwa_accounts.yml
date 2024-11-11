@@ -65,8 +65,6 @@ models:
     data_type: VARCHAR
   - name: BIRTH_DATE
     description: ''
-    meta:
-      masking_policy: mp_client_pii_text
     data_type: VARCHAR
   - name: EMAIL_ADDRESS
     description: Email Address of the Primary Contact.

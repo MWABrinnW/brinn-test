@@ -62,9 +62,6 @@ vars:
       {%- if  target.name in ["dev", "ci"] -%} {{ target.schema }}
       {%- else -%} policies
       {%- endif -%}
-  create_policy_schema: "True"
-  # use_force_applying_masking_policy: "False"
-  # use_force_applying_row_access_policy: "False"
   common_tag_database: |
       {%- if  target.name in ["dev", "ci"] -%} {{ target.database }}
       {%- elif target.name == "test" -%} {{ target.database }} || _test
@@ -203,22 +200,37 @@ models:
           +tags: ["fidelity", "mps"]
           +grants:
             select: "{{ ['db_custodial_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+          raw:
+            +grants:
+              select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
         fidelity_swag:
           +tags: ["fidelity", "swag"]
           +grants:
             select: "{{ ['db_custodial_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+          raw:
+            +grants:
+              select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
         fidelity_msec:
           +tags: ["fidelity", "msec"]
           +grants:
             select: "{{ ['db_custodial_msec_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+          raw:
+            +grants:
+              select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
         fidelity_mwa:
           +tags: ["fidelity", "mwa"]
           +grants:
             select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+          raw:
+            +grants:
+              select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
         fidelity_baystate:
           +tags: ["fidelity", "baystate"]
           +grants:
             select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+          raw:
+            +grants:
+              select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
         lpl_network:
           +tags: ["lpl", "network", "mps"]
           +grants:

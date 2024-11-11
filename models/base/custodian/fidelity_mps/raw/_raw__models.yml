@@ -1077,8 +1077,6 @@ models:
   - name: FIXED_FORMAT_DATE_OF_BIRTH_1
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_DATE_OF_DEATH_1
     description: ''
     data_type: VARCHAR
@@ -1088,13 +1086,9 @@ models:
   - name: FIXED_FORMAT_SSN_NUMBER_1
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FIXED_FORMAT_SSN_CODE_1
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_XREF_1
     description: ''
     data_type: VARCHAR
@@ -1125,8 +1119,6 @@ models:
   - name: FIXED_FORMAT_DATE_OF_BIRTH_2
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_DATE_OF_DEATH_2
     description: ''
     data_type: VARCHAR
@@ -1136,13 +1128,9 @@ models:
   - name: FIXED_FORMAT_SSN_NUMBER_2
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FIXED_FORMAT_SSN_CODE_2
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_XREF_2
     description: ''
     data_type: VARCHAR
@@ -1173,8 +1161,6 @@ models:
   - name: FIXED_FORMAT_DATE_OF_BIRTH_3
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_DATE_OF_DEATH_3
     description: ''
     data_type: VARCHAR
@@ -1184,13 +1170,9 @@ models:
   - name: FIXED_FORMAT_SSN_NUMBER_3
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FIXED_FORMAT_SSN_CODE_3
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_XREF_3
     description: ''
     data_type: VARCHAR
@@ -1271,13 +1253,9 @@ models:
   - name: FIXED_FORMAT_SSN_NUMBER_1
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FIXED_FORMAT_SSN_CODE_1
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_XREF_1
     description: ''
     data_type: VARCHAR
@@ -1299,13 +1277,9 @@ models:
   - name: FIXED_FORMAT_SSN_NUMBER_2
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FIXED_FORMAT_SSN_CODE_2
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_XREF_2
     description: ''
     data_type: VARCHAR
@@ -1327,13 +1301,9 @@ models:
   - name: FIXED_FORMAT_SSN_NUMBER_3
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FIXED_FORMAT_SSN_CODE_3
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_XREF_3
     description: ''
     data_type: VARCHAR
@@ -1423,8 +1393,6 @@ models:
   - name: FIXED_FORMAT_DATE_OF_BIRTH_1
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_DATE_OF_DEATH_1
     description: ''
     data_type: VARCHAR
@@ -1434,13 +1402,9 @@ models:
   - name: FIXED_FORMAT_SSN_NUMBER_1
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FIXED_FORMAT_SSN_CODE_1
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_XREF_1
     description: ''
     data_type: VARCHAR
@@ -1471,8 +1435,6 @@ models:
   - name: FIXED_FORMAT_DATE_OF_BIRTH_2
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_DATE_OF_DEATH_2
     description: ''
     data_type: VARCHAR
@@ -1482,13 +1444,9 @@ models:
   - name: FIXED_FORMAT_SSN_NUMBER_2
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FIXED_FORMAT_SSN_CODE_2
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_XREF_2
     description: ''
     data_type: VARCHAR
@@ -1519,8 +1477,6 @@ models:
   - name: FIXED_FORMAT_DATE_OF_BIRTH_3
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_DATE_OF_DEATH_3
     description: ''
     data_type: VARCHAR
@@ -1530,13 +1486,9 @@ models:
   - name: FIXED_FORMAT_SSN_NUMBER_3
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FIXED_FORMAT_SSN_CODE_3
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_XREF_3
     description: ''
     data_type: VARCHAR
@@ -2191,8 +2143,6 @@ models:
   - name: ASTK_TCPN_DATE_OF_BIRTH
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: CITIZEN_STATUS_CODE
     description: ''
     data_type: VARCHAR
@@ -3018,8 +2968,6 @@ models:
   - name: BIRTH_DATE
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: TELEPHONE_TYPE_1
     description: ''
     data_type: VARCHAR
@@ -4379,8 +4327,6 @@ models:
   - name: FIXED_FORMAT_DATE_OF_BIRTH_1
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_DATE_OF_DEATH_1
     description: ''
     data_type: VARCHAR
@@ -4390,13 +4336,9 @@ models:
   - name: FIXED_FORMAT_SSN_NUMBER_1
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FIXED_FORMAT_SSN_CODE_1
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_XREF_1
     description: ''
     data_type: VARCHAR
@@ -4427,8 +4369,6 @@ models:
   - name: FIXED_FORMAT_DATE_OF_BIRTH_2
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_DATE_OF_DEATH_2
     description: ''
     data_type: VARCHAR
@@ -4438,13 +4378,9 @@ models:
   - name: FIXED_FORMAT_SSN_NUMBER_2
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FIXED_FORMAT_SSN_CODE_2
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_XREF_2
     description: ''
     data_type: VARCHAR
@@ -4726,16 +4662,12 @@ models:
   - name: BIRTH_DATE
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: PRODUCT_LEVEL
     description: ''
     data_type: VARCHAR
   - name: BIRTH_DATE_SHADOW
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: MULTI_CURRENCY_ACCOUNT
     description: ''
     data_type: VARCHAR
@@ -6014,13 +5946,9 @@ models:
   - name: FIXED_FORMAT_SSN_NUMBER_1
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FIXED_FORMAT_SSN_CODE_1
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_XREF_1
     description: ''
     data_type: VARCHAR
@@ -6042,13 +5970,9 @@ models:
   - name: FIXED_FORMAT_SSN_NUMBER_2
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FIXED_FORMAT_SSN_CODE_2
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_XREF_2
     description: ''
     data_type: VARCHAR
@@ -6260,13 +6184,9 @@ models:
   - name: FIXED_FORMAT_SSN_NUMBER_1
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FIXED_FORMAT_SSN_CODE_1
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_XREF_1
     description: ''
     data_type: VARCHAR
@@ -6288,13 +6208,9 @@ models:
   - name: FIXED_FORMAT_SSN_NUMBER_2
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FIXED_FORMAT_SSN_CODE_2
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_XREF_2
     description: ''
     data_type: VARCHAR
@@ -6316,13 +6232,9 @@ models:
   - name: FIXED_FORMAT_SSN_NUMBER_3
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FIXED_FORMAT_SSN_CODE_3
     description: ''
     data_type: VARCHAR
-    meta:
-      masking_policy: mp_client_pii_text
   - name: FFR_XREF_3
     description: ''
     data_type: VARCHAR

@@ -64,8 +64,6 @@ models:
     data_type: VARCHAR
   - name: BIRTH_DATE
     description: ''
-    meta:
-      masking_policy: mp_client_pii_date
     data_type: DATE
   - name: EMAIL_ADDRESS
     description: ''

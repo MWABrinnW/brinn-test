@@ -301,8 +301,6 @@ models:
     data_type: VARCHAR
   - name: BIRTH_DATE
     description: ''
-    meta:
-      masking_policy: mp_client_pii_date
     data_type: DATE
   - name: AGEBASED_FUND_ROLL_EXEMPT_INDICATOR
     description: ''
@@ -369,8 +367,6 @@ models:
     data_type: VARCHAR
   - name: TAX_ID_NUMBER
     description: ''
-    meta:
-      masking_policy: mp_client_pii_text
     data_type: VARCHAR
   - name: TAX_STATUS
     description: ''

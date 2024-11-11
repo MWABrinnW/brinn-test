@@ -1,9 +1,10 @@
 {% macro create_row_access_policies() %}
-    {%- set do_rap = env_var('DBT_RAP', True) | as_bool %}
+    {%- set do_rap = str_to_bool(env_var('DBT_RAP', true)) %}
+
     {%- if execute -%}
         {% if do_rap %}
 
-            {% if any_rap_in_scope() == true %}
+            {% if any_rap_in_scope() %}
 
                 {{ log("Creating/altering row access policies (DBT_RAP=" ~ do_rap ~ ")", info=true) }}
 
@@ -15,7 +16,7 @@
 
         {%- else -%}
 
-            {{ log("Not creating any row access policies (DBT_RAP=" ~ do_rap ~ ")", info=true) }}
+            {{ log("Not creating row access policies (DBT_RAP=" ~ do_rap ~ ")", info=true) }}
 
         {% endif %}
     {%- endif -%}

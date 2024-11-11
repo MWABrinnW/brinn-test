@@ -82,8 +82,6 @@ models:
         data_type: VARCHAR
       - name: ASSOCIATE_BIRTH_DATE
         description: ''
-        meta:
-          masking_policy: mp_associate_pii_date
         data_type: DATE
       - name: ASSOCIATE_GENDER_CODE
         description: ''
@@ -144,8 +142,6 @@ models:
         data_type: VARCHAR
       - name: ASSOCIATE_EEO_ETHNICITY
         description: ''
-        meta:
-          masking_policy: mp_associate_pii_text
         data_type: VARCHAR
       - name: ASSOCIATE_EEO_IDENTIFICATION_METHOD
         description: ''

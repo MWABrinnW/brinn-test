@@ -32,7 +32,3 @@ packages:
   #   version: [">=0.10.0", "<0.11.0"]
   # https://hub.getdbt.com/re-data/re_data/latest/
   # https://docs.getre.io/latest/docs/start_here
-
-  # - package: entechlog/dbt_snow_mask
-  #   version: 0.2.5
-  #   ## https://hub.getdbt.com/entechlog/dbt_snow_mask/latest

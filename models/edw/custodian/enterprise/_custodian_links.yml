@@ -17,6 +17,8 @@ models:
       - name: FIRM_SOURCE
         description: 'Which firm entity does this link belong to?'
         data_type: VARCHAR
+        meta:
+          row_access_policy: rap_firm_source
       - name: LINK_TYPE
         description: 'The type of link (i.e. master number or G number)'
         data_type: VARCHAR

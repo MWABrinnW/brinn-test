@@ -77,8 +77,6 @@ models:
       - name: ASSOCIATE_BIRTH_DATE
         description: ''
         data_type: DATE
-        meta:
-          masking_policy: mp_associate_pii_date
       - name: ASSOCIATE_GENDER_CODE
         description: ''
         data_type: VARCHAR

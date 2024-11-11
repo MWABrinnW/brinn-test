@@ -1,9 +1,10 @@
 {% macro create_masking_policies() %}
-    {%- set do_mp = env_var('DBT_MP', True) | as_bool %}
+    {%- set do_mp = str_to_bool(env_var('DBT_MP', true)) %}
+
     {%- if execute -%}
         {% if do_mp %}
 
-            {% if any_mp_in_scope() == true %}
+            {% if any_mp_in_scope() %}
 
                 {{ log("Creating/altering masking policies (DBT_MP=" ~ do_mp ~ ")", info=true) }}
 
@@ -20,7 +21,7 @@
 
         {%- else -%}
 
-            {{ log("Not creating any masking policies (DBT_MP=" ~ do_mp ~ ")", info=true) }}
+            {{ log("Not creating masking policies (DBT_MP=" ~ do_mp ~ ")", info=true) }}
 
         {% endif %}
     {%- endif -%}
