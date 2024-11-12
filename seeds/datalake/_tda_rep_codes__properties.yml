@@ -14,7 +14,7 @@ seeds:
     columns:
       - name: rep_code
         description: "TDA rep code"
-        tests:
+        data_tests:
           - not_null
           - unique
       - name: firm

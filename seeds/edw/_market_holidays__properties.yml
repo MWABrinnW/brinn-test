@@ -11,6 +11,6 @@ seeds:
         select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
     columns:
       - name: market_holiday
-        tests:
+        data_tests:
           - not_null
           - unique

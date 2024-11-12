@@ -80,7 +80,7 @@ on-run-start:
 on-run-end:
   - "{{ grant_usage_on_schemas_where_select() if target.name in ['prod', 'test'] }}"
 
-tests:
+data_tests:
   +store_failures: true
   +limit: 500
 

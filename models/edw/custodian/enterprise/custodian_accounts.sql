@@ -1,24 +1,27 @@
-with cte_dates as
-(
+with cte_dates as (
     select date_key as effective_date
     from {{ ref('dates') }}
     where is_market_day = 1
         and date_key between
-            (select min(effective_date) from {{ ref('bld_custodian_holdings') }})
-            and
-            (select max(effective_date) from {{ ref('bld_custodian_holdings') }})
+        (select min(t.effective_date) from {{ ref('bld_custodian_holdings') }} as t)
+        and
+        (select max(t.effective_date) from {{ ref('bld_custodian_holdings') }} as t)
 )
-,cte_custodians_spined as
-(
-    select distinct c.custodian, c.firm_source, cf.firm, d.effective_date
-    from {{ ref('custodians') }} c
-    left join {{ ref('custodian_firms') }} cf
+
+, cte_custodians_spined as (
+    select distinct
+        c.custodian
+        , c.firm_source
+        , cf.firm
+        , d.effective_date
+    from {{ ref('custodians') }} as c
+    left join {{ ref('custodian_firms') }} as cf
         on c.firm_source = cf.firm_source
-    cross join cte_dates d
+    cross join cte_dates as d
 )
 
 select
-      c.effective_date
+    c.effective_date
     , c.custodian
     , c.firm
     , c.firm_source
@@ -63,15 +66,18 @@ select
     , ca.legal_address_state
     , ca.legal_address_zip
     , ca.legal_address_country
-    , {{ col_is_head(reference='cte_custodians_spined', source_date_col='c.effective_date') }}
+    , {{ col_is_head(
+        reference='cte_custodians_spined',
+        source_date_col='c.effective_date'
+        ) }}
     , {{ col_is_current(date_col='c.effective_date') }}
     , ca.rn_firm_source
     , ca.rn_global
     , ca._created_at
     , ca._source_loaded_at
-    {# , ca._source_file #}
-from cte_custodians_spined c
-left join {{ ref('bld_custodian_accounts') }} ca
+{# , ca._source_file #}
+from cte_custodians_spined as c
+left join {{ ref('bld_custodian_accounts') }} as ca
     on c.custodian = ca.custodian
     and c.firm_source = ca.firm_source
     and c.effective_date = ca.effective_date

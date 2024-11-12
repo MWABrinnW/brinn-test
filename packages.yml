@@ -17,18 +17,14 @@ packages:
     # https://github.com/dbt-labs/dbt-utils
 
   - package: get-select/dbt_snowflake_query_tags
-    version: [">=2.3.3", "<2.4.0"]
+    version: 2.5.0
     ## https://github.com/get-select/dbt-snowflake-query-tags
 
   - package: fivetran/fivetran_log
-    version: 1.8.0
+    version: 1.9.0
     ## https://github.com/fivetran/dbt_fivetran_log
 
   - package: fivetran/github
     version: [">=0.8.1", "<0.9.0"]
     ## https://github.com/fivetran/dbt_github
 
-  # - package: re-data/re_data
-  #   version: [">=0.10.0", "<0.11.0"]
-  # https://hub.getdbt.com/re-data/re_data/latest/
-  # https://docs.getre.io/latest/docs/start_here

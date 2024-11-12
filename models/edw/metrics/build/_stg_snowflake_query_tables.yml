@@ -100,7 +100,7 @@ models:
       - name: query_table_key
         description: |
           Unique surrogate key identifying the query_id and unique accessed table or view's database.schema.table reference.
-        tests:
+        data_tests:
           - unique_not_null_recently:
               time_column: start_at
               lookback_days: 7

@@ -4,7 +4,7 @@ models:
     columns:
       - name: record_id
         description: "unique identifier for each advisor record"
-        tests:
+        data_tests:
           - unique
       - name: system_name
         description: "system information in which the data comes from (pms, crm, etc.)"

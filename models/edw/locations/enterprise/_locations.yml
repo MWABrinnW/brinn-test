@@ -14,7 +14,7 @@ models:
         description: Mariner Location ID for the location (ex. 100, L-10015)
       - name: start_date
         description: Unique identifier for each Location Master record.
-        tests:
+        data_tests:
           - not_null
       - name: end_date
         description: Start date the new location is active.
@@ -84,6 +84,6 @@ models:
         data_type: VARCHAR
       - name: _created_at
         description: Datetime representing when the record was loaded into the table from the source file.
-        tests:
+        data_tests:
           - not_null
 

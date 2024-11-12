@@ -46,10 +46,18 @@ jobs:
       - name: Install python requirements
         shell: pwsh
         run: |
-          python -m venv ./utilities/.venv
-          ./utilities/.venv/Scripts/Activate.ps1
           echo "cache-hit: ${{ steps.cache-venv.outputs.cache-hit }}"
-          if ('${{ steps.cache-venv.outputs.cache-hit }}' -ne 'true') {pip install -r requirements-ci.txt} else {echo "Using cached venv"}
+          if ('${{ steps.cache-venv.outputs.cache-hit }}' -ne 'true') {
+            if ((Test-Path -Path "./utilities/.venv" -PathType Container)) {
+              Write-Host "Removing existing venv"
+              Remove-Item -Path "./utilities/.venv" -Force -Recurse
+            }
+            Write-Host "Creating venv"
+            python -m venv ./utilities/.venv
+            Write-Host "Installing requirements"
+            ./utilities/.venv/Scripts/Activate.ps1
+            pip install -r requirements-ci.txt
+          } else {echo "Using cached venv"}
 
       - name: Lint changed files
         shell: pwsh

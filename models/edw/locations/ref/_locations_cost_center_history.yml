@@ -13,14 +13,14 @@ models:
         description: End date of current location OR date that current record will be modified and new record will start
       - name: old_code
         description: Great Plains accounting/cost code (ex. 1104, 7704, 8804) - prior code
-        tests:
+        data_tests:
           - not_null
       - name: current_code
         description: Great Plains accounting/cost code (ex. 1104, 7704, 8804) - current code
-        tests:
+        data_tests:
           - not_null
       - name: _created_at
         description: Datetime representing when the record was loaded into the table from the source file.
-        tests:
+        data_tests:
           - not_null
 

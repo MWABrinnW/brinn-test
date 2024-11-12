@@ -16,7 +16,7 @@ models:
     description: ''
     data_type: NUMBER
   - name: rep_code_firm
-    tests:
+    data_tests:
     - not_null
   - name: FIRM_SOURCE
     description: ''
@@ -92,7 +92,7 @@ models:
   - name: payout_rate
   - name: effective_date
   - name: rep_code_firm
-    tests:
+    data_tests:
     - not_null
   - name: _rep_code
   - name: _file_type

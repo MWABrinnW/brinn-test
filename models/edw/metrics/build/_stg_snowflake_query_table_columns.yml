@@ -36,7 +36,7 @@ models:
       - name: query_table_column_key
         description: |
           Unique surrogate key combining the query_id and unique accessed table or view's database.schema.table.column reference.
-        tests:
+        data_tests:
           - unique_not_null_recently:
               time_column: start_at
               lookback_days: 7
@@ -48,7 +48,7 @@ models:
       - name: table_column_key
         description: |
           Foreign key identifier of a table or view's database.schema.table.column reference.
-        tests:
+        data_tests:
           - not_null_recently:
               time_column: start_at
               lookback_days: 7

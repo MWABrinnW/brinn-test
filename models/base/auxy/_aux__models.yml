@@ -644,7 +644,7 @@ models:
         - custodian
       grants:
         select: '{{ [''datamanagement'', ''engineering''] if target.name in [''prod'', ''test'', ''ci''] else []}}'
-    tests:
+    data_tests:
       - dbt_utils.mutually_exclusive_ranges:
           lower_bound_column: coalesce(effective_start_date, '1900-01-01')
           upper_bound_column: coalesce(effective_end_date, '2099-12-31')
