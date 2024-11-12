@@ -52,16 +52,19 @@ jobs:
       - name: Install python requirements
         shell: pwsh
         run: |
+          $venv_dir = ".\utilities\.venv"
           echo "cache-hit: ${{ steps.cache-venv.outputs.cache-hit }}"
           if ('${{ steps.cache-venv.outputs.cache-hit }}' -ne 'true') {
-            if ((Test-Path -Path "./utilities/.venv" -PathType Container)) {
+            if ((Test-Path -Path "$venv_dir" -PathType Container)) {
               Write-Host "Removing existing venv"
-              Remove-Item -Path "./utilities/.venv" -Force -Recurse
+              Remove-Item -Path "$venv_dir" -Force -Recurse
+            } else {
+              Write-Host "Did not detect existing venv $venv_dir"
             }
             Write-Host "Creating venv"
-            python -m venv ./utilities/.venv
+            python -m venv $venv_dir
             Write-Host "Installing requirements"
-            ./utilities/.venv/Scripts/Activate.ps1
+            & "$venv_dir\Scripts\Activate.ps1"
             pip install -r requirements-ci.txt
           } else {echo "Using cached venv"}
 
@@ -130,16 +133,19 @@ jobs:
       - name: Install python requirements
         shell: pwsh
         run: |
+          $venv_dir = ".\utilities\.venv"
           echo "cache-hit: ${{ steps.cache-venv.outputs.cache-hit }}"
           if ('${{ steps.cache-venv.outputs.cache-hit }}' -ne 'true') {
-            if ((Test-Path -Path "./utilities/.venv" -PathType Container)) {
+            if ((Test-Path -Path "$venv_dir" -PathType Container)) {
               Write-Host "Removing existing venv"
-              Remove-Item -Path "./utilities/.venv" -Force -Recurse
+              Remove-Item -Path "$venv_dir" -Force -Recurse
+            } else {
+              Write-Host "Did not detect existing venv $venv_dir"
             }
             Write-Host "Creating venv"
-            python -m venv ./utilities/.venv
+            python -m venv $venv_dir
             Write-Host "Installing requirements"
-            ./utilities/.venv/Scripts/Activate.ps1
+            & "$venv_dir\Scripts\Activate.ps1"
             pip install -r requirements-ci.txt
           } else {echo "Using cached venv"}
 
