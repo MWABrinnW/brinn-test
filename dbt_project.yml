@@ -384,6 +384,34 @@ models:
         orion_mps:
           +grants:
             select: "{{ ['db_pms_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        portfoliocenter_roseland:
+          +tags: ["portfoliocente", "mwa", "roseland"]
+          +grants:
+            select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        portfoliocenter_tcea:
+          +tags: ["portfoliocente", "mwa", "tcea"]
+          +grants:
+            select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        sei_manasquan:
+          +tags: ["sei", "mwa", "manasquan"]
+          +grants:
+            select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        tamarac_emerson:
+          +tags: ["tamarac", "mwa", "emerson"]
+          +grants:
+            select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        tamarac_new_albany:
+          +tags: ["tamarac", "mwa", "new_albany"]
+          +grants:
+            select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        tamarac_savant:
+          +tags: ["tamarac", "mwa", "savant"]
+          +grants:
+            select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        tamarac_state_college:
+          +tags: ["tamarac", "mwa", "state_college", "cpg"]
+          +grants:
+            select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       reach_360:
         +tags: ["reach_360"]

@@ -1,2 +1,2 @@
 {{ config(enabled=false) }}
-select 7
+select 8
