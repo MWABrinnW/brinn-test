@@ -79,6 +79,7 @@ on-run-start:
   - "{{ create_masking_policies() }}"
 on-run-end:
   - "{{ grant_usage_on_schemas_where_select() if target.name in ['prod', 'test'] }}"
+  - "{% if target.name in ['prod', 'test'] %}{{ dbt_artifacts.upload_results(results) }}{% endif %}"
 
 data_tests:
   +store_failures: true
@@ -129,6 +130,10 @@ models:
         {%- else -%} datalake_dev
         {%- endif -%}
       +schema: fivetran_log # leave blank for just the target_schema
+
+  dbt_artifacts:
+    +grants:
+      select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
   data_engineering:
     +persist_docs:
@@ -349,13 +354,6 @@ models:
         +tags: ["pms"]
         +grants:
           select: "{{ ['db_pms_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
-        mwa:
-          +tags: ["mwa"]
-          +grants:
-            select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
-        mps:
-          +tags: ["mps"]
-          select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         black_diamond_ap4:
           +grants:
             select: "{{ ['db_pms_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
@@ -551,13 +549,6 @@ models:
           +grants:
             select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
-      crm:
-        +tags: ["pms", "pms-master", "crm"]
-        build:
-          +schema: build
-          +grants:
-            select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
-
       custodian:
         +tags: ["custodian", "custodial", "custodian-master"]
         build:
@@ -573,17 +564,6 @@ models:
           +schema: ref
           +grants:
             select: "{{ ['db_edw_client_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
-
-      pms:
-        +tags: ["pms", "pms-master"]
-        build:
-          +schema: build
-          +grants:
-            select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
-        # enterprise:
-        #   +schema: enterprise
-        #   +grants:
-        #     select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       employees:
         +tags: ["employees", "associates"]
@@ -633,7 +613,6 @@ models:
 
       metrics:
         +tags: ["metrics", "daily"]
-        +schema: metrics
         +grants:
           select: "{{ ['engineering', 'datamanagement', 'reporting', 'integration_reporting'] if target.name in ['prod', 'test', 'ci'] else []}}"
         build:

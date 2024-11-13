@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: base_snowflake_access_history
+  - name: stg_snowflake_access_history
     description: |
       Snowflake documentation [here](https://docs.snowflake.com/en/user-guide/access-history.html#querying-the-access-history-view)
     columns:
@@ -29,23 +29,3 @@ models:
       - name: objects_modified
         description: |
           Similar to direct_objects_accessed, but representing modified tables or views for DDL or DML queries.
-  - name: stg_snowflake_access_history
-    columns:
-      - name: QUERY_ID
-        description: ''
-        data_type: VARCHAR
-      - name: START_AT
-        description: ''
-        data_type: TIMESTAMP_TZ
-      - name: USER_NAME
-        description: ''
-        data_type: VARCHAR
-      - name: DIRECT_OBJECTS_ACCESSED
-        description: ''
-        data_type: ARRAY
-      - name: BASE_OBJECTS_ACCESSED
-        description: ''
-        data_type: ARRAY
-      - name: OBJECTS_MODIFIED
-        description: ''
-        data_type: ARRAY

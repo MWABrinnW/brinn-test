@@ -23,7 +23,7 @@ models:
           - not_null
           - accepted_values:
               values: [0, 1]
-  - name: nml_bills_addepar_corbenic
+  - name: nml_bills_addepar_corbenic_compass
     columns:
       - name: SYSTEM_NAME
         description: ''

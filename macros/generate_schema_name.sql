@@ -1,6 +1,6 @@
 {% macro generate_schema_name(custom_schema_name=none, node=none) -%}
 
-  {%- if target.name == 'dev' -%}
+  {%- if target.name == 'dev' or node.package_name == 'dbt_artifacts' -%}
 
     {{ target.schema }}
 

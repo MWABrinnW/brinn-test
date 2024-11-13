@@ -1,6 +1,6 @@
 version: 2
 models:
-  - name: model_usage_by_user_daily
+  - name: metrics__model_usage_daily
     columns:
       - name: QUERY_DATE
         description: ''
@@ -20,12 +20,18 @@ models:
       - name: TABLE_TYPE
         description: ''
         data_type: VARCHAR
-      - name: USER_NAME
-        description: ''
-        data_type: NUMBER
-      - name: DEFAULT_ROLE
-        description: ''
-        data_type: VARCHAR
       - name: TOTAL_USE_COUNT
         description: ''
         data_type: NUMBER
+      - name: TOTAL_USER_COUNT
+        description: ''
+        data_type: NUMBER
+      - name: TOTAL_ROLE_COUNT
+        description: ''
+        data_type: NUMBER
+      - name: USERS
+        description: ''
+        data_type: ARRAY
+      - name: ROLES
+        description: ''
+        data_type: ARRAY

@@ -1,6 +1,6 @@
 {% macro generate_alias_name(custom_alias_name=none, node=none) -%}
 
-  {%- if target.name == 'dev' and custom_alias_name is none -%}
+  {%- if (target.name == 'dev' and custom_alias_name is none) or node.package_name == 'dbt_artifacts' -%}
 
     {{ node.name }}
 
