@@ -2,7 +2,7 @@ with cte_union as (
     select
         *
         , 0::int as is_legacy
-    from {{ ref('bld_billing_wealth_like') }}
+    from {{ ref('bld_billing_wealth') }}
     union all
     select
         *

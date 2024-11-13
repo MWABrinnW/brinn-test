@@ -122,9 +122,12 @@ select
     , b.billing_fee_value::number(20 , 5)                                                as unit_selling_price
 
     -- [exclusion]
-    -- No records are being excluded, default to 0
-    , 0::int                                                                             as is_excluded
-    , null::varchar(200)                                                                 as excluded_reason
+    -- No records are being excluded, set excluded to empty string
+    , ''::varchar(200)                                                                   as excluded_reasons
+    , case
+        when excluded_reasons = '' then 0
+        else 1
+    end::int                                                                             as is_excluded
 
     -- [finanical dates] dependencies on upstream identifiers
     , {{ financials_set_revenue_period() }}
@@ -143,8 +146,6 @@ from
     {{ ref('addepar_corbenic_history__base_bills') }} as b
 left join {{ ref('addepar_corbenic_history__base_accounts') }} as a
     on b.holding_account_number = a.holding_account_number
-left join {{ ref('dates') }} as dt
-    on b.billing_date = dt.date_key
 -- joins crm data on invoice date, if available
 left join {{ ref('salesforce_compass_accounts') }} as acc
     on trim(replace(a.holding_account_number , '-' , '')) = trim(replace(acc.account_number_formatted , '-' , ''))

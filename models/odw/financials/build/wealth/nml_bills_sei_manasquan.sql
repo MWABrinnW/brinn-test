@@ -122,8 +122,11 @@ select
 
     -- [exclusion]
     -- no records are being excluded, default to 0
-    , 0::int                                                                             as is_excluded
-    , null::varchar(200)                                                                 as excluded_reason
+    , ''::varchar(200)                                                                   as excluded_reasons
+    , case
+        when excluded_reasons = '' then 0
+        else 1
+    end::int                                                                             as is_excluded
 
     -- [finanical dates] dependencies on upstream identifiers
     , {{ financials_set_revenue_period() }}

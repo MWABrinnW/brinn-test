@@ -128,9 +128,12 @@ select
     , bb.fee_or_rebate_amount::number(20 , 5)                                            as unit_selling_price
 
     -- [exclusion]
-    -- no records are being excluded, default to 0
-    , 0::int                                                                             as is_excluded
-    , null::varchar(200)                                                                 as excluded_reason
+    -- no records are being excluded, create an empty string
+    , ''::varchar(200)                                                                   as excluded_reasons
+    , case
+        when excluded_reasons = '' then 0
+        else 1
+    end::int                                                                             as is_excluded
 
     -- [finanical dates] dependencies on upstream identifiers
     , {{ financials_set_revenue_period() }}

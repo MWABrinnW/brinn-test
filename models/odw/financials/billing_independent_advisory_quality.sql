@@ -59,4 +59,4 @@
     )
 " %}
 
-{{ describe_model(model=ref('bld_billing_wealth_like'), where_clause=condition, date_partition='revenue_period_end_date', excluded_columns=columns) }}
+{{ describe_model(model=ref('bld_billing_wealth'), where_clause=condition, date_partition='revenue_period_end_date', excluded_columns=columns) }}

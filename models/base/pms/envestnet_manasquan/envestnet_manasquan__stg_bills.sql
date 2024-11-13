@@ -3,7 +3,14 @@ select
     , 'manasquan'                                  as system_instance
     , concat(system_name , '__' , system_instance) as system_key
     , 'mwa'                                        as firm_source
-    , json:ACCOUNT_NUMBER::varchar(200)            as account_number
+    , json:ACCOUNT_NUMBER::text(200)               as account_number_formatted
+    , regexp_replace(
+        ltrim(upper(replace(
+            trim(json:ACCOUNT_NUMBER::text(200)) , '-' , ''
+        )) , '0')
+        , '\\s{2,}'
+        , ' '
+    )                                              as account_number
     , json:ADVISOR_FEE::decimal(20 , 2)            as advisor_fee
     , json:BATCH_NAME::varchar(200)                as batch_name
     , json:BILLABLE_VALUE::decimal(20 , 2)         as billable_value

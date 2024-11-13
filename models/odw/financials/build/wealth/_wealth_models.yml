@@ -1,6 +1,6 @@
 version: 2
 models:
-  - name: bld_billing_wealth_like
+  - name: bld_billing_wealth
     columns:
       - name: BILLING_FREQUENCY
         data_tests:
@@ -183,7 +183,7 @@ models:
         description: ''
       - name: IS_EXCLUDED
         description: ''
-      - name: EXCLUDED_REASON
+      - name: excluded_reasons
         description: ''
       - name: REVENUE_PERIOD_END_DATE
         description: ''
@@ -357,7 +357,7 @@ models:
         description: ''
       - name: IS_EXCLUDED
         description: ''
-      - name: EXCLUDED_REASON
+      - name: excluded_reasons
         description: ''
       - name: REVENUE_PERIOD_END_DATE
         description: ''
@@ -531,7 +531,7 @@ models:
         description: ''
       - name: IS_EXCLUDED
         description: ''
-      - name: EXCLUDED_REASON
+      - name: excluded_reasons
         description: ''
       - name: REVENUE_PERIOD_END_DATE
         description: ''
@@ -705,7 +705,7 @@ models:
         description: ''
       - name: IS_EXCLUDED
         description: ''
-      - name: EXCLUDED_REASON
+      - name: excluded_reasons
         description: ''
       - name: REVENUE_PERIOD_END_DATE
         description: ''
@@ -879,7 +879,7 @@ models:
         description: ''
       - name: IS_EXCLUDED
         description: ''
-      - name: EXCLUDED_REASON
+      - name: excluded_reasons
         description: ''
       - name: REVENUE_PERIOD_END_DATE
         description: ''
@@ -1083,7 +1083,7 @@ models:
         description: ''
       - name: IS_EXCLUDED
         description: ''
-      - name: EXCLUDED_REASON
+      - name: excluded_reasons
         description: ''
       - name: _INVOICE_KEY
         description: ''
@@ -1337,7 +1337,7 @@ models:
         description: ''
       - name: IS_EXCLUDED
         description: ''
-      - name: EXCLUDED_REASON
+      - name: excluded_reasons
         description: ''
       - name: _INVOICE_KEY
         description: ''
@@ -1509,7 +1509,7 @@ models:
         description: ''
       - name: IS_EXCLUDED
         description: ''
-      - name: EXCLUDED_REASON
+      - name: excluded_reasons
         description: ''
       - name: REVENUE_PERIOD_END_DATE
         description: ''
@@ -1683,7 +1683,7 @@ models:
         description: ''
       - name: IS_EXCLUDED
         description: ''
-      - name: EXCLUDED_REASON
+      - name: excluded_reasons
         description: ''
       - name: REVENUE_PERIOD_END_DATE
         description: ''
@@ -1857,7 +1857,7 @@ models:
         description: ''
       - name: IS_EXCLUDED
         description: ''
-      - name: EXCLUDED_REASON
+      - name: excluded_reasons
         description: ''
       - name: REVENUE_PERIOD_END_DATE
         description: ''

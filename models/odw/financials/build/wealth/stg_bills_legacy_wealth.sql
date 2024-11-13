@@ -92,8 +92,8 @@ select
     , null::varchar(200)                           as currency_code
     , null::varchar(200)                           as currency_conversion_type
     , null::number(20 , 5)                         as unit_selling_price
-    , null::number(38 , 0)                         as is_excluded
-    , null::varchar(600)                           as excluded_reason
+    , ''::varchar(600)                             as excluded_reasons
+    , 0::number(38 , 0)                            as is_excluded
     , null::varchar(200)                           as _invoice_key
     , null::timestamp_ntz(9)                       as _source_loaded_at
     , null::varchar(200)                           as _source_file

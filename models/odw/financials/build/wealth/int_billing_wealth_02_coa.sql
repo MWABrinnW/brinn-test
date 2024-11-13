@@ -169,8 +169,8 @@ select
     , nml.unit_selling_price::number(20 , 5)                                          as unit_selling_price
 
     -- [exclusion]
+    , nml.excluded_reasons::varchar(2000)                                             as excluded_reasons
     , nml.is_excluded::int                                                            as is_excluded
-    , initcap(nml.excluded_reason::varchar(200))                                      as excluded_reason
 
     -- [referential]
     , (

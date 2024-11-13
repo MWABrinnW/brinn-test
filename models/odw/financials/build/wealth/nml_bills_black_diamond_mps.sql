@@ -5,7 +5,7 @@ with black_diamond_relationship as (
         , listagg(distinct (relationship_id) , ',') as rel_id
     from {{ ref('black_diamond_mps__base_relationships') }}
     where true
-        and effective_date in (select distinct cash_available_date from {{ ref('black_diamond_mps__base_bills') }})
+        and effective_date in (select distinct bb.cash_available_date from {{ ref('black_diamond_mps__base_bills') }} as bb)
     group by account_id , effective_date
 )
 ,
@@ -40,7 +40,9 @@ saleforce_salentica as (
     left join fivetran.salesforce_adviceperiod.user as ur
         on sfba.owner_id = ur.id
     where true
-        and date(sfba.effective_at) in (select distinct cash_available_date from {{ ref('black_diamond_mps__base_bills') }})
+        and date(sfba.effective_at) in (
+            select distinct bb.cash_available_date from {{ ref('black_diamond_mps__base_bills') }} as bb
+        )
         and sfs.is_latest = 1
         and sfba.is_latest = 1
     qualify
@@ -168,9 +170,11 @@ select
     , null::number(20 , 5)                                                       as unit_selling_price
 
     -- [exclusion]
-    , null::int                                                                  as is_excluded
-    , null::varchar(200)                                                         as excluded_reason
-
+    , ''::varchar(200)                                                           as excluded_reasons
+    , case
+        when excluded_reasons = '' then 0
+        else 1
+    end::int                                                                     as is_excluded
     -- [finanical dates] dependencies on upstream identifiers
     , case
         -- quarterly bills and on-cycle

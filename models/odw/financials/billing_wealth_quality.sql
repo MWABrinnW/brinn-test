@@ -64,4 +64,4 @@
         a.system_key = 'salesforce__compass' and (a._extra_fields['is_cpg'] = 0)
     )" %}
 
-{{ describe_model(model=ref('bld_billing_wealth_like'), where_clause=condition, date_partition='revenue_period_end_date', excluded_columns=columns) }}
+{{ describe_model(model=ref('bld_billing_wealth'), where_clause=condition, date_partition='revenue_period_end_date', excluded_columns=columns) }}

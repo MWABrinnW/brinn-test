@@ -189,8 +189,11 @@ select
 
     -- [exclusion]
     -- No records are being excluded, default to 0
-    , 0::int                                                                     as is_excluded
-    , null::varchar(200)                                                         as excluded_reason
+    , ''::varchar(200)                                                           as excluded_reasons
+    , case
+        when excluded_reasons = '' then 0
+        else 1
+    end::int                                                                     as is_excluded
 
     -- [finanical dates] dependencies on upstream identifiers
     , {{ financials_set_revenue_period() }}
@@ -209,13 +212,11 @@ from
     {{ ref('addepar_corbenic_history__base_bills') }} as b
 left join {{ ref('addepar_corbenic_history__base_accounts') }} as a
     on b.holding_account_number = a.holding_account_number
-left join {{ ref('dates') }} as dt
-    on b.billing_date = dt.date_key
 left join cte_crm as c
     on b.holding_account_number = c.pract_acct_num
 where b.is_head = 1
     and a.is_head = 1
-    and billing_date < '2024-10-01'
+    and b.billing_date::date < '2024-10-01'
     -- uncomment if "billing_frequency" or "revenue_category" is not hardcoded.
 {# left join {{ ref('aux__stg_financials_fee_type') }} as ovrd_fee_type
         on bb.system_key = ovrd_fee_type.system_key

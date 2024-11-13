@@ -33,8 +33,8 @@ select
     , null::varchar(200)                                                            as billing_statement_id_crm
     , null::varchar(200)                                                            as invoice_status
     , 0::int                                                                        as is_intra_period_invoice
-    , trim(replace(b.account_number , '-' , ''))::varchar(200)                      as account_number
-    , b.account_number::varchar(200)                                                as account_number_formatted
+    , b.account_number::varchar(200)                                                as account_number
+    , b.account_number_formatted::varchar(200)                                      as account_number_formatted
     , trim(replace(b.debited_account , '-' , ''))::varchar(200)                     as billing_account_number
     , am.account_id::varchar(200)                                                   as account_id_pms
     , am.account_name::varchar(200)                                                 as registrant_name
@@ -141,9 +141,21 @@ select
     , b.total_fee_amount::number(20 , 5)                                            as unit_selling_price
 
     -- [exclusion]
-    -- no records are being excluded, default to 0
-    , 0::int                                                                        as is_excluded
-    , null::varchar(200)                                                            as excluded_reason
+    , array_to_string(
+    -- account numbers that are invalid
+        array_construct_compact(
+            case when b.account_number like 'REUSE%' then 'Account invalid, reuse of an existing account number;'
+                when b.account_number = 'MICHAEL. ROLLOVER IRA. BROKERAGE' then 'Account invalid;'
+                when b.account_number = 'FIDELITY IWS' then 'Account invalid;'
+            end
+        )
+        , ' '
+    )::varchar(2000)                                                                as excluded_reasons
+
+    , case
+        when excluded_reasons = '' then 0
+        else 1
+    end::int                                                                        as is_excluded
 
     -- [finanical dates] dependencies on upstream identifiers
     , {{ financials_set_revenue_period() }}

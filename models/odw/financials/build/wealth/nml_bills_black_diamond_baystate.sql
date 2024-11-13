@@ -196,8 +196,17 @@ select
     , 1::number(20 , 5)                                                                     as unit_selling_price
 
     -- [exclusion]
-    , coalesce(cte5.exclude_less_than_5 , '0')::int                                         as is_excluded
-    , coalesce(cte5.exclude_less_than_5_reason , null)::varchar(200)                        as excluded_reason
+    , array_to_string(
+    -- invoices less than $5 are not billed
+        array_construct_compact(
+            cte5.exclude_less_than_5_reason || ';'
+        )
+        , ' '
+    )::varchar(2000)                                                                        as excluded_reasons
+    , case
+        when excluded_reasons = '' then 0
+        else 1
+    end::int                                                                                as is_excluded
 
     -- [finanical dates] dependencies on upstream identifiers
     , {{ financials_set_revenue_period() }}
@@ -221,18 +230,6 @@ select
         , 'is_recurring_revenue' , 1
         , 'is_impacted_by_financial_markets' , 1
         , 'is_legacy' , 0
-        , 'office_name' , (
-            select office_name
-            from edw.enterprise.locations
-            where active = 1
-                and location_code = 'L-10070'
-        )
-        , 'client_office_name' , (
-            select office_name
-            from edw.enterprise.locations
-            where active = 1
-                and location_code = 'L-10070'
-        )
     )::object                                                                               as _extra_fields
 
 from {{ ref('black_diamond_baystate__base_bills') }} as bb

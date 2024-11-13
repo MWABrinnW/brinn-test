@@ -308,20 +308,19 @@ select
 
 
     -- [exclusion]
-    , case
-        when mh.record_type_id = '0123c000000tyRyAAI' or ir.third_party_calculation_c = true
-            then 1
-        else 0
-    end::int                                                             as is_excluded
+    , array_to_string(
+        array_construct_compact(case
+            -- speciality tax exlusion
+            when mh.record_type_id = '0123c000000tyRyAAI' and ir.third_party_calculation_c = true
+                then 'Specialty tax, Third party calculation;'
+            when mh.record_type_id = '0123c000000tyRyAAI'
+                then 'Specialty tax;'
+            when ir.third_party_calculation_c = true
+                then 'Third party calculation;'
+        end) , ' '
+    )::varchar(2000)                                                     as excluded_reasons
+    , case when excluded_reasons = '' then 0 else 1 end::int             as is_excluded
 
-    , case
-        when mh.record_type_id = '0123c000000tyRyAAI' and ir.third_party_calculation_c = true
-            then 'Specialty Tax, Third Party Calculation'
-        when mh.record_type_id = '0123c000000tyRyAAI'
-            then 'Specialty Tax'
-        when ir.third_party_calculation_c = true
-            then 'Third Party Calculation'
-    end::varchar(200)                                                    as excluded_reason
 
     -- [finanical dates] dependencies on upstream identifiers
     , {{ financials_set_revenue_period() }}
