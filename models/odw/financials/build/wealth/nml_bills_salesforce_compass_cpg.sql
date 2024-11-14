@@ -126,9 +126,9 @@ select
     , ir.id::varchar(200)                                                as billing_statement_id_crm
     , ir.status_c::varchar(200)                                          as invoice_status
     , case
-        when ir.invoice_date_c = dt.quarter_end_date
+        when coalesce(ir.calculation_as_of_date_c , ir.invoice_date_c)::date = dt.quarter_end_date
             then 0
-        when ir.invoice_date_c != dt.quarter_end_date
+        when coalesce(ir.calculation_as_of_date_c , ir.invoice_date_c)::date != dt.quarter_end_date
             then 1
     end::int                                                             as is_intra_period_invoice
     , trim(upper(ir.account_number_c))::varchar(200)                     as account_number
@@ -351,7 +351,7 @@ select
 --select count(*)  
 from {{ ref('int_bills_salesforce_compass_cpg_split') }} as ir
 left join edw.ref.dates as dt
-    on ir.invoice_date_c = dt.date_key
+    on coalesce(ir.calculation_as_of_date_c , ir.invoice_date_c)::date = dt.date_key
 -- We join on date as first preference for account attributes.
 -- This is because over time the account record can change (i.e. advisor assignment).
 -- -- We want to know what it looked like at the time of billing.
