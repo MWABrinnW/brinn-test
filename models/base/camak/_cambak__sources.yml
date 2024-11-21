@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: cambak
+    description: ""
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    tables:
+      - name: accounts
+        description: ''
+        columns:
+          - name: JSON
+            description: ''
+            data_type: EFFECTIVE_DATE
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: date
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIME
+          - name: _ID
+            description: ''
+            data_type: INT
