@@ -153,6 +153,8 @@ models:
     base:
       +materialized: view
       +tags: ["base"]
+      +grants: 
+        select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       active_directory:
         +tags: ["active_directory", "hr", "employees", "associates"]
@@ -179,6 +181,9 @@ models:
         +tags: ["cais", "mwa"]
         +grants:
           select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+      
+      cambak:
+        +tags: ["institutional", "cambak", "andco"]
 
       cch_dau:
         +tags: ["cch_dau"]
