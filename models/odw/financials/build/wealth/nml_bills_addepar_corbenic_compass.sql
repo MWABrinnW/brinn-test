@@ -161,3 +161,4 @@ left join {{ ref('salesforce_compass__base_fee_schedule_c') }} as fs
     and coalesce(acc.fee_schedule , acc2.fee_schedule) = fs.id
     and fs.is_latest = 1
 where b.billing_date::date >= '2024-10-01'
+    and b.is_head = 1
