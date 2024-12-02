@@ -467,6 +467,11 @@ models:
         +grants:
           select: "{{ ['db_crm_msec_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
+      sec:
+        +tags: ["sec", "thirteen_f", "form_13f"]
+        +grants:
+          select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
+
       xcm:
         +tags: ["tax", "xcm"]
         +dbt-osmosis: "_{model}.yml"
@@ -625,7 +630,6 @@ models:
           +grants:
             select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
-
       referral_fees:
         +enabled: true
         +tags: ["revenue", "referral_fees"]
@@ -643,6 +647,11 @@ models:
         +schema: reports
         +grants:
           select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
+
+      sec:
+        +tags: ["sec", "thirteen_f", "form_13f"]
+        +grants:
+          select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       prices:
         +tags: ["prices"]

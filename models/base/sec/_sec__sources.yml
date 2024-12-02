@@ -1,0 +1,8 @@
+sources:
+  - name: sec
+    description: ""
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    schema: sec
+    tables:
+      - name: form_13f
+        description: ""
