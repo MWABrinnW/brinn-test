@@ -65,6 +65,6 @@ cross join cte_history_averaged as b
 where
     abs((a.cnt - b.avg_count) / b.stddev_count) > 3
     or abs((a.cnt_accounts - b.avg_count_accounts) / b.stddev_count_accounts) > 3
-    or abs((a.market_value - b.avg_market_value) / b.stddev_market_value) > 3
+    or abs((a.market_value - b.avg_market_value) / b.stddev_market_value) > 5
     or a.cnt_null_product > 0
 order by a.cnt
