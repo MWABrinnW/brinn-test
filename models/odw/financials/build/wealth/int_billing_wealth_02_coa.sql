@@ -70,6 +70,7 @@ select
     , nml.client_id_pms::varchar(200)                                                 as client_id_pms
     , nml.aum_classification_status::varchar(200)                                     as aum_classification_status
     , nml.model_investment_strategy::varchar(200)                                     as model_investment_strategy
+    , nml.model_grouping_assignment::varchar(200)                                     as model_grouping_assignment
     , nml.custodian::varchar(200)                                                     as custodian
     , nml.billing_custodian::varchar(200)                                             as billing_custodian
     , nml.partner_firm::varchar(200)                                                  as partner_firm

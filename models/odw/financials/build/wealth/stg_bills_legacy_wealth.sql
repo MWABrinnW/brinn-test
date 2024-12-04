@@ -25,6 +25,7 @@ select
     , null::varchar(200)                           as client_id_pms
     , aum_classification_status::varchar(200)      as aum_classification_status
     , model_investment_strategy::varchar(200)      as model_investment_strategy
+    , null::varchar(200)                           as model_grouping_assignment
     , custodian::varchar(200)                      as custodian
     , null::varchar(200)                           as billing_custodian
     , null::varchar(200)                           as partner_firm

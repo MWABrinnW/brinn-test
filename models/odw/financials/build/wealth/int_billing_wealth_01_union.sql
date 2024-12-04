@@ -56,6 +56,7 @@ with cte_loc_cli as (
 
 select
     nml.*
+    , invst.model_grouping_assignment::varchar(200)      as model_grouping_assignment
     , loc_cli.office_name                                as client_office_name
     , loc_cli.accounting_id                              as client_location_accounting_id
     , ass.advisor_nonadvisor
@@ -86,3 +87,5 @@ left join cte_associates_rev_coding_latest as ass_coa_oracle
     and nml.fee_calculation_date between coalesce(ass_coa_oracle.start_date , '1999-01-01')
     and coalesce(ass_coa_oracle.end_date , '2099-12-31')
     and ass_coa_oracle.is_latest = 1
+left join {{ ref('aux__int_model_master_monthly') }} as invst
+    on nml.model_investment_strategy = invst.model

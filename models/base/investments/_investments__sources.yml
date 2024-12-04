@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: investments
+    database: investments
+    description: ""
+    schema: ext
+    tables:
+      - name: model_master_monthly
+  
