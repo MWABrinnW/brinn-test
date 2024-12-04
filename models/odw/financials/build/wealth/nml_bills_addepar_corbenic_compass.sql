@@ -150,7 +150,6 @@ left join {{ ref('addepar_corbenic_history__base_accounts') }} as a
 left join {{ ref('salesforce_compass_accounts') }} as acc
     on trim(replace(a.holding_account_number , '-' , '')) = trim(replace(acc.account_number_formatted , '-' , ''))
     and b._created_at::date = acc.effective_date
-    and acc.is_latest = 1
 -- otherwise, joins to the current snapshot (is_head = 1)
 left join {{ ref('salesforce_compass_accounts') }} as acc2
     on trim(replace(a.holding_account_number , '-' , '')) = trim(replace(acc2.account_number_formatted , '-' , ''))

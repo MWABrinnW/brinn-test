@@ -155,7 +155,6 @@ left join {{ ref('black_diamond_houston__base_accounts') }} as ba
 left join {{ ref('salesforce_compass_accounts') }} as acc
     on trim(replace(ba.account_number , '-' , '')) = trim(replace(acc.account_number_formatted , '-' , ''))
     and bb.as_of_date = acc.effective_date
-    and acc.is_latest = 1
 -- otherwise, joins to the current snapshot (is_head = 1)
 left join {{ ref('salesforce_compass_accounts') }} as acc2
     on trim(replace(ba.account_number , '-' , '')) = trim(replace(acc2.account_number_formatted , '-' , ''))

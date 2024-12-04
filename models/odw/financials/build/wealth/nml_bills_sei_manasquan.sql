@@ -146,7 +146,6 @@ from {{ ref('sei_manasquan__base_bills') }} as bb
 left join {{ ref('salesforce_compass_accounts') }} as acc
     on trim(replace(bb.account_number , '-' , '')) = trim(replace(acc.account_number_formatted , '-' , ''))
     and bb.fee_effective_date = acc.effective_date
-    and acc.is_latest = 1
 -- otherwise, joins to the current snapshot (is_head = 1)
 left join {{ ref('salesforce_compass_accounts') }} as acc2
     on bb.account_number = acc2.account_number_formatted

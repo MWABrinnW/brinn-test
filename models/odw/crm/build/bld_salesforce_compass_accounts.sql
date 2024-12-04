@@ -125,6 +125,21 @@ select
   , mdl.name                                                  as investment_strategy
   , ei.partner_firm_c                                         as partner_firm
   , ei.trading_system_c                                       as trading_system
+  , row_number() over (
+    partition by
+        ei.effective_at::date
+        , regexp_replace(
+    ltrim(upper(
+      replace(
+        ei.identifier_c, '-', ''
+      )
+    ), '0')::text(200)
+    , '\\s{2,}', ' '
+  )
+    order by
+        date_trunc('second' , ei.effective_at) desc
+        , iff(is_active is null , 0 , 1) asc
+        , ei.current_value_c desc)                            as rn_acct_num  
   , ei._fivetran_synced                                       as _fivetran_synced
   , current_timestamp::timestamp_ntz                          as _created_at
     , ei._created_at                                          as _source_loaded_at

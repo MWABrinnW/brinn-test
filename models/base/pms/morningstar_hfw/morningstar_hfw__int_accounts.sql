@@ -41,8 +41,8 @@ with cte_effective_dates as (
     from {{ ref('morningstar_hfw__base_aum') }}
     where true
         and effective_date in (
-            select effective_date
-            from cte_effective_dates
+            select sub_eff.effective_date
+            from cte_effective_dates as sub_eff
         )
         and trim(advisor_name) not in ('Sub Total' , 'Total' , '')
         and advisor_name is not null
@@ -86,8 +86,8 @@ with cte_effective_dates as (
     from {{ ref('morningstar_hfw__base_accounts') }}
     where true
         and effective_date in (
-            select effective_date
-            from cte_effective_dates
+            select sub_eff.effective_date
+            from cte_effective_dates as sub_eff
         )
         and client_name != 'XXXXXXX'
 )
@@ -109,8 +109,8 @@ with cte_effective_dates as (
         , row_number() over (partition by customeraccountnumber , effective_date order by record_datetime desc) as rn
     from {{ ref("tpg_hfw__vw_accounts") }}
     where effective_date in (
-            select effective_date
-            from cte_effective_dates
+            select sub_eff.effective_date
+            from cte_effective_dates as sub_eff
         )
 )
 
@@ -161,8 +161,8 @@ with cte_effective_dates as (
         , _created_at                                        as _created_at
     from {{ ref("aux__base_hfw_acct_data") }}
     where effective_at::date in (
-            select effective_date
-            from cte_effective_dates
+            select sub_eff.effective_date
+            from cte_effective_dates as sub_eff
         )
 )
 
@@ -176,7 +176,7 @@ with cte_effective_dates as (
         on t.customeraccountnumber = o.tpg_id_number
     where internal_financial_account_number is null
 
-    union
+    union distinct
 
     select
         replace(m.account_number , '  ' , ' ') as financial_account_number
@@ -186,7 +186,7 @@ with cte_effective_dates as (
     left join cte_tpg_morningstar_overlap as o
         on m.account_number = o.morningstar_acct_number
 
-    union
+    union distinct
 
     select
         replace(m.account_number , '  ' , ' ') as financial_account_number
@@ -196,7 +196,7 @@ with cte_effective_dates as (
     left join cte_tpg_morningstar_overlap as o
         on m.account_number = o.morningstar_acct_number
 
-    union
+    union distinct
 
     select
         replace(financial_account_number , '  ' , ' ') as financial_account_number
@@ -409,7 +409,6 @@ with cte_effective_dates as (
     left join {{ ref("salesforce_compass_accounts") }} as sf
         on j.financial_account_number = sf.account_number
         and j.effective_date = sf.effective_at::date
-        and sf.is_latest = 1
 )
 
 select *

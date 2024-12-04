@@ -315,7 +315,6 @@ left join {{ ref('dates') }} as dt
 left join {{ ref('salesforce_compass_accounts') }} as acc-- historcial
     on ir.estate_item_c = acc.id
     and least(ir.invoice_date_c , ir.revenue_as_of_date_c) = acc.effective_date
-    and acc.is_latest = 1
 -- If the join with date to the account record fails, we will go ahead
 -- and use the latest available version of the record.
 left join {{ ref('salesforce_compass_accounts') }} as acc2

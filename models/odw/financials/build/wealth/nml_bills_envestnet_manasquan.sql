@@ -1,16 +1,16 @@
-with sf_accounts as (
+with stg_account_master as (
     select
-        max(_fivetran_synced) over (partition by effective_date , account_number) as max_fivetran_synced
-        , *
-    from {{ ref('salesforce_compass_accounts') }}
-)
-
-, stg_account_master as (
-    select
-        max(effective_date) over (partition by year(effective_date) , month(effective_date)) as last_effective_date_of_month
-        , *
+        *
+        , max(effective_date)
+            over (partition by year(effective_date) , month(effective_date)) as last_effective_date_of_month
+        , row_number()
+            over (
+                partition by effective_date , account_number
+                order by iff(close_date is null , 0 , 1) asc
+            )                                                                as rn
     from {{ ref('envestnet_manasquan__stg_account_master') }}
-
+    where true
+    qualify rn = 1
 )
 
 select
@@ -171,23 +171,17 @@ select
 
 
 from {{ ref('envestnet_manasquan__stg_bills') }} as b
-
-left join sf_accounts as a_hist
-    on b.invoice_date = a_hist.effective_date
-    and a_hist._fivetran_synced = a_hist.max_fivetran_synced
+left join {{ ref('salesforce_compass_accounts') }} as a_hist
+    on a_hist.effective_at::date = b.invoice_date
     and a_hist.account_number = ltrim(regexp_replace(replace(trim(upper(b.account_number)) , '-' , '') , '\\s+' , ' ') , '0')
-
-left join sf_accounts as a_head
+left join {{ ref('salesforce_compass_accounts') }} as a_head
     on a_head.is_head = 1
-    and a_head._fivetran_synced = a_head.max_fivetran_synced
     and a_head.account_number = ltrim(regexp_replace(replace(trim(upper(b.account_number)) , '-' , '') , '\\s+' , ' ') , '0')
-
 left join stg_account_master as am
     on am.effective_date = am.last_effective_date_of_month-- only use data from last day of the month
     and b.account_number = am.account_number
     and month(am.effective_date) = month(b.invoice_date)
     and year(am.effective_date) = year(b.invoice_date)
-
 left join {{ ref('salesforce_compass__base_fee_schedule_c') }} as fs
     on b.invoice_date = fs.effective_at::date
     and coalesce(a_hist.fee_schedule , a_head.fee_schedule) = fs.id
