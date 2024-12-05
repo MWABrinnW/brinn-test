@@ -3,7 +3,12 @@ with cte_effective_dates as (
     from {{ ref('morningstar_hfw__base_accounts') }}
     -- excluding pre 202302, not all dataset were being collected consistently
     where effective_date >= '2/1/2023'
-    order by effective_date
+
+    union distinct
+
+    select distinct effective_date
+    from {{ ref('tpg_hfw__vw_holdings') }}
+    where effective_date >= '2023-02-01'
 )
 
 , cte_morningstar_aum as (
@@ -164,6 +169,8 @@ with cte_effective_dates as (
             select sub_eff.effective_date
             from cte_effective_dates as sub_eff
         )
+        -- date & system_name filter for when Morningstar data no longer applies
+        and (effective_at <= '2024-10-31' or system_name = 'TPG HFW')
 )
 
 , cte_fa_base as (
@@ -201,7 +208,7 @@ with cte_effective_dates as (
     select
         replace(financial_account_number , '  ' , ' ') as financial_account_number
         , internal_financial_account_number            as internal_financial_account_number
-        , effective_at::date                           as effective_at
+        , effective_at::date                           as effective_date
     from cte_hfw_account_data
 
 )
