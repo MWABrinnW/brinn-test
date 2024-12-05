@@ -40,3 +40,12 @@ jobs:
           .\utilities\.venv\Scripts\Activate.ps1
           $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
           aws s3 rm s3://${{ env.DBT_DOCS_BUCKET }}/${{ env.PR_NUM }} --recursive
+
+      - name: Delete artifacts
+        shell: pwsh
+        run: |
+          $dest_dir = "$($env:ARTIFACTS_ROOT_DIR)/pr_$($env:PR_NUM)"
+          if (Test-Path -Path "$dest_dir") {
+            Write-Host "Deleting $dest_dir"
+            rm $dest_dir -r -force
+          }

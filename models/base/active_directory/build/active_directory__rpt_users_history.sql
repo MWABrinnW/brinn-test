@@ -59,7 +59,7 @@ select
     , u.state::text                                 as state
     , u.postalcode::text                            as postal_code
     , u.othermobile::variant[0]::text               as other_mobile
-    , u.dateofstart::date                           as date_of_start
+    , try_to_date(u.dateofstart)                    as date_of_start
     , u.dateofbirth::text                           as date_of_birth
     , u.admindescription::text                      as admin_description
     , m.employeenumber::text                        as manager_employeenumber

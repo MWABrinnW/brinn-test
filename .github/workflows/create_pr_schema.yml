@@ -28,7 +28,8 @@ env:
   DBT_USER: ${{ vars.DBT_USER }}
   DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
   DBT_HOST: ${{ vars.DBT_HOST }}
-  DBT_STATE: ${{ vars.DB_PROD_ARTIFACTS }}
+  ARTIFACTS_ROOT_DIR: ${{ vars.ARTIFACTS_ROOT_DIR }}
+  DBT_STATE: ${{ vars.ARTIFACTS_ROOT_DIR }}/prod_artifacts
   DBT_DEFER: True
   DBT_PROFILES_DIR: ${{ vars.DBT_PROFILES_DIR }}
   DBT_TARGET_PATH: ./target
@@ -120,6 +121,24 @@ jobs:
         run: |
           .\utilities\.venv\Scripts\Activate.ps1
           dbt build --target=$env:DBT_TARGET --fail-fast --select state:modified+1 result:error
+
+      - name: upload dbt artifacts
+        shell: pwsh
+        run: |
+          $dest_dir = "$($env:ARTIFACTS_ROOT_DIR)/pr_$($env:PR_NUM)"
+          if (!(Test-Path -Path "$dest_dir")) {
+            New-Item -Path "$dest_dir" -ItemType Directory
+          }
+          Write-Host "Copying manifest.json to $dest_dir"
+          Copy-Item "./target/manifest.json" -Destination "$dest_dir" -Force
+          if (Test-Path -Path "./target/run_results.json" -PathType leaf) {
+            Write-Host "Copying run_results.json to $dest_dir"
+            Copy-Item "./target/run_results.json" -Destination "$dest_dir" -Force
+            } else { Write-Host "run_results.json not found" }
+          if (Test-Path -Path "./target/sources.json" -PathType leaf) {
+            Write-Host "Copying sources.json to $dest_dir"
+            Copy-Item "./target/sources.json" -Destination "$dest_dir" -Force
+            } else { Write-Host "sources.json not found" }
 
   dbt-docs:
     if: ((needs.dbt-build.result == 'success') && contains(github.event.pull_request.labels.*.name, 'build-docs'))
