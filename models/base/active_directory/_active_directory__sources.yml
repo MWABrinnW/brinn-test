@@ -12,307 +12,307 @@ sources:
         columns:
           - name: ID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: RDN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: BASEDN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: GROUPTYPE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: INSTANCETYPE
             description: ''
             data_type: NUMBER
           - name: NTSECURITYDESCRIPTOR
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OBJECTCATEGORY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OBJECTCLASS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SAMACCOUNTNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ACCOUNTNAMEHISTORY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ADMINCOUNT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ADMINDESCRIPTION
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ADMINDISPLAYNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ALLOWEDATTRIBUTES
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ALLOWEDATTRIBUTESEFFECTIVE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ALLOWEDCHILDCLASSES
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ALLOWEDCHILDCLASSESEFFECTIVE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ALTSECURITYIDENTITIES
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: BRIDGEHEADSERVERLISTBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: CANONICALNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: INFO
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: CN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: CONTROLACCESSRIGHTS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: CREATETIMESTAMP
             description: ''
             data_type: TIMESTAMP_LTZ
           - name: DESCRIPTION
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DESKTOPPROFILE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DISPLAYNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DISPLAYNAMEPRINTABLE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DSASIGNATURE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DSCOREPROPAGATIONDATA
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MAIL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: EXTENSIONNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: FLAGS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: FROMENTRY
             description: ''
             data_type: BOOLEAN
           - name: FRSCOMPUTERREFERENCEBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: FRSMEMBERREFERENCEBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: FSMOROLEOWNER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: GARBAGECOLLPERIOD
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: GROUPATTRIBUTES
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: GROUPMEMBERSHIPSAM
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ISCRITICALSYSTEMOBJECT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ISDELETED
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ISPRIVILEGEHOLDER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: LASTKNOWNPARENT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: LEGACYEXCHANGEDN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MANAGEDBY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MANAGEDOBJECTS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MASTEREDBY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MEMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MODIFYTIMESTAMP
             description: ''
             data_type: TIMESTAMP_LTZ
           - name: MS-DS-CONSISTENCYCHILDCOUNT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MS-DS-CONSISTENCYGUID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: NETBOOTSCPBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: NONSECURITYMEMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: NONSECURITYMEMBERBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: NTGROUPMEMBERS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DISTINGUISHEDNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OBJECTGUID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OBJECTSID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OBJECTVERSION
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OPERATORCOUNT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OTHERWELLKNOWNOBJECTS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PARTIALATTRIBUTEDELETIONLIST
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PARTIALATTRIBUTESET
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: POSSIBLEINFERIORS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PRIMARYGROUPTOKEN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PROXIEDOBJECTNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PROXYADDRESSES
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: QUERYPOLICYBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: NAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: REPLUPTODATEVECTOR
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DIRECTREPORTS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: REPSFROM
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: REPSTO
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: REVISION
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: RID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SAMACCOUNTTYPE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SDRIGHTSEFFECTIVE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SECURITYIDENTIFIER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SERVERREFERENCEBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SHOWINADDRESSBOOK
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SHOWINADVANCEDVIEWONLY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SIDHISTORY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SITEOBJECTBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SUBREFS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SUBSCHEMASUBENTRY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SUPPLEMENTALCREDENTIALS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SYSTEMFLAGS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: TELEPHONENUMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: TEXTENCODEDORADDRESS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERCERT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERSMIMECERTIFICATE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNCHANGED
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNCREATED
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNDSALASTOBJREMOVED
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNINTERSITE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNLASTOBJREM
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNSOURCE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: WBEMPATH
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: WELLKNOWNOBJECTS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: WHENCHANGED
             description: ''
             data_type: TIMESTAMP_LTZ
@@ -321,13 +321,13 @@ sources:
             data_type: TIMESTAMP_LTZ
           - name: WWWHOMEPAGE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: URL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERCERTIFICATE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: RECORD_DATETIME
             description: ''
             data_type: TIMESTAMP_LTZ
@@ -339,307 +339,307 @@ sources:
         columns:
           - name: ID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: RDN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: BASEDN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: GROUPTYPE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: INSTANCETYPE
             description: ''
             data_type: NUMBER
           - name: NTSECURITYDESCRIPTOR
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OBJECTCATEGORY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OBJECTCLASS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SAMACCOUNTNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ACCOUNTNAMEHISTORY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ADMINCOUNT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ADMINDESCRIPTION
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ADMINDISPLAYNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ALLOWEDATTRIBUTES
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ALLOWEDATTRIBUTESEFFECTIVE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ALLOWEDCHILDCLASSES
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ALLOWEDCHILDCLASSESEFFECTIVE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ALTSECURITYIDENTITIES
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: BRIDGEHEADSERVERLISTBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: CANONICALNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: INFO
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: CN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: CONTROLACCESSRIGHTS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: CREATETIMESTAMP
             description: ''
             data_type: TIMESTAMP_LTZ
           - name: DESCRIPTION
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DESKTOPPROFILE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DISPLAYNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DISPLAYNAMEPRINTABLE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DSASIGNATURE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DSCOREPROPAGATIONDATA
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MAIL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: EXTENSIONNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: FLAGS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: FROMENTRY
             description: ''
             data_type: BOOLEAN
           - name: FRSCOMPUTERREFERENCEBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: FRSMEMBERREFERENCEBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: FSMOROLEOWNER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: GARBAGECOLLPERIOD
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: GROUPATTRIBUTES
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: GROUPMEMBERSHIPSAM
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ISCRITICALSYSTEMOBJECT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ISDELETED
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ISPRIVILEGEHOLDER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: LASTKNOWNPARENT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: LEGACYEXCHANGEDN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MANAGEDBY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MANAGEDOBJECTS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MASTEREDBY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MEMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MODIFYTIMESTAMP
             description: ''
             data_type: TIMESTAMP_LTZ
           - name: MS-DS-CONSISTENCYCHILDCOUNT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MS-DS-CONSISTENCYGUID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: NETBOOTSCPBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: NONSECURITYMEMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: NONSECURITYMEMBERBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: NTGROUPMEMBERS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DISTINGUISHEDNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OBJECTGUID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OBJECTSID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OBJECTVERSION
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OPERATORCOUNT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OTHERWELLKNOWNOBJECTS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PARTIALATTRIBUTEDELETIONLIST
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PARTIALATTRIBUTESET
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: POSSIBLEINFERIORS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PRIMARYGROUPTOKEN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PROXIEDOBJECTNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PROXYADDRESSES
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: QUERYPOLICYBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: NAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: REPLUPTODATEVECTOR
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DIRECTREPORTS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: REPSFROM
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: REPSTO
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: REVISION
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: RID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SAMACCOUNTTYPE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SDRIGHTSEFFECTIVE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SECURITYIDENTIFIER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SERVERREFERENCEBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SHOWINADDRESSBOOK
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SHOWINADVANCEDVIEWONLY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SIDHISTORY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SITEOBJECTBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SUBREFS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SUBSCHEMASUBENTRY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SUPPLEMENTALCREDENTIALS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SYSTEMFLAGS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: TELEPHONENUMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: TEXTENCODEDORADDRESS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERCERT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERSMIMECERTIFICATE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNCHANGED
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNCREATED
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNDSALASTOBJREMOVED
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNINTERSITE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNLASTOBJREM
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNSOURCE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: WBEMPATH
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: WELLKNOWNOBJECTS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: WHENCHANGED
             description: ''
             data_type: TIMESTAMP_LTZ
@@ -648,13 +648,13 @@ sources:
             data_type: TIMESTAMP_LTZ
           - name: WWWHOMEPAGE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: URL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERCERTIFICATE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: RECORD_DATETIME
             description: ''
             data_type: TIMESTAMP_LTZ
@@ -666,208 +666,208 @@ sources:
         columns:
           - name: ID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: RDN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: BASEDN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: INSTANCETYPE
             description: ''
             data_type: NUMBER
           - name: NTSECURITYDESCRIPTOR
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OBJECTCATEGORY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OBJECTCLASS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SAMACCOUNTNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ACCOUNTEXPIRES
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ACCOUNTNAMEHISTORY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ACSPOLICYNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: STREETADDRESS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: HOMEPOSTALADDRESS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ADMINCOUNT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ADMINDESCRIPTION
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ADMINDISPLAYNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ALLOWEDATTRIBUTES
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ALLOWEDATTRIBUTESEFFECTIVE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ALLOWEDCHILDCLASSES
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ALLOWEDCHILDCLASSESEFFECTIVE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ALTSECURITYIDENTITIES
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ASSISTANT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: BADPASSWORDTIME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: BADPWDCOUNT
             description: ''
             data_type: NUMBER
           - name: BRIDGEHEADSERVERLISTBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: CANONICALNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: CODEPAGE
             description: ''
             data_type: NUMBER
           - name: INFO
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: CN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: COMPANY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: CONTROLACCESSRIGHTS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: COUNTRYCODE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: C
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: CREATETIMESTAMP
             description: ''
             data_type: TIMESTAMP_LTZ
           - name: DBCSPWD
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DEFAULTCLASSSTORE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DEPARTMENT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DESCRIPTION
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DESKTOPPROFILE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DESTINATIONINDICATOR
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DISPLAYNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DISPLAYNAMEPRINTABLE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DIVISION
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DSASIGNATURE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DSCOREPROPAGATIONDATA
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DYNAMICLDAPSERVER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MAIL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: EMPLOYEEID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: EMPLOYEENUMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: EMPLOYEETYPE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: EXTENSIONNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: FACSIMILETELEPHONENUMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: FLAGS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: FROMENTRY
             description: ''
             data_type: BOOLEAN
           - name: FRSCOMPUTERREFERENCEBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: FRSMEMBERREFERENCEBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: FSMOROLEOWNER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: GARBAGECOLLPERIOD
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: GENERATIONQUALIFIER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: GIVENNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: GROUPMEMBERSHIPSAM
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: GROUPPRIORITY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: GROUPSTOIGNORE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: HOMEDIRECTORY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: HOMEDRIVE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: INITIALS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: INTERNATIONALISDNNUMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ISCRITICALSYSTEMOBJECT
             description: ''
             data_type: BOOLEAN
@@ -879,394 +879,394 @@ sources:
             data_type: BOOLEAN
           - name: LASTKNOWNPARENT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: LASTLOGOFF
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: LASTLOGON
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: LMPWDHISTORY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: LOCALEID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: L
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: LOCKOUTTIME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: THUMBNAILLOGO
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: LOGONCOUNT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: LOGONHOURS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: LOGONWORKSTATION
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MANAGEDOBJECTS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MANAGER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MASTEREDBY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MAXSTORAGE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MHSORADDRESS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MODIFYTIMESTAMP
             description: ''
             data_type: TIMESTAMP_NTZ
           - name: MS-DS-CONSISTENCYCHILDCOUNT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MS-DS-CONSISTENCYGUID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MS-DS-CREATORSID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSMQDIGESTS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSMQDIGESTSMIG
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSMQSIGNCERTIFICATES
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSMQSIGNCERTIFICATESMIG
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSNPALLOWDIALIN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSNPCALLINGSTATIONID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSNPSAVEDCALLINGSTATIONID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSRADIUSCALLBACKNUMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSRADIUSFRAMEDIPADDRESS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSRADIUSFRAMEDROUTE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSRADIUSSERVICETYPE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSRASSAVEDCALLBACKNUMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSRASSAVEDFRAMEDIPADDRESS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSRASSAVEDFRAMEDROUTE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: NETBOOTSCPBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: NETWORKADDRESS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: NONSECURITYMEMBERBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: NTPWDHISTORY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DISTINGUISHEDNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OBJECTGUID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OBJECTSID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OBJECTVERSION
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OPERATORCOUNT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OU
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: O
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OTHERLOGINWORKSTATIONS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OTHERMAILBOX
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MIDDLENAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OTHERWELLKNOWNOBJECTS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PARTIALATTRIBUTEDELETIONLIST
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PARTIALATTRIBUTESET
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PERSONALTITLE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OTHERFACSIMILETELEPHONENUMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OTHERHOMEPHONE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: HOMEPHONE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OTHERIPPHONE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: IPPHONE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PRIMARYINTERNATIONALISDNNUMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OTHERMOBILE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MOBILE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OTHERTELEPHONE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OTHERPAGER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PAGER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PHYSICALDELIVERYOFFICENAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: THUMBNAILPHOTO
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: POSSIBLEINFERIORS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: POSTALADDRESS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: POSTALCODE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: POSTOFFICEBOX
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PREFERREDDELIVERYMETHOD
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PREFERREDOU
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PRIMARYGROUPID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PROFILEPATH
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PROXIEDOBJECTNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PROXYADDRESSES
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PWDLASTSET
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: QUERYPOLICYBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: NAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: REGISTEREDADDRESS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: REPLUPTODATEVECTOR
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DIRECTREPORTS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: REPSFROM
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: REPSTO
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: REVISION
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: RID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SAMACCOUNTTYPE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SCRIPTPATH
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SDRIGHTSEFFECTIVE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SECURITYIDENTIFIER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SEEALSO
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SERVERREFERENCEBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SERVICEPRINCIPALNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SHOWINADDRESSBOOK
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SHOWINADVANCEDVIEWONLY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SIDHISTORY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SITEOBJECTBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ST
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: STREET
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SUBREFS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SUBSCHEMASUBENTRY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SUPPLEMENTALCREDENTIALS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SYSTEMFLAGS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: TELEPHONENUMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: TELETEXTERMINALIDENTIFIER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: TELEXNUMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PRIMARYTELEXNUMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: TERMINALSERVER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: CO
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: TEXTENCODEDORADDRESS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: TITLE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: UNICODEPWD
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERACCOUNTCONTROL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERCERT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: COMMENT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERPARAMETERS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERPASSWORD
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERPRINCIPALNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERSHAREDFOLDER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERSHAREDFOLDEROTHER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERSMIMECERTIFICATE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERWORKSTATIONS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNCHANGED
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNCREATED
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNDSALASTOBJREMOVED
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNINTERSITE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNLASTOBJREM
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNSOURCE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: WBEMPATH
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: WELLKNOWNOBJECTS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: WHENCHANGED
             description: ''
             data_type: TIMESTAMP_LTZ
@@ -1275,16 +1275,16 @@ sources:
             data_type: TIMESTAMP_LTZ
           - name: WWWHOMEPAGE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: URL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: X121ADDRESS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERCERTIFICATE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: RECORD_DATETIME
             description: ''
             data_type: TIMESTAMP_LTZ
@@ -1296,208 +1296,208 @@ sources:
         columns:
           - name: ID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: RDN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: BASEDN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: INSTANCETYPE
             description: ''
             data_type: NUMBER
           - name: NTSECURITYDESCRIPTOR
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OBJECTCATEGORY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OBJECTCLASS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SAMACCOUNTNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ACCOUNTEXPIRES
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ACCOUNTNAMEHISTORY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ACSPOLICYNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: STREETADDRESS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: HOMEPOSTALADDRESS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ADMINCOUNT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ADMINDESCRIPTION
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ADMINDISPLAYNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ALLOWEDATTRIBUTES
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ALLOWEDATTRIBUTESEFFECTIVE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ALLOWEDCHILDCLASSES
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ALLOWEDCHILDCLASSESEFFECTIVE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ALTSECURITYIDENTITIES
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ASSISTANT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: BADPASSWORDTIME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: BADPWDCOUNT
             description: ''
             data_type: NUMBER
           - name: BRIDGEHEADSERVERLISTBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: CANONICALNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: CODEPAGE
             description: ''
             data_type: NUMBER
           - name: INFO
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: CN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: COMPANY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: CONTROLACCESSRIGHTS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: COUNTRYCODE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: C
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: CREATETIMESTAMP
             description: ''
             data_type: TIMESTAMP_LTZ
           - name: DBCSPWD
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DEFAULTCLASSSTORE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DEPARTMENT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DESCRIPTION
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DESKTOPPROFILE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DESTINATIONINDICATOR
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DISPLAYNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DISPLAYNAMEPRINTABLE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DIVISION
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DSASIGNATURE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DSCOREPROPAGATIONDATA
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DYNAMICLDAPSERVER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MAIL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: EMPLOYEEID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: EMPLOYEENUMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: EMPLOYEETYPE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: EXTENSIONNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: FACSIMILETELEPHONENUMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: FLAGS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: FROMENTRY
             description: ''
             data_type: BOOLEAN
           - name: FRSCOMPUTERREFERENCEBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: FRSMEMBERREFERENCEBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: FSMOROLEOWNER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: GARBAGECOLLPERIOD
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: GENERATIONQUALIFIER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: GIVENNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: GROUPMEMBERSHIPSAM
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: GROUPPRIORITY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: GROUPSTOIGNORE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: HOMEDIRECTORY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: HOMEDRIVE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: INITIALS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: INTERNATIONALISDNNUMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ISCRITICALSYSTEMOBJECT
             description: ''
             data_type: BOOLEAN
@@ -1509,394 +1509,394 @@ sources:
             data_type: BOOLEAN
           - name: LASTKNOWNPARENT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: LASTLOGOFF
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: LASTLOGON
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: LMPWDHISTORY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: LOCALEID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: L
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: LOCKOUTTIME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: THUMBNAILLOGO
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: LOGONCOUNT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: LOGONHOURS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: LOGONWORKSTATION
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MANAGEDOBJECTS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MANAGER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MASTEREDBY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MAXSTORAGE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MHSORADDRESS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MODIFYTIMESTAMP
             description: ''
             data_type: TIMESTAMP_NTZ
           - name: MS-DS-CONSISTENCYCHILDCOUNT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MS-DS-CONSISTENCYGUID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MS-DS-CREATORSID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSMQDIGESTS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSMQDIGESTSMIG
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSMQSIGNCERTIFICATES
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSMQSIGNCERTIFICATESMIG
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSNPALLOWDIALIN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSNPCALLINGSTATIONID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSNPSAVEDCALLINGSTATIONID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSRADIUSCALLBACKNUMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSRADIUSFRAMEDIPADDRESS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSRADIUSFRAMEDROUTE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSRADIUSSERVICETYPE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSRASSAVEDCALLBACKNUMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSRASSAVEDFRAMEDIPADDRESS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MSRASSAVEDFRAMEDROUTE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: NETBOOTSCPBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: NETWORKADDRESS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: NONSECURITYMEMBERBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: NTPWDHISTORY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DISTINGUISHEDNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OBJECTGUID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OBJECTSID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OBJECTVERSION
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OPERATORCOUNT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OU
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: O
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OTHERLOGINWORKSTATIONS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OTHERMAILBOX
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MIDDLENAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OTHERWELLKNOWNOBJECTS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PARTIALATTRIBUTEDELETIONLIST
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PARTIALATTRIBUTESET
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PERSONALTITLE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OTHERFACSIMILETELEPHONENUMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OTHERHOMEPHONE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: HOMEPHONE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OTHERIPPHONE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: IPPHONE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PRIMARYINTERNATIONALISDNNUMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OTHERMOBILE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: MOBILE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OTHERTELEPHONE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: OTHERPAGER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PAGER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PHYSICALDELIVERYOFFICENAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: THUMBNAILPHOTO
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: POSSIBLEINFERIORS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: POSTALADDRESS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: POSTALCODE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: POSTOFFICEBOX
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PREFERREDDELIVERYMETHOD
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PREFERREDOU
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PRIMARYGROUPID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PROFILEPATH
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PROXIEDOBJECTNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PROXYADDRESSES
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PWDLASTSET
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: QUERYPOLICYBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: NAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: REGISTEREDADDRESS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: REPLUPTODATEVECTOR
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: DIRECTREPORTS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: REPSFROM
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: REPSTO
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: REVISION
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: RID
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SAMACCOUNTTYPE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SCRIPTPATH
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SDRIGHTSEFFECTIVE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SECURITYIDENTIFIER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SEEALSO
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SERVERREFERENCEBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SERVICEPRINCIPALNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SHOWINADDRESSBOOK
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SHOWINADVANCEDVIEWONLY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SIDHISTORY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SITEOBJECTBL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: ST
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: STREET
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SUBREFS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SUBSCHEMASUBENTRY
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SUPPLEMENTALCREDENTIALS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SN
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: SYSTEMFLAGS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: TELEPHONENUMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: TELETEXTERMINALIDENTIFIER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: TELEXNUMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: PRIMARYTELEXNUMBER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: TERMINALSERVER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: CO
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: TEXTENCODEDORADDRESS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: TITLE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: UNICODEPWD
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERACCOUNTCONTROL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERCERT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: COMMENT
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERPARAMETERS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERPASSWORD
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERPRINCIPALNAME
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERSHAREDFOLDER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERSHAREDFOLDEROTHER
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERSMIMECERTIFICATE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERWORKSTATIONS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNCHANGED
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNCREATED
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNDSALASTOBJREMOVED
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNINTERSITE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNLASTOBJREM
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USNSOURCE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: WBEMPATH
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: WELLKNOWNOBJECTS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: WHENCHANGED
             description: ''
             data_type: TIMESTAMP_LTZ
@@ -1905,16 +1905,16 @@ sources:
             data_type: TIMESTAMP_LTZ
           - name: WWWHOMEPAGE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: URL
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: X121ADDRESS
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: USERCERTIFICATE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
           - name: RECORD_DATETIME
             description: ''
             data_type: TIMESTAMP_LTZ
@@ -1940,21 +1940,21 @@ sources:
             data_type: TIMESTAMP_NTZ
           - name: _SOURCE_FILE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
       - name: groups
         columns:
-          - name: _DATA
+          - name: JSON
             description: ''
             data_type: VARIANT
-          - name: _EFFECTIVE_AT
+          - name: _URI
             description: ''
-            data_type: TIMESTAMP_NTZ
+            data_type: TEXT
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: TEXT
           - name: _CREATED_AT
             description: ''
             data_type: TIMESTAMP_NTZ
-          - name: _SOURCE_FILE
-            description: ''
-            data_type: VARCHAR
       - name: serviceaccounts
         columns:
           - name: _DATA
@@ -1968,18 +1968,15 @@ sources:
             data_type: TIMESTAMP_NTZ
           - name: _SOURCE_FILE
             description: ''
-            data_type: VARCHAR
+            data_type: TEXT
       - name: users
         columns:
-          - name: _DATA
+          - name: JSON
             description: ''
             data_type: VARIANT
-          - name: _EFFECTIVE_AT
+          - name: EFFECTIVE_AT
             description: ''
             data_type: TIMESTAMP_NTZ
           - name: _CREATED_AT
             description: ''
             data_type: TIMESTAMP_NTZ
-          - name: _SOURCE_FILE
-            description: ''
-            data_type: VARCHAR

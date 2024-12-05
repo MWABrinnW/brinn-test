@@ -145,14 +145,13 @@ select
     , current_timestamp()::timestamp_ntz                              as _created_at
     , null::text                                                      as _source_file
 
-    , e.is_head                                                       as is_head
-
     , object_construct_keep_null(
         'associate_oid' , e.associate_id
         , 'employee_id' , e.employee_id
         , 'position_company_code' , e.position_company_code
         , 'position_status_code' , e.position_status_code
     )                                                                 as _extra_fields
+    , 0::int                                                          as is_head
 from {{ ref('int_adp_employees_all') }} as e
 left join {{ ref('int_adp_employees_all') }} as man_e
     on e.effective_at = man_e.effective_at
@@ -168,5 +167,5 @@ left join {{ ref('locations') }} as l
     and e.effective_at::date between coalesce(l.start_date , e.effective_at::date) and coalesce(l.end_date , e.effective_at::date)
 where 1 = 1
     {%- if is_incremental() %}
-        and 1 = (select max(needs_update) from cte_check)
+        and 1 = (select max(t.needs_update) from cte_check as t)
     {%- endif %}

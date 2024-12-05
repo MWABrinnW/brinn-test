@@ -56,9 +56,6 @@ select
       reference_date_col='_created_at',
       source_date_col='_created_at'
       ) }}
-    , row_number() over (
-        partition by _effective_at::date , distinguishedname order by _created_at desc
-    )                                                    as rn_day
 
     , _data::variant                                     as _data
     , _created_at                                        as _created_at

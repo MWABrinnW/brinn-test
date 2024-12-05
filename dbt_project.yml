@@ -157,14 +157,17 @@ models:
         select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       active_directory:
-        +tags: ["active_directory", "hr", "employees", "associates"]
+        +tags: ["active_directory", "hr", "employees", "associates", "daily"]
+
+      activebatch:
+        +tags: ["activebatch"]
         +grants:
-          select: "{{ ['db_hr_gen_r', 'db_it_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+          select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else [] }}"
 
       adp:
         +tags: ["adp", "hr", "employees", "associates"]
         +grants:
-          select: "{{ ['db_hr_assoc_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+          select: "{{ ['db_hr_assoc_r'] if target.name in ['prod', 'test', 'ci'] else [] }}"
 
       alteryx_gallery:
         +tags: ["alteryx"]
@@ -503,8 +506,12 @@ models:
 
       active_directory:
         +tags: ["active_directory"]
-        +grants:
-          +select: "{{ ['db_it_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        stg:
+          +grants:
+            +select: "{{ ['db_it_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        rpt:
+          +grants:
+            +select: "{{ ['db_it_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
       crm:
         +schema: crm
         +tags: ["crm"]

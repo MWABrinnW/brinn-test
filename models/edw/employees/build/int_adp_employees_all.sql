@@ -344,10 +344,9 @@ left join {{ ref('locations') }} as lm_new
     and lm_new.active = 1
 left join {{ ref('zoom_mwa__base_user_phone_assignments') }} as zoom
     on lower(e.associate_work_email) = lower(zoom.email)
-    and zoom.rn = 1
 where true
     and coalesce(e.is_deleted , 0) = 0
     {%- if is_incremental() %}
-        and 1 = (select max(needs_update) from cte_check)
+        and 1 = (select max(t.needs_update) from cte_check as t)
     {%- endif -%}
 order by e.effective_at

@@ -1,3 +1,10 @@
+{{ config(
+    materialized = 'incremental',
+    unique_key='system_key',
+    incremental_strategy='delete+insert',
+    on_schema_change='sync_all_columns'
+) }}
+
 select
     u.*
     , m.employeenumber    as manager_employeenumber
@@ -10,3 +17,10 @@ left join {{ ref('active_directory_mwa__stg_users') }} as m
     on u._created_at = m._created_at
     and u.manager = m.dn
     and m.rn = 1
+where 1 = 1
+{{ incremental_date_filter(
+    source_col_name='u._created_at',
+    target_col_name='_created_at',
+    do_lookback = false,
+    do_new = false
+) }}

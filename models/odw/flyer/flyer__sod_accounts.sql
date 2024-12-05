@@ -40,7 +40,7 @@ with custodian_accounts as (
     from {{ ref('flyer__stg_sod_salesforce_accounts') }} as a
     left join {{ ref('salesforce_compass__base_user') }} as u
         on a.ownerid = u.id and u.is_head = 1
-    where a._created_at = (select max(_created_at) from {{ ref('flyer__stg_sod_salesforce_accounts') }})
+    where a._created_at = (select max(t._created_at) from {{ ref('flyer__stg_sod_salesforce_accounts') }} as t)
 )
 
 , accounts as (
@@ -75,7 +75,6 @@ with custodian_accounts as (
         on a.account_number = c.account_number
     left join {{ ref('zoom_mwa__base_user_phone_assignments') }} as zoom
         on lower(c.advisoremail) = lower(zoom.email)
-        and zoom.rn = 1
 )
 
 select

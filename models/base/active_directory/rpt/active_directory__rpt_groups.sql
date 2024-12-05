@@ -1,3 +1,7 @@
+{{ config(
+  grants = {'+select': ['db_hr_gen_r', 'db_it_r']}
+) }}
+
 select
     system_name         as system_name
     , system_instance   as system_instance
@@ -23,7 +27,10 @@ select
     , _created_at       as _created_at
     , _source_file      as _source_file
 from {{ ref('active_directory__stg_groups') }}
-where rn_day = 1
+qualify
+    row_number() over (
+        partition by _effective_at::date , distinguishedname order by _created_at desc
+    ) = 1
 
 union all
 
@@ -54,4 +61,4 @@ select
 from {{ ref('active_directory_mwa__stg_groups') }}
 where rn_day = 1
     -- Exclude historical records from old ETL
-    and _created_at::date < (select min(_effective_at::date) from {{ ref('active_directory__stg_groups') }})
+    and _created_at::date < (select min(t._effective_at::date) from {{ ref('active_directory__stg_groups') }} as t)

@@ -1,0 +1,1162 @@
+version: 2
+models:
+  - name: active_directory__stg_computers
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: TEXT
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: TEXT
+      - name: LASTLOGONDATE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: USERACCOUNTCONTROL
+        description: ''
+        data_type: NUMBER
+      - name: CERTIFICATES
+        description: ''
+        data_type: VARIANT
+      - name: OPERATINGSYSTEM
+        description: ''
+        data_type: TEXT
+      - name: WHENCREATED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: IPV4ADDRESS
+        description: ''
+        data_type: TEXT
+      - name: SAMACCOUNTNAME
+        description: ''
+        data_type: TEXT
+      - name: DOESNOTREQUIREPREAUTH
+        description: ''
+        data_type: NUMBER
+      - name: PRIMARYGROUP
+        description: ''
+        data_type: TEXT
+      - name: SAMACCOUNTTYPE
+        description: ''
+        data_type: NUMBER
+      - name: LASTLOGON
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: OBJECTCATEGORY
+        description: ''
+        data_type: TEXT
+      - name: MEMBEROF
+        description: ''
+        data_type: VARIANT
+      - name: LOCALPOLICYFLAGS
+        description: ''
+        data_type: NUMBER
+      - name: RIDSETREFERENCES
+        description: ''
+        data_type: VARIANT
+      - name: USEDESKEYONLY
+        description: ''
+        data_type: NUMBER
+      - name: LASTBADPASSWORDATTEMPT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: INSTANCETYPE
+        description: ''
+        data_type: NUMBER
+      - name: ACCOUNTEXPIRES
+        description: ''
+        data_type: NUMBER
+      - name: LOCKEDOUT
+        description: ''
+        data_type: NUMBER
+      - name: OBJECTCLASS
+        description: ''
+        data_type: TEXT
+      - name: DELETED
+        description: ''
+        data_type: TEXT
+      - name: USNCREATED
+        description: ''
+        data_type: NUMBER
+      - name: DISTINGUISHEDNAME
+        description: ''
+        data_type: TEXT
+      - name: TRUSTEDFORDELEGATION
+        description: ''
+        data_type: NUMBER
+      - name: SERVERREFERENCEBL
+        description: ''
+        data_type: VARIANT
+      - name: ACCOUNTLOCKOUTTIME
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: DNSHOSTNAME
+        description: ''
+        data_type: TEXT
+      - name: CN
+        description: ''
+        data_type: TEXT
+      - name: AUTHENTICATIONPOLICYSILO
+        description: ''
+        data_type: VARIANT
+      - name: BADPASSWORDTIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: ACCOUNTEXPIRATIONDATE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: PASSWORDEXPIRED
+        description: ''
+        data_type: NUMBER
+      - name: NAME
+        description: ''
+        data_type: TEXT
+      - name: MNSLOGONACCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: CANNOTCHANGEPASSWORD
+        description: ''
+        data_type: NUMBER
+      - name: KERBEROSENCRYPTIONTYPE
+        description: ''
+        data_type: VARIANT
+      - name: USERPRINCIPALNAME
+        description: ''
+        data_type: TEXT
+      - name: PRINCIPALSALLOWEDTODELEGATETOACCOUNT
+        description: ''
+        data_type: VARIANT
+      - name: CREATETIMESTAMP
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: OPERATINGSYSTEMHOTFIX
+        description: ''
+        data_type: TEXT
+      - name: AUTHENTICATIONPOLICY
+        description: ''
+        data_type: VARIANT
+      - name: PASSWORDLASTSET
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: MANAGEDBY
+        description: ''
+        data_type: TEXT
+      - name: LASTLOGOFF
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: USNCHANGED
+        description: ''
+        data_type: NUMBER
+      - name: SIDHISTORY
+        description: ''
+        data_type: VARIANT
+      - name: ENABLED
+        description: ''
+        data_type: NUMBER
+      - name: SERVICEPRINCIPALNAMES
+        description: ''
+        data_type: VARIANT
+      - name: OPERATINGSYSTEMSERVICEPACK
+        description: ''
+        data_type: TEXT
+      - name: BADPWDCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: PROTECTEDFROMACCIDENTALDELETION
+        description: ''
+        data_type: NUMBER
+      - name: ALLOWREVERSIBLEPASSWORDENCRYPTION
+        description: ''
+        data_type: NUMBER
+      - name: DSCOREPROPAGATIONDATA
+        description: ''
+        data_type: VARIANT
+      - name: PASSWORDNEVEREXPIRES
+        description: ''
+        data_type: NUMBER
+      - name: BADLOGONCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: SERVICEPRINCIPALNAME
+        description: ''
+        data_type: VARIANT
+      - name: MODIFIED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: COUNTRYCODE
+        description: ''
+        data_type: NUMBER
+      - name: SDRIGHTSEFFECTIVE
+        description: ''
+        data_type: NUMBER
+      - name: LASTLOGONTIMESTAMP
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: HOMEDIRREQUIRED
+        description: ''
+        data_type: NUMBER
+      - name: PWDLASTSET
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: CANONICALNAME
+        description: ''
+        data_type: TEXT
+      - name: LASTKNOWNPARENT
+        description: ''
+        data_type: TEXT
+      - name: PASSWORDNOTREQUIRED
+        description: ''
+        data_type: NUMBER
+      - name: MODIFYTIMESTAMP
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: ISDELETED
+        description: ''
+        data_type: NUMBER
+      - name: DISPLAYNAME
+        description: ''
+        data_type: TEXT
+      - name: FRSCOMPUTERREFERENCEBL
+        description: ''
+        data_type: VARIANT
+      - name: TRUSTEDTOAUTHFORDELEGATION
+        description: ''
+        data_type: NUMBER
+      - name: CREATED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: HOMEPAGE
+        description: ''
+        data_type: TEXT
+      - name: LOCATION
+        description: ''
+        data_type: TEXT
+      - name: ISCRITICALSYSTEMOBJECT
+        description: ''
+        data_type: NUMBER
+      - name: SERVICEACCOUNT
+        description: ''
+        data_type: VARIANT
+      - name: LOGONCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: USERCERTIFICATE
+        description: ''
+        data_type: VARIANT
+      - name: PRIMARYGROUPID
+        description: ''
+        data_type: NUMBER
+      - name: IPV6ADDRESS
+        description: ''
+        data_type: TEXT
+      - name: WHENCHANGED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: DESCRIPTION
+        description: ''
+        data_type: TEXT
+      - name: OPERATINGSYSTEMVERSION
+        description: ''
+        data_type: TEXT
+      - name: OBJECTGUID
+        description: ''
+        data_type: TEXT
+      - name: ACCOUNTNOTDELEGATED
+        description: ''
+        data_type: NUMBER
+      - name: CODEPAGE
+        description: ''
+        data_type: NUMBER
+      - name: COMPOUNDIDENTITYSUPPORTED
+        description: ''
+        data_type: VARIANT
+      - name: OTHERMOBILE
+        description: ''
+        data_type: VARIANT
+      - name: DATEOFSTART
+        description: ''
+        data_type: TEXT
+      - name: DATEOFBIRTH
+        description: ''
+        data_type: TEXT
+        meta:
+          masking_policy: mp_associate_pii_text
+      - name: ADMINDESCRIPTION
+        description: ''
+        data_type: TEXT
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: _DATA
+        description: ''
+        data_type: VARIANT
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _EFFECTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: TEXT
+  - name: active_directory__stg_groups
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: TEXT
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: TEXT
+      - name: INSTANCETYPE
+        description: ''
+        data_type: NUMBER
+      - name: OBJECTCLASS
+        description: ''
+        data_type: TEXT
+      - name: DELETED
+        description: ''
+        data_type: TEXT
+      - name: MSEXCHMODERATIONFLAGS
+        description: ''
+        data_type: NUMBER
+      - name: USNCREATED
+        description: ''
+        data_type: NUMBER
+      - name: MSEXCHGROUPDEPARTRESTRICTION
+        description: ''
+        data_type: NUMBER
+      - name: DISTINGUISHEDNAME
+        description: ''
+        data_type: TEXT
+      - name: CN
+        description: ''
+        data_type: TEXT
+      - name: NAME
+        description: ''
+        data_type: TEXT
+      - name: MSEXCHADDRESSBOOKFLAGS
+        description: ''
+        data_type: NUMBER
+      - name: MSEXCHMAILBOXAUDITENABLE
+        description: ''
+        data_type: NUMBER
+      - name: GROUPTYPE
+        description: ''
+        data_type: NUMBER
+      - name: PROPERTYCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: WHENCREATED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: MSEXCHVERSION
+        description: ''
+        data_type: NUMBER
+      - name: SAMACCOUNTNAME
+        description: ''
+        data_type: TEXT
+      - name: ADDEDPROPERTIES
+        description: ''
+        data_type: VARIANT
+      - name: SAMACCOUNTTYPE
+        description: ''
+        data_type: NUMBER
+      - name: OBJECTCATEGORY
+        description: ''
+        data_type: TEXT
+      - name: MSEXCHPROVISIONINGFLAGS
+        description: ''
+        data_type: NUMBER
+      - name: MSEXCHMAILBOXAUDITLOGAGELIMIT
+        description: ''
+        data_type: NUMBER
+      - name: MEMBEROF
+        description: ''
+        data_type: VARIANT
+      - name: MEMBERS
+        description: ''
+        data_type: VARIANT
+      - name: CREATETIMESTAMP
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: MANAGEDBY
+        description: ''
+        data_type: TEXT
+      - name: USNCHANGED
+        description: ''
+        data_type: NUMBER
+      - name: GROUPSCOPE
+        description: ''
+        data_type: NUMBER
+      - name: INTERNETENCODING
+        description: ''
+        data_type: NUMBER
+      - name: MODIFIED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: SDRIGHTSEFFECTIVE
+        description: ''
+        data_type: NUMBER
+      - name: REMOVEDPROPERTIES
+        description: ''
+        data_type: VARIANT
+      - name: GROUPCATEGORY
+        description: ''
+        data_type: NUMBER
+      - name: CANONICALNAME
+        description: ''
+        data_type: TEXT
+      - name: LASTKNOWNPARENT
+        description: ''
+        data_type: TEXT
+      - name: MSEXCHGROUPJOINRESTRICTION
+        description: ''
+        data_type: NUMBER
+      - name: MODIFYTIMESTAMP
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: MSEXCHTRANSPORTRECIPIENTSETTINGSFLAGS
+        description: ''
+        data_type: NUMBER
+      - name: MODIFIEDPROPERTIES
+        description: ''
+        data_type: VARIANT
+      - name: DISPLAYNAME
+        description: ''
+        data_type: TEXT
+      - name: MSEXCHBYPASSAUDIT
+        description: ''
+        data_type: NUMBER
+      - name: MSEXCHROLEGROUPTYPE
+        description: ''
+        data_type: NUMBER
+      - name: OBJECTGUID
+        description: ''
+        data_type: TEXT
+      - name: CREATED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: PROPERTYNAMES
+        description: ''
+        data_type: VARIANT
+      - name: MSEXCHRECIPIENTTYPEDETAILS
+        description: ''
+        data_type: NUMBER
+      - name: WHENCHANGED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: DESCRIPTION
+        description: ''
+        data_type: TEXT
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: _DATA
+        description: ''
+        data_type: VARIANT
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _EFFECTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: TEXT
+  - name: active_directory__stg_service_accounts
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: TEXT
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: TEXT
+      - name: ACCOUNTEXPIRATIONDATE
+        description: ''
+        data_type: NUMBER
+      - name: ACCOUNTLOCKOUTTIME
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: ACCOUNTNOTDELEGATED
+        description: ''
+        data_type: NUMBER
+      - name: ALLOWREVERSIBLEPASSWORDENCRYPTION
+        description: ''
+        data_type: NUMBER
+      - name: AUTHENTICATIONPOLICYSILO
+        description: ''
+        data_type: VARIANT
+      - name: BADLOGONCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: CN
+        description: ''
+        data_type: TEXT
+      - name: CANNOTCHANGEPASSWORD
+        description: ''
+        data_type: NUMBER
+      - name: CERTIFICATES
+        description: ''
+        data_type: VARIANT
+      - name: COMPOUNDIDENTITYSUPPORTED
+        description: ''
+        data_type: VARIANT
+      - name: COUNT
+        description: ''
+        data_type: VARIANT
+      - name: CREATED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: DNSHOSTNAME
+        description: ''
+        data_type: TEXT
+      - name: DELETED
+        description: ''
+        data_type: TEXT
+      - name: DESCRIPTION
+        description: ''
+        data_type: TEXT
+      - name: DISTINGUISHEDNAME
+        description: ''
+        data_type: TEXT
+      - name: HOSTCOMPUTERS
+        description: ''
+        data_type: VARIANT
+      - name: LASTKNOWNPARENT
+        description: ''
+        data_type: TEXT
+      - name: LOCKEDOUT
+        description: ''
+        data_type: NUMBER
+      - name: MEMBEROF
+        description: ''
+        data_type: VARIANT
+      - name: NAME
+        description: ''
+        data_type: TEXT
+      - name: OBJECTCATEGORY
+        description: ''
+        data_type: TEXT
+      - name: OBJECTCLASS
+        description: ''
+        data_type: TEXT
+      - name: OBJECTGUID
+        description: ''
+        data_type: TEXT
+      - name: PASSWORDLASTSET
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: PASSWORDNEVEREXPIRES
+        description: ''
+        data_type: NUMBER
+      - name: PASSWORDNOTREQUIRED
+        description: ''
+        data_type: NUMBER
+      - name: PRIMARYGROUP
+        description: ''
+        data_type: TEXT
+      - name: PRINCIPALSALLOWEDTODELEGATETOACCOUNT
+        description: ''
+        data_type: VARIANT
+      - name: PRINCIPALSALLOWEDTORETRIEVEMANAGEDPASSWORD
+        description: ''
+        data_type: VARIANT
+      - name: BADPWDCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: ISCRITICALSYSTEMOBJECT
+        description: ''
+        data_type: NUMBER
+      - name: LASTLOGONTIMESTAMP
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: MODIFYTIMESTAMP
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: SDRIGHTSEFFECTIVE
+        description: ''
+        data_type: NUMBER
+      - name: HOMEDIRREQUIRED
+        description: ''
+        data_type: NUMBER
+      - name: MNSLOGONACCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: SERVICEPRINCIPALNAMES
+        description: ''
+        data_type: TEXT
+      - name: TRUSTEDTOAUTHFORDELEGATION
+        description: ''
+        data_type: NUMBER
+      - name: BADPASSWORDTIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: DSCOREPROPAGATIONDATA
+        description: ''
+        data_type: VARIANT
+      - name: SAMACCOUNTTYPE
+        description: ''
+        data_type: NUMBER
+      - name: WHENCHANGED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: WHENCREATED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: USEDESKEYONLY
+        description: ''
+        data_type: NUMBER
+      - name: CODEPAGE
+        description: ''
+        data_type: NUMBER
+      - name: LASTBADPASSWORDATTEMPT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: PRIMARYGROUPID
+        description: ''
+        data_type: NUMBER
+      - name: CANONICALNAME
+        description: ''
+        data_type: TEXT
+      - name: ENABLED
+        description: ''
+        data_type: NUMBER
+      - name: HOMEPAGE
+        description: ''
+        data_type: TEXT
+      - name: KERBEROSENCRYPTIONTYPE
+        description: ''
+        data_type: VARIANT
+      - name: LASTLOGONDATE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: SAMACCOUNTNAME
+        description: ''
+        data_type: TEXT
+      - name: TRUSTEDFORDELEGATION
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYCODE
+        description: ''
+        data_type: NUMBER
+      - name: PWDLASTSET
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: USNCHANGED
+        description: ''
+        data_type: NUMBER
+      - name: USERCERTIFICATE
+        description: ''
+        data_type: VARIANT
+      - name: AUTHENTICATIONPOLICY
+        description: ''
+        data_type: VARIANT
+      - name: DISPLAYNAME
+        description: ''
+        data_type: TEXT
+      - name: DOESNOTREQUIREPREAUTH
+        description: ''
+        data_type: NUMBER
+      - name: MANAGEDPASSWORDINTERVALINDAYS
+        description: ''
+        data_type: VARIANT
+      - name: MODIFIED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: PROTECTEDFROMACCIDENTALDELETION
+        description: ''
+        data_type: NUMBER
+      - name: SIDHISTORY
+        description: ''
+        data_type: VARIANT
+      - name: USERPRINCIPALNAME
+        description: ''
+        data_type: TEXT
+      - name: LASTLOGOFF
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: LASTLOGON
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: LOCALPOLICYFLAGS
+        description: ''
+        data_type: NUMBER
+      - name: USNCREATED
+        description: ''
+        data_type: NUMBER
+      - name: USERACCOUNTCONTROL
+        description: ''
+        data_type: NUMBER
+      - name: LOGONCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: PASSWORDEXPIRED
+        description: ''
+        data_type: NUMBER
+      - name: CREATETIMESTAMP
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: ACCOUNTEXPIRES
+        description: ''
+        data_type: NUMBER
+      - name: ISDELETED
+        description: ''
+        data_type: NUMBER
+      - name: INSTANCETYPE
+        description: ''
+        data_type: NUMBER
+      - name: OTHERMOBILE
+        description: ''
+        data_type: VARIANT
+      - name: DATEOFSTART
+        description: ''
+        data_type: TEXT
+      - name: DATEOFBIRTH
+        description: ''
+        data_type: TEXT
+        meta:
+          masking_policy: mp_associate_pii_text
+      - name: ADMINDESCRIPTION
+        description: ''
+        data_type: TEXT
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: _DATA
+        description: ''
+        data_type: VARIANT
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _EFFECTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: TEXT
+  - name: active_directory__stg_users
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: TEXT
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: TEXT
+      - name: INSTANCETYPE
+        description: ''
+        data_type: NUMBER
+      - name: OBJECTCLASS
+        description: ''
+        data_type: TEXT
+      - name: ADMINCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: OFFICE
+        description: ''
+        data_type: TEXT
+      - name: ACCOUNTLOCKOUTTIME
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: AUTHENTICATIONPOLICYSILO
+        description: ''
+        data_type: VARIANT
+      - name: FAX
+        description: ''
+        data_type: TEXT
+      - name: BADPASSWORDTIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: ACCOUNTEXPIRATIONDATE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: SSOSMTP
+        description: ''
+        data_type: TEXT
+      - name: SCRIPTPATH
+        description: ''
+        data_type: TEXT
+      - name: MNSLOGONACCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: STATE
+        description: ''
+        data_type: TEXT
+      - name: ACCOUNTEXPIRES
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: LOCKEDOUT
+        description: ''
+        data_type: NUMBER
+      - name: DELETED
+        description: ''
+        data_type: TEXT
+      - name: USNCREATED
+        description: ''
+        data_type: NUMBER
+      - name: DISTINGUISHEDNAME
+        description: ''
+        data_type: TEXT
+      - name: MSEXCHWHENMAILBOXCREATED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: TRUSTEDFORDELEGATION
+        description: ''
+        data_type: NUMBER
+      - name: MANAGER
+        description: ''
+        data_type: TEXT
+      - name: CN
+        description: ''
+        data_type: TEXT
+      - name: PHYSICALDELIVERYOFFICENAME
+        description: ''
+        data_type: TEXT
+      - name: HOMEDRIVE
+        description: ''
+        data_type: TEXT
+      - name: LOCKOUTTIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: PASSWORDEXPIRED
+        description: ''
+        data_type: NUMBER
+      - name: NAME
+        description: ''
+        data_type: TEXT
+      - name: HOMEDIRECTORY
+        description: ''
+        data_type: TEXT
+      - name: LOGONHOURS
+        description: ''
+        data_type: VARIANT
+      - name: COMPANY
+        description: ''
+        data_type: TEXT
+      - name: CANNOTCHANGEPASSWORD
+        description: ''
+        data_type: NUMBER
+      - name: USERPRINCIPALNAME
+        description: ''
+        data_type: TEXT
+      - name: CREATETIMESTAMP
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: GIVENNAME
+        description: ''
+        data_type: TEXT
+      - name: EMAILADDRESS
+        description: ''
+        data_type: TEXT
+      - name: MSTSLICENSEVERSION
+        description: ''
+        data_type: TEXT
+      - name: USNCHANGED
+        description: ''
+        data_type: NUMBER
+      - name: MSEXCHRECIPIENTSOFTDELETEDSTATUS
+        description: ''
+        data_type: NUMBER
+      - name: MSTSLICENSEVERSION2
+        description: ''
+        data_type: TEXT
+      - name: SERVICEPRINCIPALNAMES
+        description: ''
+        data_type: VARIANT
+      - name: HOMEPHONE
+        description: ''
+        data_type: TEXT
+      - name: MSTSLICENSEVERSION3
+        description: ''
+        data_type: TEXT
+      - name: BADPWDCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: CITY
+        description: ''
+        data_type: TEXT
+      - name: ALLOWREVERSIBLEPASSWORDENCRYPTION
+        description: ''
+        data_type: NUMBER
+      - name: PASSWORDNEVEREXPIRES
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRYCODE
+        description: ''
+        data_type: TEXT
+      - name: SDRIGHTSEFFECTIVE
+        description: ''
+        data_type: NUMBER
+      - name: TITLE
+        description: ''
+        data_type: TEXT
+      - name: KERBEROSENCRYPTIONTYPE
+        description: ''
+        data_type: VARIANT
+      - name: PRINCIPALSALLOWEDTODELEGATETOACCOUNT
+        description: ''
+        data_type: VARIANT
+      - name: LOGONWORKSTATIONS
+        description: ''
+        data_type: TEXT
+      - name: AUTHENTICATIONPOLICY
+        description: ''
+        data_type: VARIANT
+      - name: PASSWORDLASTSET
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: LASTLOGOFF
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: SIDHISTORY
+        description: ''
+        data_type: VARIANT
+      - name: ENABLED
+        description: ''
+        data_type: NUMBER
+      - name: MSTSMANAGINGLS
+        description: ''
+        data_type: TEXT
+      - name: PROTECTEDFROMACCIDENTALDELETION
+        description: ''
+        data_type: NUMBER
+      - name: DSCOREPROPAGATIONDATA
+        description: ''
+        data_type: VARIANT
+      - name: BADLOGONCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: MODIFIED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: LASTLOGONTIMESTAMP
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: HOMEDIRREQUIRED
+        description: ''
+        data_type: NUMBER
+      - name: PWDLASTSET
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: CANONICALNAME
+        description: ''
+        data_type: TEXT
+      - name: LASTKNOWNPARENT
+        description: ''
+        data_type: TEXT
+      - name: MODIFYTIMESTAMP
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: ISDELETED
+        description: ''
+        data_type: NUMBER
+      - name: MSEXCHPREVIOUSRECIPIENTTYPEDETAILS
+        description: ''
+        data_type: NUMBER
+      - name: OTHERNAME
+        description: ''
+        data_type: TEXT
+      - name: SN
+        description: ''
+        data_type: TEXT
+      - name: MANAGEDOBJECTS
+        description: ''
+        data_type: VARIANT
+      - name: DEPARTMENT
+        description: ''
+        data_type: TEXT
+      - name: MOBILEPHONE
+        description: ''
+        data_type: TEXT
+      - name: INITIALS
+        description: ''
+        data_type: TEXT
+      - name: SURNAME
+        description: ''
+        data_type: TEXT
+      - name: USERCERTIFICATE
+        description: ''
+        data_type: VARIANT
+      - name: MSEXCHUMDTMFMAP
+        description: ''
+        data_type: VARIANT
+      - name: WHENCHANGED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: OBJECTGUID
+        description: ''
+        data_type: TEXT
+      - name: POSTALCODE
+        description: ''
+        data_type: TEXT
+      - name: COMPOUNDIDENTITYSUPPORTED
+        description: ''
+        data_type: VARIANT
+      - name: LASTLOGONDATE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: WHENCREATED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: SAMACCOUNTNAME
+        description: ''
+        data_type: TEXT
+      - name: PRIMARYGROUP
+        description: ''
+        data_type: TEXT
+      - name: SAMACCOUNTTYPE
+        description: ''
+        data_type: NUMBER
+      - name: LASTLOGON
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: MEMBEROF
+        description: ''
+        data_type: VARIANT
+      - name: LASTBADPASSWORDATTEMPT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: PROFILEPATH
+        description: ''
+        data_type: TEXT
+      - name: USERACCOUNTCONTROL
+        description: ''
+        data_type: NUMBER
+      - name: SMARTCARDLOGONREQUIRED
+        description: ''
+        data_type: NUMBER
+      - name: CERTIFICATES
+        description: ''
+        data_type: VARIANT
+      - name: POBOX
+        description: ''
+        data_type: TEXT
+      - name: MSEXCHALOBJECTVERSION
+        description: ''
+        data_type: NUMBER
+      - name: MSEXCHDELEGATELISTBL
+        description: ''
+        data_type: VARIANT
+      - name: DOESNOTREQUIREPREAUTH
+        description: ''
+        data_type: NUMBER
+      - name: EMPLOYEENUMBER
+        description: ''
+        data_type: TEXT
+      - name: OFFICEPHONE
+        description: ''
+        data_type: TEXT
+      - name: OBJECTCATEGORY
+        description: ''
+        data_type: TEXT
+      - name: PROTOCOLSETTINGS
+        description: ''
+        data_type: VARIANT
+      - name: USEDESKEYONLY
+        description: ''
+        data_type: NUMBER
+      - name: MSEXCHCOMANAGEDOBJECTSBL
+        description: ''
+        data_type: VARIANT
+      - name: MSTSEXPIREDATE
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: PASSWORDNOTREQUIRED
+        description: ''
+        data_type: NUMBER
+      - name: DISPLAYNAME
+        description: ''
+        data_type: TEXT
+      - name: TRUSTEDTOAUTHFORDELEGATION
+        description: ''
+        data_type: NUMBER
+      - name: CREATED
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: HOMEPAGE
+        description: ''
+        data_type: TEXT
+      - name: EMPLOYEEID
+        description: ''
+        data_type: TEXT
+      - name: DIVISION
+        description: ''
+        data_type: TEXT
+      - name: STREETADDRESS
+        description: ''
+        data_type: TEXT
+      - name: ISCRITICALSYSTEMOBJECT
+        description: ''
+        data_type: NUMBER
+      - name: LOGONCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: COUNTRY
+        description: ''
+        data_type: TEXT
+      - name: PRIMARYGROUPID
+        description: ''
+        data_type: NUMBER
+      - name: ORGANIZATION
+        description: ''
+        data_type: TEXT
+      - name: DESCRIPTION
+        description: ''
+        data_type: TEXT
+      - name: ACCOUNTNOTDELEGATED
+        description: ''
+        data_type: NUMBER
+      - name: CODEPAGE
+        description: ''
+        data_type: NUMBER
+      - name: OTHERMOBILE
+        description: ''
+        data_type: VARIANT
+      - name: DATEOFSTART
+        description: ''
+        data_type: TEXT
+      - name: DATEOFBIRTH
+        description: ''
+        data_type: TEXT
+        meta:
+          masking_policy: mp_associate_pii_text
+      - name: ADMINDESCRIPTION
+        description: ''
+        data_type: TEXT
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: _DATA
+        description: ''
+        data_type: VARIANT
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _EFFECTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: TEXT

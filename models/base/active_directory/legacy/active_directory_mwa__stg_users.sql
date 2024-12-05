@@ -1,3 +1,10 @@
+{{ config(
+    materialized = 'incremental',
+    unique_key='system_key',
+    incremental_strategy='delete+insert',
+    on_schema_change='sync_all_columns'
+) }}
+
 with cte_rnk as (
     select
         record_datetime::date as record_date
@@ -255,3 +262,10 @@ select
 from {{ source('active_directory_mwa', 'user_history') }} as u
 inner join cte_rnk as rnk
     on u.record_datetime = rnk.record_datetime
+where 1 = 1
+{{ incremental_date_filter(
+    source_col_name='u.record_datetime',
+    target_col_name='_created_at',
+    do_lookback = false,
+    do_new = false
+) }}

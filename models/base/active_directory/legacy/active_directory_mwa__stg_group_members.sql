@@ -1,3 +1,10 @@
+{{ config(
+    materialized = 'incremental',
+    unique_key='system_key',
+    incremental_strategy='delete+insert',
+    on_schema_change='sync_all_columns'
+) }}
+
 with cte_rnk as (
     select
         record_datetime::date as record_date
@@ -22,7 +29,6 @@ select
     , g.whencreated::timestamp                     as group_created_at
     , g.whenchanged::timestamp                     as group_modified_at
     , g.objectcategory::text(200)                  as group_object_category
-    , null::text(200)                              as group_object_category
     , null::text(200)                              as group_category
     , g.samaccountname::text(200)                  as group_sam_account_name
     , g.samaccounttype::int                        as group_sam_account_type
@@ -41,3 +47,10 @@ select
 from {{ source('active_directory_mwa', 'groups_history') }} as g
 inner join cte_rnk as rnk
     on g.record_datetime = rnk.record_datetime
+where 1 = 1
+{{ incremental_date_filter(
+    source_col_name='g.record_datetime',
+    target_col_name='_created_at',
+    do_lookback = false,
+    do_new = false
+) }}

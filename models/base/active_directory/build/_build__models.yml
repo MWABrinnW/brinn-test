@@ -1,0 +1,524 @@
+version: 2
+models:
+  - name: active_directory__rpt_group_members_fresh
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: TEXT
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: TEXT
+      - name: GROUP_NAME
+        description: ''
+        data_type: TEXT
+      - name: GROUP_DN
+        description: ''
+        data_type: TEXT
+      - name: GROUP_DESCRIPTION
+        description: ''
+        data_type: TEXT
+      - name: GROUP_CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: GROUP_MODIFIED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: GROUP_CATEGORY
+        description: ''
+        data_type: NUMBER
+      - name: GROUP_OBJECT_CATEGORY
+        description: ''
+        data_type: TEXT
+      - name: GROUP_SAM_ACCOUNT_NAME
+        description: ''
+        data_type: TEXT
+      - name: GROUP_SAM_ACCOUNT_TYPE
+        description: ''
+        data_type: NUMBER
+      - name: GROUP_CANONICAL_NAME
+        description: ''
+        data_type: TEXT
+      - name: MEMBER_DN
+        description: ''
+        data_type: TEXT
+      - name: MEMBER_NAME
+        description: ''
+        data_type: TEXT
+      - name: MEMBER_CANONICAL_NAME
+        description: ''
+        data_type: TEXT
+      - name: MEMBER_OBJECT_CLASS
+        description: ''
+        data_type: TEXT
+      - name: MEMBER_EMPLOYEE_NUMBER
+        description: ''
+        data_type: TEXT
+      - name: MEMBER_EMPLOYEE_ID
+        description: ''
+        data_type: TEXT
+      - name: _EFFECTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: TEXT
+  - name: active_directory__rpt_users_history
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: TEXT
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: TEXT
+      - name: DISTINGUISHED_NAME
+        description: ''
+        data_type: TEXT
+      - name: NAME
+        description: ''
+        data_type: TEXT
+      - name: CANONICAL_NAME
+        description: ''
+        data_type: TEXT
+      - name: EMPLOYEE_NUMBER
+        description: ''
+        data_type: TEXT
+      - name: EMPLOYEE_ID
+        description: ''
+        data_type: TEXT
+      - name: MANAGER
+        description: ''
+        data_type: TEXT
+      - name: CN
+        description: ''
+        data_type: TEXT
+      - name: SN
+        description: ''
+        data_type: TEXT
+      - name: DISPLAY_NAME
+        description: ''
+        data_type: TEXT
+      - name: GIVEN_NAME
+        description: ''
+        data_type: TEXT
+      - name: DESCRIPTION
+        description: ''
+        data_type: TEXT
+      - name: OBJECT_CLASS
+        description: ''
+        data_type: TEXT
+      - name: INSTANCE_TYPE
+        description: ''
+        data_type: NUMBER
+      - name: ADMIN_COUNT
+        description: ''
+        data_type: NUMBER
+      - name: IS_LOCKED_OUT
+        description: ''
+        data_type: NUMBER
+      - name: ACCOUNT_LOCKOUT_TIME
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: LAST_LOGON_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: IS_ENABLED
+        description: ''
+        data_type: NUMBER
+      - name: IS_DELETED
+        description: ''
+        data_type: NUMBER
+      - name: COMPANY
+        description: ''
+        data_type: TEXT
+      - name: OFFICE
+        description: ''
+        data_type: TEXT
+      - name: DIVISION
+        description: ''
+        data_type: TEXT
+      - name: DEPARTMENT
+        description: ''
+        data_type: TEXT
+      - name: TITLE
+        description: ''
+        data_type: TEXT
+      - name: EMAIL
+        description: ''
+        data_type: TEXT
+      - name: SSO_SMTP
+        description: ''
+        data_type: TEXT
+      - name: OFFICE_PHONE
+        description: ''
+        data_type: TEXT
+      - name: MODIFIED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: MOBILE_PHONE
+        description: ''
+        data_type: TEXT
+      - name: STREET_ADDRESS
+        description: ''
+        data_type: TEXT
+      - name: PRIMARY_GROUP
+        description: ''
+        data_type: TEXT
+      - name: PRIMARY_GROUP_ID
+        description: ''
+        data_type: NUMBER
+      - name: ORGANIZATION
+        description: ''
+        data_type: TEXT
+      - name: PASSWORD_EXPIRED
+        description: ''
+        data_type: NUMBER
+      - name: BAD_PWD_COUNT
+        description: ''
+        data_type: NUMBER
+      - name: BAD_PASSWORD_TIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: LAST_BAD_PASSWORD_ATTEMPT_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: PASSWORD_LAST_SET_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: MSEXCHANGE_MAILBOX_CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: IS_CRITICAL_SYSTEM_OBJECT
+        description: ''
+        data_type: NUMBER
+      - name: MEMBER_OF
+        description: ''
+        data_type: VARIANT
+      - name: SAM_ACCOUNT_NAME
+        description: ''
+        data_type: TEXT
+      - name: SAM_ACCOUNT_TYPE
+        description: ''
+        data_type: TEXT
+      - name: PHYSICAL_DELIVERY_OFFICE_NAME
+        description: ''
+        data_type: TEXT
+      - name: CITY
+        description: ''
+        data_type: TEXT
+      - name: STATE
+        description: ''
+        data_type: TEXT
+      - name: POSTAL_CODE
+        description: ''
+        data_type: TEXT
+      - name: OTHER_MOBILE
+        description: ''
+        data_type: TEXT
+      - name: DATE_OF_START
+        description: ''
+        data_type: DATE
+      - name: DATE_OF_BIRTH
+        description: ''
+        meta:
+          masking_policy: mp_associate_pii_text
+        data_type: TEXT
+      - name: ADMIN_DESCRIPTION
+        description: ''
+        data_type: TEXT
+      - name: MANAGER_EMPLOYEENUMBER
+        description: ''
+        data_type: TEXT
+      - name: MANAGER_EMAIL
+        description: ''
+        data_type: TEXT
+      - name: MANAGER_SAMACCOUNTNAME
+        description: ''
+        data_type: TEXT
+      - name: MANAGER_DISTINGUISHEDNAME
+        description: ''
+        data_type: TEXT
+      - name: _EFFECTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: TEXT
+  - name: active_directory__rpt_group_members_history
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: TEXT
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: TEXT
+      - name: GROUP_NAME
+        description: ''
+        data_type: TEXT
+      - name: GROUP_DN
+        description: ''
+        data_type: TEXT
+      - name: GROUP_DESCRIPTION
+        description: ''
+        data_type: TEXT
+      - name: GROUP_CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: GROUP_MODIFIED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: GROUP_CATEGORY
+        description: ''
+        data_type: NUMBER
+      - name: GROUP_OBJECT_CATEGORY
+        description: ''
+        data_type: TEXT
+      - name: GROUP_SAM_ACCOUNT_NAME
+        description: ''
+        data_type: TEXT
+      - name: GROUP_SAM_ACCOUNT_TYPE
+        description: ''
+        data_type: NUMBER
+      - name: GROUP_CANONICAL_NAME
+        description: ''
+        data_type: TEXT
+      - name: MEMBER_DN
+        description: ''
+        data_type: TEXT
+      - name: MEMBER_NAME
+        description: ''
+        data_type: TEXT
+      - name: MEMBER_CANONICAL_NAME
+        description: ''
+        data_type: TEXT
+      - name: MEMBER_OBJECT_CLASS
+        description: ''
+        data_type: TEXT
+      - name: MEMBER_EMPLOYEE_NUMBER
+        description: ''
+        data_type: TEXT
+      - name: MEMBER_EMPLOYEE_ID
+        description: ''
+        data_type: TEXT
+      - name: _EFFECTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: TEXT
+  - name: active_directory__rpt_users_fresh
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: TEXT
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: TEXT
+      - name: DISTINGUISHED_NAME
+        description: ''
+        data_type: TEXT
+      - name: NAME
+        description: ''
+        data_type: TEXT
+      - name: CANONICAL_NAME
+        description: ''
+        data_type: TEXT
+      - name: EMPLOYEE_NUMBER
+        description: ''
+        data_type: TEXT
+      - name: EMPLOYEE_ID
+        description: ''
+        data_type: TEXT
+      - name: MANAGER
+        description: ''
+        data_type: TEXT
+      - name: CN
+        description: ''
+        data_type: TEXT
+      - name: SN
+        description: ''
+        data_type: TEXT
+      - name: DISPLAY_NAME
+        description: ''
+        data_type: TEXT
+      - name: GIVEN_NAME
+        description: ''
+        data_type: TEXT
+      - name: DESCRIPTION
+        description: ''
+        data_type: TEXT
+      - name: OBJECT_CLASS
+        description: ''
+        data_type: TEXT
+      - name: INSTANCE_TYPE
+        description: ''
+        data_type: NUMBER
+      - name: ADMIN_COUNT
+        description: ''
+        data_type: NUMBER
+      - name: IS_LOCKED_OUT
+        description: ''
+        data_type: NUMBER
+      - name: ACCOUNT_LOCKOUT_TIME
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: LAST_LOGON_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: IS_ENABLED
+        description: ''
+        data_type: NUMBER
+      - name: IS_DELETED
+        description: ''
+        data_type: NUMBER
+      - name: COMPANY
+        description: ''
+        data_type: TEXT
+      - name: OFFICE
+        description: ''
+        data_type: TEXT
+      - name: DIVISION
+        description: ''
+        data_type: TEXT
+      - name: DEPARTMENT
+        description: ''
+        data_type: TEXT
+      - name: TITLE
+        description: ''
+        data_type: TEXT
+      - name: EMAIL
+        description: ''
+        data_type: TEXT
+      - name: SSO_SMTP
+        description: ''
+        data_type: TEXT
+      - name: OFFICE_PHONE
+        description: ''
+        data_type: TEXT
+      - name: MODIFIED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: MOBILE_PHONE
+        description: ''
+        data_type: TEXT
+      - name: STREET_ADDRESS
+        description: ''
+        data_type: TEXT
+      - name: PRIMARY_GROUP
+        description: ''
+        data_type: TEXT
+      - name: PRIMARY_GROUP_ID
+        description: ''
+        data_type: NUMBER
+      - name: ORGANIZATION
+        description: ''
+        data_type: TEXT
+      - name: PASSWORD_EXPIRED
+        description: ''
+        data_type: NUMBER
+      - name: BAD_PWD_COUNT
+        description: ''
+        data_type: NUMBER
+      - name: BAD_PASSWORD_TIME
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: LAST_BAD_PASSWORD_ATTEMPT_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: PASSWORD_LAST_SET_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: MSEXCHANGE_MAILBOX_CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: IS_CRITICAL_SYSTEM_OBJECT
+        description: ''
+        data_type: NUMBER
+      - name: MEMBER_OF
+        description: ''
+        data_type: VARIANT
+      - name: SAM_ACCOUNT_NAME
+        description: ''
+        data_type: TEXT
+      - name: SAM_ACCOUNT_TYPE
+        description: ''
+        data_type: TEXT
+      - name: PHYSICAL_DELIVERY_OFFICE_NAME
+        description: ''
+        data_type: TEXT
+      - name: CITY
+        description: ''
+        data_type: TEXT
+      - name: STATE
+        description: ''
+        data_type: TEXT
+      - name: POSTAL_CODE
+        description: ''
+        data_type: TEXT
+      - name: OTHER_MOBILE
+        description: ''
+        data_type: TEXT
+      - name: DATE_OF_START
+        description: ''
+        data_type: DATE
+      - name: DATE_OF_BIRTH
+        description: ''
+        meta:
+          masking_policy: mp_associate_pii_text
+        data_type: TEXT
+      - name: ADMIN_DESCRIPTION
+        description: ''
+        data_type: TEXT
+      - name: MANAGER_EMPLOYEENUMBER
+        description: ''
+        data_type: TEXT
+      - name: MANAGER_EMAIL
+        description: ''
+        data_type: TEXT
+      - name: MANAGER_SAMACCOUNTNAME
+        description: ''
+        data_type: TEXT
+      - name: MANAGER_DISTINGUISHEDNAME
+        description: ''
+        data_type: TEXT
+      - name: _EFFECTIVE_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: TEXT

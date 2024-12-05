@@ -2,50 +2,50 @@
 
 with cte_bld_associates as (
     select
-        system_key                                             as system_key
-        , effective_at                                         as effective_at
-        , employee_num                                         as employee_num
-        , associate_legal_name_full                            as full_name
-        , employment_status                                    as employment_status
+        system_key                                                          as system_key
+        , effective_at                                                      as effective_at
+        , employee_num                                                      as employee_num
+        , associate_legal_name_full                                         as full_name
+        , employment_status                                                 as employment_status
         -- EmployeeID
         , case
             when system_key = 'adp__mwa'
                 then _extra_fields:employee_id
             when system_key = 'oracle__mwa'
                 then _extra_fields:employee_id
-        end::text(200)                                         as employee_id
+        end::text(200)                                                      as employee_id
         -- Division
-        , division                                             as division
+        , division                                                          as division
         -- AdminDescription
-        , location_name                                        as admin_description
+        , location_name                                                     as admin_description
         -- Company
-        , location_name                                        as company
+        , location_name                                                     as company
         -- Department
-        , position_department_name                             as department
+        , position_department_name                                          as department
         -- Title
-        , position_title                                       as title
+        , position_title                                                    as title
         -- PhysicalDeliveryOfficeName
-        , trim(position_work_site_location_name)               as physical_delivery_office_name
+        , trim(position_work_site_location_name)                            as physical_delivery_office_name
         -- Manager
-        , position_manager_ad_distinguished_name               as manager
+        , position_manager_ad_distinguished_name                            as manager
         , position_manager_position_id
             as manager_position_id
-        , position_manager_email                               as manager_email
+        , position_manager_email                                            as manager_email
         -- StreetAddress
         , array_to_string(array_construct_compact(
             position_work_site_address_line1
             , position_work_site_address_line2
             , position_work_site_address_line3
-        ) , ' ')                                               as street_address
+        ) , ' ')                                                            as street_address
         -- L | City
-        , position_work_site_address_city                      as city
+        , position_work_site_address_city                                   as city
         -- St | State
-        , position_work_site_address_state_abb                 as state
+        , position_work_site_address_state_abb                              as state
         -- PostalCode
-        , position_work_site_address_zip_code                  as postal_code
+        , position_work_site_address_zip_code                               as postal_code
 
         -- TelephoneNumber
-        , regexp_replace(associate_work_phone , '[^0-9]' , '') as office_phone_clean
+        , regexp_replace(associate_work_phone , '[^0-9]' , '')              as office_phone_clean
         , case
             when len(office_phone_clean) = 10
                 then '1-'
@@ -63,13 +63,13 @@ with cte_bld_associates as (
                     || '-'
                     || substr(office_phone_clean , 8 , 4)
             else office_phone_clean
-        end::text                                              as office_phone
+        end::text                                                           as office_phone
         -- OtherNumber
         , regexp_replace(
             coalesce(associate_personal_phone , associate_personal_cell_phone)
             , '[^0-9]'
             , ''
-        )                                                      as other_mobile_clean
+        )                                                                   as other_mobile_clean
         , case
             when len(other_mobile_clean) = 10
                 then substr(other_mobile_clean , 1 , 3)
@@ -86,22 +86,22 @@ with cte_bld_associates as (
                     || '-'
                     || substr(other_mobile_clean , 8 , 4)
             else other_mobile_clean
-        end::text                                              as other_mobile
+        end::text                                                           as other_mobile
         -- dateOfStart
         -- should this be seniority date?
-        , to_char(associate_original_hire_date , 'MM/DD/YYYY') as date_of_start
+        , nullif(to_char(associate_original_hire_date , 'MM/DD/YYYY') , '') as date_of_start
         -- dateOfBirth
-        , to_char(associate_birth_date , 'MM/DD')              as date_of_birth
+        , to_char(associate_birth_date , 'MM/DD')                           as date_of_birth
 
-        , position_id                                          as position_id
-        , _extra_fields                                        as _extra_fields
+        , position_id                                                       as position_id
+        , _extra_fields                                                     as _extra_fields
         , row_number() over (
             partition by employee_num
             order by
                 position_primary_job_indicator desc
                 , position_full_time_equivalent desc
                 , position_manager_name asc
-        )                                                      as rn
+        )                                                                   as rn
     from {{ ref('nml_oracle_hcm_associates') }}
     where is_head = 1
         and rn_employee_num = 1
@@ -109,64 +109,64 @@ with cte_bld_associates as (
 
 , cte_active_directory as (
     select
-        distinguished_name              as distinguished_name
-        , _effective_at                 as effective_at
-        , employee_number               as employee_num
+        distinguished_name                                   as distinguished_name
+        , _effective_at                                      as effective_at
+        , employee_number                                    as employee_num
 
         -- EmployeeID
-        , employee_id                   as employee_id
+        , employee_id                                        as employee_id
 
         -- Division
-        , division                      as division
+        , division                                           as division
 
         -- AdminDescription
-        , admin_description             as admin_description
+        , admin_description                                  as admin_description
 
         -- Company
-        , company                       as company
+        , company                                            as company
 
         -- Department
-        , department                    as department
+        , department                                         as department
 
         -- Title
-        , title                         as title
+        , title                                              as title
 
         -- PhysicalDeliveryOfficeName
-        , physical_delivery_office_name as physical_delivery_office_name
+        , physical_delivery_office_name                      as physical_delivery_office_name
 
         -- Manager [distinguished name]
-        , manager                       as manager
+        , manager                                            as manager
 
         -- StreetAddress
-        , street_address                as street_address
+        , street_address                                     as street_address
 
         -- L | City
-        , city                          as city
+        , city                                               as city
 
         -- St | State
-        , state                         as state
+        , state                                              as state
 
         -- PostalCode
-        , postal_code                   as postal_code
+        , postal_code                                        as postal_code
 
         -- TelephoneNumber (work/zoom phone)
-        , office_phone                  as office_phone
+        , office_phone                                       as office_phone
 
         -- OtherNumber
-        , other_mobile                  as other_mobile
+        , other_mobile                                       as other_mobile
 
         -- dateOfStart
-        , date_of_start                 as date_of_start
+        , nullif(to_char(date_of_start , 'MM/DD/YYYY') , '') as date_of_start
 
         -- dateOfBirth
-        , date_of_birth                 as date_of_birth
+        , date_of_birth                                      as date_of_birth
     from {{ ref('active_directory__rpt_users') }}
     where is_head = 1
 )
 
 , cte_employee_nums as (
     select distinct employee_num from cte_bld_associates
-    union
+    union distinct
     select distinct employee_num from cte_active_directory
 )
 
