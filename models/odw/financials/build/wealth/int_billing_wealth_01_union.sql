@@ -59,7 +59,7 @@ select
     , invst.model_grouping_assignment::varchar(200)      as model_grouping_assignment
     , loc_cli.office_name                                as client_office_name
     , loc_cli.accounting_id                              as client_location_accounting_id
-    , ass.advisor_nonadvisor
+    , ass.advisor_nonadvisor                             as advisor_nonadvisor
     , coalesce(ass_coa_adp.seg_1 , ass_coa_oracle.seg_1) as associate_coa_segment_1
     , coalesce(ass_coa_adp.seg_2 , ass_coa_oracle.seg_2) as associate_coa_segment_2
     , coalesce(ass_coa_adp.seg_3 , ass_coa_oracle.seg_3) as associate_coa_segment_3

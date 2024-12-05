@@ -54,6 +54,7 @@ select
     , client_adjustments_fee::number(20 , 5)       as client_adjustments_fee
     , client_write_off_fee::number(20 , 5)         as client_write_off_fee
     , client_fee_net::number(20 , 5)               as client_fee_net
+    , null::decimal(20 , 2)                        as referral_fee
     , null::date                                   as collection_date
     , null::boolean                                as third_party_calculation
     , billing_style::varchar(600)                  as billing_style

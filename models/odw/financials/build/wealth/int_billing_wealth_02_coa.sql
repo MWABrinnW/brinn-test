@@ -110,6 +110,7 @@ select
     , nml.client_adjustments_fee::number(20 , 5)                                      as client_adjustments_fee
     , nml.client_write_off_fee::number(20 , 5)                                        as client_write_off_fee
     , nml.client_fee_net::number(20 , 5)                                              as client_fee_net
+    , nml.referral_fee::decimal(20 , 2)                                               as referral_fee
     , nml.collection_date::date                                                       as collection_date
     , coalesce(nml.third_party_calculation::boolean , false)                          as third_party_calculation
 

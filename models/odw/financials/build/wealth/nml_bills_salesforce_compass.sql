@@ -92,6 +92,7 @@ select
     , ir.adjustments_fee_c::number(20 , 5)                               as client_adjustments_fee
     , ir.write_off_fee_c::number(20 , 5)                                 as client_write_off_fee
     , ir.net_fee_c::number(20 , 5)                                       as client_fee_net
+    , ir.referral_fee_c::decimal(20 , 2)                                 as referral_fee
     , ir.collection_date_c::date                                         as collection_date
     , ir.third_party_calculation_c::boolean                              as third_party_calculation
 

@@ -70,6 +70,8 @@ select
     , null::decimal(20 , 5)                                                              as client_adjustments_fee
     , null::decimal(20 , 5)                                                              as client_write_off_fee
     , bb.total_period_fee::decimal(20 , 5)                                               as client_fee_net
+    , null::decimal(20 , 2)                                                              as referral_fee
+
     , null::date                                                                         as collection_date
     , null::boolean                                                                      as third_party_calculation
 

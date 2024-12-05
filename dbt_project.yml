@@ -244,6 +244,8 @@ models:
           raw:
             +grants:
               select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        investments:
+          +tags: ["investments"]
         lpl_network:
           +tags: ["lpl", "network", "mps"]
           +grants:
