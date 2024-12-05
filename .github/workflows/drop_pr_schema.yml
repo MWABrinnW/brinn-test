@@ -8,6 +8,7 @@ env:
   AWS_REGION: "us-east-2"
   AWS_ROLE_ARN: "arn:aws:iam::436867865803:role/dbt-docs-github-actions"
   DBT_DOCS_BUCKET: "dbt-docs.marinerapi.cloud"
+  ARTIFACTS_ROOT_DIR: ${{ vars.ARTIFACTS_ROOT_DIR }}
   SNOWSQL_USER: ${{ vars.DBT_USER }}
   SNOWSQL_PWD: ${{ secrets.DBT_PASSWORD }}
   SNOWSQL_ACCOUNT: ${{ vars.DBT_HOST }}
