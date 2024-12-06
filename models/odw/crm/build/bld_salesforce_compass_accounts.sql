@@ -183,4 +183,5 @@ where true
     ) }}
     and ei.is_deleted = 0
     and ei._fivetran_deleted = 0
+    and ei.is_latest = 1
 order by ei.effective_at, account_number
