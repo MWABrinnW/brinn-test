@@ -64,8 +64,8 @@ with cte_dates as (
         , month_end_date                                                                         as month_end_date
         , prior_year_month_start_date                                                            as prior_year_month_start_date
         , prior_year_month_end_date                                                              as prior_year_month_end_date
-        , to_char(quarter_end_date , 'YYYYMM')::int                                              as year_monthnum
-        , to_char(quarter_end_date , 'YYYYMM')::int                                              as yyyymm
+        , to_char(date_day , 'YYYYMM')::int                                                      as year_monthnum
+        , to_char(date_day , 'YYYYMM')::int                                                      as yyyymm
         , quarter_of_year                                                                        as quarternum
         , quarter_of_year                                                                        as q
         , concat('Q' , quarter_of_year)                                                          as quarter
