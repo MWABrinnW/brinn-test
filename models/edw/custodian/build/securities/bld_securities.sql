@@ -23,7 +23,7 @@ with cte_check as (
                 else 0
             end::int as needs_update
     {%- else -%}
-  select 0::int as needs_update
+  select 1::int as needs_update
   {%- endif %}
 )
 
@@ -64,7 +64,7 @@ with cte_check as (
         and is_head = 1
         {%- if is_incremental() %}
             and 1 = (select max(t.needs_update) from cte_check as t)
-        {%- endif -%}
+        {%- endif %}
     qualify row_number() over (partition by cusip order by issue_entry_date desc) = 1
     order by cusip
 )
@@ -82,7 +82,6 @@ with cte_check as (
         , p._created_at                                                         as orion_loaded_at
     from {{ ref('orion__bld_products') }} as p
     where 1 = 1
-        and p.is_head = 1
         and coalesce(p.cusip , '') <> ''
         {%- if is_incremental() %}
             and 1 = (select max(t.needs_update) from cte_check as t)
