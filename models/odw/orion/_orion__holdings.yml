@@ -1,0 +1,114 @@
+version: 2
+models:
+  - name: orion__holdings
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: TEXT
+      - name: FIRM_SOURCE
+        description: ''
+        meta:
+          row_access_policy: rap_firm_source
+        data_type: TEXT
+      - name: ACCOUNT_ID
+        description: ''
+        data_type: NUMBER
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+        data_type: TEXT
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: TEXT
+      - name: HOUSEHOLD_ID
+        description: ''
+        data_type: NUMBER
+      - name: HOUSEHOLD_NAME
+        description: ''
+        data_type: TEXT
+      - name: CUSTODIAN
+        description: ''
+        data_type: TEXT
+      - name: SYMBOL
+        description: ''
+        data_type: TEXT
+      - name: CUSIP
+        description: ''
+        data_type: TEXT
+      - name: TICKER
+        description: ''
+        data_type: TEXT
+      - name: IS_TICKER_CUSIP
+        description: ''
+        data_type: NUMBER
+      - name: PRODUCT_NAME
+        description: ''
+        data_type: TEXT
+      - name: PRODUCT_TYPE
+        description: ''
+        data_type: TEXT
+      - name: PRODUCT_CATEGORY
+        description: ''
+        data_type: TEXT
+      - name: ASSET_CLASS
+        description: ''
+        data_type: TEXT
+      - name: IS_CUSTODIAL_CASH
+        description: ''
+        data_type: NUMBER
+      - name: MARKET_VALUE
+        description: ''
+        data_type: FLOAT
+      - name: QUANTITY
+        description: ''
+        data_type: FLOAT
+      - name: PRICE
+        description: ''
+        data_type: FLOAT
+      - name: PRICE_UNFACTORED
+        description: ''
+        data_type: NUMBER
+      - name: FACTOR
+        description: ''
+        data_type: NUMBER
+      - name: COST_BASIS
+        description: ''
+        data_type: FLOAT
+      - name: PRODUCT_ID
+        description: ''
+        data_type: NUMBER
+      - name: ASSET_ID
+        description: ''
+        data_type: NUMBER
+      - name: is_asset_managed
+        description: ''
+        data_type: NUMBER
+      - name: is_product_managed
+        description: ''
+        data_type: NUMBER
+      - name: FKALCLIENT
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: CREATEDDATE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: TEXT
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER

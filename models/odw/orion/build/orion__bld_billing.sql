@@ -6,7 +6,11 @@
 )}}
 
 select
-    b.effective_date                as effective_date
+   b.system_name                    as system_name
+  , b.system_instance               as system_instance
+  , b.system_key                    as system_key
+  , b.firm_source                   as firm_source
+  , b.effective_date                as effective_date
   , b.clientname                    as bill_clientname
   , b.fkalclient                    as bill_fkalclient
   , b.pkbill                        as bill_pkbill
@@ -27,12 +31,9 @@ select
   , b.createddate                   as bill_createddate
   , b.effective_date                as bill_effective_date
   , b._pk                           as bill__pk
-  , b._client                       as bill__client
   , b._extracted_at                 as bill__extracted_at
-  , b.is_head                       as bill_is_head
-  , b.is_current                    as bill_is_current
   , b._is_full                      as bill__is_full
-  , b._created_at                   as bill__created_at
+  , b._created_at::timestamp_ntz    as bill__created_at
   , b._source_file                  as bill__source_file
   , b._checksum                     as bill__checksum
   , bi.clientname                   as billinstance_clientname
@@ -67,12 +68,9 @@ select
   , bi.createddate                  as billinstance_createddate
   , bi.effective_date               as billinstance_effective_date
   , bi._pk                          as billinstance__pk
-  , bi._client                      as billinstance__client
   , bi._extracted_at                as billinstance__extracted_at
-  , bi.is_head                      as billinstance_is_head
-  , bi.is_current                   as billinstance_is_current
   , bi._is_full                     as billinstance__is_full
-  , bi._created_at                  as billinstance__created_at
+  , bi._created_at::timestamp_ntz   as billinstance__created_at
   , bi._source_file                 as billinstance__source_file
   , bi._checksum                    as billinstance__checksum
   , bt.clientname                   as billtype_clientname
@@ -83,12 +81,9 @@ select
   , bt.createddate                  as billtype_createddate
   , bt.effective_date               as billtype_effective_date
   , bt._pk                          as billtype__pk
-  , bt._client                      as billtype__client
   , bt._extracted_at                as billtype__extracted_at
-  , bt.is_head                      as billtype_is_head
-  , bt.is_current                   as billtype_is_current
   , bt._is_full                     as billtype__is_full
-  , bt._created_at                  as billtype__created_at
+  , bt._created_at::timestamp_ntz   as billtype__created_at
   , bt._source_file                 as billtype__source_file
   , bt._checksum                    as billtype__checksum
   , bai.clientname                  as billacctitem_clientname
@@ -155,12 +150,9 @@ select
   , bai.createddate                 as billacctitem_createddate
   , bai.effective_date              as billacctitem_effective_date
   , bai._pk                         as billacctitem__pk
-  , bai._client                     as billacctitem__client
   , bai._extracted_at               as billacctitem__extracted_at
-  , bai.is_head                     as billacctitem_is_head
-  , bai.is_current                  as billacctitem_is_current
   , bai._is_full                    as billacctitem__is_full
-  , bai._created_at                 as billacctitem__created_at
+  , bai._created_at::timestamp_ntz  as billacctitem__created_at
   , bai._source_file                as billacctitem__source_file
   , bai._checksum                   as billacctitem__checksum
   , ba.clientname                   as billacct_clientname
@@ -219,12 +211,9 @@ select
   , ba.createddate                  as billacct_createddate
   , ba.effective_date               as billacct_effective_date
   , ba._pk                          as billacct__pk
-  , ba._client                      as billacct__client
   , ba._extracted_at                as billacct__extracted_at
-  , ba.is_head                      as billacct_is_head
-  , ba.is_current                   as billacct_is_current
   , ba._is_full                     as billacct__is_full
-  , ba._created_at                  as billacct__created_at
+  , ba._created_at::timestamp_ntz   as billacct__created_at
   , ba._source_file                 as billacct__source_file
   , ba._checksum                    as billacct__checksum
   , a.clientname                    as acct_clientname
@@ -357,21 +346,15 @@ select
   , a.smaediteddate                 as acct_smaediteddate
   , a.createddate                   as acct_createddate
   , a.effective_date                as acct_effective_date
-  , a._pk                           as acct__pk
-  , a._client                       as acct__client
   , a._extracted_at                 as acct__extracted_at
-  , a.is_head                       as acct_is_head
-  , a.is_current                    as acct_is_current
   , a._is_full                      as acct__is_full
-  , a._created_at                   as acct__created_at
+  , a._created_at::timestamp_ntz    as acct__created_at
   , a._source_file                  as acct__source_file
   , a._checksum                     as acct__checksum
       -- META ---------------------------------------------------------------------
-  , b.is_head                                                             as is_head
-  , b.is_current                                                          as is_current
-  , current_timestamp::timestamp_ntz                                      as _created_at
-  , b._extracted_at::timestamp_ntz                                        as _source_loaded_at
-  , b._source_file::varchar(200)                                          as _source_file
+  , current_timestamp::timestamp_ntz as _created_at
+  , b._extracted_at::timestamp_ntz   as _source_loaded_at
+  , b._source_file::varchar(200)     as _source_file
     from {{ ref('orion__base_vw_bill') }}                 b
     -- Billing run.
     -- Big billing run every quarter and smaller ones throughout the quarter.
@@ -399,8 +382,9 @@ select
                   and a.pkaccount = ba.fkaccount
                   and a.is_head = 1
     where b.is_head = 1
+        and b.billcreateddate >= current_date() - 183
         {%- if target.name not in ["prod"] %}
-        and b.billcreateddate >= current_date() - 185
+        and b.billcreateddate >= current_date() - 100
         {%- endif %}
         {%- if is_incremental() %}
         and b.createddate > nvl((select max(bill_createddate) from {{ this }}), b.createddate - interval '1 day')

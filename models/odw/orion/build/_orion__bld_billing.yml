@@ -1,0 +1,1042 @@
+version: 2
+models:
+  - name: orion__bld_billing
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: TEXT
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: TEXT
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: BILL_CLIENTNAME
+        description: ''
+        data_type: TEXT
+      - name: BILL_FKALCLIENT
+        description: ''
+        data_type: NUMBER
+      - name: BILL_PKBILL
+        description: ''
+        data_type: NUMBER
+      - name: BILL_FKBILLCLIENT
+        description: ''
+        data_type: NUMBER
+      - name: BILL_FKBILLTRANSMITMETHOD
+        description: ''
+        data_type: NUMBER
+      - name: BILL_FKBLOB
+        description: ''
+        data_type: NUMBER
+      - name: BILL_DTCALCDATE
+        description: ''
+        data_type: DATE
+      - name: BILL_BILLEDITEDDATE
+        description: ''
+        data_type: DATE
+      - name: BILL_BILLEDITEDBY
+        description: ''
+        data_type: TEXT
+      - name: BILL_BILLCREATEDDATE
+        description: ''
+        data_type: DATE
+      - name: BILL_BILLCREATEDBY
+        description: ''
+        data_type: TEXT
+      - name: BILL_ISVALID
+        description: ''
+        data_type: NUMBER
+      - name: BILL_OLDINVOICENO
+        description: ''
+        data_type: NUMBER
+      - name: BILL_BILLTYPE
+        description: ''
+        data_type: NUMBER
+      - name: BILL_FKBILLINSTANCE
+        description: ''
+        data_type: NUMBER
+      - name: BILL_FKCLIENTSTAMP
+        description: ''
+        data_type: NUMBER
+      - name: BILL_FKBILLACCOUNTITEM
+        description: ''
+        data_type: NUMBER
+      - name: BILL_CREATEDDATE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: BILL_EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: BILL__PK
+        description: ''
+        data_type: TEXT
+      - name: BILL__EXTRACTED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: BILL__IS_FULL
+        description: ''
+        data_type: NUMBER
+      - name: BILL__CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: BILL__SOURCE_FILE
+        description: ''
+        data_type: TEXT
+      - name: BILL__CHECKSUM
+        description: ''
+        data_type: TEXT
+      - name: BILLINSTANCE_CLIENTNAME
+        description: ''
+        data_type: TEXT
+      - name: BILLINSTANCE_FKALCLIENT
+        description: ''
+        data_type: NUMBER
+      - name: BILLINSTANCE_PKBILLINSTANCE
+        description: ''
+        data_type: NUMBER
+      - name: BILLINSTANCE_BINSTANCECREATEDDATE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: BILLINSTANCE_BINSTANCECREATEDBY
+        description: ''
+        data_type: TEXT
+      - name: BILLINSTANCE_STATUS
+        description: ''
+        data_type: TEXT
+      - name: BILLINSTANCE_PERCCOMPLETE
+        description: ''
+        data_type: NUMBER
+      - name: BILLINSTANCE_BILLTYPE
+        description: ''
+        data_type: NUMBER
+      - name: BILLINSTANCE_FKBLOBPAYABLEREPORT
+        description: ''
+        data_type: NUMBER
+      - name: BILLINSTANCE_ISMOCKBILL
+        description: ''
+        data_type: NUMBER
+      - name: BILLINSTANCE_RUNFOR
+        description: ''
+        data_type: NUMBER
+      - name: BILLINSTANCE_RUNFORKEYLIST
+        description: ''
+        data_type: TEXT
+      - name: BILLINSTANCE_ASOFDATE
+        description: ''
+        data_type: DATE
+      - name: BILLINSTANCE_BILLFREQUENCY
+        description: ''
+        data_type: NUMBER
+      - name: BILLINSTANCE_BILLSTYLE
+        description: ''
+        data_type: NUMBER
+      - name: BILLINSTANCE_ENDDATEOVERRIDE
+        description: ''
+        data_type: DATE
+      - name: BILLINSTANCE_VALUEDATEOVERRIDE
+        description: ''
+        data_type: DATE
+      - name: BILLINSTANCE_HANGFIREJOBID
+        description: ''
+        data_type: TEXT
+      - name: BILLINSTANCE_HANGFIREJOBTYPE
+        description: ''
+        data_type: NUMBER
+      - name: BILLINSTANCE_ENTITYOPTIONS
+        description: ''
+        data_type: TEXT
+      - name: BILLINSTANCE_STATUSVALUE
+        description: ''
+        data_type: NUMBER
+      - name: BILLINSTANCE_CORRELATIONID
+        description: ''
+        data_type: TEXT
+      - name: BILLINSTANCE_FKTRINSTANCEFEE
+        description: ''
+        data_type: NUMBER
+      - name: BILLINSTANCE_NICKNAME
+        description: ''
+        data_type: TEXT
+      - name: BILLINSTANCE_INCLUDECASHFLOWS
+        description: ''
+        data_type: NUMBER
+      - name: BILLINSTANCE_ALLOWDUPLICATEMOCKBILLS
+        description: ''
+        data_type: NUMBER
+      - name: BILLINSTANCE_ISFINALBILL
+        description: ''
+        data_type: NUMBER
+      - name: BILLINSTANCE_EXCLUDEADJUSTMENTS
+        description: ''
+        data_type: NUMBER
+      - name: BILLINSTANCE_RUNFORACCOUNTS
+        description: ''
+        data_type: NUMBER
+      - name: BILLINSTANCE_CREATEDDATE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: BILLINSTANCE_EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: BILLINSTANCE__PK
+        description: ''
+        data_type: TEXT
+      - name: BILLINSTANCE__EXTRACTED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: BILLINSTANCE__IS_FULL
+        description: ''
+        data_type: NUMBER
+      - name: BILLINSTANCE__CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: BILLINSTANCE__SOURCE_FILE
+        description: ''
+        data_type: TEXT
+      - name: BILLINSTANCE__CHECKSUM
+        description: ''
+        data_type: TEXT
+      - name: BILLTYPE_CLIENTNAME
+        description: ''
+        data_type: TEXT
+      - name: BILLTYPE_FKALCLIENT
+        description: ''
+        data_type: NUMBER
+      - name: BILLTYPE_PKBILLTYPE
+        description: ''
+        data_type: NUMBER
+      - name: BILLTYPE_STYPE
+        description: ''
+        data_type: TEXT
+      - name: BILLTYPE_STYPEDESC
+        description: ''
+        data_type: TEXT
+      - name: BILLTYPE_CREATEDDATE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: BILLTYPE_EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: BILLTYPE__PK
+        description: ''
+        data_type: TEXT
+      - name: BILLTYPE__EXTRACTED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: BILLTYPE__IS_FULL
+        description: ''
+        data_type: NUMBER
+      - name: BILLTYPE__CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: BILLTYPE__SOURCE_FILE
+        description: ''
+        data_type: TEXT
+      - name: BILLTYPE__CHECKSUM
+        description: ''
+        data_type: TEXT
+      - name: BILLACCTITEM_CLIENTNAME
+        description: ''
+        data_type: TEXT
+      - name: BILLACCTITEM_FKALCLIENT
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_PKBILLACCOUNTITEM
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_FKBILLACCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_FKBILLSTATUS
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_FKBILLTYPE
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_FKBILLINSTANCE
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_FKPAYFORACCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_FKHIGHASSET
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_CINITIALAMT
+        description: ''
+        data_type: FLOAT
+      - name: BILLACCTITEM_CBALANCEDUE
+        description: ''
+        data_type: FLOAT
+      - name: BILLACCTITEM_DTCALCDATE
+        description: ''
+        data_type: DATE
+      - name: BILLACCTITEM_ISVALID
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_CTOTALMKTVALUE
+        description: ''
+        data_type: FLOAT
+      - name: BILLACCTITEM_DAILYACCRUALPERC
+        description: ''
+        data_type: FLOAT
+      - name: BILLACCTITEM_DTSTARTDATE
+        description: ''
+        data_type: DATE
+      - name: BILLACCTITEM_DTENDDATE
+        description: ''
+        data_type: DATE
+      - name: BILLACCTITEM_IDAYSINCYCLE
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_OLDRECEIVABLEID
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_ASOFDATE
+        description: ''
+        data_type: DATE
+      - name: BILLACCTITEM_BASIS
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_AGGREGATEVAL
+        description: ''
+        data_type: FLOAT
+      - name: BILLACCTITEM_FEEPERC
+        description: ''
+        data_type: FLOAT
+      - name: BILLACCTITEM_ERROR
+        description: ''
+        data_type: TEXT
+      - name: BILLACCTITEM_FEESCHEDULE
+        description: ''
+        data_type: TEXT
+      - name: BILLACCTITEM_BUILDCOMPLETE
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_PAYFORPERC
+        description: ''
+        data_type: FLOAT
+      - name: BILLACCTITEM_FKTEMPACCOUNTITEM
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_APPLIEDADJ
+        description: ''
+        data_type: FLOAT
+      - name: BILLACCTITEM_DAYSINYEAR
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_BILLFREQUENCY
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_PAYMETHOD
+        description: ''
+        data_type: TEXT
+      - name: BILLACCTITEM_FKACCOUNTSTAMP
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_FLATFEE
+        description: ''
+        data_type: FLOAT
+      - name: BILLACCTITEM_HOWBILLED
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_LASTCOLLECTATTEMPT
+        description: ''
+        data_type: DATE
+      - name: BILLACCTITEM_PAYOUTAGGVAL
+        description: ''
+        data_type: FLOAT
+      - name: BILLACCTITEM_PAYOUTBASIS
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_TRANSFERMKTVALUE
+        description: ''
+        data_type: FLOAT
+      - name: BILLACCTITEM_INDIRECTLINK
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_RECEIVABLEGUID
+        description: ''
+        data_type: TEXT
+      - name: BILLACCTITEM_NOTE
+        description: ''
+        data_type: TEXT
+      - name: BILLACCTITEM_FKBILLADJTYPE
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_FKBILLENTITY
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_FKBILLPAYMENT
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_CPREVBALANCE
+        description: ''
+        data_type: FLOAT
+      - name: BILLACCTITEM_CCURRBALANCE
+        description: ''
+        data_type: FLOAT
+      - name: BILLACCTITEM_CCHANGEAMT
+        description: ''
+        data_type: FLOAT
+      - name: BILLACCTITEM_DTDATEOCCURED
+        description: ''
+        data_type: DATE
+      - name: BILLACCTITEM_FKPAIDFORBYACCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_FKGENERALACCOUNTDETAILSRC
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_FKGENERALACCOUNTDETAILADJ
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_ADDLANNUALAMT
+        description: ''
+        data_type: FLOAT
+      - name: BILLACCTITEM_ADDLANNUALAMTTYPE
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_FKTRADEREQUEST
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_FKTRANSACTION
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_BILLAIEDITEDDATE
+        description: ''
+        data_type: DATE
+      - name: BILLACCTITEM_BILLAIEDITEDBY
+        description: ''
+        data_type: TEXT
+      - name: BILLACCTITEM_BILLAICREATEDDATE
+        description: ''
+        data_type: DATE
+      - name: BILLACCTITEM_BILLAICREATEDBY
+        description: ''
+        data_type: TEXT
+      - name: BILLACCTITEM_ISLOCKED
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM_CREATEDDATE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: BILLACCTITEM_EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: BILLACCTITEM__PK
+        description: ''
+        data_type: TEXT
+      - name: BILLACCTITEM__EXTRACTED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: BILLACCTITEM__IS_FULL
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCTITEM__CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: BILLACCTITEM__SOURCE_FILE
+        description: ''
+        data_type: TEXT
+      - name: BILLACCTITEM__CHECKSUM
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_CLIENTNAME
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_FKALCLIENT
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_PKBILLACCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_FKBILLREGISTRATION
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_FKBILLPAYMETHOD
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_FKBILLFEESCHEDULE
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_FKACCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_FKBILLPAYOUTSCHEDULE
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_EDITEDDATE
+        description: ''
+        data_type: DATE
+      - name: BILLACCT_EDITEDBY
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_BILLACCTCREATEDDATE
+        description: ''
+        data_type: DATE
+      - name: BILLACCT_BILLACCTCREATEDBY
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_SCUSTODIALACCTNUM
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_SABANUMBER
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_SBANKACCTNUM
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_SBANKNAME
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_SNAMEONACCT
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_SCREDITCARDNUMBER
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_ICYCLEMONTH
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_IBILLFREQUENCY
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_SEXPDATE
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_SNAMEONCARD
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_SCARDTYPE
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_SNMACCTNUM
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_SNMACCTNAME
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_SNMCLIENTNAME
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_ISACTIVE
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_IBILLINGSTYLE
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_FKBILLMASTERPAYOUTSCHEDULE
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_ACCEPTSLIST
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_FEEFORMCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_LASTPERFBILLDATE
+        description: ''
+        data_type: DATE
+      - name: BILLACCT_ISPERFORMANCEBILLED
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_FKPERFFEESCHEDULE
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_FKPERFMASTERPAYOUTSCHEDULE
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_BILLSTARTDATE
+        description: ''
+        data_type: DATE
+      - name: BILLACCT_USEMINFEE
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_VALUEMETHOD
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_ADDLANNUALAMT
+        description: ''
+        data_type: FLOAT
+      - name: BILLACCT_ADDLANNUALAMTTYPE
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_FKBILLADJTYPE
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_FKBILLENTITY
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_CREDITCARDNOENCRYPTION
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_ADDR1
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_ADDR2
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_ADDR3
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_CITY
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_STATE
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_ZIP
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT_INCLUDEINAGGREGATE
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_FKBILLACCOUNTSTATUS
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_TIEREDFEEPRIORITY
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_USEFEEHIERARCHY
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT_CREATEDDATE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: BILLACCT_EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: BILLACCT__PK
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT__EXTRACTED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: BILLACCT__IS_FULL
+        description: ''
+        data_type: NUMBER
+      - name: BILLACCT__CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: BILLACCT__SOURCE_FILE
+        description: ''
+        data_type: TEXT
+      - name: BILLACCT__CHECKSUM
+        description: ''
+        data_type: TEXT
+      - name: ACCT_CLIENTNAME
+        description: ''
+        data_type: TEXT
+      - name: ACCT_FKALCLIENT
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_PKACCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_FKREGISTRATION
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_FKFUNDFAMILY
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_FKSHARECLASS
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_FKPLATFORM
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_FKCUSTODIAN
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_ISACTIVE
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_ISSWEEPACCT
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_ACCTCREATEDDATE
+        description: ''
+        data_type: DATE
+      - name: ACCT_ACCTCREATEDBY
+        description: ''
+        data_type: TEXT
+      - name: ACCT_EDITEDDATE
+        description: ''
+        data_type: DATE
+      - name: ACCT_EDITEDBY
+        description: ''
+        data_type: TEXT
+      - name: ACCT_PROVIDER
+        description: ''
+        data_type: TEXT
+      - name: ACCT_CANCELDATE
+        description: ''
+        data_type: DATE
+      - name: ACCT_CANCELVALUE
+        description: ''
+        data_type: FLOAT
+      - name: ACCT_ISTRADINGBLOCKED
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_TRADINGINSTR
+        description: ''
+        data_type: TEXT
+      - name: ACCT_OUTSIDEID
+        description: ''
+        data_type: TEXT
+      - name: ACCT_GROUPNUM
+        description: ''
+        data_type: TEXT
+      - name: ACCT_FKSUBADVISOR
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_IMPORTKEY
+        description: ''
+        data_type: TEXT
+      - name: ACCT_ACCTSTARTDATE
+        description: ''
+        data_type: DATE
+      - name: ACCT_ACCTSTARTVALUE
+        description: ''
+        data_type: FLOAT
+      - name: ACCT_ISORIGSMCACCT
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_FKPLAN
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_ACCOUNTSTATUS
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_ISPHONEAUTHORIZED
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_FKACCOUNTHISTORY
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_FKSWEEPASSET
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_INITIALPURCHASEDATE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: ACCT_FKACCOUNTHISTORYUNIQUE
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_ISMANAGED
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_FKDOWNLOADSOURCE
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_FKACCOUNTHISTORYBILLING
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_ISWRAPMANAGED
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_ISDISCRETIONARY
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_RISKSCORE
+        description: ''
+        data_type: FLOAT
+      - name: ACCT_FKPORTFOLIOGROUPCOMPOSITE
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_FKACCOUNTHISTORYBILLINGUNIQUE
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_ISPOSITIONONLYRECON
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_SIGNATURESTATUS
+        description: ''
+        data_type: TEXT
+      - name: ACCT_ECLIPSEFIRMID
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_ISHISTORICAL
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_CURRENTDOWNLOADERROR
+        description: ''
+        data_type: TEXT
+      - name: ACCT_PREVDOWNLOADERROR
+        description: ''
+        data_type: TEXT
+      - name: ACCT_ISUNFUNDED
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_ISBUNDLED
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_ISEXCLUDEDFROMFIRMASSETS
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_HASSLOA
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_SLOADATE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: ACCT_THIRDPARTY
+        description: ''
+        data_type: TEXT
+      - name: ACCT_ISAFFILIATED
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_ISADVREPORTABLE
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_IS13FREPORTABLE
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_ISWRAPSPONSORED
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_ISOPS
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_ISAUAREPORTABLE
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_CUSTODIALREPCODE
+        description: ''
+        data_type: TEXT
+      - name: ACCT_FKADVCUSTODYTYPE
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_PRIMEBROKERAGEAGREEMENT
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_MARGINAGREEMENT
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_OPTIONLEVEL
+        description: ''
+        data_type: NUMBER
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: TEXT
+      - name: ACCT_ACCTCODE
+        description: ''
+        data_type: TEXT
+      - name: ACCT_SECONDARYACCTCODE
+        description: ''
+        data_type: TEXT
+      - name: ACCT_PKMDLACCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_REBALANCEYN
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_ISOUTSIDEMODEL
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_MINCASHBALANCE
+        description: ''
+        data_type: FLOAT
+      - name: ACCT_MDLACCTCREATEDDATE
+        description: ''
+        data_type: DATE
+      - name: ACCT_MDLACCTCREATEDBY
+        description: ''
+        data_type: TEXT
+      - name: ACCT_MDLACCTEDITEDDATE
+        description: ''
+        data_type: DATE
+      - name: ACCT_MDLACCTEDITEDBY
+        description: ''
+        data_type: TEXT
+      - name: ACCT_OLDCLIENTID
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_FKMODELAGG
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_FUNDLIST
+        description: ''
+        data_type: TEXT
+      - name: ACCT_MINCASHBALANCETYPE
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_FKMODELAGGNEWMONEY
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_AUTOREBALFREQ
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_AUTOREBALMONTH
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_AUTOREBALDAY
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_LASTREBALANCED
+        description: ''
+        data_type: DATE
+      - name: ACCT_REPLENISHMINCASH
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_FKDOLLARMODEL
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_DOLLARMODELAMOUNT
+        description: ''
+        data_type: FLOAT
+      - name: ACCT_CASHLIABILITY
+        description: ''
+        data_type: FLOAT
+      - name: ACCT_EXPIREMINCASH
+        description: ''
+        data_type: FLOAT
+      - name: ACCT_EXPIREMINCASHTYPE
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_EXPIREMINCASHDATE
+        description: ''
+        data_type: DATE
+      - name: ACCT_TARGETALLOCATION
+        description: ''
+        data_type: FLOAT
+      - name: ACCT_CONTRIBUTIONALLOCATION
+        description: ''
+        data_type: FLOAT
+      - name: ACCT_DISTRIBUTIONALLOCATION
+        description: ''
+        data_type: FLOAT
+      - name: ACCT_CORPORATEACTIONALLOCATION
+        description: ''
+        data_type: FLOAT
+      - name: ACCT_TOLERANCEUPPER
+        description: ''
+        data_type: FLOAT
+      - name: ACCT_TOLERANCELOWER
+        description: ''
+        data_type: FLOAT
+      - name: ACCT_SLEEVEACCTCREATEDBY
+        description: ''
+        data_type: TEXT
+      - name: ACCT_SLEEVEACCTCREATEDDATE
+        description: ''
+        data_type: DATE
+      - name: ACCT_SLEEVEACCTEDITEDBY
+        description: ''
+        data_type: TEXT
+      - name: ACCT_SLEEVEACCTEDITEDDATE
+        description: ''
+        data_type: DATE
+      - name: ACCT_MASTER
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_SLEEVETYPE
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_AUTOTRADETYPES
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_AUTOTRADEREQUESTED
+        description: ''
+        data_type: DATE
+      - name: ACCT_AUTOTRADEREQUESTEDBY
+        description: ''
+        data_type: TEXT
+      - name: ACCT_AUTOTRADEPROCESSED
+        description: ''
+        data_type: DATE
+      - name: ACCT_SUSPENDAUTOCONTRIBUNTIL
+        description: ''
+        data_type: DATE
+      - name: ACCT_TARGETBALANCETYPE
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_DONOTTRADE
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_ISCUSTOMIZED
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_FKSLEEVESTRATEGYDETAIL
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_FKSLEEVESTRATEGY
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_SLEEVESTRATEGYTOLERANCEUPPER
+        description: ''
+        data_type: FLOAT
+      - name: ACCT_SLEEVESTRATEGYTOLERANCELOWER
+        description: ''
+        data_type: FLOAT
+      - name: ACCT_FKBUSINESSLINE
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_FKPERSONALBUSINESSLINE
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_BUSINESSLINEEMPLOYEECOUNT
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_BUSINESSLINESTARTDATE
+        description: ''
+        data_type: DATE
+      - name: ACCT_ISSMA
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_ECLIPSESMA
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_FKSMAASSET
+        description: ''
+        data_type: NUMBER
+      - name: ACCT_SMACREATEDBY
+        description: ''
+        data_type: TEXT
+      - name: ACCT_SMACREATEDDATE
+        description: ''
+        data_type: DATE
+      - name: ACCT_SMAEDITEDBY
+        description: ''
+        data_type: TEXT
+      - name: ACCT_SMAEDITEDDATE
+        description: ''
+        data_type: DATE
+      - name: ACCT_CREATEDDATE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: ACCT_EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: ACCT__EXTRACTED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: ACCT__IS_FULL
+        description: ''
+        data_type: NUMBER
+      - name: ACCT__CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: ACCT__SOURCE_FILE
+        description: ''
+        data_type: TEXT
+      - name: ACCT__CHECKSUM
+        description: ''
+        data_type: TEXT
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: TEXT

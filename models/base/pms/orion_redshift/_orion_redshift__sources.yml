@@ -2,11 +2,25 @@ version: 2
 
 sources:
   - name: orion
-    description: ""
+    description: "Orion data from redshift share. Includes all instances. Will be Snowflake native 2025Q2."
     database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: orion
     tables:
       - name: stg_vw_account
+        columns:
+          - name: content
+          - name: _pk
+          - name: _client
+          - name: _is_full
+          - name: _extracted_at
+          - name: _created_at
+          - name: _source_file
+          - name: _checksum
+
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+      - name: stg_vw_accountbalancestatus
         columns:
           - name: content
           - name: _pk
@@ -385,6 +399,20 @@ sources:
             description: ''
             data_type: TIMESTAMP_NTZ
       - name: stg_vw_contribcodeext
+        columns:
+          - name: content
+          - name: _pk
+          - name: _client
+          - name: _is_full
+          - name: _extracted_at
+          - name: _created_at
+          - name: _source_file
+          - name: _checksum
+
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+      - name: stg_vw_costbasisrealized
         columns:
           - name: content
           - name: _pk
@@ -930,6 +958,20 @@ sources:
           - name: EFFECTIVE_AT
             description: ''
             data_type: TIMESTAMP_NTZ
+      - name: stg_vw_productpricefactor
+        columns:
+          - name: content
+          - name: _pk
+          - name: _client
+          - name: _is_full
+          - name: _extracted_at
+          - name: _created_at
+          - name: _source_file
+          - name: _checksum
+
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: stg_vw_productrelated
         columns:
           - name: content
@@ -1431,6 +1473,20 @@ sources:
           - name: EFFECTIVE_AT
             description: ''
             data_type: TIMESTAMP_NTZ
+      - name: vw_accountbalancestatus
+        columns:
+          - name: content
+          - name: _pk
+          - name: _client
+          - name: _is_full
+          - name: _extracted_at
+          - name: _created_at
+          - name: _source_file
+          - name: _checksum
+
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_accountbondtrade
         columns:
           - name: content
@@ -1782,6 +1838,20 @@ sources:
             description: ''
             data_type: TIMESTAMP_NTZ
       - name: vw_contribcodeext
+        columns:
+          - name: content
+          - name: _pk
+          - name: _client
+          - name: _is_full
+          - name: _extracted_at
+          - name: _created_at
+          - name: _source_file
+          - name: _checksum
+
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+      - name: vw_costbasisrealized
         columns:
           - name: content
           - name: _pk
@@ -2327,6 +2397,20 @@ sources:
           - name: EFFECTIVE_AT
             description: ''
             data_type: TIMESTAMP_NTZ
+      - name: vw_productpricefactor
+        columns:
+          - name: content
+          - name: _pk
+          - name: _client
+          - name: _is_full
+          - name: _extracted_at
+          - name: _created_at
+          - name: _source_file
+          - name: _checksum
+
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: vw_productrelated
         columns:
           - name: content
@@ -2790,6 +2874,66 @@ sources:
             description: ''
             data_type: TIMESTAMP_NTZ
       - name: vw_wholesaler
+        columns:
+          - name: content
+          - name: _pk
+          - name: _client
+          - name: _is_full
+          - name: _extracted_at
+          - name: _created_at
+          - name: _source_file
+          - name: _checksum
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+
+      - name: vw_ct_account
+        description: Change tracking event timestamps for accounts.
+        columns:
+          - name: content
+          - name: _pk
+          - name: _client
+          - name: _is_full
+          - name: _extracted_at
+          - name: _created_at
+          - name: _source_file
+          - name: _checksum
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+
+      - name: vw_ct_household
+        description: Change tracking event timestamps for household.
+        columns:
+          - name: content
+          - name: _pk
+          - name: _client
+          - name: _is_full
+          - name: _extracted_at
+          - name: _created_at
+          - name: _source_file
+          - name: _checksum
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+
+      - name: vw_ct_transaction
+        description: Change tracking event timestamps for transactions.
+        columns:
+          - name: content
+          - name: _pk
+          - name: _client
+          - name: _is_full
+          - name: _extracted_at
+          - name: _created_at
+          - name: _source_file
+          - name: _checksum
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+
+      - name: vw_ct_assetvalue
+        description: Change tracking event timestamps for asset values.
         columns:
           - name: content
           - name: _pk

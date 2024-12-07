@@ -1,27 +1,33 @@
 select
-    ci.clientname                       as clientname
-  , content:alclientid::integer         as fkalclient
-  , content:fkuser::integer             as fkuser
-  , content:fkloginentity::integer      as fkloginentity
-  , content:entitydesc::varchar(50)     as entitydesc
-  , content:userkey::integer            as userkey
-  , content:isuserdefault::boolean::int as isuserdefault
-  , content:usercreatedby::varchar(50)  as usercreatedby
-  , content:usercreateddate::timestamp  as usercreateddate
-  , content:editedby::varchar(50)       as editedby
-  , content:editeddate::timestamp       as editeddate
-  , content:fkrole::integer             as fkrole
-  , content:createddate::timestamp      as createddate
-  , a.effective_at::date                as effective_date
-  , a._pk::varchar(200)                 as _pk
-  , a._client::int                      as _client
-  , a._extracted_at                     as _extracted_at
-  , {{ col_is_head(reference=source('orion', 'vw_userdetail'), source_date_col='a.effective_at', reference_date_col='effective_at') }}
-  , {{ col_is_current(date_col='a.effective_at::date') }}
-  , a._is_full::int                     as _is_full
-  , a._created_at                       as _created_at
-  , a._source_file                      as _source_file
-  , a._checksum                         as _checksum
-from {{ source('orion', 'vw_userdetail') }} a
-join {{ ref('orion__base_vw_clientinfo') }}     ci
-     on a._client::int = ci.pkalclient
+    ci.clientname                           as clientname
+    , ci.system_name                        as system_name
+    , ci.system_instance                    as system_instance
+    , ci.system_key                         as system_key
+    , ci.firm_source                        as firm_source
+    , a.content:alclientid::integer         as fkalclient
+    , a.content:fkuser::integer             as fkuser
+    , a.content:fkloginentity::integer      as fkloginentity
+    , a.content:entitydesc::varchar(50)     as entitydesc
+    , a.content:userkey::integer            as userkey
+    , a.content:isuserdefault::boolean::int as isuserdefault
+    , a.content:usercreatedby::varchar(50)  as usercreatedby
+    , a.content:usercreateddate::timestamp  as usercreateddate
+    , a.content:editedby::varchar(50)       as editedby
+    , a.content:editeddate::timestamp       as editeddate
+    , a.content:fkrole::integer             as fkrole
+    , a.content:createddate::timestamp      as createddate
+    , a.effective_at::date                  as effective_date
+    , a._pk::varchar(200)                   as _pk
+
+    , a._extracted_at::timestamp_ntz        as _extracted_at
+    , {{ col_is_head(reference=source('orion', 'vw_userdetail'),
+        source_date_col='a.effective_at',
+        reference_date_col='effective_at') }}
+    , {{ col_is_current(date_col='a.effective_at::date') }}
+    , a._is_full::int                       as _is_full
+    , a._created_at::timestamp_ntz          as _created_at
+    , a._source_file                        as _source_file
+    , a._checksum                           as _checksum
+from {{ source('orion', 'vw_userdetail') }} as a
+inner join {{ ref('orion__base_vw_clientinfo') }} as ci
+    on a.content:fkalclient::int = ci.pkalclient

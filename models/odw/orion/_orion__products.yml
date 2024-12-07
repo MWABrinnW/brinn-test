@@ -1,0 +1,90 @@
+version: 2
+models:
+  - name: orion__products
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: TEXT
+      - name: FIRM_SOURCE
+        description: ''
+        meta:
+          row_access_policy: rap_firm_source
+        data_type: TEXT
+      - name: PRODUCT_ID
+        description: ''
+        data_type: NUMBER
+      - name: SYMBOL
+        description: ''
+        data_type: TEXT
+      - name: CUSIP
+        description: ''
+        data_type: TEXT
+      - name: TICKER
+        description: ''
+        data_type: TEXT
+      - name: IS_TICKER_CUSIP
+        description: ''
+        data_type: NUMBER
+      - name: IS_CUSTODIAL_CASH
+        description: ''
+        data_type: NUMBER
+      - name: IS_ASSET_MANAGED_GLOBALLY
+        description: ''
+        data_type: NUMBER
+      - name: PRODUCT_NAME
+        description: ''
+        data_type: TEXT
+      - name: PRODUCT_TYPE
+        description: ''
+        data_type: TEXT
+      - name: PRODUCT_CLASS_ID
+        description: ''
+        data_type: TEXT
+      - name: PRODUCT_CLASS
+        description: ''
+        data_type: TEXT
+      - name: PRODUCT_CLASS_DESCRIPTION
+        description: ''
+        data_type: TEXT
+      - name: ASSET_CLASS
+        description: ''
+        data_type: TEXT
+      - name: PRODUCT_CLASS_CATEGORY
+        description: ''
+        data_type: TEXT
+      - name: PRODUCT_CLASS_SUBCATEGORY
+        description: ''
+        data_type: TEXT
+      - name: PRODUCT_CATEGORY_ID
+        description: ''
+        data_type: TEXT
+      - name: PRODUCT_CATEGORY_ABBREVIATION
+        description: ''
+        data_type: TEXT
+      - name: PRODUCT_CATEGORY
+        description: ''
+        data_type: TEXT
+      - name: PRODUCT_PARENT_CATEGORY_ABBREVIATION
+        description: ''
+        data_type: TEXT
+      - name: FKALCLIENT
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: CREATEDDATE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: TEXT

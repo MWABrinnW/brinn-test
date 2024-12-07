@@ -33,8 +33,8 @@ Returns:
 */
 #}
 
-    {%- set lookback_var = var('lookback', 4) -%}
-    {%- set offset_var = var('offset', 0) -%}
+    {%- set lookback_var = cvar('lookback') -%}
+    {%- set offset_var = cvar('offset') -%}
     {%- set filter_var = var('filter', none) -%}
     {%- set unique_key = config.require('unique_key') -%}
     {%- set target_relation_var = none -%}
@@ -43,14 +43,14 @@ Returns:
     If target is dev we'll apply the max lookback.
     If target is not dev we'll only apply a max lookback if it was provided. #}
     {%- if target.name not in ['prod'] -%}
-    {%- set max_lookback_var = var('max_lookback', var('dev_day_filter', 14)) -%}
-{%- else -%}
-        {%- set max_lookback_var = var('max_lookback', none) -%}
+        {%- set max_lookback_var = cvar('dev_day_filter') -%}
+    {%- else -%}
+        {%- set max_lookback_var = 365 -%}
     {%- endif -%}
 
     {% if target_relation == "this" -%}
     {%- set target_relation_var = this -%}
-{%- else -%}
+    {%- else -%}
         {%- set target_relation_var = relation -%}
     {%- endif -%}
 

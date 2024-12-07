@@ -1,0 +1,88 @@
+version: 2
+models:
+  - name: orion__bld_transactions
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: FIRM_SOURCE
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: ACCOUNT_ID
+        description: ''
+      - name: ACCOUNT_TYPE
+        description: ''
+      - name: ACCOUNT_NAME
+        description: ''
+      - name: DATE
+        description: ''
+      - name: SETTLEMENT_DATE
+        description: ''
+      - name: CREATED_DATE
+        description: ''
+      - name: EDITED_DATE
+        description: ''
+      - name: SYMBOL
+        description: ''
+      - name: TICKER
+        description: ''
+      - name: CUSIP
+        description: ''
+      - name: IS_TICKER_CUSIP
+        description: ''
+      - name: TYPE_ID
+        description: ''
+      - name: TYPE_CODE
+        description: ''
+      - name: TYPE_NAME
+        description: ''
+      - name: TYPE_DESCRIPTION
+        description: ''
+      - name: QUANTITY
+        description: ''
+      - name: PRICE
+        description: ''
+      - name: AMOUNT
+        description: ''
+      - name: SIGN_FIELD
+        description: ''
+      - name: NOTES
+        description: ''
+      - name: ID
+        description: ''
+      - name: ASSET_ID
+        description: ''
+      - name: PRODUCT_ID
+        description: ''
+      - name: PRODUCT_NAME
+        description: ''
+      - name: PRODUCT_TYPE
+        description: ''
+      - name: PRODUCT_CATEGORY
+        description: ''
+      - name: ASSET_CLASS
+        description: ''
+      - name: IS_CUSTODIAL_CASH
+        description: ''
+      - name: TYPE_CASH_OFFSET
+        description: ''
+      - name: TRADE_STATUS
+        description: ''
+      - name: TRADE_STATUS_ID
+        description: ''
+      - name: FKALCLIENT
+        description: ''
+      - name: _CREATED_AT
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: CREATEDDATE
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''

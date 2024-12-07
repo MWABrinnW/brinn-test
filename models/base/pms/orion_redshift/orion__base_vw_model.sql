@@ -1,74 +1,80 @@
 select
-    ci.clientname                                    as clientname
-  , content:fkalclient::integer                      as fkalclient
-  , content:fkmodel::integer                         as fkmodel
-  , content:fkfundfamily::integer                    as fkfundfamily
-  , content:fkshareclass::integer                    as fkshareclass
-  , content:fkplatform::integer                      as fkplatform
-  , content:modelnum::integer                        as modelnum
-  , content:percequity::integer                      as percequity
-  , content:modelname::varchar(300)                  as modelname
-  , content:modeltype::varchar(30)                   as modeltype
-  , content:fundlist::varchar(30)                    as fundlist
-  , content:modeltol::integer                        as modeltol
-  , content:cashperc::integer                        as cashperc
-  , content:cashtol::integer                         as cashtol
-  , content:isactive::boolean::int                   as isactive
-  , content:lastediteddate::date                     as lastediteddate
-  , content:lasteditedby::varchar(50)                as lasteditedby
-  , content:oldmodelid::integer                      as oldmodelid
-  , content:islisttraded::boolean::int               as islisttraded
-  , content:groupnum::varchar(50)                    as groupnum
-  , content:fksubadvisor::integer                    as fksubadvisor
-  , content:modnotes::varchar(1050)                  as modnotes
-  , content:fkrep::integer                           as fkrep
-  , content:fkrulesmgmt::integer                     as fkrulesmgmt
-  , content:sequence::integer                        as sequence
-  , content:modelcode::varchar(60)                   as modelcode
-  , content:entityenum::integer                      as entityenum
-  , content:fkparent::integer                        as fkparent
-  , content:lastrebalanced::date                     as lastrebalanced
-  , content:changereason::varchar(300)               as changereason
-  , content:lastchangereason::varchar(300)           as lastchangereason
-  , content:modellevels::integer                     as modellevels
-  , content:userestrictions::boolean::int            as userestrictions
-  , content:isdynamic::boolean::int                  as isdynamic
-  , content:fkcustodian::integer                     as fkcustodian
-  , content:dynamiceffectivedate::date               as dynamiceffectivedate
-  , content:issma::boolean::int                      as issma
-  , content:fkproductclass::integer                  as fkproductclass
-  , content:fkriskcategory::integer                  as fkriskcategory
-  , content:modelcreateddate::date                   as modelcreateddate
-  , content:modelcreatedby::varchar(300)             as modelcreatedby
-  , content:editeddate::date                         as editeddate
-  , content:editedby::varchar(300)                   as editedby
-  , content:communitymodelid::bigint                 as communitymodelid
-  , content:targetriskupper::double precision        as targetriskupper
-  , content:targetrisklower::double precision        as targetrisklower
-  , content:style::varchar(150)                      as style
-  , content:advisorfee::double precision             as advisorfee
-  , content:weightedavgnetexpenses::double precision as weightedavgnetexpenses
-  , content:currentrisk::double precision            as currentrisk
-  , content:minimumamount::double precision          as minimumamount
-  , content:daterebalancerequested::date             as daterebalancerequested
-  , content:lastrebalancedate::date                  as lastrebalancedate
-  , content:fkstrategist::integer                    as fkstrategist
-  , content:fkmodelmanager::integer                  as fkmodelmanager
-  , content:fkindexblend::integer                    as fkindexblend
-  , content:benchmarkinceptiondate::date             as benchmarkinceptiondate
-  , content:astrousage::integer                      as astrousage
-  , content:daterebalanceexecutionrequested::date    as daterebalanceexecutionrequested
-  , content:createddate::timestamp                   as createddate
-  , a.effective_at::date                             as effective_date
-  , a._pk::varchar(200)                              as _pk
-  , a._client::int                                   as _client
-  , a._extracted_at                                  as _extracted_at
-  , {{ col_is_head(reference=source('orion', 'vw_model'), source_date_col='a.effective_at', reference_date_col='effective_at') }}
-  , {{ col_is_current(date_col='a.effective_at::date') }}
-  , a._is_full::int                                  as _is_full
-  , a._created_at                                    as _created_at
-  , a._source_file                                   as _source_file
-  , a._checksum                                      as _checksum
-from {{ source('orion', 'vw_model') }}      a
-join {{ ref('orion__base_vw_clientinfo') }} ci
-     on a._client::int = ci.pkalclient
+    ci.clientname                                        as clientname
+    , ci.system_name                                     as system_name
+    , ci.system_instance                                 as system_instance
+    , ci.system_key                                      as system_key
+    , ci.firm_source                                     as firm_source
+    , a.content:fkalclient::integer                      as fkalclient
+    , a.content:fkmodel::integer                         as fkmodel
+    , a.content:fkfundfamily::integer                    as fkfundfamily
+    , a.content:fkshareclass::integer                    as fkshareclass
+    , a.content:fkplatform::integer                      as fkplatform
+    , a.content:modelnum::integer                        as modelnum
+    , a.content:percequity::integer                      as percequity
+    , a.content:modelname::varchar(300)                  as modelname
+    , a.content:modeltype::varchar(30)                   as modeltype
+    , a.content:fundlist::varchar(30)                    as fundlist
+    , a.content:modeltol::integer                        as modeltol
+    , a.content:cashperc::integer                        as cashperc
+    , a.content:cashtol::integer                         as cashtol
+    , a.content:isactive::boolean::int                   as isactive
+    , a.content:lastediteddate::date                     as lastediteddate
+    , a.content:lasteditedby::varchar(50)                as lasteditedby
+    , a.content:oldmodelid::integer                      as oldmodelid
+    , a.content:islisttraded::boolean::int               as islisttraded
+    , a.content:groupnum::varchar(50)                    as groupnum
+    , a.content:fksubadvisor::integer                    as fksubadvisor
+    , a.content:modnotes::varchar(1050)                  as modnotes
+    , a.content:fkrep::integer                           as fkrep
+    , a.content:fkrulesmgmt::integer                     as fkrulesmgmt
+    , a.content:sequence::integer                        as sequence
+    , a.content:modelcode::varchar(60)                   as modelcode
+    , a.content:entityenum::integer                      as entityenum
+    , a.content:fkparent::integer                        as fkparent
+    , a.content:lastrebalanced::date                     as lastrebalanced
+    , a.content:changereason::varchar(300)               as changereason
+    , a.content:lastchangereason::varchar(300)           as lastchangereason
+    , a.content:modellevels::integer                     as modellevels
+    , a.content:userestrictions::boolean::int            as userestrictions
+    , a.content:isdynamic::boolean::int                  as isdynamic
+    , a.content:fkcustodian::integer                     as fkcustodian
+    , a.content:dynamiceffectivedate::date               as dynamiceffectivedate
+    , a.content:issma::boolean::int                      as issma
+    , a.content:fkproductclass::integer                  as fkproductclass
+    , a.content:fkriskcategory::integer                  as fkriskcategory
+    , a.content:modelcreateddate::date                   as modelcreateddate
+    , a.content:modelcreatedby::varchar(300)             as modelcreatedby
+    , a.content:editeddate::date                         as editeddate
+    , a.content:editedby::varchar(300)                   as editedby
+    , a.content:communitymodelid::bigint                 as communitymodelid
+    , a.content:targetriskupper::double precision        as targetriskupper
+    , a.content:targetrisklower::double precision        as targetrisklower
+    , a.content:style::varchar(150)                      as style
+    , a.content:advisorfee::double precision             as advisorfee
+    , a.content:weightedavgnetexpenses::double precision as weightedavgnetexpenses
+    , a.content:currentrisk::double precision            as currentrisk
+    , a.content:minimumamount::double precision          as minimumamount
+    , a.content:daterebalancerequested::date             as daterebalancerequested
+    , a.content:lastrebalancedate::date                  as lastrebalancedate
+    , a.content:fkstrategist::integer                    as fkstrategist
+    , a.content:fkmodelmanager::integer                  as fkmodelmanager
+    , a.content:fkindexblend::integer                    as fkindexblend
+    , a.content:benchmarkinceptiondate::date             as benchmarkinceptiondate
+    , a.content:astrousage::integer                      as astrousage
+    , a.content:daterebalanceexecutionrequested::date    as daterebalanceexecutionrequested
+    , a.content:createddate::timestamp                   as createddate
+    , a.effective_at::date                               as effective_date
+    , a._pk::varchar(200)                                as _pk
+
+    , a._extracted_at::timestamp_ntz                     as _extracted_at
+    , {{ col_is_head(reference=source('orion', 'vw_model'),
+        source_date_col='a.effective_at',
+        reference_date_col='effective_at') }}
+    , {{ col_is_current(date_col='a.effective_at::date') }}
+    , a._is_full::int                                    as _is_full
+    , a._created_at::timestamp_ntz                       as _created_at
+    , a._source_file                                     as _source_file
+    , a._checksum                                        as _checksum
+from {{ source('orion', 'vw_model') }} as a
+inner join {{ ref('orion__base_vw_clientinfo') }} as ci
+    on a.content:fkalclient::int = ci.pkalclient

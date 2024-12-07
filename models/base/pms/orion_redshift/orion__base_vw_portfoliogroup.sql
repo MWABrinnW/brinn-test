@@ -1,31 +1,37 @@
 select
-    ci.clientname                     as clientname
-  , content:fkalclient::integer       as fkalclient
-  , content:fkportfoliogroup::integer as fkportfoliogroup
-  , content:fkaccount::integer        as fkaccount
-  , content:portfoliotype::integer    as portfoliotype
-  , content:name::varchar(250)        as name
-  , content:clientid::integer         as clientid
-  , content:repid::integer            as repid
-  , content:custodianid::integer      as custodianid
-  , content:modelaggid::integer       as modelaggid
-  , content:platformid::integer       as platformid
-  , content:planid::integer           as planid
-  , content:fundfamilyid::integer     as fundfamilyid
-  , content:stockrange::integer       as stockrange
-  , content:risktolerance::integer    as risktolerance
-  , content:riskbudgetrange::integer  as riskbudgetrange
-  , content:createddate::timestamp    as createddate
-  , a.effective_at::date              as effective_date
-  , a._pk::varchar(200)               as _pk
-  , a._client::int                    as _client
-  , a._extracted_at                   as _extracted_at
-  , {{ col_is_head(reference=source('orion', 'vw_portfoliogroup'), source_date_col='a.effective_at', reference_date_col='effective_at') }}
-  , {{ col_is_current(date_col='a.effective_at::date') }}
-  , a._is_full::int                   as _is_full
-  , a._created_at                     as _created_at
-  , a._source_file                    as _source_file
-  , a._checksum                       as _checksum
-from {{ source('orion', 'vw_portfoliogroup') }} a
-join {{ ref('orion__base_vw_clientinfo') }}         ci
-     on a._client::int = ci.pkalclient
+    ci.clientname                         as clientname
+    , ci.system_name                      as system_name
+    , ci.system_instance                  as system_instance
+    , ci.system_key                       as system_key
+    , ci.firm_source                      as firm_source
+    , a.content:fkalclient::integer       as fkalclient
+    , a.content:fkportfoliogroup::integer as fkportfoliogroup
+    , a.content:fkaccount::integer        as fkaccount
+    , a.content:portfoliotype::integer    as portfoliotype
+    , a.content:name::varchar(250)        as name
+    , a.content:clientid::integer         as clientid
+    , a.content:repid::integer            as repid
+    , a.content:custodianid::integer      as custodianid
+    , a.content:modelaggid::integer       as modelaggid
+    , a.content:platformid::integer       as platformid
+    , a.content:planid::integer           as planid
+    , a.content:fundfamilyid::integer     as fundfamilyid
+    , a.content:stockrange::integer       as stockrange
+    , a.content:risktolerance::integer    as risktolerance
+    , a.content:riskbudgetrange::integer  as riskbudgetrange
+    , a.content:createddate::timestamp    as createddate
+    , a.effective_at::date                as effective_date
+    , a._pk::varchar(200)                 as _pk
+
+    , a._extracted_at::timestamp_ntz      as _extracted_at
+    , {{ col_is_head(reference=source('orion', 'vw_portfoliogroup'),
+        source_date_col='a.effective_at',
+        reference_date_col='effective_at') }}
+    , {{ col_is_current(date_col='a.effective_at::date') }}
+    , a._is_full::int                     as _is_full
+    , a._created_at::timestamp_ntz        as _created_at
+    , a._source_file                      as _source_file
+    , a._checksum                         as _checksum
+from {{ source('orion', 'vw_portfoliogroup') }} as a
+inner join {{ ref('orion__base_vw_clientinfo') }} as ci
+    on a.content:fkalclient::int = ci.pkalclient

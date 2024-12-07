@@ -1,0 +1,106 @@
+version: 2
+models:
+  - name: orion__bld_accounts
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: FIRM_SOURCE
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: ACCOUNT_ID
+        description: ''
+      - name: ACCOUNT_TYPE
+        description: ''
+      - name: ACCOUNT_NAME
+        description: ''
+      - name: REGISTRATION_ID
+        description: ''
+      - name: REGISTRANT_NAME
+        description: ''
+      - name: HOUSEHOLD_ID
+        description: ''
+      - name: HOUSEHOLD_NAME
+        description: ''
+      - name: CLIENT_OPEN_DATE
+        description: ''
+      - name: IS_ACTIVE
+        description: ''
+      - name: CREATED_DATE
+        description: ''
+      - name: OPENED_DATE
+        description: ''
+      - name: CLOSED_DATE
+        description: ''
+      - name: CLOSED_DATE_UDF
+        description: ''
+      - name: ACCOUNT_VALUE
+        description: ''
+      - name: REPRESENTATIVE_ID
+        description: ''
+      - name: ADVISOR
+        description: ''
+      - name: ADVISOR_EMAIL
+        description: ''
+      - name: LOCATION_CODE
+        description: ''
+      - name: INVESTMENT_STRATEGY
+        description: ''
+      - name: FKALCLIENT
+        description: ''
+      - name: BD_NAME
+        description: ''
+      - name: LAST_RECONCILED_DATE
+        description: ''
+      - name: IS_IN_BALANCE
+        description: ''
+      - name: HAS_NON_DOWNLOADING_ASSET
+        description: ''
+      - name: TRADING_INSTRUCTIONS
+        description: ''
+      - name: IS_MANAGED
+        description: ''
+      - name: CUSTODIAN_ACCOUNT_RESTRICTION
+        description: ''
+      - name: SUBADVISOR_ID
+        description: ''
+      - name: SUBADVISOR
+        description: ''
+      - name: FUND_FAMILY
+        description: ''
+      - name: IS_SMA
+        description: ''
+      - name: SMA_ASSET_ID
+        description: ''
+      - name: SMA_ASSET
+        description: ''
+      - name: DOWNLOAD_SOURCE
+        description: ''
+      - name: IS_TRADING_BLOCKED
+        description: ''
+      - name: FEE_SCHEDULE
+        description: ''
+      - name: ECLIPSE_SMA
+        description: ''
+      - name: ECLIPSE_ENABLED
+        description: ''
+      - name: COMMITTED_AMOUNT_UDF
+        description: ''
+      - name: _CREATED_AT
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: CREATEDDATE
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''

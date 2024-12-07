@@ -1,0 +1,41 @@
+version: 2
+models:
+  - name: orion__cost_basis_by_account
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: TEXT
+      - name: FIRM_SOURCE
+        description: ''
+        meta:
+          row_access_policy: rap_firm_source
+      - name: FKALCLIENT
+        description: ''
+        data_type: NUMBER
+      - name: FKASSET
+        description: ''
+        data_type: NUMBER
+      - name: COST_BASIS
+        description: ''
+        data_type: FLOAT
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: _EXTRACTED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ

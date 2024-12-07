@@ -62,7 +62,7 @@ with cte_check as (
     where 1 = 1
         and is_head = 1
         {%- if is_incremental() %}
-            and 1 = (select max(needs_update) from cte_check)
+            and 1 = (select max(t.needs_update) from cte_check as t)
         {%- endif -%}
     qualify row_number() over (partition by cusip order by issue_entry_date desc) = 1
     order by cusip
@@ -70,45 +70,32 @@ with cte_check as (
 
 , cte_orion_securities as (
     select
-        coalesce(p.ticker , p.cusip)::text(500)                        as symbol
-        , p.ticker::text(500)                                          as ticker
-        , p.cusip::text(500)                                           as cusip
-        , coalesce(p.productnameoverride , p.productname)::text(500)   as product_name
-        , p.producttypename::text(500)                                 as product_type_name
-        , (pcat.categoryname || ' (' || pc.category || ')')::text(500) as asset_category
-        , pc.description::text(500)                                    as asset_class
-        , p.clientname                                                 as orion_instance
-        , array_min([
-            p._created_at , pt._created_at
-            , pc._created_at , pcat._created_at
-        ])                                                             as orion_loaded_at
-    from {{ ref('orion__base_vw_product') }} as p
-    left join {{ ref('orion__base_vw_producttype') }} as pt
-        on p.fkproducttype = pt.pkproducttype
-    left join {{ ref('orion__base_vw_productclass') }} as pc
-        on p._client = pc._client
-        and p.fkproductclass = pc.pkproductclass
-        and p.effective_date = pc.effective_date
-    left join {{ ref('orion__base_vw_productcategory') }} as pcat
-        on pc._client = pcat._client
-        and pc.fkproductcategory = pcat.pkproductcategory
-        and pc.effective_date = pcat.effective_date
+        p.symbol                                                                as symbol
+        , p.ticker                                                              as ticker
+        , p.cusip                                                               as cusip
+        , coalesce(p.product_name_override , p.product_name)::text(500)         as product_name
+        , p.product_type                                                        as product_type_name
+        , (p.product_category || ' (' || p.product_class_category || ')')::text as asset_category
+        , p.asset_class::text                                                   as asset_class
+        , p.system_key                                                          as orion_instance
+        , p._created_at                                                         as orion_loaded_at
+    from {{ ref('orion__bld_products') }} as p
     where 1 = 1
         and p.is_head = 1
         and coalesce(p.cusip , '') <> ''
         {%- if is_incremental() %}
-            and 1 = (select max(needs_update) from cte_check)
+            and 1 = (select max(t.needs_update) from cte_check as t)
         {%- endif -%}
     qualify
         row_number() over (
             partition by p.cusip order by
                 case
-                    when p._client = 568 then 1
-                    when p._client = 2102 then 2
-                    when p._client = 1945 then 3
-                    when p._client = 2623 then 4
-                    when p._client = 3394 then 5
-                    when p._client = 2878 then 6
+                    when p.fkalclient = 568 then 1
+                    when p.fkalclient = 2102 then 2
+                    when p.fkalclient = 1945 then 3
+                    when p.fkalclient = 2623 then 4
+                    when p.fkalclient = 3394 then 5
+                    when p.fkalclient = 2878 then 6
                     else 7
                 end
         ) = 1
@@ -145,7 +132,7 @@ select
     , row_number() over (
         partition by a.ticker order by
             case when o.orion_instance = 'Mariner, LLC' then 1 else 2 end
-            , case when where_traded = 'NYSE' then 1 else 2 end
+            , case when a.where_traded = 'NYSE' then 1 else 2 end
             , case when a.is_13f = 1 then 1 else 2 end
     )                                    as rn_ticker
 

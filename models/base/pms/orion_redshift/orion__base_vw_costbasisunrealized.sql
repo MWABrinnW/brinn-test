@@ -1,29 +1,73 @@
+{{ config(
+    materialized='incremental',
+    cluster_by=['effective_date', 'fkalclient', 'trunc(fkasset, -5)'],
+    unique_key='effective_date',
+    incremental_strategy='delete+insert',
+    on_schema_change='sync_all_columns'
+) }}
+
+{% set lookback = cvar('lookback') %}
+{% set dev_filter = cvar('dev_day_filter') %}
+
 select
-    ci.clientname                                  as clientname
-  , content:fkalclient::integer                    as fkalclient
-  , content:recordsource::varchar(5)               as recordsource
-  , content:fkasset::integer                       as fkasset
-  , content:fkassetcostbasis::bigint               as fkassetcostbasis
-  , content:asofdate::date                         as asofdate
-  , content:longtermcost::double precision         as longtermcost
-  , content:shorttermcost::double precision        as shorttermcost
-  , content:longtermunits::double precision        as longtermunits
-  , content:shorttermunits::double precision       as shorttermunits
-  , content:acquireddate::date                     as acquireddate
-  , content:amortizationamt::double precision      as amortizationamt
-  , content:originalcostpershare::double precision as originalcostpershare
-  , content:checksum_current::integer              as checksum_current
-  , content:createddate::timestamp                 as createddate
-  , a.effective_at::date                           as effective_date
-  , a._pk::varchar(200)                            as _pk
-  , a._client::int                                 as _client
-  , a._extracted_at                                as _extracted_at
-  , {{ col_is_head(reference=source('orion', 'vw_costbasisunrealized'), source_date_col='a.effective_at', reference_date_col='effective_at') }}
-  , {{ col_is_current(date_col='a.effective_at::date') }}
-  , a._is_full::int                                as _is_full
-  , a._created_at                                  as _created_at
-  , a._source_file                                 as _source_file
-  , a._checksum                                    as _checksum
-from {{ source('orion', 'vw_costbasisunrealized') }} a
-join {{ ref('orion__base_vw_clientinfo') }}              ci
-     on a._client::int = ci.pkalclient
+    ci.clientname                                      as clientname
+    , ci.system_name                                   as system_name
+    , ci.system_instance                               as system_instance
+    , ci.system_key                                    as system_key
+    , ci.firm_source                                   as firm_source
+    , a.content:fkalclient::integer                    as fkalclient
+    , a.content:recordsource::varchar(5)               as recordsource
+    , a.content:fkasset::integer                       as fkasset
+    , a.content:fkassetcostbasis::bigint               as fkassetcostbasis
+    , a.content:asofdate::date                         as asofdate
+    , a.content:longtermcost::double precision         as longtermcost
+    , a.content:shorttermcost::double precision        as shorttermcost
+    , a.content:longtermunits::double precision        as longtermunits
+    , a.content:shorttermunits::double precision       as shorttermunits
+    , a.content:acquireddate::date                     as acquireddate
+    , a.content:amortizationamt::double precision      as amortizationamt
+    , a.content:originalcostpershare::double precision as originalcostpershare
+    , a.content:checksum_current::integer              as checksum_current
+    , a.content:createddate::timestamp                 as createddate
+    , a.effective_at::date                             as effective_date
+    , a._pk::varchar(200)                              as _pk
+    , a._extracted_at::timestamp_ntz                   as _extracted_at
+    , current_timestamp()                              as _created_at
+    , a._created_at::timestamp_ntz                     as _source_loaded_at
+    , a._source_file                                   as _source_file
+    , a._checksum                                      as _checksum
+    , a._is_full                                       as _is_full
+from {{ source('orion', 'vw_costbasisunrealized') }} as a
+inner join {{ ref('orion__base_vw_clientinfo') }} as ci
+    on a.content:fkalclient::int = ci.pkalclient
+where 1 = 1
+    -- Max lookback for a full refresh.
+    and a.effective_at::date >= '1/1/2024'
+    {%- if target.name not in ['prod'] %}
+        -- Restrict lookback window in dev.
+        and a.effective_at::date >= current_date - {{ lookback }}
+    {%- endif %}
+
+    {% if is_incremental() -%}
+        -- Restrict lookback for incremental run.
+        and a.effective_at::date >= current_date() - {{ lookback }}
+        -- These are the dates that need added/refreshed.
+        and a.effective_at::date in (
+            select aa.effective_date
+            from (
+                select
+                    effective_at::date                    as effective_date
+                    , max(content:createddate::timestamp) as _created_at
+                from {{ source('orion', 'vw_costbasisunrealized') }}
+                where effective_at::date >= current_date() - {{ lookback }}
+                group by 1
+            ) as aa
+            where aa._created_at
+                > coalesce((
+                    select max(createddate) from {{ this }}
+                    where effective_date >= current_date() - {{ lookback }}
+                ) , aa._created_at::timestamp_ntz - interval '1 day')
+            group by all
+        )
+    {% endif -%}
+order by a.effective_at::date , a.content:fkalclient::int , trunc(a.content:fkasset::int , -5)

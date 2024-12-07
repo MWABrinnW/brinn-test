@@ -30,20 +30,14 @@ dispatch:
       - dbt_snowflake_query_tags
       - dbt
 query-comment:
-  comment: '{{ dbt_snowflake_query_tags.get_query_comment(node, extra={"run_started_at": builtins.run_started_at | string }) }}'
+  comment: |
+    {% if flags.WHICH is not none -%}
+    {{ dbt_snowflake_query_tags.get_query_comment(node, extra={"run_started_at": builtins.run_started_at | string }) }}
+    {% endif %}
   append: true # Snowflake removes prefixed comments.
 
 vars:
   dbt_date:time_zone: "America/Chicago"
-  lookback: 3
-  offset: 0
-  dev_day_filter: 7
-  incremental_mode: lookback
-  lookback_custodial: 14
-  disable_run_results: "{{ target.name not in ['prod', 'test'] }}"
-  disable_tests_results: "{{ target.name not in ['prod', 'test'] }}"
-  disable_dbt_invocation_autoupload: "{{ target.name not in ['prod', 'test'] }}"
-  disable_dbt_artifacts_autoupload: "{{ target.name not in ['prod', 'test'] }}"
   fivetran_platform_database: fivetran # default is your target.database
   fivetran_platform_schema: fivetran_log # default is fivetran_log
   fivetran_platform_using_destination_membership: false # this will disable only the destination membership logic
@@ -153,11 +147,17 @@ models:
     base:
       +materialized: view
       +tags: ["base"]
-      +grants: 
+      +grants:
         select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       active_directory:
-        +tags: ["active_directory", "hr", "employees", "associates", "daily"]
+        +tags: ["active_directory", "hr", "employees", "associates", "hourly"]
+        stg:
+          +grants:
+            +select: "{{ ['db_it_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        rpt:
+          +grants:
+            +select: "{{ ['db_it_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       activebatch:
         +tags: ["activebatch"]
@@ -184,7 +184,7 @@ models:
         +tags: ["cais", "mwa"]
         +grants:
           select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
-      
+
       cambak:
         +tags: ["institutional", "cambak", "andco"]
 
@@ -392,6 +392,10 @@ models:
         orion_mps:
           +grants:
             select: "{{ ['db_pms_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        orion_redshift:
+          +tags: ["orion_redshift"]
+          +grants:
+            select: "{{ ['db_pms_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         portfoliocenter_roseland:
           +tags: ["portfoliocente", "mwa", "roseland"]
           +grants:
@@ -508,12 +512,8 @@ models:
 
       active_directory:
         +tags: ["active_directory"]
-        stg:
-          +grants:
-            +select: "{{ ['db_it_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
-        rpt:
-          +grants:
-            +select: "{{ ['db_it_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        +grants:
+          +select: "{{ ['db_it_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
       crm:
         +schema: crm
         +tags: ["crm"]
@@ -527,11 +527,19 @@ models:
       activetick:
         +tags: ["activetick"]
       flyer:
-        +tags: ["flyer", "copilot"]
+        +tags: ["flyer", "copilot", "trading", "mis"]
       fourforty:
         +tags: ["fourforty"]
+      mis:
+        +tags: ["mis", "trading", "moxy", "perform"]
       moxy:
-        +tags: ["moxy"]
+        +tags: ["moxy", "mis", "trading"]
+      orion:
+        +tags: ["orion", "pms"]
+        +grants:
+          +select: "{{ ['db_pms_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+      perform:
+        +tags: ["perform", "mis", "trading"]
       tradeops:
         +tags: ["trading", "tradeops"]
         +grants:

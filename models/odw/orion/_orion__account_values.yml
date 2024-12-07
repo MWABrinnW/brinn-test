@@ -1,0 +1,58 @@
+version: 2
+models:
+  - name: orion__account_values
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: TEXT
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: TEXT
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: TEXT
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: FKALCLIENT
+        description: ''
+        data_type: NUMBER
+      - name: ACCOUNT_ID
+        description: ''
+        data_type: NUMBER
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: TEXT
+      - name: REGISTRATION_ID
+        description: ''
+        data_type: NUMBER
+      - name: MARKET_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: AUM
+        description: ''
+        data_type: NUMBER
+      - name: CASH
+        description: ''
+        data_type: NUMBER
+      - name: MMCASH
+        description: ''
+        data_type: NUMBER
+      - name: CREATEDDATE
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _EXTRACTED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ

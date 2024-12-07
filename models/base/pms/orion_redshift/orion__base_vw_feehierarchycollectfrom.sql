@@ -1,30 +1,36 @@
 select
-    ci.clientname                              as clientname
-  , content:fkalclient::integer                as fkalclient
-  , content:pkfeehierarchycollectfrom::integer as pkfeehierarchycollectfrom
-  , content:entityid::integer                  as entityid
-  , content:entityenum::integer                as entityenum
-  , content:fkbillentity::integer              as fkbillentity
-  , content:producttype::integer               as producttype
-  , content:feehierarchytype::integer          as feehierarchytype
-  , content:feehierarchytypename::varchar(50)  as feehierarchytypename
-  , content:sleevetype::integer                as sleevetype
-  , content:sleevetypename::varchar(50)        as sleevetypename
-  , content:level::integer                     as level
-  , content:levelname::varchar(50)             as levelname
-  , content:fkbillentitycollectfrom::integer   as fkbillentitycollectfrom
-  , content:fkfeehierarchycollectfrom::integer as fkfeehierarchycollectfrom
-  , content:createddate::timestamp             as createddate
-  , a.effective_at::date                       as effective_date
-  , a._pk::varchar(200)                        as _pk
-  , a._client::int                             as _client
-  , a._extracted_at                            as _extracted_at
-  , {{ col_is_head(reference=source('orion', 'vw_feehierarchycollectfrom'), source_date_col='a.effective_at', reference_date_col='effective_at') }}
-  , {{ col_is_current(date_col='a.effective_at::date') }}
-  , a._is_full::int                            as _is_full
-  , a._created_at                              as _created_at
-  , a._source_file                             as _source_file
-  , a._checksum                                as _checksum
-from {{ source('orion', 'vw_feehierarchycollectfrom') }} a
-join {{ ref('orion__base_vw_clientinfo') }}                  ci
-     on a._client::int = ci.pkalclient
+    ci.clientname                                  as clientname
+    , ci.system_name                               as system_name
+    , ci.system_instance                           as system_instance
+    , ci.system_key                                as system_key
+    , ci.firm_source                               as firm_source
+    , a.content:fkalclient::integer                as fkalclient
+    , a.content:pkfeehierarchycollectfrom::integer as pkfeehierarchycollectfrom
+    , a.content:entityid::integer                  as entityid
+    , a.content:entityenum::integer                as entityenum
+    , a.content:fkbillentity::integer              as fkbillentity
+    , a.content:producttype::integer               as producttype
+    , a.content:feehierarchytype::integer          as feehierarchytype
+    , a.content:feehierarchytypename::varchar(50)  as feehierarchytypename
+    , a.content:sleevetype::integer                as sleevetype
+    , a.content:sleevetypename::varchar(50)        as sleevetypename
+    , a.content:level::integer                     as level
+    , a.content:levelname::varchar(50)             as levelname
+    , a.content:fkbillentitycollectfrom::integer   as fkbillentitycollectfrom
+    , a.content:fkfeehierarchycollectfrom::integer as fkfeehierarchycollectfrom
+    , a.content:createddate::timestamp             as createddate
+    , a.effective_at::date                         as effective_date
+    , a._pk::varchar(200)                          as _pk
+
+    , a._extracted_at::timestamp_ntz               as _extracted_at
+    , {{ col_is_head(reference=source('orion', 'vw_feehierarchycollectfrom'),
+        source_date_col='a.effective_at',
+        reference_date_col='effective_at') }}
+    , {{ col_is_current(date_col='a.effective_at::date') }}
+    , a._is_full::int                              as _is_full
+    , a._created_at::timestamp_ntz                 as _created_at
+    , a._source_file                               as _source_file
+    , a._checksum                                  as _checksum
+from {{ source('orion', 'vw_feehierarchycollectfrom') }} as a
+inner join {{ ref('orion__base_vw_clientinfo') }} as ci
+    on a.content:fkalclient::int = ci.pkalclient
