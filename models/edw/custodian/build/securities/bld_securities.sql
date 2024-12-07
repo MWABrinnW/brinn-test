@@ -1,3 +1,4 @@
+-- depends_on: {{ ref('orion__base_vw_product') }}
 {{ config(
     materialized='incremental',
     unique_key='cusip',
