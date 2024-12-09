@@ -124,7 +124,6 @@ select
         else 0
     end                                                                          as is_market_month_end
     , min(case when is_market_day = 1 then date_key end::date)
-        over (partition by date_trunc('MONTH' , date_key) order by date_key asc)
-                                                                                 as month_first_market_date
+        over (partition by date_trunc('MONTH' , date_key) order by date_key asc) as month_first_market_date
 from cte_flagged
 order by date_key
