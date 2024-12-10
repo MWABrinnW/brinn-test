@@ -189,6 +189,8 @@ left join {{ ref('salesforce_compass__base_fee_schedule_c') }} as fs
     on b.invoice_date = fs.effective_at::date
     and coalesce(a_hist.fee_schedule , a_head.fee_schedule) = fs.id
     and fs.is_latest = 1
+where true
+    and b.is_head = 1
 order by
     system_key
     , revenue_period_end_date

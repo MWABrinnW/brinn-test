@@ -174,6 +174,8 @@ left join {{ ref('salesforce_compass__base_fee_schedule_c') }} as fs
         , acc2.fee_schedule
     ) = fs.id
     and fs.is_latest = 1
+where true
+    and bb.is_head = 1
 order by
     system_key
     , revenue_period_end_date

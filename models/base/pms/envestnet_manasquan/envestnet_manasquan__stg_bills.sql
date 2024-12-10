@@ -29,6 +29,13 @@ select
     , _created_at                                  as _created_at
     , _box_file_id::varchar(200)                   as _box_file_id
     , _box_file_name::varchar(200)                 as _box_file_name
+    , {{ col_is_head_with_partition(reference=src
+        , partition_col = '_box_file_name'
+        , reference_date_col='_created_at'
+        , source_date_col='_created_at') }}
+    , case when max(_created_at) over (partition by _box_file_name order by _created_at desc) = _created_at then 1
+        else 0
+    end::int                                       as _is_source_file_head
     , _box_meta                                    as _box_meta
 from {{ source('envestnet_mwa_raw','bills') }}
 where true

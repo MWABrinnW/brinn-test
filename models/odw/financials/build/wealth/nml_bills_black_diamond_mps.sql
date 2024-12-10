@@ -232,3 +232,9 @@ left join black_diamond_relationship as br
 left join {{ ref('black_diamond_mps__base_account_benchmarks') }} as bm
     on trim(replace(bb.account_number , '-' , '')) = trim(replace(bm.account_number , '-' , ''))
     and bm.is_head = 1
+where true
+    and bb.is_head = 1
+order by
+    system_key
+    , revenue_period_end_date
+    , coalesce(_trans_key , account_number)

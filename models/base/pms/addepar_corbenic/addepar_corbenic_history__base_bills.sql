@@ -39,13 +39,13 @@ select
     , src.entity_id::text(200)                         as entity_id
     , src.grouping::text(200)                          as grouping--noqa: RF04
     , src.name::text(200)                              as name--noqa: RF04
-    , case when src._created_at = mca._max_created_at then 1
-        else 0
-    end                                                as is_head
-    , src._id::int                                     as _id
-    , src._created_at::datetime                        as _created_at
-    , mca._max_created_at::datetime                    as _max_created_at
+    , {{ col_is_head(reference=src
+        , reference_date_col='_created_at'
+        , source_date_col='_created_at') }}
     , src._source_file::text(200)                      as _source_file
+    , src._created_at::datetime                        as _created_at
+    , src._id::int                                     as _id
+
 from {{ src }} as src
 left join cte_max_created_at as mca
     on src.billing_id = mca.billing_id

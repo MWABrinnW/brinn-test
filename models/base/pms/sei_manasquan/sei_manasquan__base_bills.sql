@@ -21,6 +21,10 @@ select
     , json:"Transaction Date"::datetime                       as transaction_date
     , json:"Transaction Identifier"::text(200)                as transaction_identifier
     , json:"Transaction Type"::text(200)                      as transaction_type
+    , {{ col_is_head_with_partition(reference=src 
+        , partition_col = '_box_file_name'
+        , reference_date_col='_created_at'
+        , source_date_col='_created_at') }}
     , _id::int                                                as _id
     , _created_at::datetime                                   as _created_at
     , _box_file_id::text(200)                                 as _box_file_id

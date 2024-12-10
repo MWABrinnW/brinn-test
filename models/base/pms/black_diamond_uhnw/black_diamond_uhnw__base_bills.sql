@@ -93,6 +93,10 @@ select
     , json:"Fee Type"::varchar(200)                               as fee_type
     , json:"Import to Advizr"::varchar(200)                       as import_to_advizr
     , json:"Warnings"::varchar(200)                               as warnings
+    , {{ col_is_head_with_partition(reference=src
+        , partition_col = '_box_file_name'
+        , reference_date_col='_created_at'
+        , source_date_col='_created_at') }}
     , _id::int                                                    as _id
     , _created_at::datetime                                       as _created_at
     , _box_file_id::varchar(200)                                  as _box_file_id

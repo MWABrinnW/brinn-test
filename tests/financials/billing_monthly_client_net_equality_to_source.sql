@@ -8,17 +8,17 @@
     {'model': 'addepar_corbenic_history__base_bills', 'invoice_date': 'billing_date',
      'client_fee_net': 'billing_fee_value', 'is_head': 'yes'},
     {'model': 'black_diamond_baystate__base_bills', 'invoice_date': "(dateadd('day', -1, date_trunc('quarter', cash_available_date)))::date",
-     'client_fee_net': 'total_period_fee', 'is_head': 'no'},
+     'client_fee_net': 'total_period_fee', 'is_head': 'yes'},
     {'model': 'black_diamond_houston__base_bills', 'invoice_date': "(dateadd('day', -1, date_trunc('quarter', cash_available_date)))::date",
-     'client_fee_net': 'total_period_fee', 'is_head': 'no'},
+     'client_fee_net': 'total_period_fee', 'is_head': 'yes'},
     {'model': 'black_diamond_mps__base_bills', 'invoice_date': "(dateadd('day', -1, date_trunc('quarter', cash_available_date)))::date",
-     'client_fee_net': 'total_period_fee', 'is_head': 'no'},
+     'client_fee_net': 'total_period_fee', 'is_head': 'yes'},
     {'model': 'black_diamond_uhnw__base_bills', 'invoice_date': "(dateadd('day', -1, date_trunc('quarter', cash_available_date)))::date",
-     'client_fee_net': 'total_period_fee', 'is_head': 'no'},
+     'client_fee_net': 'total_period_fee', 'is_head': 'yes'},
     {'model': 'envestnet_manasquan__stg_bills', 'invoice_date': 'invoice_date',
-     'client_fee_net': 'total_fee_amount', 'is_head': 'no'},
+     'client_fee_net': 'total_fee_amount', 'is_head': 'yes'},
     {'model': 'sei_manasquan__base_bills', 'invoice_date': 'fee_effective_date',
-     'client_fee_net': 'fees_collected', 'is_head': 'no'}
+     'client_fee_net': 'fees_collected', 'is_head': 'yes'}
 ] %}
 
 with cte_base as (
@@ -39,8 +39,6 @@ with cte_base as (
             -- all models
             {% if source['is_head'] == 'yes' %}
                 and is_head = 1
-            {% else %}
-                and 1 = 1
             {% endif %}
 
             -- salesforce only
@@ -48,13 +46,14 @@ with cte_base as (
                 and is_latest = 1
                 and is_deleted = 0
                 and _fivetran_deleted = 0
-            {% else %}
-                and 1 = 1
             {% endif %}
+
         group by all
+
         {%- if not loop.last %}
             union all
         {% endif %}
+
     {% endfor %}
 )
 

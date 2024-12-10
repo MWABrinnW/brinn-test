@@ -218,13 +218,14 @@ left join {{ ref('addepar_corbenic_history__base_accounts') }} as a
     and a.is_head = 1
 left join cte_crm as c
     on b.holding_account_number = c.pract_acct_num
-where b.is_head = 1
+where true
+    and a.is_head = 1
+    and b.is_head = 1
     and b.billing_date::date < '2024-10-01'
     -- uncomment if "billing_frequency" or "revenue_category" is not hardcoded.
 {# left join {{ ref('aux__stg_financials_fee_type') }} as ovrd_fee_type
         on bb.system_key = ovrd_fee_type.system_key
         and lower(bb.fee_type_description) = lower(ovrd_fee_type.fee_type) #}
-
 order by
     system_key
     , revenue_period_end_date

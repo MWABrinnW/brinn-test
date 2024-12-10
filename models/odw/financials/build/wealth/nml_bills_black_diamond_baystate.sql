@@ -250,7 +250,6 @@ left join cte_pms_client_info_1 as cte1
 left join cte_pms_client_info_1 as cte2
     on bb.external_id = cte2.account_id
     and cte2.is_head = 1
-
 left join cte_split_detail_2 as cte3
     on bb.cash_available_date = cte3.effective_date
     and bb.advisor_commission_split_code = cte3.code_name
@@ -261,3 +260,8 @@ left join cte_less_than_five as cte5
     on bb.account_number = cte5.acct_num
     and bb._box_file_id = cte5.box_id
 where true
+    and bb.is_head = 1
+order by--noqa: AM06
+    system_key
+    , revenue_period_end_date
+    , coalesce(_trans_key , account_number)
