@@ -116,6 +116,7 @@ select
     , 'REV'::varchar(200)                                                as account_class
     , null::varchar(200)                                                 as coa_segment_1_legal_entity_id
     , null::varchar(200)                                                 as coa_segment_3_accounting_id
+    , null::varchar(200)                                                 as coa_segment_4_team_id
     , case
         when client_location_code = '112' and cpg_ba.advisor = 'Rob Thomas/Direct'
             then
@@ -270,7 +271,7 @@ select
     ,acc.household_location_id::varchar(200) as mariner_location #}
 
 
-    -- exlucsion 
+    -- exlucsion
     , array_to_string(
         array_construct_compact(case
             -- speciality tax exlusion

@@ -17,6 +17,7 @@ with cte_pms_client_info_1 as (
         date(a.effective_at)                                                                          as effective_date
         , b.name                                                                                      as code_name
         , c.name
+        , c.id                                                                                        as sol_id
         , a.percentage_c
         --, listagg( c.NAME || ' ('  || to_varchar(a.PERCENTAGE_C) || '%)' , '; ') within group(order by b.NAME) as FULL_ADVISOR_TEAM
         , a._created_at                                                                               as sp_crdt
@@ -41,6 +42,7 @@ with cte_pms_client_info_1 as (
         effective_date
         , code_name
         , listagg(name || ' (' || to_varchar(percentage_c) || '%)' , '; ') within group (order by name) as full_advisor_team
+        , listagg(sol_id , '; ') within group (order by name)                                           as full_advisor_team_ids
         , is_head
     from cte_split_detail_1
     where sp_crdt = max_sp_crdt
@@ -118,9 +120,9 @@ select
     -- [advisor]
     , (bb.rep_code || ' (' || bb.advisor_commission_split_code || ')')::varchar(200)        as client_manager_source
     , coalesce(cte3.full_advisor_team , cte4.full_advisor_team)::varchar(200)               as client_manager_original
-    , null::varchar(200)                                                                    as associate_id_original
+    , coalesce(cte3.full_advisor_team_ids , cte4.full_advisor_team_ids)::varchar(200)       as associate_id_original
     , coalesce(cte4.full_advisor_team , cte3.full_advisor_team)::varchar(200)               as client_manager_primary
-    , null::varchar(200)                                                                    as associate_id_primary
+    , coalesce(cte4.full_advisor_team_ids , cte3.full_advisor_team_ids)::varchar(200)       as associate_id_primary
     , '1099'::varchar(200)                                                                  as client_manager_type
 
     -- [assets and fees]
@@ -151,7 +153,6 @@ select
     , null::decimal(20 , 5)                                                                 as client_write_off_fee
     , bb.total_period_fee::decimal(20 , 5)                                                  as client_fee_net
     , null::decimal(20 , 2)                                                                 as referral_fee
-
     , null::date                                                                            as collection_date
     , 0::boolean                                                                            as third_party_calculation
 
@@ -162,10 +163,12 @@ select
     , null::varchar(200)                                                                    as bill_on_balance_type
     , null::varchar(200)                                                                    as payment_terms
     , null::number(20 , 5)                                                                  as payment_method_fee
+
     -- [accounting]
-    , null::varchar(200)                                                                    as account_class
+    , 'rev'::varchar(200)                                                                   as account_class
     , '260'::varchar(200)                                                                   as coa_segment_1_legal_entity_id
     , '1225'::varchar(200)                                                                  as coa_segment_3_accounting_id
+    , '0000'::varchar(200)                                                                  as coa_segment_4_team_id
     , case
         when bb.advisor_commission_split_code in ('NEA8191' , 'S067110' , 'S045990')
             then
@@ -173,8 +176,8 @@ select
         else
             '40002'
     end::varchar(200)                                                                       as coa_segment_5_natural_account_id
-    , 'Net Wealth'::varchar(200)                                                            as revenue_category
-    , 'Gross Wealth'::varchar(200)                                                          as revenue_type
+    , 'Wealth Management'::varchar(200)                                                     as revenue_category
+    , 'Wealth Mgmt Fees'::varchar(200)                                                      as revenue_type
 
     -- [crm]
     , 'salesforce'::varchar(200)                                                            as system_name_crm
@@ -190,12 +193,12 @@ select
     , null::varchar(5000)                                                                   as client_key_tags_crm
 
     -- [transactions]
-    , null::varchar(200)                                                                    as transaction_type
-    , null::varchar(200)                                                                    as transaction_line_type
-    , bb.total_period_fee::int                                                              as transaction_line_quantity
+    , 'Invoice'::varchar(200)                                                               as transaction_type
+    , 'Line'::varchar(200)                                                                  as transaction_line_type
+    , 1::int                                                                                as transaction_line_quantity
     , 'USD'::varchar(200)                                                                   as currency_code
-    , null::varchar(200)                                                                    as currency_conversion_type
-    , 1::number(20 , 5)                                                                     as unit_selling_price
+    , 'User'::varchar(200)                                                                  as currency_conversion_type
+    , bb.total_period_fee::number(20 , 5)                                                   as unit_selling_price
 
     -- [exclusion]
     , array_to_string(

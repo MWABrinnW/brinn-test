@@ -107,6 +107,7 @@ select
     , 'REV'::varchar(200)                                                           as account_class
     , '110'::varchar(200)                                                           as coa_segment_1_legal_entity_id
     , null::varchar(200)                                                            as coa_segment_3_accounting_id
+    , null::varchar(200)                                                            as coa_segment_4_team_id
     , case
         when coalesce(a_hist.household_lead_source , a_head.household_lead_source) ilike '%RPP%'
             then '40000'

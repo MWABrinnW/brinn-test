@@ -87,6 +87,7 @@ select
     , 'REV'::varchar(200)                                                                as account_class
     , '110'::varchar(200)                                                                as coa_segment_1_legal_entity_id
     , null::varchar(200)                                                                 as coa_segment_3_accounting_id
+    , null::varchar(200)                                                                 as coa_segment_4_team_id
     , case
         when acc.household_lead_source in ('Referral Partner - SAN' , 'Referral Partner - WAS')
             then

@@ -224,6 +224,7 @@ select
     , 'REV'::varchar(200)                                                as account_class
     , null::varchar(200)                                                 as coa_segment_1_legal_entity_id
     , '1112'::varchar(200)                                               as coa_segment_3_accounting_id
+    , null::varchar(200)                                                 as coa_segment_4_team_id
     , case
 
         when ir.fee_type_c in (
@@ -347,9 +348,9 @@ select
 --     , 'client_id_joins_on_origin' , iff(acc.client_id is not null , 1 , 0)
 --     , 'client_id_joins_on_head' , iff(acc2.client_id is not null , 1 , 0)
 --     , 'client_name' , coalesce(acc.household_name , acc2.household_name)
--- )  
+-- )
 
---select count(*)  
+--select count(*)
 from {{ ref('int_bills_salesforce_compass_cpg_split') }} as ir
 left join edw.ref.dates as dt
     on coalesce(ir.calculation_as_of_date_c , ir.invoice_date_c)::date = dt.date_key

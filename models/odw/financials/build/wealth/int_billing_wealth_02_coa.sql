@@ -136,15 +136,16 @@ select
     , '000'::varchar(200)                                                             as coa_segment_6_initiative_id
     , '000'::varchar(200)                                                             as coa_segment_7_intercompany_id
     , '000'::varchar(200)                                                             as coa_segment_8_future_id
-    , concat(
-        coa_segment_1_legal_entity_id
-        , '-' , coa_segment_2_product_id
-        , '-' , coa_segment_3_accounting_id
-        , '-' , coa_segment_4_team_id
-        , '-' , coa_segment_5_natural_account_id
-        , '-' , coa_segment_6_initiative_id
-        , '-' , coa_segment_7_intercompany_id
-        , '-' , coa_segment_8_future_id
+    , concat_ws(
+        '-'
+        , coa_segment_1_legal_entity_id
+        , coa_segment_2_product_id
+        , coa_segment_3_accounting_id
+        , coa_segment_4_team_id
+        , coa_segment_5_natural_account_id
+        , coa_segment_6_initiative_id
+        , coa_segment_7_intercompany_id
+        , coa_segment_8_future_id
     )                                                                                 as coa_account_number
     , nml.revenue_category::varchar(200)                                              as revenue_category
     , initcap(nml.revenue_type::varchar(200))                                         as revenue_type
