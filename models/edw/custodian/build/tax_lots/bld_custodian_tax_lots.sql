@@ -37,7 +37,7 @@ with cte_destination_summary as (
     select effective_date, custodian, firm_source, max(_created_at) as _created_at, max(_source_loaded_at) as _source_loaded_at
     from {{ this }}
     where 1 = 1
-        and effective_date >= (current_date() - {{ cvar('lookback_custodial', 30) }})
+        and effective_date >= (current_date() - {{ cvar('lookback_custodial') }})
         {{ incremental_date_filter(
             source_col_name='effective_date',
             target_col_name='effective_date',

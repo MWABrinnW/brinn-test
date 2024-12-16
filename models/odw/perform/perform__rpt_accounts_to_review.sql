@@ -90,12 +90,11 @@ with cte_build as (
                     end
             else 0
         end::int                                                             as is_illegal_asset
-    from pr_347.orion__bld_holdings as h
+    from {{ ref('orion__holdings') }} as h
     inner join cte_build as a
         on h.account_number = a.account_number
     where 1 = 1
-        --       and is_head = 1
-        and h.effective_date = '10/31/2024'--#################
+        and is_head = 1
         and h.fkalclient = 568
         and h.quantity > 0
 --       and account_number in (
