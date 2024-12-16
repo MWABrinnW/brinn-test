@@ -1,6 +1,5 @@
 select
-    a.platform                                                    as platform
-    , a.venue                                                     as venue
+    a.system_key                                                  as system_key
     , a.order_trade_date                                          as trade_date
     , a.transaction_time                                          as trade_executed_at
     , case a.order_current_order_status
@@ -21,7 +20,7 @@ select
         when 'E' then 'Pending Replace'
         when null then 'Cancelled'
         else a.order_current_order_status
-        end::text(200)                                            as status
+    end::text(200)                                                as status
 
     , a.order_client_order_id                                     as order_id
     , a.order_block_id                                            as block_id
@@ -65,4 +64,4 @@ from {{ ref('flyer__stg_orders_allocations') }} as a
 where 1 = 1
     and a.is_head = 1
 group by all
-order by a.order_trade_date desc, a.transaction_time
+order by a.order_trade_date desc , a.transaction_time asc

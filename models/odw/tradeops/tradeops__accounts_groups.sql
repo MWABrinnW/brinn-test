@@ -1,7 +1,6 @@
 select
     a.effective_date     as effective_date
-    , a.platform         as platform
-    , a.venue            as venue
+    , a.system_key       as system_key
     , a.group_name       as group_name
     , a.account_id       as account_id
     , lower(a.custodian) as custodian

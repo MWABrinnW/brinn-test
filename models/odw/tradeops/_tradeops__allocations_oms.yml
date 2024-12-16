@@ -2,14 +2,11 @@ version: 2
 models:
   - name: tradeops__allocations_oms
     columns:
-      - name: PLATFORM
-        description: ''
-        data_type: VARCHAR
-      - name: VENUE
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
         meta:
-          row_access_policy: rap_tradeops_venue
+          row_access_policy: rap_tradeops_system_key
       - name: ORDER_STATUS
         description: ''
         data_type: VARCHAR
@@ -21,10 +18,10 @@ models:
         data_type: DATE
       - name: TRADE_EXECUTED_AT
         description: ''
-        data_type: TIMESTAMP_NTZ
+        data_type: TIMESTAMP_TZ
       - name: ORDER_ID
         description: ''
-        data_type: VARCHAR
+        data_type: NUMBER
       - name: ORDER_ID_ACCOUNT
         description: ''
         data_type: VARCHAR
@@ -33,7 +30,7 @@ models:
         data_type: VARCHAR
       - name: ALLOCATION_ID
         description: ''
-        data_type: VARCHAR
+        data_type: NUMBER
       - name: ALLOCATION_ID_ACCOUNT
         description: ''
         data_type: VARCHAR
@@ -49,24 +46,39 @@ models:
       - name: ACCOUNT_NUMBER
         description: ''
         data_type: VARCHAR
+      - name: ACCOUNT_ID
+        description: ''
+        data_type: VARCHAR
       - name: ASSET_CLASS
+        description: ''
+        data_type: VARCHAR
+      - name: SYMBOL
         description: ''
         data_type: VARCHAR
       - name: TICKER
         description: ''
         data_type: VARCHAR
-      - name: QUANTITY
+      - name: CUSIP
         description: ''
-        data_type: NUMBER
+        data_type: VARCHAR
+      - name: UNDERLYING_TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_QUANTITY
+        description: ''
+        data_type: FLOAT
+      - name: FILLED_QUANTITY
+        description: ''
+        data_type: FLOAT
       - name: PRICE
         description: ''
-        data_type: NUMBER
+        data_type: FLOAT
       - name: AVERAGE_PRICE
         description: ''
-        data_type: NUMBER
+        data_type: FLOAT
       - name: NET_AMOUNT
         description: ''
-        data_type: NUMBER
+        data_type: FLOAT
       - name: ORDER_SIDE
         description: ''
         data_type: VARCHAR
@@ -75,22 +87,37 @@ models:
         data_type: VARCHAR
       - name: PRINCIPAL
         description: ''
-        data_type: NUMBER
+        data_type: FLOAT
       - name: COMMISSION
         description: ''
         data_type: NUMBER
       - name: INTEREST
         description: ''
-        data_type: NUMBER
+        data_type: FLOAT
       - name: FEES
         description: ''
         data_type: NUMBER
       - name: CREATED_BY
         description: ''
         data_type: VARCHAR
-      - name: LAST_COLLECTED_AT
+      - name: OPTION_EXPIRATION_DATE
+        description: ''
+        data_type: DATE
+      - name: OPTION_STRIKE_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: OPTION_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
         description: ''
         data_type: TIMESTAMP_NTZ
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
       - name: _EXTRA_FIELDS
         description: ''
         data_type: OBJECT

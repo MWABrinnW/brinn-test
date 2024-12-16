@@ -1,4 +1,8 @@
-{{ config(enabled=false, grants = {'select': ['trading_options']}) }}
+{{ config(
+    enabled = false,
+    tags = ['options', 'copilot', 'trading'],
+    grants = {'select': ['trading_options']}
+) }}
 
 select
     po.account_id                                                     as account_id
@@ -23,7 +27,7 @@ select
     , pri."10_day_avg_price"
     , pri.dividend_ex_date
     , pri.dividend_amount
-    , (div0(pri.last_trade_price , pri."10_day_avg_price") - 1) * 100 as "unrealized_gain_%"
+    , (div0(pri.last_trade_price , pri."10_day_avg_price") - 1) * 100 as "unrealized_gain_%"--noqa: RF05
     , po._created_at                                                  as _created_at
 from {{ ref('flyer__stg_positions') }} as po
 left join {{ ref('flyer__int_accounts') }} as ac

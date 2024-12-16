@@ -10,7 +10,7 @@
 
                 -- CREATE ROW ACCESS POLICIES
                 {{ rap_firm_source() }}
-                {{ rap_tradeops_venue() }}
+                {{ rap_tradeops_system_key() }}
 
             {% endif %}
 

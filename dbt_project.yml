@@ -77,6 +77,7 @@ on-run-end:
 
 data_tests:
   +store_failures: true
+  +store_failures_as: view
   +limit: 500
 
 # [Configuring models]
@@ -106,6 +107,7 @@ models:
     +schema: github # leave blank for just the target_schema
 
   fivetran_log:
+    +enabled: false
     +tags: ["daily"]
     +grants:
       select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
@@ -424,6 +426,8 @@ models:
           +tags: ["tamarac", "mwa", "state_college", "cpg"]
           +grants:
             select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        orion_redshift:
+          +tags: ["orion"]
 
       reach_360:
         +tags: ["reach_360"]

@@ -1,4 +1,5 @@
 {{ config(
+    tags = ['options', 'copilot', 'trading'],
     grants = {'select': ['trading_options']}
 ) }}
 
@@ -9,7 +10,7 @@ with cte_accounts as (
         , account_no                                              as account_number
     from {{ ref('flyer__stg_sod_accounts_history') }}
     where 1 = 1
-        and _created_at::date = (select max(_created_at::date) from {{ ref('flyer__stg_sod_accounts_history') }})
+        and _created_at::date = (select max(t._created_at::date) from {{ ref('flyer__stg_sod_accounts_history') }} as t)
     qualify row_number() over (partition by _created_at::date , account_no , custodian order by _created_at desc) = 1
 )
 
@@ -40,8 +41,8 @@ with cte_accounts as (
         and h.custodian in ('schwab' , 'fidelity')
         -- Exclude sweep positions which don't have any lots
         and h.is_sweep = 0
-        and h.effective_date = (select effective_date from cte_effective_date)
-        and h.account_number in (select account_number from cte_accounts)
+        and h.effective_date = (select t.effective_date from cte_effective_date as t)
+        and h.account_number in (select t.account_number from cte_accounts as t)
         -- Exclude fidelity positions that won't typically (or ever?) include
         -- corresponding lots.
 
@@ -82,8 +83,8 @@ with cte_accounts as (
     from {{ ref('custodian_tax_lots') }} as h
     where 1 = 1
         and h.custodian in ('schwab' , 'fidelity')
-        and h.effective_date = (select effective_date from cte_effective_date)
-        and h.account_number in (select account_number from cte_accounts)
+        and h.effective_date = (select t.effective_date from cte_effective_date as t)
+        and h.account_number in (select t.account_number from cte_accounts as t)
         -- Some accounts might exist with more than one firm_source.
         -- We need to grab only one instance of the account.
         and h.rn_global = 1

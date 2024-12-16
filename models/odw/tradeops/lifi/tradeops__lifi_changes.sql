@@ -55,16 +55,16 @@ with cte_links as (
     from cte_schwab
     -- schwab LIFI accounts must be included under Orion master number
     where account_number in (
-            select distinct account_number
-            from cte_orion
+            select distinct t.account_number
+            from cte_orion as t
         )
-    union
+    union distinct
     select *
     from cte_fidelity
     -- fidelity LIFI accounts must be included under Orion master number
     where account_number in (
-            select distinct account_number
-            from cte_orion
+            select distinct t.account_number
+            from cte_orion as t
         )
 )
 
@@ -93,8 +93,8 @@ with cte_links as (
             or try_to_boolean(linked_individual_fixed_income__c)::int = 1
             -- accounts that are LIFI per fidelity/schwab
             or replace(identifier__c , '-' , '') in (
-                select distinct account_number
-                from cte_custodian
+                select distinct t.account_number
+                from cte_custodian as t
             )
         )
 )
@@ -102,7 +102,7 @@ with cte_links as (
 , cte_accounts as (
     select account_number
     from cte_custodian
-    union
+    union distinct
     select account_number
     from cte_salesforce
 )

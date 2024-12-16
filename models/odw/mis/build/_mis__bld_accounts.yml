@@ -1,0 +1,160 @@
+version: 2
+models:
+  - name: mis__bld_accounts
+    columns:
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: character varying(16777216)
+      - name: ACCOUNT_NAME
+        description: ''
+        data_type: character varying(240)
+      - name: PMS_ACCOUNT_ID
+        description: ''
+        data_type: character varying(24)
+      - name: CRM_ACCOUNT_ID
+        description: ''
+        data_type: character varying(18)
+      - name: CUSTODIAN
+        description: ''
+        data_type: character varying(18)
+      - name: IS_ACTIVE
+        description: ''
+        data_type: NUMBER(38,0)
+      - name: ACCOUNT_DESCRIPTION
+        description: ''
+        data_type: character varying(765)
+      - name: REGISTRATION_TYPE
+        description: ''
+        data_type: character varying(18)
+      - name: AUM_CLASSIFICATION
+        description: ''
+        data_type: character varying(765)
+      - name: CASH_BALANCE
+        description: ''
+        data_type: NUMBER(18,2)
+      - name: COMMENTS
+        description: ''
+        data_type: character varying(98304)
+      - name: DISTRIBUTION_AMOUNT
+        description: ''
+        data_type: NUMBER(18,0)
+      - name: DISTRIBUTION_FREQUENCY
+        description: ''
+        data_type: character varying(60)
+      - name: DISTRIBUTION_TYPE
+        description: ''
+        data_type: character varying(765)
+      - name: EQUITY_GOAL
+        description: ''
+        data_type: character varying(765)
+      - name: ESTATE_ITEM_TYPE
+        description: ''
+        data_type: character varying(765)
+      - name: INVESTMENT_STATUS_NOTES
+        description: ''
+        data_type: character varying(765)
+      - name: MINIMUM_CASH
+        description: ''
+        data_type: character varying(54)
+      - name: OPENING_DATE
+        description: ''
+        data_type: DATE
+      - name: CLOSING_DATE
+        description: ''
+        data_type: DATE
+      - name: SUBADVISOR_DATE_OPENED
+        description: ''
+        data_type: DATE
+      - name: AM_RESTRICTIONS
+        description: ''
+        data_type: character varying(4099)
+      - name: MATURITY_RESTRICTION
+        description: ''
+        data_type: character varying(765)
+      - name: RATING_RESTRICTION
+        description: ''
+        data_type: character varying(765)
+      - name: OTHER_RESTRICTION
+        description: ''
+        data_type: character varying(765)
+      - name: RESTRICTION_NOTES
+        description: ''
+        data_type: character varying(765)
+      - name: RESTRICTION_NOTES_2
+        description: ''
+        data_type: character varying(765)
+      - name: RECORD_TYPE_ID
+        description: ''
+        data_type: character varying(18)
+      - name: STATE_1
+        description: ''
+        data_type: character varying(765)
+      - name: STATE_2
+        description: ''
+        data_type: character varying(765)
+      - name: MAILING_STATE
+        description: ''
+        data_type: character varying(200)
+      - name: STATUS
+        description: ''
+        data_type: character varying(765)
+      - name: TAX_STATUS
+        description: ''
+        data_type: character varying(765)
+      - name: TRADE_RESTRICTION
+        description: ''
+        data_type: character varying(1500)
+      - name: TRADING_ID
+        description: ''
+        data_type: character varying(192)
+      - name: TRADING_SYSTEM
+        description: ''
+        data_type: character varying(765)
+      - name: MODEL
+        description: ''
+        data_type: character varying(18)
+      - name: HOUSEHOLD_NAME
+        description: ''
+        data_type: character varying(200)
+      - name: HOUSEHOLD_PARENT_NAME
+        description: ''
+        data_type: character varying(200)
+      - name: HOUSEHOLD_LEGAL_FIRM_NAME
+        description: ''
+        data_type: character varying(200)
+      - name: IS_BILLING_EXCEPTION
+        description: ''
+        data_type: NUMBER(2,0)
+      - name: IS_BLOCKED
+        description: ''
+        data_type: NUMBER(2,0)
+      - name: CLIENT_MANAGER
+        description: ''
+        data_type: character varying(200)
+      - name: IS_SMA_REVIEW_REQUIRED
+        description: ''
+        data_type: NUMBER(38,0)
+      - name: IS_FIRM_TRADED
+        description: ''
+        data_type: BOOLEAN
+      - name: IS_NON_DISCRETIONARY
+        description: ''
+        data_type: NUMBER(2,0)
+      - name: IS_PRIME_BROKER
+        description: ''
+        data_type: NUMBER(2,0)
+      - name: IS_LIFI
+        description: ''
+        data_type: NUMBER(2,0)
+      - name: IS_PERFORM
+        description: ''
+        data_type: NUMBER(38,0)
+      - name: IS_MOXY
+        description: ''
+        data_type: NUMBER(38,0)
+      - name: IS_INCLUDED
+        description: ''
+        data_type: NUMBER(1,0)
+      - name: RN
+        description: ''
+        data_type: NUMBER(18,0)

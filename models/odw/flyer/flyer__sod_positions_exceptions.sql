@@ -11,28 +11,28 @@ select
     , price
     , lotdate
     , ''::text(2000)
-    || COALESCE(case
-        when COALESCE(symbol , '') = ''
+    || coalesce(case
+        when coalesce(symbol , '') = ''
             then 'missing symbol;'
     end , '')
-    || COALESCE(case
-        when COALESCE(product , '') = ''
+    || coalesce(case
+        when coalesce(product , '') = ''
             then 'missing product;'
     end , '')
-    || COALESCE(case
+    || coalesce(case
         when price is null
             then 'missing price;'
     end , '')
-    || COALESCE(case
+    || coalesce(case
         when quantity is null
             then 'missing quantity;'
     end , '')
-    || COALESCE(case
-        when unitcost is null and COALESCE(product , '') != 'CASH'
+    || coalesce(case
+        when unitcost is null and coalesce(product , '') != 'CASH'
             then 'missing unitcost;'
     end , '')
-    || COALESCE(case
-        when totalcost is null and COALESCE(product , '') != 'CASH'
+    || coalesce(case
+        when totalcost is null and coalesce(product , '') != 'CASH'
             then 'missing totalcost;'
     end , '')
         as exception_detail

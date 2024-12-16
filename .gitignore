@@ -16,7 +16,7 @@ package-lock.yml
 .github/scripts/line-counts.ps1
 justfile.me
 lint_failures.txt
+.idea/
 *ipynb
 *scratch.*
 reladiff.toml
-.idea/

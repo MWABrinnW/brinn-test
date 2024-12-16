@@ -1,0 +1,166 @@
+version: 2
+models:
+  - name: mis__salesforce_compass_estate_item
+    columns:
+      - name: AUM_CLASSIFICATION
+        description: ''
+        data_type: character varying(16777216)
+      - name: ACCOUNT_ID_ORION
+        description: ''
+        data_type: NUMBER(38,0)
+      - name: BILLING_EXCEPTION
+        description: ''
+        data_type: NUMBER(2,0)
+      - name: BLOCK_ON_ACCOUNT
+        description: ''
+        data_type: NUMBER(2,0)
+      - name: CASH_BALANCE
+        description: ''
+        data_type: NUMBER(20,5)
+      - name: CUSTODIAN_ID
+        description: ''
+        data_type: character varying(16777216)
+      - name: CUSTODIAN_NAME
+        description: ''
+        data_type: character varying(16777216)
+      - name: CUSTODIAN_ATTRIBUTES_TYPE
+        description: ''
+        data_type: character varying(16777216)
+      - name: CUSTODIAN_ATTRIBUTES_URL
+        description: ''
+        data_type: character varying(16777216)
+      - name: DISTRIBUTION_TYPE
+        description: ''
+        data_type: character varying(16777216)
+      - name: FIRM_TRADING
+        description: ''
+        data_type: NUMBER(2,0)
+      - name: HOUSEHOLD_CLIENT_MANAGER_NAME
+        description: ''
+        data_type: character varying(16777216)
+      - name: HOUSEHOLD_CLIENT_MANAGER_ATTRIBUTES_TYPE
+        description: ''
+        data_type: character varying(16777216)
+      - name: HOUSEHOLD_CLIENT_MANAGER_ATTRIBUTES_URL
+        description: ''
+        data_type: character varying(16777216)
+      - name: HOUSEHOLD_ID
+        description: ''
+        data_type: character varying(16777216)
+      - name: HOUSEHOLD_LEGAL_ADDRESS_STATE
+        description: ''
+        data_type: character varying(16777216)
+      - name: HOUSEHOLD_LEGAL_FIRM_NAME
+        description: ''
+        data_type: character varying(16777216)
+      - name: HOUSEHOLD_LEGAL_FIRM_ATTRIBUTES_TYPE
+        description: ''
+        data_type: character varying(16777216)
+      - name: HOUSEHOLD_LEGAL_FIRM_ATTRIBUTES_URL
+        description: ''
+        data_type: character varying(16777216)
+      - name: HOUSEHOLD_MAILING_STATE
+        description: ''
+        data_type: character varying(16777216)
+      - name: HOUSEHOLD_NAME
+        description: ''
+        data_type: character varying(16777216)
+      - name: HOUSEHOLD_MARINER_LOCATION_NAME
+        description: ''
+        data_type: character varying(16777216)
+      - name: HOUSEHOLD_ATTRIBUTES_TYPE
+        description: ''
+        data_type: character varying(16777216)
+      - name: HOUSEHOLD_ATTRIBUTES_URL
+        description: ''
+        data_type: character varying(16777216)
+      - name: ID
+        description: ''
+        data_type: character varying(16777216)
+      - name: IDENTIFIER
+        description: ''
+        data_type: character varying(16777216)
+      - name: LINKED_INDIVIDUAL_FIXED_INCOME
+        description: ''
+        data_type: NUMBER(2,0)
+      - name: MODEL_ON_ACCOUNT_ID
+        description: ''
+        data_type: character varying(16777216)
+      - name: MODEL_ON_ACCOUNT_MODEL_TYPE
+        description: ''
+        data_type: character varying(16777216)
+      - name: MODEL_ON_ACCOUNT_NAME
+        description: ''
+        data_type: character varying(16777216)
+      - name: MODEL_ON_ACCOUNT_ATTRIBUTES_TYPE
+        description: ''
+        data_type: character varying(16777216)
+      - name: MODEL_ON_ACCOUNT_ATTRIBUTES_URL
+        description: ''
+        data_type: character varying(16777216)
+      - name: NAME
+        description: ''
+        data_type: character varying(16777216)
+      - name: NON_DISCRETIONARY_ACCOUNT
+        description: ''
+        data_type: NUMBER(2,0)
+      - name: OPENING_DATE
+        description: ''
+        data_type: DATE
+      - name: PRIME_BROKER_ENABLED
+        description: ''
+        data_type: NUMBER(2,0)
+      - name: RECORDTYPEID
+        description: ''
+        data_type: character varying(16777216)
+      - name: REGISTRATION_TYPE_ID
+        description: ''
+        data_type: character varying(16777216)
+      - name: REGISTRATION_TYPE_NAME
+        description: ''
+        data_type: character varying(16777216)
+      - name: REGISTRATION_TYPE_ATTRIBUTES_TYPE
+        description: ''
+        data_type: character varying(16777216)
+      - name: REGISTRATION_TYPE_ATTRIBUTES_URL
+        description: ''
+        data_type: character varying(16777216)
+      - name: SMAREVIEWREQUIRED
+        description: ''
+        data_type: NUMBER(2,0)
+      - name: STATUS
+        description: ''
+        data_type: character varying(16777216)
+      - name: SUBADVISOR_DATE_OPENED
+        description: ''
+        data_type: DATE
+      - name: SUBADVISOR_NAME
+        description: ''
+        data_type: character varying(16777216)
+      - name: SUBADVISOR_ATTRIBUTES_TYPE
+        description: ''
+        data_type: character varying(16777216)
+      - name: SUBADVISOR_ATTRIBUTES_URL
+        description: ''
+        data_type: character varying(16777216)
+      - name: TAX_STATUS
+        description: ''
+        data_type: character varying(16777216)
+      - name: TRADING_ID
+        description: ''
+        data_type: character varying(16777216)
+      - name: TRADING_SYSTEM
+        description: ''
+        data_type: character varying(16777216)
+      - name: ATTRIBUTES_TYPE
+        description: ''
+        data_type: character varying(16777216)
+      - name: ATTRIBUTES_URL
+        description: ''
+        data_type: character varying(16777216)
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER(1,0)

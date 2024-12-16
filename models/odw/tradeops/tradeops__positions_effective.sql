@@ -1,8 +1,7 @@
 with cte_positions as (
     select
         a.effective_date        as effective_date
-        , a.platform            as platform
-        , a.venue               as venue
+        , a.system_key          as system_key
         , lower(acc.custodian)  as custodian
         , a.account_id          as account_id
         , acc.account_number    as account_number
@@ -49,8 +48,7 @@ with cte_positions as (
 
 , cte_restrictions as (
     select
-        platform
-        , venue
+        system_key
         , account_id
         , account_number
         , restriction_type
@@ -89,8 +87,7 @@ with cte_positions as (
 
 select
     a.effective_date
-    , a.platform
-    , a.venue
+    , a.system_key
     , a.custodian
     , a.account_id
     , a.account_number

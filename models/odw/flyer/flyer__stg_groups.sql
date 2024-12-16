@@ -18,8 +18,9 @@ with cte_max_per_day as (
 )
 
 select
-     'copilot'::text(200)                                 as platform
-    , 'mwa-options'::text(200)                            as venue
+     'copilot'::text as system_name
+    , 'mwa-options' as system_instance
+    , system_name || '__' || system_instance as system_key
     , a.json:name::text(200)                              as group_name
     , a.json:description::text(200)                       as group_description
     , a.json:groupId::text(200)                           as group_id

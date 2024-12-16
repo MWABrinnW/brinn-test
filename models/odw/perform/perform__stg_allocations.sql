@@ -1,74 +1,94 @@
-WITH cte_alloc as (
-	SELECT XMLGET(XML, 'Perform_SysTicketNo'):"$"::string as ID,
-		XML,
-		case
-			when alloc.key IS NULL then value
-			when alloc.key = '$' then this
-			else this
-		end                                        as allocation_xml,
-		EFFECTIVE_DATE,
-		RECORD_DATE,
-		RECORD_DATETIME
-    FROM {{ source('perform', 'allocations') }} AL,
-         LATERAL flatten(XMLGET(XML, 'allocations'):"$") alloc
-    where alloc.key IS NULL
-       or alloc.key = '$'
+with cte_alloc as (
+    select
+        xmlget(xml , 'Perform_SysTicketNo'):"$"::string as id
+        , xml
+        , case
+            when alloc.key is null then value
+            when alloc.key = '$' then this
+            else this
+        end                                             as allocation_xml
+        , _created_at                                   as _created_at
+        , _source_file                                  as _source_file
+    from {{ source('perform', 'allocations') }}
+    , lateral flatten(xmlget(xml , 'allocations'):"$") as alloc
+    where alloc.key is null
+        or alloc.key = '$'
 )
 
-SELECT
-	XMLGET(XML, 'transType'):"$"::string 							AS SIDE
-	,XMLGET(XML, 'CUSIP'):"$"::string 								AS CUSIP
-	,REPLACE(XMLGET(XML, 'tprice'):"$", ',')::double 				AS PRICE
-	,XMLGET(XML, 'tradeDate'):"$"::date 							AS TRADE_DATE
-	,XMLGET(XML, 'settleDate'):"$"::date 							AS SETTLE_DATE
-	,XMLGET(XML, 'dealer'):"$"::string 								AS DEALER
-	,XMLGET(XML, 'dealer_DTC'):"$"::string 							AS DEALER_DTC
-	,XMLGET(XML, 'Perform_SysTicketNo'):"$"::string 				AS PERFORM_SYSTICKETNO
-	,XMLGET(XML, 'TicketNo'):"$"::string 							AS TICKETNO
-	,XMLGET(XML, 'Desc'):"$"::string 								AS DESCRIPTION
-	,case
-        when XMLGET(XML, 'matureDate'):"$" = '' then NULL
-        else XMLGET(XML, 'matureDate'):"$"::date
-    end                                                             AS MATURE_DATE
-	,case
-    	when XMLGET(XML, 'coupon'):"$"= '' then NULL
-        else REPLACE(XMLGET(XML, 'coupon'):"$", ',')::double
-    end 															as COUPON
-	,XMLGET(XML, 'sectype'):"$"::string 							AS SECURITY_TYPE
-	,XMLGET(XML, 'TCreatedDt'):"$"::date 							AS CREATED_DATE
-	,XMLGET(XML, 'TCreatedTime'):"$"::time 							AS CREATED_TIME
-	,XMLGET(XML, 'TCreatedDt_UTC'):"$"::date 						AS CREATED_DATE_UTC
-	,XMLGET(XML, 'TCreatedTime_UTC'):"$"::time 						AS CREATED_TIME_UTC
-	,XMLGET(XML, 'TCreatedBy'):"$"::string 							AS CREATED_BY
-	,XMLGET(XML, 'TAppliedOrigDt'):"$"::date 						AS APPLIED_DATE
-	,XMLGET(XML, 'TAppliedOrigTime'):"$"::time 						AS APPLIED_TIME
-	,XMLGET(XML, 'TAppliedOrigDt_UTC'):"$"::date 					AS APPLIED_DATE_UTC
-	,XMLGET(XML, 'TAppliedOrigTime_UTC'):"$"::time 					AS APPLIED_TIME_UTC
-	,XMLGET(XML, 'TAppliedOrigBy'):"$"::string 						AS APPLIED_BY
-	,XMLGET(XML, 'TAppliedLastDt'):"$"::date 						AS APPLIED_LAST_DATE
-	,XMLGET(XML, 'TAppliedLastTime'):"$"::time 						AS APPLIED_LAST_TIME
-	,XMLGET(XML, 'TAppliedLastDt_UTC'):"$"::date 					AS APPLIED_LAST_DATE_UTC
-	,XMLGET(XML, 'TAppliedLastTime_UTC'):"$"::time 					AS APPLIED_LAST_TIME_UTC
-	,XMLGET(XML, 'TAppliedLastBy'):"$"::string 						AS APPLIED_LAST_BY
-	,REPLACE(XMLGET(XML, 'quantity'):"$", ',')::double 				AS TRADE_QUANTITY
-	,REPLACE(XMLGET(XML, 'principal'):"$", ',')::double 			AS TRADE_PRINCIPAL
-	,REPLACE(XMLGET(XML, 'interest'):"$", ',')::double 				AS TRADE_INTEREST
-	,REPLACE(XMLGET(XML, 'net_money'):"$", ',')::double 			AS TRADE_NET_MONEY
-	,XMLGET(allocation_xml, 'portfolio'):"$"::string 				AS PORTFOLIO
-	,XMLGET(allocation_xml, 'PortAcctNo'):"$"::string  				AS PORTFOLIO_ACCOUNT_NUMBER
-	,XMLGET(allocation_xml, 'portfolio_custodian'):"$"::string  	AS PORTFOLIO_CUSTODIAN
-	,XMLGET(allocation_xml, 'account_type'):"$"::string  			AS ACCOUNT_TYPE
-	,REPLACE(XMLGET(allocation_xml, 'quantity'):"$", ',')::double  	AS QUANTITY
-	,REPLACE(XMLGET(allocation_xml, 'principal'):"$", ',')::double 	AS PRINCIPAL
-	,REPLACE(XMLGET(allocation_xml, 'interest'):"$", ',')::double  	AS INTEREST
-	,REPLACE(XMLGET(allocation_xml, 'net_money'):"$", ',')::double  AS NET_MONEY
-	,XMLGET(allocation_xml, 'inquiry_ID'):"$"::string  				AS INQUIRY_ID
-	,XMLGET(allocation_xml, 'external_order_ID'):"$"::string  		AS EXTERNAL_ORDER_ID
-	,EFFECTIVE_DATE
-	,RECORD_DATE
-	,RECORD_DATETIME
-FROM cte_alloc
-WHERE 1=1
+, cte_max_per_day as (
+    select
+        xmlget(xml , 'tradeDate'):"$"::date as trade_date
+        , max(_created_at)                  as max_created_at
+    from {{ source('perform', 'allocations') }}
+    group by all
+)
+
+select
+    'perform'::text                                                        as system_name
+    , 'fi'                                                      as system_instance
+    , system_name || '__' || system_instance                            as system_key
+    , xmlget(a.xml , 'transType'):"$"::string                           as side
+    , xmlget(a.xml , 'CUSIP'):"$"::string                               as cusip
+    , replace(xmlget(a.xml , 'tprice'):"$" , ',')::double               as price
+    , xmlget(a.xml , 'tradeDate'):"$"::date                             as trade_date
+    , xmlget(a.xml , 'settleDate'):"$"::date                            as settle_date
+    , xmlget(a.xml , 'dealer'):"$"::string                              as dealer
+    , xmlget(a.xml , 'dealer_DTC'):"$"::string                          as dealer_dtc
+    , xmlget(a.xml , 'Perform_SysTicketNo'):"$"::string                 as perform_systicketno
+    , xmlget(a.xml , 'TicketNo'):"$"::string                            as ticketno
+    , xmlget(a.xml , 'Desc'):"$"::string                                as description
+    , case
+        when xmlget(a.xml , 'matureDate'):"$" = '' then null
+        else xmlget(a.xml , 'matureDate'):"$"::date
+    end                                                                 as mature_date
+    , case
+        when xmlget(a.xml , 'coupon'):"$" = '' then null
+        else replace(xmlget(a.xml , 'coupon'):"$" , ',')::double
+    end                                                                 as coupon
+    , xmlget(a.xml , 'sectype'):"$"::string                             as security_type
+    , xmlget(a.xml , 'TCreatedDt'):"$"::date                            as created_date
+    , xmlget(a.xml , 'TCreatedTime'):"$"::time                          as created_time
+    , xmlget(a.xml , 'TCreatedDt_UTC'):"$"::date                        as created_date_utc
+    , xmlget(a.xml , 'TCreatedTime_UTC'):"$"::time                      as created_time_utc
+    , xmlget(a.xml , 'TCreatedBy'):"$"::string                          as created_by
+    , xmlget(a.xml , 'TAppliedOrigDt'):"$"::date                        as applied_date
+    , xmlget(a.xml , 'TAppliedOrigTime'):"$"::time                      as applied_time
+    , xmlget(a.xml , 'TAppliedOrigDt_UTC'):"$"::date                    as applied_date_utc
+    , xmlget(a.xml , 'TAppliedOrigTime_UTC'):"$"::time                  as applied_time_utc
+    , xmlget(a.xml , 'TAppliedOrigBy'):"$"::string                      as applied_by
+    , xmlget(a.xml , 'TAppliedLastDt'):"$"::date                        as applied_last_date
+    , xmlget(a.xml , 'TAppliedLastTime'):"$"::time                      as applied_last_time
+    , xmlget(a.xml , 'TAppliedLastDt_UTC'):"$"::date                    as applied_last_date_utc
+    , xmlget(a.xml , 'TAppliedLastTime_UTC'):"$"::time                  as applied_last_time_utc
+    , xmlget(a.xml , 'TAppliedLastBy'):"$"::string                      as applied_last_by
+    , replace(xmlget(a.xml , 'quantity'):"$" , ',')::double             as trade_quantity
+    , replace(xmlget(a.xml , 'principal'):"$" , ',')::double            as trade_principal
+    , replace(xmlget(a.xml , 'interest'):"$" , ',')::double             as trade_interest
+    , replace(xmlget(a.xml , 'net_money'):"$" , ',')::double            as trade_net_money
+    , xmlget(a.allocation_xml , 'portfolio'):"$"::string                as portfolio
+    , xmlget(a.allocation_xml , 'PortAcctNo'):"$"::string               as portfolio_account_number
+    , xmlget(a.allocation_xml , 'portfolio_custodian'):"$"::string      as portfolio_custodian
+    , replace(upper(portfolio_account_number) , '-' , '')               as account_number
+    , xmlget(a.allocation_xml , 'account_type'):"$"::string             as account_type
+    , replace(xmlget(a.allocation_xml , 'quantity'):"$" , ',')::double  as quantity
+    , replace(xmlget(a.allocation_xml , 'principal'):"$" , ',')::double as principal
+    , replace(xmlget(a.allocation_xml , 'interest'):"$" , ',')::double  as interest
+    , replace(xmlget(a.allocation_xml , 'net_money'):"$" , ',')::double as net_money
+    , xmlget(a.allocation_xml , 'inquiry_ID'):"$"::string               as inquiry_id
+    , xmlget(a.allocation_xml , 'external_order_ID'):"$"::string        as external_order_id
+    -- We can have multiple versions of the same allocation because we pull a rolling window
+    , case
+        when a._created_at = mxpd.max_created_at
+            then 1
+        else 0
+    end::int                                                            as is_head
+    , a._created_at                                                     as _created_at
+    , a._source_file                                                    as _source_file
+from cte_alloc as a
+left join cte_max_per_day as mxpd
+    on a._created_at = mxpd.max_created_at
+    and xmlget(a.xml , 'tradeDate'):"$"::date = mxpd.trade_date
+where 1 = 1
     and account_type ilike 'aipmanaged'
     and cusip not ilike 'subetf%'
     and cusip not ilike 'mubetf%'

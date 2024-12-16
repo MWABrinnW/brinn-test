@@ -100,9 +100,15 @@ with cte_dates_to_refresh as (
         and effective_date in (select effective_date from cte_dates_to_refresh)
 )
 
-, cte_personal_brokerdealer as (
-    select effective_date, fkalclient, pkbrokerdealer
+, cte_brokerdealer as (
+    select fkalclient, pkbrokerdealer
     from {{ ref('orion__base_vw_brokerdealer') }}
+    where 1 = 1
+)
+
+, cte_personal_brokerdealer as (
+    select effective_date, bd_fkalclient, bd_pkbrokerdealer, bd_pers_entityname
+    from {{ ref('orion__base_vw_personal_brokerdealer') }}
     where 1 = 1
         and effective_date in (select effective_date from cte_dates_to_refresh)
 )
@@ -123,10 +129,7 @@ select
     , a.firm_source                                 as firm_source
     -- CRM --------------------------------------------------------------------
     , upper(a.acctcode)::text(200)                  as account_number_formatted
-    , regexp_replace(
-        ltrim(upper(replace(a.acctcode , '-' , '')) , '0')::text(200)
-        , '\\s{2,}' , ' '
-    )                                               as account_number
+    , upper(replace(a.acctcode , '-' , ''))::text   as account_number
     , cust.name::text(500)                          as custodian
     , a.pkaccount::text(200)                        as account_id
     , regtype.sregdesc::text(200)                   as account_type
@@ -235,10 +238,10 @@ inner join cte_rep as rep
 left join {{ ref('orion__base_vw_personal') }} as repp
     on rep.fkalclient = repp.fkalclient
     and rep.fkpersonal = repp.pkpersonal
-left join cte_personal_brokerdealer as bd
+left join cte_brokerdealer as bd
     on rep.fkalclient = bd.fkalclient
     and rep.fkbrokerdealer = bd.pkbrokerdealer
-left join {{ ref('orion__base_vw_personal_brokerdealer') }} as bdp
+left join cte_personal_brokerdealer as bdp
     on bd.fkalclient = bdp.bd_fkalclient
     and bd.pkbrokerdealer = bdp.bd_pkbrokerdealer
     and a.effective_date = bdp.effective_date

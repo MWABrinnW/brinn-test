@@ -1,0 +1,38 @@
+version: 2
+
+sources:
+  - name: salesforce_mis
+    description: ""
+    database: "{{ var('salesforce_mis_db_src', env_var('DBT_DB__SALESFORCE_MIS', env_var('DBT_DB_RAW_SRC', 'raw_dev'))) }}"
+    loaded_at_field: _created_at
+    tables:
+      - name: account_contact_relation
+        description: ""
+        columns:
+          - name: content
+            description: ""
+          - name: _created_at
+            description: ""
+      - name: estate_item
+        description: ""
+        columns:
+          - name: content
+            description: ""
+          - name: _created_at
+            description: ""
+      - name: estate_item_contact_link
+        description: ""
+        columns:
+          - name: content
+            description: ""
+          - name: _created_at
+            description: ""
+      - name: case
+        description: "Salesforce Compass Case object."
+        columns:
+          - name: content
+            description: ""
+          - name: _created_at
+            description: ""
+          - name: _id
+            description: "Record identity id"

@@ -5,14 +5,11 @@ models:
       - name: EFFECTIVE_DATE
         description: ''
         data_type: DATE
-      - name: PLATFORM
-        description: ''
-        data_type: VARCHAR
-      - name: VENUE
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
         meta:
-          row_access_policy: rap_tradeops_venue
+          row_access_policy: rap_tradeops_system_key
       - name: GROUP_NAME
         description: ''
         data_type: VARCHAR

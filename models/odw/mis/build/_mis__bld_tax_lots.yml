@@ -1,0 +1,94 @@
+version: 2
+models:
+  - name: mis__bld_tax_lots
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: character varying(5)
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: character varying(16777216)
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: character varying(16777216)
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: character varying(16777216)
+      - name: ACCOUNT_ID
+        description: ''
+        data_type: NUMBER(38,0)
+      - name: TICKER
+        description: ''
+        data_type: character varying(50)
+      - name: CUSIP
+        description: ''
+        data_type: character varying(50)
+      - name: IS_CUSTODIAL_CASH
+        description: ''
+        data_type: NUMBER(2,0)
+      - name: QUANTITY
+        description: ''
+        data_type: NUMBER(20,5)
+      - name: CURRENT_PRICE
+        description: ''
+        data_type: NUMBER(20,5)
+      - name: CURRENT_VALUE
+        description: ''
+        data_type: NUMBER(20,2)
+      - name: CURRENT_PRICE_RAW
+        description: ''
+        data_type: NUMBER(20,5)
+      - name: CURRENT_VALUE_RAW
+        description: ''
+        data_type: NUMBER(20,2)
+      - name: CURRENT_PRICE_UNFACTORED
+        description: ''
+        data_type: NUMBER(20,5)
+      - name: CURRENT_VALUE_UNFACTORED
+        description: ''
+        data_type: NUMBER(20,2)
+      - name: FACTOR
+        description: ''
+        data_type: NUMBER(20,12)
+      - name: COST_PER_SHARE
+        description: ''
+        data_type: NUMBER(18,5)
+      - name: COST_BASIS
+        description: ''
+        data_type: NUMBER(20,2)
+      - name: ACQUIRED_DATE
+        description: ''
+        data_type: DATE
+      - name: PRODUCT_TYPE
+        description: ''
+        data_type: character varying(50)
+      - name: ASSET_CLASS
+        description: ''
+        data_type: character varying(16777216)
+      - name: PRODUCT_CATEGORY
+        description: ''
+        data_type: character varying(200)
+      - name: PRODUCT_ID
+        description: ''
+        data_type: NUMBER(38,0)
+      - name: ASSET_ID
+        description: ''
+        data_type: NUMBER(38,0)
+      - name: LOT_ID
+        description: ''
+        data_type: NUMBER(38,0)
+      - name: IS_PERFORM
+        description: ''
+        data_type: NUMBER(38,0)
+      - name: IS_MOXY
+        description: ''
+        data_type: NUMBER(38,0)
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_LTZ

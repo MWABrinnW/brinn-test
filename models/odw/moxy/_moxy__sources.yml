@@ -3,13 +3,25 @@ version: 2
 sources:
   - name: moxy
     description: ""
-    database: "{{ var('db_raw', env_var('DBT_DB_RAW', 'raw')) }}"
+    database: "{{ var('moxy_db_src', env_var('DBT_DB__MOXY', env_var('DBT_DB_RAW_SRC', 'raw'))) }}"
     tables:
       - name: asset_custodial_comparison_1
-        description: ""
+        description: "soon to be legacy"
       - name: asset_custodial_comparison_2
-        description: ""
+        description: "soon to be legacy"
       - name: audit_all_accounts
-        description: ""
+        description: "soon to be legacy"
+      - name: accounts
+        description: "Accounts extracted from Moxy."
+      - name: allocations
+        description: "Allocations extracted from Moxy."
       - name: pending_transactions
         description: ""
+      - name: positions
+        description: "Held positions exported from Moxy. Used in SOD Import Report."
+      - name: realized_gainloss_ytd
+        description: "Orion data query 19093. Redshift doesn't currently have the data necessary to recreate the RGL data needed for Moxy."
+      - name: securities
+        description: "Securities exported from Moxy. Used in the assets build for import to Moxy."
+      - name: securities_postimport
+        description: "Securities exported from Moxy immediately after an import. Used in post-import reporting."

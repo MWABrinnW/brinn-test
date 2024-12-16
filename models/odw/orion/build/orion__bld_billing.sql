@@ -280,9 +280,11 @@ select
   , a.primebrokerageagreement       as acct_primebrokerageagreement
   , a.marginagreement               as acct_marginagreement
   , a.optionlevel                   as acct_optionlevel
-  , regexp_replace(
-            ltrim(upper(replace(a.acctcode, '-', '')), '0')::text(200)
-        , '\\s{2,}', ' ')           as account_number
+  , upper(
+        replace(
+            a.acctcode, '-', ''
+            )
+    )                               as account_number
   , a.acctcode                      as acct_acctcode
   , a.secondaryacctcode             as acct_secondaryacctcode
   , a.pkmdlaccount                  as acct_pkmdlaccount

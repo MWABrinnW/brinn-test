@@ -93,7 +93,7 @@ with cte_destination_summary as (
     select effective_date, custodian, firm_source, max(_created_at) as _created_at, max(_source_loaded_at) as _source_loaded_at
     from {{ this }}
     where 1 = 1
-        and effective_date >= (current_date() - {{ var('lookback_custodial', 30) }})
+        and effective_date >= (current_date() - {{ cvar('lookback_custodial') }})
         {{ incremental_date_filter(
             source_col_name='effective_date',
             target_col_name='effective_date',
@@ -118,7 +118,7 @@ with cte_destination_summary as (
         and a.custodian = b.custodian
         and a.firm_source = b.firm_source
     where 1=1
-        and a.effective_date >= (current_date() - {{ var('lookback_custodial', 30) }})
+        and a.effective_date >= (current_date() - {{ cvar('lookback_custodial') }})
         {{ incremental_date_filter(
             source_col_name='a.effective_date',
             target_col_name='effective_date',
@@ -172,7 +172,7 @@ select count(*) as cnt from cte_dates_to_refresh
     select *
     from {{ ref(nml_model) }}
     where 1 = (select case when (select count(*) from cte_dates_to_refresh) > 0 then 1 else 0 end)
-        and effective_date >= (current_date() - {{ var('lookback_custodial', 30) }})
+        and effective_date >= (current_date() - {{ cvar('lookback_custodial') }})
         {{ incremental_date_filter(
             source_col_name='effective_date',
             target_col_name='effective_date',
@@ -234,7 +234,7 @@ select count(*) as cnt from cte_dates_to_refresh
         , _source_file                  as _source_file
     from {{ ref(nml_model) }}
     where 1 = (select case when (select count(*) from cte_dates_to_refresh) > 0 then 1 else 0 end)
-        and effective_date >= (current_date() - {{ var('lookback_custodial', 30) }})
+        and effective_date >= (current_date() - {{ cvar('lookback_custodial') }})
         {{ incremental_date_filter(
             source_col_name='effective_date',
             target_col_name='effective_date',

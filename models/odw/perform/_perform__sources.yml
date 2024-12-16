@@ -3,7 +3,23 @@ version: 2
 sources:
   - name: perform
     description: ""
-    database: "{{ var('db_raw', env_var('DBT_DB_RAW', 'raw')) }}"
+    database: "{{ var('perform_db_src', env_var('DBT_DB__PERFORM', env_var('DBT_DB_RAW', 'raw'))) }}"
     tables:
       - name: allocations
         description: ""
+      - name: accounts
+        description: "Perform accounts extracted from the API. Used in the MIS SOD build for Perform imports."
+      - name: holdings
+        description: "Perform holdings extracted from the API. Supplements acquired date and cost basis in the Perform assets build."
+      - name: accounts_ready_to_invest
+        description: "Box file 1689234463119"
+      - name: accounts_feeding_new
+        description: "Box file 1689234463119"
+      - name: accounts_ready_for_review
+        description: "Box file 1689234463119"
+      - name: accounts_failures
+        description: "Box file 1689234463119"
+      - name: accounts_build_history
+        description: "History of account builds. These are snapshotted during the SOD upload process."
+      - name: assets_build_history
+        description: "History of asset builds. These are snapshotted during the SOD upload process."

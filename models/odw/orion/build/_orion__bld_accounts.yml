@@ -1,6 +1,12 @@
 version: 2
 models:
   - name: orion__bld_accounts
+    data_tests:
+      - dbt_expectations.expect_compound_columns_to_be_unique:
+          column_list: ["effective_date", "fkalclient", "account_id"]
+          ignore_row_if: "any_value_is_missing"
+          quote_columns: false
+          row_condition: "effective_date >= current_date() - 4"
     columns:
       - name: EFFECTIVE_DATE
         description: ''

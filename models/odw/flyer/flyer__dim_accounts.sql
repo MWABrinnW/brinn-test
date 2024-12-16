@@ -20,8 +20,9 @@ with cte_account_max_record as (
 )
 
 select
-    a.platform
-    , a.venue
+    'copilot'::text                          as system_name
+    , 'mwa-options'                          as system_instance
+    , system_name || '__' || system_instance as system_key
     , a.account_id
     , a.account_number
     , a.account_name
@@ -30,7 +31,7 @@ select
         when mc.max_created_at is not null
             then 1
         else 0
-    end::int            as is_active
+    end::int                                 as is_active
     , a.start_date
     , ca.total_value
     , ca.is_margin_enabled
@@ -51,9 +52,13 @@ select
     --, a.cash_reserve
     --, a.percent_or_value
     --, a.sleeves
-    , a._created_at     as last_collected_at
-    , mr.min_created_at as first_collected_at
+    , a._created_at                          as last_collected_at
+    , mr.min_created_at                      as first_collected_at
     , a.effective_date
+    , {{ col_is_head(
+        reference=ref('flyer__stg_accounts'),
+        source_date_col='a.effective_date'
+        ) }}
     , a._source_file
     , a._uri
     , a._env

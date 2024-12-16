@@ -1,6 +1,5 @@
 select
-    a.platform                                      as platform
-    , a.venue                                       as venue
+    a.system_key                                    as system_key
     , a.account_id                                  as account_id
     , a.account_number                              as account_number
     , a.account_name                                as account_name
@@ -17,6 +16,7 @@ select
         s.household__r_client_manager__r_name , ' (EMP)' , 1
     )                                               as advisor
     , s.model_on_account__r_name                    as model_name
+    , iff(sod.account_no is not null , 1 , 0)       as is_linked
     , s.household__r_name                           as crm_household_name
     , s.name                                        as crm_account_name
     , s.household__c                                as crm_household_id
@@ -32,7 +32,7 @@ select
 from {{ ref('flyer__dim_accounts') }} as a
 left join {{ ref('flyer__stg_sod_accounts_history') }} as sod
     on a.effective_date = sod.effective_date
-    and a.account_number = sod.account_no
+    and a.account_number = replace(sod.account_no , '-' , '')
     and sod.is_head = 1
 left join {{ ref('flyer__stg_sod_salesforce_accounts') }} as s
     on a.account_number = replace(trim(s.identifier__c) , '-' , '')

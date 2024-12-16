@@ -2,31 +2,40 @@ version: 2
 models:
   - name: tradeops__accounts
     columns:
-      - name: PLATFORM
-        description: ''
-        data_type: VARCHAR
-      - name: VENUE
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
         meta:
-          row_access_policy: rap_tradeops_venue
+          row_access_policy: rap_tradeops_system_key
       - name: ACCOUNT_ID
         description: ''
         data_type: NUMBER
       - name: ACCOUNT_NUMBER
-        description: ''
+        description: 'End-client account number at Schwab.'
         data_type: VARCHAR
       - name: ACCOUNT_NAME
         description: ''
         data_type: VARCHAR
       - name: CUSTODIAN
+        description: 'Custodian name, lower-case, no spaces.'
+        data_type: VARCHAR
+      - name: TOTAL_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: IS_MARGIN_ENABLED
+        description: ''
+        data_type: NUMBER
+      - name: IS_MULTIPLE_MARGIN_ENABLED
+        description: ''
+        data_type: NUMBER
+      - name: OPTIONS_APPROVAL_LEVEL
         description: ''
         data_type: VARCHAR
       - name: IS_ACTIVE
         description: ''
         data_type: NUMBER
       - name: ACCOUNT_TYPE
-        description: ''
+        description: 'Type of account at Schwab. For a full list of codes and definitions see the tab "Account Type Codes."'
         data_type: VARCHAR
       - name: STATUS
         description: ''
@@ -40,13 +49,13 @@ models:
       - name: MODEL_NAME
         description: ''
         data_type: VARCHAR
+      - name: IS_LINKED
+        description: ''
+        data_type: NUMBER
       - name: CRM_HOUSEHOLD_NAME
         description: ''
         data_type: VARCHAR
       - name: CRM_ACCOUNT_NAME
-        description: ''
-        data_type: VARCHAR
-      - name: CRM_HOUSEHOLD_NAME_2
         description: ''
         data_type: VARCHAR
       - name: CRM_HOUSEHOLD_ID

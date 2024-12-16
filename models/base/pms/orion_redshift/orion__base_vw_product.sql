@@ -6,6 +6,22 @@
     on_schema_change='sync_all_columns'
 ) }}
 
+with cte_records_to_update as (
+    select
+        a.content:pkproduct::integer    as pkproduct
+        , a.content:fkalclient::integer as fkalclient
+    from {{ source('orion', 'vw_product') }} as a
+    {% if is_incremental() -%}
+        left join {{ this }} as b
+            on a.content:fkalclient::int = b.fkalclient
+            and a.content:pkproduct::int = b.pkproduct
+        where 1 = 1
+            and (
+                a.content:createddate::timestamp > b.createddate
+                or b.pkproduct is null
+            )
+    {% endif -%}
+)
 
 select
     ci.clientname                                              as clientname
@@ -99,9 +115,6 @@ select
             then 1
         else 0
     end                                                        as is_head
-    , {{ col_is_current(
-        date_col='max(ed.prior_market_date) over (partition by 1 = 1)'
-        ) }}
     , a._is_full::int                                          as _is_full
     , a._created_at::timestamp_ntz                             as _created_at
     , a._source_file                                           as _source_file
@@ -111,8 +124,10 @@ inner join {{ ref('orion__base_vw_clientinfo') }} as ci
     on a.content:fkalclient::int = ci.pkalclient
 left join {{ ref('dates') }} as ed
     on a._extracted_at::date = ed.date_key
+{% if is_incremental() -%}
+    inner join cte_records_to_update as rtu
+        on a.content:fkalclient::int = rtu.fkalclient
+        and a.content:pkproduct::int = rtu.pkproduct
+{% endif -%}
 where 1 = 1
-    {% if is_incremental() -%}
-        and a.content:createddate::timestamp > (select max(t.createddate) from {{ this }} as t)
-    {% endif -%}
 order by a.content:fkalclient::int , a.content:pkproduct::int

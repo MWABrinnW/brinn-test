@@ -100,4 +100,5 @@ where 1 = 1
     {% if is_incremental() -%}
         and a.content:createddate::timestamp > (select max(t.createddate) from {{ this }} as t)
     {% endif -%}
+qualify row_number() over (partition by fkalclient , fkasset order by a._created_at desc) = 1
 order by a.content:fkalclient::int , a.content:fkasset::int

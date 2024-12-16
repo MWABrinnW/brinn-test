@@ -15,12 +15,15 @@ models:
         description: 'The date the trade was executed. NOTE: This field is not the same as the "Transaction Date" in Schwab''s legacy transaction files. To match the Transaction Date in the legacy files, use ''Transaction Date'' instead.'
         data_type: DATE
       - name: CUSTODIAN
-        description: ''
+        description: 'Custodian name, lower-case, no spaces.'
         data_type: VARCHAR
       - name: ACCOUNT_NUMBER
         description: 'End-client account number at Schwab'
         data_type: VARCHAR
       - name: SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: INTERNAL_SOURCES
         description: ''
         data_type: VARCHAR
       - name: UNITS_INTERNAL
@@ -41,6 +44,12 @@ models:
       - name: MATCH_TYPE
         description: ''
         data_type: VARCHAR
+      - name: IS_MATCHED
+        description: ''
+        data_type: NUMBER
+      - name: GROUPS
+        description: ''
+        data_type: ARRAY
       - name: ACCOUNT_NAME
         description: ''
         data_type: VARCHAR

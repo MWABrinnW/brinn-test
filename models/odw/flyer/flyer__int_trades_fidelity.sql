@@ -6,19 +6,25 @@ with cte_flyer as (
     where is_head_for_day = 1 and custodian ilike 'fidelity'
     group by 1 , 2
 )
+
 , cte_allocations as (
-    select account_number, execution_date as trade_date
+    select
+        account_number
+        , execution_date as trade_date
     from {{ ref('fourforty__int_orders_allocations') }}
-    group by 1,2
+    group by 1 , 2
 
-    union
+    union distinct
 
-    select member_account as account_number, trading_session_date as trade_date
+    select
+        member_account         as account_number
+        , trading_session_date as trade_date
     from {{ ref('flyer__stg_orders_allocations') }}
-    group by 1,2
+    group by 1 , 2
 )
 
-select a.*
+select
+    a.*
     , case when b.account_number is not null then 1 else 0 end as is_in_sod
     , case when c.account_number is not null then 1 else 0 end as is_in_allocations
 from {{ ref('nml_fidelity_mwa_trades') }} as a

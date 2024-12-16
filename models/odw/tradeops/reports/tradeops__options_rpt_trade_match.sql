@@ -1,4 +1,5 @@
 {{ config(
+    tags = ['options', 'copilot', 'trading'],
     grants = {'select': ['trading_options']}
 ) }}
 
@@ -35,7 +36,7 @@ with cte_internal as (
                 then a.member_quantity * -1
             else a.member_quantity
         end)                                  as internal_units
-        , a.platform                          as source
+        , a.system_key                        as source
     from {{ ref('flyer__stg_orders_allocations') }} as a
     left join {{ ref('flyer__stg_accounts') }} as acc
         on a.member_account = acc.account_number

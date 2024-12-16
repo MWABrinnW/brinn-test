@@ -1,6 +1,6 @@
+-- [Copilot]
 select
-    a.platform                                                 as platform
-    , a.venue                                                  as venue
+    a.system_key::text                                         as system_key
     , case a.order_current_order_status
         when '0' then 'New'
         when '1' then 'Partially filled'
@@ -19,7 +19,7 @@ select
         when 'E' then 'Pending Replace'
         when null then 'Cancelled'
         else a.order_current_order_status
-        end::text(200)                                          as order_status
+    end::text                                                  as order_status
     , case a.current_allocation_status
         when 0 then 'Accepted'
         when 1 then 'Block level reject'
@@ -37,55 +37,59 @@ select
         when 13 then 'Pending take-up approval'
         when 14 then 'Reversal pending'
         else 'Unknown'
-    end::text(200)                                             as allocation_status
-    , a.order_trade_date                                       as trade_date
+    end::text                                                  as allocation_status
+    , a.order_trade_date::date                                 as trade_date
     , a.transaction_time::timestamp_tz                         as trade_executed_at
-    , a.order_client_order_id                                  as order_id
-    , a.member_original_client_order_id                        as order_id_account
-    , a.order_block_id                                         as block_id
-    , a.alloc_id                                               as allocation_id
-    , a.member_indiv_alloc_id                                  as allocation_id_account
+    , a.order_client_order_id::text                            as order_id
+    , a.member_original_client_order_id::text                  as order_id_account
+    , a.order_block_id::text                                   as block_id
+    , a.alloc_id::text                                         as allocation_id
+    , a.member_indiv_alloc_id::text                            as allocation_id_account
 
-    , acc.custodian                                            as custodian
-    , a.target_comp_id                                         as broker_name
+    , acc.custodian::text                                      as custodian
+    , a.target_comp_id::text                                   as broker_name
     , case
         when lower(a.target_comp_id) != lower(acc.custodian)
             then 1
         else 0
     end::int                                                   as is_trade_away
-    , a.member_account                                         as account_number
+    , a.member_account::text                                   as account_number
+    , null::text                                               as account_id
 
-    , a.order_asset_class                                      as asset_class
-    , a.symbol                                                 as ticker
-    , a.underlying_symbol                                      as underlying_ticker
-    , a.member_original_order_qty                              as order_quantity
-    , a.member_quantity                                        as filled_quantity
-    , a.member_price                                           as price
-    , a.member_avg_price                                       as average_price
-    , a.member_net_money                                       as net_amount
+    , a.order_asset_class::text                                as asset_class
+    , a.symbol::text                                           as symbol
+    , a.symbol::text                                           as ticker
+    , null::text                                               as cusip
+    , a.underlying_symbol::text                                as underlying_ticker
+    , a.member_original_order_qty::decimal(20 , 5)             as order_quantity
+    , a.member_quantity::decimal(20 , 5)                       as filled_quantity
+    , a.member_price::decimal(20 , 5)                          as price
+    , a.member_avg_price::decimal(20 , 5)                      as average_price
+    , a.member_net_money::decimal(20 , 2)                      as net_amount
 
     , case
         when a.side = 1
             then 'BUY'
         when a.side = 2
             then 'SELL'
-    end::text(200)                                             as order_side
+    end::text                                                  as order_side
     -- Is this the id for order effect?
-    , a.order_type                                             as order_effect
+    , a.order_type::text                                       as order_effect
 
-    , a.member_principal::decimal(18 , 2)                      as principal
-    , a.member_comm::decimal(18 , 2)                           as commission
-    , a.member_accrued_interest_amount::decimal(18 , 2)        as interest
-    , (a.member_sec_fee + a.member_other_fee)::decimal(18 , 2) as fees
+    , a.member_principal::decimal(20 , 2)                      as principal
+    , a.member_comm::decimal(20 , 2)                           as commission
+    , a.member_accrued_interest_amount::decimal(20 , 2)        as interest
+    , (a.member_sec_fee + a.member_other_fee)::decimal(20 , 2) as fees
 
-    , a.order_trader_name                                      as created_by
+    , a.order_trader_name::text                                as created_by
 
-    , a.order_option_maturity_date                             as option_expiration_date
-    , a.order_option_strike_price                              as option_strike_price
-    , a.order_option_put_or_call                               as option_type
+    , a.order_option_maturity_date::date                       as option_expiration_date
+    , a.order_option_strike_price::decimal(20 , 5)             as option_strike_price
+    , a.order_option_put_or_call::text                         as option_type
 
-    , a._created_at                                            as last_collected_at
-    --, a._source_file                                           as _source_file
+    , a._created_at::timestamp_ntz                             as _created_at
+    , a.system_name::text                                      as system_name
+    , a.system_instance::text                                  as system_instance
 
     , object_construct(a.*)                                    as _extra_fields
 from {{ ref('flyer__stg_orders_allocations') }} as a
@@ -100,67 +104,169 @@ where 1 = 1
     --and coalesce(a.member_net_money,0) <> 0
     and a._env = {{ "'" ~ copilot_env() ~ "'" }}
 
+
+-- [FourForty]
 union all
 
 select
-    platform
-    , venue
+    system_key::text                as system_key
     , null::text(200)               as order_status
     , null::text(200)               as allocation_status
-    , execution_date                as trade_date
+    , execution_date::date          as trade_date
     , execution_at::timestamp_tz    as trade_executed_at
-    , source_order_id               as order_id
-    , account_number                as order_id_account
-    , null::text(200)               as block_id
-    , allocation_id                 as allocation_id
-    , account_number                as allocation_id_account
-    , custodian                     as custodian
-    , broker_name                   as broker_name
-    , is_trade_away                 as is_trade_away
-    , account_number                as account_number
-    , source_security_type          as asset_class
-    , ticker                        as ticker
+    , source_order_id::text         as order_id
+    , account_number::text          as order_id_account
+    , null::text                    as block_id
+    , allocation_id::text           as allocation_id
+    , account_number::text          as allocation_id_account
+    , custodian::text               as custodian
+    , broker_name::text             as broker_name
+    , is_trade_away::int            as is_trade_away
+    , account_number::text          as account_number
+    , null::text                    as account_id
+    , source_security_type::text    as asset_class
+    , ticker::text                  as symbol
+    , ticker::text                  as ticker
+    , null::text                    as cusip
     , case
         when source_security_type = 'OPTION'
             then regexp_substr(
-                ticker, '^(\\D+)(\\d{6,7})(C|P)(\\d+(\\.\\d+)?)', 1, 1, 'e', 1
-            )
-            else null
-            end::text(200)          as underlying_ticker
-    , null::decimal(20, 5)          as order_quantity
-    , units_shares                  as filled_quantity
-    , price                         as price
-    , null::decimal(20, 5)          as average_price
-    , net                           as net_amount
-    , buy_sell                      as order_side
-    , order_type                    as order_effect
-    , principal                     as principal
-    , commission                    as commission
-    , interest                      as interest
-    , null::decimal(20,2)           as fees
-    , null::text(200)               as created_by
+                    ticker , '^(\\D+)(\\d{6,7})(C|P)(\\d+(\\.\\d+)?)' , 1 , 1 , 'e' , 1
+                )
+    end::text                       as underlying_ticker
+    , null::decimal(20 , 5)         as order_quantity
+    , units_shares::decimal(20 , 5) as filled_quantity
+    , price::decimal(20 , 5)        as price
+    , null::decimal(20 , 5)         as average_price
+    , net::decimal(20 , 2)          as net_amount
+    , buy_sell::text                as order_side
+    , order_type::text              as order_effect
+    , principal::decimal(20 , 2)    as principal
+    , commission::decimal(20 , 2)   as commission
+    , interest::decimal(20 , 2)     as interest
+    , null::decimal(20 , 2)         as fees
+    , null::text                    as created_by
     , case
         when source_security_type = 'OPTION'
             then try_to_date(regexp_substr(
-                ticker, '^(\\D+)(\\d{6,7})(C|P)(\\d+(\\.\\d+)?)', 1, 1, 'e', 2
-            ), 'YYMMDD')
-        else null
-        end::date                   as option_expiration_date
+                    ticker , '^(\\D+)(\\d{6,7})(C|P)(\\d+(\\.\\d+)?)' , 1 , 1 , 'e' , 2
+                ) , 'YYMMDD')
+    end::date                       as option_expiration_date
     , case
         when source_security_type = 'OPTION'
             then (regexp_substr(
-                ticker, '^(\\D+)(\\d{6,7})(C|P)(\\d+(\\.\\d+)?)', 1, 1, 'e', 4
+                ticker , '^(\\D+)(\\d{6,7})(C|P)(\\d+(\\.\\d+)?)' , 1 , 1 , 'e' , 4
             )::int / 1000)
-            else null
-            end::decimal(20 , 2)    as option_strike_price
+    end::decimal(20 , 2)            as option_strike_price
     , case
         when source_security_type = 'OPTION'
             then regexp_substr(
-                    ticker, '^(\\D+)(\\d{6,7})(C|P)(\\d+(\\.\\d+)?)', 1, 1, 'e', 3
+                    ticker , '^(\\D+)(\\d{6,7})(C|P)(\\d+(\\.\\d+)?)' , 1 , 1 , 'e' , 3
                 )
-            else null
-            end::text(200)          as option_type
-    , _created_at                   as last_collected_at
+    end::text(200)                  as option_type
+    , _created_at::timestamp_ntz    as _created_at
+    , system_name::text             as system_name
+    , system_instance::text         as system_instance
     , null::variant                 as _extra_fields
 from {{ ref('fourforty__int_orders_allocations') }}
-order by trade_date desc, trade_executed_at
+
+-- [Perform]
+union all
+
+select
+    a.system_key::text              as system_key
+    -- Not in source.
+    , null::text                    as order_status
+    -- Not in source.
+    , null::text                    as allocation_status
+    , a.trade_date                  as trade_date
+    , a.traded_at                   as trade_executed_at
+    , a.order_id::text              as order_id
+    , null::text                    as order_id_account
+    , null::text                    as block_id
+    , null::text                    as allocation_id
+    , concat_ws(
+        '_'
+        , a.trade_date , a.account_number , a.cusip , a.order_id
+    )                               as allocation_id_account
+    , lower(a.custodian)            as custodian
+    , a.broker_name::text           as broker_name
+    , a.trade_away::int             as is_trade_away
+    , a.account_number::text        as account_number
+    , a.portfolio_id::text          as account_id
+    , a.source_security_type::text  as asset_class
+    , a.cusip::text                 as symbol
+    , null::text                    as ticker
+    , a.cusip::text                 as cusip
+    , null::text                    as underlying_ticker
+    , a.units::decimal(20 , 5)      as order_quantity
+    , a.units::decimal(20 , 5)      as filled_quantity
+    , a.unit_price::decimal(20 , 5) as price
+    , a.unit_price::decimal(20 , 5) as average_price
+    , a.net::decimal(20 , 2)        as net_amount
+    , upper(a.order_side)           as order_side
+    , a.order_effect::text          as order_effect
+    , a.principal::decimal(20 , 2)  as principal
+    , null::decimal(20 , 2)         as commission
+    , a.interest::decimal(20 , 2)   as interest
+    , null::decimal(20 , 2)         as fees
+    , a.trader::text                as created_by
+    , null::date                    as option_expiration_date
+    , null::decimal(20 , 2)         as option_strike_price
+    , null::text                    as option_type
+    , a._created_at::timestamp_ntz  as _created_at
+    , a.system_name::text           as system_name
+    , a.system_instance::text       as system_instance
+    , null::variant                 as _extra_fields
+from {{ ref('perform__fct_allocations') }} as a
+where 1 = 1
+
+-- [Moxy]
+union all
+
+select
+    a.system_key::text             as system_key
+    -- Not in source.
+    , null::text                   as order_status
+    -- Not in source.
+    , null::text                   as allocation_status
+    , a.trade_date                 as trade_date
+    , a.traded_at                  as trade_executed_at
+    , a.order_id::text             as order_id
+    , null::text                   as order_id_account
+    , null::text                   as block_id
+    , a.allocation_id::text        as allocation_id
+    , concat_ws(
+        '_'
+        , a.trade_date , a.account_number , a.cusip , a.order_id
+    )                              as allocation_id_account
+    , lower(a.custodian)::text     as custodian
+    , a.broker_name::text          as broker_name
+    , a.trade_away::int            as is_trade_away
+    , a.account_number::text       as account_number
+    , a.portfolio_id::text         as account_id
+    , a.source_security_type::text as asset_class
+    , a.symbol::text               as symbol
+    , a.symbol::text               as ticker
+    , a.cusip::text                as ticker
+    , null::text                   as underlying_ticker
+    , a.quantity::decimal(20 , 5)  as order_quantity
+    , a.quantity::decimal(20 , 5)  as filled_quantity
+    , a.price::decimal(20 , 5)     as price
+    , a.price::decimal(20 , 5)     as average_price
+    , a.net::decimal(20 , 2)       as net_amount
+    , upper(a.order_side)          as order_side
+    , a.order_effect::text         as order_effect
+    , a.principal::decimal(20 , 2) as principal
+    , null::decimal(20 , 2)        as commission
+    , a.interest::decimal(20 , 2)  as interest
+    , null::decimal(20 , 2)        as fees
+    , a.trader::text               as created_by
+    , null::date                   as option_expiration_date
+    , null::decimal(20 , 2)        as option_strike_price
+    , null::text                   as option_type
+    , a._created_at::timestamp_ntz as _created_at
+    , a.system_name::text          as system_name
+    , a.system_instance::text      as system_instance
+    , null::variant                as _extra_fields
+from {{ ref('moxy__fct_allocations') }} as a

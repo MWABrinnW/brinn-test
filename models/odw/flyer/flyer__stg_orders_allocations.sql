@@ -10,8 +10,9 @@ with cte_max_per_day as (
 )
 
 select distinct
-     'copilot'::text(200)                                                               as platform
-    , 'mwa-options'::text(200)                                                          as venue
+     'copilot'::text as system_name
+    , 'mwa-options' as system_instance
+    , system_name || '__' || system_instance as system_key
     , a.json:allocId::text(200)                                                         as alloc_id
     , a.json:userId::text(200)                                                          as user_id
     , a.json:tradingSessionId::text(200)                                                as trading_session_id

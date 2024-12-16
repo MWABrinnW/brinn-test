@@ -13,8 +13,9 @@ with cte_max as (
 )
 
 select
-     'copilot'::text(200)                            as platform
-    , 'mwa-options'::text(200)                       as venue
+     'copilot'::text as system_name
+    , 'mwa-options' as system_instance
+    , system_name || '__' || system_instance as system_key
     , a.json:accountId::int                          as account_id
     , a.json:positionId::int                         as position_id
     , a.json:securityId::text(200)                   as security_id

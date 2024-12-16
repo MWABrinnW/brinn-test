@@ -5,14 +5,11 @@ models:
       - name: EFFECTIVE_DATE
         description: ''
         data_type: DATE
-      - name: PLATFORM
-        description: ''
-        data_type: VARCHAR
-      - name: VENUE
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
         meta:
-          row_access_policy: rap_tradeops_venue
+          row_access_policy: rap_tradeops_system_key
       - name: CUSTODIAN
         description: ''
         data_type: VARCHAR
@@ -37,6 +34,18 @@ models:
       - name: CUSIP
         description: ''
         data_type: VARCHAR
+      - name: OPTION_TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: OPTION_EX_DATE
+        description: ''
+        data_type: DATE
+      - name: OPTION_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: OPTION_STRIKE_PRICE
+        description: ''
+        data_type: NUMBER
       - name: ACTUAL_QUANTITY
         description: ''
         data_type: NUMBER

@@ -5,11 +5,17 @@ models:
       - name: EFFECTIVE_DATE
         description: ''
         data_type: DATE
+      - name: CUSTODIAN
+        description: Custodian name, lower-case, no spaces.
+        data_type: VARCHAR
       - name: ACCOUNT_NUMBER
         description: 'End-client account number at Schwab.'
         data_type: VARCHAR
-      - name: ITEM_ISSUE_ID
-        description: 'Unique internal Schwab security identifier when combined with following field "Rule Set Suffix ID"'
+      - name: SECURITY_ID_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYMBOL
+        description: ''
         data_type: VARCHAR
       - name: TICKER
         description: ''
@@ -39,5 +45,20 @@ models:
         description: ''
         data_type: VARCHAR
       - name: VALUE_DIFF
+        description: ''
+        data_type: VARCHAR
+      - name: SRC
+        description: ''
+        data_type: VARCHAR
+      - name: IS_NIGO
+        description: ''
+        data_type: NUMBER
+      - name: PRODUCT_TYPE_SOURCE_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE_SOURCE_DEFINITION
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE
         description: ''
         data_type: VARCHAR

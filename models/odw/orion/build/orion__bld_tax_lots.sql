@@ -37,7 +37,6 @@ with cte_max_createddate as (
         {%- endif %}
 )
 
-
 , cte_asset_value as (
     select fkalclient, fkasset, effective_date, unitbalance, calculatedvalue, navprice, createddate
     from {{ ref('orion__base_vw_assetvalue') }}
@@ -139,19 +138,19 @@ select
 
     -- Sum of tax lot units
     , sum(lot_quantity) over (
-        partition by ass.fkalclient , a.pkaccount , ass.fkasset
+        partition by cb.effective_date, ass.fkalclient , a.pkaccount , ass.fkasset
     )::decimal(20 , 4)                                                           as aggregate_lot_quantity
     -- Sum of asset/positions units
     , max(v.unitbalance) over (
-        partition by ass.fkalclient , a.pkaccount , ass.fkasset
+        partition by v.effective_date, ass.fkalclient , a.pkaccount , ass.fkasset
     )::decimal(20 , 4)                                                           as aggregate_asset_quantity
     -- Sum of lot market value
     , sum(lot_value) over (
-        partition by ass.fkalclient , a.pkaccount , ass.fkasset
+        partition by cb.effective_date, ass.fkalclient , a.pkaccount , ass.fkasset
     )::decimal(20 , 2)                                                           as aggregate_lot_value
     -- Sum of asset/positions calculated value
     , max(v.calculatedvalue) over (
-        partition by ass.fkalclient , a.pkaccount , ass.fkasset
+        partition by v.effective_date, ass.fkalclient , a.pkaccount , ass.fkasset
     )::decimal(20 , 2)                                                           as aggregate_asset_value
     , (aggregate_lot_quantity = aggregate_asset_quantity)::int                   as is_quantity_match
     , (aggregate_lot_value = aggregate_asset_value)::int                         as is_value_match
