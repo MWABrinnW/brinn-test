@@ -1,0 +1,19 @@
+version: 2
+
+exposures:
+
+  - name: perform_eod_allocations
+    label: Perform EOD Allocations
+    type: application
+    maturity: high
+    tags: ["mis", "perform"]
+    url: ""
+    description: >
+      The daily process for collecting Perform allocations and submitting to the custodians.
+
+    depends_on:
+      - ref('perform__fct_allocations')
+
+    owner:
+      name: Engineering
+      email: engineering@marinerwealth.com

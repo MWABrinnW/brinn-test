@@ -40,6 +40,7 @@ with cte_internal_allocations as (
     select
         account_number
         , model
+        , trading_id
     from {{ ref('mis__bld_accounts') }}
     where 1 = 1
         and is_active = 1
@@ -83,7 +84,7 @@ with cte_internal_allocations as (
         and t.date >= dateadd('DAY' , -7 , current_date())
         and coalesce(t.is_custodial_cash , 0) = 0
         -- Exclude rejected trades
-        and lower(t.trade_status) not in ('rejected' , 'reversed')
+        and lower(t.trade_status) not in ('rejected' , 'reversed', 'pending')
         -- Exclude dividend reinvestment per Debbie W 12/6/24
         and coalesce(t.notes , '') not ilike '%REINVEST DIVIDEND%'
     group by all
@@ -139,6 +140,7 @@ select
         else 0
     end::int                                        as is_match
 
+    , acc.trading_id                                as trading_id
     , acc.model                                     as model
     , e.product_name                                as product_name
     , e.asset_class                                 as asset_class

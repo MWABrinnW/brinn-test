@@ -7,6 +7,7 @@ select
     , settle_date                                                              as settle_date
     , portfolio_custodian                                                      as custodian
     , account_number                                                           as account_number
+    , portfolio_account_number                                                 as account_number_formatted
     , cusip                                                                    as cusip
     , case
         when side ilike 'buy'
@@ -27,9 +28,6 @@ select
     , dealer_dtc                                                               as broker_id
     , account_type                                                             as owner
     , coalesce(broker_name != custodian , false)                               as trade_away
-    , 'MWA'                                                                    as firm
-    , 'MWA - Fixed Income'                                                     as venue
-    , 'Perform'                                                                as platform
     , created_by                                                               as trader
     , (created_date_utc::string || ' ' || created_time_utc::string)::timestamp as traded_at
     --, (applied_date_utc::string || ' ' || applied_time_utc::string)::timestamp as trade_end_utc
