@@ -18,6 +18,7 @@ with cte_internal_allocations as (
             else
                 sum(units)
         end                 as quantity
+        , null::text        as notes
     from {{ ref('perform__fct_allocations') }}
     where 1 = 1
         and trade_date >= dateadd('DAY' , -7 , current_date())
@@ -53,31 +54,38 @@ with cte_internal_allocations as (
 
 , cte_external_trades as (
     select
-        t.date                as date
-        , t.custodian         as custodian
-        , t.account_number    as account_number
-        , t.symbol            as symbol
-        , t.cusip             as cusip
-        , t.asset_class       as asset_class
-        , t.product_id        as product_id
-        , t.product_name      as product_name
-        , t.product_type      as product_type
-        , t.product_category  as product_category
-        , t.is_custodial_cash as is_custodial_cash
-        , t.asset_id          as asset_id
-        , lower(t.buy_sell)   as order_side
-        , sum(t.quantity)     as quantity
-        , t.trading_systems   as trading_systems
-    from {{ ref ('mis__nml_orion_transactions') }} as t
+        t.date                   as date
+        , t.custodian            as custodian
+        , t.account_number       as account_number
+        , t.symbol               as symbol
+        , t.cusip                as cusip
+        , t.asset_class          as asset_class
+        , t.product_id           as product_id
+        , t.product_name         as product_name
+        , t.product_type         as product_type
+        , t.product_category     as product_category
+        , t.is_custodial_cash    as is_custodial_cash
+        , t.asset_id             as asset_id
+        , max(lower(t.buy_sell)) as order_side
+        , sum(t.quantity)        as quantity
+        , max(t.notes)           as notes
+    from {{ ref ('orion__transactions') }} as t
     inner join cte_all_accounts as a
         on t.account_number = a.account_number
     where 1 = 1
         and t.system_key = 'orion__core'
-        and lower(t.buy_sell) in ('buy' , 'sell')
+        and (lower(t.buy_sell) in ('buy' , 'sell') or t.type_name = 'Trading Expense')
         and t.date >= dateadd('DAY' , -7 , current_date())
         and coalesce(t.is_custodial_cash , 0) = 0
         -- Exclude rejected trades
-        and lower(t.trade_status) not in ('rejected' , 'reversed')
+        and lower(t.trade_status) not in ('rejected' , 'reversed' , 'pending')
+        -- Exclude maturity/redemption transactions per Omar 12/17/24.
+        -- 'RO_RDM' & 'REDEMP/CONVERSION' is what we found with the examples
+        -- but it's possible other maturity-like events could present a
+        -- different notation and need added.
+        and coalesce(t.notes , '') not ilike '%RO_RDM%'
+        and coalesce(t.notes , '') not ilike '%REDEMP/CONVERSION%'
+        and coalesce(t.notes , '') not ilike '%REDEMPTION PAYOUT%'
     group by all
 )
 
@@ -120,6 +128,7 @@ select
     , e.product_category
     , e.product_id
     , e.asset_id
+    , coalesce(i.notes , e.notes)                   as notes
 from cte_internal_allocations as i
 full outer join cte_external_trades as e
     on i.trade_date = e.date
