@@ -41,8 +41,6 @@ with cte_union as (
         , associate_id::varchar(200)                     as associate_id
         , fee_type::varchar(600)                         as fee_type
         , fee_schedule_source::varchar(600)              as fee_schedule_source
-        , fee_schedule_type::varchar(600)                as fee_schedule_type
-        , fee_schedule::varchar(600)                     as fee_schedule
         , assets_as_of_date::date                        as assets_as_of_date
         , fee_calculation_date::date                     as fee_calculation_date
         , effective_fee_rate::number(20 , 5)             as effective_fee_rate
@@ -148,8 +146,6 @@ with cte_union as (
         , associate_id
         , fee_type
         , fee_schedule_source
-        , fee_schedule_type
-        , fee_schedule
         , assets_as_of_date
         , fee_calculation_date
         , effective_fee_rate
@@ -214,11 +210,7 @@ with cte_union as (
     from {{ ref('stg_bills_legacy_wealth') }}
 )
 
-select
-    *
-    exclude (
-        fee_schedule , fee_schedule_type
-    )
+select *
 from cte_union
 where true
     and system_key in (
