@@ -1,7 +1,7 @@
 sources:
   - name: youtrack
     description: ""
-    database: "{{ var('db_raw_dev', env_var('DBT_DB_RAW_DEV', 'raw')) }}"
+    database: raw
     schema: youtrack
     tables:
       - name: users
