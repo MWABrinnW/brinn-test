@@ -15,7 +15,7 @@ with cte_securities as (
 select
     left(sec_type , 2)                           as "type"
     , 'USD'                                      as "iso"
-    , upper(symbol)::text                        as "symbol"
+    , left(upper(symbol)::text, 24)              as "symbol"
     , max(price)                                 as "price"
     , is_intraday_import                         as is_intraday_import
     -- price date aka effective_date

@@ -3,7 +3,7 @@ select
     , portfolio_id                                            as "portfolio"
     , sec_type                                                as "type"
     , 'us'                                                    as "curr"
-    , symbol                                                  as "symbol"
+    , left(symbol, 24)                                        as "symbol"
     -- Negative quantities are indicated by postype = 1
     , iff(quantity < 0 , 1 , 0)::int                          as "postype"
     , to_char(acquired_date , 'YYYYMMDD')                     as "ocdate"
