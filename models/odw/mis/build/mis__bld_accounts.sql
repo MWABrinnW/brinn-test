@@ -2,7 +2,7 @@ with cte_estate_item as (
     select
         name
         , regexp_replace(
-            ltrim(upper(replace(identifier , '-' , '')) , '0')
+            upper(replace(identifier , '-' , ''))
             , '\\s{2,}' , ' '
         )::text                                      as account_number
         , identifier                                 as account_number_formatted

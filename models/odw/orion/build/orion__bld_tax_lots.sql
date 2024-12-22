@@ -82,7 +82,7 @@ select
     , a.system_key                                                               as system_key
     , a.firm_source                                                              as firm_source
     , a.pkaccount                                                                as account_id
-    , replace(replace(ltrim(upper(ass.acctcode) , '0') , '-' , '') , '  ' , ' ') as account_number
+    , upper(replace(ass.acctcode, '-', ''))              as account_number
     , upper(ass.acctcode)                                                        as account_number_formatted
     , ph.hh_pkclient                                                             as household_id
     , ph.hh_pers_entityname                                                      as household_name

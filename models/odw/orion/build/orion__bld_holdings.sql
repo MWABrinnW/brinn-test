@@ -18,7 +18,7 @@ select
     , a.firm_source                                                              as firm_source
     , a.pkaccount                                                                as account_id
     , upper(ass.acctcode)                                                        as account_number_formatted
-    , replace(replace(ltrim(upper(ass.acctcode) , '0') , '-' , '') , '  ' , ' ') as account_number
+    , upper(replace(ass.acctcode, '-', ''))              as account_number
     , ph.hh_pkclient                                                             as household_id
     , ph.hh_pers_entityname                                                      as household_name
     , cust.name                                                                  as custodian
