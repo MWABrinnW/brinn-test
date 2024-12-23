@@ -40,7 +40,7 @@ select
     || iff(a.restriction_notes is not null , '|Restriction Notes (' || a.restriction_notes || ')' , '')
     || iff(a.restriction_notes_2 is not null , '|Restriction Notes (' || a.restriction_notes_2 || ')' , '')
         as memo
-    , a.household_mariner_location_name                                                                     as mariner_location
+    --, a.household_mariner_location_name                                                                     as mariner_location
     , a.registration_type                                                                                   as client_type
     , case
         when a.household_name ilike '%(Client Advisor)%'
