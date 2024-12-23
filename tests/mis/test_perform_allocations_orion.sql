@@ -10,25 +10,24 @@ with a as (
     from {{ ref('perform__fct_allocations') }}
     where 1 = 1
         and trade_date >= current_date() - 4
-        and trade_away::int = 1
     group by all
 )
 
 , b as (
     select
-        a.trade_date                as trade_date
+        a.trade_date                  as trade_date
         , max(case
             when b.trans_type = 10 then 'buy'
             when b.trans_type = 53 then 'sell'
-        end::text)                  as order_side
-        , b.orderid::text           as order_id
-        , count(distinct acct_code) as accounts
-        , max(cusip)                as cusips
-        , sum(b.units)              as units_block
-        , sum(b.units)              as units_allocated
+        end::text)                    as order_side
+        , b.orderid::text             as order_id
+        , count(distinct b.acct_code) as accounts
+        , max(b.cusip)                as cusips
+        , sum(b.units)                as units_block
+        , sum(b.units)                as units_allocated
     from (
-        select distinct trade_date
-        from a
+        select distinct aa.trade_date
+        from a as aa
     ) as a
     left join {{ ref('perform__fct_allocations_orion') }} as b
         on a.trade_date = b.effective_date
