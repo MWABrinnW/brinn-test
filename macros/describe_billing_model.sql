@@ -1,21 +1,5 @@
-{% macro can_sum(field) %}
-    {{ return(field.dtype.lower() in ('integer', 'bigint', 'double precision', 'float', 'real', 'numeric', 'decimal', 'number')) }}
-{% endmacro %}
-
-{% macro can_percentile(field) %}
-    {{ return(field.dtype.lower() in ('integer', 'bigint', 'double precision', 'float', 'real', 'numeric', 'decimal', 'number', 'timestamp', 'timestamptz')) }}
-{% endmacro %}
-
-{% macro get_filtered_columns_in_relation(relation, excluded_columns) %}
-    {%- set columns = adapter.get_columns_in_relation(relation) -%}
-    {%- if excluded_columns is not none -%}
-        {%- set columns = columns | rejectattr('name', 'in', excluded_columns) -%}
-    {%- endif -%}
-    {{ return(columns) }}
-{% endmacro %}
-
 {# date partition field is grouped by month, only allows for date type, must be month end #}
-{% macro describe_model(model, where_clause=none, date_partition=none, excluded_columns=[]) %}
+{% macro describe_billing_model(model, where_clause=none, date_partition=none, exclude_columns=[]) %}
   {# Calculates descriptive statistics for each field in model. Model should be a
       ref() to a dbt model (views work fine) #}
     {%- set where_clause_text = 'where ' ~ where_clause %}
@@ -37,7 +21,7 @@
         {%- endif -%}
     {%- endif -%}
 
-    {%- set fields = get_filtered_columns_in_relation(model, excluded_columns) -%}
+    {%- set fields = get_filtered_columns_in_relation(relation=model, exclude_columns=exclude_columns) -%}
 
   with stats as (
   {% for field in fields -%}

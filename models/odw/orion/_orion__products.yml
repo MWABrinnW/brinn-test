@@ -2,6 +2,16 @@ version: 2
 models:
   - name: orion__products
     data_tests:
+      - compare_describe_to_prod:
+          name: compare_describe_to_prod_orion_products
+          state_database: odw
+          state_schema: orion
+          state_name: products
+          summarize: False
+          exclude_columns: ["_created_at", "is_head", "is_current", "_source_loaded_at", "_source_file", "_source", "createddate"]
+          where_clause: none
+          config:
+            severity: warn
       - dbt_expectations.expect_compound_columns_to_be_unique:
           column_list: ["fkalclient", "product_id"]
           ignore_row_if: "any_value_is_missing"

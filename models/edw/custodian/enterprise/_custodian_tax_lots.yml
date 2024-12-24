@@ -1,6 +1,18 @@
 version: 2
 models:
   - name: custodian_tax_lots
+    data_tests:
+      - compare_describe_to_prod:
+          name: compare_describe_to_prod_custodian_tax_lots
+          state_database: edw
+          state_schema: enterprise
+          state_name: custodian_tax_lots
+          summarize: False
+          include_columns: ["effective_date", "custodian", "account_number", "symbol", "ticker", "cusip", "quantity", "current_price", "current_value", "is_cash", "is_sweep", "is_short", "rn_global", "product_type"]
+          exclude_columns: ["_created_at", "is_head", "is_current", "_source_loaded_at", "_source_file"]
+          where_clause: effective_date >= current_date() - 4
+          config:
+            severity: warn
     columns:
       - name: EFFECTIVE_DATE
         description: ''

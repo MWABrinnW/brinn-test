@@ -1,6 +1,18 @@
 version: 2
 models:
 - name: custodian_accounts
+  data_tests:
+    - compare_describe_to_prod:
+        name: compare_describe_to_prod_custodian_accounts
+        state_database: edw
+        state_schema: enterprise
+        state_name: custodian_accounts
+        summarize: False
+        include_columns: ["effective_date", "account_number", "total_value", "cash_value", "firm_source", "custodian"]
+        exclude_columns: ["_created_at", "is_head", "is_current", "_source_loaded_at", "_source_file"]
+        where_clause: effective_date >= current_date() - 7
+        config:
+          severity: warn
   columns:
   - name: EFFECTIVE_DATE
     description: ''

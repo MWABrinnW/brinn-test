@@ -1,6 +1,17 @@
 version: 2
 models:
 - name: dim_custodian_accounts
+  data_tests:
+    - compare_describe_to_prod:
+        name: compare_describe_to_prod_dim_custodian_accounts
+        state_database: edw
+        state_schema: enterprise
+        state_name: dim_custodian_accounts
+        summarize: False
+        exclude_columns: ["_created_at", "is_head", "is_current", "_source_loaded_at", "_source_file"]
+        where_clause: None
+        config:
+          severity: warn
   columns:
   - name: CUSTODIAN
     description: Custodian name, lower-case, no spaces.

@@ -1,6 +1,17 @@
 version: 2
 models:
   - name: associates
+    data_tests:
+      - compare_describe_to_prod:
+          name: compare_describe_to_prod_associates
+          state_database: edw
+          state_schema: enterprise
+          state_name: associates
+          summarize: False
+          exclude_columns: ["_created_at", "is_head"]
+          where_clause: None
+          config:
+            severity: warn
     columns:
       - name: ASSOCIATE_ID
         description: 'ADP system identifier, exists in Oracle HCM for legacy data reference.  Will be blank for new associates.'

@@ -1,6 +1,18 @@
 version: 2
 models:
   - name: orion__tax_lots
+    data_tests:
+      - compare_describe_to_prod:
+          name: compare_describe_to_prod_orion_tax_lots
+          state_database: odw
+          state_schema: orion
+          state_name: tax_lots
+          summarize: False
+          include_columns: ["effective_date", "system_key", "account_number", "symbol", "ticker", "cusip", "product_type", "product_category", "asset_class", "lot_value", "factor", "aggregate_lot_quantity", "aggregate_asset_quantity", "aggregate_asset_value", "aggregate_lot_value", "fkalclient", "product_id", "asset_id"]
+          exclude_columns: ["_created_at", "is_head", "is_current", "_source_loaded_at", "_source_file", "_source", "createddate"]
+          where_clause: effective_date >= current_date() - 4
+          config:
+            severity: warn
     columns:
       - name: EFFECTIVE_DATE
         description: ''

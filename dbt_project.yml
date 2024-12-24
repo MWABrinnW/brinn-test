@@ -78,7 +78,7 @@ on-run-end:
 data_tests:
   +store_failures: true
   +store_failures_as: view
-  +limit: 500
+  +limit: 1000
 
 # [Configuring models]
 # Full documentation: https://docs.getdbt.com/docs/configuring-models

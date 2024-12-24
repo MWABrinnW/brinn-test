@@ -1,6 +1,17 @@
 version: 2
 models:
   - name: orion__accounts
+    data_tests:
+      - compare_describe_to_prod:
+          name: compare_describe_to_prod_orion_accounts
+          state_database: odw
+          state_schema: orion
+          state_name: accounts
+          summarize: False
+          exclude_columns: ["_created_at", "is_head", "is_current", "_source_loaded_at", "_source_file", "_source", "createddate"]
+          where_clause: effective_date >= current_date() - 4
+          config:
+            severity: warn
     columns:
       - name: EFFECTIVE_DATE
         description: ''
