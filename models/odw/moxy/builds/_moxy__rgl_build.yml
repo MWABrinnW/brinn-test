@@ -1,0 +1,25 @@
+version: 2
+models:
+  - name: moxy__rgl_build
+    columns:
+      - name: PORTFOLIO
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: CURR
+        description: ''
+        data_type: VARCHAR
+      - name: POSIDATE
+        description: ''
+        data_type: VARCHAR
+      - name: RYTDGAIN
+        description: ''
+        data_type: NUMBER
+      - name: RYTDGAINLNG
+        description: ''
+        data_type: NUMBER
+      - name: IS_INTRADAY_IMPORT
+        description: ''
+        data_type: NUMBER

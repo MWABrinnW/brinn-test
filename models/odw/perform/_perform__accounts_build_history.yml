@@ -1,0 +1,4 @@
+version: 2
+models:
+  - name: perform__accounts_build_history
+    columns: []

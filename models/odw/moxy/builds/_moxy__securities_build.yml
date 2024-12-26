@@ -1,0 +1,22 @@
+version: 2
+models:
+  - name: moxy__securities_build
+    columns:
+      - name: TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ISO
+        description: ''
+        data_type: VARCHAR
+      - name: SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: IS_INTRADAY_IMPORT
+        description: ''
+        data_type: NUMBER

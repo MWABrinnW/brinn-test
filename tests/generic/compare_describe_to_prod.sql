@@ -41,7 +41,7 @@
         {% set prod_query = describe_model_flat_unpivoted(
             model=prod_relation, where_clause=where_clause, include_columns=include_columns, exclude_columns=exclude_columns
             ) -%}
-        {{ audit_helper.compare_queries(
+        {{ compare_queries(
             a_query = prod_query,
             b_query = dev_query,
             summarize = summarize

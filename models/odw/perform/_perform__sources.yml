@@ -7,19 +7,235 @@ sources:
     tables:
       - name: allocations
         description: ""
+        columns:
+          - name: XML
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
       - name: accounts
         description: "Perform accounts extracted from the API. Used in the MIS SOD build for Perform imports."
+        columns:
+          - name: PORTFOLIO_ID
+            description: ''
+            data_type: VARCHAR
+          - name: PORTFOLIO_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: PORT_MGMT_STYLE
+            description: ''
+            data_type: VARCHAR
+          - name: PORT_TAG
+            description: ''
+            data_type: VARCHAR
+          - name: PORT_CUSTODIAN
+            description: ''
+            data_type: VARCHAR
+          - name: ENABLE_INQUIRIES_SYSTEM
+            description: ''
+            data_type: VARCHAR
+          - name: PORTFOLIO_STATE
+            description: ''
+            data_type: VARCHAR
+          - name: PORTFOLIO_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: NOBUYS
+            description: ''
+            data_type: VARCHAR
+          - name: MINCASH
+            description: ''
+            data_type: VARCHAR
+          - name: PORT_TOTAL_CASH
+            description: ''
+            data_type: VARCHAR
+          - name: PORT_MARKET_VALUE_ACCRUED
+            description: ''
+            data_type: VARCHAR
+          - name: CASH_PERCENTAGE
+            description: ''
+            data_type: VARCHAR
+          - name: PORT_AVG_EFFECTIVE_DUR
+            description: ''
+            data_type: VARCHAR
+          - name: PORT_AVG_MATURITY
+            description: ''
+            data_type: VARCHAR
+          - name: PORT_AVG_LIFE_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: PORT_NET_INCOME
+            description: ''
+            data_type: VARCHAR
+          - name: PORT_COUPON_INCOME
+            description: ''
+            data_type: VARCHAR
+          - name: PORT_ACQ_YLD
+            description: ''
+            data_type: VARCHAR
+          - name: PORT_BOOK_YLD
+            description: ''
+            data_type: VARCHAR
+          - name: PORT_AVG_YIELD
+            description: ''
+            data_type: VARCHAR
+          - name: PORT_MTD_TOTAL_RETURN
+            description: ''
+            data_type: VARCHAR
+          - name: FINANCIAL_ADVISOR
+            description: ''
+            data_type: VARCHAR
+          - name: PORT_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: PORT_STATUS_DT
+            description: ''
+            data_type: VARCHAR
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: holdings
         description: "Perform holdings extracted from the API. Supplements acquired date and cost basis in the Perform assets build."
+        columns:
+          - name: ACCOUNT_KEY
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: PRICE
+            description: ''
+            data_type: VARCHAR
+          - name: ACQUIRED_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: SIZE
+            description: ''
+            data_type: VARCHAR
+          - name: COST
+            description: ''
+            data_type: VARCHAR
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: accounts_ready_to_invest
         description: "Box file 1689234463119"
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
       - name: accounts_feeding_new
         description: "Box file 1689234463119"
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
       - name: accounts_ready_for_review
         description: "Box file 1689234463119"
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
       - name: accounts_failures
         description: "Box file 1689234463119"
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
       - name: accounts_build_history
         description: "History of account builds. These are snapshotted during the SOD upload process."
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
       - name: assets_build_history
         description: "History of asset builds. These are snapshotted during the SOD upload process."
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER

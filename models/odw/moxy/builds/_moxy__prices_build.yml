@@ -1,0 +1,22 @@
+version: 2
+models:
+  - name: moxy__prices_build
+    columns:
+      - name: TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ISO
+        description: ''
+        data_type: VARCHAR
+      - name: SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: PRICE
+        description: ''
+        data_type: NUMBER
+      - name: IS_INTRADAY_IMPORT
+        description: ''
+        data_type: NUMBER
+      - name: STDATE
+        description: ''
+        data_type: VARCHAR

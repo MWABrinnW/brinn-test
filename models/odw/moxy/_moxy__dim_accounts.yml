@@ -1,0 +1,46 @@
+version: 2
+models:
+  - name: moxy__dim_accounts
+    columns:
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_ID
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_STATUS_ID
+        description: ''
+        data_type: NUMBER
+      - name: CLOSE_DATE
+        description: ''
+        data_type: DATE
+      - name: USER_DEF_10
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+        data_type: VARCHAR
+      - name: RN
+        description: ''
+        data_type: NUMBER
+      - name: IS_HEAD_FOR_DAY
+        description: ''
+        data_type: NUMBER
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: _ID
+        description: ''
+        data_type: NUMBER

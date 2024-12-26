@@ -1,0 +1,73 @@
+version: 2
+models:
+  - name: perform__fct_allocations_fidelity
+    columns:
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_ACTION
+        description: ''
+        data_type: VARCHAR
+      - name: QUANTITY
+        description: ''
+        data_type: VARCHAR
+      - name: SYMBOL_CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: PRICE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: TIME_IN_FORCE
+        description: ''
+        data_type: VARCHAR
+      - name: STOP_PRICE_LIMIT_PRICE
+        description: ''
+        data_type: VARCHAR
+      - name: QUANTITY_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: EXCHANGE_TO_SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: BLOCK_INDICATOR
+        description: ''
+        data_type: VARCHAR
+      - name: BLOCK_ID
+        description: ''
+        data_type: VARCHAR
+      - name: NAV
+        description: ''
+        data_type: VARCHAR
+      - name: MISC_FEE
+        description: ''
+        data_type: VARCHAR
+      - name: SOL_UNSOL
+        description: ''
+        data_type: VARCHAR
+      - name: NAV_REASON
+        description: ''
+        data_type: VARCHAR
+      - name: REP_OF_ENTRY
+        description: ''
+        data_type: VARCHAR
+      - name: TRADE_AWAY_ID
+        description: ''
+        data_type: VARCHAR
+      - name: PRICE_SHARE
+        description: ''
+        data_type: NUMBER
+      - name: COMMISSION_AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: TRADE_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: SETTLEMENT_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE

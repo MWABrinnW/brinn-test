@@ -1,3 +1,25 @@
+{{ config(enabled = false) }}
+
+with cte_ass as (
+    select
+        accountid
+        , upper(acctcode) as acctcode
+        , fkasset
+    from {{ ref('orion__base_vw_asset') }}
+    where fkalclient = 568
+)
+
+, cte_accounts as (
+    select
+        pms_account_id
+        , is_perform
+        , is_moxy
+        , is_included
+    from {{ ref('mis__bld_accounts') }}
+    where 1 = 1
+        and is_included = 1
+)
+
 select
     ass.accountid                  as accountid
     , ass.acctcode                 as acctcode
@@ -45,22 +67,10 @@ select
     , acc.is_moxy                  as is_moxy
     , acc.is_included              as is_included
 from {{ ref('orion__base_vw_costbasisrealized') }} as cbr
-left join (
-    select
-        accountid
-        , upper(acctcode) as acctcode
-        , fkasset
-    from {{ ref('orion__base_vw_asset') }}
-    where fkalclient = 568
-) as ass on cbr.fkasset = ass.fkasset
-inner join (
-    select
-        pms_account_id
-        , is_perform
-        , is_moxy
-        , is_included
-    from {{ ref('mis__bld_accounts') }}
-) as acc on ass.accountid::varchar = acc.pms_account_id::varchar
-where cbr.is_head = 1
-    and acc.is_included = 1
+left join cte_ass as ass
+    on cbr.fkasset = ass.fkasset
+inner join cte_accounts as acc
+    on ass.accountid::varchar = acc.pms_account_id::varchar
+where 1 = 1
+    and cbr.is_head = 1
     and cbr.fkalclient = 568

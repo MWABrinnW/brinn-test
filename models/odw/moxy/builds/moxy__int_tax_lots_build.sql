@@ -56,10 +56,6 @@ left join cte_securities as s
     on upper(t.symbol) = upper(s.symbol)
     and t.is_asset_managed = s.is_managed
 where 1 = 1
-    -- This is a loose guardrail. We want the head records but we also only
-    -- want to return the head records if they represent the latest tax lots
-    -- that we SHOULD have.
-    and t.is_current = 1
     and t.is_moxy = 1
     and t.is_active = 1
     and t.quantity != 0

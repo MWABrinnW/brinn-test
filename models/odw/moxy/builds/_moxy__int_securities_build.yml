@@ -1,0 +1,40 @@
+version: 2
+models:
+  - name: moxy__int_securities_build
+    columns:
+      - name: SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: SEC_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: IS_MANAGED
+        description: ''
+        data_type: NUMBER
+      - name: PRICE
+        description: ''
+        data_type: NUMBER
+      - name: IS_NEW
+        description: ''
+        data_type: NUMBER
+      - name: ISO_CFI
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_EXAMPLES
+        description: ''
+        data_type: ARRAY
+      - name: IS_INTRADAY_IMPORT
+        description: ''
+        data_type: NUMBER
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE

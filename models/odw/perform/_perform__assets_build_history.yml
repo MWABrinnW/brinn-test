@@ -1,0 +1,4 @@
+version: 2
+models:
+  - name: perform__assets_build_history
+    columns: []

@@ -1,0 +1,61 @@
+version: 2
+models:
+  - name: perform__rpt_trade_match
+    columns:
+      - name: TRADE_DATE
+        description: ''
+        data_type: DATE
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_SIDE
+        description: ''
+        data_type: VARCHAR
+      - name: INTERNAL_UNITS
+        description: ''
+        data_type: NUMBER
+      - name: EXTERNAL_UNITS
+        description: ''
+        data_type: NUMBER
+      - name: UNITS_DIFF
+        description: ''
+        data_type: FLOAT
+      - name: MATCH_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: IS_MATCH
+        description: ''
+        data_type: NUMBER
+      - name: PRODUCT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ASSET_CLASS
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_ID
+        description: ''
+        data_type: NUMBER
+      - name: ASSET_ID
+        description: ''
+        data_type: NUMBER
+      - name: HAS_PENDINGS
+        description: ''
+        data_type: NUMBER
+      - name: NOTES
+        description: ''
+        data_type: VARCHAR

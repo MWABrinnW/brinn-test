@@ -1,0 +1,52 @@
+version: 2
+models:
+  - name: perform__stg_accounts_ready_to_invest
+    columns:
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: PMS_ACCOUNT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: FORMATTED
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: INCEPTION_DATE
+        description: ''
+        data_type: DATE
+      - name: STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: MODEL
+        description: ''
+        data_type: VARCHAR
+      - name: IS_READY_TO_INVEST
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _BOX_FILE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: _BOX_SHEET_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: RN
+        description: ''
+        data_type: NUMBER
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: _ID
+        description: ''
+        data_type: NUMBER

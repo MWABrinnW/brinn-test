@@ -1,0 +1,88 @@
+version: 2
+models:
+  - name: moxy__tax_lots_build
+    columns:
+      - name: TRANID
+        description: ''
+        data_type: NUMBER
+      - name: PORTFOLIO
+        description: ''
+        data_type: VARCHAR
+      - name: TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: CURR
+        description: ''
+        data_type: VARCHAR
+      - name: SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: POSTYPE
+        description: ''
+        data_type: NUMBER
+      - name: OCDATE
+        description: ''
+        data_type: VARCHAR
+      - name: HLDATE
+        description: ''
+        data_type: VARCHAR
+      - name: QUANTITY
+        description: ''
+        data_type: NUMBER
+      - name: TOTALCOST
+        description: ''
+        data_type: NUMBER
+      - name: ISZEROMV
+        description: ''
+        data_type: NUMBER
+      - name: BROKER
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: PLEDGE
+        description: ''
+        data_type: VARCHAR
+      - name: PCALC
+        description: ''
+        data_type: NUMBER
+      - name: IACTION
+        description: ''
+        data_type: NUMBER
+      - name: LOTNUM
+        description: ''
+        data_type: NUMBER
+      - name: EXLOTID
+        description: ''
+        data_type: NUMBER
+      - name: TRADEMATCH
+        description: ''
+        data_type: NUMBER
+      - name: SWAPTRANID
+        description: ''
+        data_type: NUMBER
+      - name: SETTLE
+        description: ''
+        data_type: VARCHAR
+      - name: UGAINM
+        description: ''
+        data_type: VARCHAR
+      - name: UGAINQ
+        description: ''
+        data_type: VARCHAR
+      - name: UGAINY
+        description: ''
+        data_type: VARCHAR
+      - name: USERDEF1
+        description: ''
+        data_type: VARCHAR
+      - name: USERDEF2
+        description: ''
+        data_type: VARCHAR
+      - name: USERDEF3
+        description: ''
+        data_type: VARCHAR
+      - name: IS_INTRADAY_IMPORT
+        description: ''
+        data_type: NUMBER

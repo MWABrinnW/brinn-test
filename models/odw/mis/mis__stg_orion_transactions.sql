@@ -23,6 +23,19 @@ select
     , a.content:type_code::text              as type_code
     , a.content:type_name::text              as type_name
     , a.content:type_description::text       as type_description
+    , case
+        when a.content:type_name::text ilike '%buy%'
+            then 1
+        when a.content:type_name::text ilike '%sell%'
+            then 1
+        else 0
+    end::int                                 as is_trade
+    , case
+        when a.content:type_name::text ilike '%buy%'
+            then 'buy'
+        when a.content:type_name::text ilike '%sell%'
+            then 'sell'
+    end::text(200)                           as buy_sell
     , a.content:quantity::decimal(20 , 5)    as quantity
     , a.content:price::decimal(20 , 5)       as price
     , a.content:amount::decimal(20 , 2)      as amount

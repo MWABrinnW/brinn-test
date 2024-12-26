@@ -1,0 +1,98 @@
+version: 2
+models:
+  - name: perform__accounts_build
+    data_tests:
+      - compare_describe_to_prod:
+          name: compare_describe_to_prod_perform_accounts_build
+          state_database: odw
+          state_schema: perform
+          state_name: accounts_build
+          summarize: false
+          exclude_columns: ["_created_at", "is_head", "is_current", "_source_loaded_at", "_source_file",
+            "_source", "createddate", "lot_id", "is_intraday_import", "account_id", "asset_id", "quantity",
+            "cost_per_share", "product_id"]
+          where_clause: none
+          config:
+            severity: warn
+    columns:
+      - name: PMS_ACCOUNT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_KEY
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: PORT_STATE
+        description: ''
+        data_type: VARCHAR
+      - name: INCEPTION_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: MODEL
+        description: ''
+        data_type: VARCHAR
+      - name: TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_CUSTODIAL
+        description: ''
+        data_type: VARCHAR
+      - name: CONTACT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SPONSOR
+        description: ''
+        data_type: VARCHAR
+      - name: AMORT_METHOD_TAX_EXEMPT
+        description: ''
+        data_type: VARCHAR
+      - name: ACCRET_METHOD_TAX_EXEMPT
+        description: ''
+        data_type: VARCHAR
+      - name: AMORT_METHOD_TAXABLE
+        description: ''
+        data_type: VARCHAR
+      - name: ACCRET_METHOD_TAXABLE
+        description: ''
+        data_type: VARCHAR
+      - name: BLOTTER_TARGET
+        description: ''
+        data_type: VARCHAR
+      - name: TAGS
+        description: ''
+        data_type: VARCHAR
+      - name: MEMO
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: FINANCIAL_ADVISOR
+        description: ''
+        data_type: VARCHAR
+      - name: PRIME_BROKER
+        description: ''
+        data_type: VARCHAR
+      - name: ID
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: IS_IN_PERFORM
+        description: ''
+        data_type: NUMBER
+      - name: CRM_ACCOUNT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: SUBADVISOR_DATE_OPENED
+        description: ''
+        data_type: DATE

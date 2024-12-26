@@ -40,12 +40,14 @@ select
         source_date_col = 'tl.effective_date'
         ) }}
     , tl._created_at                                       as _created_at
-from {{ ref('orion__tax_lots') }} as tl
+from {{ ref('mis__stg_orion_tax_lots') }} as tl
 inner join {{ ref('mis__bld_accounts') }} as a
     on tl.account_number = a.account_number
     and a.is_perform = 1
 where 1 = 1
-    and tl.system_key = 'orion__core'
+    and tl.is_head = 1
+    and tl.fkalclient = 568
+
     -- The old version of the report didn't exclude non managed assets. Going forward
     -- we are excluding them.
     and coalesce(tl.is_asset_managed , 0) = 1

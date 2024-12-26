@@ -1,0 +1,58 @@
+version: 2
+models:
+  - name: perform__fct_allocations_schwab
+    columns:
+      - name: RECORD_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: TRANSMISSION_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: MASTER_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: BROKER_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CLEARING_BROKER
+        description: ''
+        data_type: VARCHAR
+      - name: BROKER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_SIDE
+        description: ''
+        data_type: VARCHAR
+      - name: TRADE_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: SETTLE_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: CAPACITY
+        description: ''
+        data_type: VARCHAR
+      - name: EXCHANGE
+        description: ''
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITY
+        description: ''
+        data_type: VARCHAR
+      - name: NOTES
+        description: ''
+        data_type: VARCHAR
+      - name: LINE_ITEM
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE

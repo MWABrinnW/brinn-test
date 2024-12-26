@@ -1,0 +1,88 @@
+version: 2
+models:
+  - name: perform__stg_accounts
+    columns:
+      - name: PORTFOLIO_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: PORT_MGMT_STYLE
+        description: ''
+        data_type: VARCHAR
+      - name: PORT_TAG
+        description: ''
+        data_type: VARCHAR
+      - name: PORT_CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: ENABLE_INQUIRIES_SYSTEM
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_STATE
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: NOBUYS
+        description: ''
+        data_type: VARCHAR
+      - name: MINCASH
+        description: ''
+        data_type: NUMBER
+      - name: PORT_TOTAL_CASH
+        description: ''
+        data_type: NUMBER
+      - name: PORT_MARKET_VALUE_ACCRUED
+        description: ''
+        data_type: NUMBER
+      - name: CASH_PERCENTAGE
+        description: ''
+        data_type: NUMBER
+      - name: PORT_AVG_EFFECTIVE_DUR
+        description: ''
+        data_type: NUMBER
+      - name: PORT_AVG_MATURITY
+        description: ''
+        data_type: DATE
+      - name: PORT_AVG_LIFE_DATE
+        description: ''
+        data_type: DATE
+      - name: PORT_NET_INCOME
+        description: ''
+        data_type: NUMBER
+      - name: PORT_COUPON_INCOME
+        description: ''
+        data_type: NUMBER
+      - name: PORT_ACQ_YLD
+        description: ''
+        data_type: NUMBER
+      - name: PORT_BOOK_YLD
+        description: ''
+        data_type: NUMBER
+      - name: PORT_AVG_YIELD
+        description: ''
+        data_type: NUMBER
+      - name: PORT_MTD_TOTAL_RETURN
+        description: ''
+        data_type: NUMBER
+      - name: FINANCIAL_ADVISOR
+        description: ''
+        data_type: VARCHAR
+      - name: PORT_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: PORT_STATUS_DT
+        description: ''
+        data_type: DATE
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER

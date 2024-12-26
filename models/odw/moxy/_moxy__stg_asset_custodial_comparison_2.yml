@@ -4,53 +4,79 @@ models:
     columns:
       - name: PKACCOUNT
         description: ''
+        data_type: VARCHAR
       - name: ACCTSTATUS
         description: ''
+        data_type: VARCHAR
       - name: ACCTSOURCE
         description: ''
+        data_type: VARCHAR
       - name: FUNDNAME
         description: ''
+        data_type: VARCHAR
       - name: CUSTODIAN
         description: ''
+        data_type: VARCHAR
       - name: PKPRODUCT
         description: ''
+        data_type: VARCHAR
       - name: PRODUCTNAME
         description: ''
+        data_type: VARCHAR
       - name: TICKER
         description: ''
+        data_type: VARCHAR
       - name: EFFECTIVEDATE
         description: ''
+        data_type: DATE
       - name: CALCULATEDVALUE
         description: ''
+        data_type: NUMBER
       - name: FILEASSETVALUE
         description: ''
+        data_type: NUMBER
       - name: VALUEDIFF
         description: ''
+        data_type: NUMBER
       - name: SYSTEMUNITBALANCE
         description: ''
+        data_type: NUMBER
       - name: FILEUNITBALANCE
         description: ''
+        data_type: NUMBER
       - name: UNITDIFF
         description: ''
+        data_type: NUMBER
       - name: SYSTEMPRICE
         description: ''
+        data_type: NUMBER
       - name: FILEPRICE
         description: ''
+        data_type: NUMBER
       - name: REG_NAME
         description: ''
+        data_type: VARCHAR
       - name: CLIENT_ID
         description: ''
+        data_type: VARCHAR
       - name: REG_ID
         description: ''
+        data_type: VARCHAR
       - name: PKASSET
         description: ''
+        data_type: VARCHAR
       - name: PRODUCTTYPE
         description: ''
+        data_type: VARCHAR
       - name: ACCTCODE
         description: ''
+        data_type: VARCHAR
       - name: DOWNLOADDESC
         description: ''
+        data_type: VARCHAR
       - name: RECORD_DATETIME
         description: ''
+        data_type: TIMESTAMP_NTZ
       - name: RECORD_DATE
         description: ''
+        data_type: DATE

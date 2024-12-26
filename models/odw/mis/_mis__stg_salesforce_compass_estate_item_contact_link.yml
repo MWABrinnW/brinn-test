@@ -1,0 +1,34 @@
+version: 2
+models:
+  - name: mis__stg_salesforce_compass_estate_item_contact_link
+    columns:
+      - name: CONTACT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: CONTACT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CONTACT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: CONTACT_URL
+        description: ''
+        data_type: VARCHAR
+      - name: ESTATE_ITEM_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ROLE
+        description: ''
+        data_type: VARCHAR
+      - name: ROLE_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ROLE_URL
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER

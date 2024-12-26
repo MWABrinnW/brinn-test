@@ -1,0 +1,19 @@
+version: 2
+models:
+  - name: moxy__accounts_build
+    columns:
+      - name: PORTFOLIO
+        description: ''
+        data_type: VARCHAR
+      - name: TRANCODE
+        description: ''
+        data_type: VARCHAR
+      - name: LABNAME
+        description: ''
+        data_type: VARCHAR
+      - name: LABDEF
+        description: ''
+        data_type: VARCHAR
+      - name: IS_INTRADAY_IMPORT
+        description: ''
+        data_type: NUMBER

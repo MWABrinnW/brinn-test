@@ -28,10 +28,6 @@ with cte_lots_base as (
         , 'orion'::text(200)                                           as source
     from {{ ref('mis__bld_tax_lots') }}
     where 1 = 1
-        -- This is a loose guardrail. We want the head records but we also only
-        -- want to return the head records if they represent the latest tax lots
-        -- that we SHOULD have.
-        and is_current = 1
         and is_perform = 1
 )
 

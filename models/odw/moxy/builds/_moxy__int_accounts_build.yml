@@ -1,0 +1,217 @@
+version: 2
+models:
+  - name: moxy__int_accounts_build
+    columns:
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: PMS_ACCOUNT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: CRM_ACCOUNT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: IS_ACTIVE
+        description: ''
+        data_type: NUMBER
+      - name: ACCOUNT_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: REGISTRATION_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: AUM_CLASSIFICATION
+        description: ''
+        data_type: VARCHAR
+      - name: CASH_BALANCE
+        description: ''
+        data_type: NUMBER
+      - name: COMMENTS
+        description: ''
+        data_type: VARCHAR
+      - name: DISTRIBUTION_AMOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: DISTRIBUTION_FREQUENCY
+        description: ''
+        data_type: VARCHAR
+      - name: DISTRIBUTION_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: EQUITY_GOAL
+        description: ''
+        data_type: VARCHAR
+      - name: ESTATE_ITEM_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: INVESTMENT_STATUS_NOTES
+        description: ''
+        data_type: VARCHAR
+      - name: MINIMUM_CASH
+        description: ''
+        data_type: VARCHAR
+      - name: OPENING_DATE
+        description: ''
+        data_type: DATE
+      - name: CLOSING_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: SUBADVISOR_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SUBADVISOR_DATE_OPENED
+        description: ''
+        data_type: DATE
+      - name: AM_RESTRICTIONS
+        description: ''
+        data_type: VARCHAR
+      - name: MATURITY_RESTRICTION
+        description: ''
+        data_type: VARCHAR
+      - name: RATING_RESTRICTION
+        description: ''
+        data_type: VARCHAR
+      - name: OTHER_RESTRICTION
+        description: ''
+        data_type: VARCHAR
+      - name: RESTRICTION_NOTES
+        description: ''
+        data_type: VARCHAR
+      - name: RESTRICTION_NOTES_2
+        description: ''
+        data_type: VARCHAR
+      - name: RECORD_TYPE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: STATE_1
+        description: ''
+        data_type: VARCHAR
+      - name: STATE_2
+        description: ''
+        data_type: VARCHAR
+      - name: MAILING_STATE
+        description: ''
+        data_type: VARCHAR
+      - name: STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: TAX_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: TRADE_RESTRICTION
+        description: ''
+        data_type: VARCHAR
+      - name: TRADING_ID
+        description: ''
+        data_type: VARCHAR
+      - name: TRADING_SYSTEM
+        description: ''
+        data_type: VARCHAR
+      - name: MODEL
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_ID
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_PARENT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_LEGAL_FIRM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_MARINER_LOCATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_LEGAL_ADDRESS_STATE
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_FEE_MANAGER_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: YTD_REALIZED_GAIN_LOSS
+        description: ''
+        data_type: VARCHAR
+      - name: IS_BILLING_EXCEPTION
+        description: ''
+        data_type: NUMBER
+      - name: IS_BLOCKED
+        description: ''
+        data_type: NUMBER
+      - name: CLIENT_MANAGER
+        description: ''
+        data_type: VARCHAR
+      - name: IS_SMA_REVIEW_REQUIRED
+        description: ''
+        data_type: NUMBER
+      - name: IS_FIRM_TRADED
+        description: ''
+        data_type: NUMBER
+      - name: IS_NON_DISCRETIONARY
+        description: ''
+        data_type: NUMBER
+      - name: IS_PRIME_BROKER
+        description: ''
+        data_type: NUMBER
+      - name: IS_LIFI
+        description: ''
+        data_type: NUMBER
+      - name: IS_PERFORM
+        description: ''
+        data_type: NUMBER
+      - name: IS_MOXY
+        description: ''
+        data_type: NUMBER
+      - name: IS_INCLUDED
+        description: ''
+        data_type: NUMBER
+      - name: TRADING_SYSTEMS
+        description: ''
+        data_type: ARRAY
+      - name: IS_INTRADAY_IMPORT
+        description: ''
+        data_type: NUMBER
+      - name: RN
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: PORTFOLIO_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ADMINISTRATOR
+        description: ''
+        data_type: VARCHAR
+      - name: ADVISOR
+        description: ''
+        data_type: VARCHAR
+      - name: AGENT_ADMINISTRATOR
+        description: ''
+        data_type: VARCHAR
+      - name: TRUSTEE_ADVISOR
+        description: ''
+        data_type: VARCHAR
+      - name: SUBADVISOR
+        description: ''
+        data_type: VARCHAR
+      - name: CONTACT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: HAS_TRADE_RESTRICTION
+        description: ''
+        data_type: NUMBER
+      - name: GROUPS
+        description: ''
+        data_type: ARRAY

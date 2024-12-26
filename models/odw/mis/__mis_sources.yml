@@ -43,7 +43,28 @@ sources:
     tables:
       - name: orion_accounts
         description: "Orion accounts used for MIS trading pipelines."
+        columns:
+          - name: CONTENT
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: orion_tax_lots
         description: "Orion tax lots used for MIS trading pipelines."
+        columns:
+          - name: CONTENT
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: orion_transactions
         description: "Orion transaction used for MIS trading pipelines."
+        columns:
+          - name: CONTENT
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ

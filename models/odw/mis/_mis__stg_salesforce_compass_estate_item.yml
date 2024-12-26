@@ -1,0 +1,235 @@
+version: 2
+models:
+  - name: mis__stg_salesforce_compass_estate_item
+    columns:
+      - name: AUM_CLASSIFICATION
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_ID_ORION
+        description: ''
+        data_type: VARCHAR
+      - name: BILLING_EXCEPTION
+        description: ''
+        data_type: NUMBER
+      - name: BLOCK_ON_ACCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: CASH_BALANCE
+        description: ''
+        data_type: NUMBER
+      - name: CUSTODIAN_ID
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN_ATTRIBUTES_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN_ATTRIBUTES_URL
+        description: ''
+        data_type: VARCHAR
+      - name: DISTRIBUTION_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_TRADING
+        description: ''
+        data_type: NUMBER
+      - name: HOUSEHOLD_CLIENT_MANAGER_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_CLIENT_MANAGER_ATTRIBUTES_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_CLIENT_MANAGER_ATTRIBUTES_URL
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_ID
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_LEGAL_ADDRESS_STATE
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_LEGAL_FIRM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_LEGAL_FIRM_ATTRIBUTES_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_LEGAL_FIRM_ATTRIBUTES_URL
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_MAILING_STATE
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_MARINER_LOCATION_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_ATTRIBUTES_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_ATTRIBUTES_URL
+        description: ''
+        data_type: VARCHAR
+      - name: ID
+        description: ''
+        data_type: VARCHAR
+      - name: IDENTIFIER
+        description: ''
+        data_type: VARCHAR
+      - name: LINKED_INDIVIDUAL_FIXED_INCOME
+        description: ''
+        data_type: NUMBER
+      - name: MODEL_ON_ACCOUNT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: MODEL_ON_ACCOUNT_MODEL_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: MODEL_ON_ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: MODEL_ON_ACCOUNT_ATTRIBUTES_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: MODEL_ON_ACCOUNT_ATTRIBUTES_URL
+        description: ''
+        data_type: VARCHAR
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: NON_DISCRETIONARY_ACCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: OPENING_DATE
+        description: ''
+        data_type: DATE
+      - name: PRIME_BROKER_ENABLED
+        description: ''
+        data_type: NUMBER
+      - name: RECORD_TYPE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: REGISTRATION_TYPE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: REGISTRATION_TYPE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: REGISTRATION_TYPE_ATTRIBUTES_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: REGISTRATION_TYPE_ATTRIBUTES_URL
+        description: ''
+        data_type: VARCHAR
+      - name: SMA_REVIEW_REQUIRED
+        description: ''
+        data_type: NUMBER
+      - name: STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: SUBADVISOR_DATE_OPENED
+        description: ''
+        data_type: DATE
+      - name: SUBADVISOR_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SUBADVISOR_ATTRIBUTES_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: SUBADVISOR_ATTRIBUTES_URL
+        description: ''
+        data_type: VARCHAR
+      - name: SUBADVISOR_ID
+        description: ''
+        data_type: VARCHAR
+      - name: TAX_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: TRADING_ID
+        description: ''
+        data_type: VARCHAR
+      - name: TRADING_SYSTEM
+        description: ''
+        data_type: VARCHAR
+      - name: ATTRIBUTES_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ATTRIBUTES_URL
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: AM_RESTRICTIONS
+        description: ''
+        data_type: VARCHAR
+      - name: CLOSING_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: COMMENTS
+        description: ''
+        data_type: VARCHAR
+      - name: DISTRIBUTION_AMOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: DISTRIBUTION_FREQUENCY
+        description: ''
+        data_type: VARCHAR
+      - name: EQUITY_GOAL
+        description: ''
+        data_type: VARCHAR
+      - name: ESTATE_ITEM_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: INVESTMENT_STATUS_NOTES
+        description: ''
+        data_type: VARCHAR
+      - name: MATURITY_RESTRICTION
+        description: ''
+        data_type: VARCHAR
+      - name: MINIMUM_CASH
+        description: ''
+        data_type: VARCHAR
+      - name: OTHER_RESTRICTION
+        description: ''
+        data_type: VARCHAR
+      - name: RATING_RESTRICTION
+        description: ''
+        data_type: VARCHAR
+      - name: RESTRICTION_NOTES
+        description: ''
+        data_type: VARCHAR
+      - name: RESTRICTION_NOTES_2
+        description: ''
+        data_type: VARCHAR
+      - name: STATE_1
+        description: ''
+        data_type: VARCHAR
+      - name: STATE_2
+        description: ''
+        data_type: VARCHAR
+      - name: TRADE_RESTRICTION
+        description: ''
+        data_type: VARCHAR
+      - name: YTD_REALIZED_GAIN_LOSS
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_FEE_MANAGER_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: HOUSEHOLD_PARENT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: IS_MOXY_INTRA_DAY_IMPORT
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER

@@ -1,0 +1,19 @@
+version: 2
+models:
+  - name: moxy__rpt_sod_post_import_new_securities
+    columns:
+      - name: SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ISO
+        description: ''
+        data_type: VARCHAR
+      - name: NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR

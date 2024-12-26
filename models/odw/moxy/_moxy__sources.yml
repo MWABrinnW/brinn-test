@@ -7,21 +7,607 @@ sources:
     tables:
       - name: asset_custodial_comparison_1
         description: "soon to be legacy"
+        columns:
+          - name: PKACCOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: ACCTSTATUS
+            description: ''
+            data_type: VARCHAR
+          - name: ACCTSOURCE
+            description: ''
+            data_type: VARCHAR
+          - name: FUND_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTODIANNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCTID
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: TICKER
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVEDATE
+            description: ''
+            data_type: DATE
+          - name: SYSTEMVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: FILEASSETVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: VALUEDIFFERENCE
+            description: ''
+            data_type: VARCHAR
+          - name: SYSTEMUNITBALANCE
+            description: ''
+            data_type: VARCHAR
+          - name: FILEUNITBALANCE
+            description: ''
+            data_type: VARCHAR
+          - name: UNITDIFFERENCE
+            description: ''
+            data_type: VARCHAR
+          - name: SYSTEMPRICE
+            description: ''
+            data_type: VARCHAR
+          - name: FILEPRICE
+            description: ''
+            data_type: VARCHAR
+          - name: REGNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PKCLIENT
+            description: ''
+            data_type: VARCHAR
+          - name: PKREGISTRATION
+            description: ''
+            data_type: VARCHAR
+          - name: PKASSET
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCTTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCTCODE
+            description: ''
+            data_type: VARCHAR
+          - name: DOWNLOADDESC
+            description: ''
+            data_type: VARCHAR
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: asset_custodial_comparison_2
         description: "soon to be legacy"
+        columns:
+          - name: PKACCOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: ACCTSTATUS
+            description: ''
+            data_type: VARCHAR
+          - name: ACCTSOURCE
+            description: ''
+            data_type: VARCHAR
+          - name: FUNDNAME
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTODIAN
+            description: ''
+            data_type: VARCHAR
+          - name: PKPRODUCT
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: TICKER
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVEDATE
+            description: ''
+            data_type: DATE
+          - name: CALCULATEDVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: FILEASSETVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: VALUEDIFF
+            description: ''
+            data_type: VARCHAR
+          - name: SYSTEMUNITBALANCE
+            description: ''
+            data_type: VARCHAR
+          - name: FILEUNITBALANCE
+            description: ''
+            data_type: VARCHAR
+          - name: UNITDIFF
+            description: ''
+            data_type: VARCHAR
+          - name: SYSTEMPRICE
+            description: ''
+            data_type: VARCHAR
+          - name: FILEPRICE
+            description: ''
+            data_type: VARCHAR
+          - name: REG_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_ID
+            description: ''
+            data_type: VARCHAR
+          - name: REG_ID
+            description: ''
+            data_type: VARCHAR
+          - name: PKASSET
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCTTYPE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCTCODE
+            description: ''
+            data_type: VARCHAR
+          - name: DOWNLOADDESC
+            description: ''
+            data_type: VARCHAR
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: audit_all_accounts
         description: "soon to be legacy"
+        columns:
+          - name: CLIENT_ID
+            description: ''
+            data_type: VARCHAR
+          - name: REGISTRATION_ID
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_ID
+            description: ''
+            data_type: VARCHAR
+          - name: FIRST_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: LAST_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENT_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REG_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REP_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: REP_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: ADDRESS1
+            description: ''
+            data_type: VARCHAR
+          - name: ADDRESS2
+            description: ''
+            data_type: VARCHAR
+          - name: ADDRESS3
+            description: ''
+            data_type: VARCHAR
+          - name: CITY
+            description: ''
+            data_type: VARCHAR
+          - name: STATE
+            description: ''
+            data_type: VARCHAR
+          - name: ZIP
+            description: ''
+            data_type: VARCHAR
+          - name: EMAIL
+            description: ''
+            data_type: VARCHAR
+          - name: PHONE_HOME
+            description: ''
+            data_type: VARCHAR
+          - name: PHONE_BUSINESS
+            description: ''
+            data_type: VARCHAR
+          - name: STATEMENT_TRANSMIT_METHOD
+            description: ''
+            data_type: VARCHAR
+          - name: REG_DESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: FUND_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: MGMT_STYLE
+            description: ''
+            data_type: VARCHAR
+          - name: FEE_SCHEDULE
+            description: ''
+            data_type: VARCHAR
+          - name: FEE_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: MASTER_PAYOUT_SCHEDULE
+            description: ''
+            data_type: VARCHAR
+          - name: PAY_METHOD_INSTRUCTION
+            description: ''
+            data_type: VARCHAR
+          - name: BILL_FREQUENCY
+            description: ''
+            data_type: VARCHAR
+          - name: BILL_STYLE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTODIAN
+            description: ''
+            data_type: VARCHAR
+          - name: OUTSIDE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: SUBADVISORNAME
+            description: ''
+            data_type: VARCHAR
+          - name: IS_PERFORMANCE_BILLED
+            description: ''
+            data_type: VARCHAR
+          - name: LAST_PERFORMANCE_BILL_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: CREATEDDATE
+            description: ''
+            data_type: VARCHAR
+          - name: EDITEDDATE
+            description: ''
+            data_type: VARCHAR
+          - name: INVESTMENTOBJECTIVE
+            description: ''
+            data_type: VARCHAR
+          - name: PLANNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PLANSPONSOR
+            description: ''
+            data_type: VARCHAR
+          - name: PLANADMINISTRATORNAME
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_START_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: BILL_START_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: FKPLAN
+            description: ''
+            data_type: VARCHAR
+          - name: CURRENT_VALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PKACCT_THAT_DOES_PAYING
+            description: ''
+            data_type: VARCHAR
+          - name: PERCENT_PAID_BY_ACCOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: ACCT_VALUE_THAT_DOES_PAYING
+            description: ''
+            data_type: VARCHAR
+          - name: ACCT_NO_THAT_DOES_PAYING
+            description: ''
+            data_type: VARCHAR
+          - name: TIME_HORIZON
+            description: ''
+            data_type: VARCHAR
+          - name: RETURN_OBJECTIVE
+            description: ''
+            data_type: VARCHAR
+          - name: STOCK_PERCENTAGE
+            description: ''
+            data_type: VARCHAR
+          - name: RISK_TOLERANCE
+            description: ''
+            data_type: VARCHAR
+          - name: MODEL_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: BD_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: VALUATION_METHOD
+            description: ''
+            data_type: VARCHAR
+          - name: CREDIT_REMAINING
+            description: ''
+            data_type: VARCHAR
+          - name: SALUTATION
+            description: ''
+            data_type: VARCHAR
+          - name: NET_WORTH
+            description: ''
+            data_type: VARCHAR
+          - name: CYCLE_MONTH
+            description: ''
+            data_type: VARCHAR
+          - name: ISQUAL
+            description: ''
+            data_type: VARCHAR
+          - name: TRADE_INSTRUCTION
+            description: ''
+            data_type: VARCHAR
+          - name: BUSINESS_LINE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTODIAN_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: PLAN_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: MGMT_STYLE_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: SUB_ADVISOR_CODE
+            description: ''
+            data_type: VARCHAR
+          - name: ADDITIONAL_CHARGE_CREDIT_AMOUNT
+            description: ''
+            data_type: VARCHAR
+          - name: ADDITIONAL_CHARGE_CREDIT_TYPE
+            description: ''
+            data_type: VARCHAR
+          - name: MODEL_GROUP_NUM
+            description: ''
+            data_type: VARCHAR
+          - name: MINIMUM_INCEPTION_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: TRUE_ACCOUNT_START_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: REPONSIBLE_PARTY
+            description: ''
+            data_type: VARCHAR
+          - name: ACCOUNT_STATUS
+            description: ''
+            data_type: VARCHAR
+          - name: INCLUDE_IN_QPE
+            description: ''
+            data_type: VARCHAR
+          - name: INCLUDE_IN_TWR
+            description: ''
+            data_type: VARCHAR
+          - name: BILLINGNONMGDACCTNO
+            description: ''
+            data_type: VARCHAR
+          - name: BILLINGNONMGDACCTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: BILLINGNONMGDCLIENT
+            description: ''
+            data_type: VARCHAR
+          - name: SSN
+            description: ''
+            data_type: VARCHAR
+          - name: ISACCOUNTACTIVE
+            description: ''
+            data_type: VARCHAR
+          - name: BRANCHID
+            description: ''
+            data_type: VARCHAR
+          - name: CLIENTCREATEDDATE
+            description: ''
+            data_type: VARCHAR
+          - name: LASTTRXDATE
+            description: ''
+            data_type: VARCHAR
+          - name: LASTINVOICECREATIONDATE
+            description: ''
+            data_type: VARCHAR
+          - name: FKACCOUNTHISTORY
+            description: ''
+            data_type: VARCHAR
+          - name: TEAM
+            description: ''
+            data_type: VARCHAR
+          - name: OUTSIDE_ID_HOUSEHOLD
+            description: ''
+            data_type: VARCHAR
+          - name: OUTSIDE_THIRD_PARTY
+            description: ''
+            data_type: VARCHAR
+          - name: INTRODUCERS_WHOLESALERS
+            description: ''
+            data_type: VARCHAR
+          - name: PAYOUT_ANNIVERSARY_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: CANCEL_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: HOUSEHOLD_CLOSE_DATE
+            description: ''
+            data_type: VARCHAR
+          - name: KEEP_OPEN
+            description: ''
+            data_type: VARCHAR
+          - name: ISMANAGED
+            description: ''
+            data_type: VARCHAR
+          - name: RECONDATE
+            description: ''
+            data_type: VARCHAR
+          - name: SOURCE
+            description: ''
+            data_type: VARCHAR
+          - name: HOUSEHOLDSTARTDATE
+            description: ''
+            data_type: VARCHAR
+          - name: OTHER_MGRS_SEC_NUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: accounts
         description: "Accounts extracted from Moxy."
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
       - name: allocations
         description: "Allocations extracted from Moxy."
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
       - name: pending_transactions
         description: ""
+        columns:
+          - name: SUBADVISORID
+            description: ''
+            data_type: VARCHAR
+          - name: ACCTCODE
+            description: ''
+            data_type: VARCHAR
+          - name: REG_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: TRANSDATE
+            description: ''
+            data_type: VARCHAR
+          - name: TRANDESC
+            description: ''
+            data_type: VARCHAR
+          - name: TRANSTOTAL
+            description: ''
+            data_type: VARCHAR
+          - name: TICKER
+            description: ''
+            data_type: VARCHAR
+          - name: PRODUCTNAME
+            description: ''
+            data_type: VARCHAR
+          - name: PAR_VALUE
+            description: ''
+            data_type: VARCHAR
+          - name: REAL_PRICE
+            description: ''
+            data_type: VARCHAR
+          - name: NAVPRICE
+            description: ''
+            data_type: VARCHAR
+          - name: FUNDNAME
+            description: ''
+            data_type: VARCHAR
+          - name: MGMTSTYLE
+            description: ''
+            data_type: VARCHAR
+          - name: ACCT_ID
+            description: ''
+            data_type: VARCHAR
+          - name: REP_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: SUBADVISOR
+            description: ''
+            data_type: VARCHAR
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_DATE
+            description: ''
+            data_type: DATE
       - name: positions
         description: "Held positions exported from Moxy. Used in SOD Import Report."
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
       - name: realized_gainloss_ytd
         description: "Orion data query 19093. Redshift doesn't currently have the data necessary to recreate the RGL data needed for Moxy."
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: securities
         description: "Securities exported from Moxy. Used in the assets build for import to Moxy."
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER
       - name: securities_postimport
         description: "Securities exported from Moxy immediately after an import. Used in post-import reporting."
+        columns:
+          - name: _DATA
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER

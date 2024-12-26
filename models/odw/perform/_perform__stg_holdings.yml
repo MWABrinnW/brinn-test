@@ -1,0 +1,31 @@
+version: 2
+models:
+  - name: perform__stg_holdings
+    columns:
+      - name: PORTFOLIO_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: PRICE
+        description: ''
+        data_type: NUMBER
+      - name: ACQUIRED_DATE
+        description: ''
+        data_type: DATE
+      - name: SIZE
+        description: ''
+        data_type: NUMBER
+      - name: COST
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER

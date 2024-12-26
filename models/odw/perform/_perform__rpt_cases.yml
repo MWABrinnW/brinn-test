@@ -1,0 +1,43 @@
+version: 2
+models:
+  - name: perform__rpt_cases
+    columns:
+      - name: CASE_NUM
+        description: ''
+        data_type: VARCHAR
+      - name: CASE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ESTATE_ITEM_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: TRADING_SYSTEMS
+        description: ''
+        data_type: ARRAY
+      - name: HOUSEHOLD_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENT_MANAGER
+        description: ''
+        data_type: VARCHAR
+      - name: CASE_MODIFIED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: CASE_CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_TZ
+      - name: CASE_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: CASE_SUBJECT
+        description: ''
+        data_type: VARCHAR
+      - name: CASE_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: CRM_ACCOUNT_ID
+        description: ''
+        data_type: VARCHAR

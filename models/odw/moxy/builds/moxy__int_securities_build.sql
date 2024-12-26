@@ -20,10 +20,6 @@ with cte_securities_from_positions as (
         , is_intraday_import  as is_intraday_import
     from {{ ref('mis__bld_tax_lots') }}
     where 1 = 1
-        -- This is a loose guardrail. We want the head records but we also only
-        -- want to return the head records if they represent the latest tax lots
-        -- that we SHOULD have.
-        and is_current = 1
         and is_moxy = 1
         and quantity != 0
     group by all
@@ -70,8 +66,8 @@ with cte_securities_from_positions as (
     where 1 = 1
         and is_head = 1
         and (
-            cusip in (select distinct cusip from cte_securities_mapped_to_moxy where is_new = 1)
-            or ticker_symbol in (select distinct ticker from cte_securities_mapped_to_moxy where is_new = 1)
+            cusip in (select distinct t.cusip from cte_securities_mapped_to_moxy as t where t.is_new = 1)
+            or ticker_symbol in (select distinct t.ticker from cte_securities_mapped_to_moxy as t where t.is_new = 1)
         )
 )
 

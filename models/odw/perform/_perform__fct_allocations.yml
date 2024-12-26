@@ -1,62 +1,101 @@
 version: 2
 models:
   - name: perform__fct_allocations
+    data_tests:
+      - compare_describe_to_prod:
+          name: compare_describe_to_prod_perform_fct_allocations
+          state_database: odw
+          state_schema: perform
+          state_name: fct_allocations
+          summarize: false
+          exclude_columns: ["_created_at", "is_head", "is_current", "_source_loaded_at", "_source_file",
+            "_source", "createddate", "lot_id", "is_intraday_import", "account_id", "asset_id", "quantity",
+            "cost_per_share", "product_id"]
+          where_clause: trade_date >= current_date - 7
+          config:
+            severity: warn
     columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: VARCHAR
       - name: ORDER_ID
         description: ''
+        data_type: VARCHAR
       - name: TRADE_DATE
         description: ''
+        data_type: DATE
       - name: SETTLE_DATE
         description: ''
-      - name: CUSIP
-        description: ''
-      - name: SOURCE_SECURITY_TYPE
-        description: ''
-      - name: SOURCE_SECURITY_DESCRIPTION
-        description: ''
-      - name: ORDER_SIDE
-        description: ''
-      - name: ORDER_EFFECT
-        description: ''
-      - name: UNITS
-        description: ''
-      - name: UNIT_PRICE
-        description: ''
-      - name: PRINCIPAL
-        description: ''
-      - name: INTEREST
-        description: ''
-      - name: NET
-        description: ''
-      - name: FINANCIAL_ACCOUNT
-        description: ''
+        data_type: DATE
       - name: CUSTODIAN
         description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_SIDE
+        description: ''
+        data_type: VARCHAR
+      - name: ORDER_EFFECT
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE_SECURITY_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: SOURCE_SECURITY_DESCRIPTION
+        description: ''
+        data_type: VARCHAR
+      - name: UNITS
+        description: ''
+        data_type: FLOAT
+      - name: UNIT_PRICE
+        description: ''
+        data_type: FLOAT
+      - name: PRINCIPAL
+        description: ''
+        data_type: FLOAT
+      - name: INTEREST
+        description: ''
+        data_type: FLOAT
+      - name: NET
+        description: ''
+        data_type: FLOAT
+      - name: PORTFOLIO_ID
+        description: ''
+        data_type: VARCHAR
       - name: BROKER_NAME
         description: ''
+        data_type: VARCHAR
       - name: BROKER_ID
         description: ''
+        data_type: VARCHAR
       - name: OWNER
         description: ''
+        data_type: VARCHAR
       - name: TRADE_AWAY
         description: ''
-      - name: FIRM
-        description: ''
-      - name: VENUE
-        description: ''
-      - name: PLATFORM
-        description: ''
+        data_type: BOOLEAN
       - name: TRADER
         description: ''
-      - name: TRADE_START_UTC
+        data_type: VARCHAR
+      - name: TRADED_AT
         description: ''
-      - name: TRADE_END_UTC
+        data_type: TIMESTAMP_NTZ
+      - name: _CREATED_AT
         description: ''
-      - name: SOURCE_TRADE_DATETIME
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
         description: ''
-      - name: SOURCE_TRADE_TZ
-        description: ''
-      - name: RECORD_DATE
-        description: ''
-      - name: RECORD_DATETIME
-        description: ''
+        data_type: VARCHAR

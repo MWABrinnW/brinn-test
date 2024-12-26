@@ -33,11 +33,10 @@ with cte_build as (
     select
         a.*
         , h.effective_date                                                   as effective_date
-        , h.system_key                                                       as system_key
         , h.ticker                                                           as ticker
         , h.cusip                                                            as cusip
-        , h.market_value                                                     as market_value
-        , h.quantity                                                         as quantity
+        , max(h.aggregate_asset_value)                                       as market_value
+        , max(h.aggregate_asset_quantity)                                    as quantity
         , h.product_category                                                 as product_category
         , h.product_type                                                     as product_type
         , h.asset_class                                                      as asset_class
@@ -90,18 +89,19 @@ with cte_build as (
                     end
             else 0
         end::int                                                             as is_illegal_asset
-    from {{ ref('orion__holdings') }} as h
+    from {{ ref('mis__stg_orion_tax_lots') }} as h
     inner join cte_build as a
         on h.account_number = a.account_number
     where 1 = 1
-        and is_head = 1
+        and h.is_head = 1
         and h.fkalclient = 568
-        and h.quantity > 0
---       and account_number in (
---         select distinct
---             account_number
---         from cte_build
---     )
+        and h.aggregate_asset_quantity > 0
+    --       and account_number in (
+    --         select distinct
+    --             account_number
+    --         from cte_build
+    --     )
+    group by all
 )
 
 , cte_accounts as (

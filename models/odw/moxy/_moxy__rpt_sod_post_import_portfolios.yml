@@ -1,0 +1,16 @@
+version: 2
+models:
+  - name: moxy__rpt_sod_post_import_portfolios
+    columns:
+      - name: PORTID
+        description: ''
+        data_type: VARCHAR
+      - name: PORTNAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCTID
+        description: ''
+        data_type: VARCHAR
+      - name: ERROR TYPE
+        description: ''
+        data_type: VARCHAR

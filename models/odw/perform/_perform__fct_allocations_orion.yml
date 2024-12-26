@@ -1,0 +1,46 @@
+version: 2
+models:
+  - name: perform__fct_allocations_orion
+    columns:
+      - name: ACCT_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: TRANS_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: TRANS_TYPE
+        description: ''
+        data_type: NUMBER
+      - name: AMOUNT
+        description: ''
+        data_type: FLOAT
+      - name: UNITS
+        description: ''
+        data_type: FLOAT
+      - name: PRICE
+        description: ''
+        data_type: FLOAT
+      - name: PRINCIPAL
+        description: ''
+        data_type: FLOAT
+      - name: INTEREST
+        description: ''
+        data_type: FLOAT
+      - name: OTHER
+        description: ''
+        data_type: VARCHAR
+      - name: BROKER
+        description: ''
+        data_type: VARCHAR
+      - name: ORDERID
+        description: ''
+        data_type: VARCHAR
+      - name: LINE_ITEM
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE

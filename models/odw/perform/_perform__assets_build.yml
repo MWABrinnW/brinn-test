@@ -1,0 +1,83 @@
+version: 2
+models:
+  - name: perform__assets_build
+    data_tests:
+      - compare_describe_to_prod:
+          name: compare_describe_to_prod_perform_assets_build
+          state_database: odw
+          state_schema: perform
+          state_name: assets_build
+          summarize: false
+          exclude_columns: ["_created_at", "is_head", "is_current", "_source_loaded_at", "_source_file",
+            "_source", "createddate", "lot_id", "is_intraday_import", "account_id", "asset_id", "quantity",
+            "cost_per_share", "product_id"]
+          where_clause: none
+          config:
+            severity: warn
+    columns:
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: TICKER
+        description: ''
+        data_type: VARCHAR
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: QUANTITY
+        description: ''
+        data_type: NUMBER
+      - name: FACTOR
+        description: ''
+        data_type: NUMBER
+      - name: CURRENT_PRICE
+        description: ''
+        data_type: NUMBER
+      - name: CURRENT_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: IS_CUSTODIAL_CASH
+        description: ''
+        data_type: NUMBER
+      - name: COST_PER_SHARE
+        description: ''
+        data_type: NUMBER
+      - name: COST_BASIS
+        description: ''
+        data_type: NUMBER
+      - name: ACQUIRED_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: ASSET_CLASS
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: PRODUCT_ID
+        description: ''
+        data_type: NUMBER
+      - name: ASSET_ID
+        description: ''
+        data_type: NUMBER
+      - name: LOT_ID
+        description: ''
+        data_type: NUMBER
+      - name: SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: BLOTTER_TARGET
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_ID
+        description: ''
+        data_type: VARCHAR
+      - name: PORT_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: ID
+        description: ''
+        data_type: NUMBER

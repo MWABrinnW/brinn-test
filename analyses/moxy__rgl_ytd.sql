@@ -1,3 +1,5 @@
+{{ config(enabled = false) }}
+
 with cte_short_term_rgl as (
     select accountid,
         sum(gain_loss) as short_term_gain_loss,

@@ -75,16 +75,18 @@ with cte_internal_allocations as (
         , t.asset_id             as asset_id
         , max(lower(t.buy_sell)) as order_side
         , sum(t.quantity)        as quantity
-    from {{ ref ('orion__transactions') }} as t
+    from {{ ref ('mis__stg_orion_transactions') }} as t
     inner join cte_all_accounts as a
         on t.account_number = a.account_number
     where 1 = 1
-        and t.system_key = 'orion__core'
+        and t.rn = 1
+        and t.fkalclient = 568
+
         and (lower(t.buy_sell) in ('buy' , 'sell') or t.type_name = 'Trading Expense')
         and t.date >= dateadd('DAY' , -7 , current_date())
         and coalesce(t.is_custodial_cash , 0) = 0
         -- Exclude rejected trades
-        and lower(t.trade_status) not in ('rejected' , 'reversed', 'pending')
+        and lower(t.trade_status) not in ('rejected' , 'reversed' , 'pending')
         -- Exclude dividend reinvestment per Debbie W 12/6/24
         and coalesce(t.notes , '') not ilike '%REINVEST DIVIDEND%'
     group by all

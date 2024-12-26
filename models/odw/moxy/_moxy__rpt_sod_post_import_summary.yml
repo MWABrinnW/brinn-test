@@ -1,0 +1,10 @@
+version: 2
+models:
+  - name: moxy__rpt_sod_post_import_summary
+    columns:
+      - name: TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: COUNT
+        description: ''
+        data_type: NUMBER
