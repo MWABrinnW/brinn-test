@@ -379,6 +379,11 @@ with cte_bld_associates as (
                 else ''
             end
             || case when a.employee_num = '000940' then 'marty;' else '' end
+            -- AD records for Oracle line items with a future start date typically
+            -- aren't ready for a sync. AD will throw permission errors.
+            || case when try_to_date(ba.date_of_start) > current_date() then 'hire date in future;' else '' end
+            -- Exclude AD records that are in staging.
+            || case when ad.distinguished_name ilike '%Staging OU - synced to 365%' then 'in staging OU;' else '' end
             , ''
         )                                                              as excluded_reasons
         , (excluded_reasons is not null)::int                          as is_excluded

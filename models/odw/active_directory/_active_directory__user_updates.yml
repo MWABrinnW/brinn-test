@@ -1,6 +1,20 @@
 version: 2
 models:
   - name: active_directory__user_updates
+    data_tests:
+      - compare_describe_to_prod:
+          name: compare_describe_to_prod_active_directory_user_updates
+          state_database: odw
+          state_schema: active_directory
+          state_name: user_updates
+          summarize: False
+          exclude_columns: ["_created_at", "is_head", "is_current", "_source_loaded_at", "_source_file",
+                          "erp_effective_at", "ad_effective_at", "update_payload_detail", "field_comparison",
+                          "fields_to_update"]
+          where_clause: none
+          config:
+            severity: warn
+            store_failures_as: table
     columns:
       - name: EMPLOYEE_NUM
         description: ''

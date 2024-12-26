@@ -1,5 +1,5 @@
 {%- macro can_sum(field) -%}
-  {{return(field.dtype.lower() in ('integer', 'bigint', 'double precision', 'float', 'real', 'numeric', 'decimal'))}}
+  {{return(field.dtype.lower() in ('integer', 'int', 'number', 'bigint', 'double precision', 'float', 'real', 'numeric', 'decimal'))}}
 {%- endmacro -%}
 
 {%- macro can_percentile(field) -%}
@@ -87,8 +87,10 @@
       {% if not can_sum(field) -%}
       ,count(distinct {{field.column}})::text as {{field.column}}__count_distinct
       {% endif -%}
+      {% if field.dtype not in ['OBJECT', 'ARRAY', 'VARIANT'] -%}
       ,min({{field.column}})::text as {{field.column}}__min
       ,max({{field.column}})::text as {{field.column}}__max
+      {% endif -%}
       {% if can_sum(field) -%}
       ,sum({{field.column}})::text as {{field.column}}__sum_all
       ,avg({{field.column}})::text as {{field.column}}__mean
@@ -99,8 +101,10 @@
       {% if not can_sum(field) -%}
       {%- do fields_to_unpivot.value.append(field.column ~ "__count_distinct") -%}
       {% endif -%}
+      {% if field.dtype not in ['OBJECT', 'ARRAY', 'VARIANT'] -%}
       {%- do fields_to_unpivot.value.append(field.column ~ "__min") -%}
       {%- do fields_to_unpivot.value.append(field.column ~ "__max") -%}
+      {% endif -%}
       {%- if can_sum(field) -%}
         {%- do fields_to_unpivot.value.append(field.column ~ "__sum_all") -%}
         {%- do fields_to_unpivot.value.append(field.column ~ "__mean") -%}
