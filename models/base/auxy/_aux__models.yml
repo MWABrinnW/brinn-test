@@ -1193,3 +1193,35 @@ models:
       - name: _BOX_FILE_NAME
         description: ''
         data_type: VARCHAR
+  - name: aux__base_options_exclusions
+    columns:
+      - name: start_date
+        description: ''
+        data_type: VARCHAR
+      - name: end_date
+        description: ''
+        data_type: VARCHAR
+      - name: account_number
+        description: ''
+        data_type: VARCHAR
+      - name: ticker
+        description: ''
+        data_type: VARCHAR
+      - name: cusip
+        description: ''
+        data_type: VARCHAR
+      - name: notes
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _BOX_FILE_ID
+        description: ''
+        data_type: NUMBER
+      - name: _BOX_FILE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: _BOX_META
+        description: ''
+        data_type: VARIANT

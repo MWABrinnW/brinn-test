@@ -32,7 +32,7 @@ with cte_accounts as (
         , h.product_type_source_definition
         , h.product_type
         , 'positions'                              as src
-        , null::text                               as is_nigo
+        , null::int                                as is_nigo
         , sum(h.quantity)                          as quantity
         , sum(h.market_value)                      as market_value
     from {{ ref('custodian_holdings') }} as h
@@ -68,18 +68,18 @@ with cte_accounts as (
         h.effective_date
         , h.custodian
         , h.account_number
-        , coalesce(h.security_id_source , h.cusip)                           as security_id_source
+        , coalesce(h.security_id_source , h.cusip)                                as security_id_source
         , h.symbol
         , h.ticker
         , h.cusip
-        , null::text(200)                                                    as security_name
+        , null::text(200)                                                         as security_name
         , h.product_type_source_code
         , h.product_type_source_definition
         , h.product_type
-        , 'tax_lots'                                                         as src
-        , max(h._extra_fields:nigo_out_of_balance_exception_indicator::text) as is_nigo
-        , sum(h.quantity)                                                    as quantity
-        , sum(h.current_value)                                               as market_value
+        , 'tax_lots'                                                              as src
+        , max(h._extra_fields:nigo_out_of_balance_exception_indicator::text)::int as is_nigo
+        , sum(h.quantity)                                                         as quantity
+        , sum(h.current_value)                                                    as market_value
     from {{ ref('custodian_tax_lots') }} as h
     where 1 = 1
         and h.custodian in ('schwab' , 'fidelity')
@@ -89,6 +89,17 @@ with cte_accounts as (
         -- We need to grab only one instance of the account.
         and h.rn_global = 1
     group by all
+)
+
+, cte_exclusions as (
+    select
+        start_date
+        , end_date
+        , ticker_or_cusip
+    from {{ ref('aux__base_options_exclusions') }}
+    where is_head = 1
+        and coalesce(start_date , to_date('2099-12-31')) <= current_date
+        and coalesce(end_date , to_date('2099-12-31')) >= current_date
 )
 
 , cte_lots_to_positions as (
@@ -187,8 +198,17 @@ with cte_accounts as (
     from cte_positions_to_lots
 )
 
+, cte_all_with_exclusions as (
+    select
+        a.*
+        , case when e.ticker_or_cusip is not null then 1 else 0 end as is_excluded
+    from cte_all as a
+    left join cte_exclusions as e
+        on a.symbol = e.ticker_or_cusip
+)
+
 select *
-from cte_all
+from cte_all_with_exclusions
 qualify row_number() over (
     partition by effective_date , account_number , security_id_source
     order by case when src = 'tax_lots_to_positions' then 1 else 2 end
