@@ -5,19 +5,31 @@ with cte_account_values as (
         , ass.fkalclient
         , acc.effective_date
 
+        ------------------------------------------------------------------------------------------------------
         , sum(
             case when coalesce(assb.isfeeexcluded , 0) = 0
                     then assv.calculatedvalue
                 else 0
             end
-        )                                                                         as billable_value
-        , sum(case when prcl.category = 'M' then assv.calculatedvalue else 0 end) as cash_value
-        , sum(
-            case when prcl.category in ('M' , 'B')
-                    then assv.calculatedvalue
-                else 0
-            end
-        )                                                                         as cash_assets_value
+        )                                                                                as billable_value
+        ------------------------------------------------------------------------------------------------------
+        -- Raw custodial cash. Otherwise defined as custodial cash or any position that auto liquidates?
+        , sum(case when prod.is_custodial_cash = 1 then assv.calculatedvalue else 0 end) as custodial_cash_value
+        , array_agg(distinct case
+            when prod.is_custodial_cash = 1 and abs(assv.calculatedvalue) > 0 then prod.ticker
+        end)                                                                             as custodial_cash_symbols
+
+        ------------------------------------------------------------------------------------------------------
+        -- Money market funds that don't auto liquidate at the custoidan?
+        , sum(case
+            when prod.product_class_category = 'M' and coalesce(prod.is_custodial_cash , 0) <> 1 then assv.calculatedvalue
+            else 0
+        end)                                                                             as mmf_value
+        , array_agg(distinct case
+            when prod.product_class_category = 'M' and coalesce(prod.is_custodial_cash , 0) <> 1
+                and abs(assv.calculatedvalue) > 0
+                then prod.ticker
+        end)                                                                             as mmf_value_symbols
     from {{ ref('orion__accounts') }} as acc
     left join {{ ref('orion__base_vw_asset') }} as ass
         on acc.fkalclient = ass.fkalclient
@@ -29,12 +41,9 @@ with cte_account_values as (
     left join {{ ref('orion__base_vw_billasset') }} as assb
         on ass.fkasset = assb.fkasset
         and ass.fkalclient = assb.fkalclient
-    left join {{ ref('orion__base_vw_product') }} as pr
-        on ass.productid = pr.pkproduct
-        and ass.fkalclient = pr.fkalclient
-    left join {{ ref('orion__base_vw_productclass') }} as prcl
-        on pr.fkproductclass = prcl.pkproductclass
-        and pr.fkalclient = prcl.fkalclient
+    left join {{ ref('orion__products') }} as prod
+        on ass.productid = prod.product_id
+        and ass.fkalclient = prod.fkalclient
     where 1 = 1
         and acc.is_head = 1
     group by all
@@ -127,50 +136,50 @@ with cte_account_values as (
 )
 
 select
-    a.system_name                             as system_name
-    , a.system_instance                       as system_instance
-    , a.system_key                            as system_key
-    , a.account_id                            as account_id
-    , a.household_id                          as client_id
-    , a.account_number                        as account_number
-    , a.account_number_formatted              as account_number_formatted
-    , a.is_managed                            as is_managed
-    , a.account_name                          as account_name
-    , a.account_type                          as account_type
-    , a.advisor::text                         as client_manager
-    , a.advisor_email::text                   as client_manager_email
-    , a.custodian                             as custodian
-    , a.custodian_account_restriction         as custodian_account_restriction
-    , a.client_open_date                      as client_open_date
-    , a.opened_date                           as opened_date
-    , a.closed_date_udf                       as closed_date
-    , iff(a.opened_date is not null , 1 , 0)  as is_open
-    , a.account_value::decimal(16 , 2)        as current_value
-    , av.billable_value::decimal(16 , 2)      as billable_value
-    , av.cash_value::decimal(16 , 2)          as cash_value
-    , av.cash_assets_value::decimal(16 , 2)   as sum_of_cash_assets
-    , a.committed_amount_udf::decimal(16 , 2) as committed_amount
-    , cd.con_dis_qtd::decimal(16 , 2)         as contributions_distributions_qtd
-    , nf.net_flows::decimal(16 , 2)           as net_flows
-    , a.investment_strategy                   as model_name
-    , a.subadvisor                            as subadvisor
-    , a.fee_schedule                          as fee_schedule
-    , a.fund_family                           as fund_family
+    a.system_name                              as system_name
+    , a.system_instance                        as system_instance
+    , a.system_key                             as system_key
+    , a.account_id                             as account_id
+    , a.household_id                           as client_id
+    , a.account_number                         as account_number
+    , a.account_number_formatted               as account_number_formatted
+    , a.is_managed                             as is_managed
+    , a.account_name                           as account_name
+    , a.account_type                           as account_type
+    , a.advisor::text                          as client_manager
+    , a.advisor_email::text                    as client_manager_email
+    , a.custodian                              as custodian
+    , a.custodian_account_restriction          as custodian_account_restriction
+    , a.client_open_date                       as client_open_date
+    , a.opened_date                            as opened_date
+    , a.closed_date_udf                        as closed_date
+    , iff(a.opened_date is not null , 1 , 0)   as is_open
+    , a.account_value::decimal(16 , 2)         as current_value
+    , av.billable_value::decimal(16 , 2)       as billable_value
+    , av.custodial_cash_value::decimal(16 , 2) as custodial_cash_value
+    , av.mmf_value::decimal(16 , 2)            as mmf_value
+    , a.committed_amount_udf::decimal(16 , 2)  as committed_amount
+    , cd.con_dis_qtd::decimal(16 , 2)          as contributions_distributions_qtd
+    , nf.net_flows::decimal(16 , 2)            as net_flows
+    , a.investment_strategy                    as model_name
+    , a.subadvisor                             as subadvisor
+    , a.fee_schedule                           as fee_schedule
+    , a.fund_family                            as fund_family
     , case
         when a.trading_instructions is not null
             then 1
         else 0
-    end::boolean::int                         as has_trading_instructions
-    , a.trading_instructions                  as trading_instructions
-    , a.is_trading_blocked::int               as is_trading_blocked
-    , a.download_source::text                 as download_source
-    , a.eclipse_enabled                       as is_eclipse_enabled
-    , a.is_sma::boolean::int                  as is_sma
-    , a.sma_asset::text                       as sma_asset
-    , a.bd_name                               as broker_dealer
-    , a.effective_date                        as effective_date
-    , a._created_at                           as _created_at
-    , a._source_loaded_at                     as _source_loaded_at
+    end::boolean::int                          as has_trading_instructions
+    , a.trading_instructions                   as trading_instructions
+    , a.is_trading_blocked::int                as is_trading_blocked
+    , a.download_source::text                  as download_source
+    , a.eclipse_enabled                        as is_eclipse_enabled
+    , a.is_sma::boolean::int                   as is_sma
+    , a.sma_asset::text                        as sma_asset
+    , a.bd_name                                as broker_dealer
+    , a.effective_date                         as effective_date
+    , a._created_at                            as _created_at
+    , a._source_loaded_at                      as _source_loaded_at
 from {{ ref('orion__accounts') }} as a
 left join cte_account_values as av
     on a.account_id = av.account_id
@@ -185,5 +194,5 @@ left join cte_net_flows as nf
     and a.fkalclient = nf.fkalclient
     and a.effective_date = nf.effective_date
 where 1 = 1
-    and is_head = 1
+    and a.is_head = 1
     and a.fkalclient = 568

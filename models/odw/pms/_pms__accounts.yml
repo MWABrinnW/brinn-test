@@ -1,0 +1,132 @@
+version: 2
+models:
+  - name: pms__accounts
+    description: Model used for Salesforce upsert into estateitem object. Currently sources Orion core only and may include other systems in the future.
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENT_ID
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+        data_type: VARCHAR
+      - name: IS_MANAGED
+        description: ''
+        data_type: NUMBER
+      - name: ACCOUNT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENT_MANAGER
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENT_MANAGER_EMAIL
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTODIAN_ACCOUNT_RESTRICTION
+        description: ''
+        data_type: VARCHAR
+      - name: CLIENT_OPEN_DATE
+        description: ''
+        data_type: DATE
+      - name: OPENED_DATE
+        description: ''
+        data_type: DATE
+      - name: CLOSED_DATE
+        description: ''
+        data_type: DATE
+      - name: IS_OPEN
+        description: ''
+        data_type: NUMBER
+      - name: CURRENT_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: BILLABLE_VALUE
+        description: 'The value currently considered billable. Orion: billasset isfeeexcluded = false'
+        data_type: NUMBER
+      - name: COMMITTED_AMOUNT
+        description: ''
+        data_type: NUMBER
+      - name: CONTRIBUTIONS_DISTRIBUTIONS_QTD
+        description: 'Account contributions in the current quarter.'
+        data_type: NUMBER
+      - name: NET_FLOWS
+        description: 'Account net flows in the last 30 days.'
+        data_type: NUMBER
+      - name: MODEL_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SUBADVISOR
+        description: ''
+        data_type: VARCHAR
+      - name: FEE_SCHEDULE
+        description: ''
+        data_type: VARCHAR
+      - name: FUND_FAMILY
+        description: ''
+        data_type: VARCHAR
+      - name: HAS_TRADING_INSTRUCTIONS
+        description: ''
+        data_type: NUMBER
+      - name: TRADING_INSTRUCTIONS
+        description: ''
+        data_type: VARCHAR
+      - name: IS_TRADING_BLOCKED
+        description: ''
+        data_type: NUMBER
+      - name: DOWNLOAD_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: IS_ECLIPSE_ENABLED
+        description: ''
+        data_type: NUMBER
+      - name: IS_SMA
+        description: ''
+        data_type: NUMBER
+      - name: SMA_ASSET
+        description: ''
+        data_type: VARCHAR
+      - name: BROKER_DEALER
+        description: ''
+        data_type: VARCHAR
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _ID
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _UPDATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: CUSTODIAL_CASH_VALUE
+        description: 'This should typically equate to the auto-liquidating/sweep value held at the custodian. Orion: Where product is tagged as is_custodial_cash.
+
+          '
+        data_type: NUMBER
+      - name: MMF_VALUE
+        description: 'This should typically equate to MMF positions that don''t fall within custodial cash but are otherwise a standard money market fund. Orion: Where product class category = ''M'' and is is_custodial_cash = false.
+
+          '
+        data_type: NUMBER
