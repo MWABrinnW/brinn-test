@@ -22,13 +22,13 @@ select
             then abs(quantity)
         else abs(cost_basis)
     end                                                       as "totalcost"
-    , iff(current_value > 0 , 1 , 0)::int                     as "iszeromv"
+    , iff(current_value = 0 , 1 , 0)::int                     as "iszeromv"
     , null::text                                              as "broker"
     , null::text                                              as "custodian"
     , 'n'                                                     as "pledge"
     , null::decimal(20 , 5)                                   as "pcalc"
     , null::int                                               as "iaction"
-    , null::int                                               as "lotnum"
+    , lot_id                                                  as "lotnum"
     , lot_id                                                  as "exlotid"
     , lot_id                                                  as "tradematch"
     , null::int                                               as "swaptranid"
