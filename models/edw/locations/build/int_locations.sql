@@ -85,6 +85,7 @@ select
     , end_date
     , case
         when coalesce(end_date , '2100-01-01') >= current_date()
+            and coalesce(start_date , '2100-01-01') <= current_date()
             then 1
         else 0
     end::int as active

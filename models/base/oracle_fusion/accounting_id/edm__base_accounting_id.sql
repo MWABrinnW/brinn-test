@@ -1,6 +1,6 @@
 with cte_accounting_id as (
     select *
-    from oracle_fusion.edm.stg_accounting_id
+    from {{ ref('edm__stg_accounting_id') }}
 )
 
 , cte_business_units as (
@@ -164,13 +164,13 @@ select
         , '1900-01-01'::date
     )::date                                as org_effective_date
     , object_construct_keep_null(
-        'deparment', dep.org_effective_date,
-        'location', loc.org_effective_date,
-        'market', mkt.org_effective_date,
-        'region', reg.org_effective_date,
-        'division', div.org_effective_date,
-        'sector', sec.org_effective_date,
-        'business_unit', bu.org_effective_date
+        'deparment' , dep.org_effective_date
+        , 'location' , loc.org_effective_date
+        , 'market' , mkt.org_effective_date
+        , 'region' , reg.org_effective_date
+        , 'division' , div.org_effective_date
+        , 'sector' , sec.org_effective_date
+        , 'business_unit' , bu.org_effective_date
     )                                      as org_effective_dates
     , dep.attr_16::text(200)               as igo_segment
 
