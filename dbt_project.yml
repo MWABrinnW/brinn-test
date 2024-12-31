@@ -81,7 +81,8 @@ data_tests:
   +store_failures_as: view
   +limit: 1000
   +schema: |
-    {% if target.name in ['dev', 'ci'] %} "{{ target.schema }}"
+    {% if target.name in ['prod'] %} "{{ target.schema }}_test__audit"
+    {% else %} "{{ target.schema }}"
     {% endif %}
 
 # [Configuring models]

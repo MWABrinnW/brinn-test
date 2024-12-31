@@ -92,4 +92,3 @@ where true
     )
     -- END EXCEPTIONS ---------------------
 order by a.system_name, a.household_name, a.financial_account_name
-limit 10000

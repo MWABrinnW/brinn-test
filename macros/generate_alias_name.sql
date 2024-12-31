@@ -8,11 +8,11 @@
 
     {{ custom_alias_name | trim }}
 
-  {%- elif target.name in ['prod', 'test'] and custom_alias_name is not none and node.resource_type != 'test' -%}
+  {%- elif target.name in ['prod', 'ci'] and custom_alias_name is not none and node.resource_type != 'test' -%}
 
     {{ custom_alias_name | trim }}
 
-  {%- elif target.name in ['prod', 'test'] and custom_alias_name is none and node.resource_type != 'test' -%}
+  {%- elif target.name in ['prod', 'ci'] and custom_alias_name is none and node.resource_type != 'test' -%}
 
     {% set node_name = node.name %}
 
