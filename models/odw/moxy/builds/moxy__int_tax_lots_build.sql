@@ -16,7 +16,7 @@ with cte_securities_partition as (
 )
 
 select
-    t.account_number             as account_number
+    t.crm_account_number         as account_number
     , t.account_number_formatted as account_number_formatted
     , ma.portfolio_id            as portfolio_id
     , t.effective_date           as effective_date
@@ -50,7 +50,7 @@ select
     , t._created_at              as _created_at
 from {{ ref('mis__bld_tax_lots') }} as t
 inner join {{ ref('moxy__int_accounts_build') }} as ma
-    on upper(t.account_number) = upper(ma.account_number)
+    on upper(t.pms_account_id) = upper(ma.pms_account_id)
 -- Join with moxy securities model to supplement fields
 left join cte_securities as s
     on upper(t.symbol) = upper(s.symbol)

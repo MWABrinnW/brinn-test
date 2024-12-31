@@ -1,12 +1,10 @@
 select
     a.effective_date                   as effective_date
-    --, a.system_name                      as system_name
-    --, a.system_instance                  as system_instance
-    --, a.system_key                       as system_key
-    , a.custodian                      as custodian
+    , a.custodian                      as custodia
     , a.account_number                 as account_number
     , a.account_number_formatted       as account_number_formatted
-    , a.account_id                     as account_id
+    , acc.account_number               as crm_account_number
+    , a.account_id                     as pms_account_id
     , acc.is_active                    as is_active
     , a.symbol                         as symbol
     , a.ticker                         as ticker
@@ -58,17 +56,15 @@ select
     , acc.is_intraday_import           as is_intraday_import
     , a.is_head                        as is_head
     , a._created_at                    as _created_at
--- should we add asset quantity/values here for reference?
 from {{ ref('mis__stg_orion_tax_lots') }} as a
-left join {{ ref('mis__bld_accounts') }} as acc
-    on a.account_number = acc.account_number
-    and acc.rn = 1
 -- join with mis_accounts here to tag perform/moxy
+left join {{ ref('mis__bld_accounts') }} as acc
+    on a.account_id = acc.pms_account_id
+    and acc.rn = 1
 where 1 = 1
     and a.is_head = 1
     -- Include MWA only
     and a.fkalclient = 568
-
     -- Exclude zero quantity positions except for custodial cash positions? This appears
     -- to mimic MIS 1.0
     and (

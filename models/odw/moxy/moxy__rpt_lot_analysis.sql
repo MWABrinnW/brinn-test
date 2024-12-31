@@ -45,6 +45,7 @@ inner join {{ ref('mis__bld_accounts') }} as a
     on tl.account_number = a.account_number
     and a.is_moxy = 1
 where 1 = 1
+    and tl.is_head = 1
     -- The old version of the report didn't exclude non managed assets. Going forward
     -- we are excluding them.
     and coalesce(tl.is_asset_managed , 0) = 1

@@ -1,34 +1,36 @@
 with cte_lots_base as (
     select
-        trim(regexp_replace(lower(account_number) , '(s-|r-|-)' , '')) as account_number
+        trim(
+            regexp_replace(lower(t.crm_account_number) , '(s-|r-|-)' , '')
+        )                     as account_number
         , case
-            when ticker = 'MUB' then 'MUBETF343'
-            when ticker = 'SUB' then 'SUBETF343'
-            else ticker
-        end::text(200)                                                 as ticker
+            when t.ticker = 'MUB' then 'MUBETF343'
+            when t.ticker = 'SUB' then 'SUBETF343'
+            else t.ticker
+        end::text(200)        as ticker
         , case
-            when ticker = 'MUB' then 'MUBETF343'
-            when ticker = 'SUB' then 'SUBETF343'
-            else cusip
-        end::text(200)                                                 as cusip
-        , quantity                                                     as quantity
-        , factor                                                       as factor
-        , current_price                                                as current_price
-        , current_value                                                as current_value
-        , is_custodial_cash                                            as is_custodial_cash
-        , cost_per_share                                               as cost_per_share
-        , cost_basis                                                   as cost_basis
-        , acquired_date                                                as acquired_date
-        , product_type                                                 as product_type
-        , asset_class                                                  as asset_class
-        , product_category                                             as product_category
-        , product_id                                                   as product_id
-        , asset_id                                                     as asset_id
-        , lot_id                                                       as lot_id
-        , 'orion'::text(200)                                           as source
-    from {{ ref('mis__bld_tax_lots') }}
+            when t.ticker = 'MUB' then 'MUBETF343'
+            when t.ticker = 'SUB' then 'SUBETF343'
+            else t.cusip
+        end::text(200)        as cusip
+        , t.quantity          as quantity
+        , t.factor            as factor
+        , t.current_price     as current_price
+        , t.current_value     as current_value
+        , t.is_custodial_cash as is_custodial_cash
+        , t.cost_per_share    as cost_per_share
+        , t.cost_basis        as cost_basis
+        , t.acquired_date     as acquired_date
+        , t.product_type      as product_type
+        , t.asset_class       as asset_class
+        , t.product_category  as product_category
+        , t.product_id        as product_id
+        , t.asset_id          as asset_id
+        , t.lot_id            as lot_id
+        , 'orion'::text(200)  as source
+    from {{ ref('mis__bld_tax_lots') }} as t
     where 1 = 1
-        and is_perform = 1
+        and t.is_perform = 1
 )
 
 , cte_perform_lots as (
@@ -172,15 +174,20 @@ select
         else a.cost_per_share
     end::decimal(20 , 3)               as cost_per_share
     , a.cost_basis::decimal(20 , 3)    as cost_basis
-    , case
+    , to_varchar(case
         when a.cusip not in ('CASH')
             and (
                 coalesce(a.cost_per_share , 0) = 0
                 or coalesce(a.acquired_date , '1900-01-01') = '1900-01-01'
             )
-            then to_varchar(coalesce(pl.acquired_date , a.acquired_date)::date , 'MM/DD/YYYY')
-        else to_varchar(a.acquired_date , 'MM/DD/YYYY')
-    end                                as acquired_date
+            then coalesce(pl.acquired_date , a.acquired_date)::date
+        when a.cusip ilike 'CASH'
+            then a.acquired_date::date
+        -- Unsure if perform requires a date. But the legacy workflow
+        -- suggests this is the case because it does populate a dummy date
+        -- for cash positions like FDRXX.
+        else coalesce(a.acquired_date , '1900-01-01')::date
+    end , 'MM/DD/YYYY')                as acquired_date
     , a.product_type                   as product_type
     , a.asset_class                    as asset_class
     , a.product_category               as product_category
