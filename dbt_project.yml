@@ -36,6 +36,9 @@ query-comment:
     {% endif %}
   append: true # Snowflake removes prefixed comments.
 
+flags:
+  skip_nodes_if_on_run_start_fails: True
+
 vars:
   dbt_date:time_zone: "America/Chicago"
   fivetran_platform_database: fivetran # default is your target.database
@@ -49,7 +52,6 @@ vars:
   use_common_policy_db: "True"
   common_policy_db: |
       {%- if  target.name in ["dev", "ci"] -%} {{ target.database }}
-      {%- elif target.name == "test" -%} {{ target.database }} || _test
       {%- else -%} {{ target.database }}
       {%- endif -%}
   common_policy_schema: |
@@ -58,7 +60,6 @@ vars:
       {%- endif -%}
   common_tag_database: |
       {%- if  target.name in ["dev", "ci"] -%} {{ target.database }}
-      {%- elif target.name == "test" -%} {{ target.database }} || _test
       {%- else -%} {{ target.database }}
       {%- endif -%}
   common_tag_schema: |
@@ -67,18 +68,21 @@ vars:
       {%- endif -%}
 
 on-run-start:
-  - "{{ create_schemas() if target.name in ['prod', 'test', 'ci'] }}"
+  - "{{ create_schemas() if target.name in ['prod', 'ci'] }}"
   - "{{ has_children_in_scope(model_name='pershing_udfs', macro_name='create_pershing_udfs') }}"
   - "{{ create_row_access_policies() }}"
   - "{{ create_masking_policies() }}"
 on-run-end:
-  - "{{ grant_usage_on_schemas_where_select() if target.name in ['prod', 'test'] }}"
-  - "{% if target.name in ['prod', 'test'] %}{{ dbt_artifacts.upload_results(results) }}{% endif %}"
+  - "{{ grant_usage_on_schemas_where_select() if target.name in ['prod', 'ci'] }}"
+  - "{% if target.name in ['prod'] %}{{ dbt_artifacts.upload_results(results) }}{% endif %}"
 
 data_tests:
   +store_failures: true
   +store_failures_as: view
   +limit: 1000
+  +schema: |
+    {% if target.name in ['dev', 'ci'] %} "{{ target.schema }}"
+    {% endif %}
 
 # [Configuring models]
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
@@ -90,8 +94,7 @@ models:
     +database: |
       {%- if  target.name == "dev" -%} datalake_dev
       {%- elif target.name == "prod"  -%} datalake
-      {%- elif target.name == "test"  -%} datalake_dev
-      {%- else -%} datalake_dev
+      {%- elif target.name == "ci"  -%} datalake_{{env_var('PR_NUM')}}
       {%- endif -%}
     +schema: github # leave blank for just the target_schema
   github:
@@ -101,8 +104,7 @@ models:
     +database: |
       {%- if  target.name == "dev" -%} datalake_dev
       {%- elif target.name == "prod"  -%} datalake
-      {%- elif target.name == "test"  -%} datalake_dev
-      {%- else -%} datalake_dev
+      {%- elif target.name == "ci"  -%} datalake_{{env_var('PR_NUM')}}
       {%- endif -%}
     +schema: github # leave blank for just the target_schema
 
@@ -114,16 +116,14 @@ models:
     +database: |
       {%- if  target.name == "dev" -%} datalake_dev
       {%- elif target.name == "prod"  -%} datalake
-      {%- elif target.name == "test"  -%} datalake_dev
-      {%- else -%} datalake_dev
+      {%- elif target.name == "ci"  -%} datalake_{{env_var('PR_NUM')}}
       {%- endif -%}
     +schema: fivetran_log # leave blank for just the target_schema
     staging:
       +database: |
         {%- if  target.name == "dev" -%} datalake_dev
         {%- elif target.name == "prod"  -%} datalake
-        {%- elif target.name == "test"  -%} datalake_dev
-        {%- else -%} datalake_dev
+        {%- elif target.name == "ci"  -%} datalake_{{env_var('PR_NUM')}}
         {%- endif -%}
       +schema: fivetran_log # leave blank for just the target_schema
 
@@ -141,8 +141,7 @@ models:
     +database: |
       {%- if  target.name == "dev" -%} datalake_dev
       {%- elif target.name == "prod"  -%} datalake
-      {%- elif target.name == "test"  -%} datalake_dev
-      {%- else -%} datalake_dev
+      {%- elif target.name == "ci"  -%} datalake_{{env_var('PR_NUM')}}
       {%- endif -%}
 
     # [BASE]
@@ -323,8 +322,7 @@ models:
         +database: |
           {%- if  target.name == "dev" -%} oracle_fusion_dev
           {%- elif target.name == "prod"  -%} oracle_fusion
-          {%- elif target.name == "test"  -%} oracle_fusion_dev
-          {%- else -%} oracle_fusion_dev
+          {%- elif target.name == "ci"  -%} oracle_fusion_{{env_var('PR_NUM')}}
           {%- endif -%}
         +grants:
           select: "{{ ['datamanagement', 'engineering', 'finance', 'db_hr_talent_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
@@ -426,8 +424,6 @@ models:
           +tags: ["tamarac", "mwa", "state_college", "cpg"]
           +grants:
             select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
-        orion_redshift:
-          +tags: ["orion"]
 
       reach_360:
         +tags: ["reach_360"]
@@ -507,8 +503,7 @@ models:
       +database: |
         {%- if  target.name == "dev" -%} {{target.database}}
         {%- elif target.name == "prod"  -%} odw
-        {%- elif target.name == "test"  -%} odw_dev
-        {%- else -%} odw_dev
+        {%- elif target.name == "ci"  -%} odw_{{env_var('PR_NUM')}}
         {%- endif -%}
       +grants:
         +select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
@@ -569,8 +564,7 @@ models:
       +database: |
         {%- if  target.name == "dev" -%} edw_dev
         {%- elif target.name == "prod"  -%} edw
-        {%- elif target.name == "test"  -%} edw_dev
-        {%- else -%} edw_dev
+        {%- elif target.name == "ci"  -%} edw_{{env_var('PR_NUM')}}
         {%- endif -%}
       +dbt-osmosis: "_{model}.yml"
       advisors:
@@ -686,16 +680,14 @@ seeds:
     +database: |
       {%- if  target.name == "dev" -%} datalake_dev
       {%- elif target.name == "prod"  -%} datalake
-      {%- elif target.name == "test"  -%} datalake_dev
-      {%- else -%} datalake_dev
+      {%- elif target.name == "ci"  -%} datalake_{{env_var('PR_NUM')}}
       {%- endif -%}
     +schema: aux
     datalake:
       +database: |
         {%- if  target.name == "dev" -%} datalake_dev
         {%- elif target.name == "prod"  -%} datalake
-        {%- elif target.name == "test"  -%} datalake_dev
-        {%- else -%} datalake_dev
+        {%- elif target.name == "ci"  -%} datalake_{{env_var('PR_NUM')}}
         {%- endif -%}
       +schema: aux
 
@@ -703,7 +695,6 @@ seeds:
       +database: |
         {%- if  target.name == "dev" -%} edw_dev
         {%- elif target.name == "prod"  -%} edw
-        {%- elif target.name == "test"  -%} edw_dev
-        {%- else -%} edw_dev
+        {%- elif target.name == "ci"  -%} datalake_{{env_var('PR_NUM')}}
         {%- endif -%}
       +schema: ref

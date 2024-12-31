@@ -8,9 +8,9 @@
     exclude_columns = None,
     where_clause = None
     ) -%}
-    {{ config(enabled = (target.name != "prod")) }}
 
     {% if execute -%}
+    {{ config(enabled = (target.name != "prod")) }}
     {# Currently no known way to retrieve the state graph and lookup the prod relation automatically.
         Until then, we must provide the three parts in the test config.
     #}

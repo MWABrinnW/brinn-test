@@ -27,12 +27,16 @@ jobs:
       group: pr-${{ github.event.number }}-${{ github.ref }}
       cancel-in-progress: true
     steps:
-      - name: drop pr schema
+      - name: drop PR Databases and PR Schema
         shell: pwsh
-        env:
-          PR_NUM: ${{ github.event.number }}
         run: |
-          $drop_sql = "drop schema if exists $($env:SNOWSQL_DATABASE).PR_$($env:PR_NUM);"
+          $drop_sql = @"
+          drop database if exists datalake_$($env:PR_NUM);
+          drop database if exists edw_$($env:PR_NUM);
+          drop database if exists odw_$($env:PR_NUM);
+          drop database if exists oracle_fusion_$($env:PR_NUM);
+          drop schema if exists dbt.pr_$($env:PR_NUM);
+          "@
           Write-Host $drop_sql
           snowsql -q "$drop_sql"
 
@@ -45,7 +49,8 @@ jobs:
       - name: Delete artifacts
         shell: pwsh
         run: |
-          $dest_dir = "$($env:ARTIFACTS_ROOT_DIR)/pr_$($env:PR_NUM)"
+          $branch = "${{ github.event.pull_request.head.ref }}"
+          $dest_dir = "$($env:ARTIFACTS_ROOT_DIR)/$branch"
           if (Test-Path -Path "$dest_dir") {
             Write-Host "Deleting $dest_dir"
             rm $dest_dir -r -force

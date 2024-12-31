@@ -33,3 +33,4 @@ where (
     coalesce(sector , 'placeholder') != 'Historical Only'
     and coalesce(end_date , '2100-01-01') >= start_date
 )
+--

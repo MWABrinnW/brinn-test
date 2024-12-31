@@ -4,11 +4,11 @@
 
     {{ target.schema }}
 
-  {%- elif target.name in ['prod', 'test'] and custom_schema_name is not none -%}
+  {%- elif target.name in ['prod', 'ci'] and custom_schema_name is not none -%}
 
     {{ custom_schema_name | trim }}
 
-  {%- elif target.name in ['prod', 'test'] and custom_schema_name is none -%}
+  {%- elif target.name in ['prod', 'ci'] and custom_schema_name is none -%}
 
     {% set node_name = node.name %}
 

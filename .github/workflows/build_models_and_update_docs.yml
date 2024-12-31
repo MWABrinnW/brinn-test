@@ -86,20 +86,33 @@ jobs:
         shell: pwsh
         run: |
           .\utilities\.venv\Scripts\Activate.ps1
-          dbt build --target=$env:DBT_TARGET --select state:modified+1 result:error
+          dbt build --target=$env:DBT_TARGET -s state:modified.body+1 state:modified.configs state:modified.persisted_descriptions state:modified.macros+1 state:modified.contract
 
       - name: upload dbt artifacts
         shell: pwsh
         run: |
-          Write-Host "Copying manifest.json to $($env:DBT_STATE)"
-          Copy-Item "./target/manifest.json" -Destination "$($env:DBT_STATE)" -Force
+          $dest_dir = "$env:DBT_STATE"
+          Write-Host "Copying manifest.json to $dest_dir"
+          Copy-Item "./target/manifest.json" -Destination "$dest_dir" -Force
           if (Test-Path -Path "./target/run_results.json" -PathType leaf) {
-            Write-Host "Copying run_results.json to $($env:DBT_STATE)"
-            Copy-Item "./target/run_results.json" -Destination "$($env:DBT_STATE)" -Force
+            Write-Host "Copying run_results.json to $dest_dir"
+            Copy-Item "./target/run_results.json" -Destination "$dest_dir" -Force
             } else { Write-Host "run_results.json not found" }
           if (Test-Path -Path "./target/sources.json" -PathType leaf) {
-            Write-Host "Copying sources.json to $($env:DBT_STATE)"
-            Copy-Item "./target/sources.json" -Destination "$($env:DBT_STATE)" -Force
+            Write-Host "Copying sources.json to $dest_dir"
+            Copy-Item "./target/sources.json" -Destination "$dest_dir" -Force
+            } else { Write-Host "sources.json not found" }
+
+          $dest_dir = "//mh-file/activebatchshare/prod/ops/dbt/main"
+          Write-Host "Copying manifest.json to $dest_dir"
+          Copy-Item "./target/manifest.json" -Destination "$dest_dir" -Force
+          if (Test-Path -Path "./target/run_results.json" -PathType leaf) {
+            Write-Host "Copying run_results.json to $dest_dir"
+            Copy-Item "./target/run_results.json" -Destination "$dest_dir" -Force
+            } else { Write-Host "run_results.json not found" }
+          if (Test-Path -Path "./target/sources.json" -PathType leaf) {
+            Write-Host "Copying sources.json to $dest_dir"
+            Copy-Item "./target/sources.json" -Destination "$dest_dir" -Force
             } else { Write-Host "sources.json not found" }
 
   dbt-docs:

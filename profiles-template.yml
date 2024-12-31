@@ -8,7 +8,7 @@ default:
 
       user: "{{ env_var('username') }}"
       database: dbt
-      warehouse: wh_dbt
+      warehouse: wh_engineering
       schema: "dbt_{{ env_var('username') }}"
       role: engineering
       threads: 5

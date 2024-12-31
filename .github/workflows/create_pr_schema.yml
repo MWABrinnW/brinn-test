@@ -34,6 +34,12 @@ env:
   DBT_PROFILES_DIR: ${{ vars.DBT_PROFILES_DIR }}
   DBT_TARGET_PATH: ./target
   DBT_TARGET: ci
+  SNOWSQL_USER: ${{ vars.DBT_USER }}
+  SNOWSQL_PWD: ${{ secrets.DBT_PASSWORD }}
+  SNOWSQL_ACCOUNT: ${{ vars.DBT_HOST }}
+  SNOWSQL_DATABASE: DBT
+  SNOWSQL_SCHEMA: DBT
+  SNOWSQL_ROLE: engineering
   PR_NUM: ${{ github.event.number }}
 
 
@@ -103,6 +109,18 @@ jobs:
             echo "DBT_DB_EDW_SRC=edw_dev" | Out-File -Append -FilePath $env:GITHUB_ENV
             }
 
+      - name: Create PR Databases
+        shell: pwsh
+        run: |
+          $sql = @"
+          create database if not exists datalake_$($env:PR_NUM);
+          create database if not exists edw_$($env:PR_NUM);
+          create database if not exists odw_$($env:PR_NUM);
+          create database if not exists oracle_fusion_$($env:PR_NUM);
+          "@
+          Write-Host $sql
+          snowsql -q "$sql"
+
       - name: dbt deps
         shell: pwsh
         run: |
@@ -120,12 +138,13 @@ jobs:
         shell: pwsh
         run: |
           .\utilities\.venv\Scripts\Activate.ps1
-          dbt build --target=$env:DBT_TARGET --fail-fast --select state:modified+1 result:error
+          dbt build --target=$env:DBT_TARGET --fail-fast -s state:modified.body+1 state:modified.configs state:modified.persisted_descriptions state:modified.macros+1 state:modified.contract
 
       - name: upload dbt artifacts
         shell: pwsh
         run: |
-          $dest_dir = "$($env:ARTIFACTS_ROOT_DIR)/pr_$($env:PR_NUM)"
+          $branch = "${{ github.event.pull_request.head.ref }}"
+          $dest_dir = "$($env:ARTIFACTS_ROOT_DIR)/$branch"
           if (!(Test-Path -Path "$dest_dir")) {
             New-Item -Path "$dest_dir" -ItemType Directory
           }
