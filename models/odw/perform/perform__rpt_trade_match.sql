@@ -54,26 +54,35 @@ with cte_internal_allocations as (
 
 , cte_external_trades as (
     select
-        t.date                   as date
-        , t.custodian            as custodian
-        , t.account_number       as account_number
-        , t.symbol               as symbol
-        , t.cusip                as cusip
-        , t.asset_class          as asset_class
-        , t.product_id           as product_id
-        , t.product_name         as product_name
-        , t.product_type         as product_type
-        , t.product_category     as product_category
-        , t.is_custodial_cash    as is_custodial_cash
-        , t.asset_id             as asset_id
-        , max(lower(t.buy_sell)) as order_side
-        , sum(t.quantity)        as quantity
-        , max(t.notes)           as notes
+        t.date                as date
+        , t.custodian         as custodian
+        , t.account_number    as account_number
+        , t.symbol            as symbol
+        , t.cusip             as cusip
+        , t.asset_class       as asset_class
+        , t.product_id        as product_id
+        , t.product_name      as product_name
+        , t.product_type      as product_type
+        , t.product_category  as product_category
+        , t.is_custodial_cash as is_custodial_cash
+        , t.asset_id          as asset_id
+        , max(case
+            when coalesce(t.trade_status , '') not ilike 'pending'
+                then lower(t.buy_sell)
+        end)                  as order_side
+        , sum(case
+            when coalesce(t.trade_status , '') not ilike 'pending'
+                then t.quantity
+        end)                  as quantity
+        , max(case
+            when coalesce(t.trade_status , '') not ilike 'pending'
+                then t.notes
+        end)                  as notes
         , max(case
             when t.trade_status ilike 'pending'
                 then 1
             else 0
-        end)                     as has_pendings
+        end)                  as has_pendings
     from {{ ref ('mis__stg_orion_transactions') }} as t
     inner join cte_all_accounts as a
         on t.account_number = a.account_number
@@ -85,7 +94,7 @@ with cte_internal_allocations as (
         and t.date >= dateadd('DAY' , -7 , current_date())
         and coalesce(t.is_custodial_cash , 0) = 0
         -- Exclude rejected trades
-        and lower(t.trade_status) not in ('rejected' , 'reversed' , 'pending')
+        and lower(t.trade_status) not in ('rejected' , 'reversed')
         -- Exclude maturity/redemption transactions per Omar 12/17/24.
         -- 'RO_RDM' & 'REDEMP/CONVERSION' is what we found with the examples
         -- but it's possible other maturity-like events could present a
@@ -93,6 +102,15 @@ with cte_internal_allocations as (
         and coalesce(t.notes , '') not ilike '%RO_RDM%'
         and coalesce(t.notes , '') not ilike '%REDEMP/CONVERSION%'
         and coalesce(t.notes , '') not ilike '%REDEMPTION PAYOUT%'
+    group by all
+)
+
+, cte_pendings as (
+    select
+        account_number
+        , cusip
+        , max(has_pendings) as has_pendings
+    from cte_external_trades
     group by all
 )
 
@@ -135,7 +153,7 @@ select
     , e.product_category                            as product_category
     , e.product_id                                  as product_id
     , e.asset_id                                    as asset_id
-    , coalesce(e.has_pendings , 0)                  as has_pendings
+    , coalesce(p.has_pendings , e.has_pendings , 0) as has_pendings
     , coalesce(i.notes , e.notes)                   as notes
 from cte_internal_allocations as i
 full outer join cte_external_trades as e
@@ -146,6 +164,9 @@ full outer join cte_external_trades as e
     and lower(i.order_side) = lower(e.order_side)
 left join cte_all_accounts as a
     on coalesce(i.account_number , e.account_number) = a.account_number
+left join cte_pendings as p
+    on coalesce(i.account_number , e.account_number) = p.account_number
+    and coalesce(i.cusip , e.cusip) = p.cusip
 where 1 = 1
     -- Omar requested to exclude 12/18/24
     and not (

@@ -117,6 +117,7 @@ jobs:
           create database if not exists edw_$($env:PR_NUM);
           create database if not exists odw_$($env:PR_NUM);
           create database if not exists oracle_fusion_$($env:PR_NUM);
+          create schema if not exists dbt.pr_$($env:PR_NUM);
           "@
           Write-Host $sql
           snowsql -q "$sql"

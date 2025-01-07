@@ -189,3 +189,11 @@ jobs:
           .\utilities\.venv\Scripts\Activate.ps1
           $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
           aws s3 sync ./target/ s3://${{ env.DBT_DOCS_BUCKET }}/${{ env.PR_NUM }}/ --delete
+
+          $dest_dir = "//mh-file/activebatchshare/prod/ops/dbt/main"
+          Write-Host "Copying catalog.json to $dest_dir"
+          Copy-Item "./target/catalog.json" -Destination "$dest_dir" -Force
+          if (Test-Path -Path "./target/run_results.json" -PathType leaf) {
+            Write-Host "Copying catalog.json to $dest_dir"
+            Copy-Item "./target/catalog.json" -Destination "$dest_dir" -Force
+            } else { Write-Host "catalog.json not found" }

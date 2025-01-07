@@ -1,6 +1,6 @@
 select
     a.effective_date                   as effective_date
-    , a.custodian                      as custodia
+    , a.custodian                      as custodian
     , a.account_number                 as account_number
     , a.account_number_formatted       as account_number_formatted
     , acc.account_number               as crm_account_number

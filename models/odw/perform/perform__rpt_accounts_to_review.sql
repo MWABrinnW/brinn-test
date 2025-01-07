@@ -28,10 +28,56 @@ with cte_build as (
 --and rti.account_number is null
 )
 
+, cte_mis_accounts as (
+    select *
+    from {{ ref('mis__bld_accounts') }}
+    where is_perform = 1 and is_active = 1
+)
+
+, cte_tax_lots_raw as (
+    select
+        account_id
+        , account_number
+        , custodian
+        , effective_date
+        , ticker
+        , cusip
+        , aggregate_asset_value
+        , aggregate_asset_quantity
+        , product_category
+        , product_type
+        , asset_class
+    from {{ ref('mis__stg_orion_tax_lots') }}
+    where is_head = 1
+        and fkalclient = 568
+        and account_id in (select distinct t.pms_account_id from cte_mis_accounts as t)
+)
 
 , cte_tax_lots as (
     select
-        a.*
+        acc.pms_account_id                                                   as pms_account_id
+        , coalesce(a.account_number , acc.account_number)                    as account_number
+        , a.description                                                      as description
+        , a.port_state                                                       as port_state
+        , a.inception_date                                                   as inception_date
+        , a.status                                                           as status
+        , a.custodian                                                        as custodian
+        , a.model                                                            as model
+        , a.type                                                             as type
+        , a.account_custodial                                                as account_custodial
+        , a.contact_name                                                     as contact_name
+        , a.sponsor                                                          as sponsor
+        , a.blotter_target                                                   as blotter_target
+        , a.tags                                                             as tags
+        , a.client_type                                                      as client_type
+        , a.financial_advisor                                                as financial_advisor
+        , a.prime_broker                                                     as prime_broker
+        , a.source                                                           as source
+        , a.subadvisor_date_opened                                           as subadvisor_date_opened
+        , a.is_in_perform                                                    as is_in_perform
+        , a.is_laddered                                                      as is_laddered
+        , a.min_investment                                                   as min_investment
+        , a.crm_account_id                                                   as crm_account_id
         , h.effective_date                                                   as effective_date
         , h.ticker                                                           as ticker
         , h.cusip                                                            as cusip
@@ -89,18 +135,17 @@ with cte_build as (
                     end
             else 0
         end::int                                                             as is_illegal_asset
-    from {{ ref('mis__stg_orion_tax_lots') }} as h
-    inner join cte_build as a
-        on h.account_number = a.account_number
-    where 1 = 1
-        and h.is_head = 1
-        and h.fkalclient = 568
+    from cte_mis_accounts as acc
+    left join cte_build as a
+        on acc.pms_account_id = a.pms_account_id
+    left join cte_tax_lots_raw as h
+        on a.pms_account_id = h.account_id
         and h.aggregate_asset_quantity > 0
-    --       and account_number in (
-    --         select distinct
-    --             account_number
-    --         from cte_build
-    --     )
+        --and h.is_head = 1
+        --and h.fkalclient = 568
+    where 1 = 1
+        and acc.is_perform = 1
+        and acc.is_active = 1
     group by all
 )
 

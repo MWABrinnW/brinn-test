@@ -29,6 +29,9 @@ with cte_lots_base as (
         , t.lot_id            as lot_id
         , 'orion'::text(200)  as source
     from {{ ref('mis__bld_tax_lots') }} as t
+    inner join {{ ref('mis__bld_accounts') }} as a
+        on t.pms_account_id = a.pms_account_id
+        and a.closing_date is null
     where 1 = 1
         and t.is_perform = 1
 )

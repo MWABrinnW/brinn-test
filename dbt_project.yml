@@ -532,14 +532,20 @@ models:
         +tags: ["fourforty"]
       mis:
         +tags: ["mis", "trading", "moxy", "perform"]
+        +grants:
+          +select: "{{ ['trading'] if target.name in ['prod', 'ci'] else []}}"
       moxy:
         +tags: ["moxy", "mis", "trading"]
+        +grants:
+          +select: "{{ ['trading'] if target.name in ['prod', 'ci'] else []}}"
       orion:
         +tags: ["orion", "pms"]
         +grants:
           +select: "{{ ['db_pms_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
       perform:
         +tags: ["perform", "mis", "trading"]
+        +grants:
+          +select: "{{ ['trading'] if target.name in ['prod', 'ci'] else []}}"
       tradeops:
         +tags: ["trading", "tradeops"]
         +grants:
