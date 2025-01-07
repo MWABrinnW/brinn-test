@@ -8,9 +8,11 @@ Resolves | Contributes to [YT-XXX](LINK) (_don't include title_)
 ## Type of change
 
 - [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature
+- [ ] Refactor (code change that improves structure or readability without changing functionality)
+- [ ] New feature (non-breaking change that adds functionality)
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] Documentation
+- [ ] Test (adds or updates tests without affecting functionality)
+- [ ] Documentation (updates or adds documentation, such as READMEs or code comments)
 - [ ] Chore (improves the development process or tooling, but does not affect the product or code)
 
 
