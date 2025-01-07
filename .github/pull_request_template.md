@@ -1,18 +1,37 @@
-## What does this do?
+# Description
 
-[Explain the changes being made]
+_Describe the changes and why they're being requested. Include the context, motivation, and relevant dependencies._
 
-## Why do we need this?
-
-[Explain why this change is needed]
-
-## Checklist:
-
-- [ ] I have executed sqlfluff or similar formatter
-- [ ] I have added/updated any relevant sources/models files
-- [ ] I have added/updated any relevant paths/configs in dbt_project.yml
-- [ ] I have performed a self-review of my code
-- [ ] I have tested my changes to ensure everything works correctly
+Resolves | Contributes to [YT-XXX](LINK) (_don't include title_)
 
 
-Closes [{YoutrackProject}-{YoutrackID}](LINK) # Comma delimited if more than one
+## Type of change
+
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] Documentation
+- [ ] Chore (improves the development process or tooling, but does not affect the product or code)
+
+
+## How has this been tested?
+
+_Include commands/logs/screenshots as relevant and do not include any PII._
+
+_If making changes to dbt models, please include relevant queries which demonstrate testing and validation, and include the output in this section of the PR._
+
+
+## Pre-merge dependencies
+
+_Describe any actions or scripts that need to occur prior to merge._
+
+- [ ] No action required
+- [ ] Actions required (specified below)
+
+
+## Post-merge follow-ups
+
+_Document any actions that must be taken post-merge to deploy or otherwise implement the changes in this PR (for example, running a full refresh of some incremental model)._
+
+- [ ] No action required
+- [ ] Actions required (specified below)
