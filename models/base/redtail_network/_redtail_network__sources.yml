@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: redtail_network
     description: ""
-    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
     loaded_at_field: _created_at
     tables:
       - name: contacts
@@ -38,6 +38,21 @@ sources:
             data_type: VARCHAR
       - name: contact_keywords
         description: "User defined contact keywords from redtail"
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            description: ''
+            data_type: VARCHAR
+      - name: workflows
+        description: "Workflow records from redtail"
         columns:
           - name: JSON
             description: ''
