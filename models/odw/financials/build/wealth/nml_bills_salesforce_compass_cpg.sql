@@ -11,7 +11,7 @@ with dynamics_finance_accounts_cte as (
                     , created_at desc
             )
             as rn
-    from datalake.dynamics_tamarac_cpg.stg_finance_accounts
+    from {{ ref('dynamics_tamarac_cpg__stg_finance_accounts') }}
     where date(effective_at) >= '1900-01-01'
         and is_head_for_day = 1
     --and dy_acct.TAM_UPLOAD_ID = '61507'
@@ -27,7 +27,7 @@ with dynamics_finance_accounts_cte as (
         , hh.column_name                                    as split_dtl_split_index
         , to_number(right(trim(split_dtl_split_index) , 1)) as split_dtl_sol_role_id
         , quantity                                          as split_dtl_split_amount
-    from datalake.dynamics_tamarac_cpg.stg_accounts as hh
+    from {{ ref('dynamics_tamarac_cpg__stg_accounts') }} as hh
     unpivot (quantity for column_name in (tamc_split_1 , tamc_split_2 , tamc_split_3 , tamc_split_4))
     where true
         and is_head_for_day = 1
@@ -47,30 +47,30 @@ with dynamics_finance_accounts_cte as (
 
     -- , cte_1.SPLIT_DTL_SOL_ROLE_ID
     -- , cte_1.SPLIT_DTL_ACCOUNT_ID
-    from datalake.dynamics_tamarac_cpg.stg_connections as ctn_1
+    from {{ ref('dynamics_tamarac_cpg__stg_connections') }} as ctn_1
 
-    left join datalake.dynamics_tamarac_cpg.stg_connection_roles as ctr_1
+    left join {{ ref('dynamics_tamarac_cpg__stg_connection_roles') }} as ctr_1
         on ctn_1._record_1_role_id_value = ctr_1.connection_role_id
         and date(ctn_1.effective_at) = date(ctr_1.effective_at)
         and ctr_1.is_head_for_day = 1
 
-    inner join datalake.dynamics_tamarac_cpg.stg_connections as ctn_2
+    inner join {{ ref('dynamics_tamarac_cpg__stg_connections') }} as ctn_2
         on ctn_1._related_connection_id_value = ctn_2.connection_id
         and date(ctn_1.effective_at) = date(ctn_2.effective_at)
         and ctn_2.is_head_for_day = 1
 
-    left join datalake.dynamics_tamarac_cpg.stg_connection_roles as ctr_2
+    left join {{ ref('dynamics_tamarac_cpg__stg_connection_roles') }} as ctr_2
         on ctn_2._record_1_role_id_value = ctr_2.connection_role_id
         and date(ctn_1.effective_at) = date(ctr_2.effective_at)
         and ctr_2.is_head_for_day = 1
 
-    inner join datalake.dynamics_tamarac_cpg.stg_accounts as cpg_acc
+    inner join {{ ref('dynamics_tamarac_cpg__stg_accounts') }} as cpg_acc
         on ctn_1._record_2_id_value = cpg_acc.account_id
         and date(ctn_1.effective_at) = date(cpg_acc.effective_at)
         and cpg_acc.is_head_for_day = 1
 
 
-    inner join datalake.dynamics_tamarac_cpg.stg_account_types as cpg_act
+    inner join {{ ref('dynamics_tamarac_cpg__stg_account_types') }} as cpg_act
         on cpg_acc._account_type_id_value = cpg_act.tam_account_type_id
         and date(ctn_1.effective_at) = date(cpg_act.effective_at)
         and cpg_act.is_head_for_day = 1
@@ -358,7 +358,7 @@ left join edw.ref.dates as dt
 -- This is because over time the account record can change (i.e. advisor assignment).
 -- -- We want to know what it looked like at the time of billing.
 inner join {{ ref('tamarac_state_college_history__base_accounts') }} as ba--GWH: ensure only Tamarac CPG Accounts are included
-    on ir.account_number_c = ba.account_number
+    on replace(ir.account_number_c , '-' , '') = replace(ba.account_number , '-' , '')
     and ir.invoice_date_c = ba.effective_date
     and ba.rn = 1
     and ba.entity_type in ('Single Account')
