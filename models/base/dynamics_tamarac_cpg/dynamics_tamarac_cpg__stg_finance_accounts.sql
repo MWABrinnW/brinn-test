@@ -79,6 +79,7 @@ select
     , json:_PRIMARYCONTACTID_VALUE::varchar(200)                 as _primary_contact_id_value
     , json:_SECONDARYCONTACTID_VALUE::varchar(200)               as _secondary_contact_id_value
     , json:_TAM_ACCOUNTID_VALUE::varchar(200)                    as _tam_account_id_value
+    , json:_TAMC_SOLICITORPAYMENTHOUSEHOLD_VALUE::varchar(200)   as _tamc_solicitor_payment_household_value
     , json:_TRUSTID_VALUE::varchar(200)                          as _trust_id_value
     , json:_TRANSACTIONCURRENCYID_VALUE::varchar(200)            as _transaction_currency_id_value
     , _created_at::timestamp_ntz                                 as _created_at
