@@ -1,10 +1,12 @@
+{% set src = source('flyer', 'accounts') %}
+
 with cte_max_per_day as (
     select
         _uri
         , _created_at::date as _created_date
         , {{ parse_copilot_env(col='_uri') }}
         , max(_created_at)  as _max_created_at_for_day
-    from {{ source('flyer', 'accounts') }}
+    from {{ src }}
     where _env = {{ "'" ~ copilot_env() ~ "'" }}
     group by all
 )
@@ -57,17 +59,17 @@ select
         as is_head
     , case
         when a._created_at = mxpd._max_created_at_for_day
+            and dense_rank() over(partition by dt.prior_market_date order by a._created_at desc) = 1
             then 1
         else 0
-    end::int
-        as is_head_for_day
+    end::int as is_head_for_day
     -- Derive effective date based on record created date
     , dt.prior_market_date                             as effective_date
     , a._created_at                                    as _created_at
     , a._source_file                                   as _source_file
     , a._uri                                           as _uri
     , {{ parse_copilot_env(col='a._uri') }}
-from {{ source('flyer', 'accounts') }} as a
+from {{ src }} as a
 left join cte_max as mx
     on a._uri = mx._uri
     and a._created_at = mx._max_created_at
