@@ -365,6 +365,9 @@ models:
         +tags: ["pms"]
         +grants:
           select: "{{ ['db_pms_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        axys_granite:
+          +grants:
+            select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         black_diamond_ap4:
           +grants:
             select: "{{ ['db_pms_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"

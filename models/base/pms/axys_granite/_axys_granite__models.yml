@@ -1,201 +1,89 @@
 version: 2
 models:
-  - name: axys_granite_history__base_holdings
+  - name: axys_granite__stg_accounts
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
         data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
         description: ''
         data_type: VARCHAR
-      - name: FIRM_SOURCE
+      - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
       - name: EFFECTIVE_DATE
         description: ''
         data_type: DATE
-      - name: SECURITYTYPE
+      - name: ACCOUNT_NUMBER_FORMATTED
         description: ''
         data_type: VARCHAR
-      - name: QUANTITY
-        description: ''
-        data_type: FLOAT
-      - name: SYMBOL
+      - name: ACCOUNT_NUMBER
         description: ''
         data_type: VARCHAR
-      - name: SECURITYNAME
+      - name: ACCT_NAME
         description: ''
         data_type: VARCHAR
-      - name: CUSIP
+      - name: ACCT_STATUS
         description: ''
         data_type: VARCHAR
-      - name: COSTBASIS
-        description: ''
-        data_type: FLOAT
-      - name: PRICE
-        description: ''
-        data_type: FLOAT
-      - name: MARKETVALUE
-        description: ''
-        data_type: FLOAT
-      - name: PORTFOLIOCODE
-        description: ''
-        data_type: VARCHAR
-      - name: ASOFDATE
-        description: ''
-        data_type: DATE
-      - name: ACCOUNTNUMBER
-        description: ''
-        data_type: VARCHAR
-      - name: IS_HEAD
-        description: ''
-        data_type: NUMBER
-      - name: IS_CURRENT
-        description: ''
-        data_type: NUMBER
-      - name: _SOURCE_LOADED_AT
-        description: ''
-        data_type: TIMESTAMP_LTZ
-  - name: axys_granite_history__base_households
-    columns:
-      - name: PMS
-        description: ''
-        data_type: VARCHAR
-      - name: PMS_LOCATION
-        description: ''
-        data_type: VARCHAR
-      - name: FIRM_SOURCE
-        description: ''
-        data_type: VARCHAR
-      - name: EFFECTIVE_DATE
-        description: ''
-        data_type: DATE
-      - name: ASSET_ACCOUNT_NUMBER
-        description: ''
-        data_type: VARCHAR
-      - name: ENTITY_ID
-        description: ''
-        data_type: VARCHAR
-      - name: ENTITY_NAME
-        description: ''
-        data_type: VARCHAR
-      - name: ENTITY_OWNER
-        description: ''
-        data_type: VARCHAR
-      - name: IS_HEAD
-        description: ''
-        data_type: NUMBER
-      - name: IS_CURRENT
-        description: ''
-        data_type: NUMBER
-      - name: _SOURCE_LOADED_AT
-        description: ''
-        data_type: TIMESTAMP_LTZ
-  - name: axys_granite_history__base_accounts
-    columns:
-      - name: PMS
-        description: ''
-        data_type: VARCHAR
-      - name: PMS_LOCATION
-        description: ''
-        data_type: VARCHAR
-      - name: FIRM_SOURCE
-        description: ''
-        data_type: VARCHAR
-      - name: EFFECTIVE_DATE
-        description: ''
-        data_type: DATE
-      - name: PORTFOLIOCODE
-        description: ''
-        data_type: VARCHAR
-      - name: ACCTSTATUS
-        description: ''
-        data_type: VARCHAR
-      - name: BEGINMGMT
-        description: ''
-        data_type: DATE
-      - name: INITIALVALUE
-        description: ''
-        data_type: FLOAT
-      - name: COVOFF
-        description: ''
-        data_type: VARCHAR
-      - name: CLOSEDATE
-        description: ''
-        data_type: DATE
-      - name: CLOSEVALUE
-        description: ''
-        data_type: FLOAT
-      - name: REPORTDATE
-        description: ''
-        data_type: DATE
       - name: AUM
         description: ''
-        data_type: FLOAT
-      - name: DISCRETION
+        data_type: NUMBER
+      - name: BEGIN_MGMT_DATE
+        description: ''
+        data_type: DATE
+      - name: CLOSE_DATE
+        description: ''
+        data_type: DATE
+      - name: CLOSE_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: COVERAGE_OFFICER
         description: ''
         data_type: VARCHAR
-      - name: TYPE
-        description: ''
-        data_type: VARCHAR
-      - name: ACCTNAME
+      - name: CRM_ID
         description: ''
         data_type: VARCHAR
       - name: CUSTODIAN
         description: ''
         data_type: VARCHAR
-      - name: ACCOUNTNUMBER
-        description: ''
-        data_type: VARCHAR
-      - name: CRMID
+      - name: DISCRETION
         description: ''
         data_type: VARCHAR
       - name: GOAL
         description: ''
         data_type: VARCHAR
-      - name: PRIMEENABLED
+      - name: INITIAL_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: PORTFOLIO_CODE
         description: ''
         data_type: VARCHAR
-      - name: PROXYVOTE
+      - name: PRIME_ENABLED
         description: ''
         data_type: VARCHAR
-      - name: FLATFEE
+      - name: PROXY_VOTE
         description: ''
         data_type: VARCHAR
-      - name: RATE1
+      - name: REPORT_DATE
         description: ''
-        data_type: VARCHAR
-      - name: BREAK1
-        description: ''
-        data_type: VARCHAR
-      - name: RATE2
-        description: ''
-        data_type: VARCHAR
-      - name: BREAK2
-        description: ''
-        data_type: VARCHAR
-      - name: RATE3
-        description: ''
-        data_type: VARCHAR
-      - name: BREAK3
-        description: ''
-        data_type: VARCHAR
-      - name: RATE4
-        description: ''
-        data_type: VARCHAR
-      - name: BREAK4
+        data_type: DATE
+      - name: ACCOUNT_TYPE
         description: ''
         data_type: VARCHAR
       - name: IS_HEAD
         description: ''
         data_type: NUMBER
-      - name: IS_CURRENT
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _ID
         description: ''
         data_type: NUMBER
-      - name: _SOURCE_LOADED_AT
-        description: ''
-        data_type: TIMESTAMP_LTZ
-  - name: axys_granite_history__base_bills
+  - name: axys_granite__stg_bills
     columns:
       - name: SYSTEM_NAME
         description: ''
@@ -257,3 +145,103 @@ models:
       - name: _BOX_META
         description: ''
         data_type: VARIANT
+  - name: axys_granite__stg_households
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: JSON:ASSET_ACCOUNT_NUMBER::TEXT
+        description: ''
+        data_type: VARCHAR
+      - name: JSON:ENTITY_ID::TEXT(200)
+        description: ''
+        data_type: VARCHAR
+      - name: JSON:ENTITY_NAME::TEXT(200)
+        description: ''
+        data_type: VARCHAR
+      - name: JSON:ENTITY_OWNER::TEXT(200)
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _ID
+        description: ''
+        data_type: NUMBER
+  - name: axys_granite__stg_holdings
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_INSTANCE
+        description: ''
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
+        description: ''
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: REPORT_DATE
+        description: ''
+        data_type: VARCHAR
+      - name: MARKET_VALUE
+        description: ''
+        data_type: NUMBER
+      - name: SECURITY_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITY
+        description: ''
+        data_type: VARCHAR
+      - name: SECURITY_SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: TOTAL_COST
+        description: ''
+        data_type: NUMBER
+      - name: CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: QUANTITY
+        description: ''
+        data_type: NUMBER
+      - name: PRICE
+        description: ''
+        data_type: NUMBER
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: PORTFOLIO_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _ID
+        description: ''
+        data_type: NUMBER

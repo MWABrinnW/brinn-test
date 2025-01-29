@@ -19,4 +19,4 @@ select
   , _box_file_id::varchar(200)                   as _box_file_id
   , _box_file_name::varchar(200)                 as _box_file_name
   , _box_meta::variant                           as _box_meta
-from {{ source('axys_granite_raw', 'bills') }}
+from {{ source('axys_granite', 'bills') }}
