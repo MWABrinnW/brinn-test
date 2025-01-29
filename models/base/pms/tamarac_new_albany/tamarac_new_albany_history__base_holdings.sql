@@ -1,8 +1,9 @@
 select
-    'tamarac' as pms
-    , 'new_albany' as pms_location
-    , 'mwa' AS firm_source
-    , as_of_date as effective_date
+    'tamarac'                                      as system_name
+    , 'new_albany'                                 as system_instance
+    , concat(system_name , '__' , system_instance) as system_key
+    , 'mwa'                                        as firm_source
+    , as_of_date                                   as effective_date
     , account_name
     , account_number
     , accrual_method
@@ -114,5 +115,5 @@ select
     , yield_at_cost
     , {{ col_is_head(reference=source('tamarac_new_albany', 'assets'), reference_date_col='as_of_date') }}
     , {{ col_is_current(date_col='effective_date') }}
-    , record_datetime as _source_loaded_at
+    , record_datetime                              as _source_loaded_at
 from {{ source('tamarac_new_albany', 'assets') }}

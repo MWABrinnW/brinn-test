@@ -1,0 +1,16 @@
+type,description_full,description_short,erisa
+1,Corp. non-retirement,Corp,0
+2,endowment,End&Found,0
+3,foundations,End&Found,0
+4,Indiv. IRA,Private,0
+5,Indiv. Non-IRA,Private,0
+6,Public,Public,0
+7,Taft Hartley,Taft Hartley,0
+8,Trust,Private,0
+9,Union (ERISA),ERISA,1
+10,wrap,Other,0
+11,other,Other,0
+12,Def. Benefit (ERISA),ERISA,1
+13,Def. Contribution (ERISA),ERISA,1
+14,Investment Company,Investment Company,0
+15,SubAdvised,SubAdv,0

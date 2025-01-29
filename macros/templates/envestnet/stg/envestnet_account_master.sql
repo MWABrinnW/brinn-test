@@ -1,12 +1,17 @@
 {%- macro envestnet_account_master(src) -%}
 select
-    'envestnet'                                                   as system_name
-    , {{ "'" ~ src ~ "'" }}                                       as system_instance
-    , concat(system_name , '__' , system_instance)                as system_key
-    , {{ envestnet_instance_map(src) }}                           as firm_source
-    , nullif(split_part(content , '|' , 1), '')::int              as account_id
-    , nullif(split_part(content , '|' , 2), '')::varchar(32)      as account_number
-    , nullif(split_part(content , '|' , 3), '')::varchar(128)     as account_name
+    'envestnet'                                                     as system_name
+    , {{ "'" ~ src ~ "'" }}                                         as system_instance
+    , concat(system_name , '__' , system_instance)                  as system_key
+    , {{ envestnet_instance_map(src) }}                             as firm_source
+    , nullif(split_part(content , '|' , 1), '')::int                as account_id
+    , nullif(split_part(content , '|' , 3), '')::varchar(128)       as account_name
+    , upper(nullif(split_part(content , '|' , 2), '')::varchar(32)) as account_number_formatted
+    , regexp_replace(replace(
+        ltrim(upper(
+            nullif(split_part(content , '|' , 2), '')::varchar(32)) , '0')
+        , '-' , ''
+    ) , '\s{2,}' , ' ')::text(200)                                as account_number
     , nullif(split_part(content , '|' , 4), '')::varchar(128)     as product_name
     , nullif(split_part(content , '|' , 5), '')::varchar(128)     as product_type
     , nullif(split_part(content , '|' , 6), '')::varchar(150)     as customer_name

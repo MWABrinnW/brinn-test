@@ -1,8 +1,9 @@
-{# NOTE
+{{
+  config(
+    enabled=false,
+    )
+}}
 
-    This DBT model is too slow for production.  This SQL is copied into the Alteryx flow directly and run from there.
-
-#}
 
 with cte_effective_dates as (
     select distinct effective_date
@@ -27,8 +28,8 @@ with cte_effective_dates as (
         -- assuming this stands for Active, might need to remove this (ticker = MDT is blocked by this)
         and issue_status = 'A'
         and effective_date in (
-            select effective_date
-            from cte_effective_dates
+            select a.effective_date
+            from cte_effective_dates as a
         )
 )
 
@@ -48,8 +49,8 @@ with cte_effective_dates as (
     from {{ ref('morningstar_hfw__int_accounts') }}
     where effective_date in
         (
-            select distinct effective_date
-            from cte_effective_dates
+            select distinct a.effective_date
+            from cte_effective_dates as a
         )
 )
 
@@ -96,8 +97,8 @@ with cte_effective_dates as (
             and gl.account_name like '%Account%'
         )
         and gl.effective_date in (
-            select effective_date
-            from cte_effective_dates
+            select a.effective_date
+            from cte_effective_dates as a
         )
 )
 
@@ -178,12 +179,12 @@ with cte_effective_dates as (
         , t.source_file
         , 'DATALAKE.TPG_HFW.VW_HOLDINGS' as system_details
         , o.tpg_id_number                as overlap_account_number
-    from {{ ref('tpg_hfw__vw_holdings') }} as t
+    from {{ ref('tpg_hfw__stg_holdings') }} as t
     left join cte_tpg_morningstar_overlap as o
         on t.customeraccountnumber = o.tpg_id_number
     where t.effective_date in (
-            select effective_date
-            from cte_effective_dates
+            select a.effective_date
+            from cte_effective_dates as a
         )
         and overlap_account_number is null
         and rn = 1
@@ -196,7 +197,7 @@ with cte_effective_dates as (
         , gl.effective_date
     from cte_gain_loss as gl
 
-    union
+    union distinct
 
     select
         t.customeraccountnumber as financial_account_number

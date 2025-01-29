@@ -1,8 +1,9 @@
 select
-    'tamarac' as pms
-    , 'nashville' as pms_location
-    , 'mwa' AS firm_source
-    , effective_date
+    'tamarac'                                      as system_name
+    , 'nashville'                                  as system_instance
+    , concat(system_name , '__' , system_instance) as system_key
+    , 'mwa'                                        as firm_source
+    , effective_date                               as effective_date
     , account__net_worth_category
     , account__ownership_type
     , account__primary_owner_email
@@ -10,7 +11,12 @@ select
     , account_level
     , account_long_term_realized_gain_loss
     , account_name
-    , account_number
+    , account_number                               as account_number_formatted
+    , regexp_replace(replace(
+        ltrim(upper(account_number) , '0')
+        , '-' , ''
+    ) , '\\s{2,}'
+    , ' ')                                         as account_number
     , account_short_term_realized_gain_loss
     , account_status
     , account_total_realized_gain_loss
@@ -251,5 +257,6 @@ select
     , zip
     , {{ col_is_head(reference=source('tamarac_nashville', 'financial_accounts')) }}
     , {{ col_is_current(date_col='effective_date') }}
-    , record_datetime as _source_loaded_at
+    , record_datetime                              as _source_loaded_at
 from {{ source('tamarac_nashville', 'financial_accounts') }}
+where entity_type = 'Single Account'

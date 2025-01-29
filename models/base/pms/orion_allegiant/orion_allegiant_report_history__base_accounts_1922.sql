@@ -1,7 +1,8 @@
 select
-    'orion' as pms
-    , 'allegiant' as pms_location
-    , 'mwa' AS firm_source
+    'orion'                                        as system_name
+    , 'allegiant'                                  as system_instance
+    , concat(system_name , '__' , system_instance) as system_key
+    , 'mwa'                                        as firm_source
     , effective_date
     , client_id
     , registration_id
@@ -100,5 +101,5 @@ select
     , exclude_from_orion_cost_basis
     , {{ col_is_head(reference=source('orion_allegiant', 'audit_all_accounts_1922_history')) }}
     , {{ col_is_current(date_col='effective_date') }}
-    , record_datetime as _source_loaded_at
+    , record_datetime                              as _source_loaded_at
 from {{ source('orion_allegiant', 'audit_all_accounts_1922_history') }}

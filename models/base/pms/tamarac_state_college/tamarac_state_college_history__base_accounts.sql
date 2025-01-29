@@ -9,7 +9,12 @@ select
     , content:ACCOUNT_CURRENT_VALUE::double                                     as account_current_value
     , content:ACCOUNT_LONG_TERM_REALIZED_GAIN_LOSS::double                      as account_long_term_realized_gain_loss
     , content:ACCOUNT_NAME::varchar(1000)                                       as account_name
-    , content:ACCOUNT_NUMBER::varchar(1000)                                     as account_number
+    , content:ACCOUNT_NUMBER::varchar(1000)                                     as account_number_formatted
+    , regexp_replace(replace(
+        ltrim(upper(content:ACCOUNT_NUMBER::varchar(1000)) , '0')
+        , '-' , ''
+    ) , '\\s{2,}'
+    , ' ')                                                                      as account_number
     , content:ACCOUNT_SHORT_TERM_REALIZED_GAIN_LOSS::double                     as account_short_term_realized_gain_loss
     , content:ACCOUNT_TOTAL_REALIZED_GAIN_LOSS::double                          as account_total_realized_gain_loss
     , content:ACCOUNT_TYPE::varchar(1000)                                       as account_type

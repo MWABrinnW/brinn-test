@@ -1,7 +1,8 @@
 select
-    'tamarac' as pms
-    , 'savant' as pms_location
-    , 'mwa' AS firm_source
+    'tamarac'                                      as system_name
+    , 'savant'                                     as system_instance
+    , concat(system_name , '__' , system_instance) as system_key
+    , 'mwa'                                        as firm_source
     , effective_date
     , email
     , activation_email_sent
@@ -30,5 +31,5 @@ select
     , prev_eod_date
     , {{ col_is_head(reference=source('tamarac_savant', 'clients')) }}
     , {{ col_is_current(date_col='effective_date') }}
-    , record_datetime as _source_loaded_at
+    , record_datetime                              as _source_loaded_at
 from {{ source('tamarac_savant', 'clients') }}

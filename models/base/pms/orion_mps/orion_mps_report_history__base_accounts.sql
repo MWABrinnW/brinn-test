@@ -1,7 +1,8 @@
 select
-    'orion' as pms
-    , 'mps' as pms_location
-    , 'mps' AS firm_source
+    'orion'                                        as system_name
+    , 'mps'                                        as system_instance
+    , concat(system_name , '__' , system_instance) as system_key
+    , 'mps'                                        as firm_source
     , effective_date
     , canceldate
     , client_id
@@ -56,5 +57,5 @@ select
     , cash_balance
     , {{ col_is_head(reference=source('orion_mps', 'as_of_value_by_account_3679_history')) }}
     , {{ col_is_current(date_col='effective_date') }}
-    , record_datetime as _source_loaded_at
+    , record_datetime                              as _source_loaded_at
 from {{ source('orion_mps', 'as_of_value_by_account_3679_history') }}

@@ -212,3 +212,4 @@ select
                     ) as rn_global
     , current_timestamp()::timestamp as _created_at
 from cte_accounts_with_values
+order by effective_date, custodian, firm_source, account_number

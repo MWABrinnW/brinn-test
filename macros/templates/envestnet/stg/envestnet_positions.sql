@@ -1,11 +1,14 @@
 {%- macro envestnet_positions(src) -%}
 select
-    'envestnet'                                       as system_name
+    'envestnet'                                                          as system_name
     , {{ "'" ~ src ~ "'" }}                                              as system_instance
-    , concat(system_name , '__' , system_instance)    as system_key
-    , {{ envestnet_instance_map(src) }}                                           as firm_source
-    , nullif(split_part(content , '|' , 1), '')::int              as account_id
-    , nullif(split_part(content , '|' , 2), '')::varchar(32)      as account_number
+    , concat(system_name , '__' , system_instance)                       as system_key
+    , {{ envestnet_instance_map(src) }}                                  as firm_source
+    , nullif(split_part(content , '|' , 1), '')::int                     as account_id
+    , upper(nullif(split_part(content , '|' , 2), '')::varchar(32))      as account_number_formatted
+    , regexp_replace(
+        ltrim(upper(replace(trim(nullif(split_part(content , '|' , 2), '')::varchar(32)) , '-' , '')) , '0')::text(200)
+        , '\\s{2,}' ,' ')::text(200)                              as account_number
     , nullif(split_part(content , '|' , 3), '')::date             as as_of_date
     , nullif(split_part(content , '|' , 4), '')::int              as security_id
     , nullif(split_part(content , '|' , 5), '')::varchar(22)      as cusip

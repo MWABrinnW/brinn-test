@@ -1,3 +1,11 @@
+{{
+  config(
+    enabled=false,
+    )
+}}
+
+
+
 with cte_effective_dates as (
     select distinct effective_date
     from {{ ref('morningstar_hfw__base_accounts') }}
@@ -7,7 +15,7 @@ with cte_effective_dates as (
     union distinct
 
     select distinct effective_date
-    from {{ ref('tpg_hfw__vw_holdings') }}
+    from {{ ref('tpg_hfw__stg_holdings') }}
     where effective_date >= '2023-02-01'
 )
 
@@ -112,7 +120,7 @@ with cte_effective_dates as (
         , substring(customeraccountnumber , 1 , 3)
             as internal_household_number
         , row_number() over (partition by customeraccountnumber , effective_date order by record_datetime desc) as rn
-    from {{ ref("tpg_hfw__vw_accounts") }}
+    from {{ ref("tpg_hfw__int_accounts") }}
     where effective_date in (
             select sub_eff.effective_date
             from cte_effective_dates as sub_eff

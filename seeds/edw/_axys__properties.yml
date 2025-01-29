@@ -1,0 +1,21 @@
+version: 2
+
+seeds:
+  - name: axys_granite_account_types
+    description: Mapping file used for axys account types.
+    docs:
+      show: true
+    config:
+      enabled: true
+      tags: ['axys', 'pms']
+      grants:
+        select: "{{ ['db_pms_mwa_r'] if target.name in ['prod','test'] else []}}"
+  - name: axys_granite_custodians
+    description: Mapping file used for axys custodian values.
+    docs:
+      show: true
+    config:
+      enabled: true
+      tags: ['custodial', 'custodian', 'axys', 'pms']
+      grants:
+        select: "{{ ['db_pms_mwa_r'] if target.name in ['prod','test'] else []}}"

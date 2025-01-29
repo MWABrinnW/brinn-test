@@ -5,7 +5,10 @@ select
     , '{{ instance }}'::text(200)                                                   as system_instance
     , concat(system_name , '__' , system_instance)                                  as system_key
     , '{{ firm_source }}'::text(200)                                                as firm_source
-    , a.json:AccountNumber::text(500)                                               as account_number
+    , upper(a.json:AccountNumber)::text(500)                                        as account_number_formatted                                                                               
+    , regexp_replace(
+        ltrim(upper(replace(trim(a.json:AccountNumber) , '-' , '')) , '0')::text(200)
+        , '\\s{2,}' ,' ')::text(200)                                                as account_number                        
     , a.json:AccountCategory::text(500)                                             as account_category
     , a.json:AccountRegistrationType::text(500)                                     as account_registration_type
     , a.json:AccountSubCategory::text(500)                                          as account_subcategory
@@ -61,3 +64,5 @@ left join {{ ref('black_diamond_' ~ instance ~ '__base_account_tags') }} as atag
 group by all
 
 {%- endmacro -%}
+
+

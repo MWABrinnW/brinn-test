@@ -1,7 +1,8 @@
 select
-    'orion' as pms
-    , 'arbor_wealth' as pms_location
-    , 'mwa' AS firm_source
+    'orion'                                        as system_name
+    , 'arbor_wealth'                               as system_instance
+    , concat(system_name , '__' , system_instance) as system_key
+    , 'mwa'                                        as firm_source
     , effective_date
     , client_id
     , registration_id
@@ -104,5 +105,5 @@ select
     , is_discretionary
     , {{ col_is_head(reference=source('orion_arbor_wealth', 'audit_all_accounts_4213_history')) }}
     , {{ col_is_current(date_col='effective_date') }}
-    , record_datetime as _source_loaded_at
+    , record_datetime                              as _source_loaded_at
 from {{ source('orion_arbor_wealth', 'audit_all_accounts_4213_history') }}

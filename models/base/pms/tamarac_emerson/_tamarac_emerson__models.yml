@@ -2106,7 +2106,7 @@ models:
   - name: _SOURCE_LOADED_AT
     description: ''
     data_type: TIMESTAMP_NTZ
-- name: tamarac_emerson_history_base_clients
+- name: tamarac_emerson_history__base_clients
   columns:
   - name: PMS
     description: ''

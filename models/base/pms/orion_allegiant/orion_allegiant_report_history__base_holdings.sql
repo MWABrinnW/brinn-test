@@ -1,7 +1,8 @@
 select
-    'orion' as pms
-    , 'allegiant' as pms_location
-    , 'mwa' AS firm_source
+    'orion'                                        as system_name
+    , 'allegiant'                                  as system_instance
+    , concat(system_name , '__' , system_instance) as system_key
+    , 'mwa'                                        as firm_source
     , effective_date
     , lname
     , asofdate
@@ -58,5 +59,5 @@ select
     , cusip
     , {{ col_is_head(reference=source('orion_allegiant', 'asset_query_1809_history')) }}
     , {{ col_is_current(date_col='effective_date') }}
-    , record_datetime as _source_loaded_at
+    , record_datetime                              as _source_loaded_at
 from {{ source('orion_allegiant', 'asset_query_1809_history') }}

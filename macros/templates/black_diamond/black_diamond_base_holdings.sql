@@ -6,7 +6,10 @@ select
     , concat(system_name , '__' , system_instance) as system_key
     , '{{ firm_source }}'::text(200)               as firm_source
     , a.effective_date                             as effective_date
-    , a.json:AccountNumber::string                 as account_number
+    , upper(a.json:AccountNumber)::text(200) as account_number_formatted
+        , regexp_replace(
+        ltrim(upper(replace(trim(a.json:AccountNumber) , '-' , '')) , '0')::text(200)
+        , '\\s{2,}' ,' ')::text(200)                                                as account_number    
     , h.value:AccountId::string                    as account_id
     , h.value:Id::string                           as id
     , h.value:DisplayCusip::string                 as cusip
@@ -35,12 +38,12 @@ select
     , {{ col_is_current(date_col='a.effective_date') }}
     , a.record_datetime                            as _source_loaded_at
     {%- if extra_columns -%}
-    {{ extra_columns }}
+        {{ extra_columns }}
     {%- endif %}
 from {{ src }} as a
 , lateral flatten(input => a.json:Holdings) as h
-{%- if extra_joins %}
-{{ extra_joins }}
-{% endif -%}
+    {%- if extra_joins %}
+        {{ extra_joins }}
+    {% endif -%}
 
 {%- endmacro -%}

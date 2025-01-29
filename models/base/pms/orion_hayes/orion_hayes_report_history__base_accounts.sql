@@ -1,7 +1,8 @@
 select
-    'orion' as pms
-    , 'hayes' as pms_location
-    , 'mwa' AS firm_source
+    'orion'                                        as system_name
+    , 'hayes'                                      as system_instance
+    , concat(system_name , '__' , system_instance) as system_key
+    , 'mwa'                                        as firm_source
     , effective_date
     , canceldate
     , client_id
@@ -55,5 +56,5 @@ select
     , account_created_date
     , {{ col_is_head(reference=source('orion_hayes', 'as_of_value_by_account_3679_history')) }}
     , {{ col_is_current(date_col='effective_date') }}
-    , record_datetime as _source_loaded_at
+    , record_datetime                              as _source_loaded_at
 from {{ source('orion_hayes', 'as_of_value_by_account_3679_history') }}

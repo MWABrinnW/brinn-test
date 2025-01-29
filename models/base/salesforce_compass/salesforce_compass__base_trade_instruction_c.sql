@@ -1,19 +1,3 @@
-{{ config(
-  grants = {'+select': ['ops_mwa']}
-) }}
-
-with cte_trade_instruction as (
-    select
-        effective_at::date as effective_at
-        , _created_at
-        , row_number() over (
-            partition by effective_at::date
-            order by _created_at desc
-        )                  as rn
-    from {{ source('salesforce_compass', 'trade_instruction_c') }}
-    group by 1 , 2
-)
-
 select
     'salesforce'::text(200)                                     as system_name
     , 'compass'::text(200)                                      as system_instance
@@ -138,12 +122,17 @@ select
 
     , a.effective_at::timestamp                                 as effective_at
     , a._created_at::timestamp                                  as _created_at
-    , {{ col_is_head(
-        reference=source('salesforce_compass', 'trade_instruction_c'),
-        source_date_col='a.effective_at',
-        reference_date_col='effective_at') }}
+    , {{ col_is_head(reference=source('salesforce_compass', 'trade_instruction_c') , 
+        source_date_col='a.effective_at', reference_date_col='effective_at') }}
     , case when b.rn = 1 then 1 else 0 end                      as is_latest
 from {{ source('salesforce_compass', 'trade_instruction_c') }} as a
-left join cte_trade_instruction as b
+left join (
+    select
+        a.effective_at::date                                                                as effective_at
+        , a._created_at
+        , row_number() over (partition by a.effective_at::date order by a._created_at desc) as rn
+    from {{ source('salesforce_compass', 'trade_instruction_c') }} as a
+    group by 1 , 2
+) as b
     on a.effective_at::date = b.effective_at::date
     and a._created_at = b._created_at

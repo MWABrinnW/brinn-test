@@ -2,6 +2,7 @@ select
     'cambak'::text(200)                                                    as system_name
     , 'andco'::text(200)                                                   as system_instance
     , concat(system_name , '__' , system_instance)                         as system_key
+    , 'andco'                                                              as firm_source
     , json:financial_account_number::text(200)                             as account_number_formatted
     , regexp_replace(replace(
         ltrim(upper((json:financial_account_number::text(200))) , '0')

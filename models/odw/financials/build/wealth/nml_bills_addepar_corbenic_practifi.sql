@@ -50,7 +50,7 @@ select
     , a.top_level_owner_entity_id::varchar(200)                                  as client_id_pms
     -- confirm this matches FA Master
     , case
-        when a.holding_account_number in (
+        when a.account_number in (
                 'DLRU158'
                 , 'MRDRW830'
                 , 'MLRF164'
@@ -214,7 +214,7 @@ select
 from
     {{ ref('addepar_corbenic_history__base_bills') }} as b
 left join {{ ref('addepar_corbenic_history__base_accounts') }} as a
-    on b.holding_account_number = a.holding_account_number
+    on b.holding_account_number = a.account_number
     and a.is_head = 1
 left join cte_crm as c
     on b.holding_account_number = c.pract_acct_num

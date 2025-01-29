@@ -545,6 +545,18 @@ sources:
           - name: _ID
             description: ''
             data_type: NUMBER
+      - name: rules_mappings
+        tags: ["pms", "masters"]
+        description: ""
+      - name: rules_overrides
+        tags: ["pms", "masters"]
+        description: ""
+      - name: rules_source_of_truth
+        tags: ["pms", "masters"]
+        description: ""
+      - name: rules_account_value_dates
+        tags: ["pms", "masters"]
+        description: ""
   - name: raw_aux
     description: >
       The sources represent auxillary source systems and files,

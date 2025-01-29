@@ -1,3 +1,9 @@
+{{
+  config(
+    enabled=false,
+    )
+}}
+
 with tpg_accounts as (
     select
         replace(customeraccountnumber , '  ' , ' ')              as financial_account_number

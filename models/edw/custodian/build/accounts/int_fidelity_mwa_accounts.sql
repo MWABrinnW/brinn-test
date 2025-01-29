@@ -241,6 +241,7 @@ with cte_effective_dates_out_of_date as
                     end,
               '(\\s{2,})', ' '), ' ,', ','), '')::varchar(500)
           end                                                     as account_title
+          , a.proxy_vote_indicator                                as proxy_vote_indicator
     from {{ ref('fidelity_mwa_history__vw_nabase_101_account') }} a
     left join {{ ref('fidelity_mwa_history__vw_nabase_102_business') }} b
       on a.effective_date = b.effective_date

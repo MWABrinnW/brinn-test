@@ -3,7 +3,11 @@ select
     , 'state_college'                                                              as system_instance
     , system_name || '__' || system_instance                                       as system_key
     , 'mwa'                                                                        as firm_source
-    , content:ACCOUNT_NUMBER::varchar(1000)                                        as account_number
+    , upper(content:ACCOUNT_NUMBER)::text(200)                                     as account_number_formatted
+    , regexp_replace(
+        ltrim(upper(replace(trim(content:ACCOUNT_NUMBER) , '-' , '')) , '0')::text(200)
+        , '\\s{2,}' , ' '
+    )::text(200)                                                                   as account_number
     , content:ACCRUAL_METHOD::varchar(1000)                                        as accrual_method
     , content:ACCRUED_INCOME::double                                               as accrued_income
     , content:ALLOW_UPDATES::boolean                                               as allow_updates
@@ -97,7 +101,7 @@ select
     , content:TREAT_TRANSACTIONS_AS_END_OF_DAY::boolean                            as treat_transactions_as_end_of_day
     , content:UNDERLYING_SECURITY::varchar(1000)                                   as underlying_security
     , content:UNIT_COST::double                                                    as unit_cost
-    , content:UPLOAD_ACCOUNT_ID::number(20)                                        as upload_account_id
+    , content:UPLOAD_ACCOUNT_ID::text(200)                                         as upload_account_id
     , content:UPLOAD_SECURITY_ID::number(20)                                       as upload_security_id
     , content:WEIGHT::double                                                       as weight
     , content:YIELD_AT_COST::double                                                as yield_at_cost

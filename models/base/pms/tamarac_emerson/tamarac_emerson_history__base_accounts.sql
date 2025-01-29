@@ -1,7 +1,8 @@
 select
-    'tamarac' as pms
-    , 'emerson' as pms_location
-    , 'mwa' AS firm_source
+    'tamarac'                                                    as pms
+    , 'emerson'                                                  as pms_location
+    , 'mwa'                                                      as firm_source
+    , concat(pms , '__' , pms_location)                          as pms_key
     , effective_date
     , account__net_worth_category
     , account__ownership_type
@@ -9,7 +10,12 @@ select
     , account_current_value
     , account_long_term_realized_gain_loss
     , account_name
-    , account_number
+    , account_number                                             as account_number_formatted
+    , regexp_replace(replace(
+        ltrim(upper(account_number) , '0')
+        , '-' , ''
+    ) , '\\s{2,}'
+    , ' ')                                                       as account_number
     , account_short_term_realized_gain_loss
     , account_total_realized_gain_loss
     , account_type
@@ -67,7 +73,7 @@ select
     , include_accrued_gains
     , inflows
     , initial_value
-    , "INTEREST_&_DIVIDENDS" as interest_and_dividends
+    , "INTEREST_&_DIVIDENDS"                                     as interest_and_dividends
     , internal_commissions
     , last_name
     , last_reconciliation_date
@@ -169,7 +175,7 @@ select
     , post_rebalance_cash_dollar
     , post_rebalance_cash_percent
     , sweep_cash
-    , "T+1_CASH" as t_plus_one_cash
+    , "T+1_CASH"                                                 as t_plus_one_cash
     , total_cash_dollar
     , total_cash_percent
     , total_cash_reserve_actual_percent
@@ -226,7 +232,7 @@ select
     , transaction_fee_fund_minimum_trade_size_dollar
     , transaction_fee_fund_minimum_trade_size_percent
     , annual_capital_gains_tax_budget
-    , "ANNUAL_CAPITAL_GAINS_TAX_BUDGET_%_USED" as annual_capital_gains_tax_budget_percent_used
+    , "ANNUAL_CAPITAL_GAINS_TAX_BUDGET_%_USED"                   as annual_capital_gains_tax_budget_percent_used
     , annual_capital_gains_tax_budget_value_type
     , closing_method
     , long_term_carryover_ytd
@@ -265,5 +271,8 @@ select
     , erisa
     , {{ col_is_head(reference=source('tamarac_emerson', 'accounts')) }}
     , {{ col_is_current(date_col='effective_date') }}
-    , record_datetime as _source_loaded_at
+    , record_datetime                                            as _source_loaded_at
+    , null::text(200)                                            as _source_file
+    , null::text(200)                                            as _checksum
 from {{ source('tamarac_emerson', 'accounts') }}
+where entity_type = 'Single Account'

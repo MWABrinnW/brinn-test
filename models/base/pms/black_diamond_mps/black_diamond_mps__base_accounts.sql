@@ -1,5 +1,12 @@
 {%- set extra_columns -%}
-, max(case when atag.tag_name = 'AUM / AUA / RO' then atag.tag_value end)        as aum_aua_ro
+, max(
+    case
+        when atag.tag_name = 'AUM / AUA / RO' and atag.tag_value = 'AUM' then 'AUM - Assets Under Management'
+        when atag.tag_name = 'AUM / AUA / RO' and atag.tag_value = 'AUA' then 'AUA - Assets Under Advisory'
+        when atag.tag_name = 'AUM / AUA / RO' and atag.tag_value = 'Reporting Only' then 'Data Aggregation / Reporting Only'
+        when atag.tag_name = 'AUM / AUA / RO' then atag.tag_value
+    end
+)                                                                                as aum_aua_ro
 , max(case when atag.tag_name = 'Account Compression' then atag.tag_value end)   as account_compression
 , max(case when atag.tag_name = 'Account Type' then atag.tag_value end)          as account_type
 , max(case when atag.tag_name = 'Billing Split' then atag.tag_value end)         as billing_split

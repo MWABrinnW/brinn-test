@@ -1,0 +1,56 @@
+version: 2
+
+sources:
+  - name: tpg_hfw
+    description: ""
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    schema: tpg_hfw
+    tables:
+      - name: holdings
+        description: ""
+        columns:
+          - name: ASOFDATE
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMERACCOUNTNUMBER
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMERNAME
+            description: ''
+            data_type: VARCHAR
+          - name: CUSTOMERTYPEDESC
+            description: ''
+            data_type: VARCHAR
+          - name: CUSIP
+            description: ''
+            data_type: VARCHAR
+          - name: CUSIPDESCRIPTION
+            description: ''
+            data_type: VARCHAR
+          - name: HOLDINGTYPEDESC
+            description: ''
+            data_type: VARCHAR
+          - name: POSITIONID
+            description: ''
+            data_type: VARCHAR
+          - name: PURCHASEPRICE
+            description: ''
+            data_type: VARCHAR
+          - name: MARKETPRICEAOD
+            description: ''
+            data_type: VARCHAR
+          - name: FAIRVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: PARVALUE
+            description: ''
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: RECORD_DATETIME
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: SOURCE_FILE
+            description: ''
+            data_type: VARCHAR

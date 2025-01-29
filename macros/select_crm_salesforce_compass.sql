@@ -1,0 +1,28 @@
+{% macro select_crm_salesforce_compass() -%}
+  , sf.system_name                                                   as crm
+  , sf.system_instance                                               as crm_instance_location
+  , sf.system_key                                                    as crm_key
+  , sf.custodian                                                     as crm_custodian
+  , sf.estate_item_id                                                as crm_account_id
+  , sf.account_type                                                  as crm_account_type
+  , sf.account_name                                                  as crm_account_name
+  , sf.registrant_name                                               as crm_registrant_name
+  , sf.household_id                                                  as crm_household_id
+  , sf.household_name                                                as crm_household_name
+  , sf.is_active                                                     as crm_is_active
+  , sf.created_at::date                                              as crm_created_date
+  , sf.opened_date                                                   as crm_opened_date
+  , sf.closed_date                                                   as crm_closed_date
+  , sf.account_value                                                 as crm_account_value
+  , sf.client_manager                                                as crm_advisor
+  , sf.client_manager_email                                          as crm_advisor_email
+  , sf.household_location_code                                       as crm_location_code
+  , sf.fee_schedule                                                  as crm_fee_schedule
+  , sf.investment_strategy                                           as crm_investment_strategy
+  , sf.aum_classification                                            as crm_aum_classification
+  , sf.is_erisa                                                      as crm_is_erisa
+  , sf.is_discretionary                                              as crm_is_discretionary
+  , sf.is_voting_proxied                                             as crm_is_voting_proxied
+  , sf.is_prime_broker                                               as crm_is_prime_broker
+  , sf.is_broker_dealer_account                                      as crm_is_broker_dealer_account
+{% endmacro -%}

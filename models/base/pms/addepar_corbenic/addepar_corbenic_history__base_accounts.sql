@@ -3,13 +3,17 @@ select
     , 'corbenic'                                   as system_instance
     , concat(system_name , '__' , system_instance) as system_key
     , 'mwa'                                        as firm_source
+    , upper(holding_account_number)                as account_number_formatted
+    , regexp_replace(
+        ltrim(upper(replace(trim(holding_account_number) , '-' , '')) , '0')::text(200)
+        , '\\s{2,}' , ' '
+    )::text(200)                                   as account_number
     , effective_date
     , top_level_holding_account
     , top_level_holding_account_entity_id
     , top_level_account_number
     , holding_account
     , holding_account_entity_id
-    , holding_account_number
     , top_level_owner
     , top_level_owner_entity_id
     , top_level_owner_id
@@ -53,4 +57,6 @@ select
     , _id                                          as _id
     , record_datetime                              as _created_at
     , source_file                                  as _source_file
+    -- remove after Alteryx workflows are retired for accounts and holdings masters
+    , holding_account_number
 from {{ source('addepar_corbenic', 'accounts') }}

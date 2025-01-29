@@ -428,6 +428,10 @@ models:
           +tags: ["tamarac", "mwa", "state_college", "cpg"]
           +grants:
             select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        tpg_hfw:
+          +tags: ["tpg", "mwa", "hfw"]
+          +grants:
+            select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       reach_360:
         +tags: ["reach_360"]
@@ -461,7 +465,7 @@ models:
           select: "{{ ['db_crm_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
       salesforce_compass:
-        +tags: ["crm", "salesforce", "compass", "mwa"]
+        +tags: ["crm", "salesforce", "compass", "mwa", "pms"]
         +grants:
           select: "{{ ['db_crm_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
@@ -503,6 +507,7 @@ models:
 
     # [ODW]
     odw:
+      # global configuration
       +tags: ["devops",  "odw"]
       +database: |
         {%- if  target.name == "dev" -%} {{target.database}}
@@ -510,9 +515,10 @@ models:
         {%- elif target.name == "ci"  -%} odw_{{env_var('PR_NUM')}}
         {%- endif -%}
       +grants:
-        +select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        +select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
       +dbt-osmosis: "_{model}.yml"
 
+      # directory specific configuration
       active_directory:
         +tags: ["active_directory"]
         +grants:
@@ -521,12 +527,8 @@ models:
         +schema: crm
         +tags: ["crm"]
         +dbt-osmosis: "_{parent}_models.yml"
-        +grants:
-          +select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod','test'] else []}}"
         build:
           +schema: build
-          +grants:
-            select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod','test'] else []}}"
       activetick:
         +tags: ["activetick"]
       flyer:
@@ -547,26 +549,27 @@ models:
           +select: "{{ ['db_pms_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
       perform:
         +tags: ["perform", "mis", "trading"]
-        +grants:
-          +select: "{{ ['trading'] if target.name in ['prod', 'ci'] else []}}"
+      pms:
+        +schema: pms
+        +tags: ["upsert"]
+      masters:
+        +schema: enterprise
+        +tags: ["masters"]
+        +dbt-osmosis: "_{parent}_models.yml"
+        build:
+          +schema: build
       tradeops:
         +tags: ["trading", "tradeops"]
         +grants:
           +select: "{{ ['trading_options'] if target.name in ['prod', 'test', 'ci'] else []}}"
         lifi:
-          +grants:
-            select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
+          +tags: ["lifi"]
       financials:
         +schema: financials
         +tags: ["revenue","financials","billing"]
         +dbt-osmosis: "_{parent}_models.yml"
-        +grants:
-          +select: "{{ ['db_odw_financials_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         build:
           +schema: build
-          +grants:
-            select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod','test'] else []}}"
-
 
     # [EDW]
     edw:

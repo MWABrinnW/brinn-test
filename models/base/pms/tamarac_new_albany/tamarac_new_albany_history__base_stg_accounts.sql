@@ -1,8 +1,9 @@
 select
-    'tamarac' as pms
-    , 'new_albany' as pms_location
-    , 'mwa' AS firm_source
-    , prev_eod_date as effective_date
+    'tamarac'                                      as system_name
+    , 'new_albany'                                 as system_instance
+    , concat(system_name , '__' , system_instance) as system_key
+    , 'mwa'                                        as firm_source
+    , prev_eod_date                                as effective_date
     , account_number
     , account_name
     , account_type
@@ -288,5 +289,5 @@ select
     , source_file
     , {{ col_is_head(reference=source('tamarac_new_albany', 'stg_financial_accounts'), reference_date_col='prev_eod_date') }}
     , {{ col_is_current(date_col='effective_date') }}
-    , record_datetime as _source_loaded_at
+    , record_datetime                              as _source_loaded_at
 from {{ source('tamarac_new_albany', 'stg_financial_accounts') }}

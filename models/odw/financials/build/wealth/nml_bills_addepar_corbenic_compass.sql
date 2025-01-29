@@ -15,8 +15,8 @@ select
     , null::varchar(200)                                                                 as billing_statement_id_crm
     , null::varchar(200)                                                                 as invoice_status
     , 0::int                                                                             as is_intra_period_invoice
-    , trim(upper(b.holding_account_number))::varchar(200)                                as account_number
-    , b.holding_account_number::varchar(200)                                             as account_number_formatted
+    , a.account_number::varchar(200)                                                     as account_number
+    , a.account_number_formatted::varchar(200)                                           as account_number_formatted
     , b.billing_bill_to_account_number::varchar(200)                                     as billing_account_number
     , b.entity_id::varchar(200)                                                          as account_id_pms
     , a.top_level_owner::varchar(200)                                                    as registrant_name
@@ -147,14 +147,14 @@ select
 from
     {{ ref('addepar_corbenic_history__base_bills') }} as b
 left join {{ ref('addepar_corbenic_history__base_accounts') }} as a
-    on b.holding_account_number = a.holding_account_number
+    on b.holding_account_number = a.account_number
 -- joins crm data on invoice date, if available
 left join {{ ref('salesforce_compass_accounts') }} as acc
-    on trim(replace(a.holding_account_number , '-' , '')) = trim(replace(acc.account_number_formatted , '-' , ''))
+    on trim(replace(a.account_number , '-' , '')) = trim(replace(acc.account_number_formatted , '-' , ''))
     and b._created_at::date = acc.effective_date
 -- otherwise, joins to the current snapshot (is_head = 1)
 left join {{ ref('salesforce_compass_accounts') }} as acc2
-    on trim(replace(a.holding_account_number , '-' , '')) = trim(replace(acc2.account_number_formatted , '-' , ''))
+    on trim(replace(a.account_number , '-' , '')) = trim(replace(acc2.account_number_formatted , '-' , ''))
     and acc2.is_head = 1
 left join {{ ref('salesforce_compass__base_fee_schedule_c') }} as fs
     on
