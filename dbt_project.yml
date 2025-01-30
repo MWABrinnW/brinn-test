@@ -376,6 +376,9 @@ models:
         black_diamond_baystate:
           +grants:
             select: "{{ ['db_pms_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        black_diamond_houston:
+          +grants:
+            select: "{{ ['db_pms_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         black_diamond_mps:
           +grants:
             select: "{{ ['db_pms_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
@@ -569,6 +572,8 @@ models:
       financials:
         +schema: financials
         +tags: ["revenue","financials","billing"]
+        +grants:
+          +select: "{{ ['db_odw_financials_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
         +dbt-osmosis: "_{parent}_models.yml"
         build:
           +schema: build
