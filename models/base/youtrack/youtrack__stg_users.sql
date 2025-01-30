@@ -1,15 +1,15 @@
 select
-    json:id::text(200)              as id
-    , json:fullName::text(200)      as full_name
-    , json:email::text(200)         as email--noqa: RF04
-    , json:login::text(200)         as login
-    , json:profiles:"id"::text(200) as profiles
-    , json:guest::text(200)         as guest
-    , json:banned::text(200)        as banned
-    , json:online::text(200)        as online
-    , json:avatarUrl::text(200)     as avatar_url
-    --, json                          as _json
-    , _created_at::timestamp_ntz    as _created_at
-    , _updated_at::timestamp_ntz    as _updated_at
-    , _id::int                      as _id
+    json:id::text                                          as id
+    , json:name::text(200)                                 as full_name
+    , json:login::text(200)                                as login
+    , json:profile:email:email::text                       as email--noqa: RF04
+    , json:groups::variant                                 as groups
+    , json:teams::variant                                  as teams
+    , json:banned::boolean::int                            as is_banned
+    , json:guest::boolean::int                             as is_guest
+    , to_timestamp_tz((json:"creationTime"::int) / 1000)   as created_at
+    , to_timestamp_tz((json:"lastAccessTime"::int) / 1000) as last_accessed_at
+    , _created_at::timestamp_ntz                           as _created_at
+    , _updated_at::timestamp_ntz                           as _updated_at
+    , _id::int                                             as _id
 from {{ source('youtrack','users') }}

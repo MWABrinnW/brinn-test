@@ -14,6 +14,8 @@ with cte_custom_fields as (
         , max(case when cf.value:"name" = 'Initial Estimate' then cf.value:"value" end)::text(200)   as initial_estimate
         , max(case when cf.value:"name" = 'Final Estimate' then cf.value:"value" end)::text(200)     as final_estimate
         , max(case when cf.value:"name" = 'System' then cf.value:"value":"name" end)::text(200)      as system--noqa: RF04
+        , max(case when cf.value:"name" = 'Support Type' then cf.value:"value" end)::text(200)       as support_type
+        , max(case when cf.value:"name" = 'Business Unit' then cf.value:"value" end)::text(200)      as business_unit
     from {{ ref('youtrack__stg_issues') }} as issues
     , table(flatten(INPUT => issues.custom_fields)) as cf
     group by issues.id
@@ -27,10 +29,12 @@ select
     , src.reporter                                          as reporter
     , src.created_at                                        as created_at
     , src.updated_at                                        as updated_at
+    , src.updated_by                                        as updated_by
     , src.resolved_at                                       as resolved_at
-    , src.issue_id_parent                                   as issue_id_parent
-    , src.is_draft                                          as is_draft
-    , src.project                                           as project
+    , src.parent_issue_id                                   as parent_issue_id
+    , src.project_name                                      as project_name
+    , src.project_id                                        as project_id
+    , src.project_description                               as project_description
     , array_construct_compact(
         cf.group_name[0]:"name"::text
         , cf.group_name[1]:"name"::text
@@ -49,7 +53,16 @@ select
     , to_date(to_timestamp_tz((cf.end_date::int) / 1000))   as end_date
     , to_date(to_timestamp_tz((cf.due_date::int) / 1000))   as due_date
     , cf.system                                             as system--noqa: RF04
+    , cf.support_type                                       as support_type
+    , cf.business_unit                                      as business_unit
+    , src.links                                             as links
+    , src.subtasks                                          as subtasks
+    , src.tags                                              as tags
+    , src.visibility                                        as visibility
+    , src.watchers                                          as watchers
+    , src.wikified_description                              as wikified_description
     , src.comments_count                                    as comments_count
+    , src.is_draft                                          as is_draft
     , src._created_at                                       as _created_at
     , src._updated_at                                       as _updated_at
     , src._id                                               as _id
