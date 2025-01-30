@@ -1,16 +1,18 @@
-{{ config(
-    tags = ['options', 'copilot', 'trading'],
-    grants = {'select': ['trading_options']}
-) }}
-
 with accounts as (
     select
-        lower(custodian) as custodian
-        , account_no     as account_number
-    from {{ ref('flyer__stg_sod_accounts_history') }}
+        account_number
+        , account_number_formatted
+        , pms_account_id
+        , custodian
+        , is_active
+        , is_included
+        , is_perform
+        , is_moxy
+        , trading_systems
+    from {{ ref('mis__accounts') }}
     where 1 = 1
-        and _created_at::date = (select max(t._created_at::date) from {{ ref('flyer__stg_sod_accounts_history') }} as t)
-    group by all
+        and is_included = 1
+        and custodian ilike any ('%schwab%' , '%fidelity%')
 )
 
 , dates as (
@@ -129,7 +131,7 @@ with accounts as (
         and tl.security_id_source = p.security_id_source
     where 1 = 1
         -- Exclude zero quantity positions.
-        and tl.quantity <> 0
+        and abs(tl.quantity) <> 0
     order by explanation , abs(quantity_diff) desc
 )
 
@@ -186,38 +188,36 @@ with accounts as (
 )
 
 select
-    f.effective_date                                            as effective_date
-    , f.custodian                                               as custodian
-    , f.account_number                                          as account_number
-    , f.security_id_source                                      as security_id_source
-    , f.symbol                                                  as symbol
-    , f.ticker                                                  as ticker
-    , f.cusip                                                   as cusip
-    , f.position_description                                    as position_description
-    , f.tax_lot_quantity                                        as tax_lot_quantity
-    , f.position_quantity                                       as position_quantity
-    , f.quantity_diff                                           as quantity_diff
-    , f.explanation                                             as explanation
-    , f.tax_lot_value                                           as tax_lot_value
-    , f.position_value                                          as position_value
-    , f.value_diff                                              as value_diff
-    , f.is_nigo                                                 as is_nigo
-    , f.product_type_source_code                                as product_type_source_code
-    , f.product_type_source_definition                          as product_type_source_definition
-    , f.product_type                                            as product_type
+    f.effective_date                   as effective_date
+    , f.custodian                      as custodian
+    , f.account_number                 as account_number
+    , f.security_id_source             as security_id_source
+    , f.symbol                         as symbol
+    , f.ticker                         as ticker
+    , f.cusip                          as cusip
+    , f.position_description           as position_description
+    , f.tax_lot_quantity               as tax_lot_quantity
+    , f.position_quantity              as position_quantity
+    , f.quantity_diff                  as quantity_diff
+    , f.explanation                    as explanation
+    , f.tax_lot_value                  as tax_lot_value
+    , f.position_value                 as position_value
+    , f.value_diff                     as value_diff
+    , f.is_nigo                        as is_nigo
+    , f.product_type_source_code       as product_type_source_code
+    , f.product_type_source_definition as product_type_source_definition
+    , f.product_type                   as product_type
     , case
         when f.explanation is null
             then 1
         when f.explanation ilike '%zero%'
             then 1
         else 0
-    end::int                                                    as is_match
-    , case when e.ticker_or_cusip is not null then 1 else 0 end as is_excluded
+    end::int                           as is_match
+    , a.trading_systems                as trading_systems
+    , a.pms_account_id                 as pms_account_id
 from final as f
-left join {{ ref('aux__base_options_exclusions') }} as e
-    on f.symbol = e.ticker_or_cusip
-    and e.is_head = 1
-    and f.effective_date between
-    coalesce(e.start_date , f.effective_date) and coalesce(e.end_date , f.effective_date)
+left join accounts as a
+    on f.account_number = a.account_number
 group by all
 order by custodian , symbol , account_number

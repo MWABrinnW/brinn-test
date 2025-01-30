@@ -55,7 +55,7 @@ select
     , a.crm_account_id                                                                                      as crm_account_id
     , a.subadvisor_date_opened
         as subadvisor_date_opened
-from {{ ref('mis__bld_accounts') }} as a
+from {{ ref('mis__accounts') }} as a
 left join {{ ref('perform__stg_accounts') }} as pa
     on trim(regexp_replace(lower(a.account_number) , '(s-|r-|-)' , '')) = pa.account_number
     and pa.is_head = 1

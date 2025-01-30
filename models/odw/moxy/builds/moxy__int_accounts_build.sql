@@ -1,6 +1,6 @@
 with cte_moxy_accounts as (
     select *
-    from {{ ref('mis__bld_accounts') }}
+    from {{ ref('mis__accounts') }}
     where 1 = 1
         and rn = 1
         and is_moxy = 1
@@ -95,10 +95,6 @@ with cte_moxy_accounts as (
         on a.household_id = assistant.household_id
         and assistant.roles = 'Client Service Associate'
         and assistant.rn = 1
-    left join cte_acr as cpa
-        on a.household_id = cpa.household_id
-        and cpa.roles = 'Accountant'
-        and cpa.rn = 1
 )
 
 select *

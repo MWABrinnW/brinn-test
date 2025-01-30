@@ -13,7 +13,7 @@ select
     , c.description     as case_description
     , c.estate_item_id  as crm_account_id
 from {{ ref('mis__stg_salesforce_compass_case') }} as c
-left join {{ ref('mis__bld_accounts') }} as a
+left join {{ ref('mis__accounts') }} as a
     on c.estate_item_id = a.crm_account_id
 where 1 = 1
     and c.is_head = 1

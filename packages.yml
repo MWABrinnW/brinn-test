@@ -29,5 +29,5 @@ packages:
     ## https://github.com/fivetran/dbt_github
 
   - package: brooklyn-data/dbt_artifacts
-    version: 2.7.0
+    version: 2.8.0
     ## https://github.com/brooklyn-data/dbt_artifacts

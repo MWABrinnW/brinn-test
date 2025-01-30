@@ -8,8 +8,8 @@ with cte_dates as (
 )
 
 select
-      a.system_key                               as system_key
-    , a.order_id                                   as order_id
+    a.system_key                                 as system_key
+    , a.order_id                                 as order_id
     , a.allocation_id                            as allocation_id
     , a.traded_at::date                          as trade_date
     , a.settle_date                              as settle_date
@@ -47,15 +47,15 @@ select
 
     , a.created_by                               as trader
     , convert_timezone('UTC' , a.traded_at)      as traded_at
-    , a.system_name as system_name
-    , a.system_instance as system_instance
+    , a.system_name                              as system_name
+    , a.system_instance                          as system_instance
 
     , a._created_at                              as _created_at
     , a._source_file                             as _source_file
 from {{ ref('moxy__stg_allocations') }} as a
 left join cte_dates as b
     on a.traded_at::date = b.trade_date
-left join {{ ref('mis__bld_accounts') }} as acc
+left join {{ ref('mis__accounts') }} as acc
     on lower(a.portfolio_code) = lower(acc.trading_id)
 where 1 = 1
     and a._created_at = b.max_created_at

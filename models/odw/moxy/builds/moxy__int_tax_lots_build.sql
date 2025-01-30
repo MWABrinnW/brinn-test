@@ -48,7 +48,7 @@ select
     , ma.is_intraday_import      as is_intraday_import
 
     , t._created_at              as _created_at
-from {{ ref('mis__bld_tax_lots') }} as t
+from {{ ref('mis__tax_lots') }} as t
 inner join {{ ref('moxy__int_accounts_build') }} as ma
     on upper(t.pms_account_id) = upper(ma.pms_account_id)
 -- Join with moxy securities model to supplement fields

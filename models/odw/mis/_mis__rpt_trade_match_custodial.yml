@@ -1,0 +1,59 @@
+version: 2
+models:
+  - name: mis__rpt_trade_match_custodial
+    description: |
+      Custodian sourced trade match report for perform and moxy. Not currently used. See DE-114.
+      The trade match report compares internal (OMS i.e. perform/moxy) allocations against what was
+      recorded externally (at the custodian or PMS). Mismatches on this report can reveal issues with
+      account allocations, trade errors, reversals, and general trade reconciliation events.
+
+      Unmatched internal = Trade was recorded internally but does not have a matching external trade.
+      These may often indicate an allocation issue or represent what an Orion pending transaction would historically.
+
+      Unmatched external = Trade was recorded externally but does not have a matching internal trade.
+      These are typically ignorable.
+
+      Internal/external discrepancy = Internal and external trades that partially match. Like unmatched external,
+      these should be given attention and sought to be understood so that necessary action can be taken to ensure
+      accurate trading on the account.
+    columns:
+      - name: TRADE_DATE
+        description: >-
+          The date the trade was executed. NOTE: This field is not the same as the "Transaction Date"
+          in Schwab's legacy transaction files. To match the Transaction Date in the legacy files, use
+          'Transaction Date' instead.
+        data_type: DATE
+      - name: CUSTODIAN
+        description: Custodian name, lower-case, no spaces.
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: End-client account number at Fid.
+        data_type: VARCHAR
+      - name: SYMBOL
+        data_type: VARCHAR
+      - name: TRADING_SYSTEMS
+        data_type: ARRAY
+      - name: UNITS_INTERNAL
+        data_type: NUMBER
+      - name: UNITS_EXTERNAL
+        data_type: NUMBER
+      - name: PRICE_INTERNAL
+        data_type: NUMBER
+      - name: PRICE_EXTERNAL
+        data_type: NUMBER
+      - name: DIFF
+        data_type: NUMBER
+      - name: MATCH_TYPE
+        data_type: VARCHAR
+      - name: IS_MATCH
+        data_type: NUMBER
+      - name: PRODUCT_NAME
+        data_type: VARCHAR
+      - name: ASSET_CLASS
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE
+        data_type: VARCHAR
+      - name: PRODUCT_CATEGORY
+        data_type: VARCHAR
+      - name: PRODUCT_ID
+        data_type: NUMBER

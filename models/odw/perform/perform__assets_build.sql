@@ -28,8 +28,8 @@ with cte_lots_base as (
         , t.asset_id          as asset_id
         , t.lot_id            as lot_id
         , 'orion'::text(200)  as source
-    from {{ ref('mis__bld_tax_lots') }} as t
-    inner join {{ ref('mis__bld_accounts') }} as a
+    from {{ ref('mis__tax_lots') }} as t
+    inner join {{ ref('mis__accounts') }} as a
         on t.pms_account_id = a.pms_account_id
         and a.closing_date is null
     where 1 = 1
@@ -46,7 +46,8 @@ with cte_lots_base as (
         , acquired_date::date   as acquired_date
         , cost::decimal(20 , 5) as cost_per_share
         , row_number() over (
-            partition by portfolio_id , cusip , size order by acquired_date
+            partition by portfolio_id , cusip , size
+            order by acquired_date
         )                       as rn
     from {{ ref('perform__stg_holdings') }}
     where is_head = 1
@@ -65,7 +66,10 @@ with cte_lots_base as (
         portfolio_id
         , port_status
         , account_number
-        , row_number() over (partition by portfolio_id order by account_number) as rn
+        , row_number() over (
+            partition by portfolio_id
+            order by account_number
+        ) as rn
     from {{ ref('perform__stg_accounts') }}
     where is_head = 1
 )

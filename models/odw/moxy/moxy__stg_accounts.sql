@@ -14,6 +14,11 @@ select
 
     , _created_at                 as _created_at
     , _source_file                as _source_file
+    , {{ col_is_head(
+        reference=source('moxy', 'accounts'),
+        source_date_col='_created_at::timestamp_ntz',
+        reference_date_col='_created_at::timestamp_ntz'
+        ) }}
     , _id                         as _id
 from {{ source('moxy', 'accounts') }}
 where coalesce(portfolio_id , '') <> ''

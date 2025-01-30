@@ -41,7 +41,7 @@ select
         ) }}
     , tl._created_at                                       as _created_at
 from {{ ref('mis__stg_orion_tax_lots') }} as tl
-inner join {{ ref('mis__bld_accounts') }} as a
+inner join {{ ref('mis__accounts') }} as a
     on tl.account_number = a.account_number
     and a.is_perform = 1
 where 1 = 1

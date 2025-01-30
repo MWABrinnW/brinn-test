@@ -4,14 +4,14 @@
 ) }}
 
 with cte_internal as (
-    -- Fourforty
+    -- [Fourforty]
     select
-        execution_date as execution_date
-        , custodian as custodian
-        , account_number as account_number
-        , symbol as symbol
+        execution_date                as trade_date
+        , custodian                   as custodian
+        , account_number              as account_number
+        , symbol                      as symbol
         , max(price::decimal(20 , 2)) as price
-        , sum(units_shares)           as internal_units
+        , sum(units_shares)           as quantity
         , '440'                       as source
     from {{ ref('fourforty__int_orders_allocations') }}
     where 1 = 1
@@ -22,21 +22,21 @@ with cte_internal as (
 
     union all
 
-    -- Copilot
+    -- [Copilot]
     select
-        a.order_trade_date                    as execution_date
-        , lower(acc.custodian)                as custodian
-        , a.member_account                    as account_number
-        , coalesce(a.option_symbol_occ, a.symbol , a.order_symbol) as symbol
-        , max(a.member_price)                 as price
+        a.order_trade_date                                          as trade_date
+        , lower(acc.custodian)                                      as custodian
+        , a.member_account                                          as account_number
+        , coalesce(a.option_symbol_occ , a.symbol , a.order_symbol) as symbol
+        , max(a.member_price)                                       as price
         , sum(case
             when a.order_side = 1
                 then abs(a.member_quantity)
             when a.order_side = 2
                 then a.member_quantity * -1
             else a.member_quantity
-        end)                                  as internal_units
-        , a.system_key                        as source
+        end)                                                        as quantity
+        , a.system_key                                              as source
     from {{ ref('flyer__stg_orders_allocations') }} as a
     left join {{ ref('flyer__stg_accounts') }} as acc
         on a.member_account = acc.account_number
@@ -56,12 +56,12 @@ with cte_internal as (
 
 , cte_external as (
     select
-        transaction_date                as transaction_date
-        , custodian                     as custodian
-        , account_number                as account_number
-        , symbol                        as symbol
-        , max(price::decimal(20 , 2))   as price
-        , sum(units_shares)             as external_units
+        transaction_date              as trade_date
+        , custodian                   as custodian
+        , account_number              as account_number
+        , symbol                      as symbol
+        , max(price::decimal(20 , 2)) as price
+        , sum(units_shares)           as quantity
     from {{ ref('flyer__custodian_trades') }}
     where 1 = 1
         -- exclude money market transactions
@@ -94,59 +94,62 @@ with cte_internal as (
 )
 
 select
-    coalesce(inter.execution_date , exter.transaction_date) as trade_date
-    , coalesce(inter.custodian , exter.custodian)           as custodian
-    , coalesce(inter.account_number , exter.account_number) as account_number
-    , coalesce(inter.symbol , exter.symbol)                 as symbol
-    , listagg(inter.source)                                 as internal_sources
-    , inter.internal_units::decimal(17 , 2)                 as units_internal
-    , exter.external_units::decimal(17 , 2)                 as units_external
-    , inter.price::decimal(15 , 3)                          as price_internal
-    , exter.price::decimal(15 , 3)                          as price_external
+    coalesce(i.trade_date , e.trade_date)           as trade_date
+    , coalesce(i.custodian , e.custodian)           as custodian
+    , coalesce(i.account_number , e.account_number) as account_number
+    , coalesce(i.symbol , e.symbol)                 as symbol
+    , i.quantity::decimal(17 , 2)                   as units_internal
+    , e.quantity::decimal(17 , 2)                   as units_external
+    , i.price::decimal(15 , 3)                      as price_internal
+    , e.price::decimal(15 , 3)                      as price_external
     , abs(
-        inter.internal_units - exter.external_units
-    )::decimal(17 , 3)                                      as diff
+        i.quantity - e.quantity
+    )::decimal(17 , 3)                              as diff
     , case
         when units_internal is null then 'Unmatched external'
-        when units_external is null then 'Unmatched Internal'
-        when diff is not null and diff != 0
-            and (div0(diff , abs(inter.internal_units)) < 0.01
-            and inter.internal_units != 0) is not null
-            and diff != 0
-            and (DIV0(diff, abs(inter.internal_units)) < 0.01
-            and inter.internal_units != 0)
+        when units_external is null then 'Unmatched internal'
+        when diff is not null and diff <> 0
+            and (
+                div0(diff , abs(i.quantity)) < 0.01
+                and i.quantity <> 0
+            ) is not null
+            and diff <> 0
+            and (
+                div0(diff , abs(i.quantity)) < 0.01
+                and i.quantity <> 0
+            )
             -- 1% buffer on unit match
-            then 'Trade Matched'
-        when diff is not null and diff != 0 then 'Internal/external Discrepancy'
-        when diff = 0 then 'Trade Matched'
-    end                                                     as match_type
-    , iff(match_type = 'Trade Matched', 1, 0)               as is_matched
-    , arrayagg(distinct ag.group_name)                      as groups
-    , acc.account_title                                     as account_name
-    , acc.restrictions_source_code                          as restrictions_source_code
-from cte_internal as inter
-full outer join cte_external as exter
-    on inter.execution_date = exter.transaction_date
-    and inter.custodian = exter.custodian
-    and inter.account_number = exter.account_number
-    and inter.symbol = exter.symbol
+            then 'Trade matched'
+        when diff is not null and diff <> 0 then 'Internal/external Discrepancy'
+        when diff = 0 then 'Trade matched'
+    end                                             as match_type
+    , iff(match_type = 'Trade matched' , 1 , 0)     as is_match
+    , arrayagg(distinct ag.group_name)              as groups
+    , acc.account_title                             as account_name
+    , acc.restrictions_source_code                  as restrictions_source_code
+from cte_internal as i
+full outer join cte_external as e
+    on i.trade_date = e.trade_date
+    and i.custodian = e.custodian
+    and i.account_number = e.account_number
+    and i.symbol = e.symbol
 left join cte_accounts as acc
     on coalesce(
-        inter.execution_date ,
-        exter.transaction_date
-        ) = acc.effective_date
+        i.trade_date
+        , e.trade_date
+    ) = acc.effective_date
     and coalesce(
-        inter.custodian ,
-        exter.custodian
-        ) = acc.custodian
+        i.custodian
+        , e.custodian
+    ) = acc.custodian
     and coalesce(
-        inter.account_number ,
-        exter.account_number
-        ) = acc.account_number
-left join {{ ref('tradeops__accounts_groups') }} ag
+        i.account_number
+        , e.account_number
+    ) = acc.account_number
+left join {{ ref('tradeops__accounts_groups') }} as ag
     on coalesce(
-        acc.account_number ,
-        inter.account_number ,
-        exter.account_number
-        ) = ag.account_number
+        acc.account_number
+        , i.account_number
+        , e.account_number
+    ) = ag.account_number
 group by all

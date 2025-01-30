@@ -41,7 +41,7 @@ with cte_internal_allocations as (
         account_number
         , model
         , trading_id
-    from {{ ref('mis__bld_accounts') }}
+    from {{ ref('mis__accounts') }}
     where 1 = 1
         and is_active = 1
         and (

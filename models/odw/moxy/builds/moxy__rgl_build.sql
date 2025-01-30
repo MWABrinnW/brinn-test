@@ -7,7 +7,7 @@ select
     , rgl.long_term_gainloss::decimal(20 , 2)   as "rytdgainlng"
     , a.is_intraday_import                      as is_intraday_import
 from {{ ref('moxy__stg_rgl_ytd') }} as rgl
-inner join {{ ref('mis__bld_accounts') }} as a
+inner join {{ ref('mis__accounts') }} as a
     on lower(rgl.account_id) = lower(a.pms_account_id)
     and a.is_moxy = 1
     and a.rn = 1

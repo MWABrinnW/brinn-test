@@ -33,8 +33,10 @@ select
     , _data:open_date::date                                                             as open_date
     , _data:creation_date::date                                                         as creation_date
     , _created_at::timestamp_ntz                                                        as _created_at
-    , {{ col_is_head(reference=source('perform', 'accounts'),
+    , {{ col_is_head(
+        reference=source('perform', 'accounts'),
         source_date_col='_created_at::timestamp_ntz',
-        reference_date_col='_created_at::timestamp_ntz') }}
+        reference_date_col='_created_at::timestamp_ntz'
+        ) }}
     , _id                                                                               as _id
 from {{ source('perform', 'accounts') }}

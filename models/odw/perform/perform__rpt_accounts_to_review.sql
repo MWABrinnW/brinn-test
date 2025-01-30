@@ -30,7 +30,7 @@ with cte_build as (
 
 , cte_mis_accounts as (
     select *
-    from {{ ref('mis__bld_accounts') }}
+    from {{ ref('mis__accounts') }}
     where is_perform = 1 and is_active = 1
 )
 

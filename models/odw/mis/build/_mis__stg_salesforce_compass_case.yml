@@ -3,56 +3,39 @@ models:
   - name: mis__stg_salesforce_compass_case
     columns:
       - name: CASE_NUM
-        description: ''
         data_type: VARCHAR
       - name: CASE_ID
-        description: ''
         data_type: VARCHAR
       - name: CONTACT_ID
-        description: ''
         data_type: VARCHAR
       - name: ACCOUNT_ID
-        description: ''
         data_type: VARCHAR
       - name: MODIFIED_AT
-        description: ''
         data_type: TIMESTAMP_TZ
       - name: CREATED_AT
-        description: ''
         data_type: TIMESTAMP_TZ
       - name: TYPE
-        description: ''
         data_type: VARCHAR
       - name: STATUS
-        description: ''
         data_type: VARCHAR
       - name: ESTATE_ITEM_ID
-        description: ''
         data_type: VARCHAR
       - name: LAST_MODIFIED_BY_ID
-        description: ''
         data_type: VARCHAR
       - name: CREATED_BY_ID
-        description: ''
         data_type: VARCHAR
       - name: OWNER_ID
-        description: ''
         data_type: VARCHAR
       - name: DESCRIPTION
-        description: ''
         data_type: VARCHAR
       - name: SUBJECT
-        description: ''
         data_type: VARCHAR
       - name: _CREATED_AT
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: RN
-        description: ''
         data_type: NUMBER
       - name: IS_HEAD
-        description: ''
         data_type: NUMBER
       - name: _ID
-        description: 'Record identity id'
+        description: Record identity id
         data_type: NUMBER

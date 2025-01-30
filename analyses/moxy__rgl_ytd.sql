@@ -27,7 +27,7 @@ with cte_short_term_rgl as (
 , cte_portfolios as (
     select pms_account_id
         , trading_id
-    from {{ ref('mis__bld_accounts') }}
+    from {{ ref('mis__accounts') }}
     where is_moxy = 1
 )
 , cte_core_rgl as (

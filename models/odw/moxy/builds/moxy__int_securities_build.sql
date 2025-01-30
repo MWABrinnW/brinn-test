@@ -18,7 +18,7 @@ with cte_securities_from_positions as (
             array_construct(min(account_number) , max(account_number))
         )                     as account_examples
         , is_intraday_import  as is_intraday_import
-    from {{ ref('mis__bld_tax_lots') }}
+    from {{ ref('mis__tax_lots') }}
     where 1 = 1
         and is_moxy = 1
         and quantity != 0
@@ -57,17 +57,29 @@ with cte_securities_from_positions as (
 
 , cte_cusip_data as (
     select
-        cusip                                                                           as cusip
-        , ticker_symbol                                                                 as ticker
-        , iso_cfi_code                                                                  as iso_cfi_code
-        , row_number() over (partition by cusip order by issue_entry_date desc)         as rn_cusip
-        , row_number() over (partition by ticker_symbol order by issue_entry_date desc) as rn_ticker
+        cusip           as cusip
+        , ticker_symbol as ticker
+        , iso_cfi_code  as iso_cfi_code
+        , row_number() over (
+            partition by cusip
+            order by issue_entry_date desc
+        )               as rn_cusip
+        , row_number() over (
+            partition by ticker_symbol
+            order by issue_entry_date desc
+        )               as rn_ticker
     from {{ ref('cusip_history__base_issues') }}
     where 1 = 1
         and is_head = 1
         and (
-            cusip in (select distinct t.cusip from cte_securities_mapped_to_moxy as t where t.is_new = 1)
-            or ticker_symbol in (select distinct t.ticker from cte_securities_mapped_to_moxy as t where t.is_new = 1)
+            cusip in (
+                select distinct t.cusip from cte_securities_mapped_to_moxy as t
+                where t.is_new = 1
+            )
+            or ticker_symbol in (
+                select distinct t.ticker from cte_securities_mapped_to_moxy as t
+                where t.is_new = 1
+            )
         )
 )
 

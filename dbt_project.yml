@@ -84,6 +84,8 @@ data_tests:
     {% if target.name in ['prod'] %} "{{ target.schema }}_test__audit"
     {% else %} "{{ target.schema }}"
     {% endif %}
+  +grants:
+    select: "{{ ['engineering'] if target.name in ['prod', 'ci'] else []}}"
 
 # [Configuring models]
 # Full documentation: https://docs.getdbt.com/docs/configuring-models

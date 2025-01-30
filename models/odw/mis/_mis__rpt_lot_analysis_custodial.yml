@@ -1,0 +1,57 @@
+version: 2
+models:
+  - name: mis__rpt_lot_analysis_custodial
+    description: >
+      Custodian sourced lot analysis report for perform and moxy. Not currently used. See DE-114.
+      The lot analysis report compares cost basis/lot records to the asset level holdings. This is necessary 
+      because they don't always agree and can reveal account issues that need resolved at the custodian or PMS.
+
+      Records on this report should be given appropriate attention to ensure accurate trading on the account can be completed or otherwise restricted.
+    columns:
+      - name: EFFECTIVE_DATE
+        data_type: DATE
+      - name: CUSTODIAN
+        description: Custodian name, lower-case, no spaces.
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: End client account number at Schwab
+        data_type: VARCHAR
+      - name: SECURITY_ID_SOURCE
+        data_type: VARCHAR
+      - name: SYMBOL
+        data_type: VARCHAR
+      - name: TICKER
+        data_type: VARCHAR
+      - name: CUSIP
+        description: CUSIP
+        data_type: VARCHAR
+      - name: POSITION_DESCRIPTION
+        data_type: VARCHAR
+      - name: TAX_LOT_QUANTITY
+        data_type: NUMBER
+      - name: POSITION_QUANTITY
+        data_type: NUMBER
+      - name: QUANTITY_DIFF
+        data_type: NUMBER
+      - name: EXPLANATION
+        data_type: VARCHAR
+      - name: TAX_LOT_VALUE
+        data_type: NUMBER
+      - name: POSITION_VALUE
+        data_type: NUMBER
+      - name: VALUE_DIFF
+        data_type: NUMBER
+      - name: IS_NIGO
+        data_type: NUMBER
+      - name: PRODUCT_TYPE_SOURCE_CODE
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE_SOURCE_DEFINITION
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE
+        data_type: VARCHAR
+      - name: IS_MATCH
+        data_type: NUMBER
+      - name: TRADING_SYSTEMS
+        data_type: ARRAY
+      - name: PMS_ACCOUNT_ID
+        data_type: VARCHAR

@@ -2,69 +2,73 @@ version: 2
 
 sources:
   - name: salesforce_mis
-    description: ""
-    database: "{{ var('salesforce_mis_db_src', env_var('DBT_DB__SALESFORCE_MIS', env_var('DBT_DB_RAW_SRC', 'raw'))) }}"
+    description: ''
+    database: >-
+      {{ var('salesforce_mis_db_src', env_var('DBT_DB__SALESFORCE_MIS', env_var('DBT_DB_RAW_SRC', 'raw')))
+      }}
     loaded_at_field: _created_at
     tables:
       - name: account_contact_relation
-        description: ""
+        description: ''
         columns:
           - name: content
-            description: ""
           - name: _created_at
-            description: ""
       - name: estate_item
-        description: ""
+        description: ''
         columns:
           - name: content
-            description: ""
           - name: _created_at
-            description: ""
       - name: estate_item_contact_link
-        description: ""
+        description: ''
         columns:
           - name: content
-            description: ""
           - name: _created_at
-            description: ""
       - name: case
-        description: "Salesforce Compass Case object."
+        description: Salesforce Compass Case object.
         columns:
           - name: content
-            description: ""
           - name: _created_at
-            description: ""
           - name: _id
-            description: "Record identity id"
+            description: Record identity id
   - name: mis
-    description: ""
+    description: ''
     database: "{{ var('mis_db_src', env_var('DBT_DB__MIS', env_var('DBT_DB_RAW_SRC', 'raw'))) }}"
     loaded_at_field: _created_at
     tables:
       - name: orion_accounts
-        description: "Orion accounts used for MIS trading pipelines."
+        description: Orion accounts used for MIS trading pipelines.
         columns:
           - name: CONTENT
-            description: ''
             data_type: VARIANT
           - name: _CREATED_AT
-            description: ''
             data_type: TIMESTAMP_NTZ
       - name: orion_tax_lots
-        description: "Orion tax lots used for MIS trading pipelines."
+        description: Orion tax lots used for MIS trading pipelines.
         columns:
           - name: CONTENT
-            description: ''
             data_type: VARIANT
           - name: _CREATED_AT
-            description: ''
             data_type: TIMESTAMP_NTZ
       - name: orion_transactions
-        description: "Orion transaction used for MIS trading pipelines."
+        description: Orion transaction used for MIS trading pipelines.
         columns:
           - name: CONTENT
-            description: ''
             data_type: VARIANT
           - name: _CREATED_AT
-            description: ''
             data_type: TIMESTAMP_NTZ
+      - name: orion_tax_lots_api
+        description: |
+          Orion tax lots from the Orion Connect API.
+          https://stagingapi.orionadvisor.com/api/swagger/ui/index?hq7elu577mpz4mq3ive2lujqpm=siwnhpjo2bhzbfb4oe6633nd34#/Portfolio/OrionUnrealized
+          https://stagingapi.orionadvisor.com/api/swagger/ui/index?hq7elu577mpz4mq3ive2lujqpm=siwnhpjo2bhzbfb4oe6633nd34#/Portfolio/CustodianUnRealized
+        columns:
+          - name: _DATA
+            data_type: VARIANT
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+          - name: _ID
+            data_type: NUMBER
+          - name: EFFECTIVE_DATE
+            data_type: DATE

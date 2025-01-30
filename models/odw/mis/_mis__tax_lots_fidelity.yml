@@ -1,0 +1,76 @@
+version: 2
+models:
+  - name: mis__tax_lots_fidelity
+    columns:
+      - name: EFFECTIVE_DATE
+        data_type: DATE
+      - name: CUSTODIAN
+        description: Custodian name, lower-case, no spaces.
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: End client account number at Schwab
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER_FORMATTED
+        data_type: VARCHAR
+      - name: CRM_ACCOUNT_NUMBER
+        data_type: VARCHAR
+      - name: PMS_ACCOUNT_ID
+        data_type: VARCHAR
+      - name: IS_ACTIVE
+        data_type: NUMBER
+      - name: SYMBOL
+        data_type: VARCHAR
+      - name: TICKER
+        data_type: VARCHAR
+      - name: CUSIP
+        description: CUSIP
+        data_type: VARCHAR
+      - name: IS_CUSTODIAL_CASH
+        data_type: NUMBER
+      - name: QUANTITY
+        data_type: NUMBER
+      - name: CURRENT_PRICE
+        data_type: NUMBER
+      - name: CURRENT_VALUE
+        data_type: NUMBER
+      - name: CURRENT_PRICE_RAW
+        data_type: NUMBER
+      - name: CURRENT_VALUE_RAW
+        data_type: NUMBER
+      - name: CURRENT_PRICE_UNFACTORED
+        data_type: NUMBER
+      - name: CURRENT_VALUE_UNFACTORED
+        data_type: NUMBER
+      - name: FACTOR
+        data_type: NUMBER
+      - name: COST_PER_SHARE
+        data_type: NUMBER
+      - name: COST_BASIS
+        data_type: NUMBER
+      - name: ACQUIRED_DATE
+        description: |
+          Date the security was acquired. This is generally the trade date on the purchase of a stock. If Acquired Date is unavailable, this field will be blank.
+          Use this field to match lots, not Original Purchase Date.
+        data_type: DATE
+      - name: PRODUCT_NAME
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE
+        data_type: VARCHAR
+      - name: PRODUCT_CATEGORY
+        data_type: VARCHAR
+      - name: PRODUCT_ID
+        data_type: NUMBER
+      - name: ASSET_ID
+        data_type: NUMBER
+      - name: IS_ASSET_MANAGED
+        data_type: NUMBER
+      - name: LOT_ID
+        data_type: VARCHAR
+      - name: IS_PERFORM
+        data_type: NUMBER
+      - name: IS_MOXY
+        data_type: NUMBER
+      - name: IS_INTRADAY_IMPORT
+        data_type: NUMBER
+      - name: _CREATED_AT
+        data_type: TIMESTAMP_LTZ

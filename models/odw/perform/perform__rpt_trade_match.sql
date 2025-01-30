@@ -39,7 +39,7 @@ with cte_internal_allocations as (
 
 , cte_all_accounts as (
     select account_number
-    from {{ ref('mis__bld_accounts') }}
+    from {{ ref('mis__accounts') }}
     where 1 = 1
         and is_active = 1
         and (

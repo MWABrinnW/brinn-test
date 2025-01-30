@@ -54,11 +54,10 @@ select
     , acc.is_perform                   as is_perform
     , acc.is_moxy                      as is_moxy
     , acc.is_intraday_import           as is_intraday_import
-    , a.is_head                        as is_head
     , a._created_at                    as _created_at
 from {{ ref('mis__stg_orion_tax_lots') }} as a
 -- join with mis_accounts here to tag perform/moxy
-left join {{ ref('mis__bld_accounts') }} as acc
+left join {{ ref('mis__accounts') }} as acc
     on a.account_id = acc.pms_account_id
     and acc.rn = 1
 where 1 = 1

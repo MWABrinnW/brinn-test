@@ -1,8 +1,8 @@
 # What is this for?
 
-MIS =
-Perform = Fixed Income trading.
-Moxy = Bond trading.
+MIS = Mariner Internal Strategies
+Perform = Fixed Income trading
+Moxy = Bond trading
 
 [Lucid chart design](https://lucid.app/lucidchart/648b59ff-808d-4571-b25f-a9c57cff25e4/edit?invitationId=inv_1bcc1c40-06e3-4cef-9207-1c316c2a4799&page=OFLDii4v6bbB#)
 

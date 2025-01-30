@@ -15,7 +15,7 @@ with cte_ass as (
         , is_perform
         , is_moxy
         , is_included
-    from {{ ref('mis__bld_accounts') }}
+    from {{ ref('mis__accounts') }}
     where 1 = 1
         and is_included = 1
 )

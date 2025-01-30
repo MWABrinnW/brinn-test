@@ -1,7 +1,5 @@
 select
-    max(a.content:effective_date::date) over (
-        partition by a._created_at
-    )                                                     as effective_date
+    effective_date                                        as effective_date
     , a.content:account_id::int                           as account_id
     , a.content:account_number::text                      as account_number
     , a.content:account_number_formatted::text            as account_number_formatted
@@ -43,7 +41,14 @@ select
     , a._created_at                                       as _created_at
     , {{ col_is_head(
         reference=source('mis', 'orion_tax_lots'),
-        source_date_col='a._created_at',
-        reference_date_col='_created_at'
+        source_date_col='a.effective_date',
+        reference_date_col='effective_date'
         ) }}
+    , case
+        when a._created_at = max(a._created_at) over (
+            partition by a.effective_date
+            )
+            then 1
+        else 0
+    end::int                                              as is_head_for_day
 from {{ source('mis', 'orion_tax_lots') }} as a
