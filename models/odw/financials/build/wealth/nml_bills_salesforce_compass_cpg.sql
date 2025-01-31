@@ -36,14 +36,17 @@ with dynamics_finance_accounts_cte as (
 
 , cpg_split_detail_cte_2 as (
     select
-        ctn_1._record_2_id_value                                                                          as z__record_2_id_value
-        , ctn_1.name                                                                                      as z_connection_name
-        , ctn_2.name                                                                                      as y_connection_name
-        , ctr_1.name                                                                                      as z_role_name
-        , to_number(right(trim(ctr_1.name) , 1))                                                          as sol_role_id
-        , max(sol_role_id) over (partition by ctn_1._record_2_id_value order by ctn_1._record_2_id_value) as num_of_sol
-        , to_varchar(coalesce(cte_1.split_dtl_split_amount , round((1 / num_of_sol) , 5)) * 100) || '%'   as split_amount
-        , ctn_1.effective_at                                                                              as effective_at
+        ctn_1._record_2_id_value                                                                        as z__record_2_id_value
+        , ctn_1.name                                                                                    as z_connection_name
+        , ctn_2.name                                                                                    as y_connection_name
+        , ctr_1.name                                                                                    as z_role_name
+        , to_number(right(trim(ctr_1.name) , 1))                                                        as sol_role_id
+        , max(sol_role_id) over (
+            partition by ctn_1._record_2_id_value
+            order by ctn_1._record_2_id_value
+        )                                                                                               as num_of_sol
+        , to_varchar(coalesce(cte_1.split_dtl_split_amount , round((1 / num_of_sol) , 5)) * 100) || '%' as split_amount
+        , ctn_1.effective_at                                                                            as effective_at
 
     -- , cte_1.SPLIT_DTL_SOL_ROLE_ID
     -- , cte_1.SPLIT_DTL_ACCOUNT_ID
@@ -248,14 +251,21 @@ select
             )
             then
                 '42001'
-
-        when cte_f.sol_detail is not null and cte_f.sol_detail ilike '(SOLICITOR)'
+        -- finance is changd how cpg is reported
+        when fee_calculation_date < '2024-12-31'
             then
-                '40002'--Other Referral Partners (CPAs)/Solicitors
+                case
+                    when cte_f.sol_detail is not null and cte_f.sol_detail ilike '(SOLICITOR)'
+                        then
+                            '40002'--Other Referral Partners (CPAs)/Solicitors
 
-        when ir.fee_type_c in ('Quarterly Fee' , 'Fee Adjustment' , 'Lost Client Fee')
-            then
-                '40001'-- traditional
+                    when ir.fee_type_c in ('Quarterly Fee' , 'Fee Adjustment' , 'Lost Client Fee')
+                        then
+                            '40001'-- traditional
+                end
+        -- finance is changd how cpg is reported, new natural account tamp
+        when fee_calculation_date >= '2024-12-31'
+            then '40104'
     end::varchar(200)                                                    as coa_segment_5_natural_account_id
     -- sourced from "aux__stg_financials_fee_type" if not hardcoded
     , ovrd_fee_type.revenue_category::varchar(200)                       as revenue_category
