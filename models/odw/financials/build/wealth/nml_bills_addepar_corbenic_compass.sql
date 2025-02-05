@@ -148,6 +148,7 @@ from
     {{ ref('addepar_corbenic_history__base_bills') }} as b
 left join {{ ref('addepar_corbenic_history__base_accounts') }} as a
     on b.holding_account_number = a.account_number
+    and a.is_head = 1
 -- joins crm data on invoice date, if available
 left join {{ ref('salesforce_compass_accounts') }} as acc
     on trim(replace(a.account_number , '-' , '')) = trim(replace(acc.account_number_formatted , '-' , ''))
