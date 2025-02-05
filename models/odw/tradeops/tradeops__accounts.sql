@@ -9,6 +9,7 @@ select
     , a.is_multiple_margin_enabled                  as is_multiple_margin_enabled
     , a.options_approval_level                      as options_approval_level
     , a.is_active                                   as is_active
+    , a.option_requirements                         as option_requirements
     , coalesce(sod.accounttype , s.account_type__c) as account_type
     , s.status__c                                   as status
     , s.openingdate__c                              as open_date

@@ -19,6 +19,33 @@ with cte_account_max_record as (
     from cte_account_max_record
 )
 
+, cte_option_requirement as (
+    select
+        account_number        as account_number
+        , 'schwab'            as custodian
+        , option_requirements as option_requirements
+    from {{ ref('schwab__base_cash') }}
+    where is_head = 1
+        and rn_global = 1
+        and account_number in (
+            select distinct account_number
+            from cte_account_max_record
+        )
+
+    union all
+
+    select
+        account_number              as account_number
+        , 'fidelity'                as custodian
+        , house_option_requirements as option_requirements
+    from {{ ref('fidelity__stg_option_reqs') }}
+    where is_head = 1
+        and account_number in (
+            select distinct account_number
+            from cte_account_max_record
+        )
+)
+
 select
     'copilot'::text                          as system_name
     , 'mwa-options'                          as system_instance
@@ -37,6 +64,7 @@ select
     , ca.is_margin_enabled
     , ca.is_multiple_margin_enabled
     , ca.options_approval_level
+    , opr.option_requirements
     --, a.household_id
     --, a.cust_id
     --, a.model_id
@@ -72,5 +100,9 @@ left join {{ ref('custodian_accounts') }} as ca
     and ca.is_head = 1
 left join cte_max_collected as mc
     on a._created_at::date = mc.max_created_at::date
+left join cte_option_requirement as opr
+    on a.account_number = opr.account_number
+    and lower(a.custodian) = lower(opr.custodian)
 where 1 = 1
-qualify row_number() over (partition by a.account_number , a.custodian order by a._created_at desc) = 1
+qualify row_number() over (partition by a.account_number , a.custodian
+order by a._created_at desc) = 1

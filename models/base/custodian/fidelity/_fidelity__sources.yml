@@ -15,3 +15,12 @@ sources:
           - name: _source_file
           - name: _row_number
           - name: _checksum
+      - name: option_reqs
+        description: "Options requirements report from Fidelity Wealthscape"
+        columns:
+          - name: json
+          - name: _source_file_date
+          - name: _created_at
+          - name: _source_file
+          - name: _row_number
+          - name: _checksum
