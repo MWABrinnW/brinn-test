@@ -137,8 +137,16 @@ select
     , '\\s{2,}', ' '
   )
     order by
-        date_trunc('second' , ei.effective_at) desc
-        , iff(is_active is null , 0 , 1) asc
+        date_trunc('second' , ei.effective_at)::datetime desc
+        , (case
+    when ei.closing_date_c is not null
+      then 0
+    when ei.status_c in ('Open', 'Converted')
+      then 1
+    when ei.status_c in ('Closed', 'Dormant')
+      then 0
+    else 0
+  end::int) desc 
         , ei.current_value_c desc)                            as rn_acct_num  
   , ei._fivetran_synced                                       as _fivetran_synced
   , current_timestamp::timestamp_ntz                          as _created_at
