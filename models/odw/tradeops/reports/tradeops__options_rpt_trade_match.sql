@@ -42,7 +42,7 @@ with cte_internal as (
         on a.member_account = acc.account_number
         and a.order_trade_date = acc._created_at::date
         and a._env = acc._env
-        and acc.is_head_for_day = 1
+        and acc.is_head = 1
     where 1 = 1
         and a._env = {{ "'" ~ copilot_env() ~ "'" }}
         and a.is_head = 1

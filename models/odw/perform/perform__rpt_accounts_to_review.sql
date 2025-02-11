@@ -47,8 +47,8 @@ with cte_build as (
         , product_category
         , product_type
         , asset_class
-    from {{ ref('mis__stg_orion_tax_lots') }}
-    where is_head = 1
+    from {{ ref('mis__int_orion_tax_lots_api') }}
+    where 1 = 1
         and fkalclient = 568
         and account_id in (select distinct t.pms_account_id from cte_mis_accounts as t)
 )

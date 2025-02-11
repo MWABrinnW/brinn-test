@@ -51,11 +51,12 @@ select
     , a.asset_id                       as asset_id
     , a.is_asset_managed               as is_asset_managed
     , a.lot_id                         as lot_id
+    , acc.is_included                  as is_included
     , acc.is_perform                   as is_perform
     , acc.is_moxy                      as is_moxy
     , acc.is_intraday_import           as is_intraday_import
     , a._created_at                    as _created_at
-from {{ ref('mis__stg_orion_tax_lots') }} as a
+from {{ ref('mis__stg_orion_tax_lots_redshift') }} as a
 -- join with mis_accounts here to tag perform/moxy
 left join {{ ref('mis__accounts') }} as acc
     on a.account_id = acc.pms_account_id

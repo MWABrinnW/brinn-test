@@ -1,22 +1,22 @@
-{# select
-
-from {{ ref('flyer__stg_sod_accounts_history') }} #}
-
-with cte_account_max_record as (
+with accounts as (
     select
-        account_number
-        , custodian
+        system_name
+        , system_instance
+        , system_key
         , account_id
-        , max(account_id)  as max_account_id
-        , min(_created_at) as min_created_at
-        , max(_created_at) as max_created_at
+        , account_number
+        , account_name
+        , custodian
+        , start_date
+        , import_date
+        , _created_at
+        , effective_date
+        , _source_file
+        , _uri
+        , _env
     from {{ ref('flyer__stg_accounts') }}
-    group by all
-)
-
-, cte_max_collected as (
-    select max(max_created_at) as max_created_at
-    from cte_account_max_record
+    where 1 = 1
+        and is_head = 1
 )
 
 , cte_option_requirement as (
@@ -28,8 +28,8 @@ with cte_account_max_record as (
     where is_head = 1
         and rn_global = 1
         and account_number in (
-            select distinct account_number
-            from cte_account_max_record
+            select distinct t.account_number
+            from accounts as t
         )
 
     union all
@@ -41,68 +41,90 @@ with cte_account_max_record as (
     from {{ ref('fidelity__stg_option_reqs') }}
     where is_head = 1
         and account_number in (
-            select distinct account_number
-            from cte_account_max_record
+            select distinct t.account_number
+            from accounts as t
         )
+)
+
+, custodian_accounts as (
+    select
+        custodian
+        , account_number
+        , total_value
+        , is_margin_enabled
+        , is_multiple_margin_enabled
+        , options_approval_level
+    from {{ ref('custodian_accounts') }}
+    where 1 = 1
+        and is_head = 1
+)
+
+, sod_accounts as (
+    select account_no as account_number
+    from {{ ref('flyer__stg_sod_accounts_history') }}
+    where is_head = 1
+    group by all
+)
+
+, account_groups as (
+    select
+        a.account_id       as account_id
+        , a.account_number as account_number
+        , array_agg(distinct a.group_name) within group (
+            order by a.group_name
+        )                  as groups
+    --, lower(a.custodian) as custodian
+    --, a._created_at      as last_collected_at
+    --, a._source_file     as _source_file
+    from {{ ref('flyer__stg_groups') }} as a
+    where 1 = 1
+        and a.is_head = 1
+    group by all
 )
 
 select
     'copilot'::text                          as system_name
     , 'mwa-options'                          as system_instance
     , system_name || '__' || system_instance as system_key
-    , a.account_id
-    , a.account_number
-    , a.account_name
-    , a.custodian
+    , a.account_id                           as account_id
+    , a.account_number                       as account_number
+    , a.account_name                         as account_name
+    , a.custodian                            as custodian
     , case
-        when mc.max_created_at is not null
+        when soda.account_number is not null
             then 1
         else 0
-    end::int                                 as is_active
-    , a.start_date
-    , ca.total_value
-    , ca.is_margin_enabled
-    , ca.is_multiple_margin_enabled
-    , ca.options_approval_level
-    , opr.option_requirements
-    --, a.household_id
-    --, a.cust_id
-    --, a.model_id
-    --, a.sleeve_id
-    -- , a.import_date
-    --, a.is_cash_account
-    --, a.tax_lot_relief_method
-    --, a.long_term_tax_rate
-    --, a.short_term_tax_rate
-    --, a.is_taxable
-    --, a.is_disable_sleeves
-    --, a.is_explicit_sleeve
-    --, a.cash_reserve
-    --, a.percent_or_value
-    --, a.sleeves
+    end::int                                 as is_linked
+    , ag.groups                              as groups
+    , a.start_date                           as start_date
+    , ca.total_value                         as total_value
+    , ca.is_margin_enabled                   as is_margin_enabled
+    , ca.is_multiple_margin_enabled          as is_multiple_margin_enabled
+    , ca.options_approval_level              as options_approval_level
+    , opr.option_requirements                as option_requirements
+    , a.import_date                          as created_date
     , a._created_at                          as last_collected_at
-    , mr.min_created_at                      as first_collected_at
-    , a.effective_date
+    , a.effective_date                       as effective_date
     , {{ col_is_head(
         reference=ref('flyer__stg_accounts'),
         source_date_col='a.effective_date'
         ) }}
-    , a._source_file
-    , a._uri
-    , a._env
-from {{ ref('flyer__stg_accounts') }} as a
-inner join cte_account_max_record as mr
-    on a._created_at = mr.max_created_at
-    and a.account_id = mr.account_id
-left join {{ ref('custodian_accounts') }} as ca
-    on a.account_number = ca.account_number
-    and lower(ca.custodian) = lower(a.custodian)
-    and ca.is_head = 1
-left join cte_max_collected as mc
-    on a._created_at::date = mc.max_created_at::date
+    , a._source_file                         as _source_file
+    , a._uri                                 as _uri
+    , a._env                                 as _env
+from accounts as a
+left join account_groups as ag
+    on a.account_id = ag.account_id
+left join sod_accounts as soda
+    on a.account_number = soda.account_number
 left join cte_option_requirement as opr
     on a.account_number = opr.account_number
     and lower(a.custodian) = lower(opr.custodian)
+left join custodian_accounts as ca
+    on a.account_number = ca.account_number
+    and lower(ca.custodian) = lower(a.custodian)
 where 1 = 1
-qualify row_number() over (partition by a.account_number , a.custodian
-order by a._created_at desc) = 1
+qualify row_number() over (
+        partition by a.account_number , a.custodian
+        order by a._created_at desc
+    ) = 1

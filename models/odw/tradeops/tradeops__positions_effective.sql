@@ -26,9 +26,8 @@ with cte_positions as (
         , a._source_file        as _source_file
     from {{ ref('flyer__stg_positions') }} as a
     left join {{ ref('flyer__stg_accounts') }} as acc
-        on a.effective_date = acc.effective_date
-        and a.account_id = acc.account_id
-        and acc.is_head_for_day = 1
+        on a.account_id = acc.account_id
+        and acc.is_head = 1
     where 1 = 1
         and a.is_head = 1
         and a._env = {{ "'" ~ copilot_env() ~ "'" }}

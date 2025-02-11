@@ -27,9 +27,8 @@ select
     , a._created_at                                        as last_collected_at
 from {{ ref('flyer__stg_positions') }} as a
 left join {{ ref('flyer__stg_accounts') }} as acc
-    on a.effective_date = acc.effective_date
-    and a.account_id = acc.account_id
-    and acc.is_head_for_day = 1
+    on a.account_id = acc.account_id
+    and acc.is_head = 1
 left join {{ ref('bld_securities') }} as cusip_ticker
     on a.security_id = cusip_ticker.ticker
     and cusip_ticker.rn_ticker = 1
