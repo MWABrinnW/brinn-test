@@ -3,6 +3,8 @@ select
     bb.system_name::varchar(200)                                                         as system_name
     , bb.system_instance::varchar(200)                                                   as system_instance
     , bb.system_key::varchar(200)                                                        as system_key
+    , bb.firm_source::text(200)                                                          as firm_source
+
 
     -- [location]
     , coalesce(acc.household_location_code , acc2.household_location_code)::varchar(200) as client_location_code

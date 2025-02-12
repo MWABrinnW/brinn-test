@@ -17,7 +17,10 @@ with cte_loc_cli as (
         , location_code
         , office_name
         , start_date
-        , row_number() over (partition by accounting_id order by start_date desc) as rn
+        , row_number() over (
+            partition by accounting_id
+            order by start_date desc
+        ) as rn
     from {{ ref('locations') }}
     qualify rn = 1
 )
@@ -39,7 +42,10 @@ with cte_loc_cli as (
         , seg_8
         , is_latest
         -- accounts for rare instances that an client manager has two records for the same period, differerent state values for tax requirements
-        , row_number() over (partition by associate_id_adp , associate_id_oracle , start_date , end_date order by _id) as rn
+        , row_number() over (
+            partition by associate_id_adp , associate_id_oracle , start_date , end_date
+            order by _id
+        ) as rn
     from {{ ref('bld_associate_revenue_coding') }}
     where is_latest = 1
     qualify rn = 1
@@ -56,7 +62,7 @@ with cte_loc_cli as (
 
 select
     nml.*
-    , invst.model_grouping_assignment::varchar(200)      as model_grouping_assignment
+    , invst.model_grouping_assignment::text(200)         as model_grouping_assignment
     , loc_cli.office_name                                as client_office_name
     , loc_cli.accounting_id                              as client_location_accounting_id
     , ass.advisor_nonadvisor                             as advisor_nonadvisor

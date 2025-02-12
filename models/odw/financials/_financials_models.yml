@@ -10,6 +10,10 @@ models:
         data_type: VARCHAR
       - name: SYSTEM_KEY
         description: "Revenue source system: concat(system_name , '__' , system_instance)"
+      - name: FIRM_SOURCE
+        description: ''
+        meta:
+          row_access_policy: rap_firm_source
         data_type: VARCHAR
       - name: LOCATION_CODE
         description: 'Mariner Location Code associated with the Mariner Office/Accounting ID (at the time the invoice was generated).  This is the Location Code for the advisor office, which is where the revenue gets booked.'
@@ -362,6 +366,10 @@ models:
         description: ''
       - name: SYSTEM_KEY
         description: ''
+      - name: FIRM_SOURCE
+        description: ''
+        meta:
+          row_access_policy: rap_firm_source
       - name: LOCATION_CODE
         description: ''
       - name: OFFICE_NAME

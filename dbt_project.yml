@@ -573,7 +573,7 @@ models:
         +schema: financials
         +tags: ["revenue","financials","billing"]
         +grants:
-          +select: "{{ ['db_odw_financials_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+          +select: "{{ ['db_odw_financials_r'] if target.name in ['prod', 'ci'] else []}}"
         +dbt-osmosis: "_{parent}_models.yml"
         build:
           +schema: build
@@ -632,7 +632,7 @@ models:
         legacy:
           +schema: legacy
           +grants:
-            select: "{{ ['db_hr_assoc_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+            select: "{{ ['db_hr_assoc_r'] if target.name in ['prod', 'ci'] else []}}"
 
       financials:
         +tags: ["financials"]

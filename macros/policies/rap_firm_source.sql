@@ -3,28 +3,30 @@
 {%- set sql -%}
     ((is_role_in_session('engineering')
         or is_role_in_session('datamanagement'))
-    -- MWA
+    -- MWA/WLTH
     or (firm_source = 'mwa' and (
-        is_role_in_session('mwa')
+        is_role_in_session('wlth')
+        -- Legacy inheritance. These should be cleaned up later.
+        or is_role_in_session('mwa')
         or is_role_in_session('db_custodial_mwa_r')
         or is_role_in_session('db_edw_client_mwa_r')
         or is_role_in_session('db_pms_mwa_r')
     ))
-    -- MPS
-    or (firm_source = 'mps' and (
+    -- INDE (ntwk, bays, cmpg, swag/mps)
+    or (firm_source in ('mps', 'swag', 'network', 'baystate', 'cpg') and (
         is_role_in_session('mps')
+        or is_role_in_session('ntwk')
+        or is_role_in_session('swag')
+        or is_role_in_session('bays')
+        -- Legacy inheritance. These should be cleaned up later.
         or is_role_in_session('db_custodial_mps_r')
         or is_role_in_session('db_edw_client_mps_r')
         or is_role_in_session('db_pms_mps_r')
+
     ))
-    -- NETWORK/SWAG
-    or (firm_source in ('swag','network','baystate') and (
-        is_role_in_session('mps')
-        or is_role_in_session('network')
-        or is_role_in_session('baystate')
-        or is_role_in_session('db_custodial_mps_r')
-        or is_role_in_session('db_edw_client_mps_r')
-        or is_role_in_session('db_pms_mps_r')
+    -- MSEC
+    or (firm_source = 'msec' and (
+        is_role_in_session('msec')
     ))
     )
 ;

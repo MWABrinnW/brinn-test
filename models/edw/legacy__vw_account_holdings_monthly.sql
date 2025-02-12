@@ -1,5 +1,5 @@
 {{ config(
-  grants = {'+select': ['db_edw_client_mwa_r', 'reporting']}
+  grants = {'+select': ['db_pms_mwa_r']}
 ) }}
 
 select
@@ -50,4 +50,7 @@ select
     , {{ col_is_head(reference=source('edw_mwa', 'account_holdings_monthly')) }}
     , {{ col_is_current(date_col='effective_date') }}
 from {{ source('edw_mwa', 'account_holdings_monthly') }}
-qualify row_number() over (partition by effective_date , month_end_date , account_holdings_id order by effective_date desc) = 1
+qualify row_number() over (
+        partition by effective_date , month_end_date , account_holdings_id
+        order by effective_date desc
+    ) = 1
