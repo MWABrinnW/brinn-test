@@ -259,7 +259,7 @@ models:
       - name: _SOURCE_FILE
         data_type: VARCHAR
         description: ''
-  - name: addepar_corbenic_history__base_bills
+  - name: addepar_corbenic_history__int_bills
     columns:
       - name: SYSTEM_NAME
         data_type: VARCHAR

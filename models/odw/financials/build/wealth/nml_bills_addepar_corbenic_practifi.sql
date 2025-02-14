@@ -34,21 +34,21 @@ select
     , 'L-10001'::text(200)                                                    as client_location_code
 
     -- [invoice]
-    , b.billing_id::text(200)                                                 as invoice_number_source
+    , b.billing_id::varchar(200)                                              as invoice_number_source
     , null::timestamp_ntz                                                     as invoice_created_at
     , b.billing_date::date                                                    as invoice_date
-    , null::text(200)                                                         as billing_statement_id_source
-    , null::text(200)                                                         as billing_statement_id_crm
-    , null::text(200)                                                         as invoice_status
+    , null::varchar(200)                                                      as billing_statement_id_source
+    , null::varchar(200)                                                      as billing_statement_id_crm
+    , null::varchar(200)                                                      as invoice_status
     , 0::int                                                                  as is_intra_period_invoice
-    , trim(upper(b.holding_account_number))::text(200)                        as account_number
-    , b.holding_account_number::text(200)                                     as account_number_formatted
-    , b.billing_bill_to_account_number::text(200)                             as billing_account_number
-    , b.entity_id::text(200)                                                  as account_id_pms
-    , a.top_level_owner::text(200)                                            as registrant_name
-    , b.name::text(200)                                                       as account_name
-    , a.cwm_account_type::text(200)                                           as type_of_account
-    , a.top_level_owner_entity_id::text(200)                                  as client_id_pms
+    , b.account_number::varchar(200)                                          as account_number
+    , b.account_number_formatted::varchar(200)                                as account_number_formatted
+    , b.billing_bill_to_account_number::varchar(200)                          as billing_account_number
+    , b.entity_id::varchar(200)                                               as account_id_pms
+    , a.top_level_owner::varchar(200)                                         as registrant_name
+    , b.name::varchar(200)                                                    as account_name
+    , a.cwm_account_type::varchar(200)                                        as type_of_account
+    , a.top_level_owner_entity_id::varchar(200)                               as client_id_pms
     -- confirm this matches FA Master
     , case
         when a.account_number in (
@@ -203,25 +203,23 @@ select
     , {{ financials_set_revenue_period() }}
 
     -- [referential]
-    , concat(b.billing_id , '-' , b.holding_account_number)::text(200)        as _trans_key
+    , concat(b.billing_id , '-' , b.account_number)::varchar(200)             as _trans_key
     , b._created_at::timestamp_ntz(9)                                         as _source_loaded_at
-    , b._source_file::text(200)                                               as _source_file
-    , null::text(200)                                                         as _box_file_id
+    , b._source_file::varchar(200)                                            as _source_file
+    , null::varchar(200)                                                      as _box_file_id
 
     -- These are fields that are likely specific to this source
     -- and are intended to help with one off investigations or
     -- special analysis.
     , null::object                                                            as _extra_fields
 from
-    {{ ref('addepar_corbenic_history__base_bills') }} as b
+    {{ ref('addepar_corbenic_history__int_bills') }} as b
 left join {{ ref('addepar_corbenic_history__base_accounts') }} as a
-    on b.holding_account_number = a.account_number
+    on b.account_number = a.account_number
     and a.is_head = 1
 left join cte_crm as c
-    on b.holding_account_number = c.pract_acct_num
+    on b.account_number = c.pract_acct_num
 where true
-    and a.is_head = 1
-    and b.is_head = 1
     and b.billing_date::date < '2024-10-01'
     -- uncomment if "billing_frequency" or "revenue_category" is not hardcoded.
 {# left join {{ ref('aux__stg_financials_fee_type') }} as ovrd_fee_type

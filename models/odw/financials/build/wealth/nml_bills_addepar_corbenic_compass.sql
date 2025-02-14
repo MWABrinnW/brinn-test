@@ -136,19 +136,19 @@ select
     , {{ financials_set_revenue_period() }}
 
     -- [referential]
-    , concat(b.billing_id , '-' , b.holding_account_number)::text(200)                as _trans_key
+    , concat(b.billing_id , '-' , b.account_number)::varchar(200)                     as _trans_key
     , b._created_at::timestamp_ntz(9)                                                 as _source_loaded_at
-    , b._source_file::text(200)                                                       as _source_file
-    , null::text(200)                                                                 as _box_file_id
+    , b._source_file::varchar(200)                                                    as _source_file
+    , null::varchar(200)                                                              as _box_file_id
 
     -- These are fields that are likely specific to this source
     -- and are intended to help with one off investigations or
     -- special analysis.
     , null::object                                                                    as _extra_fields
 from
-    {{ ref('addepar_corbenic_history__base_bills') }} as b
+    {{ ref('addepar_corbenic_history__int_bills') }} as b
 left join {{ ref('addepar_corbenic_history__base_accounts') }} as a
-    on b.holding_account_number = a.account_number
+    on b.account_number = a.account_number
     and a.is_head = 1
 -- joins crm data on invoice date, if available
 left join {{ ref('salesforce_compass_accounts') }} as acc

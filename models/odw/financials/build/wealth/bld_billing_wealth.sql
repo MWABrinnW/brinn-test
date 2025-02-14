@@ -1,4 +1,4 @@
--- depends_on: {{ ref('addepar_corbenic_history__base_bills') }}
+-- depends_on: {{ ref('addepar_corbenic_history__int_bills') }}
 -- depends_on: {{ ref('black_diamond_baystate__base_bills') }}
 -- depends_on: {{ ref('black_diamond_houston__base_bills') }}
 -- depends_on: {{ ref('black_diamond_mps__base_bills') }}
@@ -36,8 +36,11 @@ with cte_check as (
             case
                 when (
                     select max(_created_at)
-                    from {{ ref('addepar_corbenic_history__base_bills') }}) > coalesce(
-                    (select max(_source_loaded_at) from {{ this }} where system_key = 'addepar__corbenic')
+                    from {{ ref('addepar_corbenic_history__int_bills') }}) > coalesce(
+                    (
+                        select max(_source_loaded_at) from {{ this }}
+                        where system_key = 'addepar__corbenic'
+                    )
                     , '1900-01-01'::date::timestamp
                 )
                     then 'addepar__corbenic'
@@ -50,7 +53,10 @@ with cte_check as (
                 when (
                     select max(_created_at)
                     from {{ ref('black_diamond_baystate__base_bills') }}) > coalesce(
-                    (select max(_source_loaded_at) from {{ this }} where system_key = 'black_diamond__baystate')
+                    (
+                        select max(_source_loaded_at) from {{ this }}
+                        where system_key = 'black_diamond__baystate'
+                    )
                     , '1900-01-01'::date::timestamp
                 )
                     then 'black_diamond__baystate'
@@ -63,7 +69,10 @@ with cte_check as (
                 when (
                     select max(_created_at)
                     from {{ ref('black_diamond_houston__base_bills') }}) > coalesce(
-                    (select max(_source_loaded_at) from {{ this }} where system_key = 'black_diamond__houston')
+                    (
+                        select max(_source_loaded_at) from {{ this }}
+                        where system_key = 'black_diamond__houston'
+                    )
                     , '1900-01-01'::date::timestamp
                 )
                     then 'black_diamond__houston'
@@ -76,7 +85,10 @@ with cte_check as (
                 when (
                     select max(_created_at)
                     from {{ ref('black_diamond_mps__base_bills') }}) > coalesce(
-                    (select max(_source_loaded_at) from {{ this }} where system_key = 'black_diamond__mps')
+                    (
+                        select max(_source_loaded_at) from {{ this }}
+                        where system_key = 'black_diamond__mps'
+                    )
                     , '1900-01-01'::date::timestamp
                 )
                     then 'black_diamond__mps'
@@ -89,7 +101,10 @@ with cte_check as (
                 when (
                     select max(_created_at)
                     from {{ ref('black_diamond_uhnw__base_bills') }}) > coalesce(
-                    (select max(_source_loaded_at) from {{ this }} where system_key = 'black_diamond__uhnw')
+                    (
+                        select max(_source_loaded_at) from {{ this }}
+                        where system_key = 'black_diamond__uhnw'
+                    )
                     , '1900-01-01'::date::timestamp
                 )
                     then 'black_diamond__uhnw'
@@ -102,7 +117,10 @@ with cte_check as (
                 when (
                     select max(_created_at)
                     from {{ ref('envestnet_manasquan__stg_bills') }}) > coalesce(
-                    (select max(_source_loaded_at) from {{ this }} where system_key = 'envestnet__manasquan')
+                    (
+                        select max(_source_loaded_at) from {{ this }}
+                        where system_key = 'envestnet__manasquan'
+                    )
                     , '1900-01-01'::date::timestamp
                 )
                     then 'envestnet__manasquan'
@@ -115,7 +133,10 @@ with cte_check as (
                 when (
                     select max(_created_at)
                     from {{ ref('sei_manasquan__base_bills') }}) > coalesce(
-                    (select max(_source_loaded_at) from {{ this }} where system_key = 'sei__manasquan')
+                    (
+                        select max(_source_loaded_at) from {{ this }}
+                        where system_key = 'sei__manasquan'
+                    )
                     , '1900-01-01'::date::timestamp
                 )
                     then 'sei__manasquan'
@@ -170,9 +191,9 @@ with cte_check as (
     where true
         {% if is_incremental() %}
             and system_key in (
-                select system_key
-                from cte_check
-                where system_key is not null
+                select a.system_key
+                from cte_check as a
+                where a.system_key is not null
             )
         {% endif %}
 )
