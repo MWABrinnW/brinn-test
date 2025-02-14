@@ -1,3 +1,4 @@
+-- revaluate if invoices originating from orion via salesforce are cpg or not. 
 select
     ir.*
     , case
@@ -37,5 +38,8 @@ where true
     and ir._fivetran_deleted = 0
     and ir.invoice_date_c >= '12/31/2021'
 
-qualify row_number() over (partition by ir.name order by ir.name asc , cpg_ba.effective_date desc) = 1
+qualify row_number() over (
+        partition by ir.name
+        order by ir.name asc , cpg_ba.effective_date desc
+    ) = 1
 order by ir.name
