@@ -1,25 +1,31 @@
 select
-    Wipident
-    , ClientIdent
-    , ServiceCodeIdent
-    , InvoiceIdent
-    , StaffIdent
-    , ProjectIdent
-    , Hours::decimal(19 , 2)                                     as Hours
-    , StdAmount::decimal(19 , 2)                                 as StdAmount
-    , TO_TIMESTAMP(TransactionDate , 'MM/DD/YYYY HH12:MI:SS AM') as TransactionDate
-    , TimeAdjAmount::decimal(19 , 2)                             as TimeAdjAmount
-    , ExpenseAdjAmount::decimal(19 , 2)                          as ExpenseAdjAmount
-    , AdjAmount::decimal(19 , 2)                                 as AdjAmount
-    , SurchargeAmount::decimal(19 , 2)                           as SurchargeAmount
-    , TimeBilledAmount::decimal(19 , 2)                          as TimeBilledAmount
-    , ExpenseBilledAmount::decimal(19 , 2)                       as ExpenseBilledAmount
-    , BilledAmount::decimal(19 , 2)                              as BilledAmount
-    , TimeCost::decimal(19 , 2)                                  as TimeCost
-    , ExpenseCost::decimal(19 , 2)                               as ExpenseCost
-    , Cost::decimal(19 , 2)                                      as Cost
-    , InvoiceNumber
-    , TO_TIMESTAMP(InvoiceDateTime , 'MM/DD/YYYY HH12:MI:SS AM') as InvoiceDateTime
-    , InvoiceStatusCode
-    , _Created_At
+    'cch'::text(200)                                             as system_name
+    , 'axcess'::text(200)                                        as system_instance
+    , concat(system_name , '__' , system_instance)::text(200)    as system_key
+    , wipident
+    , clientident
+    , servicecodeident
+    , invoiceident
+    , staffident
+    , projectident
+    , hours::decimal(19 , 2)                                     as hours
+    , stdamount::decimal(19 , 2)                                 as stdamount
+    , to_timestamp(transactiondate , 'MM/DD/YYYY HH12:MI:SS AM') as transactiondate
+    , timeadjamount::decimal(19 , 2)                             as timeadjamount
+    , expenseadjamount::decimal(19 , 2)                          as expenseadjamount
+    , adjamount::decimal(19 , 2)                                 as adjamount
+    , surchargeamount::decimal(19 , 2)                           as surchargeamount
+    , timebilledamount::decimal(19 , 2)                          as timebilledamount
+    , expensebilledamount::decimal(19 , 2)                       as expensebilledamount
+    , billedamount::decimal(19 , 2)                              as billedamount
+    , timecost::decimal(19 , 2)                                  as timecost
+    , expensecost::decimal(19 , 2)                               as expensecost
+    , cost::decimal(19 , 2)                                      as cost
+    , invoicenumber
+    , to_timestamp(invoicedatetime , 'MM/DD/YYYY HH12:MI:SS AM') as invoicedatetime
+    , invoicestatuscode
+    , _created_at
+    , {{ col_is_head(reference=source('cch_dau', 'uvw_wipar02clientident')
+        , reference_date_col='_created_at'
+        , source_date_col='_created_at') }}
 from {{ source('cch_dau', 'uvw_wipar02clientident') }}
