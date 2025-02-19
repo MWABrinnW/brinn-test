@@ -104,7 +104,7 @@ select
         else 0
     end::int                                     as is_vol_term
     , c.effective_date::date                     as data_last_refreshed_date
-    , c.date_start                               as position_start_date
+    , c.assignment_effective_start_date          as position_start_date
     , c.source                                   as source
     , c.assignment_action_code::text(200)        as title_change_reason
     , c.mariner_job_id                           as job_id
