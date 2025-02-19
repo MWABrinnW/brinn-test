@@ -1,45 +1,45 @@
 select
-    employee_num                            as employee_number
-    ,company_code
-    ,position_id
-    ,legalname_full
-    ,employment_status
-    ,worker_type
-    ,benefitsgroup_code
-    ,ft_pt_temp
-    ,date_of_hire
-    ,hire_reason
-    ,hire_details
-    ,associate_final_termination_date
-    ,vol_invol
-    ,accounting_id                          as location_code
-    ,cost_num                               as cost_number
-    ,advisor_nonadvisor
-    ,class
-    ,position_region_name
-    ,position_location_name                 as position_market_name
-    ,position_department_name
-    ,work_site_location_name
-    ,reporting_office
-    ,position_title
-    ,job_function_code
-    ,years_of_service
-    ,age_band
-    ,gender
-    ,fte
-    ,is_current
-    ,is_start
-    ,is_end
-    ,is_term
-    ,is_new
-    ,data_last_refreshed_date
-    ,first_day_of_month
-    ,last_day_of_month
-    ,position_start_date
-    ,source
-    ,manager_name                           as position_manager_name
-    ,manager_position_id                    as position_manager_position_id
-    ,title_change_reason
-from {{ ref('employee_census') }}
+    associate_id                       as employee_number
+    , company_code                     as company_code
+    , position_id                      as position_id
+    , legalname_full                   as legalname_full
+    , employment_status                as employment_status
+    , worker_type                      as worker_type
+    , benefitsgroup_code               as benefitsgroup_code
+    , ft_pt_temp                       as ft_pt_temp
+    , date_of_hire                     as date_of_hire
+    , hire_reason                      as hire_reason
+    , hire_details                     as hire_details
+    , associate_final_termination_date as associate_final_termination_date
+    , vol_invol                        as vol_invol
+    , accounting_id                    as location_code
+    , cost_num                         as cost_number
+    , advisor_nonadvisor               as advisor_nonadvisor
+    , class                            as class
+    , position_region_name             as position_region_name
+    , position_location_name           as position_market_name
+    , position_department_name         as position_department_name
+    , work_site_location_name          as work_site_location_name
+    , reporting_office                 as reporting_office
+    , job_function_code                as position_title
+    , job_function_code                as job_function_code
+    , years_of_service                 as years_of_service
+    , age_band                         as age_band
+    , gender                           as gender
+    , fte                              as fte
+    , is_current                       as is_current
+    , is_start                         as is_start
+    , is_end                           as is_end
+    , is_term                          as is_term
+    , is_new                           as is_new
+    , data_last_refreshed_date         as data_last_refreshed_date
+    , first_day_of_month               as first_day_of_month
+    , last_day_of_month                as last_day_of_month
+    , position_start_date              as position_start_date
+    , source                           as source
+    , manager_name                     as position_manager_name
+    , manager_position_id              as position_manager_position_id
+    , title_change_reason              as title_change_reason
+from {{ ref('associate_census') }}
 where true
     and is_head = 1
