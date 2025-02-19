@@ -479,6 +479,11 @@ models:
         +grants:
           select: "{{ ['db_crm_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
+      salesforce_igo:
+        +tags: ["crm", "salesforce", "igo"]
+        +grants:
+          select: "{{ ['reporting'] if target.name in ['prod', 'ci'] else []}}"
+
       salesforce_mps:
         +tags: ["crm", "salesforce", "mps"]
         +grants:
