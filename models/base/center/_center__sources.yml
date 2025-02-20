@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: center
+    description: Center is an expense management platform. IT-16397 https://developer.getcenter.com/docs/getting-started
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    tables:
+      - name: users
+        description: https://developer.getcenter.com/reference/userlist
+      - name: expenses
+        description: https://developer.getcenter.com/reference/expenselist

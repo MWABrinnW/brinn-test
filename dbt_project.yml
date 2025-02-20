@@ -197,6 +197,11 @@ models:
         +grants:
           select: "{{ ['db_billing_tax_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
+      center:
+        +tags: ["center"]
+        +grants:
+          select: "{{ ['db_center_r'] if target.name in ['prod', 'ci'] else []}}"
+
       culture_amp:
         +tags: ["culture_amp", "hr"]
         +grants:
@@ -533,6 +538,9 @@ models:
         +tags: ["active_directory"]
         +grants:
           +select: "{{ ['db_it_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+      center:
+        +tags: ["center"]
+
       crm:
         +schema: crm
         +tags: ["crm"]
