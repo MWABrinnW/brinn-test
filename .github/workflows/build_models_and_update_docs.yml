@@ -26,6 +26,7 @@ jobs:
       contents: 'read'
       id-token: 'write'
     runs-on: [self-hosted]
+    environment: prod
     concurrency:
       group: deploy-dbt
       cancel-in-progress: false
@@ -120,6 +121,7 @@ jobs:
       contents: 'read'
       id-token: 'write'
     runs-on: [self-hosted]
+    environment: prod
     concurrency:
       group: deploy-dbt-docs
       cancel-in-progress: true

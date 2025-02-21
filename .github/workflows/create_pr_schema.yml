@@ -50,6 +50,7 @@ jobs:
       contents: 'read'
       id-token: 'write'
     runs-on: [self-hosted]
+    environment: staging
     concurrency:
       group: pr-${{ github.event.number }}-${{ github.ref }}
       cancel-in-progress: true
@@ -167,6 +168,7 @@ jobs:
       contents: 'read'
       id-token: 'write'
     runs-on: [self-hosted]
+    environment: staging
     concurrency:
       group: pr-${{ github.event.number }}-${{ github.ref }}
       cancel-in-progress: false
