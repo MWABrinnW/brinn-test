@@ -27,6 +27,23 @@ with cte_internal_allocations as (
     group by all
 )
 
+, cte_internal_prices as (
+    select
+        trade_date
+        , account_number
+        , symbol
+        , cusip
+        , source_security_type
+        , max(price) as price
+    from {{ ref('moxy__fct_allocations') }}
+    where 1 = 1
+        and trade_date >= dateadd('DAY' , -7 , current_date())
+        -- Exclude today's trades. This isn't usually necessary but is needed
+        -- if running the report later in the day.
+        and trade_date <> current_date()
+    group by all
+)
+
 , cte_oms_accounts as (
     select account_number
     from {{ ref ('moxy__stg_accounts') }}
@@ -93,17 +110,26 @@ with cte_internal_allocations as (
 )
 
 select
-    -- These fields are used by invops to perform an upload into moxy for certain transactions.
+    -- These fields are used by invops to perform an upload into Moxy for 
+    --   "Internal Unmatched" transactions.
     coalesce(i.trade_date , e.date)                 as "Date"
-    , null::text                                    as "Port"
-    , null::text                                    as "Transaction"
-    --, coalesce(i.symbol , e.symbol)                 as "Symbol"
-    , null::text                                    as "SecType"
-    , null::text                                    as "Broker"
-    , null::text                                    as "Place"
-    , e.quantity::decimal(20 , 2)                   as "Quantity"
-    , null::decimal(20 , 5)                         as "AvgPrice"
-    , null::text                                    as "Fill"
+    , acc.trading_id::text                          as "Port"
+    , case
+        when i.order_side = 'buy'
+            then 'by'
+        when i.order_side = 'sell'
+            then 'sl'
+        when i.order_side = 'cover'
+            then 'cs'
+        else i.order_side
+    end::text                                       as "Transaction"
+    , i.symbol::text                                as "Symbol"
+    , ip.source_security_type::text                 as "SecType"
+    , 'Pending'::text                               as "Broker"
+    , i.quantity::decimal(20 , 2)                   as "Place"
+    , i.quantity::decimal(20 , 2)                   as "Quantity"
+    , ip.price::decimal(20 , 5)                     as "AvgPrice"
+    , i.quantity::decimal(20 , 2)                   as "Fill"
 
     -- These fields are the normal trade match fields and may be duplicated above.
     , coalesce(i.trade_date , e.date)               as trade_date
@@ -161,3 +187,8 @@ left join cte_all_accounts as a
     on coalesce(i.account_number , e.account_number) = a.account_number
 left join cte_mis_accounts as acc
     on coalesce(i.account_number , e.account_number) = acc.account_number
+left join cte_internal_prices as ip
+    on i.account_number = ip.account_number
+    and i.trade_date = ip.trade_date
+    and i.symbol = ip.symbol
+    and i.cusip = ip.cusip
