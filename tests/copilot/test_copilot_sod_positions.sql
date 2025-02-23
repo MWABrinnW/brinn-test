@@ -11,16 +11,30 @@ with cte_current as (
     group by all
 )
 
+, cte_history_records as (
+    -- We need to select for max per day and then perform the aggregation
+    -- in the next query.
+    select
+        effective_date
+        , account
+        , price
+        , quantity
+    from {{ ref('flyer__stg_sod_positions_history') }}
+    where effective_date >= current_date - 30
+    qualify _created_at = max(_created_at) over (partition by effective_date)
+)
+
 , cte_history as (
+    -- Now we aggregate, after having grabbed the latest version of an SOD.
+    -- This is in case more than one SOD upload was performed or if something
+    -- unexpected occurs with the SOD history snapshot.
     select
         'history'                               as src
-        , effective_date
+        , effective_date                        as effective_date
         , count(*)                              as cnt
         , count(distinct account)               as cnt_accounts
         , sum(price * quantity)::number(20 , 2) as market_value
-    from {{ ref('flyer__stg_sod_positions_history') }}
-    where is_head_for_day = 1
-        and effective_date >= current_date - 30
+    from cte_history_records
     group by effective_date
 )
 

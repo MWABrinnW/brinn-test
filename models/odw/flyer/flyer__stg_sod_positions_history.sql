@@ -1,13 +1,5 @@
 --depends_on: {{ ref('flyer__sod_positions') }}
 
-with cte as (
-    select
-        _created_at::date  as _created_date
-        , max(_created_at) as max_created_at
-    from {{ source('flyer', 'sod_positions_history') }}
-    group by 1
-)
-
 select
     a.effective_date::date                               as effective_date
     , a.custodiancode::text(200)                         as custodiancode
@@ -35,20 +27,11 @@ select
     , a.legacy_product_type_source_definition::text(200) as legacy_product_type_source_definition
     , case
         when a.effective_date::date = (
-                select max(effective_date::date)
-                from {{ source('flyer', 'sod_positions_history') }}
+                select max(t.effective_date::date)
+                from {{ source('flyer', 'sod_positions_history') }} as t
             )
-            and a._created_at::timestamp = b.max_created_at
             then 1
         else 0
     end::int                                             as is_head
-    , case
-        when a._created_at = b.max_created_at
-            then 1
-        else 0
-    end::int                                             as is_head_for_day
-    , a._created_at::timestamp_ntz                       as created_at
+    , a._created_at::timestamp_ntz                       as _created_at
 from {{ source('flyer', 'sod_positions_history') }} as a
-left join cte as b
-    on a._created_at::date = b._created_date::date
-    and a._created_at = b.max_created_at

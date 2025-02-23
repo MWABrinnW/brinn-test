@@ -18,7 +18,7 @@ with accounts as (
 , dates as (
     select coalesce(
         getvariable('EFFECTIVE_DATE')
-        , (select max(effective_date) from {{ ref('custodian_tax_lots') }})
+        , (select max(effective_date) from {{ ref('bld_custodian_tax_lots') }})
     )::date as effective_date
 )
 

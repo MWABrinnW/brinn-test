@@ -1,21 +1,7 @@
-with cte_max as (
-    select
-        _uri
-        , json:accountId::int                                            as account_id
-        , _created_at::date                                              as _created_date
-        , {{ parse_copilot_env(col='_uri') }}
-        , max(_created_at::date) over (partition by json:accountId::int) as account_max_date
-        , max(_created_at)                                               as account_max_created_at
-        , max(_created_at::date) over (partition by _uri)                as max_created_date
-    from {{ source('flyer', 'positions') }}
-    where _env = {{ "'" ~ copilot_env() ~ "'" }}
-    group by 1 , 2 , 3
-)
-
 select
-     'copilot'::text as system_name
-    , 'mwa-options' as system_instance
-    , system_name || '__' || system_instance as system_key
+     'copilot'::text                                 as system_name
+    , 'mwa-options'                                  as system_instance
+    , system_name || '__' || system_instance         as system_key
     , a.json:accountId::int                          as account_id
     , a.json:positionId::int                         as position_id
     , a.json:securityId::text(200)                   as security_id
@@ -91,29 +77,19 @@ select
         || replace(to_varchar(round(option_strike_price, 3), 'FM00000.000'), '.')
         ::text(200)                                  as option_symbol_occ
 
-
-    , b.max_created_date                             as max_created_date
-    , b.account_max_created_at                       as account_max_created_at
     , case
-        when a._created_at = b.account_max_created_at and a._created_at::date = b.max_created_date
+        when a._created_at = (
+            select max(tt._created_at) from {{ source('flyer', 'positions') }} as tt
+            )
             then 1
         else 0
     end::int                                         as is_head
-    , case
-        when a._created_at = b.account_max_created_at
-            then 1
-        else 0
-    end::int                                         as is_head_for_day
     , dt.prior_market_date                           as effective_date
     , a._created_at                                  as _created_at
     , a._source_file                                 as _source_file
     , a._uri                                         as _uri
     , {{ parse_copilot_env(col='a._uri') }}
 from {{ source('flyer', 'positions') }} as a
-left join cte_max as b
-    on a._created_at::date = b._created_date::date
-    and a.json:accountId::int = b.account_id
-    and a._uri = b._uri
 left join {{ ref('dates' ) }} as dt
     on a._created_at::date = dt.date_key
 where 1 = 1

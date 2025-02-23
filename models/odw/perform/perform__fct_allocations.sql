@@ -34,5 +34,9 @@ select
     , _created_at                                                              as _created_at
     , _source_file                                                             as _source_file
 from {{ ref('perform__stg_allocations') }}
-where owner != 'Sample'
+where 1 = 1
+    and owner != 'Sample'
     and is_head = 1
+-- If multiple source files are loaded with overlapping trade dates we want
+-- to deduplicate here and take only the latest record per trade date.
+qualify _created_at = max(_created_at) over (partition by trade_date)

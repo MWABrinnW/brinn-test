@@ -66,6 +66,15 @@ with accounts as (
     group by all
 )
 
+, account_values as (
+    select
+        account_id                           as account_id
+        , sum(market_value)::decimal(20 , 2) as total_value
+    from {{ ref('flyer__stg_positions') }}
+    where is_head = 1
+    group by all
+)
+
 , account_groups as (
     select
         a.account_id       as account_id
@@ -97,7 +106,7 @@ select
     end::int                                 as is_linked
     , ag.groups                              as groups
     , a.start_date                           as start_date
-    , ca.total_value                         as total_value
+    , av.total_value                         as total_value
     , ca.is_margin_enabled                   as is_margin_enabled
     , ca.is_multiple_margin_enabled          as is_multiple_margin_enabled
     , ca.options_approval_level              as options_approval_level
@@ -120,6 +129,8 @@ left join sod_accounts as soda
 left join cte_option_requirement as opr
     on a.account_number = opr.account_number
     and lower(a.custodian) = lower(opr.custodian)
+left join account_values as av
+    on a.account_id = av.account_id
 left join custodian_accounts as ca
     on a.account_number = ca.account_number
     and lower(ca.custodian) = lower(a.custodian)

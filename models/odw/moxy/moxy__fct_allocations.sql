@@ -59,3 +59,6 @@ left join {{ ref('mis__accounts') }} as acc
     on lower(a.portfolio_code) = lower(acc.trading_id)
 where 1 = 1
     and a._created_at = b.max_created_at
+-- If multiple source files are loaded with overlapping trade dates we want
+-- to deduplicate here and take only the latest record per trade date.
+qualify a._created_at = max(a._created_at) over (partition by a.traded_at::date)

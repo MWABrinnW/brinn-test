@@ -28,5 +28,4 @@ left join {{ ref('flyer__stg_accounts') }} as acc
     and acc.is_head = 1
 where 1 = 1
     and a.is_head = 1
-    and a._env = {{ "'" ~ copilot_env() ~ "'" }}
 order by a.account_id , a.security_id
