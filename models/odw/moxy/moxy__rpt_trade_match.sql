@@ -135,7 +135,7 @@ select
     , coalesce(i.trade_date , e.date)               as trade_date
     , coalesce(i.custodian , e.custodian)           as custodian
     , coalesce(i.account_number , e.account_number) as account_number
-    , coalesce(i.symbol , e.symbol)                 as symbol
+    , coalesce(i.symbol , e.symbol)                 as symbol--noqa: disable=AL08
     , coalesce(i.cusip , e.cusip)                   as cusip
     , coalesce(i.order_side , e.order_side)         as order_side
     , case

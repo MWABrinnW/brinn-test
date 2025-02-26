@@ -4,9 +4,10 @@ select
     , null::text(200)                            as company_code
     , c.assignment_number                        as position_id
     , c.full_name                                as legalname_full
-    , case when c.actual_termination_date is not null
+    , case
+        when c.actual_termination_date::date <= c.effective_date
             then 'Terminated'::text(200)
-        else split_part(c.assignment_status_name , '-' , 1)
+        else trim(split_part(c.assignment_status_name , '-' , 1))
     end                                          as employment_status
     , c.system_person_type                       as worker_type
     , null::text(200)                            as benefitsgroup_code
@@ -25,7 +26,16 @@ select
             then c.actual_termination_date
     end::date                                    as associate_final_termination_date
     , case
-        when lower(c.action_reason_code) in ('mwa_resign_lieu_term' , 'mwa_work_authorization' , 'eoa') then 'Other'
+        when
+            lower(c.action_reason_code) in (
+                'eoa'
+                , 'mwa_personal'
+                , 'mwa_resign_lieu_term'
+                , 'mwa_transfer_promo'
+                , 'mwa_work_authorization'
+                , 'resign_personal'
+            )
+            then 'Other'
         when lower(c.action_description) in ('retirement' , 'death') then 'Other'
         when lower(c.action_description) = 'involuntary termination' then 'Involuntary'
         when lower(c.action_description) = 'resignation' then 'Voluntary'
@@ -35,7 +45,7 @@ select
     , c.location_name                            as location_name
     , c.cost_num::text(200)                      as cost_num
     , case
-        when c.mgmt_lvl ilike '%advisor%'
+        when c.people_group ilike '%.advisor'
             then 'Advisor'
         else 'Non-Advisor'
     end::text(200)                               as advisor_nonadvisor
