@@ -14,7 +14,7 @@ with cte_pms_client_info_1 as (
 
 , cte_split_detail_1 as (
     select
-        date(a.effective_at) as effective_date
+        a.effective_at::date as effective_date
         , b.name             as code_name
         , c.name
         , c.id               as sol_id
@@ -132,12 +132,12 @@ select
     , null::text(200)                                                                    as partner_firm_original
 
     -- [advisor]
-    , (bb.rep_code || ' (' || bb.advisor_commission_split_code || ')')::text(200)        as client_manager_source
-    , coalesce(cte3.full_advisor_team , cte4.full_advisor_team)::text(200)               as client_manager_original
+    , (bb.rep_code || ' (' || bb.advisor_commission_split_code || ')')::text(200)        as advisor_source
+    , coalesce(cte3.full_advisor_team , cte4.full_advisor_team)::text(200)               as advisor_original
     , coalesce(cte3.full_advisor_team_ids , cte4.full_advisor_team_ids)::text(200)       as associate_id_original
-    , coalesce(cte4.full_advisor_team , cte3.full_advisor_team)::text(200)               as client_manager_primary
+    , coalesce(cte4.full_advisor_team , cte3.full_advisor_team)::text(200)               as advisor_primary
     , coalesce(cte4.full_advisor_team_ids , cte3.full_advisor_team_ids)::text(200)       as associate_id_primary
-    , '1099'::text(200)                                                                  as client_manager_type
+    , '1099'::text(200)                                                                  as advisor_type
 
     -- [assets and fees]
     , 'Quarterly Fee'::text(200)                                                         as fee_type

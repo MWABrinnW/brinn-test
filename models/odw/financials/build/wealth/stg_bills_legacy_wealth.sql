@@ -31,13 +31,13 @@ select
     , null::text(200)                             as billing_custodian
     , null::text(200)                             as partner_firm
     , null::text(200)                             as partner_firm_original
-    , client_manager::text(200)                   as client_manager_source
-    , null::text(200)                             as client_manager_original
+    , client_manager::text(200)                   as advisor_source
+    , null::text(200)                             as advisor_original
     , null::text(200)                             as associate_id_original
-    , null::text(200)                             as client_manager_primary
+    , null::text(200)                             as advisor_primary
     , null::text(200)                             as associate_id_primary
-    , null::text(200)                             as client_manager_type
-    , null::text(200)                             as client_manager
+    , null::text(200)                             as advisor_type
+    , null::text(200)                             as advisor
     , null::text(200)                             as associate_id
     , fee_type::text(600)                         as fee_type
     , fee_schedule::text(600)                     as fee_schedule_source

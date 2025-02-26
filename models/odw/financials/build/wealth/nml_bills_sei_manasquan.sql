@@ -41,16 +41,16 @@ select
     , null::text(200)                                                                 as partner_firm_original
 
     -- [advisor]
-    , null::text(200)                                                                 as client_manager_source
+    , null::text(200)                                                                 as advisor_source
     -- Historical client manager (from compass account object, historical records)
-    , acc.client_manager::text(200)                                                   as client_manager_original
+    , acc.client_manager::text(200)                                                   as advisor_original
     -- Historical associate ID (from compass account object, historical records)
     , acc.employee_number::text(200)                                                  as associate_id_original
     -- Current client manager (from compass account object, is_head)
-    , acc2.client_manager::text(200)                                                  as client_manager_primary
+    , acc2.client_manager::text(200)                                                  as advisor_primary
     -- Current associate id (from compass account object, is_head)
     , acc2.employee_number::text(200)                                                 as associate_id_primary
-    , 'W-2'::text(200)                                                                as client_manager_type
+    , 'W-2'::text(200)                                                                as advisor_type
 
 
     -- [assets and fees]

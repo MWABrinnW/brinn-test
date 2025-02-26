@@ -33,13 +33,13 @@ with cte_union as (
         , billing_custodian::text(200)                as billing_custodian
         , partner_firm::text(200)                     as partner_firm
         , partner_firm_original::text(200)            as partner_firm_original
-        , client_manager_source::text(200)            as client_manager_source
-        , client_manager_original::text(200)          as client_manager_original
+        , advisor_source::text(200)                   as advisor_source
+        , advisor_original::text(200)                 as advisor_original
         , associate_id_original::text(200)            as associate_id_original
-        , client_manager_primary::text(200)           as client_manager_primary
+        , advisor_primary::text(200)                  as advisor_primary
         , associate_id_primary::text(200)             as associate_id_primary
-        , client_manager_type::text(200)              as client_manager_type
-        , client_manager::text(200)                   as client_manager
+        , advisor_type::text(200)                     as advisor_type
+        , advisor::text(200)                          as advisor
         , associate_id::text(200)                     as associate_id
         , fee_type::text(600)                         as fee_type
         , fee_schedule_source::text(600)              as fee_schedule_source
@@ -139,13 +139,13 @@ with cte_union as (
         , billing_custodian
         , partner_firm
         , partner_firm_original
-        , client_manager_source
-        , client_manager_original
+        , advisor_source
+        , advisor_original
         , associate_id_original
-        , client_manager_primary
+        , advisor_primary
         , associate_id_primary
-        , client_manager_type
-        , client_manager
+        , advisor_type
+        , advisor
         , associate_id
         , fee_type
         , fee_schedule_source

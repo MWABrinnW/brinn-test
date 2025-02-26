@@ -87,7 +87,7 @@ select
 
 
     -- [advisor]
-    , b.cwm_lead_advisor::text(200)                                           as client_manager_source
+    , b.cwm_lead_advisor::varchar(200)                                        as advisor_source
     , case
         when trim(a.cwm_lead_advisor) = 'DG' then 'David Givler II'
         when trim(a.cwm_lead_advisor) = 'BG' then 'Brad Griswold'
@@ -98,7 +98,7 @@ select
         when trim(a.cwm_lead_advisor) = 'DM' then 'Dennis Morton'
         when trim(a.cwm_lead_advisor) = 'HA' then 'House Accounts'
         else trim(a.cwm_lead_advisor)
-    end::text(200)                                                            as client_manager_original
+    end::varchar(200)                                                         as advisor_original
     , case
         when trim(b.cwm_lead_advisor) = 'DG' then '002732'
         when trim(b.cwm_lead_advisor) = 'BG' then '002733'
@@ -109,10 +109,10 @@ select
         when trim(a.cwm_lead_advisor) = 'DM' then null
         when trim(b.cwm_lead_advisor) = 'HA' then 'House Accounts'
         else trim(b.cwm_lead_advisor)
-    end::text(200)                                                            as associate_id_original
-    , client_manager_original                                                 as client_manager_primary
-    , associate_id_original::text(200)                                        as associate_id_primary
-    , 'W-2'::text(200)                                                        as client_manager_type
+    end::varchar(200)                                                         as associate_id_original
+    , advisor_original                                                        as advisor_primary
+    , associate_id_original::varchar(200)                                     as associate_id_primary
+    , 'W-2'::varchar(200)                                                     as advisor_type
 
     -- [assets and fees]
     -- fee type requires null handling, deteremines revenue category

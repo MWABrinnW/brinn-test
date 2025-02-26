@@ -74,12 +74,12 @@ select
     , null::text(200)                                                            as partner_firm_original
 
     -- [advisor]
-    , coalesce(ba.team , bb.team)::text(200)                                     as client_manager_source--Gavin looking into case statement against "Lab", etc...
-    , sf.sf_advisor_name::text(200)                                              as client_manager_original
+    , coalesce(ba.team , bb.team)::text(200)                                     as advisor_source--Gavin looking into case statement against "Lab", etc...
+    , sf.sf_advisor_name::text(200)                                              as advisor_original
     , null::text(200)                                                            as associate_id_original
-    , sf.sf_advisor_name::text(200)                                              as client_manager_primary
+    , sf.sf_advisor_name::text(200)                                              as advisor_primary
     , null::text(200)                                                            as associate_id_primary
-    , null::text(200)                                                            as client_manager_type--Gavin formulating logic for associates outside Steve Lockshin as W2 since he's not affiliated with
+    , null::text(200)                                                            as advisor_type--Gavin formulating logic for associates outside Steve Lockshin as W2 since he's not affiliated with
 
     -- [assets and fees]
     , 'Quarterly Advance'::text(200)                                             as fee_type

@@ -54,12 +54,12 @@ select
     , null::text(200)                                                            as partner_firm_original
 
     -- [advisor]
-    , null::text(200)                                                            as client_manager_source
-    , coalesce(a_hist.client_manager , a_head.client_manager)::text(200)         as client_manager_original
+    , null::text(200)                                                            as advisor_source
+    , coalesce(a_hist.client_manager , a_head.client_manager)::text(200)         as advisor_original
     , coalesce(a_hist.employee_number , a_head.employee_number)::text(200)       as associate_id_original
-    , coalesce(a_head.client_manager , a_hist.client_manager)::text(200)         as client_manager_primary
+    , coalesce(a_head.client_manager , a_hist.client_manager)::text(200)         as advisor_primary
     , coalesce(a_head.employee_number , a_hist.employee_number)::text(200)       as associate_id_primary
-    , 'W-2'::text(200)                                                           as client_manager_type
+    , 'W-2'::text(200)                                                           as advisor_type
 
     -- [assets and fees]
     , b.billing_cycle::text(200)                                                 as fee_type

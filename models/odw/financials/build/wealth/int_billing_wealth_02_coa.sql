@@ -81,13 +81,13 @@ select
     , nml.partner_firm_original::text(200)                                            as partner_firm_original
 
     -- [advisor]
-    , nml.client_manager_source::text(200)                                            as client_manager_source
-    , nml.client_manager_original::text(200)                                          as client_manager_original
-    , nml.associate_id_original::text(200)                                            as associate_id_original
-    , nml.client_manager_primary::text(200)                                           as client_manager_primary
-    , nml.associate_id_primary::text(200)                                             as associate_id_primary
-    , nml.client_manager_type::text(200)                                              as client_manager_type
-    , coalesce(client_manager_original , client_manager_primary)                      as client_manager
+    , nml.advisor_source::varchar(200)                                                as advisor_source
+    , nml.advisor_original::varchar(200)                                              as advisor_original
+    , nml.associate_id_original::varchar(200)                                         as associate_id_original
+    , nml.advisor_primary::varchar(200)                                               as advisor_primary
+    , nml.associate_id_primary::varchar(200)                                          as associate_id_primary
+    , nml.advisor_type::varchar(200)                                                  as advisor_type
+    , coalesce(advisor_original , advisor_primary)                                    as advisor
     , coalesce(associate_id_original , associate_id_primary)                          as associate_id
 
     -- [assets and fees]

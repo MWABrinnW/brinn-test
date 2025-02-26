@@ -62,16 +62,16 @@ select
 
     -- [advisor]
     -- Historical Client Manager (from upsert into Salesforce)
-    , ir.quarterback_2_c::text(200)                                   as client_manager_source
+    , ir.quarterback_2_c::text(200)                                   as advisor_source
     -- Historical client manager (from compass account object, historical records)
-    , acc.client_manager::text(200)                                   as client_manager_original
+    , acc.client_manager::text(200)                                   as advisor_original
     -- Historical associate ID (from compass account object, historical records)
     , acc.employee_number::text(200)                                  as associate_id_original
     -- Current client manager (from compass account object, is_head) or billing review current QB
-    , acc2.client_manager::text(200)                                  as client_manager_primary
+    , acc2.client_manager::text(200)                                  as advisor_primary
     -- Current associate id (from compass account object, is_head)
     , acc2.employee_number::text(200)                                 as associate_id_primary
-    , 'W-2'::text(200)                                                as client_manager_type
+    , 'W-2'::text(200)                                                as advisor_type
 
     -- [assets and fees]
     , ir.fee_type_c::text(200)                                        as fee_type

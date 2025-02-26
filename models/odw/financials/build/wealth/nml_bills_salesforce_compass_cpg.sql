@@ -46,14 +46,14 @@ select
 
     -- [advisor]
     -- Historical Client Manager (from upsert into Salesforce)
-    , ir.quarterback_2_c::text(200)                                   as client_manager_source
+    , ir.quarterback_2_c::text(200)                                   as advisor_source
     -- Historical client manager (from compass account object, historical records)
     , coalesce(
         acc.advisor , acc2.advisor
         , ba.primary_advisor
         , ba.household_advisor
     )::text(200)
-        as client_manager_original
+        as advisor_original
     -- Historical associate ID (from compass account object, historical records)
     , null::text(200)                                                 as associate_id_original
     -- Current client manager (from compass account object, is_head) or billing review current QB
@@ -61,10 +61,10 @@ select
         acc.advisor , acc2.advisor
         , ba.primary_advisor
         , ba.household_advisor
-    )::text(200)                                                      as client_manager_primary
+    )::text(200)                                                      as advisor_primary
     -- Current associate id (from compass account object, is_head)
     , null::text(200)                                                 as associate_id_primary
-    , '1099'::text(200)                                               as client_manager_type
+    , '1099'::text(200)                                               as advisor_type
 
     -- [assets and fees]
     , ir.fee_type_c::text(200)                                        as fee_type
