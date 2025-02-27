@@ -11,6 +11,10 @@ with cte_internal_allocations_raw as (
         , symbol              as symbol
         , cusip               as cusip
         , lower(order_side)   as order_side
+        -- Debbie asking for broker name to be included. It's possible this
+        -- could throw things off if there are multiple trades for an acct/cusip/day
+        -- across more than one broker.
+        , broker_name         as broker_name
         , case
             when lower(order_side) = 'buy'
                 then sum(quantity)
@@ -25,6 +29,9 @@ with cte_internal_allocations_raw as (
         -- Exclude today's trades. This isn't usually necessary but is needed
         -- if running the report later in the day.
         and trade_date <> current_date()
+        -- Exclude pending. These are what invops adds at times and will
+        -- mess up this report. Debbie requested.
+        and coalesce(broker_name , '') not ilike 'pending'
     group by all
 )
 
@@ -100,6 +107,7 @@ with cte_internal_allocations_raw as (
         , a.cusip                                                          as cusip
         , a.order_side                                                     as order_side
         , a.quantity                                                       as quantity
+        , a.broker_name                                                    as broker_name
     from cte_internal_allocations_raw as a
     left join cte_mis_accounts as b
         on a.trading_id = b.trading_id
@@ -240,6 +248,7 @@ select
 
     , acc.trading_id                                as trading_id
     , acc.model                                     as model
+    , i.broker_name                                 as moxy_broker
     , e.product_name                                as product_name
     , e.asset_class                                 as asset_class
     , e.product_type                                as product_type
