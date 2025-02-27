@@ -2,14 +2,15 @@
     tags = ["report"]
     ) }}
 
-with cte_internal_allocations as (
+with cte_internal_allocations_raw as (
     select
-        trade_date
-        , lower(custodian)  as custodian
-        , account_number    as account_number
-        , symbol            as symbol
-        , cusip             as cusip
-        , lower(order_side) as order_side
+        trade_date            as trade_date
+        , lower(custodian)    as custodian
+        , max(account_number) as account_number
+        , portfolio_id        as trading_id
+        , symbol              as symbol
+        , cusip               as cusip
+        , lower(order_side)   as order_side
         , case
             when lower(order_side) = 'buy'
                 then sum(quantity)
@@ -17,7 +18,7 @@ with cte_internal_allocations as (
                 then sum(quantity) * -1
             else
                 sum(quantity)
-        end                 as quantity
+        end                   as quantity
     from {{ ref('moxy__fct_allocations') }}
     where 1 = 1
         and trade_date >= dateadd('DAY' , -7 , current_date())
@@ -58,6 +59,16 @@ with cte_internal_allocations as (
         account_number
         , model
         , trading_id
+        -- In case there are ever dupes we'll use these fields to ensure we don't
+        -- fan things out.
+        , row_number() over (
+            partition by account_number
+            order by trading_id desc
+        ) as rn_account_number
+        , row_number() over (
+            partition by trading_id
+            order by account_number desc
+        ) as rn_trading_id
     from {{ ref('mis__accounts') }}
     where 1 = 1
         and is_active = 1
@@ -73,40 +84,98 @@ with cte_internal_allocations as (
 
     union distinct
 
-    select distinct account_number from cte_internal_allocations
+    select distinct account_number from cte_internal_allocations_raw
+)
+
+, cte_internal_allocations as (
+    -- For the internal allocations we have to join to estate item to arrive at the
+    -- account_number. Sometimes the timing doesn't work out or the SF record is dirty.
+    -- Here we make sure to try and bring in the account_number if it's missing from
+    -- the internal allocation records.
+    select
+        a.trade_date                                                       as trade_date
+        , a.custodian                                                      as custodian
+        , coalesce(a.account_number , b.account_number , c.account_number) as account_number
+        , a.symbol                                                         as symbol
+        , a.cusip                                                          as cusip
+        , a.order_side                                                     as order_side
+        , a.quantity                                                       as quantity
+    from cte_internal_allocations_raw as a
+    left join cte_mis_accounts as b
+        on a.trading_id = b.trading_id
+        and b.rn_trading_id = 1
+    left join cte_mis_accounts as c
+        on a.account_number = c.account_number
+        and b.rn_account_number = 1
+)
+
+, cte_internal_cusips as (
+    select cusip from cte_internal_allocations
+    group by all
 )
 
 , cte_external_trades as (
     select
-        t.date                   as date
-        , t.custodian            as custodian
-        , t.account_number       as account_number
-        , t.symbol               as symbol
-        , t.cusip                as cusip
-        , t.asset_class          as asset_class
-        , t.product_id           as product_id
-        , t.product_name         as product_name
-        , t.product_type         as product_type
-        , t.product_category     as product_category
-        , t.is_custodial_cash    as is_custodial_cash
-        , t.asset_id             as asset_id
-        , max(lower(t.buy_sell)) as order_side
-        , sum(t.quantity)        as quantity
+        t.date                as date
+        , t.custodian         as custodian
+        , t.account_number    as account_number
+        , t.symbol            as symbol
+        , t.cusip             as cusip
+        , t.asset_class       as asset_class
+        , t.product_id        as product_id
+        , t.product_name      as product_name
+        , t.product_type      as product_type
+        , t.product_category  as product_category
+        , t.is_custodial_cash as is_custodial_cash
+        , t.asset_id          as asset_id
+        -- This previously took the max() but that was combining orders/sells
+        -- in a way that messed with the matching.
+        , case
+            when t.buy_sell is not null
+                then lower(t.buy_sell)
+            -- Trading expenses don't come through with attributes that directly
+            -- tie it to the related trade, nor does it explicity indicate if the
+            -- related trade was a buy or sell. Here we use the transaction notes
+            -- to derive the order side.
+            when t.notes ilike '%SC_BCC_TRADE%'
+                then 'buy'
+            when t.notes ilike '%SC_SELL_TRADE'
+                then 'sell'
+            -- If not able to derive from the notes we'll use the directionality.
+            -- Not sure how reliable this is.
+            when t.quantity > 0
+                then 'buy'
+            when t.quantity < 0
+                then 'sell'
+        end::text             as order_side
+        , sum(t.quantity)     as quantity
     from {{ ref ('mis__stg_orion_transactions') }} as t
     inner join cte_all_accounts as a
         on t.account_number = a.account_number
+    left join cte_internal_cusips as ic
+        on t.cusip = ic.cusip
     where 1 = 1
         and t.rn = 1
         and t.fkalclient = 568
 
         and (lower(t.buy_sell) in ('buy' , 'sell') or t.type_name = 'Trading Expense')
         and t.date >= dateadd('DAY' , -7 , current_date())
-        and coalesce(t.is_custodial_cash , 0) = 0
+        and (
+            -- Generally we want to exclude custodial cash.
+            -- But, some MMF, like FZDXX (and other fid MMF), are trading like an equity, despite
+            -- functioning like custodial cash.
+            coalesce(t.is_custodial_cash , 0) = 0
+            -- In case it's custodial cash but exists as a security on the internal
+            -- side. Then we bypass the filter above.
+            or ic.cusip is not null
+        )
         -- Exclude rejected trades
         and lower(t.trade_status) not in ('rejected' , 'reversed' , 'pending')
         -- Exclude dividend reinvestment per Debbie W 12/6/24
         and coalesce(t.notes , '') not ilike '%REINVEST DIVIDEND%'
     group by all
+    -- Exclude trades that might have washed when aggregated.
+    having abs(sum(t.quantity)) > 0
 )
 
 select
@@ -123,19 +192,20 @@ select
             then 'cs'
         else i.order_side
     end::text                                       as "Transaction"
-    , i.symbol::text                                as "Symbol"
+    , i.symbol::text                                as "Symbol"--noqa: AL08
     , ip.source_security_type::text                 as "SecType"
     , 'Pending'::text                               as "Broker"
-    , i.quantity::decimal(20 , 2)                   as "Place"
-    , i.quantity::decimal(20 , 2)                   as "Quantity"
+    -- The import invops does for the pendings needs positive values, regardless.
+    , abs(i.quantity::decimal(20 , 2))              as "Place"
+    , abs(i.quantity::decimal(20 , 2))              as "Quantity"
     , ip.price::decimal(20 , 5)                     as "AvgPrice"
-    , i.quantity::decimal(20 , 2)                   as "Fill"
+    , abs(i.quantity::decimal(20 , 2))              as "Fill"
 
     -- These fields are the normal trade match fields and may be duplicated above.
     , coalesce(i.trade_date , e.date)               as trade_date
     , coalesce(i.custodian , e.custodian)           as custodian
     , coalesce(i.account_number , e.account_number) as account_number
-    , coalesce(i.symbol , e.symbol)                 as symbol--noqa: disable=AL08
+    , coalesce(i.symbol , e.symbol)                 as symbol--noqa: disable=AL08--noqa: AL08
     , coalesce(i.cusip , e.cusip)                   as cusip
     , coalesce(i.order_side , e.order_side)         as order_side
     , case
@@ -151,7 +221,7 @@ select
         when external_units is null
             then 'Unmatched Internal'
         when units_diff is not null
-            and units_diff <> 0
+            and (units_diff <> 0)
             and (
                 abs(div0(units_diff , internal_units)) < 0.01 and internal_units <> 0
             ) is not null

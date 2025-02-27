@@ -20,17 +20,28 @@ with mis_accounts as (
     )::date as effective_date
 )
 
+, security_mapping as (
+    select
+        cusip
+        , max(ticker) as ticker
+        , max(symbol) as symbol
+    from {{ ref('mis__stg_orion_tax_lots_redshift') }}
+    where 1 = 1
+        and is_head = 1
+    group by all
+)
+
 , fidelity_sweep as (
     select
-        b.effective_date
-        , b.custodian
+        b.effective_date                               as effective_date
+        , b.custodian                                  as custodian
         , b.account_custodial                          as account_number
-        , a.pms_account_id
+        , a.pms_account_id                             as pms_account_id
         , a.account_number                             as crm_account_number
-        , a.is_active
-        , a.is_perform
-        , a.is_moxy
-        , a.is_intraday_import
+        , a.is_active                                  as is_active
+        , a.is_perform                                 as is_perform
+        , a.is_moxy                                    as is_moxy
+        , a.is_intraday_import                         as is_intraday_import
         , 'FID:CASH'::text                             as symbol
         , 'FID:CASH'::text                             as ticker
         , 'FID:CASH'::text                             as cusip
@@ -98,42 +109,51 @@ with mis_accounts as (
 
 , lots_with_cash as (
     select
-        t.effective_date             as effective_date
-        , t.custodian                as custodian
-        , t.account_number           as account_number
-        , t.account_number_formatted as account_number_formatted
-        , a.account_number           as crm_account_number
-        , a.pms_account_id           as pms_account_id
-        , a.is_active                as is_active
-        , t.symbol                   as symbol
-        , t.ticker                   as ticker
-        , t.cusip                    as cusip
-        , t.is_sweep                 as is_custodial_cash
-        , t.quantity                 as quantity
-        , t.current_price            as current_price
-        , t.current_value            as current_value
-        , t.current_price            as current_price_raw
-        , t.current_value            as current_value_raw
-        , null::number(20 , 5)       as current_price_unfactored
-        , null::number(20 , 5)       as current_value_unfactored
-        , null::number(20 , 5)       as factor
-        , t.cost_per_share           as cost_per_share
-        , t.cost_basis               as cost_basis
-        , t.trade_date               as acquired_date
-        , null::text                 as product_name
-        , null::text                 as product_type
-        , null::text                 as product_category
-        , null::int                  as product_id
-        , null::int                  as asset_id
-        , null::int                  as is_asset_managed
-        , null::text                 as lot_id
-        , a.is_perform               as is_perform
-        , a.is_moxy                  as is_moxy
-        , a.is_intraday_import       as is_intraday_import
-        , t._created_at              as _created_at
+        t.effective_date                 as effective_date
+        , t.custodian                    as custodian
+        , t.account_number               as account_number
+        , t.account_number_formatted     as account_number_formatted
+        , a.account_number               as crm_account_number
+        , a.pms_account_id               as pms_account_id
+        , a.is_active                    as is_active
+        -- Prefer the orion ticker & symbol for any cusip.
+        , coalesce(sm.symbol , t.symbol) as symbol
+        , coalesce(sm.ticker , t.ticker) as ticker
+        , t.cusip                        as cusip
+        , t.is_sweep                     as is_custodial_cash
+        , case
+            -- Convert options _contracts_ to _shares_.
+            -- i.e. 2 contracts = 200 shares.
+            when t.product_type_source_definition ilike 'Option - %'
+                then t.quantity * 100
+            else t.quantity
+        end::decimal(20 , 5)             as quantity
+        , t.current_price                as current_price
+        , t.current_value                as current_value
+        , t.current_price                as current_price_raw
+        , t.current_value                as current_value_raw
+        , null::number(20 , 5)           as current_price_unfactored
+        , null::number(20 , 5)           as current_value_unfactored
+        , null::number(20 , 5)           as factor
+        , t.cost_per_share               as cost_per_share
+        , t.cost_basis                   as cost_basis
+        , t.trade_date                   as acquired_date
+        , null::text                     as product_name
+        , null::text                     as product_type
+        , null::text                     as product_category
+        , null::int                      as product_id
+        , null::int                      as asset_id
+        , null::int                      as is_asset_managed
+        , null::text                     as lot_id
+        , a.is_perform                   as is_perform
+        , a.is_moxy                      as is_moxy
+        , a.is_intraday_import           as is_intraday_import
+        , t._created_at                  as _created_at
     from {{ ref('custodian_tax_lots') }} as t
     inner join mis_accounts as a
         on t.account_number = a.account_number
+    left join security_mapping as sm
+        on t.cusip = sm.cusip
     where 1 = 1
         and t.effective_date in (select t.effective_date from dates as t)
         and t.custodian in ('fidelity')

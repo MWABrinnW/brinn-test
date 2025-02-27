@@ -15,7 +15,9 @@ select
     , a.settle_date                              as settle_date
     , lower(a.custodian_symbol)                  as custodian
     , a.account_number                           as account_number_source
-    , acc.account_number                         as account_number
+    , coalesce(
+        acc.account_number , a.account_number
+    )                                            as account_number
 
     , a.symbol                                   as symbol
     , a.cusip                                    as cusip
