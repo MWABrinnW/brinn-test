@@ -187,7 +187,7 @@ with cte_internal_allocations_raw as (
 )
 
 select
-    -- These fields are used by invops to perform an upload into Moxy for 
+    -- These fields are used by invops to perform an upload into Moxy for
     --   "Internal Unmatched" transactions.
     coalesce(i.trade_date , e.date)                 as "Date"
     , acc.trading_id::text                          as "Port"

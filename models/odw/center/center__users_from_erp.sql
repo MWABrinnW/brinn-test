@@ -1,12 +1,14 @@
 with cte as (
     select
         -- Center won't accept periods in user names.
-        replace(
-            case
-                when count(*) over (partition by a.associate_legal_name_first , a.associate_legal_name_last) > 1
-                    then concat(a.associate_legal_name_first , ' ' , coalesce(a.associate_legal_name_middle , ''))
-                else a.associate_legal_name_first
-            end , '.' , ''
+        trim(
+            replace(
+                case
+                    when count(*) over (partition by a.associate_legal_name_first , a.associate_legal_name_last) > 1
+                        then concat(a.associate_legal_name_first , ' ' , coalesce(a.associate_legal_name_middle , ''))
+                    else a.associate_legal_name_first
+                end , '.' , ''
+            )
         )                                                 as first_name
         , replace(a.associate_legal_name_last , '.' , '') as last_name
         , case
@@ -14,7 +16,7 @@ with cte as (
                 then 1
             else 0
         end::int                                          as has_user_name_dupes
-        , a.associate_work_email                          as email_address
+        , lower(a.associate_work_email)                   as email_address
         , a.employee_num                                  as employee_num
         , null::text                                      as phone
         , 'no'::text                                      as fm
@@ -27,7 +29,7 @@ with cte as (
                 -- Marty Bicknell reports to Marty Bicknell!
                 then a.associate_work_email
             else a.position_manager_email
-        end                                               as default_approver
+        end                                               as default_approver_email
         , a.associate_legal_address_line1                 as address_1
         , a.associate_legal_address_line2                 as address_2
         , a.associate_legal_address_city                  as city
@@ -132,17 +134,49 @@ with cte as (
 )
 
 select
-    *
+    a.*
+
     , nullif(
-        concat(
+        -- any updates are noted with a before and after comparison
+        object_construct(
+            'first_name' , iff(a.first_name <> b.first_name , b.first_name || ' --> ' || a.first_name , null)
+            , 'last_name' , iff(a.last_name <> b.last_name , b.last_name || ' --> ' || a.last_name , null)
+            , 'email_address' , iff(a.email_address <> b.email_address , b.email_address || ' --> ' || a.email_address , null)
+            , 'phone' , iff(a.phone <> b.phone_number , b.phone_number || ' --> ' || a.phone , null)
+            , 'default_approver'
+            , iff(c.id <> b.default_approver:id::text , b.default_approver:id::text || ' --> ' || c.id , null)
+            , 'address_1' , iff(a.address_1 <> b.billing_address , b.billing_address || ' --> ' || a.address_1 , null)
+            , 'city' , iff(a.city <> b.billing_city , b.billing_city || ' --> ' || a.city , null)
+            , 'state' , iff(a.state <> b.billing_state , b.billing_state || ' --> ' || a.state , null)
+            , 'zip' , iff(a.zip_code <> b.billing_postal_code , b.billing_postal_code || ' --> ' || a.zip_code , null)
+            , 'country' , iff(a.country <> b.billing_country , b.billing_country || ' --> ' || a.country , null)
+            , 'default_cost_center'
+            , iff(
+                a.default_cost_center <> b.default_cost_center_name
+                , b.default_cost_center_name || ' --> ' || a.default_cost_center
+                , null
+            )
+        ) , { }
+    ) as variances
+
+    , nullif(
+        object_construct(
             -- Of course a user needs an email address!
-            case when email_address is null then 'email_address is null, ' else '' end
+            'email_address' , iff(a.email_address is null , 'missing' , null)
             -- Center requires a default cost center.
-            , case when default_cost_center is null then 'default_cost_center is null, ' else '' end
+            , 'default_cost_center' , iff(a.default_cost_center is null , 'missing' , null)
             -- Center requires a default approver.
-            , case when default_approver is null then 'default_approver is null, ' else '' end
+            , 'default_approver_email' , iff(a.default_approver_email is null , 'missing' , null)
             -- Center does not accept first names greater than 15 characters.
-            , case when len(first_name) > 15 then 'first_name length > 15 ' else '' end
-        ) , ''
+            , 'first_name' , iff(len(a.first_name) > 15 , '> 15 characters' , null)
+        ) , { }
     ) as exceptions
-from cte
+
+from cte as a
+left join {{ ref('center__stg_users') }} as b
+    on a.employee_num = b.employee_id
+    and b.is_head = 1
+-- join to get approver_id from approver_email
+left join {{ ref('center__stg_users') }} as c
+    on a.default_approver_email = c.email_address
+    and c.is_head = 1
