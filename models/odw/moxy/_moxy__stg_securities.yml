@@ -3,32 +3,22 @@ models:
   - name: moxy__stg_securities
     columns:
       - name: SYMBOL
-        description: ''
         data_type: VARCHAR
       - name: IS_MANAGED
-        description: ''
         data_type: NUMBER
       - name: SEC_TYPE
-        description: ''
         data_type: VARCHAR
       - name: TYPE
-        description: ''
         data_type: VARCHAR
       - name: ISO
-        description: ''
         data_type: VARCHAR
       - name: SEC_KEY
-        description: ''
         data_type: NUMBER
       - name: _CREATED_AT
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: RN
-        description: ''
         data_type: NUMBER
       - name: POSITION_COUNT
-        description: ''
         data_type: NUMBER
       - name: IS_HEAD
-        description: ''
         data_type: NUMBER

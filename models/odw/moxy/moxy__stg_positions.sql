@@ -1,5 +1,7 @@
 select
     _data:portid::text                          as port_id
+    , _data:symbol::text                        as symbol
+    , _data:cusip::text                         as cusip
     , _data:postype::int                        as pos_type
     , _data:preallocpos::decimal(19 , 6)        as pre_alloc_pos
     , _data:preallocvaluebasis::decimal(19 , 6) as pre_alloc_value_basis
@@ -12,13 +14,14 @@ select
     )::date                                     as position_date
     , _data:pledgeid::text                      as pledge_id
     , _data:iszeromv::int                       as is_zero_mv
+    , _data:sectype::text                       as sec_type
     , _data:seckey::int                         as sec_key
     , _created_at                               as _created_at
     , _source_file                              as _source_file
     , _id                                       as _id
-    , {{ col_is_head(reference=source('moxy', 'positions'),
+    , {{ col_is_head(
+        reference=source('moxy', 'positions'),
         source_date_col='_created_at',
-        reference_date_col='_created_at') 
-    }}
+        reference_date_col='_created_at') }}
 from {{ source('moxy', 'positions') }}
 where coalesce(port_id , '') <> ''

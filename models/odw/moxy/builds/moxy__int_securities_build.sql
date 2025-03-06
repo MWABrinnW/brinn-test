@@ -34,6 +34,7 @@ with cte_securities_from_positions as (
         , iso
     from {{ ref('moxy__stg_securities') }}
     where is_head = 1 and rn = 1
+    group by all
 )
 
 , cte_securities_mapped_to_moxy as (

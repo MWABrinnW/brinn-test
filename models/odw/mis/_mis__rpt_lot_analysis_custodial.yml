@@ -3,10 +3,11 @@ models:
   - name: mis__rpt_lot_analysis_custodial
     description: >
       Custodian sourced lot analysis report for perform and moxy. Not currently used. See DE-114.
-      The lot analysis report compares cost basis/lot records to the asset level holdings. This is necessary 
-      because they don't always agree and can reveal account issues that need resolved at the custodian or PMS.
+      The lot analysis report compares cost basis/lot records to the asset level holdings. This is necessary  because
+      they don't always agree and can reveal account issues that need resolved at the custodian or PMS.
 
-      Records on this report should be given appropriate attention to ensure accurate trading on the account can be completed or otherwise restricted.
+      Records on this report should be given appropriate attention to ensure accurate trading on the account
+      can be completed or otherwise restricted.
     columns:
       - name: EFFECTIVE_DATE
         data_type: DATE

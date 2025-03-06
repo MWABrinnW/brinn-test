@@ -1,18 +1,14 @@
-with cte_securities_partition as (
+with cte_securities as (
+    -- Mitigates having multiple securities of the same type with different prices
     select
-        *
-        , row_number() over (
-            partition by symbol , sec_type
-            order by price desc
-        ) as rn
+        symbol        as symbol
+        , sec_type    as sec_type
+        , iso_cfi     as iso_cfi
+        , is_managed  as is_managed
+        , max(price)  as price
+        , max(is_new) as is_new
     from {{ ref('moxy__int_securities_build') }}
-)
-
--- Mitigates having multiple securities of the same type with different prices
-, cte_securities as (
-    select *
-    from cte_securities_partition
-    where rn = 1
+    group by all
 )
 
 select
@@ -40,12 +36,16 @@ select
     , t.asset_id                 as asset_id
     , t.is_asset_managed::int    as is_managed
     , t.lot_id                   as lot_id
-
+    -- Used as lot_id substitute for positions without any lots, like cash 
+    , row_number() over (
+        order by ma.portfolio_id
+    )::int                       as record_id
     , s.is_new                   as is_new_security
     -- New securities are guessed OR fallback to unknown (xmus/xuus).
     , s.sec_type                 as sec_type
     , s.iso_cfi                  as sec_iso
     , ma.is_intraday_import      as is_intraday_import
+    , ma.trading_id              as trading_id
 
     , t._created_at              as _created_at
 from {{ ref('mis__tax_lots') }} as t

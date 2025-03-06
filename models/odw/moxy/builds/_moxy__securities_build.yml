@@ -1,22 +1,21 @@
 version: 2
 models:
   - name: moxy__securities_build
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - symbol
+            - type
     columns:
       - name: TYPE
-        description: ''
         data_type: VARCHAR
       - name: ISO
-        description: ''
         data_type: VARCHAR
       - name: SYMBOL
-        description: ''
         data_type: VARCHAR
       - name: CUSIP
-        description: ''
         data_type: VARCHAR
       - name: NAME
-        description: ''
         data_type: VARCHAR
       - name: IS_INTRADAY_IMPORT
-        description: ''
         data_type: NUMBER

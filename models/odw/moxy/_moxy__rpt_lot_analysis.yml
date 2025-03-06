@@ -3,71 +3,46 @@ models:
   - name: moxy__rpt_lot_analysis
     columns:
       - name: EFFECTIVE_DATE
-        description: ''
         data_type: DATE
       - name: CUSTODIAN
-        description: ''
         data_type: VARCHAR
       - name: ACCOUNT_NUMBER
-        description: ''
         data_type: VARCHAR
       - name: SYMBOL
-        description: ''
         data_type: VARCHAR
       - name: TICKER
-        description: ''
         data_type: VARCHAR
       - name: CUSIP
-        description: ''
         data_type: VARCHAR
       - name: TAX_LOT_QUANTITY
-        description: ''
         data_type: NUMBER
       - name: POSITION_QUANTITY
-        description: ''
         data_type: NUMBER
       - name: QUANTITY_DIFF
-        description: ''
         data_type: NUMBER
       - name: EXPLANATION
-        description: ''
         data_type: VARCHAR
       - name: TAX_LOT_VALUE
-        description: ''
         data_type: NUMBER
       - name: POSITION_VALUE
-        description: ''
         data_type: NUMBER
       - name: VALUE_DIFF
-        description: ''
         data_type: NUMBER
       - name: PRODUCT_NAME
-        description: ''
         data_type: VARCHAR
       - name: ASSET_CLASS
-        description: ''
         data_type: VARCHAR
       - name: PRODUCT_TYPE
-        description: ''
         data_type: VARCHAR
       - name: PRODUCT_CATEGORY
-        description: ''
         data_type: VARCHAR
       - name: PRODUCT_ID
-        description: ''
         data_type: NUMBER
       - name: ASSET_ID
-        description: ''
         data_type: NUMBER
       - name: TRADING_SYSTEMS
-        description: ''
         data_type: ARRAY
       - name: IS_MATCH
-        description: ''
-        data_type: NUMBER
-      - name: IS_HEAD
-        description: ''
         data_type: NUMBER
       - name: _CREATED_AT
-        description: ''
         data_type: TIMESTAMP_NTZ

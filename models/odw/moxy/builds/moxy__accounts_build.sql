@@ -1,6 +1,7 @@
 with cte_accounts_transposed as (
     select
         portfolio_id
+        , trading_id
         , pms_account_id
         , crm_account_id
         , is_intraday_import
@@ -53,11 +54,12 @@ with cte_accounts_transposed as (
 )
 
 select
-    a.portfolio_id          as "portfolio"
-    , tm.advent_type        as "trancode"
-    , lower(a.advent_label) as "labname"
-    , a.value               as "labdef"
+    a.portfolio_id          as portfolio
+    , tm.advent_type        as trancode
+    , lower(a.advent_label) as labname
+    , a.value               as labdef
     , a.is_intraday_import  as is_intraday_import
+    , a.trading_id          as trading_id
 from cte_accounts_transposed as a
 inner join cte_types_mapped as tm
     on lower(a.advent_label) = lower(tm.advent_label)

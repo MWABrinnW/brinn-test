@@ -3,128 +3,86 @@ models:
   - name: moxy__stg_allocations
     columns:
       - name: SYSTEM_NAME
-        description: ''
         data_type: VARCHAR
       - name: SYSTEM_INSTANCE
-        description: ''
         data_type: VARCHAR
       - name: SYSTEM_KEY
-        description: ''
         data_type: VARCHAR
       - name: TRADED_AT
-        description: ''
         data_type: TIMESTAMP_TZ
       - name: SETTLE_DATE
-        description: ''
         data_type: DATE
       - name: ORDER_ID
-        description: ''
         data_type: NUMBER
       - name: ALLOCATION_ID
-        description: ''
         data_type: NUMBER
       - name: PORTFOLIO_ID
-        description: ''
         data_type: NUMBER
       - name: PORTFOLIO_CODE
-        description: ''
         data_type: VARCHAR
       - name: CUSTODIAN_ACCT_NO
-        description: ''
         data_type: VARCHAR
       - name: SYMBOL
-        description: ''
         data_type: VARCHAR
       - name: CUSIP
-        description: ''
         data_type: VARCHAR
       - name: CUSTODIAN_SYMBOL
-        description: ''
         data_type: VARCHAR
       - name: TRANSACTION_CODE
-        description: ''
         data_type: VARCHAR
       - name: TRANSACTION_TYPE
-        description: ''
         data_type: VARCHAR
       - name: ALLOC_QTY
-        description: ''
         data_type: NUMBER
       - name: ALLOC_PRICE
-        description: ''
         data_type: NUMBER
       - name: TOTAL_COST
-        description: ''
         data_type: NUMBER
       - name: PRINCIPAL_AMT
-        description: ''
         data_type: VARCHAR
       - name: AI_AMT
-        description: ''
         data_type: VARCHAR
       - name: NET_AMT
-        description: ''
         data_type: VARCHAR
       - name: ORDER_AI_AMOUNT
-        description: ''
         data_type: NUMBER
       - name: GROSS_AMT
-        description: ''
         data_type: NUMBER
       - name: VALUATION_FACTOR
-        description: ''
         data_type: NUMBER
       - name: TICKET_CHARGE
-        description: ''
         data_type: NUMBER
       - name: ORDER_TOTAL_COST
-        description: ''
         data_type: NUMBER
       - name: OTHER_FEE
-        description: ''
         data_type: NUMBER
       - name: EXCHANGE_FEE
-        description: ''
         data_type: NUMBER
       - name: EXECUTING_BROKER_FIRM_SYMBOL
-        description: ''
         data_type: VARCHAR
       - name: CLEARING_BROKER_FIRM_SYMBOL
-        description: ''
         data_type: VARCHAR
       - name: SECURITY_TYPE_CODE
-        description: ''
         data_type: VARCHAR
       - name: ASSET_CLASS_NAME
-        description: ''
         data_type: VARCHAR
       - name: FULL_NAME
-        description: ''
         data_type: VARCHAR
       - name: CREATED_BY
-        description: ''
         data_type: VARCHAR
       - name: APPROVED_BY
-        description: ''
         data_type: VARCHAR
       - name: PLACED_BY
-        description: ''
         data_type: VARCHAR
       - name: ACCOUNT_NUMBER
-        description: ''
         data_type: VARCHAR
       - name: RN
-        description: ''
         data_type: NUMBER
       - name: IS_HEAD
-        description: ''
         data_type: NUMBER
       - name: _CREATED_AT
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: _SOURCE_FILE
-        description: ''
         data_type: VARCHAR
       - name: _ID
-        description: ''
         data_type: NUMBER

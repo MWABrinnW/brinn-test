@@ -3,9 +3,12 @@
 with restrictions_cte as (
     select
         a.trading_id
-        , f.value                                                      as individual_restriction
-        , row_number() over (partition by a.trading_id order by f.seq) as rn
-        , min(rn) over (partition by a.trading_id)                     as min_rn
+        , f.value                                  as individual_restriction
+        , row_number() over (
+            partition by a.trading_id
+            order by f.seq
+        )                                          as rn
+        , min(rn) over (partition by a.trading_id) as min_rn
     from {{ ref('moxy__int_accounts_build') }} as a
     , lateral flatten(input => split(a.trade_restriction , '\n')) as f
     where replace(f.value , ' ' , '') ilike '%donottrade%'
@@ -101,6 +104,7 @@ select
     , a.ytd_realized_gain_loss::text                                  as ytdrgl
     , to_char(a._created_at , 'YYYY-MM-DD HH24:MI:SS')                as recdate
     , a.is_intraday_import                                            as is_intraday_import
+    , a.trading_id                                                    as trading_id
 from {{ ref('moxy__int_accounts_build') }} as a
 left join restrictions_cte as r
     on a.trading_id = r.trading_id

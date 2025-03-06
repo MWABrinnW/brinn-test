@@ -75,6 +75,7 @@ with cte_moxy_accounts as (
     select
         a.*
         , a.trading_id                      as portfolio_id
+        , a.trading_id                      as trading_id
         -- users and assigned roles
         , roles.administrator               as administrator
         , roles.advisor                     as advisor

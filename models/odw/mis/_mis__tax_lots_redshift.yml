@@ -1,20 +1,6 @@
 version: 2
 models:
-  - name: mis__tax_lots
-    description: |
-      Tax lots for MIS accounts.
-
-      Returns the latest available set of lots.
-      Use session variable `EFFECTIVE_DATE` to retrieve the latest understanding for that date.
-
-      Example:
-      ```
-      set EFFECTIVE_DATE = '2/28/2025';
-      select effective_date, account_number
-      from odw.mis.tax_lots
-      limit 100
-      ;
-      ```
+  - name: mis__tax_lots_redshift
     columns:
       - name: EFFECTIVE_DATE
         data_type: DATE
@@ -75,6 +61,8 @@ models:
       - name: IS_ASSET_MANAGED
         data_type: NUMBER
       - name: LOT_ID
+        data_type: NUMBER
+      - name: IS_INCLUDED
         data_type: NUMBER
       - name: IS_PERFORM
         data_type: NUMBER

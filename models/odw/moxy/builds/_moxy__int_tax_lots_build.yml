@@ -3,89 +3,62 @@ models:
   - name: moxy__int_tax_lots_build
     columns:
       - name: ACCOUNT_NUMBER
-        description: ''
         data_type: VARCHAR
       - name: ACCOUNT_NUMBER_FORMATTED
-        description: ''
         data_type: VARCHAR
       - name: PORTFOLIO_ID
-        description: ''
         data_type: VARCHAR
       - name: EFFECTIVE_DATE
-        description: ''
         data_type: DATE
       - name: SYMBOL
-        description: ''
         data_type: VARCHAR
       - name: TICKER
-        description: ''
         data_type: VARCHAR
       - name: CUSIP
-        description: ''
         data_type: VARCHAR
       - name: QUANTITY
-        description: ''
         data_type: NUMBER
       - name: PRICE
-        description: ''
         data_type: NUMBER
       - name: FACTOR
-        description: ''
         data_type: NUMBER
       - name: CURRENT_PRICE
-        description: ''
         data_type: NUMBER
       - name: CURRENT_VALUE
-        description: ''
         data_type: NUMBER
       - name: IS_CUSTODIAL_CASH
-        description: ''
         data_type: NUMBER
       - name: COST_PER_SHARE
-        description: ''
         data_type: NUMBER
       - name: COST_BASIS
-        description: ''
         data_type: NUMBER
       - name: ACQUIRED_DATE
-        description: ''
         data_type: DATE
       - name: PRODUCT_TYPE
-        description: ''
         data_type: VARCHAR
       - name: ASSET_CLASS
-        description: ''
         data_type: VARCHAR
       - name: PRODUCT_CATEGORY
-        description: ''
         data_type: VARCHAR
       - name: PRODUCT_NAME
-        description: ''
         data_type: VARCHAR
       - name: PRODUCT_ID
-        description: ''
         data_type: NUMBER
       - name: ASSET_ID
-        description: ''
         data_type: NUMBER
       - name: IS_MANAGED
-        description: ''
         data_type: NUMBER
       - name: LOT_ID
-        description: ''
+        data_type: NUMBER
+      - name: RECORD_ID
         data_type: NUMBER
       - name: IS_NEW_SECURITY
-        description: ''
         data_type: NUMBER
       - name: SEC_TYPE
-        description: ''
         data_type: VARCHAR
       - name: SEC_ISO
-        description: ''
         data_type: VARCHAR
       - name: IS_INTRADAY_IMPORT
-        description: ''
         data_type: NUMBER
       - name: _CREATED_AT
-        description: ''
         data_type: TIMESTAMP_NTZ

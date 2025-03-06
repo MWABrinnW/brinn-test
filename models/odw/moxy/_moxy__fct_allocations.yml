@@ -8,112 +8,77 @@ models:
           state_schema: moxy
           state_name: fct_allocations
           summarize: false
-          exclude_columns: ["_created_at", "is_head", "is_current", "_source_loaded_at", "_source_file",
-            "_source", "createddate", "lot_id", "is_intraday_import", "account_id", "asset_id", "quantity",
-            "cost_per_share", "product_id"]
+          exclude_columns: [_created_at, is_head, is_current, _source_loaded_at, _source_file, _source,
+            createddate, lot_id, is_intraday_import, account_id, asset_id, quantity, cost_per_share, product_id]
           where_clause: trade_date >= current_date - 7
           config:
             severity: warn
     columns:
       - name: SYSTEM_KEY
-        description: ''
         data_type: VARCHAR
       - name: ORDER_ID
-        description: ''
         data_type: NUMBER
       - name: ALLOCATION_ID
-        description: ''
         data_type: NUMBER
       - name: TRADE_DATE
-        description: ''
         data_type: DATE
       - name: SETTLE_DATE
-        description: ''
         data_type: DATE
       - name: CUSTODIAN
-        description: ''
         data_type: VARCHAR
       - name: ACCOUNT_NUMBER_SOURCE
-        description: ''
         data_type: VARCHAR
       - name: ACCOUNT_NUMBER
-        description: ''
         data_type: VARCHAR
       - name: SYMBOL
-        description: ''
         data_type: VARCHAR
       - name: CUSIP
-        description: ''
         data_type: VARCHAR
       - name: ORDER_SIDE
-        description: ''
         data_type: VARCHAR
       - name: ORDER_EFFECT
-        description: ''
         data_type: VARCHAR
       - name: SOURCE_SECURITY_TYPE
-        description: ''
         data_type: VARCHAR
       - name: SOURCE_SECURITY_DESCRIPTION
-        description: ''
         data_type: VARCHAR
       - name: QUANTITY
-        description: ''
         data_type: NUMBER
       - name: PRICE
-        description: ''
         data_type: NUMBER
       - name: PRINCIPAL
-        description: ''
         data_type: VARCHAR
       - name: INTEREST
-        description: ''
         data_type: NUMBER
       - name: NET
-        description: ''
         data_type: VARCHAR
       - name: PORTFOLIO_ID
-        description: ''
         data_type: VARCHAR
       - name: ACCOUNT_ID
-        description: ''
         data_type: NUMBER
       - name: BROKER_NAME
-        description: ''
         data_type: VARCHAR
       - name: BROKER_ID
-        description: ''
         data_type: VARCHAR
       - name: OWNER
-        description: ''
         data_type: VARCHAR
       - name: TRADE_AWAY
-        description: ''
         data_type: BOOLEAN
       - name: FIRM
-        description: ''
         data_type: VARCHAR
       - name: VENUE
-        description: ''
         data_type: VARCHAR
       - name: PLATFORM
-        description: ''
         data_type: VARCHAR
       - name: TRADER
-        description: ''
         data_type: VARCHAR
       - name: TRADED_AT
-        description: ''
         data_type: TIMESTAMP_TZ
       - name: SYSTEM_NAME
-        description: ''
         data_type: VARCHAR
       - name: SYSTEM_INSTANCE
-        description: ''
         data_type: VARCHAR
       - name: _CREATED_AT
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: _SOURCE_FILE
-        description: ''
         data_type: VARCHAR

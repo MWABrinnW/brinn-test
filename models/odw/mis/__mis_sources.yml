@@ -64,10 +64,10 @@ sources:
         columns:
           - name: _DATA
             data_type: VARIANT
-          - name: _SOURCE_FILE
-            data_type: VARCHAR
           - name: _CREATED_AT
             data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
           - name: _ID
             data_type: NUMBER
           - name: EFFECTIVE_DATE

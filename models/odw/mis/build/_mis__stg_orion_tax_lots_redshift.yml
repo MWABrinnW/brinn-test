@@ -1,0 +1,88 @@
+version: 2
+models:
+  - name: mis__stg_orion_tax_lots_redshift
+    columns:
+      - name: EFFECTIVE_DATE
+        data_type: DATE
+      - name: ACCOUNT_ID
+        data_type: NUMBER
+      - name: ACCOUNT_NUMBER
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER_FORMATTED
+        data_type: VARCHAR
+      - name: HOUSEHOLD_ID
+        data_type: NUMBER
+      - name: HOUSEHOLD_NAME
+        data_type: VARCHAR
+      - name: CUSTODIAN
+        data_type: VARCHAR
+      - name: SYMBOL
+        data_type: VARCHAR
+      - name: CUSIP
+        data_type: VARCHAR
+      - name: TICKER
+        data_type: VARCHAR
+      - name: IS_TICKER_CUSIP
+        data_type: NUMBER
+      - name: IS_CUSTODIAL_CASH
+        data_type: NUMBER
+      - name: PRODUCT_NAME
+        data_type: VARCHAR
+      - name: PRODUCT_TYPE
+        data_type: VARCHAR
+      - name: PRODUCT_CATEGORY
+        data_type: VARCHAR
+      - name: ASSET_CLASS
+        data_type: VARCHAR
+      - name: LOT_QUANTITY
+        data_type: NUMBER
+      - name: CURRENT_PRICE
+        data_type: NUMBER
+      - name: LOT_VALUE
+        data_type: NUMBER
+      - name: FACTOR
+        data_type: NUMBER
+      - name: IS_ASSET_MANAGED
+        data_type: NUMBER
+      - name: IS_PRODUCT_MANAGED
+        data_type: NUMBER
+      - name: ACQUIRED_DATE
+        data_type: DATE
+      - name: COST_BASIS
+        data_type: NUMBER
+      - name: COST_PER_SHARE
+        data_type: NUMBER
+      - name: AGGREGATE_LOT_QUANTITY
+        data_type: NUMBER
+      - name: AGGREGATE_ASSET_QUANTITY
+        data_type: NUMBER
+      - name: AGGREGATE_LOT_VALUE
+        data_type: NUMBER
+      - name: AGGREGATE_ASSET_VALUE
+        data_type: NUMBER
+      - name: IS_QUANTITY_MATCH
+        data_type: NUMBER
+      - name: IS_VALUE_MATCH
+        data_type: NUMBER
+      - name: PRODUCT_ID
+        data_type: NUMBER
+      - name: ASSET_ID
+        data_type: NUMBER
+      - name: LOT_ID
+        data_type: NUMBER
+      - name: FKALCLIENT
+        data_type: NUMBER
+      - name: LAST_RECON_DATE
+        data_type: DATE
+      - name: EXPECTED_RECON_DATE
+        data_type: DATE
+      - name: CREATEDDATE
+        data_type: TIMESTAMP_NTZ
+      - name: _EXTRACTED_AT
+        data_type: TIMESTAMP_TZ
+      - name: _CREATED_AT
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        data_type: NUMBER
+      - name: IS_HEAD_FOR_DAY
+        data_type: NUMBER

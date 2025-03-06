@@ -3,56 +3,38 @@ models:
   - name: moxy__stg_pending_transactions
     columns:
       - name: SUBADVISORID
-        description: ''
         data_type: VARCHAR
       - name: ACCTCODE
-        description: ''
         data_type: VARCHAR
       - name: REG_NAME
-        description: ''
         data_type: VARCHAR
       - name: TRANSDATE
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: TRANDESC
-        description: ''
         data_type: VARCHAR
       - name: TRANSTOTAL
-        description: ''
         data_type: NUMBER
       - name: TICKER
-        description: ''
         data_type: VARCHAR
       - name: PRODUCTNAME
-        description: ''
         data_type: VARCHAR
       - name: PAR_VALUE
-        description: ''
         data_type: NUMBER
       - name: REAL_PRICE
-        description: ''
         data_type: NUMBER
       - name: NAVPRICE
-        description: ''
         data_type: NUMBER
       - name: FUNDNAME
-        description: ''
         data_type: VARCHAR
       - name: MGMTSTYLE
-        description: ''
         data_type: VARCHAR
       - name: ACCT_ID
-        description: ''
         data_type: VARCHAR
       - name: REP_NAME
-        description: ''
         data_type: VARCHAR
       - name: SUBADVISOR
-        description: ''
         data_type: VARCHAR
       - name: RECORD_DATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: RECORD_DATE
-        description: ''
         data_type: DATE

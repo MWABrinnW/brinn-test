@@ -3,50 +3,34 @@ models:
   - name: moxy__stg_positions
     columns:
       - name: PORT_ID
-        description: ''
         data_type: VARCHAR
       - name: POS_TYPE
-        description: ''
         data_type: NUMBER
       - name: PRE_ALLOC_POS
-        description: ''
         data_type: NUMBER
       - name: PRE_ALLOC_VALUE_BASIS
-        description: ''
         data_type: NUMBER
       - name: ALLOC_POS
-        description: ''
         data_type: NUMBER
       - name: ALLOC_VALUE_BASIS
-        description: ''
         data_type: NUMBER
       - name: OPEN_POS
-        description: ''
         data_type: NUMBER
       - name: OPEN_VALUE_BASIS
-        description: ''
         data_type: NUMBER
       - name: POSITION_DATE
-        description: ''
         data_type: DATE
       - name: PLEDGE_ID
-        description: ''
         data_type: VARCHAR
       - name: IS_ZERO_MV
-        description: ''
         data_type: NUMBER
       - name: SEC_KEY
-        description: ''
         data_type: NUMBER
       - name: _CREATED_AT
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: _SOURCE_FILE
-        description: ''
         data_type: VARCHAR
       - name: _ID
-        description: ''
         data_type: NUMBER
       - name: IS_HEAD
-        description: ''
         data_type: NUMBER

@@ -3,59 +3,40 @@ models:
   - name: moxy__stg_rgl_ytd
     columns:
       - name: ACCOUNT_ID
-        description: ''
         data_type: NUMBER
       - name: ACCOUNT_NUMBER_FORMATTED
-        description: ''
         data_type: VARCHAR
       - name: ACCOUNT_NUMBER
-        description: ''
         data_type: VARCHAR
       - name: ACCOUNT_TYPE
-        description: ''
         data_type: VARCHAR
       - name: COST_BASIS
-        description: ''
         data_type: FLOAT
       - name: CUSTODIAN
-        description: ''
         data_type: VARCHAR
       - name: HOUSEHOLD_ID
-        description: ''
         data_type: NUMBER
       - name: ISMANAGED
-        description: ''
         data_type: NUMBER
       - name: LONG_TERM_GAINLOSS
-        description: ''
         data_type: FLOAT
       - name: LONG_TERM_UNITS
-        description: ''
         data_type: FLOAT
       - name: PROCEED_AMOUNT
-        description: ''
         data_type: FLOAT
       - name: REG_ID
-        description: ''
         data_type: NUMBER
       - name: REGISTRATION_NAME
-        description: ''
         data_type: VARCHAR
       - name: REP_ID
-        description: ''
         data_type: NUMBER
       - name: SHORT_TERM_GAINLOSS
-        description: ''
         data_type: FLOAT
       - name: SHORT_TERM_UNITS
-        description: ''
         data_type: FLOAT
       - name: TOTAL_GAINLOSS
-        description: ''
         data_type: FLOAT
       - name: _CREATED_AT
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: IS_HEAD
-        description: ''
         data_type: NUMBER

@@ -1,11 +1,12 @@
 select
-    a.trading_id                                as "portfolio"
-    , a.account_number                          as account_number
-    , 'USD'                                     as "curr"
-    , to_char(a._created_at::date , 'YYYYMMDD') as "posidate"
-    , rgl.total_gainloss::decimal(20 , 2)       as "rytdgain"
-    , rgl.long_term_gainloss::decimal(20 , 2)   as "rytdgainlng"
-    , a.is_intraday_import                      as is_intraday_import
+    a.trading_id::text(255)                               as portfolio
+    , a.account_number                                    as account_number
+    , 'USD'::text(3)                                      as curr
+    , to_char(a._created_at::date , 'YYYYMMDD')::text(10) as posidate
+    , rgl.total_gainloss::decimal(20 , 2)                 as rytdgain
+    , rgl.long_term_gainloss::decimal(20 , 2)             as rytdgainlng
+    , a.is_intraday_import                                as is_intraday_import
+    , a.trading_id                                        as trading_id
 from {{ ref('moxy__stg_rgl_ytd') }} as rgl
 inner join {{ ref('mis__accounts') }} as a
     on lower(rgl.account_id) = lower(a.pms_account_id)

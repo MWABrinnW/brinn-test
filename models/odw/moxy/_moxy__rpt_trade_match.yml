@@ -3,86 +3,60 @@ models:
   - name: moxy__rpt_trade_match
     columns:
       - name: DATE
-        description: ''
         data_type: DATE
       - name: PORT
-        description: ''
         data_type: VARCHAR
       - name: TRANSACTION
-        description: ''
         data_type: VARCHAR
       - name: SECTYPE
-        description: ''
         data_type: VARCHAR
       - name: BROKER
-        description: ''
         data_type: VARCHAR
       - name: PLACE
-        description: ''
-        data_type: VARCHAR
+        data_type: NUMBER
       - name: QUANTITY
-        description: ''
         data_type: NUMBER
       - name: AVGPRICE
-        description: ''
         data_type: NUMBER
       - name: FILL
-        description: ''
-        data_type: VARCHAR
+        data_type: NUMBER
       - name: TRADE_DATE
-        description: ''
         data_type: DATE
       - name: CUSTODIAN
-        description: ''
         data_type: VARCHAR
       - name: ACCOUNT_NUMBER
-        description: ''
         data_type: VARCHAR
       - name: SYMBOL
-        description: ''
         data_type: VARCHAR
       - name: CUSIP
-        description: ''
         data_type: VARCHAR
       - name: ORDER_SIDE
-        description: ''
         data_type: VARCHAR
       - name: INTERNAL_UNITS
-        description: ''
         data_type: NUMBER
       - name: EXTERNAL_UNITS
-        description: ''
         data_type: NUMBER
       - name: UNITS_DIFF
-        description: ''
         data_type: NUMBER
       - name: MATCH_TYPE
-        description: ''
         data_type: VARCHAR
       - name: IS_MATCH
-        description: ''
         data_type: NUMBER
       - name: TRADING_ID
-        description: ''
         data_type: VARCHAR
       - name: MODEL
-        description: ''
+        data_type: VARCHAR
+      - name: MOXY_BROKER
         data_type: VARCHAR
       - name: PRODUCT_NAME
-        description: ''
         data_type: VARCHAR
       - name: ASSET_CLASS
-        description: ''
         data_type: VARCHAR
       - name: PRODUCT_TYPE
-        description: ''
         data_type: VARCHAR
       - name: PRODUCT_CATEGORY
-        description: ''
         data_type: VARCHAR
       - name: PRODUCT_ID
-        description: ''
         data_type: NUMBER
       - name: ASSET_ID
-        description: ''
         data_type: NUMBER

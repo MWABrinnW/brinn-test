@@ -8,115 +8,79 @@ models:
           state_schema: moxy
           state_name: accounts_build_flat
           summarize: false
-          exclude_columns: ["_created_at", "is_head", "is_current", "_source_loaded_at", "_source_file",
-            "_source", "createddate", "lot_id", "is_intraday_import", "account_id", "asset_id", "quantity",
-            "cost_per_share", "product_id"]
+          exclude_columns: [_created_at, is_head, is_current, _source_loaded_at, _source_file, _source,
+            createddate, lot_id, is_intraday_import, account_id, asset_id, quantity, cost_per_share, product_id]
           where_clause: none
           config:
             severity: warn
     columns:
       - name: CRM_ACCOUNT_ID
-        description: ''
         data_type: VARCHAR
       - name: PMS_ACCOUNT_ID
-        description: ''
         data_type: VARCHAR
       - name: PORTFOLIO_ID
-        description: ''
         data_type: VARCHAR
       - name: ACCOUNT_NUMBER
-        description: ''
         data_type: VARCHAR
       - name: CUST
-        description: ''
         data_type: VARCHAR
       - name: CUSTODI
-        description: ''
         data_type: VARCHAR
       - name: ACCTNO
-        description: ''
         data_type: VARCHAR
       - name: ATYPE
-        description: ''
         data_type: VARCHAR
       - name: ORNID
-        description: ''
         data_type: VARCHAR
       - name: NAME
-        description: ''
         data_type: VARCHAR
       - name: CASHBUF
-        description: ''
         data_type: VARCHAR
       - name: TAXSTAT
-        description: ''
         data_type: VARCHAR
       - name: STDATE
-        description: ''
         data_type: VARCHAR
       - name: ASSIST
-        description: ''
         data_type: VARCHAR
       - name: QBMGRID
-        description: ''
         data_type: VARCHAR
       - name: AGENT_ADMINISTRATOR
-        description: ''
         data_type: VARCHAR
       - name: TRUSTEE_ADVISOR
-        description: ''
         data_type: VARCHAR
       - name: SUBADVISOR
-        description: ''
         data_type: VARCHAR
       - name: EQSTRAT
-        description: ''
         data_type: VARCHAR
       - name: UDEF1
-        description: ''
         data_type: VARCHAR
       - name: PSTAT
-        description: ''
         data_type: VARCHAR
       - name: STATUS
-        description: ''
         data_type: VARCHAR
       - name: PORTSTAT
-        description: ''
         data_type: VARCHAR
       - name: TRDSTAT
-        description: ''
         data_type: VARCHAR
       - name: BILL
-        description: ''
         data_type: VARCHAR
       - name: NDSCNT
-        description: ''
         data_type: VARCHAR
       - name: DISCRET
-        description: ''
         data_type: VARCHAR
       - name: UDEF2
-        description: ''
         data_type: VARCHAR
       - name: FEEMGR
-        description: ''
         data_type: VARCHAR
       - name: GOAL
-        description: ''
         data_type: VARCHAR
       - name: HHOLD
-        description: ''
         data_type: VARCHAR
       - name: PRIMRES
-        description: ''
         data_type: VARCHAR
       - name: YTDRGL
-        description: ''
         data_type: VARCHAR
       - name: RECDATE
-        description: ''
         data_type: VARCHAR
       - name: IS_INTRADAY_IMPORT
-        description: ''
         data_type: NUMBER

@@ -3,185 +3,124 @@ models:
   - name: moxy__groups_build
     columns:
       - name: GRPNAME
-        description: ''
         data_type: VARCHAR
       - name: PORTID
-        description: ''
         data_type: VARCHAR
       - name: ISGROUP
-        description: ''
-        data_type: VARCHAR
+        data_type: NUMBER
       - name: DESCRIPTION
-        description: ''
         data_type: VARCHAR
       - name: GRPTYPEID
-        description: ''
         data_type: NUMBER
       - name: ISSETTLEACCT
-        description: ''
         data_type: VARCHAR
       - name: TRADINGTYPEID
-        description: ''
         data_type: VARCHAR
       - name: MANAGERID
-        description: ''
-        data_type: NUMBER
+        data_type: VARCHAR
       - name: ISCONSOLIDATED
-        description: ''
         data_type: VARCHAR
       - name: USERDEF1
-        description: ''
         data_type: VARCHAR
       - name: USERDEF2
-        description: ''
         data_type: VARCHAR
       - name: USERDEF3
-        description: ''
         data_type: VARCHAR
       - name: CLOSING METHOD
-        description: ''
         data_type: VARCHAR
       - name: SETTLE CURRENCY
-        description: ''
         data_type: VARCHAR
       - name: ACCOUNT STATUS
-        description: ''
         data_type: VARCHAR
       - name: ACCOUNT TYPE
-        description: ''
         data_type: VARCHAR
       - name: IS TAXABLE
-        description: ''
         data_type: VARCHAR
       - name: INVESTMENT GOAL
-        description: ''
         data_type: VARCHAR
       - name: CASH BUFFER
-        description: ''
         data_type: VARCHAR
       - name: CASH BUFFER PCT.
-        description: ''
         data_type: VARCHAR
       - name: PRIMARYOWNER
-        description: ''
         data_type: VARCHAR
       - name: STARTDATE
-        description: ''
         data_type: VARCHAR
       - name: DOMICILECOUNTRY
-        description: ''
         data_type: VARCHAR
       - name: CUSTID
-        description: ''
         data_type: VARCHAR
       - name: LONGTAXRATE
-        description: ''
         data_type: VARCHAR
       - name: SHORTTAXRATE
-        description: ''
         data_type: VARCHAR
       - name: LONGLOSSCARRYOVER
-        description: ''
         data_type: VARCHAR
       - name: SHORTLOSSCARRYOVER
-        description: ''
         data_type: VARCHAR
       - name: USERDEF4
-        description: ''
         data_type: VARCHAR
       - name: USERDEF5
-        description: ''
         data_type: VARCHAR
       - name: USERDEF6
-        description: ''
         data_type: VARCHAR
       - name: USERDEF7
-        description: ''
         data_type: VARCHAR
       - name: USERDEF8
-        description: ''
         data_type: VARCHAR
       - name: USERDEF9
-        description: ''
         data_type: VARCHAR
       - name: USERDEF10
-        description: ''
         data_type: VARCHAR
       - name: USERDEF11
-        description: ''
         data_type: VARCHAR
       - name: USERDEF12
-        description: ''
         data_type: VARCHAR
       - name: USERDEF13
-        description: ''
         data_type: VARCHAR
       - name: USERDEF14
-        description: ''
         data_type: VARCHAR
       - name: USERDEF15
-        description: ''
         data_type: VARCHAR
       - name: USERDEF16
-        description: ''
         data_type: VARCHAR
       - name: USERDEF17
-        description: ''
         data_type: VARCHAR
       - name: USERDEF18
-        description: ''
         data_type: VARCHAR
       - name: USERDEF19
-        description: ''
         data_type: VARCHAR
       - name: USERDEF20
-        description: ''
         data_type: VARCHAR
       - name: USERDEF21
-        description: ''
         data_type: VARCHAR
       - name: USERDEF22
-        description: ''
         data_type: VARCHAR
       - name: USERDEF23
-        description: ''
         data_type: VARCHAR
       - name: USERDEF24
-        description: ''
         data_type: VARCHAR
       - name: USERDEF25
-        description: ''
         data_type: VARCHAR
       - name: USERDEF26
-        description: ''
         data_type: VARCHAR
       - name: USERDEF27
-        description: ''
         data_type: VARCHAR
       - name: USERDEF28
-        description: ''
         data_type: VARCHAR
       - name: USERDEF29
-        description: ''
         data_type: VARCHAR
       - name: USERDEF30
-        description: ''
         data_type: VARCHAR
       - name: USERDEF31
-        description: ''
         data_type: VARCHAR
       - name: USERDEF32
-        description: ''
         data_type: VARCHAR
       - name: USERDEF33
-        description: ''
         data_type: VARCHAR
       - name: USERDEF34
-        description: ''
         data_type: VARCHAR
       - name: USERDEF35
-        description: ''
         data_type: NUMBER
       - name: IS_INTRADAY_IMPORT
-        description: ''
         data_type: NUMBER

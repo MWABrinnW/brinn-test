@@ -3,32 +3,24 @@ models:
   - name: moxy__stg_accounts
     columns:
       - name: PORTFOLIO_ID
-        description: ''
         data_type: VARCHAR
       - name: PORTFOLIO_NAME
-        description: ''
         data_type: VARCHAR
       - name: ACCOUNT_NUMBER_FORMATTED
-        description: ''
         data_type: VARCHAR
       - name: PORTFOLIO_STATUS_ID
-        description: ''
         data_type: NUMBER
       - name: CLOSE_DATE
-        description: ''
         data_type: DATE
       - name: USER_DEF_10
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: ACCOUNT_NUMBER
-        description: ''
         data_type: VARCHAR
       - name: _CREATED_AT
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: _SOURCE_FILE
-        description: ''
         data_type: VARCHAR
+      - name: IS_HEAD
+        data_type: NUMBER
       - name: _ID
-        description: ''
         data_type: NUMBER
