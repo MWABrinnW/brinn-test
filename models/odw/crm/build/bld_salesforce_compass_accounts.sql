@@ -78,7 +78,8 @@ select
   , (not try_to_boolean(ei.non_discretionary_account_c))::int as is_discretionary
   , try_to_boolean(ei.broker_dealer_account_c)::int           as is_broker_dealer_account
   , null::int                                                 as is_voting_proxied
-  , ei.fee_schedule_c                                         as fee_schedule
+  , fs.id                                                     as fee_schedule_id
+  , fs.name                                                   as fee_schedule
   , ei.household_c                                            as household_id
   , c.id                                                      as client_id
   , c.unique_identifier_c                                     as unique_identifier
@@ -159,6 +160,10 @@ left join {{ ref('salesforce_compass__base_account') }} as c
     and c.is_latest = 1
   and c.is_deleted = 0
   and c._fivetran_deleted = 0
+left join {{ ref('salesforce_compass__base_fee_schedule_c') }} as fs
+    on fs.id = ei.fee_schedule_c
+    and fs.effective_at::date = ei.effective_at::date
+    and fs.is_latest = 1
 left join {{ ref('salesforce_compass__base_contact') }} as contact
     on c.client_manager_c = contact.id
     and c.effective_at::date = contact.effective_at::date
