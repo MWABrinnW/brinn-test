@@ -29,6 +29,7 @@
          ,'nml_black_diamond_houston_accounts'
          ,'nml_black_diamond_mps_accounts' 
          ,'nml_black_diamond_uhnw_accounts'
+         ,'nml_cambak_andco_accounts'
          ,'nml_envestnet_manasquan_accounts'
          ,'nml_orion_core_accounts'
          ,'nml_orion_cascadia_accounts'
