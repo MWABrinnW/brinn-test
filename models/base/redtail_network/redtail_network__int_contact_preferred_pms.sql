@@ -19,6 +19,7 @@ select
     , cu.advisor
     , cu2.field_value  as preferred_pms
     , re.email_address as email_address
+    , ct.full_name     as advisor_full_name
 from cte_split as cu
 left join {{ ref('redtail_network__base_contact_udfs') }} as cu2
     on cu.contact_id = cu2.contact_id
@@ -27,5 +28,11 @@ left join {{ ref('redtail_network__base_contact_udfs') }} as cu2
 left join {{ ref('redtail_network__base_contact_email_addresses') }} as re
     on re.is_head = 1
     and cu.contact_id = re.contact_id
+left join {{ ref('redtail_network__base_contacts') }} as ct
+    on cu.contact_id = ct.contact_id
+    and ct.is_head = 1
 where true
-qualify row_number() over (partition by cu.advisor order by cu.advisor asc) = 1
+qualify row_number() over (
+        partition by cu.advisor
+        order by cu.advisor asc
+    ) = 1

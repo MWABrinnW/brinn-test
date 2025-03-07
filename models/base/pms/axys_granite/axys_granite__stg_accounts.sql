@@ -2,6 +2,7 @@ select
     'axys'::text(200)                                         as system_name
     , 'granite'::text(200)                                    as system_instance
     , concat(system_name , '__' , system_instance)::text(200) as system_key
+    , 'mwa'                                                   as firm_source
     , effective_date::date                                    as effective_date
     , json:"account number"::text(200)                        as account_number_formatted
     , regexp_replace(

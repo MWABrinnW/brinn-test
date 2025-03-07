@@ -1,0 +1,37 @@
+version: 2
+
+sources:
+  - name: manual
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    schema: pms
+    tables:
+      - name: accounts_manual
+        description: "Accounts appended to the accounts end product view by Data Management. Appended accounts are identified with the is_igo attribute."
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: DATETIME
+          - name: _ID
+            description: ''
+            data_type: INT
+      - name: holdings_manual
+        description: "Holdings appended to the holdings end product view by Data Management. Appended holdings are identified with the is_igo attribute."
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_DATE
+            description: ''
+            data_type: DATE
+          - name: _CREATED_AT
+            description: ''
+            data_type: DATETIME
+          - name: _ID
+            description: ''
+            data_type: INT

@@ -545,15 +545,6 @@ sources:
           - name: _ID
             description: ''
             data_type: NUMBER
-      - name: rules_mappings
-        tags: ["pms", "masters"]
-        description: ""
-      - name: rules_overrides
-        tags: ["pms", "masters"]
-        description: ""
-      - name: rules_source_of_truth
-        tags: ["pms", "masters"]
-        description: ""
       - name: rules_account_value_dates
         tags: ["pms", "masters"]
         description: ""
@@ -569,6 +560,63 @@ sources:
         description: >
           "Employee record value overrides and manual entries (box file id: 1085269023169)."
           Used by the HR team to make modification to employee records before they appear in the EDW.
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
+      - name: masters_mappings
+        tags: ['masters','pms']
+        description: Map attributes to a standardized key.
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
+      - name: masters_overrides
+        tags: ['masters','pms']
+        description: Override attributes with value from Box file.
+        columns: 
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
+      - name: masters_preferred_system_key
+        tags: ['masters','pms']
+        description: Defer to a preferred system key.
         columns:
           - name: JSON
             description: ''

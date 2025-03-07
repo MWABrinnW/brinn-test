@@ -2,6 +2,7 @@ select
     'axys'::text(200)                                         as system_name
     , 'granite'::text(200)                                    as system_instance
     , concat(system_name , '__' , system_instance)::text(200) as system_key
+    , 'mwa'                                                   as firm_source
     , effective_date::date                                    as effective_date
     , json:"account number"::text                             as account_number_formatted
     , regexp_replace(
@@ -13,7 +14,7 @@ select
     , json:"security type"::text(200)                         as security_type
     , json:"security"::text(200)                              as security
     , json:"security symbol"::text(200)                       as security_symbol
-    , json:"total cost"::decimal(18 , 2)                      as total_cost
+    , json:"total  cost"::decimal(18 , 2)                     as total_cost
     , json:"cusip"::text(200)                                 as cusip
     , json:"quantity"::decimal(18 , 2)                        as quantity
     , json:"price"::decimal(18 , 2)                           as price

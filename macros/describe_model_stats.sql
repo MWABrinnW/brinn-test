@@ -1,5 +1,5 @@
 {# date partition field is grouped by month, only allows for date type, must be month end #}
-{% macro describe_billing_model(model, where_clause=none, date_partition=none, exclude_columns=[]) %}
+{% macro describe_model_stats(model, where_clause=none, date_partition=none, exclude_columns=[]) %}
   {# Calculates descriptive statistics for each field in model. Model should be a
       ref() to a dbt model (views work fine) #}
     {%- set where_clause_text = 'where ' ~ where_clause %}

@@ -21,7 +21,7 @@ select
     , asset_id::text(200)                                    as security_id
     , asset_name::text(200)                                  as security_name
     , issue_type::text(200)                                  as security_type
-    , null::text(200)                                        as security_category
+    , null::text(200)                                        as security_subtype
     , class_name::text(200)                                  as asset_class
     , market_value::number(19, 9)                            as market_value
     , units::number(19, 9)                                   as quantity

@@ -1,0 +1,226 @@
+version: 2
+models:
+  - name: bld_accounts
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: SYSTEM
+        description: 'Source system name.'
+      - name: SYSTEM_INSTANCE
+        description: 'Source system instance name.'
+      - name: SYSTEM_KEY
+        description: 'Key for the PMS instance. PMS and PMS_INSTANCE_LOCATION concatenated.'
+      - name: LEGACY_SYSTEM_NAME
+        description: 'SQL Server system name identifier.'
+      - name: FIRM_SOURCE
+        description: 'mwa | mps | andco | baystate'
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: 'Account number including custodian or source sytem formatting such as hyphens, spacing, and case sensitivity.'
+      - name: ACCOUNT_NUMBER
+        description: 'Account number without formatting or leading zeros.'
+      - name: CUSTODIAN
+        description: 'Custodian name.'
+      - name: ACCOUNT_ID
+        description: 'Internal account id. Usually specific to the source system_key.'
+      - name: ACCOUNT_TYPE
+        description: 'Account type. Example: IRA Rollover.'
+      - name: ACCOUNT_NAME
+        description: 'Account name.'
+      - name: REGISTRANT_NAME
+        description: 'Registration name.'
+      - name: HOUSEHOLD_ID
+        description: 'Internal household or client id. Usually specific to the source system_key.'
+      - name: HOUSEHOLD_NAME
+        description: 'Household name.'
+      - name: IS_ACTIVE
+        description: 'Is the account active (1 or 0).'
+      - name: CREATED_DATE
+        description: 'Account created date, if available. Would be specific to the source system_key.'
+      - name: OPENED_DATE
+        description: 'Account open or start date.'
+      - name: CLOSED_DATE
+        description: 'Account close or cancel date.'
+      - name: ACCOUNT_VALUE
+        description: 'Latest account market value.'
+      - name: ADVISOR
+        description: 'Advisor.'
+      - name: ADVISOR_EMAIL
+        description: 'Advisor email.'
+      - name: ADVISOR_EMPLOYEE_ID
+        description: ''
+      - name: LOCATION_CODE
+        description: ''
+      - name: FEE_SCHEDULE
+        description: ''
+      - name: INVESTMENT_STRATEGY
+        description: ''
+      - name: AUM_CLASSIFICATION
+        description: ''
+      - name: IS_ERISA
+        description: ''
+      - name: IS_DISCRETIONARY
+        description: ''
+      - name: IS_VOTING_PROXIED
+        description: ''
+      - name: IS_PRIME_BROKER
+        description: ''
+      - name: IS_BROKER_DEALER_ACCOUNT
+        description: ''
+      - name: SOT_ADVISOR__ACCOUNT_NUMBER
+        description: ''
+      - name: SOT_ADVISOR
+        description: ''
+      - name: SOT_LOCATION
+        description: ''
+      - name: SOT
+        description: ''
+      - name: dedupe_system_rn
+        description: ''
+      - name: dedupe_system_count
+        description: ''
+      - name: DEDUPE_GLOBAL_RN
+        description: ''
+      - name: DEDUPE_GLOBAL_COUNT
+        description: ''
+      - name: DEDUPE_system_key_COUNT
+        description: ''
+      - name: HAS_DUPES
+        description: ''
+      - name: HAS_CUSTODIAL_FEED
+        description: ''
+      - name: EXCLUDED_REASONS
+        description: ''
+      - name: IS_EXCLUDED
+        description: ''
+      - name: PMS_ACCOUNT_NUMBER
+        description: ''
+      - name: PMS_CUSTODIAN
+        description: ''
+      - name: PMS_ACCOUNT_ID
+        description: ''
+      - name: PMS_ACCOUNT_TYPE
+        description: ''
+      - name: PMS_ACCOUNT_NAME
+        description: ''
+      - name: PMS_REGISTRANT_NAME
+        description: ''
+      - name: PMS_HOUSEHOLD_ID
+        description: ''
+      - name: PMS_HOUSEHOLD_NAME
+        description: ''
+      - name: PMS_IS_ACTIVE
+        description: ''
+      - name: PMS_CREATED_DATE
+        description: ''
+      - name: PMS_OPENED_DATE
+        description: ''
+      - name: PMS_CLOSED_DATE
+        description: ''
+      - name: PMS_ACCOUNT_VALUE
+        description: ''
+      - name: PMS_ADVISOR
+        description: ''
+      - name: PMS_ADVISOR_EMAIL
+        description: ''
+      - name: PMS_LOCATION_CODE
+        description: ''
+      - name: PMS_FEE_SCHEDULE
+        description: ''
+      - name: pms_model_investment_strategy
+        description: ''
+      - name: PMS_AUM_CLASSIFICATION
+        description: ''
+      - name: PMS_IS_ERISA
+        description: ''
+      - name: PMS_IS_DISCRETIONARY
+        description: ''
+      - name: PMS_IS_VOTING_PROXIED
+        description: ''
+      - name: PMS_IS_PRIME_BROKER
+        description: ''
+      - name: PMS_IS_BROKER_DEALER_ACCOUNT
+        description: ''
+      - name: CRM
+        description: ''
+      - name: CRM_INSTANCE_LOCATION
+        description: ''
+      - name: CRM_KEY
+        description: ''
+      - name: CRM_CUSTODIAN
+        description: ''
+      - name: CRM_ACCOUNT_ID
+        description: ''
+      - name: CRM_ACCOUNT_TYPE
+        description: ''
+      - name: CRM_ACCOUNT_NAME
+        description: ''
+      - name: CRM_REGISTRANT_NAME
+        description: ''
+      - name: CRM_HOUSEHOLD_ID
+        description: ''
+      - name: CRM_HOUSEHOLD_NAME
+        description: ''
+      - name: CRM_IS_ACTIVE
+        description: ''
+      - name: CRM_CREATED_DATE
+        description: ''
+      - name: CRM_OPENED_DATE
+        description: ''
+      - name: CRM_CLOSED_DATE
+        description: ''
+      - name: CRM_ACCOUNT_VALUE
+        description: ''
+      - name: CRM_ADVISOR
+        description: ''
+      - name: CRM_ADVISOR_EMAIL
+        description: ''
+      - name: CRM_LOCATION_CODE
+        description: ''
+      - name: CRM_FEE_SCHEDULE
+        description: ''
+      - name: CRM_INVESTMENT_STRATEGY
+        description: ''
+      - name: CRM_AUM_CLASSIFICATION
+        description: ''
+      - name: CRM_IS_ERISA
+        description: ''
+      - name: CRM_IS_DISCRETIONARY
+        description: ''
+      - name: CRM_IS_VOTING_PROXIED
+        description: ''
+      - name: CRM_IS_PRIME_BROKER
+        description: ''
+      - name: CRM_IS_BROKER_DEALER_ACCOUNT
+        description: ''
+      - name: CUS_IS_DISCRETIONARY
+        description: ''
+      - name: CUS_IS_VOTING_PROXIED
+        description: ''
+      - name: CUS_IS_PRIME_BROKER
+        description: ''
+      - name: CUS_IS_BROKER_DEALER_ACCOUNT
+        description: ''
+      - name: __CUSTODIAN_KEY
+        description: 'Custodian name derived value for our core custodians (fidelity, schwab, tda, pershing, lpl).'
+      - name: system_key__ACCOUNT_NUMBER
+        description: "Concat(system_key, '__', ACCOUNT_NUMBER)"
+      - name: system_key__ADVISOR
+        description: "Concat(system_key, '__', ADVISOR)"
+      - name: ADVISOR__ACCOUNT_NUMBER
+        description: "Concat(ADVISOR, '__', ACCOUNT_NUMBER)"
+      - name: EXTRA_FIELDS
+        description: 'Additional fields that might be specific to the system_key.'
+      - name: IS_HEAD
+        description: 'Is the record a member of the most recent available effective_date that exists.'
+      - name: IS_CURRENT
+        description: 'Is the record a member of the most recent market date.'
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''
+      - name: SOT_FINAL
+        description: ''
+      - name: IS_PRIMARY
+        description: 'Is the record considered the primary record if there are duplicates across or within the system_key.'
+      - name: IS_MARKET_MONTH_END
+        description: 'Is the effective date the last effective_date (market day) for the month.'

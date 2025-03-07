@@ -31,7 +31,7 @@ select
     , json:proxy_voting_status::text(200)                                  as proxy_voting_status
     , json:cost_basis_disposal_method::text(200)                           as cost_basis_disposal_method
     , json:prime_broker_enabled::text(200)                                 as prime_broker_enabled
-    , json:current_value::int                                              as current_value
+    , json:current_value::number(18 , 2)                                   as current_value
     , to_date((json:account_open_date::text) , 'MM/DD/YYYY HH12:MI:SS AM') as account_open_date
     , to_date((json:closed_date::text) , 'MM/DD/YYYY HH12:MI:SS AM')       as closed_date
     , to_date((json:as_of_date::text) , 'MM/DD/YYYY HH12:MI:SS AM')        as as_of_date
@@ -41,3 +41,7 @@ select
     , _created_at::datetime                                                as _created_at
     , _id::int                                                             as int
 from {{ source('cambak', 'accounts') }}
+where true
+    and json:financial_account_number::text(200) not ilike '000.00%'
+    and json:financial_account_number::text(200) != 'David King'
+    and json:financial_account_number::text(200) is not null

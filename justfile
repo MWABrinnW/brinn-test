@@ -17,8 +17,13 @@ set windows-shell := ["pwsh", "-NoLogo", "-NoProfileLoadTime", "-Command"]
 
 
 # [RECIPES]
+# setup the project dependencies
 @setup:
   $ErrorActionPreference = "Stop"
+
+  # Evaluates to false if set; otherwise, sets root
+  if (-not $env:VENV_DIR) {$env:VENV_DIR=".\.venv"}
+
   echo "Setting up your environment..."
   echo "venv_dir=$($env:VENV_DIR)"
 
@@ -29,11 +34,7 @@ set windows-shell := ["pwsh", "-NoLogo", "-NoProfileLoadTime", "-Command"]
   }
 
   # Activate the venv
-  Invoke-Expression "$($env:VENV_DIR)/Scripts/Activate.ps1"
-  pip install -r requirements-dev.txt
-  dbt clean
-  dbt deps
-  deactivate
+  Invoke-Expression "$($env:VENV_DIR)\Scripts\activate"
 
 @test:
   if ($true) {\
@@ -41,6 +42,7 @@ set windows-shell := ["pwsh", "-NoLogo", "-NoProfileLoadTime", "-Command"]
     Write-Host 'test2';\
   }
 
+# List files that are changed between current branch and remote main
 @ls:
   git diff --diff-filter=AMU --name-status origin/main . | ForEach-Object {$_ -replace '^[A-Z]\s+'}
 

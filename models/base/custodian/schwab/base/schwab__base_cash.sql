@@ -58,6 +58,8 @@ select
     , a._source_loaded_at
     , a._source_file
 from {{ source('schwab', 'rps_cash') }} as a
+left join {{ ref('dates') }} as ic
+    on ic.date_key = current_date()
 left join {{ ref('aux__stg_custodian_links') }} as cl
     on a.master_number = cl.link
     and cl.custodian = 'schwab'
