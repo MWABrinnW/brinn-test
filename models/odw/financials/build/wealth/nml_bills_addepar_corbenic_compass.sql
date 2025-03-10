@@ -33,7 +33,7 @@ select
     , null::text(200)                                                                 as partner_firm_original
 
     -- [advisor]
-    , b.cwm_lead_advisor::varchar(200)                                                as advisor_source
+    , null::varchar(200)                                                              as advisor_source
     -- Historical client manager (from compass account object, historical records)
     , acc.client_manager::varchar(200)                                                as advisor_original
     -- Historical associate ID (from compass account object, historical records)

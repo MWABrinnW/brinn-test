@@ -87,28 +87,24 @@ select
 
 
     -- [advisor]
-    , b.cwm_lead_advisor::varchar(200)                                        as advisor_source
+    , trim(b.cwm_lead_advisor)::varchar(200)                                  as advisor_source
     , case
-        when trim(a.cwm_lead_advisor) = 'DG' then 'David Givler II'
-        when trim(a.cwm_lead_advisor) = 'BG' then 'Brad Griswold'
-        when trim(a.cwm_lead_advisor) = 'WV' then 'William Velekei'
-        when trim(a.cwm_lead_advisor) = 'MB' then 'Mark Borda'
-        when trim(a.cwm_lead_advisor) = 'SL' then 'Sean Linderman'
-        when trim(a.cwm_lead_advisor) = 'KB' then 'Katie Brown'
-        when trim(a.cwm_lead_advisor) = 'DM' then 'Dennis Morton'
-        when trim(a.cwm_lead_advisor) = 'HA' then 'House Accounts'
-        else trim(a.cwm_lead_advisor)
+        when trim(b.cwm_lead_advisor) = 'DG' then 'David Givler II'
+        when trim(b.cwm_lead_advisor) = 'BG' then 'Brad Griswold'
+        when trim(b.cwm_lead_advisor) = 'WV' then 'William Velekei'
+        when trim(b.cwm_lead_advisor) = 'MB' then 'Mark Borda'
+        when trim(b.cwm_lead_advisor) = 'SL' then 'Sean Linderman'
+        when trim(b.cwm_lead_advisor) = 'KB' then 'Katie Brown'
+        when trim(b.cwm_lead_advisor) = 'DM' then 'Dennis Morton'
+        when trim(b.cwm_lead_advisor) = 'HA' then 'House Accounts'
+        else trim(b.cwm_lead_advisor)
     end::varchar(200)                                                         as advisor_original
+    -- excluded advisors are not mariner associates, no associate id exists
     , case
         when trim(b.cwm_lead_advisor) = 'DG' then '002732'
         when trim(b.cwm_lead_advisor) = 'BG' then '002733'
         when trim(b.cwm_lead_advisor) = 'WV' then '002735'
         when trim(b.cwm_lead_advisor) = 'MB' then '002729'
-        when trim(a.cwm_lead_advisor) = 'SL' then null
-        when trim(a.cwm_lead_advisor) = 'KB' then null
-        when trim(a.cwm_lead_advisor) = 'DM' then null
-        when trim(b.cwm_lead_advisor) = 'HA' then 'House Accounts'
-        else trim(b.cwm_lead_advisor)
     end::varchar(200)                                                         as associate_id_original
     , advisor_original                                                        as advisor_primary
     , associate_id_original::varchar(200)                                     as associate_id_primary
