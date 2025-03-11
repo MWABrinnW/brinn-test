@@ -141,7 +141,7 @@ select
         object_construct(
             'first_name' , iff(a.first_name <> b.first_name , b.first_name || ' --> ' || a.first_name , null)
             , 'last_name' , iff(a.last_name <> b.last_name , b.last_name || ' --> ' || a.last_name , null)
-            , 'email_address' , iff(a.email_address <> b.email_address , b.email_address || ' --> ' || a.email_address , null)
+            , 'email_address' , iff(lower(a.email_address) <> lower(b.email_address) , b.email_address || ' --> ' || a.email_address , null)
             , 'phone' , iff(a.phone <> b.phone_number , b.phone_number || ' --> ' || a.phone , null)
             , 'default_approver'
             , iff(c.id <> b.default_approver:id::text , b.default_approver:id::text || ' --> ' || c.id , null)
