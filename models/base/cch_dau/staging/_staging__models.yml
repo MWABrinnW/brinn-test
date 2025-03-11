@@ -3,700 +3,548 @@ models:
   - name: cch_dau__stg_servicecode
     columns:
       - name: SERVICECODEIDENT
-        description: ''
         data_type: VARCHAR
       - name: CATEGORYIDENT
-        description: ''
         data_type: VARCHAR
       - name: CATEGORYNAME
-        description: ''
         data_type: VARCHAR
       - name: SUBCATEGORYIDENT
-        description: ''
         data_type: VARCHAR
       - name: SUBCATEGORYNAME
-        description: ''
         data_type: VARCHAR
       - name: SERVICECODEID
-        description: ''
         data_type: VARCHAR
       - name: SERVICECODENAME
-        description: ''
         data_type: VARCHAR
       - name: CATEGORYID
-        description: ''
         data_type: VARCHAR
       - name: SUBCATEGORYID
-        description: ''
         data_type: VARCHAR
       - name: BILLABLETYPEFLAG
-        description: ''
         data_type: VARCHAR
       - name: TAXABLE
-        description: ''
         data_type: VARCHAR
       - name: INACTIVEFLAG
-        description: ''
         data_type: BOOLEAN
       - name: DELETEFLAG
-        description: ''
         data_type: BOOLEAN
       - name: SERVICECODETYPEFLAG
-        description: ''
         data_type: VARCHAR
       - name: MILEAGEUNITFLAG
-        description: ''
         data_type: BOOLEAN
       - name: INCLUDEINBILLABLEPERCENTAGEFLAG
-        description: ''
         data_type: BOOLEAN
       - name: BILLRATETYPE
-        description: ''
         data_type: VARCHAR
       - name: SURCHARGETYPE
-        description: ''
         data_type: VARCHAR
       - name: SURCHARGERATE
-        description: ''
         data_type: NUMBER
       - name: SURCHARGEFLATAMOUNT
-        description: ''
         data_type: NUMBER
       - name: SURCHARGEPERCENT
-        description: ''
         data_type: NUMBER
       - name: CREATEDBYIDENT
-        description: ''
         data_type: VARCHAR
       - name: CREATEDDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: LASTUPDATEDBYIDENT
-        description: ''
         data_type: VARCHAR
       - name: LASTUPDATEDDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: SERVICECODEDESCRIPTION
-        description: ''
         data_type: VARCHAR
       - name: SERVICECLASS
-        description: ''
         data_type: VARCHAR
       - name: STAFFBILLRATE
-        description: ''
         data_type: VARCHAR
       - name: ALTERNATESTAFFBILLRATE
-        description: ''
         data_type: VARCHAR
       - name: _CREATED_AT
-        description: ''
         data_type: TIMESTAMP_NTZ
   - name: cch_dau__stg_invoice
     columns:
       - name: INVOICEIDENT
-        description: ''
         data_type: VARCHAR
       - name: CLIENTIDENT
-        description: ''
         data_type: VARCHAR
       - name: ACCTPERDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: INVOICEDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: REVERSEDDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: INVOICENUMBER
-        description: ''
         data_type: VARCHAR
       - name: STDWIPAMOUNT
-        description: ''
         data_type: NUMBER
       - name: ADJUSTMENTAMOUNT
-        description: ''
         data_type: NUMBER
       - name: TAXAMOUNT
-        description: ''
         data_type: NUMBER
       - name: HOURS
-        description: ''
         data_type: NUMBER
       - name: TAXAPPAMOUNT
-        description: ''
         data_type: NUMBER
       - name: PROGRESSBILLEDAMOUNT
-        description: ''
         data_type: NUMBER
       - name: PROGRESSAPPLYAMOUNT
-        description: ''
         data_type: NUMBER
       - name: PROGRESSTAXAMOUNT
-        description: ''
         data_type: NUMBER
       - name: PROGRESSTAXAPPAMOUNT
-        description: ''
         data_type: NUMBER
       - name: STATUSCODE
-        description: ''
         data_type: VARCHAR
       - name: INVOICETYPECODE
-        description: ''
         data_type: VARCHAR
       - name: PAIDINFULLFLAG
-        description: ''
         data_type: VARCHAR
       - name: CREATEDDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: LASTUPDATEDDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: CREATEDBYIDENT
-        description: ''
         data_type: VARCHAR
       - name: LASTUPDATEDBYIDENT
-        description: ''
         data_type: VARCHAR
       - name: REASONNAME
-        description: ''
         data_type: VARCHAR
       - name: INVOICESTATUSNAME
-        description: ''
         data_type: VARCHAR
       - name: INVOICESTATUSDESCRIPTION
-        description: ''
         data_type: VARCHAR
       - name: INVOICENUMBERCODE
-        description: ''
         data_type: VARCHAR
       - name: INVOICEOFFICECODE
-        description: ''
         data_type: VARCHAR
       - name: BILLTHRUDATE
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: CLIENTBILLINGFEEAGREEMENTNAME
-        description: ''
         data_type: VARCHAR
       - name: INVOICETEMPLATENAME
-        description: ''
         data_type: VARCHAR
       - name: INVOICETITLE
-        description: ''
         data_type: VARCHAR
       - name: BILLINGGROUPNAME
-        description: ''
         data_type: VARCHAR
       - name: SUBSIDIARYCLIENTIDENT
-        description: ''
         data_type: VARCHAR
       - name: PROJECTIDENT
-        description: ''
         data_type: VARCHAR
       - name: INVOICEOFFICENAME
-        description: ''
         data_type: VARCHAR
       - name: _CREATED_AT
-        description: ''
         data_type: TIMESTAMP_NTZ
   - name: cch_dau__stg_uvw_wipar02clientident
     columns:
       - name: WIPIDENT
-        description: ''
         data_type: VARCHAR
       - name: CLIENTIDENT
-        description: ''
         data_type: VARCHAR
       - name: SERVICECODEIDENT
-        description: ''
         data_type: VARCHAR
       - name: INVOICEIDENT
-        description: ''
         data_type: VARCHAR
       - name: STAFFIDENT
-        description: ''
         data_type: VARCHAR
       - name: PROJECTIDENT
-        description: ''
         data_type: VARCHAR
       - name: HOURS
-        description: ''
         data_type: NUMBER
       - name: STDAMOUNT
-        description: ''
         data_type: NUMBER
       - name: TRANSACTIONDATE
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: TIMEADJAMOUNT
-        description: ''
         data_type: NUMBER
       - name: EXPENSEADJAMOUNT
-        description: ''
         data_type: NUMBER
       - name: ADJAMOUNT
-        description: ''
         data_type: NUMBER
       - name: SURCHARGEAMOUNT
-        description: ''
         data_type: NUMBER
       - name: TIMEBILLEDAMOUNT
-        description: ''
         data_type: NUMBER
       - name: EXPENSEBILLEDAMOUNT
-        description: ''
         data_type: NUMBER
       - name: BILLEDAMOUNT
-        description: ''
         data_type: NUMBER
       - name: TIMECOST
-        description: ''
         data_type: NUMBER
       - name: EXPENSECOST
-        description: ''
         data_type: NUMBER
       - name: COST
-        description: ''
         data_type: NUMBER
       - name: INVOICENUMBER
-        description: ''
         data_type: VARCHAR
       - name: INVOICEDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: INVOICESTATUSCODE
-        description: ''
         data_type: VARCHAR
       - name: _CREATED_AT
-        description: ''
         data_type: TIMESTAMP_NTZ
   - name: cch_dau__stg_clientaddress
     columns:
       - name: ADDRESSIDENT
-        description: ''
         data_type: VARCHAR
       - name: ADDRESSIDENTCATEGORYTYPE
-        description: ''
         data_type: VARCHAR
       - name: EMPLOYEEPLANSUBENTITYTYPECODE
-        description: ''
         data_type: VARCHAR
       - name: REFERENCEIDENT
-        description: ''
         data_type: VARCHAR
       - name: REFERENCEIDENTTYPE
-        description: ''
         data_type: VARCHAR
       - name: FIRMADDRESSTYPELABELNAME
-        description: ''
         data_type: VARCHAR
       - name: FIRMADDRESSTYPEDESCRIPTION
-        description: ''
         data_type: VARCHAR
       - name: ADDRESSLINE1
-        description: ''
         data_type: VARCHAR
       - name: ADDRESSLINE2
-        description: ''
         data_type: VARCHAR
       - name: ADDRESSLINE3
-        description: ''
         data_type: VARCHAR
       - name: CITYNAME
-        description: ''
         data_type: VARCHAR
       - name: POSTALCODE
-        description: ''
         data_type: VARCHAR
       - name: COUNTRYCODE
-        description: ''
         data_type: VARCHAR
       - name: PRIMARYADDRESSFLAG
-        description: ''
         data_type: VARCHAR
       - name: MAILINGADDRESSFLAG
-        description: ''
         data_type: VARCHAR
       - name: APTORSUITENUMBER
-        description: ''
         data_type: VARCHAR
       - name: STATEPROVINCECODE
-        description: ''
         data_type: VARCHAR
       - name: CREATEDBYIDENT
-        description: ''
         data_type: VARCHAR
       - name: LASTUPDATEDBYIDENT
-        description: ''
         data_type: VARCHAR
       - name: CREATEDDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: LASTUPDATEDDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: INVOICEFLAG
-        description: ''
         data_type: BOOLEAN
       - name: STATEMENTFLAG
-        description: ''
         data_type: BOOLEAN
       - name: ISCLIENTCONTACTBILLINGADDRESSFLAG
-        description: ''
         data_type: BOOLEAN
       - name: _CREATED_AT
-        description: ''
         data_type: TIMESTAMP_NTZ
   - name: cch_dau__stg_uvw_productivity
     columns:
       - name: CLIENTIDENT
-        description: ''
         data_type: VARCHAR
       - name: STAFFIDENT
-        description: ''
         data_type: VARCHAR
       - name: SERVICECODEIDENT
-        description: ''
         data_type: VARCHAR
       - name: PROJECTIDENT
-        description: ''
         data_type: VARCHAR
       - name: WORKSTEPIDENT
-        description: ''
         data_type: VARCHAR
       - name: TRANSACTIONDATE
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: ALLHOURS
-        description: ''
         data_type: NUMBER
       - name: BILLABLEHOURS
-        description: ''
         data_type: NUMBER
       - name: NONBILLABLEHOURS
-        description: ''
         data_type: NUMBER
       - name: TIMEAMOUNT
-        description: ''
         data_type: NUMBER
       - name: EXPENSEAMOUNT
-        description: ''
         data_type: NUMBER
       - name: SURCHARGEAMOUNT
-        description: ''
         data_type: NUMBER
       - name: STAFFSTATUS
-        description: ''
         data_type: VARCHAR
       - name: _CREATED_AT
-        description: ''
         data_type: TIMESTAMP_NTZ
   - name: cch_dau__stg_staff
     columns:
       - name: STAFFIDENT
-        description: ''
         data_type: VARCHAR
       - name: STAFFOFFICENAME
-        description: ''
         data_type: VARCHAR
       - name: STAFFREGIONNAME
-        description: ''
         data_type: VARCHAR
       - name: STAFFBUSINESSUNITNAME
-        description: ''
         data_type: VARCHAR
       - name: STAFFDESCRIPTION
-        description: ''
         data_type: VARCHAR
       - name: STAFFIDENTIFIER
-        description: ''
         data_type: VARCHAR
       - name: STAFFNAME
-        description: ''
         data_type: VARCHAR
       - name: STAFFDEPARTMENT
-        description: ''
         data_type: VARCHAR
       - name: STAFFPOSITION
-        description: ''
         data_type: VARCHAR
       - name: STAFFREPORTINGMANAGERNAME
-        description: ''
         data_type: VARCHAR
       - name: REPORTNAME
-        description: ''
         data_type: VARCHAR
       - name: FIRMIDENT
-        description: ''
         data_type: VARCHAR
       - name: FIRMNAME
-        description: ''
         data_type: VARCHAR
       - name: STAFFSTATUS
-        description: ''
         data_type: VARCHAR
       - name: DELETEFLAG
-        description: ''
         data_type: VARCHAR
       - name: CREATEDDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: LASTUPDATEDDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: LASTINACTIVEDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: STAFFFIRSTNAME
-        description: ''
         data_type: VARCHAR
       - name: STAFFMIDDLENAME
-        description: ''
         data_type: VARCHAR
       - name: STAFFLASTNAME
-        description: ''
         data_type: VARCHAR
       - name: STAFFSUFFIXCODE
-        description: ''
         data_type: VARCHAR
       - name: EMERGENCYCONTACTNAME
-        description: ''
         data_type: VARCHAR
       - name: EMERGENCYCONTACTRELATIONSHIP
-        description: ''
         data_type: VARCHAR
       - name: EMERGENCYCONTACTPHONE
-        description: ''
         data_type: VARCHAR
       - name: EMPLOYEENUMBER
-        description: ''
         data_type: VARCHAR
       - name: REVIEWDATE
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: HIRESALARY
-        description: ''
         data_type: NUMBER
       - name: HIREDATE
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: CURRENTSALARY
-        description: ''
         data_type: NUMBER
       - name: STAFFUSERID
-        description: ''
         data_type: VARCHAR
       - name: USERLOGINENABLEDFLAG
-        description: ''
         data_type: VARCHAR
       - name: HIREDTYPENAME
-        description: ''
         data_type: VARCHAR
       - name: PAYTYPENAME
-        description: ''
         data_type: VARCHAR
       - name: HONORIFICCODE
-        description: ''
         data_type: VARCHAR
       - name: LASTACTIVEDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: _CREATED_AT
-        description: ''
         data_type: TIMESTAMP_NTZ
   - name: cch_dau__stg_client
     columns:
       - name: CLIENTIDENT
-        description: ''
         data_type: VARCHAR
       - name: CLIENTOFFICENAME
-        description: ''
         data_type: VARCHAR
       - name: CLIENTREGIONNAME
-        description: ''
         data_type: VARCHAR
       - name: CLIENTBUSINESSUNITNAME
-        description: ''
         data_type: VARCHAR
       - name: CLIENTID
-        description: ''
         data_type: VARCHAR
       - name: CLIENTIDSUBID
-        description: ''
         data_type: VARCHAR
       - name: PRIMARYCLIENTFLAG
-        description: ''
         data_type: BOOLEAN
       - name: CLIENTSUBID
-        description: ''
         data_type: VARCHAR
       - name: CLIENTTYPE
-        description: ''
         data_type: VARCHAR
       - name: LINEOFBUSINESS
-        description: ''
         data_type: VARCHAR
       - name: CLIENTPRIMARYSERVICETYPE
-        description: ''
         data_type: VARCHAR
       - name: CLIENTSORTNAME
-        description: ''
         data_type: VARCHAR
       - name: RETURNGROUPNAME
-        description: ''
         data_type: VARCHAR
       - name: DELETEFLAG
-        description: ''
         data_type: BOOLEAN
       - name: FISCALPERIOD
-        description: ''
         data_type: VARCHAR
       - name: CLIENTSTATUS
-        description: ''
         data_type: VARCHAR
       - name: CLIENTSTATUSDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: SHAREABLEFLAG
-        description: ''
         data_type: VARCHAR
       - name: ACQUIREDDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: CLIENTCLASS
-        description: ''
         data_type: VARCHAR
       - name: WEBPAGEURL
-        description: ''
         data_type: VARCHAR
       - name: CREATEDDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: LASTUPDATEDDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: SALUTATIONTEXT
-        description: ''
         data_type: VARCHAR
       - name: ATTENTIONTEXT
-        description: ''
         data_type: VARCHAR
       - name: CORRESPONDENCENAME
-        description: ''
         data_type: VARCHAR
       - name: SUBORDINATEDESCRIPTION
-        description: ''
         data_type: VARCHAR
       - name: FIRMMARKETINGMETHOD
-        description: ''
         data_type: VARCHAR
       - name: LASTACTIVEDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: TERMINATEDDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: LASTINACTIVEDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: LASTONHOLDDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: LASTLITIGATIONHOLDDATETIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: CREATEDBYIDENT
-        description: ''
         data_type: VARCHAR
       - name: LASTUPDATEDBYIDENT
-        description: ''
         data_type: VARCHAR
       - name: _CREATED_AT
-        description: ''
         data_type: TIMESTAMP_NTZ
   - name: cch_dau__stg_artransaction
     columns:
       - name: ARIDENT
-        description: ''
         data_type: NUMBER
       - name: CLIENT_IDENT
-        description: ''
         data_type: NUMBER
       - name: POSTED_BY_STAFFIDENT
-        description: ''
         data_type: NUMBER
       - name: TRANSACTION_DATE_TIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: POSTED_DATE_TIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: REFERENCE_DATE_TIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: AR_ENTRY_TYPE_INT_CODE
-        description: ''
         data_type: NUMBER
       - name: AMOUNT
-        description: ''
         data_type: NUMBER
       - name: UNDISTRIBUTED_AMOUT
-        description: ''
         data_type: NUMBER
       - name: REFERENCE_NUMBER
-        description: ''
         data_type: VARCHAR
       - name: DISTRIBUTION_METHOD_CODE
-        description: ''
         data_type: NUMBER
       - name: FULLY_DISTRIBUTED
-        description: ''
         data_type: NUMBER
       - name: POSTED
-        description: ''
         data_type: NUMBER
       - name: CORRECTION_STATUS_CODE
-        description: ''
         data_type: NUMBER
       - name: CREATED_DATE_TIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: LAST_UPDATED_DATE_TIME
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: BANK_NAME
-        description: ''
         data_type: VARCHAR
       - name: BANK_ACCOUNT_NUMBER
-        description: ''
         data_type: VARCHAR
       - name: PAYMENT_METHOD
-        description: ''
         data_type: VARCHAR
       - name: PAYMENT_METHOD_CODE
-        description: ''
         data_type: NUMBER
       - name: DESCRIPTION
-        description: ''
         data_type: VARCHAR
       - name: CREATED_BY_IDENT
-        description: ''
         data_type: NUMBER
       - name: LAST_UPDATED_BY_IDENT
-        description: ''
         data_type: NUMBER
       - name: ARORIGINALIDENT
-        description: ''
         data_type: NUMBER
       - name: AR_GROUP_NAME
-        description: ''
         data_type: VARCHAR
       - name: REGISTRATION_TYPE__R_NAME
-        description: ''
         data_type: VARCHAR
       - name: _CREATED_AT
-        description: ''
         data_type: TIMESTAMP_NTZ
+  - name: cch_dau__stg_ardistribution
+    columns:
+      - name: ARDISTRIBUTIONIDENT
+        data_type: VARCHAR
+      - name: ARCHARGESIDENT
+        data_type: VARCHAR
+      - name: CLIENTIDENT
+        data_type: VARCHAR
+      - name: ARIDENT
+        data_type: VARCHAR
+      - name: INVOICEIDENT
+        data_type: VARCHAR
+      - name: PROJECTIDENT
+        data_type: VARCHAR
+      - name: INVOICESALESTAXIDENT
+        data_type: VARCHAR
+      - name: DISTRIBUTIONAMOUNT
+        data_type: NUMBER
+      - name: CREATEDBYIDENT
+        data_type: VARCHAR
+      - name: CREATEDDATETIME
+        data_type: TIMESTAMP_NTZ
+      - name: _CREATED_AT
+        data_type: TIMESTAMP_NTZ
+      - name: _EXTRACTED_AT
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        data_type: NUMBER
+  - name: cch_dau__stg_archarges
+    columns:
+      - name: ARCHARGESIDENT
+        data_type: VARCHAR
+      - name: CLIENTIDENT
+        data_type: VARCHAR
+      - name: POSTEDBYSTAFFIDENT
+        data_type: VARCHAR
+      - name: TRANSACTIONDATETIME
+        data_type: TIMESTAMP_NTZ
+      - name: POSTEDDATETIME
+        data_type: TIMESTAMP_NTZ
+      - name: REFERENCEDATETIME
+        data_type: TIMESTAMP_NTZ
+      - name: ARENTRYTYPECODE
+        data_type: NUMBER
+      - name: ARCHARGESAMOUNT
+        data_type: NUMBER
+      - name: REFERENCENUMBER
+        data_type: VARCHAR
+      - name: CORRECTIONSTATUSCODE
+        data_type: NUMBER
+      - name: CASHAPPLIEDAMOUNT
+        data_type: NUMBER
+      - name: CREDITSAPPLIEDAMOUNT
+        data_type: NUMBER
+      - name: DEBITSAPPLIEDAMOUNT
+        data_type: NUMBER
+      - name: CREATEDDATETIME
+        data_type: TIMESTAMP_NTZ
+      - name: LASTUPDATEDDATETIME
+        data_type: TIMESTAMP_NTZ
+      - name: DESCRIPTION
+        data_type: VARCHAR
+      - name: CREATEDBYIDENT
+        data_type: VARCHAR
+      - name: LASTUPDATEDBYIDENT
+        data_type: VARCHAR
+      - name: ARCHARGESORIGINALIDENT
+        data_type: VARCHAR
+      - name: REASONNAME
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        data_type: TIMESTAMP_NTZ
+      - name: _EXTRACTED_AT
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        data_type: NUMBER

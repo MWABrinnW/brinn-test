@@ -622,8 +622,114 @@ sources:
           - name: _CREATED_AT
             data_type: TIMESTAMP_NTZ
             description: ''
+      - name: archarges
+        columns:  
+          - name: ARCHARGESIDENT
+            description: ''
+            data_type: varchar
+          - name: CLIENTIDENT
+            description: ''
+            data_type: varchar
+          - name: POSTEDBYSTAFFIDENT
+            description: ''
+            data_type: varchar
+          - name: TRANSACTIONDATETIME
+            description: ''
+            data_type: varchar
+          - name: POSTEDDATETIME
+            description: ''
+            data_type: varchar
+          - name: REFERENCEDATETIME
+            description: ''
+            data_type: varchar
+          - name: ARENTRYTYPECODE
+            description: ''
+            data_type: varchar
+          - name: ARCHARGESAMOUNT
+            description: ''
+            data_type: varchar
+          - name: REFERENCENUMBER
+            description: ''
+            data_type: varchar
+          - name: CORRECTIONSTATUSCODE
+            description: ''
+            data_type: varchar
+          - name: CASHAPPLIEDAMOUNT
+            description: ''
+            data_type: varchar
+          - name: CREDITSAPPLIEDAMOUNT
+            description: ''
+            data_type: varchar
+          - name: DEBITSAPPLIEDAMOUNT
+            description: ''
+            data_type: varchar
+          - name: CREATEDDATETIME
+            description: ''
+            data_type: varchar
+          - name: LASTUPDATEDDATETIME
+            description: ''
+            data_type: varchar
+          - name: DESCRIPTION
+            description: ''
+            data_type: varchar
+          - name: CREATEDBYIDENT
+            description: ''
+            data_type: varchar
+          - name: LASTUPDATEDBYIDENT
+            description: ''
+            data_type: varchar
+          - name: ARCHARGESORIGINALIDENT
+            description: ''
+            data_type: varchar
+          - name: REASONNAME
+            description: ''
+            data_type: varchar
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ(9)
+          - name: _EXTRACTED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ(9)
+      - name: ardistribution
+        columns:  
+          - name: ARDISTRIBUTIONIDENT
+            description: ''
+            data_type: varchar
+          - name: ARCHARGESIDENT
+            description: ''
+            data_type: varchar
+          - name: CLIENTIDENT
+            description: ''
+            data_type: varchar
+          - name: ARIDENT
+            description: ''
+            data_type: varchar
+          - name: INVOICEIDENT
+            description: ''
+            data_type: varchar
+          - name: PROJECTIDENT
+            description: ''
+            data_type: varchar
+          - name: INVOICESALESTAXIDENT
+            description: ''
+            data_type: varchar
+          - name: DISTRIBUTIONAMOUNT
+            description: ''
+            data_type: varchar
+          - name: CREATEDBYIDENT
+            description: ''
+            data_type: varchar
+          - name: CREATEDDATETIME
+            description: ''
+            data_type: varchar
+          - name: _CREATED_AT
+            description: ''
+            data_type: DATETIME
+          - name: _EXTRACTED_AT
+            description: ''
+            data_type: DATETIME
       - name: artransaction
-        columns:
+        columns:  
           - name: ARIDENT
             description: ''
             data_type: VARCHAR
@@ -704,4 +810,7 @@ sources:
             data_type: VARCHAR
           - name: _CREATED_AT
             description: ''
-            data_type: TIMESTAMP_NTZ
+            data_type: DATETIME
+          - name: _EXTRACTED_AT
+            description: ''
+            data_type: DATETIME
