@@ -42,7 +42,7 @@ select
     , null::int                                                               as pms_cost_basis_method
 
     -- CRM --------------------------------------------------------------------
-    {{ select_crm_null() }}
+    {{ select_crm_null('salesforce__compass_rps') }}
 
     -- COALESCE ---------------------------------------------------------------
     {{ select_nml_account_coalesce('salesforce__compass_rps') }}

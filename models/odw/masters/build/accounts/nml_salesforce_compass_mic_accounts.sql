@@ -33,16 +33,16 @@ select
     , null::int                                                               as pms_cost_basis_method
 
     -- CRM --------------------------------------------------------------------
-    {{ select_crm_null() }}
+    {{ select_crm_null('salesforce__compass_mic') }}
 
     -- COALESCE ---------------------------------------------------------------
-    {{ select_nml_account_coalesce(system_key='salesforce_compass__mic') }}
+    {{ select_nml_account_coalesce(system_key='salesforce__compass_mic') }}
 
     -- KEYS -------------------------------------------------------------------
-    , concat('salesforce_compass__mic' , '__' , pms_account_name)             as system_key__account_name
-    , concat('salesforce_compass__mic' , '__' , pms_account_number)           as system_key__account_number
+    , concat('salesforce__compass_mic' , '__' , pms_account_name)             as system_key__account_name
+    , concat('salesforce__compass_mic' , '__' , pms_account_number)           as system_key__account_number
     , concat(
-        'salesforce_compass__mic'
+        'salesforce__compass_mic'
         , '__'
         , coalesce(pms_advisor , crm_advisor)
     )                                                                         as system_key__advisor

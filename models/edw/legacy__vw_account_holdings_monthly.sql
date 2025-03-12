@@ -117,4 +117,5 @@ where true
     and a.is_excluded = 0
     and a.is_primary = 1
     and (a.closed_date is null or a.effective_date < a.closed_date)
+    and a.is_market_month_end = 1
 order by effective_date desc , system_name asc
