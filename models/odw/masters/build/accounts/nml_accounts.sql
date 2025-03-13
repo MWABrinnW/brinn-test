@@ -35,6 +35,7 @@ select
     , ba.is_market_day
     , ba.is_market_month_end
     , ba.is_excluded
+    , ba.excluded_reasons
     , ba.is_primary
     , 0::int                        as is_manual_account
     , 0::int                        as is_legacy
@@ -80,7 +81,8 @@ select
     , ma.is_erisa::int                        as is_erisa
     , ma.is_market_day::int                   as is_market_day
     , ma.is_market_month_end::int             as is_market_month_end
-    , 0::int                                  as is_excluded
+    , ma.is_excluded::int                     as is_excluded
+    , ma.excluded_reasons::text               as excluded_reasons
     , 1::int                                  as is_primary
     , ma.is_manual_account::int               as is_manual_account
     , 0::int                                  as is_legacy
@@ -134,6 +136,7 @@ select
     , 1::int                                            as is_market_day
     , 1::int                                            as is_market_month_end
     , 0::int                                            as is_excluded
+    , null::text                                        as excluded_reasons
     , 1::int                                            as is_primary
     , 0::int                                            as is_manual_account
     , 1::int                                            as is_legacy

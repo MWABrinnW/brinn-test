@@ -33,6 +33,8 @@ select
     , json:is_discretionary::int                as is_discretionary
     , json:is_market_day::int                   as is_market_day
     , json:is_market_month_end::int             as is_market_month_end
+    , json:is_excluded::int                     as is_excluded
+    , json:excluded_reasons::text               as excluded_reasons
     , 1::int                                    as is_manual_account
     , _created_at::datetime                     as _created_at
     , null::variant                             as _extra_fields

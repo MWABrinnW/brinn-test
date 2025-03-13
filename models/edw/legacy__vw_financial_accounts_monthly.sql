@@ -50,42 +50,42 @@ qualify row_number() over (
 union all
 -- unions accounts with an effective date greater than or equal to 2025-01-01
 select
-    a.system_name                            as system_name
-    , null::text(200)                        as system_details
-    , a.account_number_formatted             as financial_account_number
-    , a.account_number                       as financial_account_number_clean
-    , a.pms_account_id                       as internal_financial_account_number
-    , a.pms_client_id                        as internal_household_number
-    , null::text(200)                        as registrant_name
-    , a.account_name                         as financial_account_name
-    , a.client_name                          as household_name
-    , a.location_code                        as location_code
-    , a.office_name                          as location_name
-    , a.account_type::text(200)              as type_of_account
-    , a.custodian                            as custodian
-    , a.model_investment_strategy::text(200) as model_investment_strategy
-    , a.advisor                              as client_manager
-    , a.fee_schedule::text(200)              as fee_schedule
-    , a.is_erisa::text(200)                  as erisa
-    , a.is_active                            as account_active
-    , a.aum_classification                   as aum_classification_status
-    , null::text(200)                        as discretion_status
-    , null::text(200)                        as proxy_voting_status
-    , null::text(200)                        as cost_basis_disposal_method
-    , null::text(200)                        as prime_broker_enabled
-    , a.account_value                        as current_value
-    , a.opened_date                          as account_open_date
-    , a.closed_date                          as closed_date
-    , a.effective_date                       as as_of_date
-    , a.effective_date                       as effective_date
-    , dt.month_end_date                      as month_end_date
-    , 1::int                                 as source_of_truth_final
-    , null::text(200)                        as id
-    , a._created_at::date                    as record_date
-    , a._created_at                          as record_datetime
-    , a.crm_client_id::text(200)             as hh_sf_18_digit_id
-    , a.crm_account_id::text(200)            as fa_sf_18_digit_id
-    , null::int                              as is_head
+    a.system_name::text                 as system_name
+    , null::text                        as system_details
+    , a.account_number_formatted::text  as financial_account_number
+    , a.account_number::text            as financial_account_number_clean
+    , a.pms_account_id::text            as internal_financial_account_number
+    , a.pms_client_id::text             as internal_household_number
+    , null::text                        as registrant_name
+    , a.account_name::text              as financial_account_name
+    , a.client_name::text               as household_name
+    , a.location_code::text             as location_code
+    , a.office_name::text               as location_name
+    , a.account_type::text              as type_of_account
+    , a.custodian::text                 as custodian
+    , a.model_investment_strategy::text as model_investment_strategy
+    , a.advisor::text                   as client_manager
+    , a.fee_schedule::text              as fee_schedule
+    , a.is_erisa::text                  as erisa
+    , a.is_active::boolean              as account_active
+    , a.aum_classification::text        as aum_classification_status
+    , null::text                        as discretion_status
+    , null::text                        as proxy_voting_status
+    , null::text                        as cost_basis_disposal_method
+    , null::text                        as prime_broker_enabled
+    , a.account_value::number(22 , 2)   as current_value
+    , a.opened_date::date               as account_open_date
+    , a.closed_date::date               as closed_date
+    , a.effective_date::date            as as_of_date
+    , a.effective_date::date            as effective_date
+    , dt.month_end_date::date           as month_end_date
+    , null::text                        as source_of_truth_final
+    , null::text                        as id
+    , a._created_at::date               as record_date
+    , a._created_at                     as record_datetime
+    , a.crm_client_id::text             as hh_sf_18_digit_id
+    , a.crm_account_id::text            as fa_sf_18_digit_id
+    , null::int                         as is_head
     , {{ col_is_current(date_col='effective_date') }}
 
 from {{ ref('bld_accounts') }} as a
