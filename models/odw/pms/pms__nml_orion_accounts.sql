@@ -153,7 +153,7 @@ select
     , a.client_open_date                       as client_open_date
     , a.opened_date                            as opened_date
     , a.closed_date_udf                        as closed_date
-    , iff(a.opened_date is not null , 1 , 0)   as is_open
+    , iff(a.closed_date_udf is null , 1 , 0)   as is_open
     , a.account_value::decimal(16 , 2)         as current_value
     , av.billable_value::decimal(16 , 2)       as billable_value
     , av.custodial_cash_value::decimal(16 , 2) as custodial_cash_value
