@@ -29,6 +29,7 @@ select
     , a.json:PHONE::varchar(120)                                  as phone
     , a.json:ACCOUNT_NUMBER::varchar(120)                         as account_number
     , a.json:WEBSITE::varchar(765)                                as website
+    , a.json:PATHWAY_CLIENT_C::boolean                            as pathway_client_c
     , a.json:PHOTO_URL::varchar(765)                              as photo_url
     , a.json:INDUSTRY::varchar(765)                               as industry
     , a.json:ANNUAL_REVENUE::number(18)                           as annual_revenue
@@ -227,10 +228,16 @@ select
 from {{ source('salesforce_compass', 'account') }} as a
 left join (
     select
-        a.effective_at::date                                                                as effective_at
+        a.effective_at::date as effective_at
         , a._created_at
-        , row_number() over (partition by a.effective_at::date order by a._created_at desc) as rn_latest
-        , row_number() over (partition by a.effective_at::date order by a._created_at asc)  as rn_earliest
+        , row_number() over (
+            partition by a.effective_at::date
+            order by a._created_at desc
+        )                    as rn_latest
+        , row_number() over (
+            partition by a.effective_at::date
+            order by a._created_at asc
+        )                    as rn_earliest
     from {{ source('salesforce_compass', 'account') }} as a
     group by 1 , 2
 ) as b
