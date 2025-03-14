@@ -20,3 +20,181 @@ sources:
           - name: _ID
             description: ''
             data_type: INT
+      - name: cbclient
+        description: ""
+      - name: cbiproductflag
+        description: ""
+      - name: cbiproductrating
+        description: ""
+      - name: cbkeyprovisiondocumentmapping
+        description: ""
+      - name: cblocation
+        description: ""
+      - name: cbopportunity
+        description: ""
+      - name: cbplan
+        description: ""
+      - name: cbplantargetreturn
+        description: ""
+      - name: accountex
+        description: ""
+      - name: cbaccount
+        description: ""
+      - name: cbaccountinvestment
+        description: ""
+      - name: cbbenchmark
+        description: ""
+      - name: cbbenchmarkconstituent
+        description: ""
+      - name: cbbenchmarkdetail
+        description: ""
+      - name: cbbenchmarkslist
+        description: ""
+      - name: cbbillingadjustment
+        description: ""
+      - name: cbbillingappliedadjustment
+        description: ""
+      - name: cbbillingdefinition
+        description: ""
+      - name: cbbillingdefinitionadditionalplanmap
+        description: ""
+      - name: cbbillingdefinitionentitymap
+        description: ""
+      - name: cbbillingdefinitionfeesplit
+        description: ""
+      - name: cbbillingdefinitionstatictext
+        description: ""
+      - name: cbblsdatapoint
+        description: ""
+      - name: cbblsdataset
+        description: ""
+      - name: cbclientfees
+        description: ""
+      - name: cbclientgroup
+        description: ""
+      - name: cbclientteammember
+        description: ""
+      - name: cbcompadvisorentry
+        description: ""
+      - name: cbcompadvisorschedule
+        description: ""
+      - name: cbcompanalystentry
+        description: ""
+      - name: cbcompanalystschedule
+        description: ""
+      - name: cbcompbridge
+        description: ""
+      - name: cbcompintro
+        description: ""
+      - name: cbcomppopentry
+        description: ""
+      - name: cbcomppopschedule
+        description: ""
+      - name: cbcompspecial
+        description: ""
+      - name: cbcompthirdparty
+        description: ""
+      - name: cbconfiguration
+        description: ""
+      - name: cbcontact
+        description: ""
+      - name: cbcontactentityinfolink
+        description: ""
+      - name: cbcontactentitylink
+        description: ""
+      - name: cbcontactrelationtag
+        description: ""
+      - name: cbcountry
+        description: ""
+      - name: cbcustodialrelationship
+        description: ""
+      - name: cbcustodian
+        description: ""
+      - name: cbdashboard
+        description: ""
+      - name: cbemailaddress
+        description: ""
+      - name: cbexternallistcache
+        description: ""
+      - name: cbexternalsystemmapping
+        description: ""
+      - name: cbfilterdefinition
+        description: ""
+      - name: cbfirm
+        description: ""
+      - name: cbfmventry
+        description: ""
+      - name: cbgroupcategory
+        description: ""
+      - name: cbgroupcategorytemplate
+        description: ""
+      - name: cbgroupcategorytemplaterelatedattribute
+        description: ""
+      - name: cbgroupcategorytemplatestep
+        description: ""
+      - name: cbgroupcategorytemplatestepdependency
+        description: ""
+      - name: cbimanager
+        description: ""
+      - name: cbindex
+        description: ""
+      - name: cbindexprovider
+        description: ""
+      - name: cbinvoice
+        description: ""
+      - name: cbinvoicedplanfee
+        description: ""
+      - name: cbiproduct
+        description: ""
+      - name: cbiproductdbentry
+        description: ""
+      - name: cbiproductfirmdetail
+        description: ""
+      - name: cbkeyprovision
+        description: ""
+      - name: cbobjecttype
+        description: ""
+      - name: cbopportunityrelatedentity
+        description: ""
+      - name: cbopportunitystatushistory
+        description: ""
+      - name: cbopportunityteammember
+        description: ""
+      - name: cbothertype
+        description: ""
+      - name: cbpersonalization
+        description: ""
+      - name: cbphonenumber
+        description: ""
+      - name: cbpicklist
+        description: ""
+      - name: cbpickliststring
+        description: ""
+      - name: cbplanserviceproviderlink
+        description: ""
+      - name: cbplanserviceproviderlinkinfo
+        description: ""
+      - name: cbplansourcetag
+        description: ""
+      - name: cbrole
+        description: ""
+      - name: cbserviceprovider
+        description: ""
+      - name: cbstatement
+        description: ""
+      - name: cbuser
+        description: ""
+      - name: cbusergroup
+        description: ""
+      - name: cbusergroupmember
+        description: ""
+      - name: cbuserrolemap
+        description: ""
+      - name: cbserviceproviderlink
+        description: ""
+      - name: cbplancapacitycomplexity
+        description: ""
+      - name: cbcontactlink
+        description: ""
+      - name: cbboardmember
+        description: ""

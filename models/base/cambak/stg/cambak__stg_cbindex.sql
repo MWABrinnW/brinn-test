@@ -1,0 +1,19 @@
+select
+    indexid::int             as index_id
+    , region::int            as region
+    , indexname::text        as index_name
+    , assetcategory::int     as asset_category
+    , indexproviderid::int   as index_provider_id
+    , assetclass::int        as asset_class
+    , markettype::int        as market_type
+
+    , to_timestamp_ntz(
+        regexp_substr(
+            _source_file , '(\\d{4}-\\d{2}-\\d{2}__\\d{2}_\\d{2}_\\d{2})'
+        )
+        , 'YYYY-MM-DD__HH_MI_SS'
+    )                        as _extracted_at
+    , file_type::text        as file_type
+    , _created_at::timestamp as _created_at
+    , _source_file::text     as _source_file
+from {{ source('cambak', 'cbindex') }}
