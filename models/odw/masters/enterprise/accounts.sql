@@ -19,6 +19,7 @@ select
     , model_investment_strategy
     , fee_schedule
     , advisor
+    , discretion_status
     , is_active
     , opened_date
     , closed_date

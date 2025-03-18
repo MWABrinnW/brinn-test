@@ -51,7 +51,7 @@ union all
 -- unions accounts with an effective date greater than or equal to 2025-01-01
 select
     a.system_name::text                 as system_name
-    , null::text                        as system_details
+    , a.system_key::text                as system_details
     , a.account_number_formatted::text  as financial_account_number
     , a.account_number::text            as financial_account_number_clean
     , a.pms_account_id::text            as internal_financial_account_number
@@ -69,7 +69,10 @@ select
     , a.is_erisa::text                  as erisa
     , a.is_active::boolean              as account_active
     , a.aum_classification::text        as aum_classification_status
-    , null::text                        as discretion_status
+    , case when a.is_discretionary = 1 then 'discretionary'
+        when a.is_discretionary = 0 then 'non-discretionary'
+        when a.is_discretionary = 2 then 'partial'
+    end::text                           as discretion_status
     , null::text                        as proxy_voting_status
     , null::text                        as cost_basis_disposal_method
     , null::text                        as prime_broker_enabled

@@ -22,11 +22,7 @@ select
     , a.account_value                                                         as pms_account_value
     , a.advisor                                                               as pms_advisor
     , a.advisor_email                                                         as pms_advisor_email
-    , case
-        when a.bd_name in ('JSO Partners' , 'Watershed Wealth Management')
-            then 'L-10010'
-        else '609'
-    end::text(50)                                                             as pms_location_code
+    , '609'::text                                                             as pms_location_code
     , a.fee_schedule                                                          as pms_fee_schedule--not available in RS yet
     , a.investment_strategy                                                   as pms_model_investment_strategy
     , coalesce(udf_aum.fieldvalue , udf_aum_def.defaultvalue)::text(200)      as pms_aum_classification--sourced from crm

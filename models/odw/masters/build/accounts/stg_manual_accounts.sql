@@ -1,7 +1,7 @@
 select
     effective_date::date                        as effective_date
-    , json:system_name::text(200)               as system_name
-    , json:system_instance::text(200)           as system_instance
+    , lower(json:system_name::text(200))        as system_name
+    , lower(json:system_instance::text(200))    as system_instance
     , json:system_key::text(200)                as system_key
     , json:firm_source::text(200)               as firm_source
     , json:account_number_formatted::text(200)  as account_number_formatted
@@ -19,6 +19,7 @@ select
     , json:model_investment_strategy::text(200) as model_investment_strategy
     , json:fee_schedule::text(200)              as fee_schedule
     , json:advisor::text(200)                   as advisor
+    , lower(json:discretion_status)::text       as discretion_status
     , json:is_active::int                       as is_active
     , json:opened_date::date                    as opened_date
     , json:closed_date::date                    as closed_date
@@ -30,7 +31,6 @@ select
     , json:legacy_system_name::text(200)        as legacy_system_name
     , json:is_institutional::int                as is_institutional
     , json:is_erisa::int                        as is_erisa
-    , json:is_discretionary::int                as is_discretionary
     , json:is_market_day::int                   as is_market_day
     , json:is_market_month_end::int             as is_market_month_end
     , json:is_excluded::int                     as is_excluded

@@ -92,8 +92,8 @@
             , ovrd_sys_acct._is_discretionary
             , ovrd_sys_adv._is_discretionary
         )
-        , crm_is_discretionary , pms_is_discretionary
-    )                                                                        as is_discretionary
+        , pms_is_discretionary , crm_is_discretionary
+    )::int                                                                   as is_discretionary
     , coalesce(
         coalesce(
             ovrd_acct._is_voting_proxied

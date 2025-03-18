@@ -26,7 +26,12 @@ select
     , a.model_investment_strategy::text(200)                                  as pms_model_investment_strategy
     , a.aum_classification_status::text(200)                                  as pms_aum_classification
     , a.erisa::int                                                            as pms_is_erisa
-    , 0::int                                                                  as pms_is_discretionary
+    , case when a.discretion_status = 'Full' then 1
+        when a.discretion_status = 'None' then 0
+        -- casted as int; value needed to be a whole number
+        when a.discretion_status = 'Partial' then 2
+        else a.discretion_status
+    end::int                                                                  as pms_is_discretionary
     , a.proxy_voting_status::int                                              as pms_is_voting_proxied
     , a.prime_broker_enabled::int                                             as pms_is_prime_broker
     , null::int                                                               as pms_is_broker_dealer_account

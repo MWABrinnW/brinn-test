@@ -73,7 +73,10 @@ select
     , a.office_name                          as location_name
     , a.account_type                         as type_of_account
     , a.custodian                            as custodian
-    , a.is_discretionary                     as discretion_status
+    , case when a.is_discretionary = 1 then 'discretionary'
+        when a.is_discretionary = 0 then 'non-discretionary'
+        when a.is_discretionary = 2 then 'partial'
+    end::text                                as discretion_status
     , null::text(200)                        as proxy_voting_status
     , a.model_investment_strategy::text(200) as model_investment_strategy
     , h.cusip                                as cusip

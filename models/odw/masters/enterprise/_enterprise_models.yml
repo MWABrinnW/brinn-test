@@ -18,7 +18,8 @@ models:
                 'mwa',
                 'mps',
                 'andco',
-                'baystate'
+                'baystate',
+                'network'
               ]
         meta:
           row_access_policy: rap_firm_source
@@ -61,6 +62,16 @@ models:
               where: "is_legacy=0"
       - name: ADVISOR
         data_type: VARCHAR
+      - name: DISCRETION_STATUS
+        data_type: VARCHAR
+        tests:
+          - accepted_values:
+              values: [
+                'discretionary',
+                'non-discretionary',
+                'partial'
+              ]
+              where: "is_legacy=0 and discretion_status is not null"
       - name: IS_ACTIVE
         data_type: NUMBER
       - name: OPENED_DATE
@@ -85,8 +96,6 @@ models:
           Some custodians have primary, secondary, or other labels to indicate the type of link value.
         data_type: VARCHAR
       - name: IS_INSTITUTIONAL
-        data_type: NUMBER
-      - name: IS_DISCRETIONARY
         data_type: NUMBER
       - name: IS_MARKET_DAY
         data_type: NUMBER

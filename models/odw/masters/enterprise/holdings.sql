@@ -16,6 +16,7 @@ select
     , a.custodian
     , a.aum_classification
     , a.advisor
+    , a.discretion_status
     , a.is_active
     , a.opened_date
     , a.closed_date

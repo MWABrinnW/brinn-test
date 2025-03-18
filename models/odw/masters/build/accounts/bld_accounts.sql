@@ -154,6 +154,7 @@ cte_system_with_custodial as (
         and f.effective_date <= coalesce(cl.effective_end_date , '2099-12-31')
         and cl.custodian = 'fidelity'
     where true
+        and f.effective_date between {{start_date}} and {{end_date}}
         and f.gnum_source = 'PRIMARY_GNUM'
     group by all
 )
@@ -169,6 +170,7 @@ cte_system_with_custodial as (
         , array_agg(distinct s.firm_source) within group (order by s.firm_source) as firm_source_agg
     from {{ ref('schwab__base_fa_master_relationships') }} as s
     where true
+        and s.effective_date between {{start_date}} and {{end_date}}
     group by all
 )
 
@@ -262,7 +264,7 @@ cte_system_with_custodial as (
             as pref_advisor__account_number
         , pref_advisor                                                                                as pref_advisor
         , pref_location                                                                               as pref_location
-        , pref_system_key                                                                                    as pref_system_key
+        , pref_system_key                                                                             as pref_system_key
         , is_institutional
         , dedupe_system_rn
         , dedupe_system_count

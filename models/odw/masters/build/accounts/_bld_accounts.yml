@@ -48,6 +48,8 @@ models:
         description: 'Advisor email.'
       - name: ADVISOR_EMPLOYEE_ID
         description: ''
+      - name: DISCRETION_STATUS
+        description: 'Discretionary status'
       - name: LOCATION_CODE
         description: ''
       - name: FEE_SCHEDULE
@@ -57,8 +59,6 @@ models:
       - name: AUM_CLASSIFICATION
         description: ''
       - name: IS_ERISA
-        description: ''
-      - name: IS_DISCRETIONARY
         description: ''
       - name: IS_VOTING_PROXIED
         description: ''

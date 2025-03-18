@@ -7,6 +7,7 @@ select
     , ba.firm_source
     , ba.account_number_formatted
     , ba.account_number
+    , ba.__account_key              as __account_key
     , ba.account_value
     , ba.crm_account_id             as account_id_crm
     , ba.pms_account_id             as account_id_pms
@@ -22,6 +23,10 @@ select
     , ba.model_investment_strategy
     , ba.fee_schedule
     , ba.advisor
+    , case when ba.is_discretionary = 1 then 'discretionary'
+        when ba.is_discretionary = 0 then 'non-discretionary'
+        when ba.is_discretionary = 2 then 'partial'
+    end::text                       as discretion_status
     , ba.is_active
     , ba.opened_date
     , ba.closed_date
@@ -56,6 +61,7 @@ select
     , ma.firm_source::text(200)               as firm_source
     , ma.account_number_formatted::text(200)  as account_number_formatted
     , ma.account_number::text(200)            as account_number
+    , ma.account_number::text                 as __account_key
     , ma.account_value::number(18 , 2)        as account_value
     , ma.account_id_crm::text(200)            as account_id_crm
     , ma.account_id_pms::text(200)            as account_id_pms
@@ -69,6 +75,7 @@ select
     , ma.model_investment_strategy::text(200) as model_investment_strategy
     , ma.fee_schedule::text(200)              as fee_schedule
     , ma.advisor::text(200)                   as advisor
+    , ma.discretion_status::text              as discretion_status
     , ma.is_active::int                       as is_active
     , ma.opened_date::date                    as opened_date
     , ma.closed_date::date                    as closed_date
@@ -101,6 +108,7 @@ select
     , sk.firm_source::text(200)                         as firm_source
     , la.financial_account_number::text(200)            as account_number_formatted
     , la.financial_account_number_clean::text(200)      as account_number
+    , la.financial_account_number_clean::text           as __account_key
     , la.current_value::number(18 , 2)                  as account_value
     , la.fa_sf_18_digit_id::text(200)                   as account_id_crm
     , la.internal_financial_account_number::text(200)   as account_id_pms
@@ -117,6 +125,7 @@ select
         else la.fee_schedule
     end                                                 as fee_schedule
     , la.client_manager::text(200)                      as advisor
+    , la.discretion_status::text                        as discretion_status
     , la.account_active::int                            as is_active
     , la.account_open_date::date                        as opened_date
     , la.closed_date::date                              as closed_date
