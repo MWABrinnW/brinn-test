@@ -1,0 +1,53 @@
+version: 2
+models:
+  - name: moxy__rpt_asset_comparison
+    description: >
+      Compares Orion assets to Moxy positions.
+      Generally, this report is the most useful if the Moxy positions are refreshsed immediately after import.
+      This also reveals issues that may have overlap with the lot analysis report.
+    data_tests:
+      - compare_describe_to_prod:
+          name: compare_describe_to_prod_moxy_asset_comparison
+          state_database: odw
+          state_schema: moxy
+          state_name: rpt_asset_comparison
+          summarize: false
+          exclude_columns: [_created_at, is_head, is_current, _source_loaded_at, _source_file, _source]
+          where_clause: none
+          config:
+            severity: warn
+    columns:
+      - name: ACCOUNT_NUMBER
+        data_type: VARCHAR
+      - name: ACCOUNT_ID
+        data_type: NUMBER
+      - name: TRADING_ID
+        data_type: VARCHAR
+      - name: MOXY_PORTFOLIO_STATUS
+        data_type: NUMBER
+      - name: CUSTODIAN
+        data_type: VARCHAR
+      - name: IS_CUSTODIAL_CASH
+        data_type: NUMBER
+      - name: PRODUCT_TYPE
+        data_type: VARCHAR
+      - name: SYMBOL
+        data_type: VARCHAR
+      - name: CUSIP
+        data_type: VARCHAR
+      - name: TOTAL_CUSTODIAL_CASH
+        data_type: NUMBER
+      - name: SOURCE_QUANTITY
+        data_type: NUMBER
+      - name: MOXY_START_VALUE
+        data_type: NUMBER
+      - name: QUANTITY_DIFF
+        data_type: NUMBER
+      - name: IS_QUANTITY_MATCH
+        data_type: NUMBER
+      - name: MOXY_PRE_ALLOC_POS
+        data_type: NUMBER
+      - name: MOXY_ALLOC_POS
+        data_type: NUMBER
+      - name: CASH_DIFF
+        data_type: NUMBER

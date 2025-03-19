@@ -17,3 +17,5 @@ models:
         data_type: VARCHAR
       - name: IS_INTRADAY_IMPORT
         data_type: NUMBER
+      - name: TRADING_ID
+        data_type: VARCHAR

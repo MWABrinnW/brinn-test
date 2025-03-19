@@ -94,6 +94,17 @@ with cte_internal_allocations_raw as (
     select distinct account_number from cte_internal_allocations_raw
 )
 
+, moxy_accounts as (
+    -- Get the moxy portfolio status.
+    select
+        portfolio_id          as trading_id
+        , portfolio_status_id as portfolio_status_id
+    from {{ ref('moxy__stg_accounts') }}
+    where 1 = 1
+        and is_head = 1
+    group by all
+)
+
 , cte_internal_allocations as (
     -- For the internal allocations we have to join to estate item to arrive at the
     -- account_number. Sometimes the timing doesn't work out or the SF record is dirty.
@@ -266,8 +277,13 @@ left join cte_all_accounts as a
     on coalesce(i.account_number , e.account_number) = a.account_number
 left join cte_mis_accounts as acc
     on coalesce(i.account_number , e.account_number) = acc.account_number
+left join moxy_accounts as ma
+    on acc.trading_id = ma.trading_id
 left join cte_internal_prices as ip
     on i.account_number = ip.account_number
     and i.trade_date = ip.trade_date
     and i.symbol = ip.symbol
     and i.cusip = ip.cusip
+where 1 = 1
+    -- Only include accounts open in moxy.
+    and coalesce(ma.portfolio_status_id , 1) = 1

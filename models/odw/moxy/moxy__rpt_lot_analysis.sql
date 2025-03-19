@@ -2,10 +2,22 @@
     tags = ["report"]
     ) }}
 
+with moxy_accounts as (
+    -- Get the moxy portfolio status.
+    select
+        portfolio_id          as trading_id
+        , portfolio_status_id as portfolio_status_id
+    from {{ ref('moxy__stg_accounts') }}
+    where 1 = 1
+        and is_head = 1
+    group by all
+)
+
 select
     tl.effective_date                                      as effective_date
     , tl.custodian                                         as custodian
     , tl.account_number                                    as account_number
+    , a.trading_id                                         as trading_id
     , tl.symbol                                            as symbol
     , tl.ticker                                            as ticker
     , tl.cusip                                             as cusip
@@ -40,6 +52,8 @@ from {{ ref('mis__int_orion_tax_lots_api') }} as tl
 inner join {{ ref('mis__accounts') }} as a
     on tl.account_number = a.account_number
     and a.is_moxy = 1
+left join moxy_accounts as ma
+    on a.trading_id = ma.trading_id
 where 1 = 1
     -- The old version of the report didn't exclude non managed assets. Going forward
     -- we are excluding them.
@@ -50,5 +64,7 @@ where 1 = 1
     -- There are cash like positions which don't ever have lots (i.e. SNOXX, SWVXX, FMOXX, FMPXX).
     -- To handle (this may be too inclusive?) we'll exclude using the asset class.
     and coalesce(tl.asset_class , '') <> 'Cash and Cash Equivalents'
+    -- Only include accounts open in moxy.
+    and coalesce(ma.portfolio_status_id , 1) = 1
 group by all
 order by effective_date , account_number , symbol

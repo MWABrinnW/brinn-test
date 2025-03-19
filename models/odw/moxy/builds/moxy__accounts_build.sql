@@ -40,7 +40,7 @@ with cte_accounts_transposed as (
         , ('name' , '$')
         , ('ndscnt' , '#')
         , ('ornid' , '$')
-        , ('portstat' , '#')
+        , ('portsta' , '#')
         , ('primres' , '$')
         , ('qbmgrid' , '$')
         , ('recdate' , '$')

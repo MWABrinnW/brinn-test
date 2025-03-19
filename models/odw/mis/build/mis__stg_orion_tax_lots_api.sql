@@ -33,6 +33,8 @@ select
     , _data:"costBasisMethod"::int             as cost_basis_method
     , _data:"source"::int                      as source
     , case
+        when _data:"lot_source"::text is not null
+            then _data:"lot_source"::text
         when _source_file ilike '%custodian%'
             then 'custodian'
         else 'orion'

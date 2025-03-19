@@ -1,0 +1,46 @@
+version: 2
+models:
+  - name: perform__rpt_asset_comparison
+    description: >
+      Compares Orion assets to Perform holdings.
+      Generally, this report is the most useful if the Perform holdings is refreshsed immediately after trade recon is complete.
+    data_tests:
+      - compare_describe_to_prod:
+          name: compare_describe_to_prod_perform_asset_comparison
+          state_database: odw
+          state_schema: perform
+          state_name: rpt_asset_comparison
+          summarize: false
+          exclude_columns: [_created_at, is_head, is_current, _source_loaded_at, _source_file, _source]
+          where_clause: none
+          config:
+            severity: warn
+    columns:
+      - name: ACCOUNT_NUMBER
+        data_type: VARCHAR
+      - name: ACCOUNT_ID
+        data_type: NUMBER
+      - name: CUSTODIAN
+        data_type: VARCHAR
+      - name: IS_CUSTODIAL_CASH
+        data_type: NUMBER
+      - name: SYMBOL
+        data_type: VARCHAR
+      - name: CUSIP
+        data_type: VARCHAR
+      - name: TOTAL_SOURCE_CUSTODIAL_CASH
+        data_type: NUMBER
+      - name: SOURCE_QUANTITY
+        data_type: NUMBER
+      - name: DEST_START_VALUE
+        data_type: NUMBER
+      - name: QUANTITY_DIFF
+        data_type: NUMBER
+      - name: IS_QUANTITY_MATCH
+        data_type: NUMBER
+      - name: CASH_DIFF
+        data_type: NUMBER
+      - name: HAS_TRADES_TODAY
+        data_type: NUMBER
+      - name: BLOTTER
+        data_type: VARCHAR

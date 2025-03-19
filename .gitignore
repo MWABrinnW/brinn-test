@@ -21,3 +21,4 @@ lint_failures.txt
 *scratch.*
 reladiff.toml
 target-base/
+.aider*

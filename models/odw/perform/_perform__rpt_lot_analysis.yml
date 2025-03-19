@@ -1,6 +1,17 @@
 version: 2
 models:
   - name: perform__rpt_lot_analysis
+    data_tests:
+      - compare_describe_to_prod:
+          name: compare_describe_to_prod_perform_lot_analysis
+          state_database: odw
+          state_schema: perform
+          state_name: rpt_lot_analysis
+          summarize: false
+          exclude_columns: [_created_at, is_head, is_current, _source_loaded_at, _source_file, _source]
+          where_clause: none
+          config:
+            severity: warn
     columns:
       - name: EFFECTIVE_DATE
         description: ''

@@ -1,12 +1,25 @@
 version: 2
 models:
   - name: moxy__rpt_lot_analysis
+    data_tests:
+      - compare_describe_to_prod:
+          name: compare_describe_to_prod_moxy_lot_analysis
+          state_database: odw
+          state_schema: moxy
+          state_name: rpt_lot_analysis
+          summarize: false
+          exclude_columns: [_created_at, is_head, is_current, _source_loaded_at, _source_file, _source, quantity_diff, value_diff]
+          where_clause: none
+          config:
+            severity: warn
     columns:
       - name: EFFECTIVE_DATE
         data_type: DATE
       - name: CUSTODIAN
         data_type: VARCHAR
       - name: ACCOUNT_NUMBER
+        data_type: VARCHAR
+      - name: TRADING_ID
         data_type: VARCHAR
       - name: SYMBOL
         data_type: VARCHAR

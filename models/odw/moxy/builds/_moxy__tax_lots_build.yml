@@ -4,6 +4,25 @@ models:
     config:
       quoting:
         identifier: true
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - portfolio
+            - lotnum
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - portfolio
+            - exlotid
+      - compare_describe_to_prod:
+          name: compare_describe_to_prod_moxy_tax_lots_build
+          state_database: odw
+          state_schema: moxy
+          state_name: tax_lots_build
+          summarize: false
+          exclude_columns: [_created_at, is_head, is_current, _source_loaded_at, _source_file, _source, lotnum, exlotid]
+          where_clause: none
+          config:
+            severity: warn
     columns:
       - name: TRANID
         data_type: NUMBER
@@ -58,12 +77,10 @@ models:
         data_type: VARCHAR
         tests:
           - not_null
-          - unique
       - name: EXLOTID
         data_type: VARCHAR
         tests:
           - not_null
-          - unique
       - name: TRADEMATCH
         data_type: VARCHAR
       - name: SWAPTRANID

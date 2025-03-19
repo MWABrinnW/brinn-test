@@ -116,9 +116,52 @@ with mis_accounts as (
         , a.pms_account_id               as pms_account_id
         , a.is_active                    as is_active
         -- Prefer the orion ticker & symbol for any cusip.
-        , coalesce(sm.symbol , t.symbol) as symbol
+        -- There are private funds that orion assigns a dummy cusip to. Schwab presents
+        -- them with a name that won't match orion (or the existing security model in moxy)
+        -- so we attempt to handle them here to maintain parity with legacy orion workflows.
+        , case
+            when coalesce(sm.symbol , t.symbol) ilike 'THE CONNOR GROUP INCOME'
+                then '3580905'
+            when coalesce(sm.symbol , t.symbol) ilike 'THE CONNOR GROUP DEBT FU'
+                then '3580906'
+            when coalesce(sm.symbol , t.symbol) ilike 'AL NEYER INDUSTRIAL FUND'
+                then '1007341'
+            when coalesce(sm.symbol , t.symbol) ilike 'JRK PLATFORM 5 PARALLEL'
+                then '2342865'
+            when coalesce(sm.symbol , t.symbol) ilike 'HEC ONSHORE FUND LP'
+                then '2126122'
+            when coalesce(sm.symbol , t.symbol) ilike 'HIGHLANDS REIT INC'
+                then '43110A104'
+            when coalesce(sm.symbol , t.symbol) ilike 'MILTON STREET CAPITAL FU'
+                then '2629608'
+            when coalesce(sm.symbol , t.symbol) ilike 'BHP GROUP LTD       ORDF'
+                then '1246465'
+            when coalesce(sm.symbol , t.symbol) ilike 'CF TEXAS MULTIFAMILY POR'
+                then '1392007'
+            else coalesce(sm.symbol , t.symbol)
+        end::text                        as symbol
         , coalesce(sm.ticker , t.ticker) as ticker
-        , t.cusip                        as cusip
+        , case
+            when coalesce(sm.symbol , t.symbol) ilike 'THE CONNOR GROUP INCOME'
+                then '3580905'
+            when coalesce(sm.symbol , t.symbol) ilike 'THE CONNOR GROUP DEBT FU'
+                then '3580906'
+            when coalesce(sm.symbol , t.symbol) ilike 'AL NEYER INDUSTRIAL FUND'
+                then '1007341'
+            when coalesce(sm.symbol , t.symbol) ilike 'JRK PLATFORM 5 PARALLEL'
+                then '2342865'
+            when coalesce(sm.symbol , t.symbol) ilike 'HEC ONSHORE FUND LP'
+                then '2126122'
+            when coalesce(sm.symbol , t.symbol) ilike 'HIGHLANDS REIT INC'
+                then '43110A104'
+            when coalesce(sm.symbol , t.symbol) ilike 'MILTON STREET CAPITAL FU'
+                then '2629608'
+            when coalesce(sm.symbol , t.symbol) ilike 'BHP GROUP LTD       ORDF'
+                then '1246465'
+            when coalesce(sm.symbol , t.symbol) ilike 'CF TEXAS MULTIFAMILY POR'
+                then '1392007'
+            else t.cusip
+        end::text                        as cusip
         , t.is_sweep                     as is_custodial_cash
         -- Convert options _contracts_ to _shares_
         -- i.e. 2 contracts = 200 shares.
