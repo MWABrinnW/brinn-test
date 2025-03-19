@@ -619,7 +619,8 @@ models:
         enterprise:
           +schema: enterprise
           +grants:
-            +select: "{{ ['db_pms_r','db_edw_client_r','reporting'] if target.name in ['prod', 'test', 'ci'] else []}}"
+            +select: "{{ ['db_edw_client_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        ref:
           +schema: ref
           +grants:
             select: "{{ ['db_edw_client_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
@@ -669,6 +670,17 @@ models:
           +schema: ref
           +grants:
             select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+
+      masters:
+        +tags: ["masters","pms"]
+        build:
+          +schema: build
+          +grants:
+            +select: "{{ ['engineering','datamanagement'] if target.name in ['prod', 'ci'] else []}}"
+        enterprise:
+          +schema: enterprise
+          +grants:
+            +select: "{{ ['db_pms_r','db_edw_client_r','reporting'] if target.name in ['prod', 'ci'] else []}}"
 
       metrics:
         +tags: ["metrics", "daily"]
