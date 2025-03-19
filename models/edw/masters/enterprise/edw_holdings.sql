@@ -1,3 +1,9 @@
+{{
+  config(
+    alias = 'holdings' if target.name in ['prod', 'ci'] else none
+    )
+}}
+
 select
     a.effective_date
     , a.system_name
@@ -14,6 +20,8 @@ select
     , a.client_id_pms
     , a.client_name
     , a.custodian
+    , a.account_type
+    , a.model_investment_strategy
     , a.aum_classification
     , a.advisor
     , a.discretion_status
@@ -45,9 +53,11 @@ select
     , h.is_manual_holdings
     , a.is_legacy
     , h._created_at
-from {{ ref('accounts') }} as a
-left join {{ ref('nml_holdings') }} as h
+    -- accounts excluded from stg_accounts are filtered out, even if present in holdings
+from {{ ref('edw_accounts') }} as a
+left join {{ ref('stg_holdings') }} as h
     on a.effective_date = h.effective_date
     and a.system_key = h.system_key
     and a.account_number = h.account_number
+    and h.is_head_for_day = 1
 order by a.effective_date , a.system_key , a.account_number , h.market_value

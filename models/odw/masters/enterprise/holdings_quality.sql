@@ -45,4 +45,4 @@
     and is_manual_holdings=0
     and is_market_month_end=1" %}
 
-{{ describe_model_stats(model=ref('holdings'), where_clause=condition, date_partition='effective_date', exclude_columns=columns) }}
+{{ describe_model_stats(model=ref('odw_holdings'), where_clause=condition, date_partition='effective_date', exclude_columns=columns) }}

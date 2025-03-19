@@ -2,7 +2,7 @@ select
     effective_date::date                        as effective_date
     , lower(json:system_name::text(200))        as system_name
     , lower(json:system_instance::text(200))    as system_instance
-    , json:system_key::text(200)                as system_key
+    , lower(json:system_key::text(200))         as system_key
     , json:firm_source::text(200)               as firm_source
     , json:account_number_formatted::text(200)  as account_number_formatted
     , json:account_number::text(200)            as account_number

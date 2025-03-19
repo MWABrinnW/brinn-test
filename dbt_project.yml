@@ -573,6 +573,8 @@ models:
       masters:
         +schema: enterprise
         +tags: ["masters"]
+        +grants:
+          +select: "{{ ['db_pms_r','db_edw_client_r','reporting'] if target.name in ['prod', 'test', 'ci'] else []}}"
         +dbt-osmosis: "_{parent}_models.yml"
         build:
           +schema: build
@@ -617,8 +619,7 @@ models:
         enterprise:
           +schema: enterprise
           +grants:
-            select: "{{ ['db_edw_client_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
-        ref:
+            +select: "{{ ['db_pms_r','db_edw_client_r','reporting'] if target.name in ['prod', 'test', 'ci'] else []}}"
           +schema: ref
           +grants:
             select: "{{ ['db_edw_client_r'] if target.name in ['prod', 'test', 'ci'] else []}}"

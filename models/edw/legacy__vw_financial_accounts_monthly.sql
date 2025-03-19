@@ -54,8 +54,8 @@ select
     , a.system_key::text                as system_details
     , a.account_number_formatted::text  as financial_account_number
     , a.account_number::text            as financial_account_number_clean
-    , a.pms_account_id::text            as internal_financial_account_number
-    , a.pms_client_id::text             as internal_household_number
+    , a.account_id_pms::text            as internal_financial_account_number
+    , a.client_id_pms::text             as internal_household_number
     , null::text                        as registrant_name
     , a.account_name::text              as financial_account_name
     , a.client_name::text               as household_name
@@ -69,10 +69,7 @@ select
     , a.is_erisa::text                  as erisa
     , a.is_active::boolean              as account_active
     , a.aum_classification::text        as aum_classification_status
-    , case when a.is_discretionary = 1 then 'discretionary'
-        when a.is_discretionary = 0 then 'non-discretionary'
-        when a.is_discretionary = 2 then 'partial'
-    end::text                           as discretion_status
+    , a.discretion_status::text         as discretion_status
     , null::text                        as proxy_voting_status
     , null::text                        as cost_basis_disposal_method
     , null::text                        as prime_broker_enabled
@@ -86,18 +83,14 @@ select
     , null::text                        as id
     , a._created_at::date               as record_date
     , a._created_at                     as record_datetime
-    , a.crm_client_id::text             as hh_sf_18_digit_id
-    , a.crm_account_id::text            as fa_sf_18_digit_id
+    , a.client_id_crm::text             as hh_sf_18_digit_id
+    , a.account_id_crm::text            as fa_sf_18_digit_id
     , null::int                         as is_head
     , {{ col_is_current(date_col='effective_date') }}
 
-from {{ ref('bld_accounts') }} as a
+from {{ ref('edw_accounts') }} as a
 left join {{ ref('dates') }} as dt
     on a.effective_date = dt.date_key
 where true
     and a.effective_date >= '2025-01-01'
-    and a.is_excluded = 0
-    and a.is_primary = 1
-    and (a.closed_date is null or a.effective_date < a.closed_date)
-    and a.is_market_month_end = 1
 order by effective_date desc , system_name asc

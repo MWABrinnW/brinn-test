@@ -59,26 +59,23 @@ qualify row_number() over (
 -- unions holdings with an effective date greater than or equal to 2025-01-01
 union all
 select
-    a.system_name                            as system_name
-    , a.system_key::text(200)                as system_details
-    , a.account_number_formatted             as financial_account_number
-    , a.account_number                       as financial_account_number_clean
-    , a.pms_account_id                       as internal_financial_account_number
-    , a.pms_client_id                        as internal_household_number
+    h.system_name                            as system_name
+    , h.system_key::text(200)                as system_details
+    , h.account_number_formatted             as financial_account_number
+    , h.account_number                       as financial_account_number_clean
+    , h.account_id_pms                       as internal_financial_account_number
+    , h.client_id_pms                        as internal_household_number
     , null::text(200)                        as registrant_name
-    , a.account_name                         as financial_account_name
-    , a.aum_classification                   as aum_classification_status
-    , a.client_name                          as household_name
-    , a.location_code                        as location_code
-    , a.office_name                          as location_name
-    , a.account_type                         as type_of_account
-    , a.custodian                            as custodian
-    , case when a.is_discretionary = 1 then 'discretionary'
-        when a.is_discretionary = 0 then 'non-discretionary'
-        when a.is_discretionary = 2 then 'partial'
-    end::text                                as discretion_status
+    , h.account_name                         as financial_account_name
+    , h.aum_classification                   as aum_classification_status
+    , h.client_name                          as household_name
+    , h.location_code                        as location_code
+    , h.office_name                          as location_name
+    , h.account_type                         as type_of_account
+    , h.custodian                            as custodian
+    , h.discretion_status                    as discretion_status
     , null::text(200)                        as proxy_voting_status
-    , a.model_investment_strategy::text(200) as model_investment_strategy
+    , h.model_investment_strategy::text(200) as model_investment_strategy
     , h.cusip                                as cusip
     , h.ticker                               as ticker
     , null::text(200)                        as cusip_ticker
@@ -87,7 +84,7 @@ select
     , h.quantity                             as units_shares
     , h.price                                as price
     , h.cost_basis                           as cost_basis
-    , a.effective_date                       as as_of_date
+    , h.effective_date                       as as_of_date
     , null::text(200)                        as source_of_truth_final
     , h.security_type::text(200)             as product_type
     , null::text(200)                        as product_sub_type
@@ -101,24 +98,16 @@ select
     , null::text(200)                        as product_cfi_attribute
     , h.security_name                        as product_name
     , h.security_type                        as source_security_type
-    , a.effective_date                       as effective_date
+    , h.effective_date                       as effective_date
     , h._created_at                          as record_datetime
     , h._created_at::date                    as record_date
     , null::text(200)                        as account_holdings_id
     , dt.month_end_date                      as month_end_date
     , null::int                              as is_head
     , null::int                              as is_current
-from {{ ref('bld_accounts') }} as a
-left join {{ ref('leg_holdings') }} as h
-    on a.effective_date = h.effective_date
-    and a.system_key = h.system_key
-    and a.account_number = h.account_number
+from {{ ref('edw_holdings') }} as h
 left join {{ ref('dates') }} as dt
-    on a.effective_date = dt.date_key
+    on h.effective_date = dt.date_key
 where true
-    and a.effective_date >= '2025-01-01'
-    and a.is_excluded = 0
-    and a.is_primary = 1
-    and (a.closed_date is null or a.effective_date < a.closed_date)
-    and a.is_market_month_end = 1
+    and h.effective_date >= '2025-01-01'
 order by effective_date desc , system_name asc

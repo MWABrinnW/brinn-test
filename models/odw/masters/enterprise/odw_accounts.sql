@@ -1,3 +1,9 @@
+{{
+  config(
+    alias = 'accounts' if target.name in ['prod', 'ci'] else none
+    )
+}}
+
 select
     effective_date
     , system_name
