@@ -4,7 +4,7 @@
     account_id,
     is_head,
     {% for column in columns %}
-      listagg(distinct {{ column }}, ',') as {{ column }}
+      listagg(distinct {{ column }}, '; ') as {{ column }}
       {% if not loop.last %}, {% endif %}
     {% endfor %}
   from {{ ref('black_diamond_' ~ instance ~ '__base_relationships') }}

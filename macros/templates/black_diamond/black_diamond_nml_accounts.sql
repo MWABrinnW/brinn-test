@@ -60,7 +60,9 @@ select
         else a.custodial_account_name
     end::text(500)                                                        as pms_registrant_name
     , r.relationship_id                                                   as pms_client_id
-    , r.portfolio_display_name                                            as pms_client_name
+    , case when '{{ instance }}'::text in ('baystate' , 'mps' , 'uhnw') 
+        then r.relationship_name else r.portfolio_display_name 
+       end                                                                as pms_client_name
     , iff(a.closed_date is null , 1 , 0)                                  as pms_is_active
     , null::date                                                          as pms_created_date
     , a.start_date                                                        as pms_opened_date
