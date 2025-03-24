@@ -22,6 +22,10 @@ select
     , product_type_source_code              as product_type_source_code
     , product_type_source_definition        as product_type_source_definition
     , legacy_product_type                   as legacy_product_type
-    , legacy_product_type_source_code       as legacy_product_type_source_code
-    , legacy_product_type_source_definition as legacy_product_type_source_definition
+    , legacy_product_type_source_code
+        as legacy_product_type_source_code
+    , legacy_product_type_source_definition
+        as legacy_product_type_source_definition
 from {{ ref('flyer__sod_positions_prep') }}
+where true
+    and not (product = 'OPT' and len(ticker) <= 9)
