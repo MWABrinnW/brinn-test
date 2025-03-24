@@ -1,0 +1,31 @@
+version: 2
+
+sources:
+  - name: rps
+    description: retirement plan services; aka 401k
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    schema: rps
+    loader: daily job to identify if the box folder with source files has been loaded
+    loaded_at_field: _created_at represents the datetime each record is loaded to the source table.
+
+    tables:
+      - name: bills
+        columns:
+          - name: json
+            description: an array for each record stored in key-value pairs.
+            data_type: variant
+          - name: _created_at
+            description: datetime each record is loaded to the source table.
+            data_type: datetime
+          - name: _box_file_id
+            description: identifier for the box file.
+            data_type: string
+          - name: _box_file_name
+            description: name of the box file.
+            data_type: string
+          - name: _box_meta
+            description: metadata associated with the box file.
+            data_type: variant
+          - name: _id
+            description: identifier for the record.
+            data_type: int

@@ -191,6 +191,9 @@ models:
 
       cambak:
         +tags: ["institutional", "cambak", "andco"]
+        +grants:
+          +select: "{{ ['finance'] if target.name in ['prod', 'ci'] else []}}"
+
 
       cch_dau:
         +tags: ["cch_dau"]
@@ -458,11 +461,15 @@ models:
         +grants:
           select: "{{ ['engineering', 'datamanagement', 'reporting', 'integration_reporting'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
+      rps:
+        +tags: ["institutional", "rps", "401k"]
+        +grants: 
+          +select: "{{ ['finance'] if target.name in ['prod', 'ci'] else []}}"
+
       pontera:
         +tags: ["pontera"]
         +grants:
           select: "{{ ['db_custodial_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
-
 
       salesforce_adviceperiod:
         +tags: ["crm", "salesforce", "mps", "adviceperiod"]
