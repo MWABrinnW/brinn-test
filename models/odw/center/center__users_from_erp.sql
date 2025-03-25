@@ -121,6 +121,116 @@ with cte as (
         , a.cost_seg_3                                    as accounting_id
         , a.cost_seg_4                                    as team
         , a.cost_seg_6                                    as initiative
+        -- Abacus user list from Becky Margason for Center users that are deactivated, they use different expense tool
+        , case
+            when
+                a.employee_num in (
+                    '103534'
+                    , '103548'
+                    , '103526'
+                    , '103525'
+                    , '103530'
+                    , '103550'
+                    , '103476'
+                    , '103508'
+                    , '100701'
+                    , '103456'
+                    , '102022'
+                    , '103553'
+                    , '103488'
+                    , '103535'
+                    , '103485'
+                    , '103452'
+                    , '103547'
+                    , '103462'
+                    , '103499'
+                    , '103492'
+                    , '103505'
+                    , '103512'
+                    , '103516'
+                    , '103484'
+                    , '103495'
+                    , '103496'
+                    , '103552'
+                    , '100697'
+                    , '103538'
+                    , '103474'
+                    , '103503'
+                    , '103450'
+                    , '103469'
+                    , '103540'
+                    , '103527'
+                    , '103510'
+                    , '103531'
+                    , '103493'
+                    , '103478'
+                    , '103513'
+                    , '102755'
+                    , '103472'
+                    , '103520'
+                    , '101609'
+                    , '103546'
+                    , '103498'
+                    , '103517'
+                    , '103465'
+                    , '103482'
+                    , '101574'
+                    , '103507'
+                    , '103522'
+                    , '103533'
+                    , '103459'
+                    , '103460'
+                    , '103481'
+                    , '103468'
+                    , '103554'
+                    , '103471'
+                    , '103453'
+                    , '103477'
+                    , '103502'
+                    , '101095'
+                    , '103549'
+                    , '103521'
+                    , '103500'
+                    , '103490'
+                    , '102313'
+                    , '100699'
+                    , '103511'
+                    , '108378'
+                    , '103458'
+                    , '103480'
+                    , '103489'
+                    , '103497'
+                    , '103537'
+                    , '103209'
+                    , '103487'
+                    , '103556'
+                    , '103532'
+                    , '103515'
+                    , '101439'
+                    , '103509'
+                    , '103463'
+                    , '103523'
+                    , '102623'
+                    , '103555'
+                    , '103454'
+                    , '103466'
+                    , '103486'
+                    , '103475'
+                    , '103455'
+                    , '103539'
+                    , '100347'
+                    , '101346'
+                    , '103551'
+                    , '100698'
+                    , '103536'
+                    , '103464'
+                    , '101398'
+                    , '103504'
+                    , '103470'
+                )
+                then 1
+            else 0
+        end                                               as is_abacus_user
 
     from {{ ref('nml_oracle_hcm_associates') }} as a
     left join {{ ref('center__stg_users') }} as b
@@ -141,7 +251,8 @@ select
         object_construct(
             'first_name' , iff(a.first_name <> b.first_name , b.first_name || ' --> ' || a.first_name , null)
             , 'last_name' , iff(a.last_name <> b.last_name , b.last_name || ' --> ' || a.last_name , null)
-            , 'email_address' , iff(lower(a.email_address) <> lower(b.email_address) , b.email_address || ' --> ' || a.email_address , null)
+            , 'email_address'
+            , iff(lower(a.email_address) <> lower(b.email_address) , b.email_address || ' --> ' || a.email_address , null)
             , 'phone' , iff(a.phone <> b.phone_number , b.phone_number || ' --> ' || a.phone , null)
             , 'default_approver'
             , iff(c.id <> b.default_approver:id::text , b.default_approver:id::text || ' --> ' || c.id , null)
@@ -157,20 +268,24 @@ select
                 , null
             )
         ) , { }
-    ) as variances
+    )   as variances
 
-    , nullif(
-        object_construct(
-            -- Of course a user needs an email address!
-            'email_address' , iff(a.email_address is null , 'missing' , null)
-            -- Center requires a default cost center.
-            , 'default_cost_center' , iff(a.default_cost_center is null , 'missing' , null)
-            -- Center requires a default approver.
-            , 'default_approver_email' , iff(a.default_approver_email is null , 'missing' , null)
-            -- Center does not accept first names greater than 15 characters.
-            , 'first_name' , iff(len(a.first_name) > 15 , '> 15 characters' , null)
-        ) , { }
-    ) as exceptions
+    , case when a.id is null-- only calculate exceptions if the user doesn't exist in Center already
+            then
+                nullif(
+                    object_construct(
+                        -- Of course a user needs an email address!
+                        'email_address' , iff(a.email_address is null , 'missing' , null)
+                        -- Center requires a default cost center.
+                        , 'default_cost_center' , iff(a.default_cost_center is null , 'missing' , null)
+                        -- Center requires a default approver.
+                        , 'default_approver_email' , iff(a.default_approver_email is null , 'missing' , null)
+                        -- Center does not accept first names greater than 15 characters.
+                        , 'first_name' , iff(len(a.first_name) > 15 , '> 15 characters' , null)
+                    ) , { }
+                )
+    end
+        as exceptions
 
 from cte as a
 left join {{ ref('center__stg_users') }} as b
@@ -180,3 +295,5 @@ left join {{ ref('center__stg_users') }} as b
 left join {{ ref('center__stg_users') }} as c
     on a.default_approver_email = c.email_address
     and c.is_head = 1
+-- drop users that are in specific Abacus users list (received from Becky Margason)
+where a.is_abacus_user = 0
