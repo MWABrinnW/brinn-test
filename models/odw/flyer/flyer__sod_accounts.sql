@@ -62,7 +62,8 @@ with custodian_accounts as (
         , c.crm_id                                  as crm_id
         , c.orion_account_id                        as orion_account_id
         , row_number() over (
-            partition by a.effective_date , a.custodian , a.account_number order by c.model_name
+            partition by a.effective_date , a.custodian , a.account_number
+            order by c.model_name
         )                                           as rn
         , c.advisoremail                            as advisoremail
         , replace(
@@ -94,18 +95,7 @@ select
     , null::text(200)                                                as use_account_cash
     , null::text(200)                                                as cash_reserve_type
     , null::text(200)                                                as cash_reserve
-    , 'api@mariner'
-    || ';data@mariner'
-    || ';grant@mariner'
-    || ';sharedblotter@mariner'
-    || ';adam@mariner'
-    || ';brett@mariner'
-    || ';robert@mariner'
-    || ';jacob@mariner'
-    || ';brad@mariner'
-    || ';ruben@mariner'
-    || ';erin@mariner'
-    ::text(200)                                                      as associated_users
+    , 'ALL'::text(200)                                               as associated_users
     , null::text(200)                                                as taxable
     , null::text(200)                                                as cashreserveexpiry
     , null::text(200)                                                as disablesleeves
