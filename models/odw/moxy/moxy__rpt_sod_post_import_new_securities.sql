@@ -17,11 +17,12 @@ with cte_securities as (
 )
 
 select
-    symbol         as "Symbol"
-    , sec_type     as "Type"
-    , iso_cfi      as iso
-    , product_name as "Name"
-    , cusip        as "Cusip"
+    symbol               as "Symbol"
+    , sec_type           as "Type"
+    , iso_cfi            as iso
+    , product_name       as "Name"
+    , cusip              as "Cusip"
+    , is_intraday_import as is_intraday_import
 from cte_securities
 where is_new = 1
     and rn = 1
