@@ -198,3 +198,37 @@ sources:
         description: ""
       - name: cbboardmember
         description: ""
+      - name: accountinvestmentex
+        description: ""
+      - name: accountinvestmentexex
+        description: ""
+      - name: billingdefinitionex
+        description: ""
+      - name: clientteammembersdetails
+        description: ""
+      - name: contactentityrelationinfo
+        description: ""
+      - name: custodialrelationshipex
+        description: ""
+      - name: globalentity
+        description: ""
+      - name: iproductex
+        description: ""
+      - name: iproducttrackinginfo
+        description: ""
+      - name: latestfmventry
+        description: ""
+      - name: matchingcontactemails
+        description: ""
+      - name: matchingcontactphonenumbers
+        description: ""
+      - name: matchingcontacts
+        description: ""
+      - name: mropportunitystatus
+        description: ""
+      - name: opportunityex
+        description: ""
+      - name: planex
+        description: ""
+      - name: planserviceproviderrelationship
+        description: ""
