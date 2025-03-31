@@ -28,4 +28,3 @@ select
         as legacy_product_type_source_definition
 from {{ ref('flyer__sod_positions_prep') }}
 where true
-    and not (product = 'OPT' and len(ticker) <= 9)

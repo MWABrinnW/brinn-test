@@ -283,6 +283,7 @@ select
     )                                                                                                                as OPTION_SYMBOL_ID_OCC
   , is_head
   , is_current
+  , is_cusip_head
   , effective_date
   , _source_loaded_at, _source_loaded_at::date as record_date, _source_loaded_at::timestamp as record_datetime
   , _source_file

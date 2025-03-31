@@ -9,14 +9,23 @@ select
     , t.account_custodial_formatted                                                  as account_number_formatted
 
     -- Convenience lookup id.
-    , coalesce(
-        s.symbol , s.option_symbol_id_occ
+    -- isolate product code that represents options
+    , 
+    coalesce(
+        s.symbol 
+        , s.option_symbol_id_occ
+        , s2.symbol 
+        , s2.option_symbol_id_occ
         , t.cusip
         , s.security_description_line_1
         , t.security_description_lines_1_6
-    )::text(200
-    )                                                                                as symbol
-    , coalesce(s.symbol , s.option_symbol_id_occ)::text(200)                         as ticker
+    )::text(200)                                                                    as symbol
+    , coalesce(
+        s.symbol 
+        , s.option_symbol_id_occ
+        , s2.symbol 
+        , s2.option_symbol_id_occ
+    )::text(200)                                                                     as ticker
     , t.cusip::text(200)                                                             as cusip
 
     , case
@@ -87,6 +96,9 @@ left join {{ ref('custodian_firms') }}                             cf
 left join {{ ref('fidelity_' ~ src ~ '_history__vw_secmast_1_security') }} s
           on t.effective_date = s.effective_date
               and t.cusip = s.cusip
+left join {{ ref('fidelity_' ~ src ~ '_history__vw_secmast_1_security') }} s2
+              on t.cusip = s2.cusip
+              and s2.is_cusip_head = 1
 left join {{ ref('custodian_mappings') }}     cmpt
           on t.custodian = cmpt.custodian
                and cmpt.field = 'product_type'
