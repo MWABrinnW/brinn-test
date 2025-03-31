@@ -41,7 +41,7 @@ select
         when lower(c.action_description) = 'resignation' then 'Voluntary'
     end::text(100)                               as vol_invol
     , h.accounting_id                            as accounting_id
-    , null::text                                 as location_code
+    , l.location_code                            as location_code
     , c.location_name                            as location_name
     , c.cost_num::text(200)                      as cost_num
     , case
@@ -50,13 +50,14 @@ select
         else 'Non-Advisor'
     end::text(200)                               as advisor_nonadvisor
     , c.mgmt_lvl::text(200)                      as class
-    , null::text                                 as position_region_name
+    , l.region_name                              as position_region_name
     , c.location_name                            as position_location_name
     , c.department_name                          as position_department_name
     , c.location_name::text(200)                 as work_site_location_name
     , c.location_name::text(200)                 as reporting_office
     , c.job_family_name                          as job_family_name
     , c.job_function_name                        as job_function_code
+    , c.job_name                                 as job_title
     , c.tenure_in_years::text(50)                as years_of_service
     , case
         when c.age_in_years < 30 then '< 30 years'
@@ -137,7 +138,9 @@ from {{ ref('faw__stg_census') }} as c
 left join {{ ref('nml_oracle_hcm_associates') }} as h
     on c.effective_date = h.effective_at::date
     and c.person_number = h.employee_num
-
+left join {{ ref('locations') }} as l
+    on h.accounting_id = l.accounting_id
+    and h.effective_at::date between coalesce(l.start_date , h.effective_at::date) and coalesce(l.end_date , h.effective_at::date)
 where true
     and c.effective_date::date >= '2024-06-21'
 
@@ -196,7 +199,7 @@ select
     , em.reporting_office                       as reporting_office
     , null::text                                as job_family_name
     , em.job_function_code                      as job_function_code
-    --, em.position_title                         as position_title
+    , em.position_title                         as job_title
 
     -- Calculate the years and months for service for the employee.
     , em.years_of_service                       as years_of_service
@@ -273,8 +276,8 @@ select
     , le.reporting_office                        as reporting_office
     , null::text                                 as job_family_name
 
-    --, le.title                                   as title
     , le.job_function_code                       as job_function_code
+    , le.title                                   as job_title
     , le.years_of_service                        as years_of_service
     , le.age_band                                as age_band
     , le.gender                                  as gender
