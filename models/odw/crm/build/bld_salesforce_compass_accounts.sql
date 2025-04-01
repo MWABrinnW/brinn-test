@@ -148,7 +148,7 @@ select
       then 0
     else 0
   end::int) desc 
-        , ei.current_value_c desc)                            as rn_acct_num  
+        , ei.current_value_c desc nulls last)                            as rn_acct_num  
   , ei._fivetran_synced                                       as _fivetran_synced
   , current_timestamp::timestamp_ntz                          as _created_at
     , ei._created_at                                          as _source_loaded_at
