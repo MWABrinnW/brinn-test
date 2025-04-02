@@ -1,19 +1,9 @@
-{{ config(
-    materialized = 'incremental',
-    unique_key = 'effective_at::date',
-    incremental_strategy = 'delete+insert',
-    on_schema_change = 'sync_all_columns',
-    cluster_by = ['effective_at::date'],
-    tags = ['hourly']
-) }}
-
 with cte_associates as (
     select *
     from {{ ref('hcm__stg_employee_demographics') }}
     where 1 = 1
-        {% if is_incremental() -%}
-            and effective_at > (select max(t.effective_at) from {{ this }} as t)
-        {% endif -%}
+        -- Limit to HCM records that haven't made it into the history table (incremental) yet.
+        and effective_at > (select max(t.effective_at) from {{ ref('nml_oracle_hcm_associates_history') }} as t)
 )
 
 , cte_ad_users as (
@@ -28,9 +18,7 @@ with cte_associates as (
         , manager_distinguishedname
     from {{ ref('active_directory__rpt_users') }}
     where 1 = 1
-        {% if is_incremental() -%}
-            and _effective_at::date in (select distinct t.effective_at::date from cte_associates as t)
-        {% endif -%}
+        and _effective_at::date in (select distinct t.effective_at::date from cte_associates as t)
 )
 
 select
