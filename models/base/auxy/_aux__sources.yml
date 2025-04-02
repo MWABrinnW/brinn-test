@@ -548,6 +548,28 @@ sources:
       - name: rules_account_value_dates
         tags: ["pms", "masters"]
         description: ""
+      - name: tax_location_mapping
+        tags: ["financials", "billing","tax"]
+        description: Reference data for tax location mappings
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: _ID
+            description: ''
+            data_type: NUMBER    
   - name: raw_aux
     description: >
       The sources represent auxillary source systems and files,
