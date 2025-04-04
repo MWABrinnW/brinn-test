@@ -1,0 +1,13 @@
+version: 2
+
+seeds:
+  - name: system_firm
+    description: ''
+    docs:
+      show: true
+    config:
+      enabled: true
+    columns:
+    - name: system_key
+    - name: legacy_system_name
+    - name: firm_source
