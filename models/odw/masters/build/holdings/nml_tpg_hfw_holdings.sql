@@ -6,7 +6,7 @@ select
     , system_key::text(200)               as system_key
     , firm_source::text(200)              as firm_source
     --- [account + holdings] ---------------------------------------------------------
-    , null::text(200)                     as account_id
+    , account_number::text(200)           as account_id
     , account_number_formatted::text(200) as account_number_formatted
     , account_number::text(200)           as account_number
     , null::text(200)                     as client_id
@@ -33,5 +33,5 @@ select
     , _created_at::datetime               as _source_loaded_at
     , _source_file::text(200)             as _source_file
 from {{ ref('tpg_hfw__stg_holdings') }}
--- dedupes holdings records found in multiple files for the same effective date 
+-- dedupes holdings records found in multiple files for the same effective date
 where rn = 1

@@ -9,6 +9,7 @@
 -- set variables from the variable dictionary maco used in this script
 {% set lookback = cvar('lookback') %}
 {% set dev_filter = cvar('dev_day_filter')%}
+{% set max_start_date = cvar('account_masters_start_date')%}
 
 -- resolve the "end_date" or use current_date function
 {% set provided_end_date = var('end_date', none) %}
@@ -81,7 +82,8 @@ cte_target_max AS (
             effective_date,
             max(_created_at)::datetime as max_created_at
         from {{ this }}
-        where effective_date between {{start_date}} and {{end_date}}
+        where true
+            and effective_date between {{start_date}} and {{end_date}}
         group by effective_date
     {%- else -%}
         select 
@@ -98,6 +100,8 @@ cte_incremental as (
     left join cte_max_source_loaded_at as cte_um
        on cte_um.effective_date = cte_tm.effective_date
     where true
+        -- limits build, static date from cvar
+        and cte_union.effective_date >= '{{ max_start_date }}'
         -- lookback window, defaults to lookback (start) from today (end)
         and cte_union.effective_date between {{ start_date }} and {{ end_date }}
         {%- if target.name not in ['prod'] %}

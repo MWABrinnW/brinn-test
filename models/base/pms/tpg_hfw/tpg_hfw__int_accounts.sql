@@ -5,7 +5,7 @@ select
     , firm_source                                                           as firm_source
     , account_number_formatted                                              as account_number_formatted
     , account_number                                                        as account_number
-    , account_number_formatted                                              as internal_account_number
+    , account_number                                                        as internal_account_number
     , substring(account_number_formatted , 1 , 3)                           as internal_household_number
     , client_name                                                           as registrant_name
     , client_name                                                           as account_name
