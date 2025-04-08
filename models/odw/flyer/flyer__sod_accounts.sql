@@ -40,7 +40,7 @@ with custodian_accounts as (
     from {{ ref('flyer__stg_sod_salesforce_accounts') }} as a
     left join {{ ref('salesforce_compass__base_user') }} as u
         on a.ownerid = u.id and u.is_head = 1
-    where a._created_at = (select max(t._created_at) from {{ ref('flyer__stg_sod_salesforce_accounts') }} as t)
+    where a.is_head = 1
 )
 
 , accounts as (

@@ -43,4 +43,5 @@ from
     and sod.is_head = 1 #}
 left join {{ ref('flyer__stg_sod_salesforce_accounts') }} as s
     on upper(a.account_number) = replace(trim(upper(s.identifier__c)) , '-' , '')
+    and s.is_head = 1
 where 1 = 1

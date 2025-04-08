@@ -35,4 +35,9 @@ select
     , registration_type__r::text(200)                           as registration_type__r
     , subadvisor__r::text(200)                                  as subadvisor__r
     , _created_at::timestamp                                    as _created_at
+    , {{ col_is_head(
+        reference=source('flyer', 'sod_salesforce_accounts'), 
+        reference_date_col='_created_at', 
+        source_date_col='_created_at'
+    ) }}
 from {{ source('flyer', 'sod_salesforce_accounts') }}
