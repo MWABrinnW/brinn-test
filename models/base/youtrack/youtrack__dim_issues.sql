@@ -1,21 +1,21 @@
 with cte_custom_fields as (
     select
-        issues.id                                                                                    as id
-        , max(case when cf.value:"name" = 'Group' then cf.value:"value" end)::variant                as group_name
-        , max(case when cf.value:"name" = 'Type' then cf.value:"value":"name" end)::text(200)        as type--noqa: RF04
-        , max(case when cf.value:"name" = 'State' then cf.value:"value":"name" end)::text(200)       as state
-        , max(case when cf.value:"name" = 'Priority' then cf.value:"value":"name" end)::text(200)    as priority
-        , max(case when cf.value:"name" = 'Status' then cf.value:"value":"name" end)::text(200)      as status
-        , max(case when cf.value:"name" = 'Stakeholder' then cf.value:"value":"name" end)::text(200) as stakeholder
-        , max(case when cf.value:"name" = 'Assignee' then cf.value:"value":"name" end)::text(200)    as assignee
-        , max(case when cf.value:"name" = 'Start Date' then cf.value:"value" end)::text              as start_date
-        , max(case when cf.value:"name" = 'End Date' then cf.value:"value" end)::text                as end_date
-        , max(case when cf.value:"name" = 'Due Date' then cf.value:"value" end)::text                as due_date
-        , max(case when cf.value:"name" = 'Initial Estimate' then cf.value:"value" end)::text(200)   as initial_estimate
-        , max(case when cf.value:"name" = 'Final Estimate' then cf.value:"value" end)::text(200)     as final_estimate
-        , max(case when cf.value:"name" = 'System' then cf.value:"value":"name" end)::text(200)      as system--noqa: RF04
-        , max(case when cf.value:"name" = 'Support Type' then cf.value:"value" end)::text(200)       as support_type
-        , max(case when cf.value:"name" = 'Business Unit' then cf.value:"value" end)::text(200)      as business_unit
+        issues.id                                                                                  as id
+        , max(case when cf.value:"name" = 'Group' then cf.value:"value" end)::variant              as group_name
+        , max(case when cf.value:"name" = 'Type' then cf.value:"value":"name" end)::text(200)      as type--noqa: RF04
+        , max(case when cf.value:"name" = 'State' then cf.value:"value":"name" end)::text(200)     as state
+        , max(case when cf.value:"name" = 'Priority' then cf.value:"value":"name" end)::text(200)  as priority
+        , max(case when cf.value:"name" = 'Status' then cf.value:"value":"name" end)::text(200)    as status
+        , max(case when cf.value:"name" = 'Stakeholder' then cf.value:"value" end::variant)        as stakeholders
+        , max(case when cf.value:"name" = 'Assignee' then cf.value:"value":"name" end)::text(200)  as assignee
+        , max(case when cf.value:"name" = 'Start Date' then cf.value:"value" end)::text            as start_date
+        , max(case when cf.value:"name" = 'End Date' then cf.value:"value" end)::text              as end_date
+        , max(case when cf.value:"name" = 'Due Date' then cf.value:"value" end)::text              as due_date
+        , max(case when cf.value:"name" = 'Initial Estimate' then cf.value:"value" end)::text(200) as initial_estimate
+        , max(case when cf.value:"name" = 'Final Estimate' then cf.value:"value" end)::text(200)   as final_estimate
+        , max(case when cf.value:"name" = 'System' then cf.value:"value":"name" end)::text(200)    as system--noqa: RF04
+        , max(case when cf.value:"name" = 'Support Type' then cf.value:"value" end)::text(200)     as support_type
+        , max(case when cf.value:"name" = 'Business Unit' then cf.value:"value" end)::text(200)    as business_unit
     from {{ ref('youtrack__stg_issues') }} as issues
     , table(flatten(INPUT => issues.custom_fields)) as cf
     group by issues.id
@@ -47,7 +47,12 @@ select
     , cf.priority                                           as priority
     , cf.state                                              as state
     , cf.status                                             as status
-    , cf.stakeholder                                        as stakeholder
+    , array_construct_compact(
+        cf.stakeholders[0]:fullName::text
+        , cf.stakeholders[1]:fullName::text
+        , cf.stakeholders[2]:fullName::text
+        , cf.stakeholders[3]:fullName::text
+    )                                                       as stakeholders
     , cf.assignee                                           as assignee
     , to_date(to_timestamp_tz((cf.start_date::int) / 1000)) as start_date
     , to_date(to_timestamp_tz((cf.end_date::int) / 1000))   as end_date

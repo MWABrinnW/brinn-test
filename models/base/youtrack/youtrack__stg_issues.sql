@@ -28,3 +28,4 @@ select
     , _id                                                      as _id
 from {{ source('youtrack', 'issues') }}
 order by created_at desc
+--
