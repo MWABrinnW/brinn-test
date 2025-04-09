@@ -90,6 +90,7 @@ data_tests:
 # [Configuring models]
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 models:
+  +transient: false
   github_source:
     +tags: ["github", "daily"]
     +grants:
