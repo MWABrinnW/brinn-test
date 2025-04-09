@@ -167,6 +167,7 @@ with tot_dist_cte as (
         ) as rn
     from {{ ref('xcm__stg_task_detail') }}
     where true
+        and status_type = 'Completed'
     qualify rn = 1
 )
 
@@ -238,8 +239,8 @@ left join {{ ref('cch_dau__stg_client') }} as clnt
 left join xcm_locations_cte as xcmc
     on clnt.clientid = xcmc.account_number
 left join {{ ref('aux__stg_tax_location_mappings') }} as ref1
-    on cch_client_office = ref1.tax_office_name
-    and ref1.system_name = 'CCH Axcess'
+    on lower(cch_client_office) = ref1.tax_office_name
+    and ref1.system_name = 'cch axcess'
 left join {{ ref('aux__stg_tax_location_mappings') }} as ref2
-    on xcm_office = ref2.tax_office_name
-    and ref2.system_name = 'XCM'
+    on lower(xcm_office) = ref2.tax_office_name
+    and ref2.system_name = 'xcm'
