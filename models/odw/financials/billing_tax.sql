@@ -2,6 +2,7 @@ select
     system_name
     , system_instance
     , system_key
+    , firm_source
     , location_code
     , office_name
     , client_location_code

@@ -2,9 +2,442 @@ version: 2
 
 sources:
   - name: fivetran_salesforce_adviceperiod
-    description: ""
+    description: ''
     database: fivetran
     schema: salesforce_adviceperiod
     loaded_at_field: _fivetran_synced
     tables:
       - name: user
+        columns:
+          - name: ID
+            data_type: VARCHAR
+          - name: USERNAME
+            data_type: VARCHAR
+          - name: LAST_NAME
+            data_type: VARCHAR
+          - name: FIRST_NAME
+            data_type: VARCHAR
+          - name: MIDDLE_NAME
+            data_type: VARCHAR
+          - name: SUFFIX
+            data_type: VARCHAR
+          - name: NAME
+            data_type: VARCHAR
+          - name: COMPANY_NAME
+            data_type: VARCHAR
+          - name: DIVISION
+            data_type: VARCHAR
+          - name: DEPARTMENT
+            data_type: VARCHAR
+          - name: TITLE
+            data_type: VARCHAR
+          - name: STREET
+            data_type: VARCHAR
+          - name: CITY
+            data_type: VARCHAR
+          - name: STATE
+            data_type: VARCHAR
+          - name: POSTAL_CODE
+            data_type: VARCHAR
+          - name: COUNTRY
+            data_type: VARCHAR
+          - name: STATE_CODE
+            data_type: VARCHAR
+          - name: COUNTRY_CODE
+            data_type: VARCHAR
+          - name: LATITUDE
+            data_type: FLOAT
+          - name: LONGITUDE
+            data_type: FLOAT
+          - name: GEOCODE_ACCURACY
+            data_type: VARCHAR
+          - name: EMAIL
+            data_type: VARCHAR
+          - name: EMAIL_PREFERENCES_AUTO_BCC
+            data_type: BOOLEAN
+          - name: EMAIL_PREFERENCES_AUTO_BCC_STAY_IN_TOUCH
+            data_type: BOOLEAN
+          - name: EMAIL_PREFERENCES_STAY_IN_TOUCH_REMINDER
+            data_type: BOOLEAN
+          - name: SENDER_EMAIL
+            data_type: VARCHAR
+          - name: SENDER_NAME
+            data_type: VARCHAR
+          - name: SIGNATURE
+            data_type: VARCHAR
+          - name: STAY_IN_TOUCH_SUBJECT
+            data_type: VARCHAR
+          - name: STAY_IN_TOUCH_SIGNATURE
+            data_type: VARCHAR
+          - name: STAY_IN_TOUCH_NOTE
+            data_type: VARCHAR
+          - name: PHONE
+            data_type: VARCHAR
+          - name: FAX
+            data_type: VARCHAR
+          - name: MOBILE_PHONE
+            data_type: VARCHAR
+          - name: ALIAS
+            data_type: VARCHAR
+          - name: COMMUNITY_NICKNAME
+            data_type: VARCHAR
+          - name: BADGE_TEXT
+            data_type: VARCHAR
+          - name: IS_ACTIVE
+            data_type: BOOLEAN
+          - name: TIME_ZONE_SID_KEY
+            data_type: VARCHAR
+          - name: USER_ROLE_ID
+            data_type: VARCHAR
+          - name: LOCALE_SID_KEY
+            data_type: VARCHAR
+          - name: RECEIVES_INFO_EMAILS
+            data_type: BOOLEAN
+          - name: RECEIVES_ADMIN_INFO_EMAILS
+            data_type: BOOLEAN
+          - name: EMAIL_ENCODING_KEY
+            data_type: VARCHAR
+          - name: PROFILE_ID
+            data_type: VARCHAR
+          - name: USER_TYPE
+            data_type: VARCHAR
+          - name: LANGUAGE_LOCALE_KEY
+            data_type: VARCHAR
+          - name: EMPLOYEE_NUMBER
+            data_type: VARCHAR
+          - name: DELEGATED_APPROVER_ID
+            data_type: VARCHAR
+          - name: MANAGER_ID
+            data_type: VARCHAR
+          - name: LAST_LOGIN_DATE
+            data_type: TIMESTAMP_TZ
+          - name: LAST_PASSWORD_CHANGE_DATE
+            data_type: TIMESTAMP_TZ
+          - name: CREATED_DATE
+            data_type: TIMESTAMP_TZ
+          - name: CREATED_BY_ID
+            data_type: VARCHAR
+          - name: LAST_MODIFIED_DATE
+            data_type: TIMESTAMP_TZ
+          - name: LAST_MODIFIED_BY_ID
+            data_type: VARCHAR
+          - name: SYSTEM_MODSTAMP
+            data_type: TIMESTAMP_TZ
+          - name: NUMBER_OF_FAILED_LOGINS
+            data_type: NUMBER
+          - name: OFFLINE_TRIAL_EXPIRATION_DATE
+            data_type: TIMESTAMP_TZ
+          - name: OFFLINE_PDA_TRIAL_EXPIRATION_DATE
+            data_type: TIMESTAMP_TZ
+          - name: USER_PERMISSIONS_MARKETING_USER
+            data_type: BOOLEAN
+          - name: USER_PERMISSIONS_OFFLINE_USER
+            data_type: BOOLEAN
+          - name: USER_PERMISSIONS_AVANTGO_USER
+            data_type: BOOLEAN
+          - name: USER_PERMISSIONS_CALL_CENTER_AUTO_LOGIN
+            data_type: BOOLEAN
+          - name: USER_PERMISSIONS_SFCONTENT_USER
+            data_type: BOOLEAN
+          - name: USER_PERMISSIONS_INTERACTION_USER
+            data_type: BOOLEAN
+          - name: USER_PERMISSIONS_SUPPORT_USER
+            data_type: BOOLEAN
+          - name: FORECAST_ENABLED
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_ACTIVITY_REMINDERS_POPUP
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_EVENT_REMINDERS_CHECKBOX_DEFAULT
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_TASK_REMINDERS_CHECKBOX_DEFAULT
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_REMINDER_SOUND_OFF
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_DISABLE_ALL_FEEDS_EMAIL
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_DISABLE_FOLLOWERS_EMAIL
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_DISABLE_PROFILE_POST_EMAIL
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_DISABLE_CHANGE_COMMENT_EMAIL
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_DISABLE_LATER_COMMENT_EMAIL
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_DIS_PROF_POST_COMMENT_EMAIL
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_APEX_PAGES_DEVELOPER_MODE
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_RECEIVE_NO_NOTIFICATIONS_AS_APPROVER
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_RECEIVE_NOTIFICATIONS_AS_DELEGATED_APPROVER
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_HIDE_CSNGET_CHATTER_MOBILE_TASK
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_DISABLE_MENTIONS_POST_EMAIL
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_DIS_MENTIONS_COMMENT_EMAIL
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_HIDE_CSNDESKTOP_TASK
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_HIDE_CHATTER_ONBOARDING_SPLASH
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_HIDE_SECOND_CHATTER_ONBOARDING_SPLASH
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_DIS_COMMENT_AFTER_LIKE_EMAIL
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_DISABLE_LIKE_EMAIL
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SORT_FEED_BY_COMMENT
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_DISABLE_MESSAGE_EMAIL
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_DISABLE_BOOKMARK_EMAIL
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_DISABLE_SHARE_POST_EMAIL
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_ENABLE_AUTO_SUB_FOR_FEEDS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_DISABLE_FILE_SHARE_NOTIFICATIONS_FOR_API
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_TITLE_TO_EXTERNAL_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_MANAGER_TO_EXTERNAL_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_EMAIL_TO_EXTERNAL_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_WORK_PHONE_TO_EXTERNAL_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_MOBILE_PHONE_TO_EXTERNAL_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_FAX_TO_EXTERNAL_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_STREET_ADDRESS_TO_EXTERNAL_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_CITY_TO_EXTERNAL_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_STATE_TO_EXTERNAL_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_POSTAL_CODE_TO_EXTERNAL_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_COUNTRY_TO_EXTERNAL_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_PROFILE_PIC_TO_GUEST_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_TITLE_TO_GUEST_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_CITY_TO_GUEST_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_STATE_TO_GUEST_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_POSTAL_CODE_TO_GUEST_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_COUNTRY_TO_GUEST_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_FORECASTING_CHANGE_SIGNALS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_HIDE_S_1_BROWSER_UI
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_DISABLE_ENDORSEMENT_EMAIL
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_PATH_ASSISTANT_COLLAPSED
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_CACHE_DIAGNOSTICS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_EMAIL_TO_GUEST_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_MANAGER_TO_GUEST_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_WORK_PHONE_TO_GUEST_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_MOBILE_PHONE_TO_GUEST_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_FAX_TO_GUEST_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SHOW_STREET_ADDRESS_TO_GUEST_USERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_LIGHTNING_EXPERIENCE_PREFERRED
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_PREVIEW_LIGHTNING
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_HIDE_END_USER_ONBOARDING_ASSISTANT_MODAL
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_HIDE_LIGHTNING_MIGRATION_MODAL
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_HIDE_SFX_WELCOME_MAT
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_HIDE_BIGGER_PHOTO_CALLOUT
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_GLOBAL_NAV_BAR_WTSHOWN
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_GLOBAL_NAV_GRID_MENU_WTSHOWN
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_CREATE_LEXAPPS_WTSHOWN
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_FAVORITES_WTSHOWN
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_RECORD_HOME_SECTION_COLLAPSE_WTSHOWN
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_RECORD_HOME_RESERVED_WTSHOWN
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_FAVORITES_SHOW_TOP_FAVORITES
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_EXCLUDE_MAIL_APP_ATTACHMENTS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SUPPRESS_TASK_SFXREMINDERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SUPPRESS_EVENT_SFXREMINDERS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_PREVIEW_CUSTOM_THEME
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_HAS_CELEBRATION_BADGE
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_USER_DEBUG_MODE_PREF
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SRHOVERRIDE_ACTIVITIES
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_NEW_LIGHTNING_REPORT_RUN_PAGE_ENABLED
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_REVERSE_OPEN_ACTIVITIES_VIEW
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_HAS_SENT_WARNING_EMAIL
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_HAS_SENT_WARNING_EMAIL_238
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_HAS_SENT_WARNING_EMAIL_240
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_NATIVE_EMAIL_CLIENT
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_SEND_LIST_EMAIL_THROUGH_EXTERNAL_SERVICE
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_HIDE_BROWSE_PRODUCT_REDIRECT_CONFIRMATION
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_HIDE_ONLINE_SALES_APP_WELCOME_MAT
+            data_type: BOOLEAN
+          - name: CONTACT_ID
+            data_type: VARCHAR
+          - name: ACCOUNT_ID
+            data_type: VARCHAR
+          - name: CALL_CENTER_ID
+            data_type: VARCHAR
+          - name: EXTENSION
+            data_type: VARCHAR
+          - name: FEDERATION_IDENTIFIER
+            data_type: VARCHAR
+          - name: ABOUT_ME
+            data_type: VARCHAR
+          - name: FULL_PHOTO_URL
+            data_type: VARCHAR
+          - name: SMALL_PHOTO_URL
+            data_type: VARCHAR
+          - name: IS_EXT_INDICATOR_VISIBLE
+            data_type: BOOLEAN
+          - name: OUT_OF_OFFICE_MESSAGE
+            data_type: VARCHAR
+          - name: MEDIUM_PHOTO_URL
+            data_type: VARCHAR
+          - name: DIGEST_FREQUENCY
+            data_type: VARCHAR
+          - name: DEFAULT_GROUP_NOTIFICATION_FREQUENCY
+            data_type: VARCHAR
+          - name: LAST_VIEWED_DATE
+            data_type: TIMESTAMP_TZ
+          - name: LAST_REFERENCED_DATE
+            data_type: TIMESTAMP_TZ
+          - name: BANNER_PHOTO_URL
+            data_type: VARCHAR
+          - name: SMALL_BANNER_PHOTO_URL
+            data_type: VARCHAR
+          - name: MEDIUM_BANNER_PHOTO_URL
+            data_type: VARCHAR
+          - name: IS_PROFILE_PHOTO_ACTIVE
+            data_type: BOOLEAN
+          - name: INDIVIDUAL_ID
+            data_type: VARCHAR
+          - name: FSTR_DOCUMENT_MERGE_URL_C
+            data_type: VARCHAR
+          - name: FSTR_IGNORE_PCE_DEFINITION_INITIATORS_C
+            data_type: BOOLEAN
+          - name: FSTR_NOTIFY_ON_ASSIGNMENT_C
+            data_type: BOOLEAN
+          - name: FSTR_OUT_OF_OFFICE_END_C
+            data_type: TIMESTAMP_TZ
+          - name: FSTR_OUT_OF_OFFICE_REPLACEMENT_USER_C
+            data_type: VARCHAR
+          - name: FSTR_OUT_OF_OFFICE_START_C
+            data_type: TIMESTAMP_TZ
+          - name: DUPCHECK_DC_3_DISABLE_DUPLICATE_CHECK_C
+            data_type: BOOLEAN
+          - name: DA_SCOOP_COMPOSER_DEFAULT_GROOVE_TEAM_C
+            data_type: VARCHAR
+          - name: DA_SCOOP_COMPOSER_EMAIL_ALIAS_1_C
+            data_type: VARCHAR
+          - name: DA_SCOOP_COMPOSER_EMAIL_ALIAS_2_C
+            data_type: VARCHAR
+          - name: SCHWAB_ABP_SMA_C
+            data_type: FLOAT
+          - name: DA_SCOOP_COMPOSER_GOOGLE_PLUS_ID_C
+            data_type: VARCHAR
+          - name: DA_SCOOP_COMPOSER_IS_UNRESOLVED_ITEMS_AGENT_C
+            data_type: BOOLEAN
+          - name: DA_SCOOP_COMPOSER_MY_UNRESOLVED_ITEMS_AGENT_C
+            data_type: VARCHAR
+          - name: DA_SCOOP_COMPOSER_PROFILE_ID_C
+            data_type: VARCHAR
+          - name: HOOPLA_C
+            data_type: BOOLEAN
+          - name: SCHWAB_TBP_SMA_C
+            data_type: FLOAT
+          - name: PRIMARY_ADVISOR_C
+            data_type: VARCHAR
+          - name: SECONDARY_ADVISOR_C
+            data_type: VARCHAR
+          - name: DESIGNEE_1_C
+            data_type: VARCHAR
+          - name: DESIGNEE_2_C
+            data_type: VARCHAR
+          - name: PARTNER_TEAM_C
+            data_type: VARCHAR
+          - name: SCHWAB_NON_MANAGED_FA_C
+            data_type: FLOAT
+          - name: FIDELITY_ADVISOR_G_C
+            data_type: VARCHAR
+          - name: FIDELITY_TBP_PRIMARY_C
+            data_type: VARCHAR
+          - name: FIDELITY_ABP_PRIMARY_C
+            data_type: VARCHAR
+          - name: FIDELITY_BD_C
+            data_type: VARCHAR
+          - name: FIDELITY_ORION_C
+            data_type: VARCHAR
+          - name: FIDELITY_TBP_C
+            data_type: VARCHAR
+          - name: FIDELITY_ABP_C
+            data_type: VARCHAR
+          - name: _FIVETRAN_DELETED
+            data_type: BOOLEAN
+          - name: _FIVETRAN_SYNCED
+            data_type: TIMESTAMP_TZ
+          - name: USER_PREFERENCES_SHOW_FORECASTING_ROUNDED_AMOUNTS
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_LIVE_AGENT_MIAW_SETUP_DEFLECTION
+            data_type: BOOLEAN
+          - name: FIDELITY_MPS_BD_C
+            data_type: VARCHAR
+          - name: REGION_C
+            data_type: VARCHAR
+          - name: TIER_C
+            data_type: VARCHAR
+          - name: USER_PREFERENCES_HIDE_ONLINE_SALES_APP_TAB_VISIBILITY_REQUIREMENTS_MODAL
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_ASSISTIVE_ACTIONS_ENABLED_IN_ACTION_LAUNCHER
+            data_type: BOOLEAN
+          - name: USER_PREFERENCES_ACTION_LAUNCHER_EINSTEIN_GPT_CONSENT
+            data_type: BOOLEAN
+          - name: END_DAY
+            data_type: VARCHAR
+          - name: START_DAY
+            data_type: VARCHAR
+          - name: PASSWORD_EXPIRATION_DATE
+            data_type: TIMESTAMP_TZ
+          - name: SU_ACCESS_EXPIRATION_DATE
+            data_type: DATE

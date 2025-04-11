@@ -2,49 +2,737 @@ version: 2
 
 sources:
   - name: edw_mwa
-    description: "Enterprise data warehouse"
+    description: Enterprise data warehouse
     database: "{{ var('db_edw_src', env_var('DBT_DB_EDW_SRC', 'edw')) }}"
     schema: mwa
-    tags: ['edw', 'mwa']
+    tags: [edw, mwa]
     loaded_at_field: record_datetime
     tables:
       - name: financial_account_daily
-        description: "Replicated from dw1/edw.dbo.financial_account_daily"
+        description: Replicated from dw1/edw.dbo.financial_account_daily
+        columns:
+          - name: SYSTEM_NAME
+            data_type: VARCHAR
+          - name: SYSTEM_DETAILS
+            data_type: VARCHAR
+          - name: FINANCIAL_ACCOUNT_NUMBER
+            data_type: VARCHAR
+          - name: FINANCIAL_ACCOUNT_NUMBER_CLEAN
+            data_type: VARCHAR
+          - name: INTERNAL_FINANCIAL_ACCOUNT_NUMBER
+            data_type: VARCHAR
+          - name: INTERNAL_HOUSEHOLD_NUMBER
+            data_type: VARCHAR
+          - name: REGISTRANT_NAME
+            data_type: VARCHAR
+          - name: FINANCIAL_ACCOUNT_NAME
+            data_type: VARCHAR
+          - name: HOUSEHOLD_NAME
+            data_type: VARCHAR
+          - name: LOCATION_CODE
+            data_type: VARCHAR
+          - name: LOCATION_NAME
+            data_type: VARCHAR
+          - name: TYPE_OF_ACCOUNT
+            data_type: VARCHAR
+          - name: CUSTODIAN
+            data_type: VARCHAR
+          - name: MODEL_INVESTMENT_STRATEGY
+            data_type: VARCHAR
+          - name: CLIENT_MANAGER
+            data_type: VARCHAR
+          - name: FEE_SCHEDULE
+            data_type: VARCHAR
+          - name: ERISA
+            data_type: VARCHAR
+          - name: ACCOUNT_ACTIVE
+            data_type: BOOLEAN
+          - name: AUM_CLASSIFICATION_STATUS
+            data_type: VARCHAR
+          - name: DISCRETION_STATUS
+            data_type: VARCHAR
+          - name: PROXY_VOTING_STATUS
+            data_type: VARCHAR
+          - name: CURRENT_VALUE
+            data_type: NUMBER
+          - name: ACCOUNT_OPEN_DATE
+            data_type: DATE
+          - name: CLOSED_DATE
+            data_type: DATE
+          - name: AS_OF_DATE
+            data_type: DATE
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+          - name: MH_LOCATION_NAME
+            data_type: VARCHAR
+          - name: FINANCE_LOCATION_NAME
+            data_type: VARCHAR
+          - name: SF_LOCATION_NAME
+            data_type: VARCHAR
+          - name: GENERAL_RULE_TYPE
+            data_type: VARCHAR
+          - name: EXCEPTION_TYPE
+            data_type: VARCHAR
+          - name: EXCEPTION
+            data_type: VARCHAR
+          - name: PORTFOLIO_MANAGEMENT_SYSTEM
+            data_type: VARCHAR
+          - name: SOURCE_OF_TRUTH_LOCATION
+            data_type: VARCHAR
+          - name: SOURCE_OF_TRUTH_ADVISOR_OVERRIDE
+            data_type: VARCHAR
+          - name: SOURCE_OF_TRUTH_FINAL
+            data_type: VARCHAR
+          - name: SF_18_DIGIT_ID
+            data_type: VARCHAR
+          - name: RECORD_DATE
+            data_type: DATE
+          - name: RECORD_DATETIME
+            data_type: TIMESTAMP_LTZ
+          - name: ID
+            data_type: VARCHAR
+          - name: KEY_FINANCIAL_ACCOUNT
+            data_type: VARCHAR
+          - name: MONTH_END_DATE
+            data_type: DATE
+          - name: COST_BASIS_DISPOSAL_METHOD
+            data_type: VARCHAR
+          - name: PRIME_BROKER_ENABLED
+            data_type: VARCHAR
+          - name: HH_SF_18_DIGIT_ID
+            data_type: VARCHAR
       - name: financial_account_monthly
-        description: "Replicated from dw1/edw.dbo.financial_account_monthly"
+        description: Replicated from dw1/edw.dbo.financial_account_monthly
+        columns:
+          - name: SYSTEM_NAME
+            data_type: VARCHAR
+          - name: SYSTEM_DETAILS
+            data_type: VARCHAR
+          - name: SF_18_DIGIT_ID
+            data_type: VARCHAR
+          - name: FINANCIAL_ACCOUNT_NUMBER
+            data_type: VARCHAR
+          - name: FINANCIAL_ACCOUNT_NUMBER_CLEAN
+            data_type: VARCHAR
+          - name: INTERNAL_FINANCIAL_ACCOUNT_NUMBER
+            data_type: VARCHAR
+          - name: INTERNAL_HOUSEHOLD_NUMBER
+            data_type: VARCHAR
+          - name: REGISTRANT_NAME
+            data_type: VARCHAR
+          - name: FINANCIAL_ACCOUNT_NAME
+            data_type: VARCHAR
+          - name: HOUSEHOLD_NAME
+            data_type: VARCHAR
+          - name: LOCATION_CODE
+            data_type: VARCHAR
+          - name: LOCATION_NAME
+            data_type: VARCHAR
+          - name: TYPE_OF_ACCOUNT
+            data_type: VARCHAR
+          - name: CUSTODIAN
+            data_type: VARCHAR
+          - name: MODEL_INVESTMENT_STRATEGY
+            data_type: VARCHAR
+          - name: CLIENT_MANAGER
+            data_type: VARCHAR
+          - name: FEE_SCHEDULE
+            data_type: VARCHAR
+          - name: ERISA
+            data_type: VARCHAR
+          - name: ACCOUNT_ACTIVE
+            data_type: BOOLEAN
+          - name: AUM_CLASSIFICATION_STATUS
+            data_type: VARCHAR
+          - name: DISCRETION_STATUS
+            data_type: VARCHAR
+          - name: PROXY_VOTING_STATUS
+            data_type: VARCHAR
+          - name: CURRENT_VALUE
+            data_type: NUMBER
+          - name: ACCOUNT_OPEN_DATE
+            data_type: DATE
+          - name: CLOSED_DATE
+            data_type: DATE
+          - name: AS_OF_DATE
+            data_type: DATE
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+          - name: RECORD_DATETIME
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_DATE
+            data_type: DATE
+          - name: MH_LOCATION_NAME
+            data_type: VARCHAR
+          - name: FINANCE_LOCATION_NAME
+            data_type: VARCHAR
+          - name: SF_LOCATION_NAME
+            data_type: VARCHAR
+          - name: GENERAL_RULE_TYPE
+            data_type: VARCHAR
+          - name: EXCEPTION_TYPE
+            data_type: VARCHAR
+          - name: EXCEPTION
+            data_type: VARCHAR
+          - name: PORTFOLIO_MANAGEMENT_SYSTEM
+            data_type: VARCHAR
+          - name: SOURCE_OF_TRUTH_LOCATION
+            data_type: VARCHAR
+          - name: SOURCE_OF_TRUTH_ADVISOR_OVERRIDE
+            data_type: VARCHAR
+          - name: SOURCE_OF_TRUTH_FINAL
+            data_type: VARCHAR
+          - name: MONTH_END_DATE
+            data_type: DATE
+          - name: ID
+            data_type: VARCHAR
+          - name: KEY_FINANCIAL_ACCOUNT
+            data_type: VARCHAR
+          - name: COST_BASIS_DISPOSAL_METHOD
+            data_type: VARCHAR
+          - name: PRIME_BROKER_ENABLED
+            data_type: VARCHAR
+          - name: HH_SF_18_DIGIT_ID
+            data_type: VARCHAR
       - name: account_holdings_daily
-        description: "Replicated from dw1/edw.dbo.account_holdings_daily"
+        description: Replicated from dw1/edw.dbo.account_holdings_daily
+        columns:
+          - name: ACCOUNT_HOLDINGS_ID
+            data_type: VARCHAR
+          - name: KEY_ACCOUNT_HOLDINGS
+            data_type: VARCHAR
+          - name: SYSTEM_NAME
+            data_type: VARCHAR
+          - name: SYSTEM_DETAILS
+            data_type: VARCHAR
+          - name: FINANCIAL_ACCOUNT_NUMBER
+            data_type: VARCHAR
+          - name: FINANCIAL_ACCOUNT_NUMBER_CLEAN
+            data_type: VARCHAR
+          - name: INTERNAL_FINANCIAL_ACCOUNT_NUMBER
+            data_type: VARCHAR
+          - name: INTERNAL_HOUSEHOLD_NUMBER
+            data_type: VARCHAR
+          - name: REGISTRANT_NAME
+            data_type: VARCHAR
+          - name: FINANCIAL_ACCOUNT_NAME
+            data_type: VARCHAR
+          - name: HOUSEHOLD_NAME
+            data_type: VARCHAR
+          - name: AUM_CLASSIFICATION_STATUS
+            data_type: VARCHAR
+          - name: LOCATION_CODE
+            data_type: VARCHAR
+          - name: LOCATION_NAME
+            data_type: VARCHAR
+          - name: ACCOUNT_ACTIVE
+            data_type: BOOLEAN
+          - name: TYPE_OF_ACCOUNT
+            data_type: VARCHAR
+          - name: CUSTODIAN
+            data_type: VARCHAR
+          - name: DISCRETION_STATUS
+            data_type: VARCHAR
+          - name: PROXY_VOTING_STATUS
+            data_type: VARCHAR
+          - name: MODEL_INVESTMENT_STRATEGY
+            data_type: VARCHAR
+          - name: CUSIP
+            data_type: VARCHAR
+          - name: TICKER
+            data_type: VARCHAR
+          - name: CUSIP_TICKER
+            data_type: VARCHAR
+          - name: SECURITY_NAME
+            data_type: VARCHAR
+          - name: SECURITY_TYPE
+            data_type: VARCHAR
+          - name: MARKET_VALUE
+            data_type: NUMBER
+          - name: UNITS_SHARES
+            data_type: NUMBER
+          - name: PRICE
+            data_type: NUMBER
+          - name: COST_BASIS
+            data_type: NUMBER
+          - name: AS_OF_DATE
+            data_type: DATE
+          - name: SOURCE_OF_TRUTH_LOCATION
+            data_type: VARCHAR
+          - name: SOURCE_OF_TRUTH_ADVISOR_OVERRIDE
+            data_type: VARCHAR
+          - name: SOURCE_OF_TRUTH_FINAL
+            data_type: VARCHAR
+          - name: PRODUCT_TYPE
+            data_type: VARCHAR
+          - name: PRODUCT_SUB_TYPE
+            data_type: VARCHAR
+          - name: PRODUCT_CLASS
+            data_type: VARCHAR
+          - name: PRODUCT_DESCRIPTION
+            data_type: VARCHAR
+          - name: PRODUCT_CATEGORY
+            data_type: VARCHAR
+          - name: PRODUCT_CATEGORY_NAME
+            data_type: VARCHAR
+          - name: PRODUCT_ISO_CFI_TYPE
+            data_type: VARCHAR
+          - name: PRODUCT_ISO_CFI_CODE
+            data_type: VARCHAR
+          - name: PRODUCT_CFI_CATEGORY
+            data_type: VARCHAR
+          - name: PRODUCT_CFI_ATTRIBUTE
+            data_type: VARCHAR
+          - name: PRODUCT_NAME
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+          - name: RECORD_DATETIME
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_DATE
+            data_type: DATE
+          - name: MONTH_END_DATE
+            data_type: DATE
       - name: account_holdings_monthly
-        description: "Replicated from dw1/edw.dbo.account_holdings_monthly"
-
+        description: Replicated from dw1/edw.dbo.account_holdings_monthly
+        columns:
+          - name: ACCOUNT_HOLDINGS_ID
+            data_type: VARCHAR
+          - name: KEY_ACCOUNT_HOLDINGS_MONTHLY
+            data_type: VARCHAR
+          - name: SYSTEM_NAME
+            data_type: VARCHAR
+          - name: SYSTEM_DETAILS
+            data_type: VARCHAR
+          - name: FINANCIAL_ACCOUNT_NUMBER
+            data_type: VARCHAR
+          - name: FINANCIAL_ACCOUNT_NUMBER_CLEAN
+            data_type: VARCHAR
+          - name: INTERNAL_FINANCIAL_ACCOUNT_NUMBER
+            data_type: VARCHAR
+          - name: INTERNAL_HOUSEHOLD_NUMBER
+            data_type: VARCHAR
+          - name: REGISTRANT_NAME
+            data_type: VARCHAR
+          - name: FINANCIAL_ACCOUNT_NAME
+            data_type: VARCHAR
+          - name: HOUSEHOLD_NAME
+            data_type: VARCHAR
+          - name: LOCATION_CODE
+            data_type: VARCHAR
+          - name: LOCATION_NAME
+            data_type: VARCHAR
+          - name: ACCOUNT_ACTIVE
+            data_type: BOOLEAN
+          - name: TYPE_OF_ACCOUNT
+            data_type: VARCHAR
+          - name: CUSTODIAN
+            data_type: VARCHAR
+          - name: DISCRETION_STATUS
+            data_type: VARCHAR
+          - name: PROXY_VOTING_STATUS
+            data_type: VARCHAR
+          - name: MODEL_INVESTMENT_STRATEGY
+            data_type: VARCHAR
+          - name: CUSIP
+            data_type: VARCHAR
+          - name: TICKER
+            data_type: VARCHAR
+          - name: CUSIP_TICKER
+            data_type: VARCHAR
+          - name: SECURITY_NAME
+            data_type: VARCHAR
+          - name: SECURITY_TYPE
+            data_type: VARCHAR
+          - name: MARKET_VALUE
+            data_type: NUMBER
+          - name: UNITS_SHARES
+            data_type: NUMBER
+          - name: PRICE
+            data_type: NUMBER
+          - name: COST_BASIS
+            data_type: NUMBER
+          - name: AS_OF_DATE
+            data_type: DATE
+          - name: SOURCE_OF_TRUTH_LOCATION
+            data_type: VARCHAR
+          - name: SOURCE_OF_TRUTH_ADVISOR_OVERRIDE
+            data_type: VARCHAR
+          - name: SOURCE_OF_TRUTH_FINAL
+            data_type: VARCHAR
+          - name: PRODUCT_TYPE
+            data_type: VARCHAR
+          - name: PRODUCT_SUB_TYPE
+            data_type: VARCHAR
+          - name: PRODUCT_CLASS
+            data_type: VARCHAR
+          - name: PRODUCT_DESCRIPTION
+            data_type: VARCHAR
+          - name: PRODUCT_CATEGORY
+            data_type: VARCHAR
+          - name: PRODUCT_CATEGORY_NAME
+            data_type: VARCHAR
+          - name: PRODUCT_ISO_CFI_TYPE
+            data_type: VARCHAR
+          - name: PRODUCT_ISO_CFI_CODE
+            data_type: VARCHAR
+          - name: PRODUCT_CFI_CATEGORY
+            data_type: VARCHAR
+          - name: PRODUCT_CFI_ATTRIBUTE
+            data_type: VARCHAR
+          - name: PRODUCT_NAME
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+          - name: RECORD_DATETIME
+            data_type: TIMESTAMP_LTZ
+          - name: RECORD_DATE
+            data_type: DATE
+          - name: AUM_CLASSIFICATION_STATUS
+            data_type: VARCHAR
+          - name: MONTH_END_DATE
+            data_type: DATE
   - name: reporting_int
     description: Reporting team internal schema
     database: reporting
     schema: int
-    tags: ['reporting']
+    tags: [reporting]
     tables:
       - name: vw_locations_all_info
+        columns:
+          - name: LOCATION_CODE
+            data_type: VARCHAR
+          - name: OFFICE_NAME
+            data_type: VARCHAR
+          - name: PRIMARY_PMS_PLATFORM
+            data_type: VARCHAR
+          - name: ADDITIONAL_PMS_PLATFORMS
+            data_type: VARCHAR
+          - name: PRIMARY_CRM_PLATFORM
+            data_type: VARCHAR
+          - name: PRIMARY_BILLING_PLATFORM
+            data_type: VARCHAR
+          - name: PRIMARY_TRADING_OMS_PLATFORM
+            data_type: VARCHAR
+          - name: ADDITIONAL_TRADING_OMS_PLATFORMS
+            data_type: VARCHAR
       - name: historical_market_prices
         description: Historical index performance.
 
+        columns:
+          - name: MARKET_DATE
+            data_type: DATE
+          - name: TICKER
+            data_type: VARCHAR
+          - name: OPEN
+            data_type: NUMBER
+          - name: HIGH
+            data_type: NUMBER
+          - name: LOW
+            data_type: NUMBER
+          - name: CLOSE
+            data_type: NUMBER
+          - name: VOLUME
+            data_type: NUMBER
+          - name: DIVIDENDS
+            data_type: NUMBER
+          - name: STOCK_SPLITS
+            data_type: NUMBER
+          - name: RECORD_DATETIME
+            data_type: TIMESTAMP_NTZ
   - name: reporting_ext
     description: Reporting team external schema
     database: reporting
     schema: ext
-    tags: ['reporting']
+    tags: [reporting]
     tables:
       - name: vw_locations_all_info
+        columns: []
       - name: vw_network_advisor_master_monthly
+        columns:
+          - name: RECORD_ID
+            data_type: VARCHAR
+          - name: SYSTEM_NAME
+            data_type: VARCHAR
+          - name: SYSTEM_DETAILS
+            data_type: VARCHAR
+          - name: REDTAIL_ID
+            data_type: VARCHAR
+          - name: ADVISOR_FULL_NAME
+            data_type: VARCHAR
+          - name: ADVISOR_FIRST_NAME
+            data_type: VARCHAR
+          - name: ADVISOR_LAST_NAME
+            data_type: VARCHAR
+          - name: ADVISOR_ACTIVE_IND
+            data_type: BOOLEAN
+          - name: ADVISOR_FIRM_NAME
+            data_type: VARCHAR
+          - name: ADVISOR_START_DATE
+            data_type: DATE
+          - name: ADVISOR_TERMINATION_DATE
+            data_type: DATE
+          - name: ADVISOR_AGE_BAND
+            data_type: VARCHAR
+          - name: ADVISOR_YEARS_OF_SERVICE
+            data_type: VARCHAR
+          - name: WORK_SITE_ADDRESS_1
+            data_type: VARCHAR
+          - name: WORK_SITE_ADDRESS_2
+            data_type: VARCHAR
+          - name: WORK_SITE_CITY
+            data_type: VARCHAR
+          - name: WORK_SITE_STATE
+            data_type: VARCHAR
+          - name: WORK_SITE_ZIP_CODE
+            data_type: VARCHAR
+          - name: WORK_PHONE
+            data_type: VARCHAR
+          - name: WORK_EMAIL
+            data_type: VARCHAR
+          - name: REDTAIL_CATEGORY
+            data_type: VARCHAR
+          - name: REDTAIL_STATUS
+            data_type: VARCHAR
+          - name: SERVICE_TIER
+            data_type: VARCHAR
+          - name: HOUSE_ACCOUNTS_IND
+            data_type: BOOLEAN
+          - name: LEGACY_MPS_ADVISOR_IND
+            data_type: BOOLEAN
+          - name: AFFILIATION_ENTERPRISE
+            data_type: VARCHAR
+          - name: AFFILIATION
+            data_type: VARCHAR
+          - name: AFFILIATION_TYPE
+            data_type: VARCHAR
+          - name: AFFILIATION_MODEL
+            data_type: VARCHAR
+          - name: AFFILIATION_RIA
+            data_type: VARCHAR
+          - name: AFFILIATION_BD
+            data_type: VARCHAR
+          - name: START_THIS_MONTH
+            data_type: NUMBER
+          - name: END_THIS_MONTH
+            data_type: NUMBER
+          - name: NEW_THIS_MONTH
+            data_type: NUMBER
+          - name: LOST_THIS_MONTH
+            data_type: NUMBER
+          - name: OTHER_ADJ_THIS_MONTH
+            data_type: NUMBER
+          - name: AFFILIATION_MODEL_CHANGE
+            data_type: NUMBER
+          - name: PRIOR_AFFILIATION_MODEL
+            data_type: VARCHAR
+          - name: ADVISOR_STATUS_CHANGE_DATE
+            data_type: DATE
+          - name: ADVISOR_STATUS_NOTES
+            data_type: VARCHAR
+          - name: TERMINATION_TYPE
+            data_type: VARCHAR
+          - name: TERMINATION_REASON
+            data_type: VARCHAR
+          - name: FIRM_ID
+            data_type: VARCHAR
+          - name: LPL_MASTER_REP_ID
+            data_type: VARCHAR
+          - name: INDIVIDUAL_CRD
+            data_type: VARCHAR
+          - name: FIRM_CRD
+            data_type: VARCHAR
+          - name: REGISTERED_ENTITY
+            data_type: VARCHAR
+          - name: BROKER_DEALER
+            data_type: VARCHAR
+          - name: CUSTODIAN
+            data_type: VARCHAR
+          - name: PMS_SYSTEM
+            data_type: VARCHAR
+          - name: CRM_SYSTEM
+            data_type: VARCHAR
+          - name: LOCATION_CODE
+            data_type: VARCHAR
+          - name: SOURCE_SYSTEM_CLIENT_MANAGER
+            data_type: VARCHAR
+          - name: PORTFOLIO_CONSULTING_IND
+            data_type: BOOLEAN
+          - name: PIPELINE_DEAL_ID
+            data_type: VARCHAR
+          - name: SOURCE_CREATED_DATETIME
+            data_type: TIMESTAMP_NTZ
+          - name: ADDED_BY_NAME
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+          - name: MONTH_END_DATE
+            data_type: DATE
+          - name: RECORD_DATE
+            data_type: DATE
+          - name: RECORD_DATETIME
+            data_type: TIMESTAMP_NTZ
       - name: historical_market_prices
         description: Historical index performance.
+        columns: []
       - name: associate_revenue_coding
-        description: "Maintained by the Data Management and Goverance team"
-
+        description: Maintained by the Data Management and Goverance team
+        columns:
+          - name: SOURCE_FILE_YEAR
+            data_type: VARCHAR
+          - name: SOURCE_FILE_ID
+            data_type: VARCHAR
+          - name: SHEET_NAME
+            data_type: VARCHAR
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+          - name: START_DATE
+            data_type: DATE
+          - name: END_DATE
+            data_type: DATE
+          - name: ASSOC_ID_HC
+            data_type: VARCHAR
+          - name: ASSOC_NAME_HC
+            data_type: VARCHAR
+          - name: ASSOCIATE_ID_ORACLE
+            data_type: VARCHAR
+          - name: ASSOCIATE_ID_ADP
+            data_type: VARCHAR
+          - name: ASSOCIATE_NAME_LEGAL
+            data_type: VARCHAR
+          - name: ASSOCIATE_REVENUE_CODING
+            data_type: VARCHAR
+          - name: SEG_1
+            data_type: VARCHAR
+          - name: SEG_2
+            data_type: VARCHAR
+          - name: SEG_3
+            data_type: VARCHAR
+          - name: SEG_4
+            data_type: VARCHAR
+          - name: SEG_5
+            data_type: VARCHAR
+          - name: SEG_6
+            data_type: VARCHAR
+          - name: SEG_7
+            data_type: VARCHAR
+          - name: SEG_8
+            data_type: VARCHAR
+          - name: _ID
+            data_type: VARCHAR
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+          - name: IS_LATEST
+            data_type: NUMBER
+          - name: IS_HEAD
+            data_type: NUMBER
   - name: reporting_raw
     description: Data Management raw schema
     database: reporting
     schema: raw
-    tags: ['reporting']
+    tags: [reporting]
     tables:
       - name: revenue_legacy_history
+        columns:
+          - name: SYSTEM_NAME
+            data_type: VARCHAR
+          - name: SOURCE_FILE_NAME
+            data_type: VARCHAR
+          - name: LOCATION_CODE
+            data_type: VARCHAR
+          - name: LOCATION_NAME
+            data_type: VARCHAR
+          - name: BILLING_STYLE
+            data_type: VARCHAR
+          - name: INVOICE_NUMBER
+            data_type: VARCHAR
+          - name: INVOICE_DATE
+            data_type: DATE
+          - name: REVENUE_QUARTER
+            data_type: DATE
+          - name: REVENUE_CATEGORY
+            data_type: VARCHAR
+          - name: FEE_TYPE
+            data_type: VARCHAR
+          - name: FINANCIAL_ACCOUNT_NUMBER
+            data_type: VARCHAR
+          - name: FINANCIAL_ACCOUNT_NUMBER_CLEAN
+            data_type: VARCHAR
+          - name: SOURCE_SYSTEM_ACCOUNT_NUMBER
+            data_type: VARCHAR
+          - name: FA_MASTER_SYSTEM_DETAILS
+            data_type: VARCHAR
+          - name: FINANCIAL_ACCOUNT_NAME
+            data_type: VARCHAR
+          - name: TYPE_OF_ACCOUNT
+            data_type: VARCHAR
+          - name: FEE_SCHEDULE
+            data_type: VARCHAR
+          - name: CUSTODIAN
+            data_type: VARCHAR
+          - name: MODEL_INVESTMENT_STRATEGY
+            data_type: VARCHAR
+          - name: AUM_CLASSIFICATION_STATUS
+            data_type: VARCHAR
+          - name: CLIENT_MANAGER
+            data_type: VARCHAR
+          - name: BILLING_ACCOUNT_NUMBER
+            data_type: VARCHAR
+          - name: CLIENT_NAME
+            data_type: VARCHAR
+          - name: HOUSEHOLD_NAME
+            data_type: VARCHAR
+          - name: SOURCE_SYSTEM_HOUSEHOLD_NUMBER
+            data_type: VARCHAR
+          - name: HOUSEHOLD_OPEN_DATE
+            data_type: DATE
+          - name: BILLABLE_VALUE
+            data_type: NUMBER
+          - name: FEE_EXCLUDED_ASSETS
+            data_type: NUMBER
+          - name: CLIENT_FEE_GROSS
+            data_type: NUMBER
+          - name: CLIENT_FEE_REBATES
+            data_type: NUMBER
+          - name: CLIENT_NET_CONTRIBUTION_FEE
+            data_type: NUMBER
+          - name: CLIENT_ADJUSTMENTS_FEE
+            data_type: NUMBER
+          - name: CLIENT_WRITE_OFF_FEE
+            data_type: NUMBER
+          - name: CLIENT_FEE_NET
+            data_type: NUMBER
+          - name: KEY
+            data_type: VARCHAR
+          - name: ID
+            data_type: VARCHAR
+          - name: RECORD_DATETIME
+            data_type: TIMESTAMP_NTZ
+          - name: RECORD_DATE
+            data_type: DATE
+          - name: ISDELETED
+            data_type: BOOLEAN
+          - name: SOURCE_LASTMODIFIEDDATE
+            data_type: TIMESTAMP_NTZ
+          - name: BS_SF_18_DIGIT_ID
+            data_type: VARCHAR
+          - name: FA_SF_18_DIGIT_ID
+            data_type: VARCHAR
+          - name: HH_SF_18_DIGIT_ID
+            data_type: VARCHAR
+          - name: ORIGINAL_HH_SF_18_DIGIT_ID
+            data_type: VARCHAR
+          - name: ORIGINAL_HOUSEHOLD_NAME
+            data_type: VARCHAR
+          - name: ORIGINAL_CLIENT_MANAGER
+            data_type: VARCHAR
+          - name: STATUS
+            data_type: VARCHAR
+          - name: COA_SEGMENT_3_ACCOUNTING_ID
+            data_type: VARCHAR
       - name: master_employee_coding
+        columns:
+          - name: JSON
+            data_type: VARIANT
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ

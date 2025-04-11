@@ -70,6 +70,8 @@ select
     i.system_name::text                                                                                      as system_name
     , i.system_instance::text                                                                                as system_instance
     , i.system_key::text                                                                                     as system_key
+    -- row access policy applied in yaml file
+    , 'mwa'::text(200)                                                                                       as firm_source
     , loc.location_code::text                                                                                as location_code
     , loc.office_name::text                                                                                  as office_name
     , loc.location_code::text
@@ -79,7 +81,7 @@ select
     , i.invoicedatetime::date                                                                                as invoice_date
     , last_day(i.invoicedatetime , 'month')::date
         as revenue_period_end_date
-    , last_day(i.invoicedatetime , 'month')::date
+    , last_day(i.invoicedatetime , 'quarter')::date
         as revenue_quarter_end_date
     , i.invoicenumber::text                                                                                  as invoice_number_source--not uniqiue in source
     , i.invoiceident::text                                                                                   as billing_statement_id_source--is unique in source
@@ -172,7 +174,7 @@ select
                 'invoice not final'
     end                                                                                                      as excluded_reasons--as excluded_reasons
     , concat(i.invoiceident , '-' , i.invoicenumber)                                                         as _invoice_key
-    , null::datetime                                                                                         as _created_at
+    , i._created_at::datetime                                                                                as _created_at
     , null::text                                                                                             as _source_file
     , null::text                                                                                             as _box_file_id
     , 0::int                                                                                                 as is_legacy

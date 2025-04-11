@@ -66,7 +66,7 @@ with cte_union as (
         , payment_method_fee::text(200)               as payment_method_fee
         , account_class::text(200)                    as account_class
         , recurring_revenue::boolean                  as recurring_revenue
-        , impacted_by_financial_markets::text(200)    as impacted_by_financial_markets
+        , impacted_by_financial_markets::boolean      as impacted_by_financial_markets
         , coa_segment_1_legal_entity_id::text(200)    as coa_segment_1_legal_entity_id
         , coa_segment_2_product_id::text(200)         as coa_segment_2_product_id
         , coa_segment_3_accounting_id::text(200)      as coa_segment_3_accounting_id

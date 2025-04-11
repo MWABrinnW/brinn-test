@@ -2,10 +2,53 @@ version: 2
 
 sources:
   - name: finance
-    description: "finance"
+    description: finance
     database: "{{env_var('DBT_DB_FINANCE_SRC', 'finance')}}"
     schema: ext
-    tags: ['finance']
+    tags: [finance]
     tables:
       - name: vw_associate_accounting_code_reference
-        description: "Maintained by the Data Management and Goverance team"
+        description: Maintained by the Data Management and Goverance team
+        columns:
+          - name: RECORD_ID
+            data_type: VARCHAR
+          - name: _67L
+            data_type: VARCHAR
+          - name: FILE_NUMBER
+            data_type: VARCHAR
+          - name: ASSOCIATE_FIRST_NAME
+            data_type: VARCHAR
+          - name: ASSOCIATE_LAST_NAME
+            data_type: VARCHAR
+          - name: ASSOCIATE_FULL_NAME
+            data_type: VARCHAR
+          - name: WORKER_CATEGORY_DESCRIPTION
+            data_type: VARCHAR
+          - name: POSITION_STATUS
+            data_type: VARCHAR
+          - name: BUSINESS_UNIT_DESCRIPTION
+            data_type: VARCHAR
+          - name: HOME_DEPARTMENT_DESCRIPTION
+            data_type: VARCHAR
+          - name: COST_NUMBER
+            data_type: VARCHAR
+          - name: EXPENSE_CODING
+            data_type: VARCHAR
+          - name: REVENUE_CODING
+            data_type: VARCHAR
+          - name: MIR_CODING
+            data_type: VARCHAR
+          - name: LOCATION_ACCOUNTING_ID
+            data_type: VARCHAR
+          - name: SUI_SDI_TAX_CODE_DESCRIPTION
+            data_type: VARCHAR
+          - name: SOURCE_FILE_ID
+            data_type: VARCHAR
+          - name: SOURCE_FILE_YEAR
+            data_type: NUMBER
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+          - name: IS_HEAD
+            data_type: NUMBER
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
