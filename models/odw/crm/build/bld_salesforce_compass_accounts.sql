@@ -147,8 +147,8 @@ select
     when ei.status_c in ('Closed', 'Dormant')
       then 0
     else 0
-  end::int) desc 
-        , ei.current_value_c desc nulls last)                            as rn_acct_num  
+  end::int) desc
+        , ei.current_value_c desc nulls last)                 as rn_acct_num
   , ei._fivetran_synced                                       as _fivetran_synced
   , current_timestamp::timestamp_ntz                          as _created_at
     , ei._created_at                                          as _source_loaded_at
@@ -158,8 +158,8 @@ left join {{ ref('salesforce_compass__base_account') }} as c
     on ei.household_c = c.id
     and ei.effective_at::date = c.effective_at::date
     and c.is_latest = 1
-  and c.is_deleted = 0
-  and c._fivetran_deleted = 0
+  and coalesce(c.is_deleted, 0) = 0
+  and coalesce(c._fivetran_deleted, 0) = 0
 left join {{ ref('salesforce_compass__base_fee_schedule_c') }} as fs
     on fs.id = ei.fee_schedule_c
     and fs.effective_at::date = ei.effective_at::date
@@ -194,7 +194,7 @@ where true
           custom_condition_only = false,
           custom_condition = none
     ) }}
-    and ei.is_deleted = 0
-    and ei._fivetran_deleted = 0
+    and coalesce(ei.is_deleted, 0) = 0
+    and coalesce(ei._fivetran_deleted, 0) = 0
     and ei.is_latest = 1
 order by ei.effective_at, account_number

@@ -59,7 +59,6 @@ Returns:
     {%- endif -%}
 
     {%- if is_incremental() %}
-        
         AND (
         {% if not custom_condition_only -%}
             -- select records that have a greater {effective_date} than the destination
@@ -86,7 +85,6 @@ Returns:
                                                                             filter_var
                                                                         {% endif -%}
                                                                         )
-                                    
                                     group by 1
                                     )
 
