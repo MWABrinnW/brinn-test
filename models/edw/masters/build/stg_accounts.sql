@@ -42,3 +42,50 @@ select
     , {{ col_is_head_for_day(partition_col='json:"effective_date"') }}
 from {{ source('raw', 'accounts') }}
 where true
+-- unions account from legacy masters pipeline prior to 2025
+union all
+select
+    la.effective_date
+    , la.system_name
+    , la.system_instance
+    , la.system_key
+    , la.firm_source
+    , la.account_number_formatted
+    , la.account_number
+    , la.account_value
+    , la.account_id_crm
+    , la.account_id_pms
+    , la.account_name
+    , la.client_id_crm
+    , la.client_id_pms
+    , la.client_name
+    , la.custodian
+    , la.account_type
+    , la.aum_classification
+    , la.model_investment_strategy
+    -- fee schedule is in XML  format for Cambak, excluded from legacy data
+    , la.fee_schedule
+    , la.advisor
+    , la.discretion_status
+    , la.is_active
+    , la.opened_date
+    , la.closed_date
+    , la.location_code
+    , la.office_name
+    , la.link
+    , la.link_type
+    , la.link_subtype
+    , la.is_institutional
+    , la.is_erisa
+    , la.is_market_day
+    , la.is_market_month_end
+    , la.is_manual_account
+    , la.is_legacy
+    , la._source_loaded_at
+    , la._extra_fields
+    , la.is_excluded
+    , la.excluded_reasons
+    , la._created_at
+    , la.is_head_for_day
+from {{ ref('stg_legacy_accounts') }} as la
+order by effective_date , system_key , account_number
