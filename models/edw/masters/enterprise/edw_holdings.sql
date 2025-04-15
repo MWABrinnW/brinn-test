@@ -1,8 +1,10 @@
 {{
   config(
-    alias = 'holdings' if target.name in ['prod', 'ci'] else none
+    alias = 'holdings' if target.name in ['prod', 'ci'] else none,
+    schema = 'enterprise' if target.name in ['prod', 'ci'] else none
     )
 }}
+
 
 select
     a.effective_date

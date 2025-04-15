@@ -12,7 +12,7 @@ select
     , lh.cusip::text(200)                             as cusip
     , lh.ticker::text(200)                            as ticker
     , null::int                                       as is_custodial_cash
-    , lh.account_holdings_id::number(38 , 5)          as security_id
+    , lh.account_holdings_id::text                    as security_id
     , lh.security_name::text(200)                     as security_name
     , lh.security_type::text(200)                     as security_type
     , lh.product_category::text(200)                  as security_subtype

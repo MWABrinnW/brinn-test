@@ -78,7 +78,7 @@ select
     , mh.cusip::text(200)                    as cusip
     , mh.ticker::text(200)                   as ticker
     , mh.is_custodial_cash::int              as is_custodial_cash
-    , mh.security_id::number(38 , 5)         as security_id
+    , mh.security_id::text(200)              as security_id
     , mh.security_name::text(200)            as security_name
     , mh.security_type::text(200)            as security_type
     , mh.security_subtype::text(200)         as security_subtype
