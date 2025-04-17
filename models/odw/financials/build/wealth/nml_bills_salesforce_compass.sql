@@ -75,7 +75,7 @@ select
 
     -- [assets and fees]
     , ir.fee_type_c::text(200)                                        as fee_type
-    , ir.fee_schedule_c::text(200)                                    as fee_schedule_source
+    , coalesce(acc.fee_schedule , acc2.fee_schedule)::text(200)       as fee_schedule_source
     , null::text(200)                                                 as fee_schedule_type
     , null::text(200)                                                 as fee_schedule
     , coalesce(ir.calculation_as_of_date_c , ir.invoice_date_c)::date as assets_as_of_date
@@ -301,12 +301,15 @@ select
     -- and are intended to help with one off investigations or
     -- special analysis.
     , object_construct_keep_null(
-        'account_id' , coalesce(acc.estate_item_id , acc2.estate_item_id)
+        'join_crm_sf_eff_date' , acc.id
+        , 'join_crm_sf_is_head' , acc2.id
+        , 'join_cus_accts' , dca.custodian
+        , 'join_pms_tam_base_accts' , cpg_ba.account_number
+        , 'join_crm_sf_mhservice_' , mh.id
+        , 'join_aux_fin_fee_type' , ovrd_fee_type.system_key
+        , 'account_id' , coalesce(acc.estate_item_id , acc2.estate_item_id)
         , 'client_id' , coalesce(acc.client_id , acc2.client_id)
-        , 'client_id_joins_on_origin' , iff(acc.client_id is not null , 1 , 0)
-        , 'client_id_joins_on_head' , iff(acc2.client_id is not null , 1 , 0)
         , 'client_name' , coalesce(acc.household_name , acc2.household_name)
-        , 'joins_to_tamarac_base_accounts' , iff(cpg_ba.account_number is not null , 1 , 0)
         , 'is_cpg' , ir.is_cpg
     )                                                                 as _extra_fields
 from {{ ref('int_bills_salesforce_compass_cpg_split') }} as ir
@@ -336,7 +339,7 @@ left join {{ ref('tamarac_state_college_history__base_accounts') }} as cpg_ba
     and cpg_ba.rn = 1
     and cpg_ba.entity_type = 'Single Account'
 -- Excludes service types categorized as tax preparation
-left join fivetran.salesforce_compass.mhservice_c as mh
+left join {{ ref('salesforce_compass__base_mh_service') }} as mh
     on ir.service_rendered_c = mh.id
 left join {{ ref('aux__stg_financials_fee_type') }} as ovrd_fee_type
     on ir.system_key = ovrd_fee_type.system_key

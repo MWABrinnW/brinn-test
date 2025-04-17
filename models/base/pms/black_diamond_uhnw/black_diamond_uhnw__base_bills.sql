@@ -5,7 +5,11 @@ select
     , 'mwa'                                                       as firm_source
     , json:"Account Long Name"::varchar(200)                      as account_long_name
     , json:"Account Name"::varchar(200)                           as account_name
-    , json:"Account Number"::varchar(200)                         as account_number
+    , regexp_replace(
+        ltrim(upper(replace(trim(json:"Account Number"::varchar(200)) , '-' , '')) , '0')::text(200)
+        , '\\s{2,}' , ' '
+    )::text(200)                                                  as account_number
+    , upper(json:"Account Number")::varchar(200)                  as account_number_formatted
     , json:"Account State"::varchar(200)                          as account_state
     , json:"Account Value"::number(20 , 5)                        as account_value
     , json:"Advisor Commission Split Code"::varchar(200)          as advisor_commission_split_code

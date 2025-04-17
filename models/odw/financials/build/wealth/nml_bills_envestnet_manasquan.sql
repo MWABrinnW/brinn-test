@@ -63,9 +63,9 @@ select
 
     -- [assets and fees]
     , b.billing_cycle::text(200)                                                 as fee_type
-    , null::text(200)                                                            as fee_schedule_source
+    , coalesce(a_hist.fee_schedule , a_head.fee_schedule)::text(200)             as fee_schedule_source
     , null::text(200)                                                            as fee_schedule_type
-    , fs.name::text(200)                                                         as fee_schedule
+    , null::text(200)                                                            as fee_schedule
     , b.invoice_date::date                                                       as assets_as_of_date
     , b.invoice_date::date                                                       as fee_calculation_date
     ,
@@ -172,25 +172,25 @@ select
     , b._box_file_id::text(200)                                                  as _box_file_id
 
     -- [extra fields]
-    , null::object                                                               as _extra_fields
+    , object_construct_keep_null(
+        'join_pms_env_base_accts_eff_date' , iff(am.account_number is not null , 1 , 0)
+        , 'join_crm_sf_eff_date' , iff(a_hist.account_number is not null , 1 , 0)
+        , 'join_crm_sf_is_head' , iff(a_head.account_number is not null , 1 , 0)
+    )::variant                                                                   as _extra_fields
 
 
 from {{ ref('envestnet_manasquan__stg_bills') }} as b
 left join {{ ref('salesforce_compass_accounts') }} as a_hist
     on a_hist.effective_at::date = b.invoice_date
-    and a_hist.account_number = ltrim(regexp_replace(replace(trim(upper(b.account_number)) , '-' , '') , '\\s+' , ' ') , '0')
+    and b.account_number = a_hist.account_number
 left join {{ ref('salesforce_compass_accounts') }} as a_head
     on a_head.is_head = 1
-    and a_head.account_number = ltrim(regexp_replace(replace(trim(upper(b.account_number)) , '-' , '') , '\\s+' , ' ') , '0')
+    and b.account_number = a_head.account_number
 left join stg_account_master as am
     on am.effective_date = am.last_effective_date_of_month-- only use data from last day of the month
     and b.account_number = am.account_number
     and month(am.effective_date) = month(b.invoice_date)
     and year(am.effective_date) = year(b.invoice_date)
-left join {{ ref('salesforce_compass__base_fee_schedule_c') }} as fs
-    on b.invoice_date = fs.effective_at::date
-    and coalesce(a_hist.fee_schedule , a_head.fee_schedule) = fs.id
-    and fs.is_latest = 1
 where true
     and b.is_head = 1
 order by

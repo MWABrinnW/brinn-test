@@ -207,7 +207,9 @@ select
     -- These are fields that are likely specific to this source
     -- and are intended to help with one off investigations or
     -- special analysis.
-    , null::object                                                            as _extra_fields
+    , object_construct_keep_null(
+        'join_pms_add_base_accts_is_head' , iff(a.account_number is not null , 1 , 0)
+    )                                                                         as _extra_fields
 from
     {{ ref('addepar_corbenic_history__int_bills') }} as b
 left join {{ ref('addepar_corbenic_history__base_accounts') }} as a

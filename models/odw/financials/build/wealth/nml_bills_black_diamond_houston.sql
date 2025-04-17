@@ -47,7 +47,7 @@ select
 
     -- [assets and fees]
     , 'Quarterly Fee'::varchar(200)                                                      as fee_type
-    , fs.name::varchar(200)                                                              as fee_schedule_source
+    , coalesce(acc.fee_schedule , acc2.fee_schedule)::varchar(200)                       as fee_schedule_source
     , bb.fee_schedule_name::varchar(200)                                                 as fee_schedule_type
     , null::varchar(200)                                                                 as fee_schedule
     , invoice_date                                                                       as assets_as_of_date
@@ -150,32 +150,24 @@ select
     , bb._box_file_id::varchar(200)                                                      as _box_file_id
 
     -- [extra fields]
-    , null::object                                                                       as _extra_fields
+    , object_construct_keep_null(
+        'join_pms_hou_base_accts_is_head' , iff(ba.account_number is not null , 1 , 0)
+        , 'join_crm_sf_eff_date' , iff(acc.account_number is not null , 1 , 0)
+        , 'join_crm_sf_is_head' , iff(acc2.account_number is not null , 1 , 0)
+    )::variant                                                                           as _extra_fields
 
 from {{ ref('black_diamond_houston__base_bills') }} as bb
 left join {{ ref('black_diamond_houston__base_accounts') }} as ba
-    on trim(replace(bb.account_number , '-' , '')) = trim(replace(ba.account_number , '-' , ''))
+    on bb.account_number = ba.account_number
     and ba.is_head = 1
 -- joins crm data on invoice date, if available
 left join {{ ref('salesforce_compass_accounts') }} as acc
-    on trim(replace(ba.account_number , '-' , '')) = trim(replace(acc.account_number_formatted , '-' , ''))
+    on ba.account_number = acc.account_number
     and bb.as_of_date = acc.effective_date
 -- otherwise, joins to the current snapshot (is_head = 1)
 left join {{ ref('salesforce_compass_accounts') }} as acc2
-    on trim(replace(ba.account_number , '-' , '')) = trim(replace(acc2.account_number_formatted , '-' , ''))
+    on ba.account_number = acc2.account_number
     and acc2.is_head = 1
-left join {{ ref('salesforce_compass__base_fee_schedule_c') }} as fs
-    on
-    coalesce(
-        acc.effective_at::date
-        , acc2.effective_at::date
-    )
-    = fs.effective_at::date
-    and coalesce(
-        acc.fee_schedule
-        , acc2.fee_schedule
-    ) = fs.id
-    and fs.is_latest = 1
 where true
     and bb.is_head = 1
 order by

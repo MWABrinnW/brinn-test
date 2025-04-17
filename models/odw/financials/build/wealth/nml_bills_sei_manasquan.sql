@@ -55,7 +55,7 @@ select
 
     -- [assets and fees]
     , bb.fee_type_description::text(200)                                              as fee_type
-    , fs.name::text(200)                                                              as fee_schedule_source
+    , coalesce(acc.fee_schedule , acc2.fee_schedule)::text                            as fee_schedule_source
     , null::text(200)                                                                 as fee_schedule_type
     , null::text(200)                                                                 as fee_schedule
     , bb.fee_effective_date::date                                                     as assets_as_of_date
@@ -142,9 +142,10 @@ select
     , bb._box_file_id::text(200)                                                      as _box_file_id
 
     -- [extra fields]
-    , null::object                                                                    as _extra_fields
-
-
+    , object_construct_keep_null(
+        'join_sf1_eff_date' , iff(acc.account_number is not null , 1 , 0)
+        , 'join_sf2_is_head' , iff(acc2.account_number is not null , 1 , 0)
+    )::variant                                                                        as _extra_fields
 from {{ ref('sei_manasquan__base_bills') }} as bb
 -- joins crm data on invoice date, if available
 left join {{ ref('salesforce_compass_accounts') }} as acc
@@ -154,18 +155,6 @@ left join {{ ref('salesforce_compass_accounts') }} as acc
 left join {{ ref('salesforce_compass_accounts') }} as acc2
     on bb.account_number = acc2.account_number_formatted
     and acc2.is_head = 1
-left join {{ ref('salesforce_compass__base_fee_schedule_c') }} as fs
-    on
-    coalesce(
-        acc.effective_at::date
-        , acc2.effective_at::date
-    )
-    = fs.effective_at::date
-    and coalesce(
-        acc.fee_schedule
-        , acc2.fee_schedule
-    ) = fs.id
-    and fs.is_latest = 1
 where true
     and bb.is_head = 1
 order by

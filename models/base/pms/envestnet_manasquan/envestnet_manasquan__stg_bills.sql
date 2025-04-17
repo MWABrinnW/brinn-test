@@ -3,7 +3,7 @@ select
     , 'manasquan'                                  as system_instance
     , concat(system_name , '__' , system_instance) as system_key
     , 'mwa'                                        as firm_source
-    , json:ACCOUNT_NUMBER::text(200)               as account_number_formatted
+    , upper(json:ACCOUNT_NUMBER::text(200))        as account_number_formatted
     , regexp_replace(
         ltrim(upper(replace(
             trim(json:ACCOUNT_NUMBER::text(200)) , '-' , ''
@@ -33,7 +33,12 @@ select
         , partition_col = '_box_file_name'
         , reference_date_col='_created_at'
         , source_date_col='_created_at') }}
-    , case when max(_created_at) over (partition by _box_file_name order by _created_at desc) = _created_at then 1
+    , case when max(_created_at)
+                over (
+                    partition by _box_file_name
+                    order by _created_at desc
+                )
+            = _created_at then 1
         else 0
     end::int                                       as _is_source_file_head
     , _box_meta                                    as _box_meta

@@ -70,7 +70,8 @@ select
     , ir.fee_type_c::text(200)                                        as fee_type
     , coalesce(
         ba.billing_definitions
-        , ir.fee_schedule_c
+        , coalesce(acc.fee_schedule , acc2.fee_schedule)
+
     )
     ::text(200)
         as fee_schedule_source
@@ -230,7 +231,12 @@ select
     , null::text(200)                                                 as _source_file
     , null::text(200)                                                 as _box_file_id
     , object_construct_keep_null(
-        'upload_account_id' , ba.upload_account_id
+        'join_pms_tam_base_accts_eff_date' , ba.account_number
+        , 'join_crm_dy_eff_date' , acc.crm_pms_account_id
+        , 'join_crm_dy_is_head' , acc2.crm_pms_account_id
+        , 'join_crm_sf_mhservice_' , mh.id
+        , 'join_aux_fin_fee_type' , ovrd_fee_type.system_key
+        , 'upload_account_id' , ba.upload_account_id
         , 'tam_finance_account_id' , coalesce(acc.account_id , acc2.account_id)
         , 'is_cpg' , ir.is_cpg
     )                                                                 as _extra_fields
@@ -241,7 +247,7 @@ left join edw.ref.dates as dt
     on coalesce(ir.calculation_as_of_date_c , ir.invoice_date_c)::date = dt.date_key
 
 inner join {{ ref('tamarac_state_college_history__base_accounts') }} as ba
-    on replace(ir.account_number_c , '-' , '') = replace(ba.account_number , '-' , '')
+    on replace(ir.account_number_c , '-' , '') = ba.account_number
     and ir.invoice_date_c = ba.effective_date
     and ba.rn = 1
     and ba.entity_type in ('Single Account')
@@ -256,9 +262,9 @@ inner join {{ ref('dynamics_tamarac_cpg__int_accounts') }} as acc2
     and acc2.is_head = 1
 
 -- excludes service types categorized as tax preparation
-left join fivetran.salesforce_compass.mhservice_c as mh
+left join {{ ref('salesforce_compass__base_mh_service') }} as mh
     on ir.service_rendered_c = mh.id
-left join datalake.aux.stg_financials_fee_type as ovrd_fee_type
+left join {{ ref('aux__stg_financials_fee_type') }} as ovrd_fee_type
     on ir.system_key = ovrd_fee_type.system_key
     and lower(ir.fee_type_c) = lower(ovrd_fee_type.fee_type)
 

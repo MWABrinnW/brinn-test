@@ -6,7 +6,14 @@ select
     , concat(system_name , '__' , system_instance)::text(200) as system_key
     , 'mwa'::text(200)                                        as firm_source
     , json:"Account Display Name"::text(200)                  as account_display_name
-    , json:"Account Number"::text(200)                        as account_number
+    , upper(json:"Account Number"::text(200))                 as account_number_formatted
+    , regexp_replace(
+        ltrim(upper(replace(
+            trim(json:"Account Number"::text(200)) , '-' , ''
+        )) , '0')
+        , '\\s{2,}'
+        , ' '
+    )                                                         as account_number
     , json:"Fee Effective Date"::date                         as fee_effective_date
     , json:"Fee Type Description"::text(200)                  as fee_type_description
     -- fees are a negative values in the source table

@@ -218,7 +218,12 @@ select
     , bb._box_file_id::text(200)                                                 as _box_file_id
 
     -- [extra fields]
-    , null::object                                                               as _extra_fields
+    , object_construct_keep_null(
+        'join_pms_mps_base_accts_is_head' , iff(ba.id is not null , 1 , 0)
+        , 'join_crm_sal_eff_date' , iff(sf.salentica_lmnts_custodian_account_number is not null , 1 , 0)
+        , 'join_pms_mps_base_relat_eff_date' , iff(br.account_id is not null , 1 , 0)
+        , 'join_pms_mps_base_bench_is_head' , iff(bm.account_number is not null , 1 , 0)
+    )::variant                                                                   as _extra_fields
 
 from {{ ref('black_diamond_mps__base_bills') }} as bb
 left join {{ ref('black_diamond_mps__base_accounts') }} as ba
@@ -232,7 +237,7 @@ left join black_diamond_relationship as br
     on bb.external_id = br.account_id
     and bb.cash_available_date = br.effective_date
 left join {{ ref('black_diamond_mps__base_account_benchmarks') }} as bm
-    on trim(replace(bb.account_number , '-' , '')) = trim(replace(bm.account_number , '-' , ''))
+    on bb.account_number = bm.account_number
     and bm.is_head = 1
 where true
     and bb.is_head = 1

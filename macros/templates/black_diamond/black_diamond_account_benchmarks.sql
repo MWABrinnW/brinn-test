@@ -6,7 +6,10 @@ select
     , concat(system_name , '__' , system_instance) as system_key
     , '{{ firm_source }}'::text(200)               as firm_source
     , a.effective_date                             as effective_date
-    , a.json:AccountNumber::text(200)              as account_number
+        , regexp_replace(
+        ltrim(upper(replace(trim(a.json:AccountNumber::varchar(200)) , '-' , '')) , '0')::text(200)
+        , '\\s{2,}' ,' ')::text(200)                                                as account_number
+    , a.json:AccountNumber::varchar(200)                            as account_number_formatted
     , benchmark.value:Name::text(500)              as benchmark_name
     , a.record_id                                  as record_id
     , {{ col_is_head(

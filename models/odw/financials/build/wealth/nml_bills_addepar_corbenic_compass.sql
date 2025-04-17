@@ -47,7 +47,7 @@ select
     -- [assets and fees]
     -- fee type requires null handling, deteremines revenue category
     , lower(coalesce(trim(b.billing_fee_type) , 'management fee'))::text(200)         as fee_type
-    , fs.name::text(200)                                                              as fee_schedule_source
+    , coalesce(acc.fee_schedule , acc2.fee_schedule)::text(200)                       as fee_schedule_source
     , null::text(200)                                                                 as fee_schedule_type
     , null::text(200)                                                                 as fee_schedule
     , b.billing_date::date                                                            as assets_as_of_date
@@ -140,29 +140,24 @@ select
     , b._created_at::timestamp_ntz(9)                                                 as _source_loaded_at
     , b._source_file::varchar(200)                                                    as _source_file
     , null::varchar(200)                                                              as _box_file_id
-
-    -- These are fields that are likely specific to this source
-    -- and are intended to help with one off investigations or
-    -- special analysis.
-    , null::object                                                                    as _extra_fields
-from
-    {{ ref('addepar_corbenic_history__int_bills') }} as b
+    -- [extra field]
+    , object_construct_keep_null(
+        'join_pms_add_base_accts_is_head' , iff(a.account_number is not null , 1 , 0)
+        , 'join_crm_sf_eff_date' , iff(acc.account_number is not null , 1 , 0)
+        , 'join_crm_sf_is_head' , iff(acc2.account_number is not null , 1 , 0)
+    )::variant                                                                        as _extra_fields
+from {{ ref('addepar_corbenic_history__int_bills') }} as b
 left join {{ ref('addepar_corbenic_history__base_accounts') }} as a
     on b.account_number = a.account_number
     and a.is_head = 1
 -- joins crm data on invoice date, if available
 left join {{ ref('salesforce_compass_accounts') }} as acc
-    on trim(replace(a.account_number , '-' , '')) = trim(replace(acc.account_number_formatted , '-' , ''))
+    on a.account_number = acc.account_number
     and b._created_at::date = acc.effective_date
 -- otherwise, joins to the current snapshot (is_head = 1)
 left join {{ ref('salesforce_compass_accounts') }} as acc2
-    on trim(replace(a.account_number , '-' , '')) = trim(replace(acc2.account_number_formatted , '-' , ''))
+    on a.account_number = acc.account_number
     and acc2.is_head = 1
-left join {{ ref('salesforce_compass__base_fee_schedule_c') }} as fs
-    on
-    coalesce(acc.effective_at::date , acc2.effective_at::date) = fs.effective_at::date
-    and coalesce(acc.fee_schedule , acc2.fee_schedule) = fs.id
-    and fs.is_latest = 1
 where true
     and b.is_head = 1
     and b.billing_date::date >= '2024-10-01'

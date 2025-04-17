@@ -6,7 +6,11 @@ select
     , concat(system_name , '__' , system_instance)                   as system_key
     , 'mwa'                                                          as firm_source
     , json:"Status"::varchar(200)                                    as status
-    , json:"Account Number"::varchar(200)                            as account_number
+    , regexp_replace(
+        ltrim(upper(replace(trim(json:"Account Number"::varchar(200)) , '-' , '')) , '0')::text(200)
+        , '\\s{2,}' , ' '
+    )::text(200)                                                     as account_number
+    , upper(json:"Account Number")::varchar(200)                     as account_number_formatted
     , json:"Account Name"::varchar(200)                              as account_name
     , json:"Workflow"::varchar(200)                                  as workflow
     , json:"Portfolio Group"::varchar(200)                           as portfolio_group

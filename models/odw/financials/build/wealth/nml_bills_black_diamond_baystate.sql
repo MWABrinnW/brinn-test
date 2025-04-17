@@ -237,19 +237,15 @@ select
     , bb._box_file_id::text(200)                                                         as _box_file_id
 
     -- [extra fields]
-    , object_construct(
-        'location_code' , 'L-10070'
-        , 'coa_account_number' , null
-        , 'coa_segment_2_product_id' , '000'
-        , 'coa_segment_4_team_id' , '0000'
-        , 'coa_segment_6_initiative_id' , '000'
-        , 'coa_segment_7_intercompany_id' , '000'
-        , 'coa_segment_8_future_id' , '000'
-        , 'revenue_quarter_end_date' , null
-        , 'is_recurring_revenue' , 1
-        , 'is_impacted_by_financial_markets' , 1
-        , 'is_legacy' , 0
-    )::object                                                                            as _extra_fields
+    , object_construct_keep_null(
+        'join_pms_bay_base_accts_eff_date' , iff(ba1.id is not null , 1 , 0)
+        , 'join_pms_bay_base_accts_is_head' , iff(ba2.id is not null , 1 , 0)
+        , 'join_pms_bay_base_relat_eff_date' , iff(cte1.account_id is not null , 1 , 0)
+        , 'join_pms_bay_base_relat_is_head' , iff(cte2.account_id is not null , 1 , 0)
+        , 'join_pms_bay_base_split_eff_date' , iff(cte3.code_name is not null , 1 , 0)
+        , 'join_pms_bay_base_split_is_head' , iff(cte4.code_name is not null , 1 , 0)
+        , 'join_pms_bay_base_bills_is_head' , iff(cte5.acct_num is not null , 1 , 0)
+    )::variant                                                                           as _extra_fields
 
 from {{ ref('black_diamond_baystate__base_bills') }} as bb
 left join {{ ref('black_diamond_baystate__base_accounts') }} as ba1
