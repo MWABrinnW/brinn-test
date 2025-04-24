@@ -156,7 +156,7 @@ left join {{ ref('salesforce_compass_accounts') }} as acc
     and b._created_at::date = acc.effective_date
 -- otherwise, joins to the current snapshot (is_head = 1)
 left join {{ ref('salesforce_compass_accounts') }} as acc2
-    on a.account_number = acc.account_number
+    on a.account_number = acc2.account_number
     and acc2.is_head = 1
 where true
     and b.is_head = 1
