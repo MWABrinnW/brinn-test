@@ -53,3 +53,5 @@ select
     , b._created_at::datetime                                               as _created_at
     , b._source_file::text(200)                                             as _source_file
 from {{ source('addepar_corbenic', 'bills') }} as b
+where true
+    and b._json:columns.billing_fee_value_v2::decimal(20 , 5) is not null
