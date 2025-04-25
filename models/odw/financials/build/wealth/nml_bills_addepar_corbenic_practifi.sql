@@ -218,7 +218,9 @@ left join {{ ref('addepar_corbenic_history__base_accounts') }} as a
 left join cte_crm as c
     on b.account_number = c.pract_acct_num
 where true
+-- bills generated when practifi was the crm, defer to compass model post date
     and b.billing_date::date < '2024-10-01'
+    and b.is_head = 1
     -- uncomment if "billing_frequency" or "revenue_category" is not hardcoded.
 {# left join {{ ref('aux__stg_financials_fee_type') }} as ovrd_fee_type
         on bb.system_key = ovrd_fee_type.system_key

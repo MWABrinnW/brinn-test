@@ -159,8 +159,9 @@ left join {{ ref('salesforce_compass_accounts') }} as acc2
     on a.account_number = acc2.account_number
     and acc2.is_head = 1
 where true
-    and b.is_head = 1
+-- bills generated with compass as the crm, defer to practifi model for bills prior
     and b.billing_date::date >= '2024-10-01'
+    and b.is_head = 1
 order by
     system_key
     , revenue_period_end_date

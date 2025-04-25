@@ -29,9 +29,15 @@ select
     , b.entity_id::text(200)                                                           as entity_id
     , b.grouping::text(200)                                                            as grouping--noqa: RF04
     , b.name::text(200)                                                                as name--noqa: RF04
-    , {{ col_is_head(reference=ref('addepar_corbenic_history__stg_bills')
-        , reference_date_col='_created_at'
-        , source_date_col='_created_at') }}
+    {# source returns identifical "billing_id" (aka runs) files daily; the max function returns
+    the most recent file, per "billing_id", per "account_number" -- apply filter downstream to for deduplication #}
+    , case when max(_created_at)
+                over (
+                    partition by billing_id , account_number
+                )
+            ::datetime = _created_at then 1
+        else 0
+    end::int                                                                           as is_head
     , b._source_file::text(200)                                                        as _source_file
     , b._created_at::datetime                                                          as _created_at
     , max(b.billing_date::date) over (partition by b._source_file::varchar(200))::date
@@ -41,8 +47,3 @@ from {{ ref('addepar_corbenic_history__stg_bills') }} as b
 where true
 -- excludes records where a "billing_id" or "billing_date" could not be derived; no records have fees
     and b.billing_id is not null
-{# [depulication] source returns identifical "billing_id" (aka runs) files daily; qualify returns
-    the most recent file, per "billing_id", per "account_number" #}
-qualify max(_created_at) over (
-        partition by billing_id , account_number
-    )::datetime = _created_at
