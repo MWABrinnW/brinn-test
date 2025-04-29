@@ -30,6 +30,12 @@ sources:
           - name: effective_at
           - name: _created_at
 
+      - name: arapitem_c
+        columns:
+          - name: json
+          - name: effective_at
+          - name: _created_at
+
       - name: briefcase_assignment
         columns:
           - name: json
@@ -300,6 +306,12 @@ sources:
           - name: effective_at
           - name: _created_at
 
+      - name: payout_rate_c
+        columns:
+          - name: json
+          - name: effective_at
+          - name: _created_at
+
       - name: plan_c
         columns:
           - name: json
@@ -370,13 +382,6 @@ sources:
           - name: json
           - name: effective_at
           - name: _created_at
-
-      - name: arapitem_c
-        columns:
-          - name: json
-          - name: effective_at
-          - name: _created_at
-
       - name: paperwork_c
         columns:
           - name: json

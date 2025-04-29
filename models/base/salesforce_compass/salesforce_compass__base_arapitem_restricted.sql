@@ -1,3 +1,7 @@
+{{ config(
+  grants = {'select': ['engineering']}
+) }}
+
 select
     json:ID::text                               as id
     , json:OWNER_ID::text                       as owner_id
@@ -33,10 +37,15 @@ select
     , json:IS_OVERRIDE_C::text                  as is_override_c
     , json:ORIGINAL_RATE_SOURCE_C::text         as original_rate_source_c
     , json:PAYOUT_RATE_INITIAL_C::text          as payout_rate_initial_c
-    , json:PAYOUT_RATE_ONGOING_C::text          as payout_rate_ongoing_c
     , json:PAYOUT_TYPE_C::text                  as payout_type_c
     , json:DO_NOT_PAY_C::text                   as do_not_pay_c
     , json:PAYEE_TYPE_C::text                   as payee_type_c
+    , json:ADMIN_FEE_C::text                    as admin_fee_c
+    , json:FEE_ORION_C::text                    as fee_orion_c
+    , json:PAYOUT_RATE_ONGOING_C::text          as payout_rate_ongoing_c
+    , json:EFFECTIVERATE_C::text                as effectiverate_c
+    , json:BILLING_EXCEPTION_C::text            as billing_exception_c
+    , json:BILLING_EXCEPTION_CATEGORY_C::text   as billing_exception_category_c
     , json:_FIVETRAN_DELETED::boolean           as _fivetran_deleted
     , json:_FIVETRAN_SYNCED::timestamp_tz       as _fivetran_synced
     , effective_at                              as effective_at
