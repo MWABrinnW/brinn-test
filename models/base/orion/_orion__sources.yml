@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: orion
+    schema: orion
+    description: "Orion Extracts"
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    tags: ["orion"]
+    loaded_at_field: _created_at
+    tables:
+      - name: composite_historical
+        description: ""

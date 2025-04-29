@@ -1,0 +1,122 @@
+version: 2
+models:
+- name: orion__stg_composite_historical
+  columns:
+  - name: account_id
+    description: ''
+  - name: firm_source
+    description: ''
+    meta:
+      row_access_policy: rap_firm_source
+  - name: is_included
+    description: ''
+  - name: registration_name
+    description: ''
+  - name: account_number
+    description: ''
+  - name: net_fee_performance_percent
+    description: ''
+  - name: gross_performance_percent
+    description: ''
+  - name: after_tax_gross_performance_percent
+    description: ''
+  - name: after_tax_net_performance_percent
+    description: ''
+  - name: fee_amount_percent
+    description: ''
+  - name: beginning_value
+    description: ''
+  - name: ending_value
+    description: ''
+  - name: management_style
+    description: ''
+  - name: model
+    description: ''
+  - name: custodian
+    description: ''
+  - name: account_start_date
+    description: ''
+  - name: registration_last_name
+    description: ''
+  - name: client_last_name
+    description: ''
+  - name: bill_start_date
+    description: ''
+  - name: outside_id
+    description: ''
+  - name: portfolio_group_id
+    description: ''
+  - name: is_discretionary
+    description: ''
+  - name: is_unfunded
+    description: ''
+  - name: is_bundled
+    description: ''
+  - name: is_excluded_from_firm_assets
+    description: ''
+  - name: bond_percent
+    description: ''
+  - name: equity_percent
+    description: ''
+  - name: money_market_percent
+    description: ''
+  - name: other_asset_percent
+    description: ''
+  - name: client_full_name
+    description: ''
+  - name: business_line
+    description: ''
+  - name: net_accrual
+    description: ''
+  - name: advisor_notes
+    description: ''
+  - name: beginning_date
+    description: ''
+  - name: bill_schedule
+    description: ''
+  - name: cash_balance
+    description: ''
+  - name: created_by
+    description: ''
+  - name: created_at
+    description: ''
+  - name: ending_date
+    description: ''
+  - name: fund_family
+    description: ''
+  - name: id
+    description: ''
+  - name: import_source
+    description: ''
+  - name: income
+    description: ''
+  - name: is_locked
+    description: ''
+  - name: pay_method
+    description: ''
+  - name: plan
+    description: ''
+  - name: preliminary
+    description: ''
+  - name: rep
+    description: ''
+  - name: risk_budget
+    description: ''
+  - name: risk_tolerance
+    description: ''
+  - name: stock_ratio
+    description: ''
+  - name: system_notes
+    description: ''
+  - name: is_trading_blocked
+    description: ''
+  - name: trading_instructions
+    description: ''
+  - name: weighted_return
+    description: ''
+  - name: wrap_fee_percent
+    description: ''
+  - name: _created_at
+    description: ''
+  - name: _source_file
+    description: ''
