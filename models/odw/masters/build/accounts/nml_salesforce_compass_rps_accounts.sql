@@ -205,5 +205,6 @@ left join {{ ref('aux__stg_masters_preferred_system_key') }} as pref_loc
     and coalesce(pref_loc.end_date , a.effective_at::date)
 
 where true
+    and a.effective_at::date <= '2025-04-29'
     and coalesce(a.is_deleted , 0) = 0
     and a.is_latest = 1

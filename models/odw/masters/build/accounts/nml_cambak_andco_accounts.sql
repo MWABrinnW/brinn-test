@@ -6,36 +6,31 @@ select
     , a.firm_source::varchar(200)                                             as firm_source
     , a.account_number_formatted::text(200)                                   as account_number_formatted
     , a.account_number::varchar(200)                                          as account_number
-    , a.internal_financial_account_number::varchar(200)                       as pms_account_number
-    , a.custodian::text(200)                                                  as pms_custodian
-    , null::variant                                                           as pms_account_id
-    , a.type_of_account::text(200)                                            as pms_account_type
-    , a.financial_account_name::text(200)                                     as pms_account_name
+    , a.account_number::varchar(200)                                          as pms_account_number
+    , a.custodian::text                                                       as pms_custodian
+    , a.account_id_pms::text                                                  as pms_account_id
+    , a.account_type::text(200)                                               as pms_account_type
+    , a.account_name::text(200)                                               as pms_account_name
     , a.registrant_name::text(200)                                            as pms_registrant_name
-    , a.internal_household_number::text(200)                                  as pms_client_id
-    , a.household_name::text(200)                                             as pms_client_name
-    , a.account_active::int                                                   as pms_is_active
+    , a.client_id_pms::text(200)                                              as pms_client_id
+    , a.client_name::text(200)                                                as pms_client_name
+    , a.is_active::int                                                        as pms_is_active
     , null::date                                                              as pms_created_date
-    , a.account_open_date::date                                               as pms_opened_date
+    , a.opened_date::date                                                     as pms_opened_date
     , a.closed_date::date                                                     as pms_closed_date
-    , a.current_value::decimal(16 , 2)                                        as pms_account_value
-    , a.client_manager::text(200)                                             as pms_advisor
+    , a.account_value::decimal(16 , 2)                                        as pms_account_value
+    , a.advisor::text(200)                                                    as pms_advisor
     , null::text(200)                                                         as pms_advisor_email
     , a.location_code::text(200)                                              as pms_location_code
     , null::text(200)                                                         as pms_fee_schedule
     , a.model_investment_strategy::text(200)                                  as pms_model_investment_strategy
-    , a.aum_classification_status::text(200)                                  as pms_aum_classification
-    , a.erisa::int                                                            as pms_is_erisa
-    , case when a.discretion_status = 'Full' then 1
-        when a.discretion_status = 'None' then 0
-        -- casted as int; value needed to be a whole number
-        when a.discretion_status = 'Partial' then 2
-        else a.discretion_status
-    end::int                                                                  as pms_is_discretionary
-    , a.proxy_voting_status::int                                              as pms_is_voting_proxied
-    , a.prime_broker_enabled::int                                             as pms_is_prime_broker
+    , a.aum_classification::text(200)                                         as pms_aum_classification
+    , a.is_erisa::int                                                         as pms_is_erisa
+    , a.discretion_status::int                                                as pms_is_discretionary
+    , null::int                                                               as pms_is_voting_proxied
+    , null::int                                                               as pms_is_prime_broker
     , null::int                                                               as pms_is_broker_dealer_account
-    , a.cost_basis_disposal_method::int                                       as pms_cost_basis_method
+    , null::int                                                               as pms_cost_basis_method
     -- CRM --------------------------------------------------------------------
     {{ select_crm_null() }}
 
@@ -126,11 +121,11 @@ select
 
     )::variant                                                                as _extra_fields
     -- META -------------------------------------------------------------------
-    , a.is_head                                                               as is_head
+    , null::int                                                               as is_head
     , null::int                                                               as is_current
-    , a._created_at::timestamp_ntz                                            as _source_loaded_at
+    , a._created_at::datetime                                                 as _source_loaded_at
     , null::text(200)                                                         as _source_file
-from {{ ref('cambak__base_accounts') }} as a
+from {{ ref('cambak__int_accounts') }} as a
 -- mappings
 left join {{ ref('aux__stg_masters_mappings') }} as map_aum_glo
     on map_aum_glo.field = 'aum_classification'
@@ -180,5 +175,9 @@ left join {{ ref('aux__stg_masters_preferred_system_key') }} as pref_loc
     on location_code = pref_loc.scope_key
     and a.effective_date between coalesce(pref_loc.start_date , a.effective_date)
     and coalesce(pref_loc.end_date , a.effective_date)
-
 where true
+    and (
+        (a.location_code = 'L-10101' and a.effective_date >= '2024-04-01')
+        or (a.location_code = 'L-10130' and a.effective_date >= '2025-04-01')
+        or (a.location_code = '301' and a.effective_date >= '2025-04-30')
+    )
