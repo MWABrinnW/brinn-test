@@ -27,6 +27,9 @@ select
     , model_investment_strategy
     , fee_schedule
     , advisor
+    , advisor_id
+    , advisor_id_source
+    , advisor_email
     , discretion_status
     , is_active
     , opened_date
@@ -42,6 +45,11 @@ select
     , is_market_month_end
     , is_manual_account
     , is_legacy
+    , {{ col_is_head(
+        reference=ref('stg_accounts'),
+        source_date_col='effective_date',
+        reference_date_col='effective_date'
+    ) }}
     , _source_loaded_at
     , _extra_fields
     , _created_at

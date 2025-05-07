@@ -23,6 +23,9 @@ select
     , ba.model_investment_strategy
     , ba.fee_schedule
     , ba.advisor
+    , ba.advisor_id
+    , ba.advisor_id_source
+    , ba.advisor_email
     , case when ba.is_discretionary = 1 then 'discretionary'
         when ba.is_discretionary = 0 then 'non-discretionary'
         when ba.is_discretionary = 2 then 'partial'
@@ -75,6 +78,9 @@ select
     , ma.model_investment_strategy::text(200) as model_investment_strategy
     , ma.fee_schedule::text(200)              as fee_schedule
     , ma.advisor::text(200)                   as advisor
+    , ma.advisor_id::text                     as advisor_id
+    , ma.advisor_id_source::text              as advisor_id_source
+    , ma.advisor_email::text                  as advisor_email
     , ma.discretion_status::text              as discretion_status
     , ma.is_active::int                       as is_active
     , ma.opened_date::date                    as opened_date
@@ -122,6 +128,9 @@ select
     , la.model_investment_strategy
     , la.fee_schedule
     , la.advisor
+    , la.advisor_id
+    , la.advisor_id_source
+    , la.advisor_email
     , la.discretion_status
     , la.is_active
     , la.opened_date

@@ -19,6 +19,7 @@ with cpg_split_detail_cte_1 as (
         ctn_1._record_2_id_value                                                                        as z__record_2_id_value
         , ctn_1.name                                                                                    as z_connection_name
         , ctn_2.name                                                                                    as y_connection_name
+        , ctn_2.connection_id                                                                           as y_connection_id
         , ctr_1.name                                                                                    as z_role_name
         , to_number(right(trim(ctr_1.name) , 1))                                                        as sol_role_id
         , max(sol_role_id) over (
@@ -82,6 +83,7 @@ with cpg_split_detail_cte_1 as (
         z__record_2_id_value                                               as hh_id
         , effective_at                                                     as effective_at
         , listagg(y_connection_name || ' (' || split_amount || ')' , '; ') as sol_detail
+        , listagg(y_connection_id || '; ')                                 as sol_detail_id
     from cpg_split_detail_cte_2
     where true
     group by all
@@ -107,7 +109,9 @@ select
     , null                                               as opened_date-- use pms
     , dfa.tam_termination_date                           as closed_date
     , dfa.tam_total_value                                as account_value
-    , sol.sol_detail                                     as advisor
+    , sol.sol_detail::text                               as advisor
+    , sol.sol_detail_id::text                            as advisor_id
+    , crm_key                                            as advisor_id_source
     , null::string                                       as advisor_email-- placeholder to be replaced
     , '112'                                              as location_code
     , null                                               as fee_schedule-- use pms

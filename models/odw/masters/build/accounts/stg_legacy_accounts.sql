@@ -23,6 +23,9 @@ select
         else la.fee_schedule
     end                                                 as fee_schedule
     , la.client_manager::text(200)                      as advisor
+    , null::text                                        as advisor_id
+    , null::text                                        as advisor_id_source
+    , null::text                                        as advisor_email
     , la.discretion_status::text                        as discretion_status
     , la.account_active::int                            as is_active
     , la.account_open_date::date                        as opened_date

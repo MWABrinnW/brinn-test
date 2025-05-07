@@ -20,6 +20,14 @@ select
     , a.close_date_c::date                                                    as pms_closed_date
     , a.plan_assets_c::decimal(16 , 2)                                        as pms_account_value
     , u.name::text(200)                                                       as pms_advisor
+    , u.employee_number::text                                                 as pms_advisor_id
+    , case
+        when (
+            left(u.employee_number , 1) = '1'
+            and len(u.employee_number) = 6
+        )
+            then 'oracle__hcm'
+    end::text                                                                 as pms_advisor_id_source
     , u.email::text(200)                                                      as pms_advisor_email
     , '301'::text(200)                                                        as pms_location_code
     , a.advisory_fee_schedule_c::text(200)                                    as pms_fee_schedule

@@ -22,6 +22,8 @@ select
     , a.account_closed_date::date                                             as pms_closed_date
     , a.total_value::decimal(16 , 2)                                          as pms_account_value
     , a.advisor_description::text(200)                                        as pms_advisor
+    , null::text(200)                                                         as pms_advisor_id
+    , null::text(200)                                                         as pms_advisor_id_source
     , null::text(200)                                                         as pms_advisor_email
     , 'L-10067'::text(200)                                                    as pms_location_code
     , a.billing_spec::text(200)                                               as pms_fee_schedule

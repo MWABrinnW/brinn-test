@@ -21,6 +21,8 @@ select
     , a.closed_date                                                           as pms_closed_date
     , a.account_value                                                         as pms_account_value
     , a.advisor                                                               as pms_advisor
+    , null::text(200)                                                         as pms_advisor_id
+    , null::text(200)                                                         as pms_advisor_id_source
     , a.advisor_email                                                         as pms_advisor_email
     , a.location_code                                                         as pms_location_code
     , a.fee_schedule                                                          as pms_fee_schedule--not available in RS yet

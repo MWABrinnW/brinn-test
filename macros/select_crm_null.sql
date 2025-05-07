@@ -12,7 +12,7 @@
   , null::varchar(200)                                               as crm_account_name
   , null::varchar(200)                                               as crm_registrant_name
   {% if system_key | lower in ['salesforce__compass_mic' , 'salesforce__compass_rps'] -%} 
-  , pms_client_id::varchar(200)                                     as crm_client_id
+  , pms_client_id::varchar(200)                                      as crm_client_id
   {% else %}
   , null::varchar(200)                                               as crm_client_id
   {% endif %}
@@ -23,6 +23,8 @@
   , null::date                                                       as crm_closed_date
   , null::decimal(16, 2)                                             as crm_account_value
   , null::varchar(200)                                               as crm_advisor
+  , null::text                                                       as crm_advisor_id
+  , null::text                                                       as crm_advisor_id_source
   , null::varchar(200)                                               as crm_advisor_email
   , null::varchar(200)                                               as crm_location_code
   , null::varchar(200)                                               as crm_fee_schedule

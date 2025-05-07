@@ -54,6 +54,11 @@ select
     , h.cost_basis
     , h.is_manual_holdings
     , a.is_legacy
+    , {{ col_is_head(
+        reference=ref('odw_accounts'),
+        source_date_col='a.effective_date',
+        reference_date_col='effective_date'
+    ) }}
     , h._created_at
 from {{ ref('odw_accounts') }} as a
 left join {{ ref('nml_holdings') }} as h

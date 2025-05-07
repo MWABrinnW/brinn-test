@@ -54,6 +54,11 @@ select
     , h.cost_basis
     , h.is_manual_holdings
     , a.is_legacy
+    , {{ col_is_head(
+        reference=ref('edw_accounts'),
+        source_date_col='a.effective_date',
+        reference_date_col='effective_date'
+    ) }}
     , h._created_at
     -- accounts excluded from stg_accounts are filtered out, even if present in holdings
 from {{ ref('edw_accounts') }} as a

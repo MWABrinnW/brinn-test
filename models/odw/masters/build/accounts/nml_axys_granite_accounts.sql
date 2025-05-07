@@ -6,29 +6,31 @@ select
     , a.firm_source::varchar(200)                                             as firm_source
     , a.account_number_formatted::text(200)                                   as account_number_formatted
     , a.account_number::varchar(200)                                          as account_number
-    , a.pms_account_number::varchar(200)                                      as pms_account_number
-    , a.pms_custodian::text(200)                                              as pms_custodian
-    , a.pms_account_id::variant                                               as pms_account_id
+    , a.account_number::varchar(200)                                          as pms_account_number
+    , a.custodian::text(200)                                                  as pms_custodian
+    , a.account_id::variant                                                   as pms_account_id
     , aty.description_full::text(200)                                         as pms_account_type
-    , a.pms_account_name::text(200)                                           as pms_account_name
+    , a.account_name::text(200)                                               as pms_account_name
     , null::text(200)                                                         as pms_registrant_name
-    , a.pms_client_id::text(200)                                              as pms_client_id
+    , a.client_id::text(200)                                                  as pms_client_id
     , null::text(200)                                                         as pms_client_name
-    , a.pms_is_active::int                                                    as pms_is_active
+    , a.is_active::int                                                        as pms_is_active
     , null::date                                                              as pms_created_date
-    , a.pms_opened_date::date                                                 as pms_opened_date
-    , a.pms_closed_date::date                                                 as pms_closed_date
-    , a.pms_account_value::decimal(16 , 2)                                    as pms_account_value
-    , a.pms_advisor::text(200)                                                as pms_advisor
-    , null::text(200)                                                         as pms_advisor_email
+    , a.opened_date::date                                                     as pms_opened_date
+    , a.closed_date::date                                                     as pms_closed_date
+    , a.account_value::decimal(16 , 2)                                        as pms_account_value
+    , a.advisor::text(200)                                                    as pms_advisor
+    , a.advisor_id::text                                                      as pms_advisor_id
+    , a.advisor_id_source::text                                               as pms_advisor_id_source
+    , a.advisor_email::text(200)                                              as pms_advisor_email
     , '191'::text(200)                                                        as pms_location_code
     , null::text(200)                                                         as pms_fee_schedule
-    , a.pms_model_investment_strategy::text(200)                              as pms_model_investment_strategy
+    , a.model_investment_strategy::text(200)                                  as pms_model_investment_strategy
     , 'AUM - Assets Under Management'::text(200)                              as pms_aum_classification
     , aty.erisa::int                                                          as pms_is_erisa
-    , a.pms_is_discretionary::int                                             as pms_is_discretionary
-    , a.pms_is_voting_proxied::int                                            as pms_is_voting_proxied
-    , a.pms_is_prime_broker::int                                              as pms_is_prime_broker
+    , a.is_discretionary::int                                                 as pms_is_discretionary
+    , a.is_voting_proxied::int                                                as pms_is_voting_proxied
+    , a.is_prime_broker::int                                                  as pms_is_prime_broker
     , null::int                                                               as pms_is_broker_dealer_account
     , null::int                                                               as pms_cost_basis_method
     -- CRM --------------------------------------------------------------------
@@ -129,7 +131,7 @@ select
     , null::text(200)                                                         as _source_file
 from {{ ref('int_axys_granite_accounts') }} as a
 left join {{ ref('axys_granite_custodians') }} as c
-    on a.pms_custodian = c.source_value
+    on a.custodian = c.source_value
 left join {{ ref('axys_granite_account_types') }} as aty
     on a.type::text = aty.type::text
 -- [crm] join to the salesforce crm "effective_date" and then on "is_head" if the first join does not return a result.
@@ -202,7 +204,7 @@ where true
     and (
         a.effective_date <= '9/30/2024'
         or (
-            a.pms_custodian = 'bk unb'
-            and left(a.pms_account_id[0] , 2) = 'ub'
+            a.custodian = 'bk unb'
+            and left(a.account_id[0] , 2) = 'ub'
         )
     )

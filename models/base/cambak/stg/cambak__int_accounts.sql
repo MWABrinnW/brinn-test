@@ -110,6 +110,9 @@ select
     , trg.target_return_str                                                             as model_investment_strategy
     , mem.user_full_names                                                               as advisor
     , mem.emp_nums                                                                      as advisor_id
+    , case when mem.emp_nums is not null
+            then 'oracle__hcm'
+    end::text                                                                           as advisor_id_source
     -- converts to integers to be normalized in 'nml_accounts'; 0=non-discretionary, 1=discretionary, 2=partial
     , case lower(pl2.picklist_string_value)
         when 'full' then 1

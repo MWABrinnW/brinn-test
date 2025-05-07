@@ -46,13 +46,30 @@
     )                                                                        as advisor
     , coalesce(
         coalesce(
+            ovrd_acct._advisor_id
+            , ovrd_sys_acct._advisor_id
+            , ovrd_sys_adv._advisor_id)
+        {% if system_key | lower in ['black_diamond__mps' , 'orion__mps'] -%} , coalesce(pms_advisor_id , crm_advisor_id) {%- endif %}
+        , crm_advisor_id 
+        , pms_advisor_id
+    )                                                                        as advisor_id
+    , coalesce(
+        coalesce(
+            ovrd_acct._advisor_id_source
+            , ovrd_sys_acct._advisor_id_source
+            , ovrd_sys_adv._advisor_id_source)
+        {% if system_key | lower in ['black_diamond__mps' , 'orion__mps'] -%} , coalesce(pms_advisor_id_source, crm_advisor_id_source) {%- endif %}
+        , crm_advisor_id_source 
+        , pms_advisor_id_source
+    )                                                                        as advisor_id_source
+    , coalesce(
+        coalesce(
             ovrd_acct._advisor_email
             , ovrd_sys_acct._advisor_email
             , ovrd_sys_adv._advisor_email
         )
         , crm_advisor_email , pms_advisor_email
     )                                                                        as advisor_email
-    , null::text(100)                                                        as advisor_employee_id
     , coalesce(
         coalesce(
             ovrd_acct._location_code

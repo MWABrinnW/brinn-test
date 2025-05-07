@@ -16,6 +16,8 @@
   , coalesce(sf1.closed_date , sf2.closed_date)                                as crm_closed_date
   , coalesce(sf1.account_value , sf2.account_value)                            as crm_account_value
   , coalesce(sf1.client_manager , sf2.client_manager)                          as crm_advisor
+  , coalesce(sf1.employee_number , sf2.employee_number)                        as crm_advisor_id
+  , coalesce(sf1.employee_number_source, sf2.employee_number_source)           as crm_advisor_id_source
   , coalesce(sf1.client_manager_email , sf2.client_manager_email)              as crm_advisor_email
   , coalesce(sf1.household_location_code , sf2.household_location_code)        as crm_location_code
   , coalesce(sf1.fee_schedule , sf2.fee_schedule)                              as crm_fee_schedule

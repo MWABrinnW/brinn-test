@@ -120,9 +120,14 @@ select
   , c.other_postal_code_c::text(200)                          as other_postal_code
   , c.key_tags_c::text(5000)                                  as key_tags
   , contact.name                                              as owner_name
-  , ownr.name                                                 as client_manager
-  , ownr.email                                                as client_manager_email
-  , ownr.employee_number                                      as employee_number
+  , ownr.name::text                                           as client_manager
+  , ownr.email::text                                          as client_manager_email
+  , ownr.employee_number::text                                as employee_number
+  , case 
+      when (left(ownr.employee_number, 1) = '1'
+       and len(ownr.employee_number) = 6) 
+        then 'oracle__hcm' 
+    else null end::text                                       as employee_number_source
   , mdl.name                                                  as investment_strategy
   , ei.partner_firm_c                                         as partner_firm
   , ei.trading_system_c                                       as trading_system

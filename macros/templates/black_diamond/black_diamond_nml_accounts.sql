@@ -2,30 +2,10 @@
 
     {% if instance | lower == 'baystate' %}
 --cte to pull advisor split percents from salesforce, baystate only
-with sf_baystate_advisor_split as
-(
-    select
-      cod.name as advisor_commission_split_code
-    , cod.effective_at::date as effective_date
-    , listagg( con.name || ' ('  || to_varchar(det.percentage_c) || '%)' , '; ') within group(order by det.percentage_c desc, con.name) as full_advisor_team
-    from {{ ref('salesforce_baystate__base_advisor_split_detail_c') }} as det
-    inner join {{ ref('salesforce_baystate__base_advisor_split_code_c') }} as cod
-        on det.advisor_split_code_c = cod.id
-        and det.effective_at::date = cod.effective_at::date
-        and cod.is_head_for_day = 1
-    inner join {{ ref('salesforce_baystate__base_contact') }} as con
-        on det.advisor_name_c = con.id
-        and det.effective_at::date = con.effective_at::date
-        and con.is_head_for_day = 1
-    where det.is_head_for_day = 1
-    group by all
-), 
-
-    cte_baystate_fee_schedule as (select 
-
+with cte_baystate_fee_schedule as (select 
         account_id
         , effective_date
-        , listagg(distinct fee_name,'; ') WITHIN GROUP (ORDER BY  fee_name) as fee_schedule
+    , listagg(distinct fee_name,'; ') within GROUP (order by fee_name) as fee_schedule
     from {{ ref('black_diamond_baystate__base_account_fees') }}
     where true
     group by 1,2
@@ -69,10 +49,6 @@ select
     , a.closed_date                                                       as pms_closed_date
     , a.total_emv::decimal(16 , 2)                                        as pms_account_value
     , case
-    when a.system_key = 'black_diamond__houston' then a.manager
-    {% if instance | lower == 'baystate' %}
-    when a.system_key = 'black_diamond__baystate' then sf_as.full_advisor_team
-    {% endif %}
     when a.system_key = 'black_diamond__mcgervey' then 
         case
             when a.manager = 'YA8' then 'Matt McGervey'
@@ -81,10 +57,22 @@ select
             else a.manager
         end
         {% if instance | lower == 'mps' %}
-    when a.system_key = 'black_diamond__mps' then coalesce(pp.advisor_full_name, a.team)
+    when a.system_key = 'black_diamond__mps' then pp.advisor_full_name
         {% endif %}
+    -- default for "baystate" & "houston" instances
     else a.team
     end::text(200)                                                        as pms_advisor
+    {% if instance | lower == 'mps' %}
+        , pp.contact_id::text                                             as pms_advisor_id
+    {% else %}
+        , null::text                                                      as pms_advisor_id
+    {% endif %}
+        {% if instance | lower == 'mps' %}
+        , case when pp.advisor_full_name is not null 
+            then 'redtail__network' end::text                             as pms_advisor_id_source
+    {% else %}
+        , null::text                                                      as pms_advisor_id_source
+    {% endif %}
     , null::text(200)                                                     as pms_advisor_email
     , case
         when a.system_key = 'black_diamond__houston' then '116'
@@ -116,6 +104,8 @@ select
     -- CRM --------------------------------------------------------------------
     {% if instance == 'houston' %}
         {{ select_crm_salesforce_compass() }}
+    {% elif instance == 'baystate' %}
+        {{ select_crm_salesforce_baystate() }}
     {% else %}
         {{ select_crm_null() }}
     {% endif %}
@@ -284,9 +274,9 @@ left join {{ ref('salesforce_compass_accounts') }} as sf2
 
 -- [misc] joins to a specific instance that otherwise would error if not wrapped with jinga
 {% if instance | lower == 'baystate' %}
-    left join sf_baystate_advisor_split as sf_as
-        on a.advisor_commission_split_code = sf_as.advisor_commission_split_code
-        and a.effective_date = sf_as.effective_date
+    left join {{ ref('salesforce_baystate__int_advisors') }} as sf1_bay
+        on a.advisor_commission_split_code = sf1_bay.advisor_commission_split_code
+    and a.effective_date = sf1_bay.effective_date
     left join cte_baystate_fee_schedule as cte_fs
         on cte_fs.account_id = a.id
         and cte_fs.effective_date = a.effective_date

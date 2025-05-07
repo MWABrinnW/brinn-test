@@ -119,6 +119,7 @@ select
     , client_manager
     , client_manager_email
     , employee_number
+    , employee_number_source
     , investment_strategy
     , partner_firm
     , trading_system
@@ -215,6 +216,7 @@ select
     , client_manager
     , client_manager_email
     , employee_number
+    , employee_number_source
     , investment_strategy
     , partner_firm
     , trading_system

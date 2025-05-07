@@ -19,6 +19,9 @@ select
     , json:model_investment_strategy::text(200) as model_investment_strategy
     , json:fee_schedule::text(200)              as fee_schedule
     , json:advisor::text(200)                   as advisor
+    , json:advisor_id::text                     as advisor_id
+    , json:advisor_id_source::text              as advisor_id_source
+    , json:advisor_email::text                  as advisor_email
     , lower(json:discretion_status)::text       as discretion_status
     , json:is_active::int                       as is_active
     , json:opened_date::date                    as opened_date

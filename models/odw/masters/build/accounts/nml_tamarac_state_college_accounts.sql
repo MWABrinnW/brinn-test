@@ -27,6 +27,8 @@ select
     , a.closed_date::date                                                     as pms_closed_date
     , a.total_account_value_preveod::decimal(16 , 2)                          as pms_account_value
     , a.advisor::text(200)                                                    as pms_advisor
+    , null::text                                                              as pms_advisor_id
+    , null::text                                                              as pms_advisor_id_source
     , null::text(200)                                                         as pms_advisor_email
     , '112'::varchar(100)                                                     as pms_location_code
     , a.billing_definitions::text(200)                                        as pms_fee_schedule
@@ -103,6 +105,14 @@ select
         sf1.client_manager , sf2.client_manager
         , d1.advisor , d2.advisor
     )                                                                         as crm_advisor
+    , coalesce(
+        sf1.employee_number , sf2.employee_number
+        , d1.advisor_id , d2.advisor_id
+    )                                                                         as crm_advisor_id
+    , coalesce(
+        sf1.employee_number_source , sf2.employee_number_source
+        , d1.advisor_id_source , d2.advisor_id_source
+    )                                                                         as crm_advisor_id_source
     , coalesce(
         sf1.client_manager_email , sf2.client_manager_email
         , d1.advisor_email , d2.advisor_email

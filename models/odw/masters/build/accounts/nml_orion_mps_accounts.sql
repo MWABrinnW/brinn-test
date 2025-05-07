@@ -20,8 +20,12 @@ select
     , a.opened_date                                                           as pms_opened_date
     , a.closed_date                                                           as pms_closed_date
     , a.account_value                                                         as pms_account_value
-    , a.advisor                                                               as pms_advisor
-    , a.advisor_email                                                         as pms_advisor_email
+    , pp.advisor_full_name                                                    as pms_advisor
+    , pp.contact_id::text(200)                                                as pms_advisor_id
+    , case when pp.advisor_full_name is not null
+            then 'redtail__network'
+    end::text                                                                 as pms_advisor_id_source
+    , null::text(200)                                                         as pms_advisor_email
     , '609'::text                                                             as pms_location_code
     , a.fee_schedule                                                          as pms_fee_schedule--not available in RS yet
     , a.investment_strategy                                                   as pms_model_investment_strategy
@@ -137,6 +141,10 @@ left join {{ ref('orion__base_vw_userdefinedfields') }} as udf_aum_def
     and udf_aum.effective_date = udf_aum_def.effective_date
     and udf_aum.code = udf_aum_def.code
 
+-- overrides to determine the preferred pms key from redtail for mps records
+left join {{ ref('redtail_network__int_contact_preferred_pms') }} as pp
+    on upper(pp.advisor) = upper(a.advisor)
+
 -- mappings
 left join {{ ref('aux__stg_masters_mappings') }} as map_aum_glo
     on map_aum_glo.field = 'aum_classification'
@@ -192,9 +200,6 @@ left join {{ ref('aux__stg_masters_preferred_system_key') }} as pref_loc
     and coalesce(pref_loc.end_date , a.effective_date)
 
 
--- overrides to determine the preferred pms key from redtail for mps records
-left join {{ ref('redtail_network__int_contact_preferred_pms') }} as pp
-    on upper(pp.advisor) = upper(pms_advisor)
 where true
     and a.account_number is not null
     and a.system_key = 'orion__mps'

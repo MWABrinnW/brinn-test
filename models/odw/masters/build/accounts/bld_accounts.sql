@@ -237,14 +237,9 @@ cte_system_with_custodial as (
         -- account values should be 0 if the effective date proceeds the closed date (from system only, except rps)
         , iff((coalesce(closed_date , '2099-12-31')) <= effective_date , 0 , account_value)          as account_value
         , advisor
-        , max(
-            advisor_email) over (
-            partition by
-                effective_date
-                , system_key
-                , advisor
-        )                                                                                            as advisor_email
-        , advisor_employee_id
+        , advisor_id
+        , advisor_id_source
+        , advisor_email                                                                              
         , location_code
         , office_name
         , fee_schedule
@@ -284,6 +279,7 @@ cte_system_with_custodial as (
                     -- prefer open accounts over closed
                     , iff(closed_date is null , 1 , 2) asc
                     -- prefer accounts that have a preferred system key that matches record system key
+                    -- 'pref_system_key' is a coalesce with the most granular preference preferred first.
                     , case when system_key = pref_system_key then 1 else 2 end asc
                     -- prefer records that have an "account", "advisor" override
                     , case
@@ -359,6 +355,8 @@ cte_system_with_custodial as (
         , pms_closed_date
         , pms_account_value
         , pms_advisor
+        , pms_advisor_id
+        , pms_advisor_id_source
         , pms_advisor_email
         , pms_location_code
         , pms_fee_schedule
@@ -387,6 +385,8 @@ cte_system_with_custodial as (
         , crm_closed_date
         , crm_account_value
         , crm_advisor
+        , crm_advisor_id
+        , crm_advisor_id_source
         , crm_advisor_email
         , crm_location_code
         , crm_fee_schedule

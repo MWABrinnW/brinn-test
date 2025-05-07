@@ -16,6 +16,8 @@ select
     , json:custodian::text(1000)               as _custodian
     , json:location_code::text(200)            as _location_code
     , json:advisor::text(200)                  as _advisor
+    , json:advisor_id::text(200)               as _advisor_id
+    , json:advisor_id_source::text(200)        as _advisor_id_source
     , json:advisor_email::text(200)            as _advisor_email
     , json:aum_classification::text(200)       as _aum_classification
     , json:investment_strategy::text(200)      as _investment_strategy

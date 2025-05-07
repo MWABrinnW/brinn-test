@@ -20,6 +20,8 @@ select
     , a.close_date                                                            as pms_closed_date
     , iff(a.close_date is null , a.total_market_value , 0)                    as pms_account_value
     , a.advisor_name                                                          as pms_advisor
+    , null::text(200)                                                         as pms_advisor_id
+    , null::text(200)                                                         as pms_advisor_id_source
     , null::text(200)                                                         as pms_advisor_email
     , '118'::text(100)                                                        as pms_location_code
     , null::text(200)                                                         as pms_fee_schedule

@@ -20,6 +20,8 @@ select
     , a.closed_date::date                                                     as pms_closed_date
     , a.account_value::decimal(16 , 2)                                        as pms_account_value
     , a.client_manager::text(200)                                             as pms_advisor
+    , null::text                                                              as pms_advisor_id
+    , null::text                                                              as pms_advisor_id_source
     , a.client_manager_email::text(200)                                       as pms_advisor_email
     , a.household_location_code::text(200)                                    as pms_location_code
     , a.fee_schedule::text(200)                                               as pms_fee_schedule
