@@ -1,0 +1,39 @@
+select
+    system_name
+    , associate_id
+    , advisor_legal_name_full
+    , advisor_legal_name_first
+    , advisor_legal_name_last
+    , advisor_type
+    , advisor_nonadvisor
+    , employment_status
+    , active_ind
+    , advisor_firm_name
+    , advisor_title
+    , advisor_worker_type
+    , advisor_start_date
+    , advisor_final_termination_date
+    , advisor_work_site_location_name
+    , advisor_work_site_address_city
+    , advisor_work_site_address_state_abb
+    , advisor_work_site_address_zip_code
+    , advisor_work_email
+    , job_function_name
+    , job_family
+    , job_level
+    , individual_crd
+    , firm_crd
+    , registered_entity
+    , independent_category
+    , independent_status
+    , independent_affiliation_model
+    , independent_category_legacy
+    , _3_accounting_id
+    , advisor_department_name
+    , location_code
+    , region_name
+    , location_name
+    , effective_date
+    , _created_at
+    , is_head
+from reporting.ext.advisors_enterprise
