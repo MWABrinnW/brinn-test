@@ -35,7 +35,7 @@ select
     )                                      as mir_coding
     , hcm.effective_at::date               as effective_date
     , e.data_last_refreshed_date           as _created_at
-from edw.enterprise.employees as e
+from {{ ref('employees') }} as e
 left join {{ ref('nml_oracle_hcm_associates') }} as hcm
     on concat('1' , substring(e.employee_num , 2)) = hcm.employee_num
     and hcm.is_head = 1

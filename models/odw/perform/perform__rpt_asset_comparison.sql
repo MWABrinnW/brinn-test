@@ -23,7 +23,7 @@ with mis_accounts as (
 
 , accounts_with_trades_today as (
     select account_number
-    from odw.perform.fct_allocations
+    from {{ ref('perform__fct_allocations') }}
     where 1 = 1
         and trade_date = current_date
     group by all

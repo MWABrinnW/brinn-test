@@ -117,7 +117,7 @@ with cte_custodian_account_links as (
         , null::timestamp       as _feed_loaded_at
         , _source_loaded_at     as _map_loaded_at
     from {{ ref('aux__stg_custodian_links') }}
-    where link not in (select distinct link from cte_custodian_account_links)
+    where link not in (select distinct cal.link from cte_custodian_account_links as cal)
     order by custodian , link
 )
 
@@ -162,7 +162,7 @@ select
     , a._feed_loaded_at
     , a._map_loaded_at
 from cte_summary as a
-left join edw.enterprise.locations_active as l
+left join {{ ref('locations_active') }} as l
     on a.location_code = l.location_code
 left join cte_dates as d
     on a.custodian = d.custodian

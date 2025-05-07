@@ -1,4 +1,4 @@
--- revaluate if invoices originating from orion via salesforce are cpg or not. 
+-- revaluate if invoices originating from orion via salesforce are cpg or not.
 select
     ir.*
     , case
@@ -9,7 +9,7 @@ select
     end::int as is_cpg
 
 from {{ ref('salesforce_compass__base_invoice_review_c') }} as ir
-inner join edw.ref.dates as dt
+inner join {{ ref('dates') }} as dt
     on ir.invoice_date_c = dt.date_key
 
 left join {{ ref('salesforce_compass__base_estate_item_c') }} as ei
