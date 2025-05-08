@@ -25,7 +25,7 @@ select
             when 'Q4' then '12-31'
         end , 'YYYY-MM-DD'
     ))                                                                                        as revenue_quarter_end_date
-    , json:INVOICE_DATE::text                                                                 as invoice_date
+    , json:INVOICE_DATE::date                                                                 as invoice_date
     , json:AMOUNT::number(18 , 2)                                                             as amount
     , json:CLIENT_PAYMENT::date                                                               as client_payment
     , quarter(json:CLIENT_PAYMENT::date)::int                                                 as pmt_quarter

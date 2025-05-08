@@ -243,7 +243,7 @@ select
 
 -- source cpg invoices from intermediate model; where clause "is_cpg = 1" and "invoice_date"
 from {{ ref('int_bills_salesforce_compass_cpg_split') }} as ir
-left join edw.ref.dates as dt
+left join {{ ref('dates') }} as dt
     on coalesce(ir.calculation_as_of_date_c , ir.invoice_date_c)::date = dt.date_key
 
 inner join {{ ref('tamarac_state_college_history__base_accounts') }} as ba

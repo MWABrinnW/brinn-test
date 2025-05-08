@@ -14,15 +14,42 @@ select
     , invoice_number_source
     , billing_statement_id_source
     , invoice_status
-    , is_mid_cycle_invoice
+    , is_intra_period_invoice
+    , account_number
+    , account_number_formatted
+    , billing_account_number
+    , account_id_pms
+    , registrant_name
+    , account_name
+    , type_of_account
     , client_id_pms
+    , aum_classification_status
+    , custodian
+    , billing_custodian
+    , partner_firm_original
+    , partner_firm
+    , advisor_source
+    , advisor_original
+    , advisor_primary
+    , associate_id_primary
+    , advisor_type
+    , advisor
+    , associate_id
     , fee_type
+    , fee_schedule_source
+    , assets_as_of_date
+    , fee_calculation_date
+    , total_account_value
+    , billable_value
+    , client_fee_gross
+    , client_adjustments_fee
     , client_fee_net
-    , sales_tax
-    , third_party_calculation
-    , billing_frequency
+    , collection_date
     , billing_style
+    , billing_frequency
+    , billing_method
     , account_class
+    , recurring_revenue
     , impacted_by_financial_markets
     , coa_segment_1_legal_entity_id
     , coa_segment_2_product_id
@@ -38,22 +65,32 @@ select
     , system_name_crm
     , system_instance_crm
     , system_key_crm
+    , account_id_crm
     , client_id_crm
+    , client_id_original_crm
+    , client_id_unique_compass
     , client_name
+    , client_name_original_crm
+    , client_lead_source
+    , client_key_tags_crm
     , transaction_type
     , transaction_line_type
     , transaction_line_quantity
     , currency_code
     , currency_conversion_type
     , unit_selling_price
-    , is_reversed
-    , reversed_date
-    , is_excluded
     , excluded_reasons
+    , is_excluded
     , _invoice_key
-    , _created_at
+    , _source_loaded_at
     , _source_file
     , _box_file_id
-    , is_legacy
     , _extra_fields
-from {{ ref('nml_bills_cch') }}
+    , _created_at
+from {{ ref('int_bills_cambak') }}
+where true
+    and (
+        rn = 1 and invoice_level = 'invoice'
+        or invoice_level = 'plan'
+    )
+order by client_id_crm asc , invoice_date desc , rn asc

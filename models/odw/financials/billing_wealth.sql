@@ -63,7 +63,7 @@ with cte_union as (
         , billing_method::text(600)                   as billing_method
         , bill_on_balance_type::text(600)             as bill_on_balance_type
         , payment_terms::text(600)                    as payment_terms
-        , payment_method_fee::text(200)               as payment_method_fee
+        , payment_method_fee::number(18 , 2)          as payment_method_fee
         , account_class::text(200)                    as account_class
         , recurring_revenue::boolean                  as recurring_revenue
         , impacted_by_financial_markets::boolean      as impacted_by_financial_markets

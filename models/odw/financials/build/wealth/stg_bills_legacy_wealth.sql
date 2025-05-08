@@ -63,7 +63,7 @@ select
     , null::text(600)                             as billing_method
     , null::text(600)                             as bill_on_balance_type
     , null::text(600)                             as payment_terms
-    , null::text(16777216)                        as payment_method_fee
+    , null::number(18 , 2)                        as payment_method_fee
     , null::text(200)                             as account_class
     , null::boolean                               as recurring_revenue
     , null::boolean                               as impacted_by_financial_markets
