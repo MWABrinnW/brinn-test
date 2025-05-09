@@ -1,6 +1,32 @@
 version: 2
 models:
 - name: orion__stg_composite_historical
+  description: >
+    ### Example Query
+    ```sql
+    select account_id, account_number, management_style, is_included, _source_file
+    from datalake.orion.stg_composite_historical
+    where true
+      -- Comment lines are indicated by "--".
+      -- Remove the "--" to include any of the filters below.
+
+      -- You can filter for a particular file.
+      and _source_file = '2024-11.csv.gz'
+
+      -- Filter for management_style
+      and management_style = '100 - Core'
+
+      and is_included = 1
+
+      -- Filter for a particular account_id
+    --   and account_id = '231503'
+
+      -- Filter for an account number
+    --   and account_number = '628-118165'
+
+      -- Filter for a date range
+    --   and beginning_date between'10/15/2024' and '11/15/2024'
+    ```
   columns:
   - name: account_id
     description: ''
