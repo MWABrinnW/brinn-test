@@ -132,11 +132,12 @@ select
             then 1
         else 0
     end::int                                                                as is_month_end
-    , {{ col_is_head(
-        reference=ref('faw__stg_census'),
-        reference_date_col='effective_date',
-        source_date_col='c.effective_date'
-        ) }}
+    , case
+        when c.effective_date = max(case when c.effective_date <> current_date() then c.effective_date end)
+                over ()
+            then 1
+        else 0
+    end::int                                                                as is_head
 from {{ ref('faw__stg_census') }} as c
 left join {{ ref('nml_oracle_hcm_associates') }} as h
     on c.effective_date = h.effective_at::date
@@ -146,6 +147,7 @@ left join {{ ref('locations') }} as l
     and h.effective_at::date between coalesce(l.start_date , h.effective_at::date) and coalesce(l.end_date , h.effective_at::date)
 where true
     and c.effective_date::date >= '2024-07-01'
+    and c.effective_date::date <> current_date
     and c.job_id <> '-99999'
 
 ------------------------------------------------------------------------------------
