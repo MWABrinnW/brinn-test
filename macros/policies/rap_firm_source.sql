@@ -28,6 +28,10 @@
     or (firm_source = 'msec' and (
         is_role_in_session('msec')
     ))
+    -- INST
+    or (firm_source in ('andco', 'inst') and (
+        is_role_in_session('inst')
+    ))
     )
 ;
 {%- endset -%}

@@ -195,7 +195,6 @@ models:
         +grants:
           +select: "{{ ['finance'] if target.name in ['prod', 'ci'] else []}}"
 
-
       cch_dau:
         +tags: ["cch_dau"]
         +grants:
