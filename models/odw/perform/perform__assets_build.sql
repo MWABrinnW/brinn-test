@@ -1,3 +1,7 @@
+{{ config(
+  grants = {'+select': ['trading']}
+) }}
+
 with cte_lots_base as (
     select
         trim(

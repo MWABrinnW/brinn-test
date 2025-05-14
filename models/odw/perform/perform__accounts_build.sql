@@ -1,3 +1,7 @@
+{{ config(
+  grants = {'+select': ['trading']}
+) }}
+
 select
     a.pms_account_id                                                                                        as pms_account_id
     , trim(regexp_replace(lower(a.account_number) , '(s-|r-|-)' , ''))                                      as account_key

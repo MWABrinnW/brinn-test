@@ -580,6 +580,8 @@ models:
           +select: "{{ ['db_pms_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
       perform:
         +tags: ["perform", "mis", "trading"]
+        +grants:
+          +select: "{{ ['trading'] if target.name in ['prod', 'test', 'ci'] else []}}"
       pms:
         +schema: pms
         +tags: ["upsert"]
