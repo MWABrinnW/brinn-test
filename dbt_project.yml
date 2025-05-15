@@ -325,6 +325,11 @@ models:
         +tags: ["hubspot", "network", "hubspot_network"]
         +grants:
           select: "{{ ['db_crm_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+      
+      insurance:
+        +tags: ["insurance", "mir"]
+        +grants:
+          +select: "{{ ['finance'] if target.name in ['prod', 'ci'] else []}}"
 
       oracle_fusion:
         +tags: ["oracle", "oracle_fusion"]
