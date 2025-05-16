@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: workvivo_fivetran
+    database: fivetran
+    description: ""
+    schema: workvivo_dev
+    tables:
+      - name: webhook_packed
+        columns:
+          - name: _created
+          - name: _id
+          - name: _index
+          - name: _ip
+          - name: _fivetran_synced
+          - name: data
+  - name: workvivo_raw
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    description: "Holds HTML set to be archived in Smarsh"
+    schema: workvivo
+    tables:
+      - name: smarsh_html
+        columns:
+          - name: json
+          - name: _created_at
+          - name: _source_file
+
