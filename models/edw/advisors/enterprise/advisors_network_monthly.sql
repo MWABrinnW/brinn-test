@@ -13,8 +13,11 @@ with cte_dates as (
     where 1 = 1
         and is_head = 1
         and email_address is not null
-        and effective_date in (select effective_date from cte_dates)
-    qualify dense_rank() over (partition by effective_date , rep_id order by _source_loaded_at desc) = 1
+        and effective_date in (select d.effective_date from cte_dates as d)
+    qualify dense_rank() over (
+            partition by effective_date , rep_id
+            order by _source_loaded_at desc
+        ) = 1
 )
 
 , cte_lpl_emails_all_time as (
@@ -24,7 +27,10 @@ with cte_dates as (
     from {{ ref('lpl_network__base_reps') }}
     where 1 = 1
         and email_address is not null
-    qualify dense_rank() over (partition by rep_id order by _source_loaded_at desc) = 1
+    qualify dense_rank() over (
+            partition by rep_id
+            order by _source_loaded_at desc
+        ) = 1
 )
 
 , cte_redtail_emails as (
@@ -38,7 +44,10 @@ with cte_dates as (
         --, is_primary
         --, custom_type_title
         */
-        , dense_rank() over (partition by contact_id order by _source_loaded_at desc , is_primary desc , email_type desc) as rn
+        , dense_rank() over (
+            partition by contact_id
+            order by _source_loaded_at desc , is_primary desc , email_type desc
+        ) as rn
     from {{ ref('redtail_network__base_contact_email_addresses') }}
     where 1 = 1
         and is_head = 1
@@ -70,7 +79,12 @@ select
     , a.service_tier::varchar(500)                                                as service_tier
     , a.house_accounts_ind::boolean                                               as house_accounts_ind
     , a.legacy_mps_advisor_ind::boolean                                           as legacy_mps_advisor_ind
+    , a.affiliation_enterprise::varchar(500)                                      as affiliation_enterprise
+    , a.affiliation::varchar(500)                                                 as affiliation
+    , a.affiliation_type::varchar(500)                                            as affiliation_type
     , a.affiliation_model::varchar(500)                                           as affiliation_model
+    , a.affiliation_ria::varchar(500)                                             as affiliation_ria
+    , a.affiliation_bd::varchar(500)                                              as affiliation_bd
     , a.start_this_month::int                                                     as start_this_month
     , a.end_this_month::int                                                       as end_this_month
     , a.new_this_month::int                                                       as new_this_month
@@ -85,6 +99,8 @@ select
     , a.firm_id::varchar(500)                                                     as firm_id
     , a.lpl_master_rep_id::varchar(500)                                           as lpl_master_rep_id
     , a.individual_crd::varchar(500)                                              as individual_crd
+    , a.firm_crd::varchar(500)                                                    as firm_crd
+    , a.registered_entity::varchar(500)                                           as registered_entity
     , a.broker_dealer::varchar(500)                                               as broker_dealer
     , a.custodian::varchar(500)                                                   as custodian
     , a.pms_system::varchar(500)                                                  as pms_system
@@ -114,4 +130,7 @@ left join cte_redtail_emails as redtail
     and redtail.rn = 1
 left join cte_lpl_emails_all_time as lpl_all
     on a.lpl_master_rep_id = lpl_all.rep_id
-qualify row_number() over (partition by a.record_id order by advisor_email desc) = 1
+qualify row_number() over (
+        partition by a.record_id
+        order by advisor_email desc
+    ) = 1
