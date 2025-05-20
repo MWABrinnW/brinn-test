@@ -1,0 +1,72 @@
+version: 2
+models:
+  - name: vendors
+    columns:
+      - name: vendor_id_global
+        description: 'Unique identifier for each vendor record from vendor global mapping | ex: VNDR-0019'
+      - name: vendor_name
+        description: 'Name of vendor | ex: ACTIVETICK LLC'
+      - name: vendor_risk_id
+        description: 'From vendor global mapping | ex: 1950839'
+      - name: vendor_oracle_actuals_id
+        description: 'From vendor global mapping (actuals/budget id) | ex: ACTIVETICK'
+      - name: is_in_ea
+        description: 'From Enterprise Architecure | 1 if true, 0 if false'
+      - name: has_active_contract
+        description: 'From VR | 1 if true, 0 if false'
+      - name: number_of_contracts
+        description: 'From VR'
+      - name: vendor_category
+        description: 'From Enterprise Architecture | ex: Vendor/Data Provider/Service Provider (based on source Smartsheet)'
+      - name: vendor_status
+        description: 'from EA or Active if  CURRENT_YEAR_VENDOR_EXPENSE is <> 0 | ex: Active'
+      - name: vendor_capability_0
+        description: 'From EA | ex: Client Journey'
+      - name: vendor_capability_1
+        description: 'From EA | ex: Client Servicing'
+      - name: vendor_capability_2
+        description: 'From EA | ex: Custodian Account Services'
+      - name: vendor_owner_ea
+        description: 'From EA | ex: Tom Brittan'
+      - name: vendor_owner_ea_email
+        description: 'From Associate Master, tied to EA business owner | ex: thomas.brittain@mariner.com'
+      - name: vendor_owner_vr
+        description: 'From VR | ex: Tom Brittan'
+      - name: vendor_owner_vr_email
+        description: 'From Associate Master, tied to VR vendor owner | ex: thomas.brittain@mariner.com'
+      - name: vendor_applications
+        description: 'List of applications under vendor from EA'
+      - name: vendor_description
+        description: 'Description from VR, else EA (only Service/Data Providers)'
+      - name: vendor_risk_url
+        description: 'From VR | URL to VendorRisk'
+      - name: current_year_vendor_budget
+        description: 'From ORCL Budget data, for entire current year | ex: 100,000.00'
+      - name: year_to_date_vendor_budget
+        description: 'From ORCL Budget data | sum up to latest actuals expense date, else sum up to prior month-end'
+      - name: budget_accounting_id
+        description: 'from ORCL Budget data | ex: 1100'
+      - name: budget_office_name
+        description: 'from Location Master, tied to budget Accounting ID | ex: Overland Park, KS'
+      - name: budget_natural_account_id
+        description: 'from ORCL Budget data | ex: 40000'
+      - name: budget_natural_account_name
+        description: 'from ORCL Budget data | ex: Business Application Fees'
+      - name: current_year_vendor_expense
+        description: 'From ORCL OpEX Actuals data | ex: 10,000.00 (sum of actuals expenses for current year)'
+      - name: expense_accounting_id
+        description: 'From ORCL OpEX Actuals data | ex: 1100'
+      - name: expense_office_name
+        description: 'From Location Master, tied to actual expenses Accounting ID | ex: Overland Park, KS'
+      - name: expense_natural_account_id
+        description: 'From ORCL OpEX Actuals data | ex: 40000'
+      - name: expense_natural_account_name
+        description: 'from ORCL OpEX Actuals data | ex: Business Application Fees'
+      - name: effective_date
+        description: 'From ORCL OpEX Actuals data | ex: 2025-01-31 (latest actuals expense date, else budget effective date (prior month-end), else current date)'
+      - name: _created_at
+        description: 'When data was created | ex: 2025-01-31 12:00:00'
+      - name: _id
+        description: 'Unique ID per record'
+      - name: _extra_fields
+        description: 'Compiles vendor names from VendorRisk per VENDOR_ID_GLOBAL'

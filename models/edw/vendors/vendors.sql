@@ -1,0 +1,36 @@
+select
+    vendor_id_global
+    , vendor_name
+    , vendor_risk_id
+    , vendor_oracle_actuals_id
+    , is_in_ea
+    , has_active_contract
+    , number_of_contracts
+    , vendor_category
+    , vendor_status
+    , vendor_capability_0
+    , vendor_capability_1
+    , vendor_capability_2
+    , vendor_owner_ea
+    , vendor_owner_ea_email
+    , vendor_owner_vr
+    , vendor_owner_vr_email
+    , vendor_applications
+    , vendor_description
+    , vendor_risk_url
+    , current_year_vendor_budget
+    , year_to_date_vendor_budget
+    , budget_accounting_id
+    , budget_office_name
+    , budget_natural_account_id
+    , budget_natural_account_name
+    , current_year_vendor_expense
+    , expense_accounting_id
+    , expense_office_name
+    , expense_natural_account_id
+    , expense_natural_account_name
+    , effective_date
+    , _created_at
+    , _id
+    , _extra_fields
+from reporting.int.vendors
