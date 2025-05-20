@@ -1,0 +1,33 @@
+version: 2
+
+exposures:
+
+  - name: pms_masters_exceptions_analysis
+    label: PMS Masters Exceptions Analysis
+    type: analysis
+    maturity: high
+    tags: ["pms", "masters"]
+    description: >
+      Report for exceptions in the PMS Masters process. This report is used to identify
+      accounts that violate constraints in the PMS Masters process. 
+      Changes to the decision tree logic may require changes to this report.
+    depends_on:
+      - ref('bld_accounts')
+    owner:
+      name: Engineering
+      email: engineering@marinerwealth.com
+
+  - name: pms_masters_decision_tree_application
+    label: PMS Masters Decision Tree Application
+    type: application
+    maturity: high
+    tags: ["pms", "masters"]
+    url: https://app.snowflake.com/mariner/mariner/#/streamlit-apps/DBT.ANALYTICS.XKRNJ__WG3X53X50
+    description: >
+      Business application (Streamlit) for evaluating the decision tree logic that assigns the primary account. 
+      Changes to the decision tree logic may require updates to this application.
+    depends_on:
+      - ref('bld_accounts')
+    owner:
+      name: Engineering
+      email: engineering@marinerwealth.com
