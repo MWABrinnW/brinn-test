@@ -23,10 +23,10 @@ select
 from {{ ref("tpg_hfw__stg_holdings") }}
 where true
     and effective_date >= '2024-11-01'
+    -- application of the deduplication filter
+    and rn = 1
     -- returns one row per account from holdings records
 qualify row_number() over (
         partition by account_number , effective_date
         order by _created_at desc
     ) = 1
-    -- application of the deduplication filter
-    and rn = 1
