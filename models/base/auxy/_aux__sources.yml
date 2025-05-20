@@ -655,3 +655,25 @@ sources:
           - name: _BOX_META
             description: ''
             data_type: VARIANT
+      - name: masters_variance_accounts
+        tags: ['masters','pms']
+        description: Defer to a preferred system key.
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
+          - name: _ID
+            description: ''
+            data_type: INT

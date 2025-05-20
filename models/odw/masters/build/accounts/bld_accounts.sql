@@ -120,28 +120,37 @@ cte_incremental as (
 
 )
 ,
-cte_system_with_custodial as (
+cte_get_custodian_feeds as (
 -- join with custodian master for custodian sourced fields. 
--- min function applied to standardize custodian accross partition, later used in the primary account evaluation
+-- min function applied to standardize custodian across partition, later used in the primary account evaluation
     select
-        a.*
-        --- TODO: consider how to account for lpl accounts similar to other custodians
-        , min(case
-            when a.__custodian_key in ('schwab' , 'fidelity' , 'pershing' , 'lpl' , 'tda') then a.__custodian_key
-            else ''
-        end) over (partition by a.is_institutional , a.effective_date , a.account_number) as __custodian_cust
-        , case when ca.account_number is not null then 1 else 0 end                       as has_custodial_feed
-        , null::int                                                                       as cus_is_discretionary
-        , ca.is_prime_broker                                                              as cus_is_prime_broker
-        , null::int                                                                       as cus_is_broker_dealer_account
-    from cte_incremental as a
-    left join {{ ref('bld_custodian_accounts') }} as ca
+        a.*,
+        -- joins to custodian feeds
+        case when ca.account_number is not null then 1 else 0 end       as has_custodial_feed,
+        ca.is_prime_broker                                              as cus_is_prime_broker,
+        null::int                                                       as cus_is_discretionary,
+        null::int                                                       as cus_is_broker_dealer_account,
+        row_number() over (
+            partition by a.is_institutional, a.effective_date, a.account_number
+            order by
+                has_custodial_feed desc,        -- prefer accounts with custodians feeds
+                a.closed_date is null desc,       -- then, prefer open accounts
+                a._source_loaded_at desc          -- finally, fall back on recency
+        ) as __custodian_preference_rank
+    from cte_incremental a
+    left join {{ ref('bld_custodian_accounts') }} ca
         on a.effective_date = ca.effective_date
         and a.__custodian_key = ca.custodian
         and a.account_number = ca.account_number
         and ca.rn_global = 1
+), 
+cte_rank_custodian_feeds as (select 
+       a.*
+        , first_value(a.__custodian_key) over (
+            partition by a.is_institutional, a.effective_date, a.account_number
+            order by a.__custodian_preference_rank asc) as __custodian_cust
+from cte_get_custodian_feeds as a
 )
-
 , cte_fidelity_firm_sources as (
     select
         f.account_number
@@ -190,7 +199,7 @@ cte_system_with_custodial as (
             when a.__custodian_cust = 'pershing' then array_construct('mwa')
             when a.__custodian_cust = 'lpl' then array_construct('mps')
         end::variant                                as firm_source_verified
-    from cte_system_with_custodial as a
+    from cte_rank_custodian_feeds as a
     left join cte_fidelity_firm_sources as f
         on a.account_number = f.account_number
         and a.effective_date = f.effective_date

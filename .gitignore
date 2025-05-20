@@ -22,3 +22,5 @@ lint_failures.txt
 reladiff.toml
 target-base/
 .aider*
+.vscode\mcp.json
+.env.dev
