@@ -46,6 +46,9 @@ models:
       - name: IS_MATCH
         description: ''
         data_type: NUMBER
+      - name: NET_AMOUNT
+        description: ''
+        data_type: FLOAT
       - name: PRODUCT_NAME
         description: ''
         data_type: VARCHAR

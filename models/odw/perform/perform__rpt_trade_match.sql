@@ -18,6 +18,14 @@ with cte_internal_allocations as (
             else
                 sum(units)
         end                 as quantity
+        , case
+            when lower(order_side) = 'buy'
+                then sum(net) * -1
+            when lower(order_side) = 'sell'
+                then sum(net)
+            else
+                sum(net)
+        end                 as net_amount
         , null::text        as notes
     from {{ ref('perform__fct_allocations') }}
     where 1 = 1
@@ -74,6 +82,10 @@ with cte_internal_allocations as (
             when coalesce(t.trade_status , '') not ilike 'pending'
                 then t.quantity
         end)                  as quantity
+        , sum(case
+            when coalesce(t.trade_status , '') not ilike 'pending'
+                then t.amount * -1
+        end)                  as net_amount
         , max(case
             when coalesce(t.trade_status , '') not ilike 'pending'
                 then t.notes
@@ -146,6 +158,8 @@ select
             then 1
         else 0
     end::int                                        as is_match
+    -- net_amount represents the cash impact of a given transaction
+    , coalesce(i.net_amount , e.net_amount)         as net_amount
 
     , e.product_name                                as product_name
     , e.asset_class                                 as asset_class
