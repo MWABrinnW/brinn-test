@@ -50,6 +50,17 @@ sources:
           - name: _CREATED_AT
             description: ''
             data_type: TIMESTAMP_NTZ
+      - name: lead
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
       - name: retentionsuccessdetail
         columns:
           - name: JSON

@@ -1207,6 +1207,346 @@ models:
   - name: IS_HEAD_FOR_DAY
     description: ''
     data_type: NUMBER
+- name: dynamics_tamarac_cpg__stg_lead
+  columns:
+  - name: _created_by
+    description: ''
+  - name: _created_by_logical_name
+    description: ''
+  - name: _master_id
+    description: ''
+  - name: _master_id_logical_name
+    description: ''
+  - name: _modified_by
+    description: ''
+  - name: _modified_by_logical_name
+    description: ''
+  - name: _modified_on_behalf_by
+    description: ''
+  - name: _modified_on_behalf_by_logical_name
+    description: ''
+  - name: _owner_id
+    description: ''
+  - name: _owner_id_logical_name
+    description: ''
+  - name: _owning_business_unit
+    description: ''
+  - name: _owning_business_unit_logical_name
+    description: ''
+  - name: _owning_user
+    description: ''
+  - name: _owning_user_logical_name
+    description: ''
+  - name: _parent_account_id
+    description: ''
+  - name: _parent_account_id_logical_name
+    description: ''
+  - name: _parent_contact_id
+    description: ''
+  - name: _parent_contact_id_logical_name
+    description: ''
+  - name: _tam_address_1_id
+    description: ''
+  - name: _tam_address_1_id_logical_name
+    description: ''
+  - name: _tamc_said
+    description: ''
+  - name: _tamc_said_logical_name
+    description: ''
+  - name: _tam_lead_source_id
+    description: ''
+  - name: _tam_lead_source_id_logical_name
+    description: ''
+  - name: _tam_referred_by_id
+    description: ''
+  - name: _tam_referred_by_id_logical_name
+    description: ''
+  - name: _tam_region
+    description: ''
+  - name: _tam_region_logical_name
+    description: ''
+  - name: _transaction_currency_id
+    description: ''
+  - name: _transaction_currency_id_logical_name
+    description: ''
+  - name: address_1_address_id
+    description: ''
+  - name: address_1_address_typecode
+    description: ''
+  - name: address_1_city
+    description: ''
+  - name: address_1_composite
+    description: ''
+  - name: address_1_country
+    description: ''
+  - name: address_1_county
+    description: ''
+  - name: address_1_fax
+    description: ''
+  - name: address_1_latitude
+    description: ''
+  - name: address_1_line_1
+    description: ''
+  - name: address_1_line_2
+    description: ''
+  - name: address_1_line_3
+    description: ''
+  - name: address_1_longitude
+    description: ''
+  - name: address_1_name
+    description: ''
+  - name: address_1_postal_code
+    description: ''
+  - name: address_1_post_office_box
+    description: ''
+  - name: address_1_shipping_method_code
+    description: ''
+  - name: address_1_state_or_province
+    description: ''
+  - name: address_1_telephone_1
+    description: ''
+  - name: address_1_telephone_2
+    description: ''
+  - name: address_1_telephone_3
+    description: ''
+  - name: address_1_ups_zone
+    description: ''
+  - name: address_1_utc_offset
+    description: ''
+  - name: address_2_address_id
+    description: ''
+  - name: address_2_address_typecode
+    description: ''
+  - name: address_2_city
+    description: ''
+  - name: address_2_composite
+    description: ''
+  - name: address_2_country
+    description: ''
+  - name: address_2_county
+    description: ''
+  - name: address_2_fax
+    description: ''
+  - name: address_2_latitude
+    description: ''
+  - name: address_2_line_1
+    description: ''
+  - name: address_2_line_2
+    description: ''
+  - name: address_2_line_3
+    description: ''
+  - name: address_2_longitude
+    description: ''
+  - name: address_2_name
+    description: ''
+  - name: address_2_postal_code
+    description: ''
+  - name: address_2_post_office_box
+    description: ''
+  - name: address_2_shipping_method_code
+    description: ''
+  - name: address_2_state_or_province
+    description: ''
+  - name: address_2_telephone_1
+    description: ''
+  - name: address_2_telephone_2
+    description: ''
+  - name: address_2_telephone_3
+    description: ''
+  - name: address_2_ups_zone
+    description: ''
+  - name: address_2_utc_offset
+    description: ''
+  - name: company_name
+    description: ''
+  - name: confirm_interest
+    description: ''
+  - name: created_on
+    description: ''
+  - name: decision_maker
+    description: ''
+  - name: do_not_bulk_email
+    description: ''
+  - name: do_not_email
+    description: ''
+  - name: do_not_fax
+    description: ''
+  - name: do_not_phone
+    description: ''
+  - name: do_not_postal_mail
+    description: ''
+  - name: do_not_send_mm
+    description: ''
+  - name: email_address_1
+    description: ''
+  - name: email_address_2
+    description: ''
+  - name: email_address_3
+    description: ''
+  - name: estimated_amount
+    description: ''
+  - name: estimated_amount_base
+    description: ''
+  - name: estimated_close_date
+    description: ''
+  - name: evaluate_fit
+    description: ''
+  - name: exchange_rate
+    description: ''
+  - name: first_name
+    description: ''
+  - name: follow_email
+    description: ''
+  - name: full_name
+    description: ''
+  - name: job_title
+    description: ''
+  - name: last_name
+    description: ''
+  - name: lead_quality_code
+    description: ''
+  - name: merged
+    description: ''
+  - name: mobile_phone
+    description: ''
+  - name: modified_on
+    description: ''
+  - name: msd_yng_dpr_opt_out
+    description: ''
+  - name: participates_in_workflow
+    description: ''
+  - name: preferred_contact_method_code
+    description: ''
+  - name: priority_code
+    description: ''
+  - name: processid
+    description: ''
+  - name: sales_stage_code
+    description: ''
+  - name: salutation
+    description: ''
+  - name: state_code
+    description: ''
+  - name: status_code
+    description: ''
+  - name: subject
+    description: ''
+  - name: tam_address_1
+    description: ''
+  - name: tam_address_1_line4
+    description: ''
+  - name: tam_address_1_line5
+    description: ''
+  - name: tam_address_1_line6
+    description: ''
+  - name: tam_address_2
+    description: ''
+  - name: tam_address_2_line4
+    description: ''
+  - name: tam_address_2_line5
+    description: ''
+  - name: tam_address_2_line6
+    description: ''
+  - name: tam_address_name_line
+    description: ''
+  - name: tam_address_updated_from_plugin
+    description: ''
+  - name: tam_alert
+    description: ''
+  - name: tam_birthdate
+    description: ''
+  - name: tam_company
+    description: ''
+  - name: tam_document_link
+    description: ''
+  - name: tam_email_type_1
+    description: ''
+  - name: tam_email_type_2
+    description: ''
+  - name: tam_form_type
+    description: ''
+  - name: tam_gender
+    description: ''
+  - name: tam_initial_meeting
+    description: ''
+  - name: tam_last_appointment
+    description: ''
+  - name: tam_last_call
+    description: ''
+  - name: tam_last_contacted
+    description: ''
+  - name: tam_lead_description
+    description: ''
+  - name: tam_lead_stage
+    description: ''
+  - name: tam_marital_status
+    description: ''
+  - name: tam_potential_aum
+    description: ''
+  - name: tam_potential_aum_base
+    description: ''
+  - name: tam_preferred_phone
+    description: ''
+  - name: tam_secondary_birthdate
+    description: ''
+  - name: tam_secondary_business_phone
+    description: ''
+  - name: tam_secondary_company
+    description: ''
+  - name: tam_secondary_email_address_1
+    description: ''
+  - name: tam_secondary_email_address_2
+    description: ''
+  - name: tam_secondary_email_type_1
+    description: ''
+  - name: tam_secondary_first_name
+    description: ''
+  - name: tam_secondary_gender
+    description: ''
+  - name: tam_secondary_home_phone
+    description: ''
+  - name: tam_secondary_job_title
+    description: ''
+  - name: tam_secondary_last_name
+    description: ''
+  - name: tam_secondary_marital_status
+    description: ''
+  - name: tam_secondary_mobile_phone
+    description: ''
+  - name: tam_secondary_other_phone
+    description: ''
+  - name: tam_secondary_preferred_phone
+    description: ''
+  - name: tam_secondary_ssn
+    description: ''
+  - name: tam_ssn
+    description: ''
+  - name: tam_state_of_primary_residence
+    description: ''
+  - name: telephone_1
+    description: ''
+  - name: telephone_2
+    description: ''
+  - name: telephone_3
+    description: ''
+  - name: timezone_rule_version_number
+    description: ''
+  - name: version_number
+    description: ''
+  - name: website_url
+    description: ''
+  - name: yomi_full_name
+    description: ''
+  - name: _fivetran_deleted
+    description: ''
+  - name: _fivetran_synced
+    description: ''
+  - name: _created_at
+    description: ''
+  - name: is_head
+    description: ''
+  - name: is_head_for_day
+    description: ''
 - name: dynamics_tamarac_cpg__stg_string_map
   columns:
   - name: ATTRIBUTE_NAME
