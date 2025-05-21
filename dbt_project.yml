@@ -457,7 +457,7 @@ models:
       redtail_network:
         +tags: ["redtail", "network"]
         +grants:
-          select: "{{ ['db_crm_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+          select: "{{ ['db_crm_mps_r', 'finance'] if target.name in ['prod', 'ci'] else []}}"
 
       rise:
         +tags: ["rise"]
@@ -497,7 +497,7 @@ models:
       salesforce_igo:
         +tags: ["crm", "salesforce", "igo"]
         +grants:
-          select: "{{ ['reporting'] if target.name in ['prod', 'ci'] else []}}"
+          select: "{{ ['reporting', 'finance'] if target.name in ['prod', 'ci'] else []}}"
 
       salesforce_mps:
         +tags: ["crm", "salesforce", "mps"]
