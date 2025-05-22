@@ -17,7 +17,7 @@ with tot_dist_cte as (
         , invoicenumber                                                                  as inv_num_src_1
         , invoicenumber                                                                  as inv_num_src_2
         , invoicedatetime::date                                                          as balance_date
-        , (stdwipamount + adjustmentamount + progressbilledamount + progressapplyamount) as ar_amount
+        , (stdwipamount + adjustmentamount + progressbilledamount - progressapplyamount) as ar_amount
     from {{ ref('cch_dau__stg_invoice') }}
     where true
         and is_head = 1
@@ -201,10 +201,10 @@ select
         when clnt.clientofficename = 'Sioux Falls' and left(clnt.clientsubid , 5) = '20STS'
             then
                 'Cost Seg'
-        when clnt.clientofficename = 'New Albany' and left(clnt.clientid , 6) = '.kleeh'
+        when clnt.clientofficename = 'New Albany' and right(clnt.clientid , 6) = '.kleeh'
             then
                 'New Albany'
-        when clnt.clientofficename = 'New Albany' and left(clnt.clientsubid , 6) = '.kleeh'
+        when clnt.clientofficename = 'New Albany' and right(clnt.clientsubid , 6) = '.kleeh'
             then
                 'New Albany'
         when clnt.clientofficename = 'New Albany'

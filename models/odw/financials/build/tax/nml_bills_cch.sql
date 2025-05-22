@@ -56,8 +56,8 @@ with line_item_cte as (
             when c.clientofficename = 'Sioux Falls' and left(c.clientsubid , 5) = '20ZTC' then 'Speciality Tax'
             when c.clientofficename = 'Sioux Falls' and left(c.clientid , 5) = '20STS' then 'Cost Seg'
             when c.clientofficename = 'Sioux Falls' and left(c.clientsubid , 5) = '20STS' then 'Cost Seg'
-            when c.clientofficename = 'New Albany' and left(c.clientid , 6) = '.kleeh' then 'New Albany'
-            when c.clientofficename = 'New Albany' and left(c.clientsubid , 6) = '.kleeh' then 'New Albany'
+            when c.clientofficename = 'New Albany' and right(c.clientid , 6) = '.kleeh' then 'New Albany'
+            when c.clientofficename = 'New Albany' and right(c.clientsubid , 6) = '.kleeh' then 'New Albany'
             when c.clientofficename = 'New Albany' then 'Louisville'
             else c.clientofficename
         end as clientofficenamecustom
