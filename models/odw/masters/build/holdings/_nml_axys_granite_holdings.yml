@@ -1,0 +1,66 @@
+version: 2
+models:
+  - name: nml_axys_granite_holdings
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: FIRM_SOURCE
+        description: ''
+      - name: ACCOUNT_ID
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: CLIENT_ID
+        description: ''
+      - name: CLIENT_NAME
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: CUSIP
+        description: ''
+      - name: TICKER
+        description: ''
+      - name: IS_TICKER_CUSIP
+        description: ''
+      - name: IS_CUSTODIAL_CASH
+        description: ''
+      - name: SECURITY_ID
+        description: ''
+      - name: SECURITY_NAME
+        description: ''
+      - name: SECURITY_TYPE
+        description: ''
+      - name: SECURITY_SUBTYPE
+        description: ''
+      - name: ASSET_CLASS
+        description: ''
+      - name: MARKET_VALUE
+        description: ''
+      - name: QUANTITY
+        description: ''
+      - name: PRICE
+        description: ''
+      - name: PRICE_UNFACTORED
+        description: ''
+      - name: FACTOR
+        description: ''
+      - name: COST_BASIS
+        description: ''
+      - name: IS_HEAD
+        description: ''
+      - name: IS_CURRENT
+        description: ''
+      - name: _CREATED_AT
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''

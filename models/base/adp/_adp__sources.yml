@@ -10,8 +10,6 @@ sources:
     tables:
       - name: worker_assignment_history
         description: "Json worker assignments (positions) from ADP"
-        freshness:
-          error_after: {count: 25, period: hour}
         columns:
           - name: ACTUALSTARTDATE
             description: ''
@@ -456,8 +454,6 @@ sources:
             data_type: DATE
       - name: worker_history
         description: "Json workers (employees) from ADP"
-        freshness:
-          error_after: {count: 25, period: hour}
         columns:
           - name: ASSOCIATEOID
             description: ''

@@ -10,7 +10,8 @@
     filter = none,
     custom_condition = none,
     custom_condition_only = false,
-    max_lookback = none
+    max_lookback = none,
+    start_date = none
 ) -%}
 
 {#
@@ -39,23 +40,10 @@ Returns:
     {%- set unique_key = config.require('unique_key') -%}
     {%- set target_relation_var = none -%}
 
-{#  Set the max lookback (day cutoff)
-    If target is dev we'll apply the max lookback.
-    If target is not dev we'll only apply a max lookback if it was provided. #}
-    {%- if target.name not in ['prod'] -%}
-        {%- set max_lookback_var = cvar('dev_day_filter') -%}
-    {%- else -%}
-        {%- set max_lookback_var = 365 -%}
-    {%- endif -%}
-
     {% if target_relation == "this" -%}
     {%- set target_relation_var = this -%}
     {%- else -%}
         {%- set target_relation_var = relation -%}
-    {%- endif -%}
-
-    {%- if max_lookback_var is not none -%}
-        AND {{ source_col_name }}::timestamp >= (current_date() - {{ max_lookback_var }})::timestamp
     {%- endif -%}
 
     {%- if is_incremental() %}

@@ -13,6 +13,9 @@ on:
       - snapshots/**/*sql
       - seeds/**/*sql
 
+env:
+  VENV_DIR: ./.venv
+
 jobs:
   lint-changed:
     if: (!contains(github.event.pull_request.labels.*.name, 'skip-lint'))
@@ -33,37 +36,22 @@ jobs:
           echo "PYTHON_VERSION=$python_version" | Out-File -Append -FilePath $env:GITHUB_ENV
           echo "python_version=$python_version" >> $GITHUB_ENV
 
-      - name: Cache venv
-        uses: actions/cache@v4
-        id: cache-venv
-        with:
-          path: ./utilities/.venv
-          key: dbt-venv-${{ runner.os }}-py${{ env.python_version }}-${{ hashFiles('requirements-ci.txt') }}
-
       - name: Setup just
         uses: extractions/setup-just@v1
 
       - name: Install python requirements
         shell: pwsh
         run: |
-          $venv_dir = ".\utilities\.venv"
-          echo "cache-hit: ${{ steps.cache-venv.outputs.cache-hit }}"
-          if ('${{ steps.cache-venv.outputs.cache-hit }}' -ne 'true') {
-            if ((Test-Path -Path "$venv_dir" -PathType Container)) {
-              Write-Host "Removing existing venv"
-              Remove-Item -Path "$venv_dir" -Force -Recurse
-            } else {
-              Write-Host "Did not detect existing venv $venv_dir"
-            }
-            Write-Host "Creating venv"
-            python -m venv $venv_dir
-            Write-Host "Installing requirements"
-            & "$venv_dir\Scripts\Activate.ps1"
-            pip install -r requirements-ci.txt
-          } else {echo "Using cached venv"}
+          $venv_dir = "$env:VENV_DIR"
+          Write-Host "Creating venv"
+          uv venv $venv_dir --python 3.12.10
+          Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
+          Write-Host "Installing requirements"
+          uv pip install -r requirements-ci.txt
 
       - name: Lint changed files
         shell: pwsh
         run: |
-          ./utilities/.venv/Scripts/Activate.ps1
+          $venv_dir = "$env:VENV_DIR"
+          Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
           just lint_changed

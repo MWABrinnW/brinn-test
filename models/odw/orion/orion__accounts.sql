@@ -46,6 +46,8 @@ select
     , eclipse_sma
     , eclipse_enabled
     , committed_amount_udf
+    , is_qualified
+    , is_discretionary
     , _created_at
     , _source_loaded_at
     , createddate
@@ -56,3 +58,10 @@ select
         reference_date_col='effective_date'
         ) }}
 from {{ ref('orion__bld_accounts') }}
+where 1 = 1
+    -- Exclude Hayes
+    and not (effective_date > '2024-09-30' and fkalclient = 1945)
+    -- Exclude Cascadia
+    and not (effective_date > '2024-08-30' and fkalclient = 2102)
+    -- Exclude Arbor Wealth
+    and not (effective_date > '2024-03-31' and fkalclient = 2623)

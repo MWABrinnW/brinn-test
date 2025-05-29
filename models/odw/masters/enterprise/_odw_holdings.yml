@@ -1,0 +1,132 @@
+version: 2
+models:
+  - name: odw_holdings
+    data_tests:
+      - dbt_expectations.expect_table_row_count_to_equal_other_table:
+          name: compare_row_count_pms_accounts
+          config:
+            severity: warn
+            enabled: "{{ target.name != 'prod' }}"
+          compare_model: odw.enterprise.accounts
+          group_by: [effective_date, system_key]
+          compare_group_by: [effective_date, system_key]
+          row_condition: effective_date >= current_date() - 7
+          compare_row_condition: effective_date >= current_date() - 7
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: Source system instance name.
+      - name: SYSTEM_KEY
+        description: Key for the PMS instance. PMS and PMS_INSTANCE_LOCATION concatenated.
+      - name: FIRM_SOURCE
+        description: Firm entity associated with the link value.
+        meta:
+          row_access_policy: rap_firm_source
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: >-
+          Account number including custodian or source sytem formatting such as hyphens, spacing, and
+          case sensitivity.
+      - name: ACCOUNT_NUMBER
+        description: Account number without formatting or leading zeros.
+      - name: ACCOUNT_VALUE
+        description: Latest account market value.
+      - name: ACCOUNT_ID_CRM
+        description: ''
+      - name: ACCOUNT_ID_PMS
+        description: ''
+      - name: ACCOUNT_NAME
+        description: Account name.
+      - name: CLIENT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_PMS
+        description: ''
+      - name: CLIENT_NAME
+        description: ''
+      - name: CUSTODIAN
+        description: Custodian name, lower-case, no spaces.
+      - name: ACCOUNT_TYPE
+        description: 'Account type. Example: IRA Rollover.'
+      - name: MODEL_INVESTMENT_STRATEGY
+        description: ''
+      - name: AUM_CLASSIFICATION
+        description: ''
+      - name: ADVISOR
+        description: Advisor.
+      - name: DISCRETION_STATUS
+        description: ''
+      - name: IS_ACTIVE
+        description: Is the account active (1 or 0).
+      - name: OPENED_DATE
+        description: Account open or start date.
+      - name: CLOSED_DATE
+        description: Account close or cancel date.
+      - name: LOCATION_CODE
+        description: Mariner Location ID for the location (ex. 100, L-10015)
+      - name: OFFICE_NAME
+        description: Office name/location in the format of 'City, State'
+      - name: LINK
+        description: The custodian master number, g number, rep code, or equivalent.
+      - name: LINK_TYPE
+        description: The type of link (i.e. master number or G number)
+      - name: LINK_SUBTYPE
+        description: >-
+          Some custodians have primary, secondary, or other labels to indicate the type of link value.
+      - name: IS_MARKET_MONTH_END
+        description: Is the effective date the last effective_date (market day) for the month.
+      - name: IS_MARKET_DAY
+        description: ''
+      - name: IS_MANUAL_ACCOUNT
+        description: ''
+      - name: CUSIP
+        description: CUSIP
+      - name: TICKER
+        description: ''
+      - name: IS_CUSTODIAL_CASH
+        description: ''
+      - name: SECURITY_ID
+        description: ''
+      - name: SECURITY_NAME
+        description: ''
+      - name: SECURITY_TYPE
+        description: |
+          Identifies type of security:
+          Fixed
+          Deriv
+          Eqty/MF
+          Cash Eq
+          Futures
+          Forwards
+          Index
+          Option
+          ST Debt
+          If no data is available, the field will be blank.
+      - name: SECURITY_SUBTYPE
+        description: ''
+      - name: ASSET_CLASS
+        description: ''
+      - name: MARKET_VALUE
+        description: ''
+      - name: QUANTITY
+        description: ''
+      - name: PRICE
+        description: ''
+      - name: PRICE_UNFACTORED
+        description: ''
+      - name: FACTOR
+        description: >-
+          The security's current factor. For securities without a factor, the factor value will default
+          to 1. Applies to TIPS, asset-backed securities, and other securities where a factor exists.
+      - name: COST_BASIS
+        description: ''
+      - name: IS_MANUAL_HOLDINGS
+        description: ''
+      - name: IS_LEGACY
+        description: ''
+      - name: _CREATED_AT
+        description: >-
+          Datetime representing when the record was loaded into the table from the source file.
+sources: []
+seeds: []

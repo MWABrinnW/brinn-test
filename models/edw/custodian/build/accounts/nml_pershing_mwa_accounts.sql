@@ -60,8 +60,6 @@ select
     , a.legal_address_state::varchar(500)               as legal_address_state
     , a.legal_address_zip::varchar(12)                  as legal_address_zip
     , a.legal_address_country::varchar(500)             as legal_address_country
-    , a.is_head::int                                    as is_head
-    , {{ col_is_current(date_col='a.effective_date') }}
     , a._source_loaded_at::timestamp                    as _created_at
     , a._source_loaded_at::timestamp                    as _source_loaded_at
     , a._source_file                                    as _source_file

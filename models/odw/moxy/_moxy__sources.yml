@@ -323,12 +323,16 @@ sources:
         columns:
           - name: _DATA
             data_type: VARIANT
+            description: ''
           - name: _CREATED_AT
             data_type: TIMESTAMP_NTZ
+            description: ''
           - name: _SOURCE_FILE
             data_type: VARCHAR
+            description: ''
           - name: _ID
             data_type: NUMBER
+            description: ''
       - name: allocations
         description: Allocations extracted from Moxy.
         columns:

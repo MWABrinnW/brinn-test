@@ -8,9 +8,8 @@ models:
           state_schema: perform
           state_name: accounts_build
           summarize: false
-          exclude_columns: ["_created_at", "is_head", "is_current", "_source_loaded_at", "_source_file",
-            "_source", "createddate", "lot_id", "is_intraday_import", "account_id", "asset_id", "quantity",
-            "cost_per_share", "product_id"]
+          exclude_columns: [_created_at, is_head, is_current, _source_loaded_at, _source_file, _source,
+            createddate, lot_id, is_intraday_import, account_id, asset_id, quantity, cost_per_share, product_id]
           where_clause: none
           config:
             severity: warn

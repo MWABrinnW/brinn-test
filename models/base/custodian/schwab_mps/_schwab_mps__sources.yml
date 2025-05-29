@@ -2,13 +2,13 @@ version: 2
 
 sources:
   - name: schwab_mps
-    description: ""
+    description: ''
     database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: schwab_mps_history
     loaded_at_field: record_datetime
     tables:
       - name: accounts
-        description: ""
+        description: ''
         columns:
           - name: CUSTODIANID
             description: ''
@@ -257,7 +257,7 @@ sources:
             description: ''
             data_type: DATE
       - name: customer
-        description: ""
+        description: ''
         columns:
           - name: ACCOUNTNUMBER
             description: ''
@@ -317,7 +317,7 @@ sources:
             description: ''
             data_type: DATE
       - name: positions
-        description: ""
+        description: ''
         columns:
           - name: SECURITYSYMBOL
             description: ''
@@ -344,7 +344,7 @@ sources:
             description: ''
             data_type: DATE
       - name: positions_cost_basis
-        description: ""
+        description: ''
         columns:
           - name: RECORDTYPE
             description: ''
@@ -476,7 +476,7 @@ sources:
             description: ''
             data_type: DATE
       - name: securities
-        description: ""
+        description: ''
         columns:
           - name: SECURITYSYMBOL
             description: ''
@@ -515,7 +515,7 @@ sources:
             description: ''
             data_type: DATE
       - name: tax_lots
-        description: ""
+        description: ''
         columns:
           - name: RECORDTYPE
             description: ''
@@ -689,7 +689,7 @@ sources:
             description: ''
             data_type: DATE
       - name: transactions
-        description: ""
+        description: ''
         columns:
           - name: RECORDTYPE
             description: ''
@@ -1060,21 +1060,24 @@ sources:
             description: ''
             data_type: VARCHAR
       - name: sec
-        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        description: >-
+          [PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)
         columns:
           - name: _id
           - name: json
           - name: effective_date
           - name: _created_at
       - name: rps_d1
-        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        description: >-
+          [PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)
         columns:
           - name: _id
           - name: json
           - name: effective_date
           - name: _created_at
       - name: rps_d2
-        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        description: >-
+          [PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)
         columns:
           - name: _id
           - name: json

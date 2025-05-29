@@ -1,30 +1,8 @@
-with cte_dates as (
-    select date_key as effective_date
-    from {{ ref('dates') }}
-    where is_market_day = 1
-        and date_key between
-        (select min(effective_date) from {{ ref('bld_custodian_tax_lots') }})
-        and
-        (select max(effective_date) from {{ ref('bld_custodian_tax_lots') }})
-)
-
-, cte_custodians_spined as (
-    select distinct
-        c.custodian
-        , c.firm_source
-        , cf.firm
-        , d.effective_date
-    from {{ ref('custodians') }} as c
-    left join {{ ref('custodian_firms') }} as cf
-        on c.firm_source = cf.firm_source
-    cross join cte_dates as d
-)
-
 select
-    c.effective_date
-    , c.custodian
-    , c.firm
-    , c.firm_source
+    bctl.effective_date
+    , bctl.custodian
+    , bctl.firm
+    , bctl.firm_source
     , bctl.account_number
     , bctl.account_number_formatted
     , bctl.symbol
@@ -56,15 +34,11 @@ select
     , bctl.legacy_product_type
     , bctl.legacy_product_type_source_definition
     , bctl.legacy_product_type_source_code
-    , {{ col_is_head(reference='cte_custodians_spined', source_date_col='c.effective_date') }}
-    , {{ col_is_current(date_col='c.effective_date') }}
+    , {{ col_is_head(reference=ref('bld_custodian_tax_lots'), source_date_col='bctl.effective_date') }}
+    , {{ col_is_current(date_col='bctl.effective_date') }}
     , bctl.rn_global
     , bctl._extra_fields
     , bctl._source_loaded_at
     , bctl._source_file
     , bctl._created_at
-from cte_custodians_spined as c
-left join {{ ref('bld_custodian_tax_lots') }} as bctl
-    on c.custodian = bctl.custodian
-    and c.firm_source = bctl.firm_source
-    and c.effective_date = bctl.effective_date
+from {{ ref('bld_custodian_tax_lots') }} as bctl

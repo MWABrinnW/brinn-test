@@ -5,10 +5,8 @@ select
     , bb.system_key::varchar(200)                                                        as system_key
     , bb.firm_source::text(200)                                                          as firm_source
 
-
     -- [location]
     , coalesce(acc.household_location_code , acc2.household_location_code)::varchar(200) as client_location_code
-
 
     -- [invoice]
     , null::varchar(200)                                                                 as invoice_number_source
@@ -163,7 +161,7 @@ left join {{ ref('black_diamond_houston__base_accounts') }} as ba
 -- joins crm data on invoice date, if available
 left join {{ ref('salesforce_compass_accounts') }} as acc
     on ba.account_number = acc.account_number
-    and bb.as_of_date = acc.effective_date
+    and bb.as_of_date = acc.effective_at::date
 -- otherwise, joins to the current snapshot (is_head = 1)
 left join {{ ref('salesforce_compass_accounts') }} as acc2
     on ba.account_number = acc2.account_number

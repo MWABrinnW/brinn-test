@@ -1,0 +1,11 @@
+{{config(
+    materialized='incremental',
+    unique_key='effective_date',
+    incremental_strategy='delete+insert',
+    on_schema_change='sync_all_columns',
+    cluster_by=['effective_date']
+)}}
+
+{%- set instance = 'mwa' -%}
+
+{{ nml_fidelity_tax_lots_lambda(instance=instance, is_historical=true) }}

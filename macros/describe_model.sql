@@ -45,11 +45,6 @@
       {%- else -%}
       null::float
       {%- endif %} as sum_all
-      ,{% if can_sum(field) -%}
-        avg({{field.column}})::float
-      {%- else -%}
-      null::float
-      {%- endif %} as mean
       ,min({{field.column}})::varchar(100) as min
       ,max({{field.column}})::varchar(100) as max
     from {{ model }}
@@ -79,7 +74,8 @@
 
   with stats as (
     select
-      count(*) as count_all
+      count(*)::text as count_all
+      {%- do fields_to_unpivot.value.append('count_all') -%}
 
       {% for field in fields -%}
       ,sum(case when {{field.column}} is not null then 1 else 0 end)::text as {{field.column}}__count_not_null
@@ -93,7 +89,6 @@
       {% endif -%}
       {% if can_sum(field) -%}
       ,sum({{field.column}})::text as {{field.column}}__sum_all
-      ,avg({{field.column}})::text as {{field.column}}__mean
       {% endif -%}
 
       {%- do fields_to_unpivot.value.append(field.column ~ "__count_not_null") -%}
@@ -107,7 +102,6 @@
       {% endif -%}
       {%- if can_sum(field) -%}
         {%- do fields_to_unpivot.value.append(field.column ~ "__sum_all") -%}
-        {%- do fields_to_unpivot.value.append(field.column ~ "__mean") -%}
       {% endif -%}
     {% endfor -%}
     from {{ model }}

@@ -3,9 +3,9 @@ with cte_dates as (
     from {{ ref('dates') }}
     where is_market_day = 1
         and date_key between
-        (select min(t.effective_date) from {{ ref('bld_custodian_holdings') }} as t)
+        (select min(t.effective_date) from {{ ref('custodian_holdings') }} as t)
         and
-        (select max(t.effective_date) from {{ ref('bld_custodian_holdings') }} as t)
+        (select max(t.effective_date) from {{ ref('custodian_holdings') }} as t)
 )
 
 , cte_custodians_spined as (

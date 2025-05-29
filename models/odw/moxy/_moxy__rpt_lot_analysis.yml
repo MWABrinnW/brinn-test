@@ -8,54 +8,80 @@ models:
           state_schema: moxy
           state_name: rpt_lot_analysis
           summarize: false
-          exclude_columns: [_created_at, is_head, is_current, _source_loaded_at, _source_file, _source, quantity_diff, value_diff]
+          exclude_columns: [_created_at, is_head, is_current, _source_loaded_at, _source_file, _source,
+            quantity_diff, value_diff]
           where_clause: none
           config:
             severity: warn
     columns:
       - name: EFFECTIVE_DATE
         data_type: DATE
+        description: ''
       - name: CUSTODIAN
         data_type: VARCHAR
+        description: ''
       - name: ACCOUNT_NUMBER
         data_type: VARCHAR
+        description: ''
+      - name: ACCOUNT_ID
+        description: ''
       - name: TRADING_ID
         data_type: VARCHAR
+        description: ''
       - name: SYMBOL
         data_type: VARCHAR
+        description: ''
       - name: TICKER
         data_type: VARCHAR
+        description: ''
       - name: CUSIP
         data_type: VARCHAR
+        description: ''
       - name: TAX_LOT_QUANTITY
         data_type: NUMBER
+        description: ''
       - name: POSITION_QUANTITY
         data_type: NUMBER
+        description: ''
       - name: QUANTITY_DIFF
         data_type: NUMBER
+        description: ''
       - name: EXPLANATION
         data_type: VARCHAR
+        description: ''
       - name: TAX_LOT_VALUE
         data_type: NUMBER
+        description: ''
       - name: POSITION_VALUE
         data_type: NUMBER
+        description: ''
       - name: VALUE_DIFF
         data_type: NUMBER
+        description: ''
       - name: PRODUCT_NAME
         data_type: VARCHAR
+        description: ''
       - name: ASSET_CLASS
         data_type: VARCHAR
+        description: ''
       - name: PRODUCT_TYPE
         data_type: VARCHAR
+        description: ''
       - name: PRODUCT_CATEGORY
         data_type: VARCHAR
+        description: ''
       - name: PRODUCT_ID
         data_type: NUMBER
+        description: ''
       - name: ASSET_ID
         data_type: NUMBER
+        description: ''
       - name: TRADING_SYSTEMS
         data_type: ARRAY
+        description: ''
       - name: IS_MATCH
         data_type: NUMBER
+        description: ''
       - name: _CREATED_AT
         data_type: TIMESTAMP_NTZ
+        description: ''

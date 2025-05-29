@@ -34,14 +34,12 @@ saleforce_salentica as (
         and sfba.is_latest = 1
 )
 
-
 select
     -- [pms attributes]
     bb.system_name::text(200)                                                    as system_name
     , bb.system_instance::text(200)                                              as system_instance
     , bb.system_key::text(200)                                                   as system_key
     , bb.firm_source::text(200)                                                  as firm_source
-
 
     -- [location]
     , '640'::text(200)                                                           as client_location_code

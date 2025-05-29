@@ -9,7 +9,7 @@ models:
         description: ''
         data_type: VARCHAR
       - name: FIRM
-        description: 'Firm name'
+        description: Firm name
         data_type: VARCHAR
       - name: FIRM_SOURCE
         description: ''
@@ -33,9 +33,6 @@ models:
         description: ''
         data_type: NUMBER
       - name: IS_HEAD
-        description: ''
-        data_type: NUMBER
-      - name: IS_CURRENT
         description: ''
         data_type: NUMBER
       - name: _SOURCE_FILE

@@ -20,8 +20,8 @@ select
     , a.middle_name::varchar(500)                        as middle_name
     , a.last_name::varchar(500)                          as last_name
 
-    , a.irs_id::varchar(500)
-    , a.irs_id_type::varchar(500)
+    , a.irs_id::varchar(500)                             as irs_id
+    , a.irs_id_type::varchar(500)                        as irs_id_type
     , a.birth_date::date                                 as birth_date
 
     , a.email_address::varchar(500)                      as email_address
@@ -35,7 +35,7 @@ select
     , a.options_approval_level::varchar(500)             as options_approval_level
     , a.restrictions_source_code::varchar(500)           as restrictions_source_code
     , a.is_multiple_margin_enabled::int                  as is_multiple_margin_enabled
-    , r.definition::varchar(500)                         as restrictions_source_defintion
+    , r.definition::varchar(500)                         as restrictions_source_definition
     , r.normalized::varchar(500)                         as restrictions
 
     , a.mailing_address_street::varchar(500)             as mailing_address_street
@@ -48,8 +48,6 @@ select
     , a.legal_address_state::varchar(500)                as legal_address_state
     , a.legal_address_zip::varchar(500)                  as legal_address_zip
     , a.legal_address_country::varchar(500)              as legal_address_country
-    , a.is_head::int                                     as is_head
-    , a.is_current::int                                  as is_current
     , a._created_at::timestamp                           as _created_at
     , a._source_loaded_at::timestamp                     as _source_loaded_at
     , a._source_file                                     as _source_file

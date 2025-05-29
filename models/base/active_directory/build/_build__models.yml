@@ -75,52 +75,52 @@ models:
     columns:
       - name: SYSTEM_NAME
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: SYSTEM_INSTANCE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: SYSTEM_KEY
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: FIRM_SOURCE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: DISTINGUISHED_NAME
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: NAME
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: CANONICAL_NAME
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: EMPLOYEE_NUMBER
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: EMPLOYEE_ID
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: MANAGER
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: CN
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: SN
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: DISPLAY_NAME
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: GIVEN_NAME
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: DESCRIPTION
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: OBJECT_CLASS
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: INSTANCE_TYPE
         description: ''
         data_type: NUMBER
@@ -144,46 +144,46 @@ models:
         data_type: NUMBER
       - name: COMPANY
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: OFFICE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: DIVISION
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: DEPARTMENT
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: TITLE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: EMAIL
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: SSO_SMTP
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: OFFICE_PHONE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: MODIFIED_AT
         description: ''
         data_type: TIMESTAMP_TZ
       - name: MOBILE_PHONE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: STREET_ADDRESS
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: PRIMARY_GROUP
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: PRIMARY_GROUP_ID
         description: ''
         data_type: NUMBER
       - name: ORGANIZATION
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: PASSWORD_EXPIRED
         description: ''
         data_type: NUMBER
@@ -210,25 +210,25 @@ models:
         data_type: VARIANT
       - name: SAM_ACCOUNT_NAME
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: SAM_ACCOUNT_TYPE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: PHYSICAL_DELIVERY_OFFICE_NAME
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: CITY
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: STATE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: POSTAL_CODE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: OTHER_MOBILE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: DATE_OF_START
         description: ''
         data_type: DATE
@@ -236,22 +236,22 @@ models:
         description: ''
         meta:
           masking_policy: mp_associate_pii_text
-        data_type: TEXT
+        data_type: VARCHAR
       - name: ADMIN_DESCRIPTION
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: MANAGER_EMPLOYEENUMBER
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: MANAGER_EMAIL
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: MANAGER_SAMACCOUNTNAME
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: MANAGER_DISTINGUISHEDNAME
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: _EFFECTIVE_AT
         description: ''
         data_type: TIMESTAMP_NTZ
@@ -260,7 +260,7 @@ models:
         data_type: TIMESTAMP_NTZ
       - name: _SOURCE_FILE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
   - name: active_directory__rpt_group_members_history
     columns:
       - name: SYSTEM_NAME

@@ -72,29 +72,18 @@ select
     , a.effective_at::timestamp                               as effective_at
     , a._created_at::timestamp                                as _created_at
     , {{ col_is_head(
-    reference=src,
-    source_date_col='a.effective_at',
-    reference_date_col='effective_at'
-    ) }}
+        reference=src,
+        source_date_col='a.effective_at',
+        reference_date_col='effective_at'
+        ) }}
     , case
-        when a._created_at = (
-                select max(sub._created_at)
-                from {{ src }} as sub
-                where sub.effective_at::date = a.effective_at::date
-                    and sub.json:ID::text(200) = a.json:ID::text(200)
-            )
+        when a._created_at = max(a._created_at) over (partition by a.effective_at::date)
             then 1
         else 0
     end::int                                                  as is_head_for_day
-    , case when b.rn = 1 then 1 else 0 end                    as is_latest
+    , case
+        when a._created_at = max(a._created_at) over (partition by a.effective_at::date)
+            then 1
+        else 0
+    end::int                                                  as is_latest
 from {{ src }} as a
-left join (
-    select
-        a.effective_at::date                                                                as effective_at
-        , a._created_at                                                                     as _created_at
-        , row_number() over (partition by a.effective_at::date order by a._created_at desc) as rn
-    from {{ src }} as a
-    group by 1 , 2
-) as b
-    on a.effective_at::date = b.effective_at::date
-    and a._created_at = b._created_at

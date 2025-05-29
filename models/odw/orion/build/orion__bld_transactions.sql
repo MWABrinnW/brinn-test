@@ -6,9 +6,8 @@
     cluster_by=['date', 'fkalclient', 'left(account_number, 1)']
 ) }}
 
-{% set lookback = cvar('lookback') %}
-{% set dev_filter = cvar('dev_day_filter') %}
-{%- set max_lookback = 183 -%}
+{%- set start_date = cvar('start_date_orion') -%}
+{%- set lookback = cvar('lookback') -%}
 
 {% if is_incremental() -%}
     with cte_max_createddate as (
@@ -16,10 +15,11 @@
     )
 
     , cte_effective_dates as (
-        select distinct transdate
+        select transdate
         from {{ ref('orion__base_vw_transaction') }}
         where 1=1
             and createddate > (select max_createddate from cte_max_createddate)
+        group by all
     )
 {% endif -%}
 
@@ -100,16 +100,13 @@ left join {{ ref('orion__base_vw_tradestatus') }} as ts
     on t.fkalclient = ts.fkalclient
     and t.fktradestatus = ts.pktradestatus
 where 1 = 1
-    -- Max lookback for a full refresh.
-    and t.transdate >= current_date() - {{ max_lookback }}
-    {%- if target.name not in ['prod'] %}
-        --Restrict lookback window in dev.
-        and t.transdate >= current_date() - {{ dev_filter }}
-    {%- endif %}
-
-    {%- if is_incremental() %}
+    -- Model start date. This applies for full-refresh.
+    and t.transdate::date >= '{{ start_date }}'
+    {%- if is_incremental() or target.name not in ['prod'] %}
         -- Restrict lookback for incremental run.
         and t.transdate >= current_date() - {{ lookback }}
+    {%- endif %}
+    {%- if is_incremental() %}
         -- These are the dates that need added/refreshed.
         and t.transdate in (
             select tmp.transdate from cte_effective_dates as tmp

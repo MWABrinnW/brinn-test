@@ -21,6 +21,7 @@ with cte_records_to_update as (
                 or b.pkproduct is null
             )
     {% endif -%}
+
 )
 
 select
@@ -100,12 +101,9 @@ select
     , a.content:fkadvassetcategory::integer                    as fkadvassetcategory
     , a.content:isadvreportable::boolean::int                  as isadvreportable
     , a.content:is13freportable::boolean::int                  as is13freportable
-    , a.content:usedailyinterestaccrual::boolean::int
-        as usedailyinterestaccrual
-    , a.content:excludebondaccrualfromvaluations::boolean::int
-        as excludebondaccrualfromvaluations
-    , a.content:productnameoverride::varchar(150)
-        as productnameoverride
+    , a.content:usedailyinterestaccrual::boolean::int          as usedailyinterestaccrual
+    , a.content:excludebondaccrualfromvaluations::boolean::int as excludebondaccrualfromvaluations
+    , a.content:productnameoverride::varchar(150)              as productnameoverride
     , a.content:createddate::timestamp                         as createddate
     , max(ed.prior_market_date) over (partition by 1)          as effective_date
     , a._pk::varchar(200)                                      as _pk

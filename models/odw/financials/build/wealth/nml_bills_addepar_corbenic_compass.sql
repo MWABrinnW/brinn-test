@@ -153,7 +153,7 @@ left join {{ ref('addepar_corbenic_history__base_accounts') }} as a
 -- joins crm data on invoice date, if available
 left join {{ ref('salesforce_compass_accounts') }} as acc
     on a.account_number = acc.account_number
-    and b._created_at::date = acc.effective_date
+    and b._created_at::date = acc.effective_at::date
 -- otherwise, joins to the current snapshot (is_head = 1)
 left join {{ ref('salesforce_compass_accounts') }} as acc2
     on a.account_number = acc2.account_number

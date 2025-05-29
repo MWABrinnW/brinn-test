@@ -6,8 +6,9 @@
     on_schema_change='sync_all_columns'
 ) }}
 
+{% set start_date = cvar('start_date_orion') %}
 {% set lookback = cvar('lookback') %}
-{% set dev_filter = cvar('dev_day_filter') %}
+
 
 select
     ci.clientname                                 as clientname
@@ -35,11 +36,11 @@ from {{ source('orion', 'vw_assetvalue') }} as a
 inner join {{ ref('orion__base_vw_clientinfo') }} as ci
     on a.content:fkalclient::int = ci.pkalclient
 where 1 = 1
-    -- Max lookback for a full refresh.
-    and a.content:asofdate::date >= '1/1/2024'
-    {%- if target.name not in ['prod'] %}
+    -- limits the build on a full refresh from an explicit date from the variable directory
+    and a.content:asofdate::date >= '{{ start_date }}'
+    {%- if is_incremental() or target.name not in ['prod'] %}
         -- Restrict lookback window in dev.
-        and a.content:asofdate::date >= current_date() - {{ dev_filter }}
+        and a.content:asofdate::date >= current_date() - {{ lookback }}
     {%- endif %}
 
     {% if is_incremental() -%}

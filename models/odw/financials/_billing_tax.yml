@@ -1,0 +1,183 @@
+version: 2
+models:
+  - name: billing_tax
+    columns:
+      - name: SYSTEM_NAME
+        data_type: VARCHAR
+        description: ''
+      - name: SYSTEM_INSTANCE
+        data_type: VARCHAR
+        description: ''
+      - name: SYSTEM_KEY
+        data_type: VARCHAR
+        description: ''
+      - name: FIRM_SOURCE
+        data_type: VARCHAR
+        meta:
+          row_access_policy: rap_firm_source
+        description: ''
+      - name: LOCATION_CODE
+        description: Mariner Location ID for the location (ex. 100, L-10015)
+        data_type: VARCHAR
+      - name: OFFICE_NAME
+        description: Office name/location in the format of 'City, State'
+        data_type: VARCHAR
+      - name: CLIENT_LOCATION_CODE
+        data_type: VARCHAR
+        description: ''
+      - name: CLIENT_OFFICE_NAME
+        data_type: VARCHAR
+        description: ''
+      - name: INVOICE_CREATED_AT
+        data_type: TIMESTAMP_NTZ
+        description: ''
+      - name: INVOICE_DATE
+        data_type: DATE
+        description: ''
+      - name: REVENUE_PERIOD_END_DATE
+        data_type: DATE
+        description: ''
+      - name: REVENUE_QUARTER_END_DATE
+        data_type: DATE
+        description: ''
+      - name: INVOICE_NUMBER_SOURCE
+        data_type: VARCHAR
+        description: ''
+      - name: BILLING_STATEMENT_ID_SOURCE
+        data_type: VARCHAR
+        description: ''
+      - name: INVOICE_STATUS
+        data_type: VARCHAR
+        description: ''
+      - name: IS_MID_CYCLE_INVOICE
+        data_type: NUMBER
+        description: ''
+      - name: CLIENT_ID_PMS
+        data_type: VARCHAR
+        description: ''
+      - name: ADVISOR_MANAGER_TYPE
+        data_type: VARCHAR
+        description: ''
+      - name: FEE_TYPE
+        data_type: VARCHAR
+        description: ''
+      - name: CLIENT_FEE_NET
+        data_type: NUMBER
+        description: ''
+      - name: SALES_TAX
+        data_type: NUMBER
+        description: ''
+      - name: THIRD_PARTY_CALCULATION
+        data_type: BOOLEAN
+        description: ''
+      - name: BILLING_FREQUENCY
+        data_type: VARCHAR
+        description: ''
+      - name: BILLING_STYLE
+        data_type: VARCHAR
+        description: ''
+      - name: ACCOUNT_CLASS
+        data_type: VARCHAR
+        description: ''
+      - name: IMPACTED_BY_FINANCIAL_MARKETS
+        data_type: BOOLEAN
+        description: ''
+      - name: COA_SEGMENT_1_LEGAL_ENTITY_ID
+        data_type: VARCHAR
+        description: ''
+      - name: COA_SEGMENT_2_PRODUCT_ID
+        data_type: VARCHAR
+        description: ''
+      - name: COA_SEGMENT_3_ACCOUNTING_ID
+        data_type: VARCHAR
+        description: ''
+      - name: COA_SEGMENT_4_TEAM_ID
+        data_type: VARCHAR
+        description: ''
+      - name: COA_SEGMENT_5_NATURAL_ACCOUNT_ID
+        data_type: VARCHAR
+        description: ''
+      - name: COA_SEGMENT_6_INITIATIVE_ID
+        data_type: VARCHAR
+        description: ''
+      - name: COA_SEGMENT_7_INTERCOMPANY_ID
+        data_type: VARCHAR
+        description: ''
+      - name: COA_SEGMENT_8_FUTURE_ID
+        data_type: VARCHAR
+        description: ''
+      - name: COA_ACCOUNT_NUMBER
+        data_type: VARCHAR
+        description: ''
+      - name: REVENUE_CATEGORY
+        data_type: VARCHAR
+        description: ''
+      - name: REVENUE_TYPE
+        data_type: VARCHAR
+        description: ''
+      - name: SYSTEM_NAME_CRM
+        data_type: VARCHAR
+        description: ''
+      - name: SYSTEM_INSTANCE_CRM
+        data_type: VARCHAR
+        description: ''
+      - name: SYSTEM_KEY_CRM
+        data_type: VARCHAR
+        description: ''
+      - name: CLIENT_ID_CRM
+        data_type: VARCHAR
+        description: ''
+      - name: CLIENT_NAME
+        data_type: VARCHAR
+        description: ''
+      - name: TRANSACTION_TYPE
+        data_type: VARCHAR
+        description: ''
+      - name: TRANSACTION_LINE_TYPE
+        data_type: VARCHAR
+        description: ''
+      - name: TRANSACTION_LINE_QUANTITY
+        data_type: NUMBER
+        description: ''
+      - name: CURRENCY_CODE
+        data_type: VARCHAR
+        description: ''
+      - name: CURRENCY_CONVERSION_TYPE
+        data_type: VARCHAR
+        description: ''
+      - name: UNIT_SELLING_PRICE
+        data_type: NUMBER
+        description: ''
+      - name: IS_REVERSED
+        data_type: NUMBER
+        description: ''
+      - name: REVERSED_DATE
+        data_type: DATE
+        description: ''
+      - name: IS_EXCLUDED
+        data_type: NUMBER
+        description: ''
+      - name: EXCLUDED_REASONS
+        data_type: VARCHAR
+        description: ''
+      - name: _INVOICE_KEY
+        data_type: VARCHAR
+        description: ''
+      - name: _CREATED_AT
+        description: >-
+          Datetime representing when the record was loaded into the table from the source file.
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        data_type: VARCHAR
+        description: ''
+      - name: _BOX_FILE_ID
+        data_type: VARCHAR
+        description: ''
+      - name: IS_LEGACY
+        data_type: NUMBER
+        description: ''
+      - name: _EXTRA_FIELDS
+        data_type: VARIANT
+        description: ''
+sources: []
+seeds: []

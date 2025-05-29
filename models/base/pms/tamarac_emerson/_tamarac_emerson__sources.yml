@@ -2,12 +2,12 @@ version: 2
 
 sources:
   - name: tamarac_emerson
-    description: ""
+    description: ''
     database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: tamarac_emerson_history
     tables:
       - name: accounts
-        description: ""
+        description: ''
         columns:
           - name: ACCOUNT__NET_WORTH_CATEGORY
             description: ''
@@ -799,7 +799,7 @@ sources:
             description: ''
             data_type: DATE
       - name: assets
-        description: ""
+        description: ''
         columns:
           - name: PRIMARY_HOUSEHOLD_ID
             description: ''
@@ -1936,7 +1936,7 @@ sources:
             description: ''
             data_type: DATE
       - name: clients
-        description: ""
+        description: ''
         columns:
           - name: RECORD_DATETIME
             description: ''
@@ -2041,7 +2041,7 @@ sources:
             description: ''
             data_type: DATE
       - name: households
-        description: ""
+        description: ''
         columns:
           - name: RECORD_DATETIME
             description: ''

@@ -3,7 +3,7 @@ with data_cte as (
     select
         a.system_key
         , a.effective_date
-        --key 
+        --key
         , case
             when a.system_key in ('axys__granite') then 'monthly'
             when a.system_key in ('tpg__hfw') then 'delayed'
@@ -19,6 +19,7 @@ with data_cte as (
         and a.is_manual_account = 0
         and a.is_market_day = 1
         and a.effective_date >= dateadd('days' , -183 , current_date())
+        and a.effective_date < current_date()
     group by all
 )
 

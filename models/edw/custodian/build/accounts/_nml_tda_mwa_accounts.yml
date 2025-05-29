@@ -1,6 +1,11 @@
 version: 2
 models:
 - name: nml_tda_mwa_accounts
+  data_tests:
+    - dbt_expectations.expect_table_columns_to_contain_set:
+        name: check_column_list_nml_tda_mwa_accounts
+        column_list: "{{ cvar('custodian_accounts_nml_column_list') }}"
+        transform: upper
   columns:
   - name: EFFECTIVE_DATE
     description: ''

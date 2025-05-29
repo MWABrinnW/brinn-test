@@ -1,0 +1,34 @@
+version: 2
+models:
+  - name: rpt_tax_ar_register
+    columns:
+      - name: CCH_CLIENT_IDENT
+        data_type: NUMBER
+      - name: CLIENTID
+        data_type: VARCHAR
+      - name: CLIENTIDSUBID
+        data_type: VARCHAR
+      - name: CLIENTOFFICENAME
+        data_type: VARCHAR
+      - name: CCH_CLIENT_OFFICE
+        data_type: VARCHAR
+      - name: XCM_OFFICE
+        data_type: VARCHAR
+      - name: REPORTING_OFFICE
+        data_type: VARCHAR
+      - name: REPORTING_ACCT_ID
+        data_type: VARCHAR
+      - name: TRXN_TYPE
+        data_type: VARCHAR
+      - name: AR_IDENTIFIER
+        data_type: NUMBER
+      - name: INV_NUM_SRC_1
+        data_type: VARCHAR
+      - name: INV_NUM_SRC_2
+        data_type: VARCHAR
+      - name: BALANCE_DATE
+        data_type: DATE
+      - name: AR_AMOUNT
+        data_type: NUMBER
+sources: []
+seeds: []

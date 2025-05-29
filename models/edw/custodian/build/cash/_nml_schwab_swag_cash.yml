@@ -6,16 +6,16 @@ models:
         description: ''
         data_type: DATE
       - name: CUSTODIAN
-        description: 'Custodian name, lower-case, no spaces.'
+        description: Custodian name, lower-case, no spaces.
         data_type: VARCHAR
       - name: FIRM
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
-        description: 'Firm entity associated with the link value.'
+        description: Firm entity associated with the link value.
         data_type: VARCHAR
       - name: ACCOUNT_NUMBER
-        description: 'End-client account number at Schwab.'
+        description: End-client account number at Schwab.
         data_type: VARCHAR
       - name: ACCOUNT_NUMBER_FORMATTED
         description: ''
@@ -35,12 +35,9 @@ models:
       - name: IS_HEAD
         description: ''
         data_type: NUMBER
-      - name: IS_CURRENT
-        description: ''
-        data_type: NUMBER
       - name: _SOURCE_FILE
         description: ''
         data_type: VARCHAR
       - name: _SOURCE_LOADED_AT
-        description: 'Time when the records were created in the source table.'
+        description: Time when the records were created in the source table.
         data_type: TIMESTAMP_NTZ

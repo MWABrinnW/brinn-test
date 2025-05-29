@@ -9,7 +9,7 @@ models:
         description: ''
         data_type: VARCHAR
       - name: FIRM
-        description: 'Firm name'
+        description: Firm name
         data_type: VARCHAR
       - name: FIRM_SOURCE
         description: ''
@@ -80,9 +80,8 @@ models:
       - name: PRODUCT_TYPE
         description: ''
         data_type: VARCHAR
-      - name: PRODUCT_TYPE_SOURCE
+      - name: PRODUCT_TYPE_SOURCE_DEFINITION
         description: ''
-        data_type: VARCHAR
       - name: PRODUCT_TYPE_SOURCE_CODE
         description: ''
         data_type: VARCHAR
@@ -104,15 +103,14 @@ models:
       - name: EXTRA_FIELDS
         description: ''
         data_type: VARIANT
-      - name: IS_HEAD
+      - name: _CREATED_AT
         description: ''
-        data_type: NUMBER
-      - name: IS_CURRENT
-        description: ''
-        data_type: NUMBER
       - name: _SOURCE_LOADED_AT
         description: ''
         data_type: TIMESTAMP_NTZ
       - name: _SOURCE_FILE
         description: ''
         data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER

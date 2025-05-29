@@ -1111,21 +1111,24 @@ sources:
             description: ''
             data_type: VARCHAR
       - name: sec
-        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        description: >-
+          [PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)
         columns:
           - name: _id
           - name: json
           - name: effective_date
           - name: _created_at
       - name: rps_d1
-        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        description: >-
+          [PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)
         columns:
           - name: _id
           - name: json
           - name: effective_date
           - name: _created_at
       - name: rps_d2
-        description: "[PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)"
+        description: >-
+          [PDF Documentation](https://marinerholdingsllc.box.com/s/piuv4b2nm2l898c84f1had06lig9xudv)
         columns:
           - name: _id
           - name: json

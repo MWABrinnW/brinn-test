@@ -3,4 +3,11 @@
 # Users below will be automatically requested for review
 # when someone changes any file in the repository.
 
-* @grantith
+models/*/enterprise/* @grantith
+models/odw/moxy/* @grantith
+models/odw/perform/* @grantith
+models/odw/mis/* @grantith
+models/edw/custodian/* @grantith
+models/odw/financials/* @acharchar
+models/odw/masters/* @acharchar
+models/odw/workvivo/* @mwalanning

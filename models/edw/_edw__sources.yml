@@ -3,10 +3,24 @@ version: 2
 sources:
   - name: raw
     schema: pms
-    description: "enterprise data warehouse"
+    description: enterprise data warehouse
     database: "{{ var('db_raw_src', env_var('DBT_DB_raw_SRC', 'raw')) }}"
     tables:
       - name: accounts
-        description: "replicated accounts from snowflake/odw.enterprise.accounts"
+        description: replicated accounts from snowflake/odw.enterprise.accounts
+        columns:
+          - name: JSON
+            description: ''
+          - name: _CREATED_AT
+            description: ''
+          - name: _ID
+            description: ''
       - name: holdings
-        description: "replicated holdings from snowflake/odw.enterprise.holdings"
+        description: replicated holdings from snowflake/odw.enterprise.holdings
+        columns:
+          - name: JSON
+            description: ''
+          - name: _CREATED_AT
+            description: ''
+          - name: _ID
+            description: ''

@@ -43,7 +43,7 @@ select
     , null::varchar(500)             as options_approval_level
     , null::varchar(500)             as restrictions_source_code
     , null::int                      as is_multiple_margin_enabled
-    , null::varchar(500)             as restrictions_source_defintion
+    , null::varchar(500)             as restrictions_source_definition
     , null::varchar(500)             as restrictions
     , trim(concat(
         coalesce(a.street , '')
@@ -62,8 +62,6 @@ select
     , null::varchar(500)             as legal_address_state
     , null::varchar(12)              as legal_address_zip
     , null::varchar(500)             as legal_address_country
-    , {{ col_is_head(reference=ref('tda__int_accounts'), source_date_col='a.effective_date') }}
-    , {{ col_is_current(date_col='a.effective_date') }}
     , a._created_at::timestamp       as _created_at
     , a._source_loaded_at::timestamp as _source_loaded_at
     , a._source_file                 as _source_file

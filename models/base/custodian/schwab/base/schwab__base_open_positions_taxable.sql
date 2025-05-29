@@ -1,74 +1,42 @@
--- depends_on: {{ ref('schwab__stg_open_positions_taxable') }}
+{%- set history_relation = 'schwab__base_open_positions_taxable_history' %}
+{%- set fresh_relation = 'schwab__base_open_positions_taxable_fresh' %}
+
+with max_effective_dates as (
+    select max(effective_date) as effective_date
+    from {{ ref(history_relation) }}
+    group by all
+
+    union all
+
+    select max(effective_date) as effective_date
+    from {{ ref(fresh_relation) }}
+    group by all
+)
+
+, head_date as (
+    select max(effective_date) as effective_date from max_effective_dates
+)
 
 select
-    a.custodian
-    , cl.firm_source
-    , cf.firm
-    , a.record_type
-    , a.custodian_id
-    , a.master_account_number
-    , a.master_account_name
-    , a.business_date
-    , a.account_number
-    , a.security_type
-    , a.product_code
-    , a.product_category_code
-    , a.tax_code
-    , a.symbol_ticker
-    , a.cusip
-    , a.schwab_internal_id
-    , a.item_issue_id
-    , a.isin
-    , a.sedol
-    , a.options_display_symbol
-    , a.underlying_ticker_symbol
-    , a.underlying_cusip
-    , a.underlying_schwab_internal_id
-    , a.underlying_item_issue_id
-    , a.underlying_isin
-    , a.underlying_sedol
-    , a.current_quantity
-    , a.long_short_indicator
-    , a.current_market_value
-    , a.accrued_interest_fixed_income
-    , a.cost_basis_unamortized_cost_basis_amount
-    , a.cost_per_share_share_cost_amount
-    , a.adjusted_cost_basis_amortized_cost_basis_amount
-    , a.adjusted_cost_per_share
-    , a.unrealized_gain_loss_ugl
-    , a.cost_basis_fully_known
-    , a.cost_basis_type
-    , a.account_taxable_indicator
-    , a.certified_indicator
-    , a.original_face
-    , a.account_lot_selection_method_default
-    , a.cost_method
-    , a.principal_paydown_factor
-    , a.master_number
-    , a.is_deceased
-    , a.is_from_tda_migration
-    , a.effective_date
-    , dense_rank() over (
-        partition by a.effective_date , a.account_number , cl.firm_source
-        order by {{ schwab_master_rank(col='a.master_number') }} asc , a.master_number
-    )   as rn
-    , dense_rank() over (
-        partition by a.effective_date , a.account_number , cl.firm_source
-        order by {{ schwab_master_rank(col='a.master_number') }} asc , a.master_number
-    )   as rn_firm_source
-    , dense_rank() over (
-        partition by a.effective_date , a.account_number
-        order by {{ schwab_master_rank(col='a.master_number') }} asc , a.master_number
-    )   as rn_global
-    , {{ col_is_head(reference=source('schwab', 'upn_open_positions_nontaxable')) }}
-    , {{ col_is_current(date_col='a.effective_date') }}
-    , a._source_loaded_at
-    , a._source_file
-from {{ source('schwab', 'upn_open_positions_nontaxable') }} as a
-left join {{ ref('aux__stg_custodian_links') }} as cl
-    on a.master_number = cl.link
-    and cl.custodian = 'schwab'
-    and a.effective_date
-    between coalesce(cl.effective_start_date , a.effective_date) and coalesce(cl.effective_end_date , a.effective_date)
-left join {{ ref('custodian_firms') }} as cf
-    on cl.firm_source = cf.firm_source
+    a.*
+    , case
+        when a.effective_date = b.effective_date
+            then 1
+        else 0
+    end::int as is_head
+from {{ ref(fresh_relation) }} as a
+left join head_date as b
+    on a.effective_date = b.effective_date
+
+union all
+
+select
+    a.*
+    , case
+        when a.effective_date = b.effective_date
+            then 1
+        else 0
+    end::int as is_head
+from {{ ref(history_relation) }} as a
+left join head_date as b
+    on a.effective_date = b.effective_date

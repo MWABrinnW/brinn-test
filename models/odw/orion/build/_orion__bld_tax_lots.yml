@@ -3,71 +3,71 @@ models:
   - name: orion__bld_tax_lots
     data_tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["effective_date", "fkalclient", "asset_id", "lot_id"]
-          ignore_row_if: "any_value_is_missing"
+          column_list: [effective_date, fkalclient, asset_id, lot_id]
+          ignore_row_if: any_value_is_missing
           quote_columns: false
-          row_condition: "effective_date >= current_date() - 4"
+          row_condition: effective_date >= current_date() - 4
     columns:
       - name: EFFECTIVE_DATE
         description: ''
         data_type: DATE
       - name: SYSTEM_NAME
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: SYSTEM_INSTANCE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: SYSTEM_KEY
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: FIRM_SOURCE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: ACCOUNT_ID
         description: ''
         data_type: NUMBER
       - name: ACCOUNT_NUMBER
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: ACCOUNT_NUMBER_FORMATTED
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: HOUSEHOLD_ID
         description: ''
         data_type: NUMBER
       - name: HOUSEHOLD_NAME
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: CUSTODIAN
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: SYMBOL
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: CUSIP
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: TICKER
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: IS_TICKER_CUSIP
+        description: ''
+        data_type: NUMBER
+      - name: IS_CUSTODIAL_CASH
         description: ''
         data_type: NUMBER
       - name: PRODUCT_NAME
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: PRODUCT_TYPE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: PRODUCT_CATEGORY
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: ASSET_CLASS
         description: ''
-        data_type: TEXT
-      - name: IS_CUSTODIAL_CASH
-        description: ''
-        data_type: NUMBER
+        data_type: VARCHAR
       - name: LOT_QUANTITY
         description: ''
         data_type: NUMBER
@@ -154,4 +154,4 @@ models:
         data_type: TIMESTAMP_NTZ
       - name: _SOURCE_FILE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR

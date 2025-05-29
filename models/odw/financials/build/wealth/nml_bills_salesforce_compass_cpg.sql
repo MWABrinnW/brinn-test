@@ -6,7 +6,6 @@ select
     , ir.system_key::text(200)                                        as system_key
     , ir.firm_source::text(200)                                       as firm_source
 
-
     -- [location
     , '112'::text(200)                                                as client_location_code
 
@@ -42,7 +41,6 @@ select
     , ir.billing_custodian_c::text(200)                               as billing_custodian
     , ir.branch_c::text(200)                                          as partner_firm
     , ir.branch_2_c::text(200)                                        as partner_firm_original
-
 
     -- [advisor]
     -- Historical Client Manager (from upsert into Salesforce)
@@ -112,7 +110,6 @@ select
     , null::text(200)                                                 as payment_terms
     , ir.payment_method_fee_c::number(20 , 5)                         as payment_method_fee
 
-
     -- [accounting]
     , 'REV'::text(200)                                                as account_class
     , null::text(200)                                                 as coa_segment_1_legal_entity_id
@@ -173,8 +170,6 @@ select
             then 'Retirement Services Fee'
     end::text(200)                                                    as revenue_type
 
-
-
     -- [crm]
     , 'dynamics'::text(200)                                           as system_name_crm
     , 'tamarac_cpg'::text(200)                                        as system_instance_crm
@@ -192,8 +187,6 @@ select
     , null::text(200)                                                 as client_lead_source
     , null::text(5000)                                                as client_key_tags_crm
 
-
-
     -- [transactions] -----------------------------------------------------------------------------
     , case
         when ir.fee_type_c = 'Lost Client Fee'
@@ -205,7 +198,6 @@ select
     , 'USD'::text(200)                                                as currency_code
     , 'User'::text(200)                                               as currency_conversion_type
     , ir.net_fee_c::number(20 , 5)                                    as unit_selling_price
-
 
     -- [exclusion] --------------------------------------------------------------------------------
     , array_to_string(
@@ -220,7 +212,6 @@ select
         end) , ' '
     )::text(2000)                                                     as excluded_reasons
     , case when excluded_reasons = '' then 0 else 1 end::int          as is_excluded
-
 
     -- [finanical dates] dependencies on upstream identifiers -------------------------------------
     , {{ financials_set_revenue_period() }}
@@ -254,12 +245,12 @@ inner join {{ ref('tamarac_state_college_history__base_accounts') }} as ba
 
 -- join to the dynamics crm "effective_date" and then on "is_head" if the first join does not return a result.
 inner join {{ ref('dynamics_tamarac_cpg__int_accounts') }} as acc
-    on ba.upload_account_id = acc.crm_pms_account_id
-    and ir.invoice_date_c::date = acc.effective_date
+    on ir.invoice_date_c::date = acc.effective_date
+    and ba.upload_account_id = acc.crm_pms_account_id
 
 inner join {{ ref('dynamics_tamarac_cpg__int_accounts') }} as acc2
-    on ba.upload_account_id = acc2.crm_pms_account_id
-    and acc2.is_head = 1
+    on acc2.effective_date = (select max(effective_date) from {{ ref('dynamics_tamarac_cpg__int_accounts') }})
+    and ba.upload_account_id = acc2.crm_pms_account_id
 
 -- excludes service types categorized as tax preparation
 left join {{ ref('salesforce_compass__base_mh_service') }} as mh

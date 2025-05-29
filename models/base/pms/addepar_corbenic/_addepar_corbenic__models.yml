@@ -14,6 +14,10 @@ models:
       - name: FIRM_SOURCE
         description: ''
         data_type: VARCHAR
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
       - name: EFFECTIVE_DATE
         description: ''
         data_type: DATE
@@ -30,9 +34,6 @@ models:
         description: ''
         data_type: VARCHAR
       - name: HOLDING_ACCOUNT_ENTITY_ID
-        description: ''
-        data_type: VARCHAR
-      - name: HOLDING_ACCOUNT_NUMBER
         description: ''
         data_type: VARCHAR
       - name: TOP_LEVEL_OWNER
@@ -131,6 +132,9 @@ models:
       - name: _SOURCE_FILE
         data_type: VARCHAR
         description: ''
+      - name: HOLDING_ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
   - name: addepar_corbenic_history__base_holdings
     columns:
       - name: SYSTEM_NAME

@@ -2,12 +2,12 @@ version: 2
 
 sources:
   - name: black_diamond_cig
-    description: ""
+    description: ''
     database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: black_diamond_cig_history
     tables:
       - name: accounts
-        description: ""
+        description: ''
         columns:
           - name: JSON
             description: ''
@@ -25,7 +25,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: client
-        description: ""
+        description: ''
         columns:
           - name: JSON
             description: ''
@@ -43,7 +43,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: portfolio
-        description: ""
+        description: ''
         columns:
           - name: JSON
             description: ''
@@ -61,7 +61,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: portfolio_group
-        description: ""
+        description: ''
         columns:
           - name: JSON
             description: ''
@@ -79,7 +79,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: relationship
-        description: ""
+        description: ''
         columns:
           - name: JSON
             description: ''
@@ -97,7 +97,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: target
-        description: ""
+        description: ''
         columns:
           - name: JSON
             description: ''

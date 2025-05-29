@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: axys_granite
-    description: ""
+    description: ''
     database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
     schema: axys_granite
     tables:

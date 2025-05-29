@@ -48,10 +48,10 @@ select
 
     , null::variant                                                  as extra_fields
 
-    , p.is_head                                                      as is_head
-    , p.is_current                                                   as is_current
+    , p._source_loaded_at                                            as _created_at
     , p._source_loaded_at                                            as _source_loaded_at
     , p._source_file                                                 as _source_file
+    , p.is_head                                                      as is_head
 from {{ ref('fidelity_mps_history__vw_cgf_pos') }} as p
 left join {{ ref('fidelity_mps_history__vw_cgf_prc') }} as price
     on p.effective_date = price.effective_date

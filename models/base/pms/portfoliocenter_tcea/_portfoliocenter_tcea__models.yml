@@ -2,24 +2,22 @@ version: 2
 models:
   - name: portfoliocenter_tcea_history__base_accounts
     columns:
-      - name: PMS
+      - name: SYSTEM_NAME
         description: ''
-        data_type: VARCHAR
-      - name: PMS_LOCATION
+      - name: SYSTEM_INSTANCE
         description: ''
-        data_type: VARCHAR
+      - name: SYSTEM_KEY
+        description: ''
       - name: FIRM_SOURCE
         description: ''
         data_type: VARCHAR
       - name: EFFECTIVE_DATE
         description: ''
         data_type: DATE
-      - name: HIDDENPORTFOLIOID
+      - name: HIDDEN_PORTFOLIO_ID
         description: ''
-        data_type: VARCHAR
-      - name: UNDERLYINGHIDDENPORTFOLIOID
+      - name: UNDERLYING_HIDDEN_PORTFOLIO_ID
         description: ''
-        data_type: VARCHAR
       - name: AS_OF_DATE
         description: ''
         data_type: DATE
@@ -32,15 +30,16 @@ models:
       - name: ACCOUNT_CLOSED_DATE
         description: ''
         data_type: DATE
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
       - name: ACCOUNT_NUMBER
         description: ''
         data_type: VARCHAR
       - name: ACCOUNT_TYPE
         description: ''
         data_type: VARCHAR
-      - name: "'ACCOUNT_CLASSIFICATION_-CF-'"
+      - name: ACCOUNT_CLASSIFICATION
         description: ''
-        data_type: VARCHAR
       - name: ADVISOR_DESCRIPTION
         description: ''
         data_type: VARCHAR
@@ -59,18 +58,16 @@ models:
       - name: DISCRETIONARY_ACCOUNT
         description: ''
         data_type: VARCHAR
-      - name: "'ERISA_-CF-'"
+      - name: ERISA
         description: ''
-        data_type: VARCHAR
       - name: FIRST_NAME
         description: ''
         data_type: VARCHAR
       - name: LAST_NAME
         description: ''
         data_type: VARCHAR
-      - name: "'HOUSEHOLD_CODE_-CF-'"
+      - name: HOUSEHOLD_CODE
         description: ''
-        data_type: VARCHAR
       - name: INCEPTION_DATE
         description: ''
         data_type: DATE
@@ -83,9 +80,8 @@ models:
       - name: PORTFOLIO_TYPE
         description: ''
         data_type: VARCHAR
-      - name: "'PROXY_VOTING_-CF-'"
+      - name: PROXY_VOTING
         description: ''
-        data_type: VARCHAR
       - name: TOTAL_VALUE
         description: ''
         data_type: FLOAT
@@ -98,6 +94,8 @@ models:
       - name: _SOURCE_LOADED_AT
         description: ''
         data_type: TIMESTAMP_NTZ
+      - name: _CREATED_AT
+        description: ''
   - name: portfoliocenter_tcea_history__base_bills
     columns:
       - name: SYSTEM_NAME

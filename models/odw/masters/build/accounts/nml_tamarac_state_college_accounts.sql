@@ -1,22 +1,150 @@
+{{ config(
+    materialized='incremental',
+    unique_key='effective_date',
+    incremental_strategy='delete+insert',
+    on_schema_change='sync_all_columns',
+    cluster_by=['effective_date']
+) }}
+
+{%- set start_date = cvar('start_date_pms') -%}
+{%- set lookback = cvar('lookback') -%}
+
+{%-
+    set src_models = [
+          'tamarac_state_college_history__base_accounts'
+    ]
+-%}
+
+with destination_summary as (
+    {% if is_incremental() -%}
+    select effective_date, system_key, max(_created_at) as _created_at
+    from {{ this }}
+    where 1 = 1
+        -- Model start date. This applies for full-refresh.
+        and effective_date >= '{{ start_date }}'
+        {%- if is_incremental() or target.name not in ['prod'] %}
+        -- Restrict lookback window if incremental or not prod.
+        and effective_date >= current_date() - {{ lookback }}
+        {%- endif %}
+    group by all
+    order by 1
+    {% else -%}
+    select null::date as effective_date, null::text as system_key
+        , null::timestamp as _created_at
+    {% endif -%}
+)
+
+, source_summary as (
+    {%- for src_model in src_models %}
+    select
+        effective_date              as effective_date
+        , system_key                as system_key
+        , max(_created_at)          as _created_at
+        , {{"'" ~ src_model ~ "'"}} as model_source
+    from {{ ref(src_model) }}
+    where 1 = 1
+        -- Model start date. This applies for full-refresh.
+        and effective_date >= '{{ start_date }}'
+        {%- if is_incremental() or target.name not in ['prod'] %}
+        -- Restrict lookback window if incremental or not prod.
+        and effective_date >= current_date() - {{ lookback }}
+        {%- endif %}
+    group by all
+
+    {%- if not loop.last %}
+
+    union all
+
+    {% endif -%}
+    {%- endfor %}
+)
+
+, date_spine as (
+    select effective_date, system_key from source_summary group by all
+    union
+    select effective_date, system_key from destination_summary group by all
+)
+
+
+, dates_to_refresh as (
+    select
+        a.effective_date    as effective_date
+        , s._created_at     as source_created_at
+        , d._created_at     as destination_created_at
+    from date_spine a
+    left join source_summary s
+        on a.effective_date = s.effective_date
+        and a.system_key = s.system_key
+    left join destination_summary d
+        on a.effective_date = d.effective_date
+        and a.system_key = d.system_key
+    where 1 = 1
+        and (
+            -- Check if missing from destination OR the source records are newer for that date.
+            s._created_at > coalesce(d._created_at, s._created_at - interval '1 day')
+        )
+    group by all
+)
+
+, base_accounts as (
+    select
+        effective_date
+        , system_name
+        , system_instance
+        , system_key
+        , firm_source
+        , account_number_formatted
+        , account_number
+        , custodian
+        , upload_account_id
+        , account_type
+        , account_name
+        , first_name
+        , last_name
+        , primary_household_id
+        , closed_date
+        , performance_inception_date
+        , total_account_value_preveod
+        , advisor
+        , billing_definitions
+        , target_allocation
+        , aum_indicator
+        , discretionary
+        , _created_at
+        , entity_type
+    from {{ ref('tamarac_state_college_history__base_accounts') }}
+    where 1 = 1
+        and exists(select 1 from dates_to_refresh)
+        and effective_date in (select distinct t.effective_date from dates_to_refresh as t)
+)
+
+, base_households as (
+    select
+        effective_date, upload_household_id, household_name
+    from {{ ref('tamarac_state_college_history__base_households') }}
+    where 1 = 1
+        and exists(select 1 from dates_to_refresh)
+        and effective_date in (select distinct t.effective_date from dates_to_refresh as t)
+)
+
 select
     a.effective_date                                                          as effective_date
-    , a.system_name::text(100)                                                as system_name
-    , a.system_instance::text(100)                                            as system_instance
-    , a.system_key::text(100)                                                 as system_key
-    , a.firm_source::text(100)                                                as firm_source
-    , a.account_number_formatted::varchar(200)
-        as account_number_formatted
-    , a.account_number::varchar(200)                                          as account_number
-    , a.account_number::varchar(200)                                          as pms_account_number
-    , a.custodian::text(200)                                                  as pms_custodian
-    , a.upload_account_id::text(200)                                          as pms_account_id
-    , a.account_type::text(200)                                               as pms_account_type
-    , a.account_name::text(200)                                               as pms_account_name
+    , a.system_name::text(500)                                                as system_name
+    , a.system_instance::text(500)                                            as system_instance
+    , a.system_key::text(500)                                                 as system_key
+    , a.firm_source::text(500)                                                as firm_source
+    , a.account_number_formatted::varchar(500)                                as account_number_formatted
+    , a.account_number::varchar(500)                                          as account_number
+    , a.account_number::varchar(500)                                          as pms_account_number
+    , a.custodian::text(500)                                                  as pms_custodian
+    , a.upload_account_id::text(500)                                          as pms_account_id
+    , a.account_type::text(500)                                               as pms_account_type
+    , a.account_name::text(500)                                               as pms_account_name
     , array_to_string(
         array_construct_compact(a.first_name , a.last_name) , ' '
     )                                                                         as pms_registrant_name
-    , a.primary_household_id::text(200)                                       as pms_client_id
-    , h.household_name::text(200)                                             as pms_client_name
+    , a.primary_household_id::text(500)                                       as pms_client_id
+    , h.household_name::text(500)                                             as pms_client_name
     , case
         when a.closed_date::date is null
             then 1
@@ -26,25 +154,23 @@ select
     , a.performance_inception_date::date                                      as pms_opened_date
     , a.closed_date::date                                                     as pms_closed_date
     , a.total_account_value_preveod::decimal(16 , 2)                          as pms_account_value
-    , a.advisor::text(200)                                                    as pms_advisor
+    , a.advisor::text(500)                                                    as pms_advisor
     , null::text                                                              as pms_advisor_id
     , null::text                                                              as pms_advisor_id_source
-    , null::text(200)                                                         as pms_advisor_email
+    , null::text(500)                                                         as pms_advisor_email
     , '112'::varchar(100)                                                     as pms_location_code
-    , a.billing_definitions::text(200)                                        as pms_fee_schedule
-    , a.target_allocation::text(200)
-        as pms_model_investment_strategy
+    , a.billing_definitions::text(500)                                        as pms_fee_schedule
+    , a.target_allocation::text(500)                                          as pms_model_investment_strategy
     , case
         when a.aum_indicator::int = 1 then 'AUM - Assets Under Management'
         when a.aum_indicator::int = 0 then 'Data Aggregation / Reporting Only'
-    end::text(200)                                                            as pms_aum_classification
+    end::text(500)                                                            as pms_aum_classification
     , null::int                                                               as pms_is_erisa
     , try_to_boolean(a.discretionary)::int                                    as pms_is_discretionary
     , null::int                                                               as pms_is_voting_proxied
     , null::int                                                               as pms_is_prime_broker
-    , null::int
-        as pms_is_broker_dealer_account
-    , null::text(200)                                                         as pms_cost_basis_method
+    , null::int                                                               as pms_is_broker_dealer_account
+    , null::text(500)                                                         as pms_cost_basis_method
 
     -- CRM --------------------------------------------------------------------
     , coalesce(
@@ -158,7 +284,7 @@ select
     )                                                                         as system_key__advisor
 
     , concat(pms_advisor , '__' , pms_account_number)
-        as advisor__account_number
+                                                                              as advisor__account_number
     , pms_account_number                                                      as __account_key
 
     -- HELPERS ----------------------------------------------------------------
@@ -197,7 +323,7 @@ select
             > 1 then 1
         else 0
     end                                                                       as has_dupes
-    , ''::text(2000)
+    , ''::text(5000)
     || coalesce(case
         when coalesce(
                 ovrd_acct._excluded_reasons
@@ -232,25 +358,26 @@ select
     )::variant                                                                as _extra_fields
 
     -- META -------------------------------------------------------------------
-    , a.is_head                                                               as is_head
-    , a.is_current                                                            as is_current
+    , current_timestamp()::timestamp_ntz                                      as _created_at
     , a._created_at::timestamp_ntz                                            as _source_loaded_at
-    , null::text(200)                                                         as _source_file
-from {{ ref('tamarac_state_college_history__base_accounts') }} as a
-left join {{ ref('tamarac_state_college_history__base_households') }} as h
+    , null::text(500)                                                         as _source_file
+from base_accounts as a
+left join base_households as h
     on a.effective_date = h.effective_date
     and a.primary_household_id = h.upload_household_id
-
 -- [crm] join to the dynamics crm "effective_date" and then on "is_head" if the first join does not return a result.
 left join {{ ref('dynamics_tamarac_cpg__int_accounts') }} as d1
-    on a.upload_account_id = d1.crm_pms_account_id
-    and a.effective_date::date = d1.effective_date
+    on a.effective_date::date = d1.effective_date
+    and a.upload_account_id = d1.crm_pms_account_id
     and a.effective_date >= '2024-09-30'
+    and exists(select 1 from dates_to_refresh)
+    and d1.effective_date in (select distinct t.effective_date from dates_to_refresh as t)
 left join {{ ref('dynamics_tamarac_cpg__int_accounts') }} as d2
-    on a.upload_account_id = d2.crm_pms_account_id
-    and d2.is_head = 1
+    on d2.effective_date = (select max(effective_date) from {{ ref('dynamics_tamarac_cpg__int_accounts') }})
+    and a.upload_account_id = d2.crm_pms_account_id
     and a.effective_date >= '2024-09-30'
-
+    and exists(select 1 from dates_to_refresh)
+    and d2.effective_date in (select distinct t.effective_date from dates_to_refresh as t)
 -- [crm] join to the salesforce crm "effective_date" and then on "is_head" if the first join does not return a result.
 left join {{ ref('salesforce_compass_accounts') }} as sf1
     on pms_account_number = sf1.account_number
@@ -260,6 +387,8 @@ left join {{ ref('salesforce_compass_accounts') }} as sf1
     end
     and a.effective_date = sf1.effective_at::date
     and a.effective_date < '2024-09-30'
+    and exists(select 1 from dates_to_refresh)
+    and sf1.effective_at::date in (select distinct t.effective_date from dates_to_refresh as t)
 left join {{ ref('salesforce_compass_accounts') }} as sf2
     on pms_account_number = sf2.account_number
     and __custodian_key = case
@@ -315,7 +444,7 @@ left join {{ ref('aux__stg_masters_preferred_system_key') }} as pref_adv
     and coalesce(pref_adv.end_date , a.effective_date)
 
 left join {{ ref('aux__stg_masters_preferred_system_key') }} as pref_loc
--- joins on pms location code (static value) as opposed to location code due to ambiguous column 
+-- joins on pms location code (static value) as opposed to location code due to ambiguous column
     on pms_location_code = pref_loc.scope_key
     and a.effective_date between coalesce(pref_loc.start_date , a.effective_date)
     and coalesce(pref_loc.end_date , a.effective_date)

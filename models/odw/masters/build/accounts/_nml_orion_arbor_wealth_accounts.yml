@@ -1,0 +1,231 @@
+version: 2
+models:
+  - name: nml_orion_arbor_wealth_accounts
+    data_tests:
+      - compare_describe_to_prod:
+          name: compare_describe_to_prod_nml_orion_arbor_wealth_accounts
+          state_database: odw
+          state_schema: build
+          state_name: nml_orion_arbor_wealth_accounts
+          summarize: false
+          include_columns: [effective_date, system_key, firm_source, account_number, is_active, location_code,
+            pms_account_id]
+          exclude_columns: [_created_at, is_head, is_current, _source_loaded_at, _source_file]
+          where_clause: effective_date >= current_date() - 7
+          config:
+            severity: warn
+      - dbt_expectations.expect_table_columns_to_contain_set:
+          name: check_column_list_nml_orion_arbor_wealth_accounts
+          column_list: "{{ cvar('pms_accounts_nml_column_list') }}"
+          transform: upper
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: FIRM_SOURCE
+        description: ''
+        meta:
+          row_access_policy: rap_firm_source
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: PMS_ACCOUNT_NUMBER
+        description: ''
+      - name: PMS_CUSTODIAN
+        description: ''
+      - name: PMS_ACCOUNT_ID
+        description: ''
+      - name: PMS_ACCOUNT_TYPE
+        description: ''
+      - name: PMS_ACCOUNT_NAME
+        description: ''
+      - name: PMS_REGISTRANT_NAME
+        description: ''
+      - name: PMS_CLIENT_ID
+        description: ''
+      - name: PMS_CLIENT_NAME
+        description: ''
+      - name: PMS_IS_ACTIVE
+        description: ''
+      - name: PMS_CREATED_DATE
+        description: ''
+      - name: PMS_OPENED_DATE
+        description: ''
+      - name: PMS_CLOSED_DATE
+        description: ''
+      - name: PMS_ACCOUNT_VALUE
+        description: ''
+      - name: PMS_ADVISOR
+        description: ''
+      - name: PMS_ADVISOR_ID
+        description: ''
+      - name: PMS_ADVISOR_ID_SOURCE
+        description: ''
+      - name: PMS_ADVISOR_EMAIL
+        description: ''
+      - name: PMS_LOCATION_CODE
+        description: ''
+      - name: PMS_FEE_SCHEDULE
+        description: ''
+      - name: PMS_MODEL_INVESTMENT_STRATEGY
+        description: ''
+      - name: PMS_AUM_CLASSIFICATION
+        description: ''
+      - name: PMS_IS_ERISA
+        description: ''
+      - name: PMS_IS_DISCRETIONARY
+        description: ''
+      - name: PMS_IS_VOTING_PROXIED
+        description: ''
+      - name: PMS_IS_PRIME_BROKER
+        description: ''
+      - name: PMS_IS_BROKER_DEALER_ACCOUNT
+        description: ''
+      - name: PMS_COST_BASIS_METHOD
+        description: ''
+      - name: CRM
+        description: ''
+      - name: CRM_INSTANCE_LOCATION
+        description: ''
+      - name: CRM_KEY
+        description: ''
+      - name: CRM_CUSTODIAN
+        description: ''
+      - name: CRM_ACCOUNT_ID
+        description: ''
+      - name: CRM_ACCOUNT_TYPE
+        description: ''
+      - name: CRM_ACCOUNT_NAME
+        description: ''
+      - name: CRM_REGISTRANT_NAME
+        description: ''
+      - name: CRM_CLIENT_ID
+        description: ''
+      - name: CRM_CLIENT_NAME
+        description: ''
+      - name: CRM_IS_ACTIVE
+        description: ''
+      - name: CRM_CREATED_DATE
+        description: ''
+      - name: CRM_OPENED_DATE
+        description: ''
+      - name: CRM_CLOSED_DATE
+        description: ''
+      - name: CRM_ACCOUNT_VALUE
+        description: ''
+      - name: CRM_ADVISOR
+        description: ''
+      - name: CRM_ADVISOR_ID
+        description: ''
+      - name: CRM_ADVISOR_ID_SOURCE
+        description: ''
+      - name: CRM_ADVISOR_EMAIL
+        description: ''
+      - name: CRM_LOCATION_CODE
+        description: ''
+      - name: CRM_FEE_SCHEDULE
+        description: ''
+      - name: CRM_MODEL_INVESTMENT_STRATEGY
+        description: ''
+      - name: CRM_AUM_CLASSIFICATION
+        description: ''
+      - name: CRM_IS_ERISA
+        description: ''
+      - name: CRM_IS_DISCRETIONARY
+        description: ''
+      - name: CRM_IS_VOTING_PROXIED
+        description: ''
+      - name: CRM_IS_PRIME_BROKER
+        description: ''
+      - name: CRM_IS_BROKER_DEALER_ACCOUNT
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: ACCOUNT_TYPE
+        description: ''
+      - name: ACCOUNT_NAME
+        description: ''
+      - name: REGISTRANT_NAME
+        description: ''
+      - name: CLIENT_NAME
+        description: ''
+      - name: IS_ACTIVE
+        description: ''
+      - name: CREATED_DATE
+        description: ''
+      - name: OPENED_DATE
+        description: ''
+      - name: CLOSED_DATE
+        description: ''
+      - name: ACCOUNT_VALUE
+        description: ''
+      - name: ADVISOR
+        description: ''
+      - name: ADVISOR_ID
+        description: ''
+      - name: ADVISOR_ID_SOURCE
+        description: ''
+      - name: ADVISOR_EMAIL
+        description: ''
+      - name: LOCATION_CODE
+        description: ''
+      - name: FEE_SCHEDULE
+        description: ''
+      - name: MODEL_INVESTMENT_STRATEGY
+        description: ''
+      - name: AUM_CLASSIFICATION
+        description: ''
+      - name: IS_ERISA
+        description: ''
+      - name: IS_DISCRETIONARY
+        description: ''
+      - name: IS_VOTING_PROXIED
+        description: ''
+      - name: IS_PRIME_BROKER
+        description: ''
+      - name: IS_BROKER_DEALER_ACCOUNT
+        description: ''
+      - name: SYSTEM_KEY__ACCOUNT_NAME
+        description: ''
+      - name: SYSTEM_KEY__ACCOUNT_NUMBER
+        description: ''
+      - name: SYSTEM_KEY__ADVISOR
+        description: ''
+      - name: ADVISOR__ACCOUNT_NUMBER
+        description: ''
+      - name: __ACCOUNT_KEY
+        description: ''
+      - name: __CUSTODIAN_KEY
+        description: ''
+      - name: PREF_ADVISOR__ACCOUNT_NUMBER
+        description: ''
+      - name: PREF_ADVISOR
+        description: ''
+      - name: PREF_LOCATION
+        description: ''
+      - name: PREF_SYSTEM_KEY
+        description: ''
+      - name: DEDUPE_SYSTEM_RN
+        description: ''
+      - name: DEDUPE_SYSTEM_COUNT
+        description: ''
+      - name: HAS_DUPES
+        description: ''
+      - name: EXCLUDED_REASONS
+        description: ''
+      - name: IS_EXCLUDED
+        description: ''
+      - name: _EXTRA_FIELDS
+        description: ''
+      - name: _CREATED_AT
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''

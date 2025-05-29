@@ -8,6 +8,7 @@ select
     , right(a.account_id , 8)        as account_number
     , {{ col_is_head(reference=source('schwab_mwa', 'master_accounts_mapping')) }}
     , {{ col_is_current(date_col='effective_date') }}
+    , a.record_datetime::timestamp   as _created_at
     , a.record_datetime::timestamp   as _source_loaded_at
     , null::text(200)                as _source_file
 from {{ source('schwab_mwa', 'master_accounts_mapping') }} as a
@@ -34,6 +35,7 @@ select
     , account_number    as account_number
     , is_head           as is_head
     , is_current        as is_current
+    , _source_loaded_at as _created_at
     , _source_loaded_at as _source_loaded_at
     , _source_file      as _source_file
 from {{ ref('schwab__base_accounts') }}

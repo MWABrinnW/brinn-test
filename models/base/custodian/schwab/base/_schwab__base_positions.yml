@@ -1,196 +1,231 @@
 version: 2
 models:
   - name: schwab__base_positions
+    data_tests:
+      - dbt_expectations.expect_table_row_count_to_equal_other_table:
+          name: compare_row_count_schwab__base_positions
+          config:
+            severity: error
+            enabled: "{{ target.name != 'prod' }}"
+          compare_model: datalake.schwab.base_positions
+          group_by: [effective_date]
+          compare_group_by: [effective_date]
+          row_condition: "effective_date >= current_date() - 7"
+          compare_row_condition: "effective_date >= current_date() - 7"
     columns:
       - name: CUSTODIAN
-        description: 'Custodian name, lower-case, no spaces.'
+        description: Custodian name, lower-case, no spaces.
         data_type: VARCHAR
       - name: FIRM_SOURCE
-        description: 'Firm entity associated with the link value.'
+        description: Firm entity associated with the link value.
         data_type: VARCHAR
       - name: FIRM
         description: ''
         data_type: VARCHAR
       - name: RECORD_TYPE
-        description: 'Identifies the record type (Header, Detail, Trailer) & Count (D1, D2)'
+        description: Identifies the record type (Header, Detail, Trailer) & Count (D1, D2)
         data_type: VARCHAR
-      - name: CUSTODIAN_ID
-        description: 'Custodian ID'
-        data_type: VARCHAR
-      - name: MASTER_ACCOUNT_NUMBER
-        description: 'Identifies the Master Account Number.'
-        data_type: VARCHAR
-      - name: MASTER_ACCOUNT_NAME
-        description: 'Identifies the Master Account by Name.'
-        data_type: VARCHAR
-      - name: BUSINESS_DATE
-        description: 'Business date for this record'
-        data_type: DATE
+      - name: USTODIAN_ID
+        description: ''
+      - name: ASTER_ACCOUNT_NUMBER
+        description: ''
+      - name: ASTER_ACCOUNT_NAME
+        description: ''
+      - name: USINESS_DATE
+        description: ''
       - name: ACCOUNT_NUMBER
-        description: 'End-client account number at Schwab.'
+        description: End-client account number at Schwab.
         data_type: VARCHAR
       - name: PRODUCT_CODE
-        description: 'Further defines Product Category Code.   Identifies type of security (e.g. Common Stock, GNMA, Unit Trust, Mutual Fund, etc.) FNM, FMC, COM, BMU, CDO, MMS (there are several dozen)'
+        description: >-
+          Further defines Product Category Code.   Identifies type of security (e.g. Common Stock, GNMA,
+          Unit Trust, Mutual Fund, etc.) FNM, FMC, COM, BMU, CDO, MMS (there are several dozen)
         data_type: VARCHAR
       - name: PRODUCT_CATEGORY_CODE
-        description: 'Highest level of security classification.
-
+        description: |
+          Highest level of security classification.
           DEBT - Includes all fixed income
-
           DERV - (Derivatives) Options, Warrants
-
           EQTY - Equity/Stock (Common, Preferred, ADR, MLP, REIT)
-
           O - (Other)  Includes all types of mutual funds.
-
-          '
         data_type: VARCHAR
       - name: TAX_CODE
-        description: 'A security type classification related to the tax status of the security.'
+        description: A security type classification related to the tax status of the security.
         data_type: VARCHAR
       - name: LEGACY_SECURITY_TYPE
-        description: 'These security type codes are considered obsolete and are provided only for backwards compatibility. Interface developers are encouraged instead to use the Product Code, Product Category Code, And Tax Code because these codes offer greater specificity and will always match Schwab''s broker dealer system.'
+        description: >-
+          These security type codes are considered obsolete and are provided only for backwards compatibility.
+          Interface developers are encouraged instead to use the Product Code, Product Category Code,
+          And Tax Code because these codes offer greater specificity and will always match Schwab's broker
+          dealer system.
         data_type: VARCHAR
       - name: TICKER_SYMBOL
-        description: 'An arrangement of characters (usually letters) representing a particular security listed on an exchange or otherwise traded publicly which may have been modified by Schwab.  MAI2Z, COL2Z or DPB1Z'
+        description: >-
+          An arrangement of characters (usually letters) representing a particular security listed on
+          an exchange or otherwise traded publicly which may have been modified by Schwab.  MAI2Z, COL2Z
+          or DPB1Z
         data_type: VARCHAR
       - name: INDUSTRY_TICKER_SYMBOL
-        description: 'This field will match the Ticker Symbol field in most cases. MAIVX, COLFX or PTEBX'
+        description: This field will match the Ticker Symbol field in most cases. MAIVX, COLFX or PTEBX
         data_type: VARCHAR
       - name: CUSIP
-        description: 'Committee on Uniform Securities Identification Procedures. A CUSIP number identifies most securities.'
+        description: >-
+          Committee on Uniform Securities Identification Procedures. A CUSIP number identifies most securities.
         data_type: VARCHAR
       - name: SCHWAB_SECURITY_NUMBER
-        description: 'Inernal Schwab security identifier'
+        description: Inernal Schwab security identifier
         data_type: VARCHAR
       - name: ITEM_ISSUE_ID
-        description: 'Unique internal Schwab security identifier when combined with following field "Rule Set Suffix ID"'
+        description: >-
+          Unique internal Schwab security identifier when combined with following field "Rule Set Suffix
+          ID"
         data_type: VARCHAR
       - name: RULE_SET_SUFFIX_ID
-        description: 'Combine with prior field  "Item Issue ID" to yield a unique identifier.'
+        description: Combine with prior field  "Item Issue ID" to yield a unique identifier.
         data_type: VARCHAR
       - name: ISIN
-        description: 'International Securities Identification Number. A unique international code which identifies a securities issue.'
+        description: >-
+          International Securities Identification Number. A unique international code which identifies
+          a securities issue.
         data_type: VARCHAR
       - name: SEDOL
-        description: 'The Stock Exchange Daily Official List number, a code used by the London Stock Exchange to identify foreign stocks.'
+        description: >-
+          The Stock Exchange Daily Official List number, a code used by the London Stock Exchange to identify
+          foreign stocks.
         data_type: VARCHAR
       - name: OPTIONS_DISPLAY_SYMBOL
-        description: 'Schwab formatted symbol for Options on confirms and statements.'
+        description: Schwab formatted symbol for Options on confirms and statements.
         data_type: VARCHAR
       - name: SECURITY_DESCRIPTION_LINE_1
-        description: 'Full Name of the Security'
+        description: Full Name of the Security
         data_type: VARCHAR
       - name: SECURITY_DESCRIPTION_LINE_2
-        description: 'Full Name of the Security'
+        description: Full Name of the Security
         data_type: VARCHAR
       - name: SECURITY_DESCRIPTION_LINE_3
-        description: 'Full Name of the Security'
+        description: Full Name of the Security
         data_type: VARCHAR
       - name: SECURITY_DESCRIPTION_LINE_4
-        description: 'Full Name of the Security'
+        description: Full Name of the Security
         data_type: VARCHAR
       - name: UNDERLYING_TICKER_SYMBOL
-        description: 'An arrangement of characters (usually letters) representing a particular parent security listed on an exchange or otherwise traded publicly.'
+        description: >-
+          An arrangement of characters (usually letters) representing a particular parent security listed
+          on an exchange or otherwise traded publicly.
         data_type: VARCHAR
       - name: UNDERLYING_INDUSTRY_TICKER_SYMBOL
-        description: 'This field will match the Underlying Ticker Symbol field in most cases.'
+        description: This field will match the Underlying Ticker Symbol field in most cases.
         data_type: VARCHAR
       - name: UNDERLYING_CUSIP
-        description: 'Committee on Uniform Securities Identification Procedures. A CUSIP number identifies most securities. Underlying CUSIP being specific to the parent security.'
+        description: >-
+          Committee on Uniform Securities Identification Procedures. A CUSIP number identifies most securities.
+          Underlying CUSIP being specific to the parent security.
         data_type: VARCHAR
       - name: UNDERLYING_SCHWAB_SECURITY_NUMBER
-        description: 'Internal Schwab parent security identifier.'
+        description: Internal Schwab parent security identifier.
         data_type: VARCHAR
       - name: UNDERLYING_ITEM_ISSUE_ID
-        description: 'Unique internal Schwab parent security identifier when combined with following fields'
+        description: >-
+          Unique internal Schwab parent security identifier when combined with following fields
         data_type: VARCHAR
       - name: UNDERLYING_RULE_SET_SUFFIX_ID
-        description: 'Combine with prior field to yield a unique parent identifier.'
+        description: Combine with prior field to yield a unique parent identifier.
         data_type: VARCHAR
       - name: UNDERLYING_ISIN
-        description: 'International Securities Identification Number. A unique international code which identifies a parent securities issue.'
+        description: >-
+          International Securities Identification Number. A unique international code which identifies
+          a parent securities issue.
         data_type: VARCHAR
       - name: UNDERLYING_SEDOL
-        description: 'The Stock Exchange Daily Official List number, a code used by the London Stock Exchange to identify foreign stocks. Underlying SEDOL being specific to the parent SEDOL.'
+        description: >-
+          The Stock Exchange Daily Official List number, a code used by the London Stock Exchange to identify
+          foreign stocks. Underlying SEDOL being specific to the parent SEDOL.
         data_type: VARCHAR
       - name: MONEY_MARKET_CODE
-        description: 'Unique code to identify Schwab money market products.'
+        description: Unique code to identify Schwab money market products.
         data_type: VARCHAR
       - name: DIVIDEND_REINVEST
-        description: 'Indicates whether dividends are reinvested for this security. Blank means there is no explicit instruction specified by the customer, and by default cash dividends will not be reinvested.'
+        description: >-
+          Indicates whether dividends are reinvested for this security. Blank means there is no explicit
+          instruction specified by the customer, and by default cash dividends will not be reinvested.
         data_type: VARCHAR
       - name: CAPITAL_GAINS_REINVEST
-        description: 'Indicates whether capital gains are reinvested for this security. Blank means there is no explicit instruction specified by the customer, and by default capital gains distributions will not be reinvested.'
+        description: >-
+          Indicates whether capital gains are reinvested for this security. Blank means there is no explicit
+          instruction specified by the customer, and by default capital gains distributions will not be
+          reinvested.
         data_type: VARCHAR
       - name: CLOSING_PRICE
-        description: 'Closing price in Schwab systems.
-
+        description: |
+          Closing price in Schwab systems.
           OBSOLETE field, use \"Closing Price - Unfactored.\"
-
-          '
         data_type: NUMBER
       - name: SECURITY_PRICE_UPDATE_DATE
-        description: 'Last Security Price Update Date'
+        description: Last Security Price Update Date
         data_type: DATE
       - name: QUANTITY_SETTLED_AND_UNSETTLED
-        description: 'Total number of shares as-of the business date based on trade date.'
+        description: Total number of shares as-of the business date based on trade date.
         data_type: NUMBER
       - name: LONG_SHORT_INDICATOR
-        description: 'Indicates whether "Quantity (Settled and Unsettled)" is long or short.'
+        description: Indicates whether "Quantity (Settled and Unsettled)" is long or short.
         data_type: VARCHAR
       - name: MARKET_VALUE_SETTLED_AND_UNSETTLED
-        description: 'Position market value as-of the business date based on trade date.'
+        description: Position market value as-of the business date based on trade date.
         data_type: NUMBER
       - name: ACCOUNTING_RULE_CODE
-        description: 'Identifies the type of account associated with the position. Previously account type was only Cash or Margin. (Margin previously included Margin, Short and When Issued) CASH, MARGIN, WHEN ISSUED, SHORT'
+        description: >-
+          Identifies the type of account associated with the position. Previously account type was only
+          Cash or Margin. (Margin previously included Margin, Short and When Issued) CASH, MARGIN, WHEN
+          ISSUED, SHORT
         data_type: VARCHAR
       - name: QUANTITY_SETTLED
-        description: 'Total number of settled shares'
+        description: Total number of settled shares
         data_type: NUMBER
       - name: QUANTITY_UNSETTLED_LONG
-        description: 'Total number of unsettled shares held long'
+        description: Total number of unsettled shares held long
         data_type: NUMBER
       - name: QUANTITY_UNSETTLED_SHORT
-        description: 'Total number of unsettled shares held short'
+        description: Total number of unsettled shares held short
         data_type: NUMBER
       - name: VERSION_MARKER_1
-        description: 'Indicates the version number associated with the fields immediately following this marker.'
+        description: >-
+          Indicates the version number associated with the fields immediately following this marker.
         data_type: VARCHAR
       - name: TIPS_FACTOR
-        description: 'The inflation factor associated with Treasury Inflation-Protected Securities. Use this value to calculate the \"clean\" price.  This data element, if available, is also included in the Security Description fields. For securities that are not TIPS (Product Code not equal to \"TIP\") then this field will be zero-filled.
-
+        description: |
+          The inflation factor associated with Treasury Inflation-Protected Securities. Use this value to calculate the \"clean\" price.  This data element, if available, is also included in the Security Description fields. For securities that are not TIPS (Product Code not equal to \"TIP\") then this field will be zero-filled.
           OBSOLETE field, use \"Factor.\"
-
-          '
         data_type: NUMBER
       - name: ASSET_BACKED_FACTOR
-        description: 'The security''s current factor. This data element, if available, is also included in the Security Description fields. For securities without a factor this field will be zero-filled.
-
+        description: |
+          The security's current factor. This data element, if available, is also included in the Security Description fields. For securities without a factor this field will be zero-filled.
           OBSOLETE field, use \"Factor.\"
-
-          '
         data_type: NUMBER
       - name: VERSION_MARKER_2
-        description: 'Indicates the version number associated with the fields immediately following this marker.'
+        description: >-
+          Indicates the version number associated with the fields immediately following this marker.
         data_type: VARCHAR
       - name: CLOSING_PRICE_UNFACTORED
-        description: 'Closing price in Schwab systems. For securities where a factor applies, the value provided does not reflect the factor. Multiply by the Factor  value in the next field for a factored price.'
+        description: >-
+          Closing price in Schwab systems. For securities where a factor applies, the value provided does
+          not reflect the factor. Multiply by the Factor  value in the next field for a factored price.
         data_type: NUMBER
       - name: FACTOR
-        description: 'The security''s current factor. For securities without a factor, the factor value will default to 1. Applies to TIPS, asset-backed securities, and other securities where a factor exists.'
+        description: >-
+          The security's current factor. For securities without a factor, the factor value will default
+          to 1. Applies to TIPS, asset-backed securities, and other securities where a factor exists.
         data_type: NUMBER
       - name: FACTOR_DATE
-        description: 'The date associated with the Factor value provided in the previous field.'
+        description: The date associated with the Factor value provided in the previous field.
         data_type: DATE
       - name: MASTER_NUMBER
         description: ''
         data_type: VARCHAR
       - name: IS_DECEASED
-        description: 'Is this a master/link designated for deceased clients.'
+        description: Is this a master/link designated for deceased clients.
         data_type: NUMBER
       - name: IS_FROM_TDA_MIGRATION
-        description: 'Is the Schwab master (link) related to the TDA migration in September 2023.'
+        description: Is the Schwab master (link) related to the TDA migration in September 2023.
         data_type: NUMBER
       - name: EFFECTIVE_DATE
         description: ''
@@ -204,15 +239,14 @@ models:
       - name: RN_GLOBAL
         data_type: NUMBER
         description: ''
-      - name: IS_HEAD
+      - name: _CREATED_AT
         description: ''
-        data_type: NUMBER
-      - name: IS_CURRENT
-        description: ''
-        data_type: NUMBER
       - name: _SOURCE_LOADED_AT
-        description: 'Time when the records were created in the source table.'
+        description: Time when the records were created in the source table.
         data_type: TIMESTAMP_NTZ
       - name: _SOURCE_FILE
         description: ''
         data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER

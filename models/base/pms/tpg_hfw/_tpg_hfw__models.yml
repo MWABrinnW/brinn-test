@@ -1,0 +1,107 @@
+version: 2
+models:
+  - name: tpg_hfw__stg_holdings
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: FIRM_SOURCE
+        description: ''
+      - name: AS_OF_DATE
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: CLIENT_NAME
+        description: ''
+      - name: CLIENT_TYPE_DESC
+        description: ''
+      - name: CUSIP
+        description: ''
+      - name: CUSIP_TYPE_DESC
+        description: ''
+      - name: SECURITY_TYPE
+        description: ''
+      - name: POSITION_ID
+        description: ''
+      - name: COST_BASIS
+        description: ''
+      - name: PRICE
+        description: ''
+      - name: MARKET_VALUE
+        description: ''
+      - name: PAR_VALUE
+        description: ''
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: RN
+        description: ''
+      - name: _CREATED_AT
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''
+      - name: IS_HEAD_FOR_DAY
+        description: ''
+      - name: IS_HEAD
+        description: ''
+      - name: IS_CURRENT
+        description: ''
+  - name: tpg_hfw__int_accounts
+    data_tests:
+      - dbt_expectations.expect_table_row_count_to_equal_other_table:
+          name: compare_row_count_tpg_hfw__int_accounts
+          config:
+            severity: error
+            enabled: "{{ target.name != 'prod' }}"
+          compare_model: datalake.tpg_hfw.int_accounts
+          group_by: [effective_date]
+          compare_group_by: [effective_date]
+          row_condition: "effective_date >= current_date() - 7"
+          compare_row_condition: "effective_date >= current_date() - 7"
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: FIRM_SOURCE
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: INTERNAL_ACCOUNT_NUMBER
+        description: ''
+      - name: INTERNAL_HOUSEHOLD_NUMBER
+        description: ''
+      - name: REGISTRANT_NAME
+        description: ''
+      - name: ACCOUNT_NAME
+        description: ''
+      - name: CLIENT_NAME
+        description: ''
+      - name: TYPE_OF_ACCOUNT
+        description: ''
+      - name: ACCOUNT_VALUE
+        description: ''
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: MONTH_END_DATE
+        description: ''
+      - name: LOCATION_CODE
+        description: ''
+      - name: IS_CURRENT
+        description: ''
+      - name: IS_HEAD
+        description: ''
+      - name: IS_HEAD_FOR_DAY
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''
+      - name: _CREATED_AT
+        description: ''

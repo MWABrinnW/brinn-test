@@ -1,4 +1,4 @@
-select 
+select
        'schwab'                                                           as custodian
      , 'mwa'                                                              as firm_source
      , null::text(200)                                                    as firm
@@ -59,7 +59,6 @@ select
      , right(r.json:"MstrAcct Number", 8)::varchar(100)                   as master_number
      , effective_date::date                                               as effective_date
      , {{ col_is_head(reference=source('schwab_mwa', 'sec')) }}
-     , {{ col_is_current(date_col='effective_date') }}
      , _created_at::timestamp                                             as _source_loaded_at
      , null::text(200)                                                    as _source_file
 from {{ source('schwab_mwa', 'sec') }} r
@@ -129,7 +128,6 @@ select
   , master_number
   , effective_date
   , is_head
-  , is_current
   , _source_loaded_at
   , _source_file
 from {{ ref('schwab__base_securities') }}

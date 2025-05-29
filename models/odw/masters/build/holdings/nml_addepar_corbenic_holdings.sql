@@ -1,11 +1,9 @@
 select
-    --- [system] ---------------------------------------------------------------------
     effective_date::date                             as effective_date
     , system_name::text(200)                         as system_name
     , system_instance::text(200)                     as system_instance
     , system_key::text(200)                          as system_key
     , firm_source::text(200)                         as firm_source
-    --- [account + holdings] ---------------------------------------------------------
     , top_level_holding_account_entity_id::text(200) as account_id
     , account_number_formatted::text(200)            as account_number_formatted
     , account_number::text(200)                      as account_number
@@ -27,9 +25,9 @@ select
     , null::number(19 , 9)                           as price_unfactored
     , null::number(19 , 9)                           as factor
     , original_cost_basis_usd::number(19 , 9)        as cost_basis
-    --- [meta] ---------------------------------------------------------------------
     , is_head::int                                   as is_head
     , is_current::int                                as is_current
+    , _created_at::datetime                          as _created_at
     , _created_at::datetime                          as _source_loaded_at
     , null::text(200)                                as _source_file
 from {{ ref('addepar_corbenic_history__base_holdings') }}

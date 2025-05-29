@@ -1,0 +1,4 @@
+version: 2
+models:
+  - name: nml_oracle_hcm_associates_history
+    columns: []

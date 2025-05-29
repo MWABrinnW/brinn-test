@@ -1,0 +1,418 @@
+# https://paulfry999.medium.com/v0-4-pre-chatgpt-how-to-create-ci-cd-pipelines-for-dbt-core-88e68ab506dd
+# https://www.vantage-ai.com/blog/how-to-use-slim-ci-with-dbt-core
+# https://www.datafold.com/blog/accelerating-dbt-core-ci-cd-with-github-actions-a-step-by-step-guide
+
+name: Build PR
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+    paths:
+      - models/**
+      - tests/**
+      - macros/**
+      - snapshots/**
+      - seeds/**
+      - packages.yml
+      - requirements*
+
+env:
+  AWS_REGION: "us-east-2"
+  AWS_ROLE_ARN: "arn:aws:iam::436867865803:role/dbt-docs-github-actions"
+  DBT_DOCS_BUCKET: "dbt-docs.marinerapi.cloud"
+  DBT_USER: ${{ vars.DBT_USER }}
+  DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
+  DBT_HOST: ${{ vars.DBT_HOST }}
+  ARTIFACTS_ROOT_DIR: ${{ vars.ARTIFACTS_ROOT_DIR }}
+  DBT_STATE: ${{ vars.ARTIFACTS_ROOT_DIR }}/prod_artifacts
+  DBT_DEFER: True
+  DBT_PROFILES_DIR: ${{ vars.DBT_PROFILES_DIR }}
+  DBT_TARGET_PATH: ./target
+  DBT_TARGET: ci
+  VENV_DIR: ./.venv
+  SNOWSQL_USER: ${{ vars.DBT_USER }}
+  SNOWSQL_PWD: ${{ secrets.DBT_PASSWORD }}
+  SNOWSQL_ACCOUNT: ${{ vars.DBT_HOST }}
+  SNOWSQL_DATABASE: DBT
+  SNOWSQL_SCHEMA: DBT
+  SNOWSQL_ROLE: engineering
+  PR_NUM: ${{ github.event.number }}
+  BRANCH: ${{ github.event.pull_request.head.ref }}
+  DEST_DIR: ${{ vars.ARTIFACTS_ROOT_DIR }}/${{ github.event.pull_request.head.ref }}
+
+
+jobs:
+
+  pr-env-setup:
+    if: (!contains(github.event.pull_request.labels.*.name, 'skip-ci'))
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    runs-on: [self-hosted]
+    environment: staging
+    concurrency:
+      group: pr-${{ github.event.number }}-${{ github.ref }}-pr-env-setup
+      cancel-in-progress: true
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: Create PR Databases
+        shell: pwsh
+        run: |
+          $sql = @"
+          create database if not exists datalake_$($env:PR_NUM);
+          create database if not exists edw_$($env:PR_NUM);
+          create database if not exists odw_$($env:PR_NUM);
+          create database if not exists oracle_fusion_$($env:PR_NUM);
+          create schema if not exists dbt.pr_$($env:PR_NUM);
+          "@
+          Write-Host $sql
+          snowsql -q "$sql"
+
+
+  dbt-setup:
+    if: (!contains(github.event.pull_request.labels.*.name, 'skip-ci'))
+    needs: pr-env-setup
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    runs-on: [self-hosted]
+    environment: staging
+    concurrency:
+      group: pr-${{ github.event.number }}-${{ github.ref }}-dbt-setup
+      cancel-in-progress: true
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: Get Python Version
+        id: get-python-version
+        shell: pwsh
+        run: |
+          $python_version = python -c "import platform; print(platform.python_version())"
+          echo "python version: $python_version"
+          echo "PYTHON_VERSION=$python_version" | Out-File -Append -FilePath $env:GITHUB_ENV
+          echo "python_version=$python_version" >> $GITHUB_ENV
+
+      - name: Install python requirements
+        shell: pwsh
+        run: |
+          $venv_dir = "$env:VENV_DIR"
+          Write-Host "Creating venv"
+          uv venv $venv_dir --python 3.12.10
+          Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
+          Write-Host "Installing requirements"
+          uv pip install -r requirements-ci.txt
+
+      - name: Cache dbt packages
+        uses: actions/cache@v4
+        id: cache-dbt-packages
+        with:
+          path: ./dbt_packages
+          key: dbt-packages-${{ runner.os }}-py${{ env.python_version }}-${{ hashFiles('packages.yml') }}
+
+      - name: Set source DB vars
+        shell: pwsh
+        run: |
+          $labelExists = "${{ contains(github.event.pull_request.labels.*.name, 'use-dev-sources') }}"
+          if ($labelExists -eq 'true') {
+            echo "DBT_DB_RAW_SRC=raw_dev" | Out-File -Append -FilePath $env:GITHUB_ENV
+            echo "DBT_DB_DATALAKE_SRC=datalake_dev" | Out-File -Append -FilePath $env:GITHUB_ENV
+            echo "DBT_DB_EDW_SRC=edw_dev" | Out-File -Append -FilePath $env:GITHUB_ENV
+            }
+
+      - name: dbt deps
+        shell: pwsh
+        run: |
+          $venv_dir = "$env:VENV_DIR"
+          Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
+          echo "cache-hit: ${{ steps.cache-dbt-packages.outputs.cache-hit }}"
+          if ('${{ steps.cache-dbt-packages.outputs.cache-hit }}' -ne 'true') {dbt deps} else {echo "Using cached dbt packages"}
+
+      - name: Cache dbt target
+        uses: actions/cache@v4
+        id: cache-dbt-target
+        with:
+          path: ./target
+          key: dbt-target-${{ runner.os }}-py${{ env.python_version }}-pr${{ github.event.number }}
+
+      - name: dbt compile
+        shell: pwsh
+        run: |
+          $venv_dir = "$env:VENV_DIR"
+          Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
+
+          # [Create local target dir if it doesn't exist]
+          if (!(Test-Path -Path "$($env:DBT_TARGET_PATH)")) {
+            New-Item -Path "$($env:DBT_TARGET_PATH)" -ItemType Directory
+          }
+
+          # [Create destination artifact folder]
+          $dest_dir = $env:DEST_DIR
+          if (!(Test-Path -Path "$dest_dir")) {
+            New-Item -Path "$dest_dir" -ItemType Directory
+          }
+
+          dbt compile
+
+          # # [Copy up new artifacts]
+          # Copy-Item -Path "$($env:DBT_TARGET_PATH)/*" -Destination "$dest_dir" -Recurse -Force
+
+      - name: dbt clone
+        shell: pwsh
+        run: |
+          $venv_dir = "$env:VENV_DIR"
+          Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
+
+          #dbt run-operation create_row_access_policies --vars 'force_create_policies: true' --target=$env:DBT_TARGET
+          #dbt run-operation create_masking_policies --vars 'force_create_policies: true' --target=$env:DBT_TARGET
+
+          dbt clone -s state:modified+1,config.materialized:incremental,state:old
+
+
+  dbt-build:
+    if: (!contains(github.event.pull_request.labels.*.name, 'skip-ci'))
+    needs: [pr-env-setup, dbt-setup]
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    runs-on: [self-hosted]
+    environment: staging
+    concurrency:
+      group: pr-${{ github.event.number }}-${{ github.ref }}-dbt-build
+      cancel-in-progress: true
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: Get Python Version
+        id: get-python-version
+        shell: pwsh
+        run: |
+          $python_version = python -c "import platform; print(platform.python_version())"
+          echo "python version: $python_version"
+          echo "PYTHON_VERSION=$python_version" | Out-File -Append -FilePath $env:GITHUB_ENV
+          echo "python_version=$python_version" >> $GITHUB_ENV
+
+      - name: Install python requirements
+        shell: pwsh
+        run: |
+          $venv_dir = "$env:VENV_DIR"
+          Write-Host "Creating venv"
+          uv venv $venv_dir --python 3.12.10
+          Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
+          Write-Host "Installing requirements"
+          uv pip install -r requirements-ci.txt
+
+      - name: Cache dbt packages
+        uses: actions/cache@v4
+        id: cache-dbt-packages
+        with:
+          path: ./dbt_packages
+          key: dbt-packages-${{ runner.os }}-py${{ env.python_version }}-${{ hashFiles('packages.yml') }}
+
+      - name: Cache dbt target
+        uses: actions/cache@v4
+        id: cache-dbt-target
+        with:
+          path: ./target
+          key: dbt-target-${{ runner.os }}-py${{ env.python_version }}-pr${{ github.event.number }}
+
+      - name: Set source DB vars
+        shell: pwsh
+        run: |
+          $labelExists = "${{ contains(github.event.pull_request.labels.*.name, 'use-dev-sources') }}"
+          if ($labelExists -eq 'true') {
+            echo "DBT_DB_RAW_SRC=raw_dev" | Out-File -Append -FilePath $env:GITHUB_ENV
+            echo "DBT_DB_DATALAKE_SRC=datalake_dev" | Out-File -Append -FilePath $env:GITHUB_ENV
+            echo "DBT_DB_EDW_SRC=edw_dev" | Out-File -Append -FilePath $env:GITHUB_ENV
+            }
+
+      - name: dbt build
+        shell: pwsh
+        run: |
+          $venv_dir = "$env:VENV_DIR"
+          Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
+
+          # [Create local target dir if it doesn't exist]
+          if (!(Test-Path -Path "$($env:DBT_TARGET_PATH)")) {
+            New-Item -Path "$($env:DBT_TARGET_PATH)" -ItemType Directory
+          }
+
+          # [Create destination artifact folder]
+          $dest_dir = $env:DEST_DIR
+          if (!(Test-Path -Path "$dest_dir")) {
+            New-Item -Path "$dest_dir" -ItemType Directory
+          }
+
+          dbt build --fail-fast -s state:modified.body+1 state:modified.configs state:modified.persisted_descriptions state:modified.macros+1 state:modified.contract
+
+      - name: upload dbt artifacts
+        shell: pwsh
+        run: |
+          $dest_dir = $env:DEST_DIR
+
+          if (!(Test-Path -Path "$dest_dir")) {
+            New-Item -Path "$dest_dir" -ItemType Directory
+          }
+
+          if (Test-Path -Path "./target/run_results.json" -PathType leaf) {
+            Write-Host "Copying run_results.json to $dest_dir"
+            Copy-Item "./target/run_results.json" -Destination "$dest_dir" -Force
+            } else { Write-Host "run_results.json not found" }
+          if (Test-Path -Path "./target/manifest.json" -PathType leaf) {
+            Write-Host "Copying manifest.json to $dest_dir"
+            Copy-Item "./target/manifest.json" -Destination "$dest_dir" -Force
+            } else { Write-Host "manifest.json not found" }
+
+  check-model-docs:
+    if: (!contains(github.event.pull_request.labels.*.name, 'skip-ci'))
+    needs: [pr-env-setup, dbt-setup]
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    runs-on: [self-hosted]
+    environment: staging
+    concurrency:
+      group: pr-${{ github.event.number }}-${{ github.ref }}-check-model-docs
+      cancel-in-progress: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get Python Version
+        id: get-python-version
+        shell: pwsh
+        run: |
+          $python_version = python -c "import platform; print(platform.python_version())"
+          echo "python version: $python_version"
+          echo "PYTHON_VERSION=$python_version" | Out-File -Append -FilePath $env:GITHUB_ENV
+          echo "python_version=$python_version" >> $GITHUB_ENV
+
+      - name: Setup just
+        uses: extractions/setup-just@v1
+
+      - name: Install python requirements
+        shell: pwsh
+        run: |
+          $venv_dir = "$env:VENV_DIR"
+          Write-Host "Creating venv"
+          uv venv $venv_dir --python 3.12.10
+          Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
+          Write-Host "Installing requirements"
+          uv pip install -r requirements-ci.txt
+
+      - name: Restore dbt target cache
+        uses: actions/cache/restore@v4
+        id: cache-dbt-target
+        with:
+          path: ./target
+          key: dbt-target-${{ runner.os }}-py${{ env.python_version }}-pr${{ github.event.number }}
+
+      - name: dbt-osmosis check
+        shell: pwsh
+        run: |
+          $venv_dir = "$env:VENV_DIR"
+          Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
+          dbt-osmosis yaml organize $($(just ls) | Where-Object {$_ -like 'models/*.sql'}) --check --target=ci --catalog-path=$($env:DBT_TARGET_PATH)/catalog.json
+
+
+  dbt-docs:
+    if: contains(github.event.pull_request.labels.*.name, 'build-docs')
+    needs: [pr-env-setup, dbt-build]
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    runs-on: [self-hosted]
+    environment: staging
+    concurrency:
+      group: pr-${{ github.event.number }}-${{ github.ref }}-dbt-docs
+      cancel-in-progress: true
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: Get Python Version
+        id: get-python-version
+        shell: pwsh
+        run: |
+          $python_version = python -c "import platform; print(platform.python_version())"
+          echo "python version: $python_version"
+          echo "PYTHON_VERSION=$python_version" | Out-File -Append -FilePath $env:GITHUB_ENV
+          echo "python_version=$python_version" >> $GITHUB_ENV
+
+      - name: Install python requirements
+        shell: pwsh
+        run: |
+          $venv_dir = "$env:VENV_DIR"
+          Write-Host "Creating venv"
+          uv venv $venv_dir --python 3.12.10
+          Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
+          Write-Host "Installing requirements"
+          uv pip install -r requirements-ci.txt
+
+      - name: Cache dbt packages
+        uses: actions/cache@v4
+        id: cache-dbt-packages
+        with:
+          path: ./dbt_packages
+          key: dbt-packages-${{ runner.os }}-py${{ env.python_version }}-${{ hashFiles('packages.yml') }}
+
+      - name: dbt deps
+        shell: pwsh
+        run: |
+          $venv_dir = "$env:VENV_DIR"
+          Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
+          echo "cache-hit: ${{ steps.cache-dbt-packages.outputs.cache-hit }}"
+          if ('${{ steps.cache-dbt-packages.outputs.cache-hit }}' -ne 'true') {dbt deps} else {echo "Using cached dbt packages"}
+
+      - name: Restore dbt target cache
+        uses: actions/cache/restore@v4
+        id: cache-dbt-target
+        with:
+          path: ./target
+          key: dbt-target-${{ runner.os }}-py${{ env.python_version }}-pr${{ github.event.number }}
+
+      - name: dbt docs generate
+        shell: pwsh
+        run: |
+          $venv_dir = "$env:VENV_DIR"
+          Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
+
+          # [Create local target dir if it doesn't exist]
+          if (!(Test-Path -Path "$($env:DBT_TARGET_PATH)")) {
+            New-Item -Path "$($env:DBT_TARGET_PATH)" -ItemType Directory
+          }
+
+          # [Create destination artifact folder]
+          $dest_dir = $env:DEST_DIR
+          if (!(Test-Path -Path "$dest_dir")) {
+            New-Item -Path "$dest_dir" -ItemType Directory
+          }
+
+          dbt docs generate --no-compile
+
+      - name: Upload the docs
+        shell: pwsh
+        run: |
+          .\utilities\.venv\Scripts\Activate.ps1
+          $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
+          aws s3 sync ./target/ s3://${{ env.DBT_DOCS_BUCKET }}/${{ env.PR_NUM }}/ --delete
+
+      # - name: upload dbt artifacts
+      #   shell: pwsh
+      #   run: |
+      #     $dest_dir = $env:DEST_DIR
+      #     if (!(Test-Path -Path "$dest_dir")) {
+      #       New-Item -Path "$dest_dir" -ItemType Directory
+      #     }
+      #     if (Test-Path -Path "./target/catalog.json" -PathType leaf) {
+      #       Write-Host "Copying catalog.json to $dest_dir"
+      #       Copy-Item "./target/catalog.json" -Destination "$dest_dir" -Force
+      #       } else { Write-Host "catalog.json not found" }

@@ -1,0 +1,4 @@
+version: 2
+models:
+  - name: moxy__rpt_sod_post_intraday_import_summary
+    columns: []

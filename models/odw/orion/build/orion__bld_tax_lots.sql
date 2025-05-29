@@ -6,9 +6,8 @@
     on_schema_change='sync_all_columns'
 ) }}
 
+{%- set start_date = cvar('start_date_orion') -%}
 {%- set lookback = cvar('lookback') -%}
-{%- set dev_filter = cvar('dev_day_filter') -%}
-{%- set max_lookback = 10 -%}
 
 
 with cte_max_createddate as (
@@ -23,15 +22,13 @@ with cte_max_createddate as (
     select distinct effective_date
     from {{ ref('orion__base_vw_costbasisunrealized') }}
     where 1=1
-        -- Max lookback for a full refresh.
-        and effective_date >= current_date() - {{ max_lookback }}
-        {%- if target.name not in ['prod'] %}
-            -- Restrict lookback window in dev.
-            and effective_date >= current_date() - {{ dev_filter }}
+        -- Model start date. This applies for full-refresh.
+        and effective_date >= '{{ start_date }}'
+        {%- if is_incremental() or target.name not in ['prod'] %}
+        -- Restrict lookback window if incremental or not prod
+        and effective_date >= current_date() - {{ lookback }}
         {%- endif %}
         {%- if is_incremental() %}
-            -- Restrict lookback for incremental run.
-            and effective_date >= current_date() - {{ lookback }}
             -- These records will scope the dates that are flagged for add/refresh.
             and createddate > (select max_createddate from cte_max_createddate)
         {%- endif %}
@@ -205,13 +202,6 @@ left join cte_product_price_factor as ppf
     on ass.productid = ppf.fkproduct
     and v.effective_date = ppf.factordate
 where 1 = 1
-    -- Max lookback for a full refresh.
-    and a.effective_date >= current_date() - {{ max_lookback }}
-    {%- if target.name not in ['prod'] %}
-        -- Restrict lookback window in dev.
-        and a.effective_date >= current_date() - {{ dev_filter }}
-    {%- endif %}
-
     {%- if is_incremental() %}
         -- Restrict lookback for incremental run.
         and a.effective_date >= current_date() - {{ lookback }}

@@ -1,12 +1,3 @@
-with cte as (
-    select
-        effective_at::date                                                              as effective_at
-        , _created_at
-        , row_number() over (partition by effective_at::date order by _created_at desc) as rn
-    from {{ source('salesforce_compass', 'contact') }}
-    group by 1 , 2
-)
-
 select
     'salesforce'::text(200)                                       as system_name
     , 'compass'::text(200)                                        as system_instance
@@ -172,8 +163,19 @@ select
         reference=source('salesforce_compass', 'contact')
         , source_date_col='a.effective_at'
         , reference_date_col='effective_at') }}
-    , case when b.rn = 1 then 1 else 0 end                        as is_latest
+    , case
+        when a._created_at = max(a._created_at) over (partition by a.effective_at::date)
+            then 1
+        else 0
+    end                                                           as is_head_for_day
+    , case
+        when a._created_at = max(a._created_at) over (partition by a.effective_at::date)
+            then 1
+        else 0
+    end                                                           as is_latest
+    , case
+        when a._created_at = min(a._created_at) over (partition by a.effective_at::date)
+            then 1
+        else 0
+    end                                                           as is_earliest
 from {{ source('salesforce_compass', 'contact') }} as a
-left join cte as b
-    on a.effective_at::date = b.effective_at::date
-    and a._created_at = b._created_at

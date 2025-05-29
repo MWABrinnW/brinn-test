@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: addepar_corbenic
-    description: ""
+    description: ''
     database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: addepar_corbenic_history
     tables:

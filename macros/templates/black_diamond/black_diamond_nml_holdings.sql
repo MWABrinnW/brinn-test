@@ -32,6 +32,7 @@ select
     --- [meta] ---------------------------------------------------------------------
     , is_head::int                                           as is_head
     , is_current::int                                        as is_current
+    , _source_loaded_at::datetime                            as _created_at
     , _source_loaded_at::datetime                            as _source_loaded_at
     , null::text(200)                                        as _source_file
 from {{ ref('black_diamond_' ~ instance ~ '__base_holdings') }}

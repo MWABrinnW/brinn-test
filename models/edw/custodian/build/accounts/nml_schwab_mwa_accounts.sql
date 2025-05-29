@@ -77,8 +77,6 @@ select
     , null::varchar(500)                                                             as legal_address_state
     , null::varchar(12)                                                              as legal_address_zip
     , null::varchar(500)                                                             as legal_address_country
-    , a.is_head::int                                                                 as is_head
-    , a.is_current::int                                                              as is_current
     , a._source_loaded_at::timestamp                                                 as _created_at
     , a._source_loaded_at::timestamp                                                 as _source_loaded_at
     , null::varchar(500)                                                             as _source_file

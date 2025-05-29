@@ -7,8 +7,9 @@ models:
           state_database: odw
           state_schema: orion
           state_name: accounts
-          summarize: False
-          exclude_columns: ["_created_at", "is_head", "is_current", "_source_loaded_at", "_source_file", "_source", "createddate"]
+          summarize: false
+          exclude_columns: [_created_at, is_head, is_current, _source_loaded_at, _source_file, _source,
+            createddate]
           where_clause: effective_date >= current_date() - 4
           config:
             severity: warn
@@ -108,6 +109,8 @@ models:
       - name: ECLIPSE_ENABLED
         description: ''
       - name: COMMITTED_AMOUNT_UDF
+        description: ''
+      - name: IS_QUALIFIED
         description: ''
       - name: _CREATED_AT
         description: ''

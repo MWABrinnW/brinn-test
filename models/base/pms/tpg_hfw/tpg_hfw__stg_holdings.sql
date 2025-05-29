@@ -32,6 +32,10 @@ select
     )                                                         as rn
     , record_datetime::datetime                               as _created_at
     , source_file::text(200)                                  as _source_file
+    , dense_rank() over (
+        partition by effective_date
+        order by record_datetime desc , source_file desc
+    )                                                         as is_head_for_day
     , {{ col_is_head(reference=source('tpg_hfw', 'holdings')) }}
     , {{ col_is_current(date_col='effective_date') }}
 from {{ source('tpg_hfw', 'holdings') }}

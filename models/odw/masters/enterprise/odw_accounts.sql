@@ -45,14 +45,14 @@ select
     , is_manual_account
     , is_legacy
     , {{ col_is_head(
-        reference=ref('nml_accounts'),
+        reference=ref('bld_accounts_all'),
         source_date_col='effective_date',
         reference_date_col='effective_date'
     ) }}
     , _source_loaded_at
     , _created_at
     , _extra_fields
-from {{ ref('nml_accounts') }}
+from {{ ref('bld_accounts_all') }}
 where true
     and is_excluded = 0
     and is_primary = 1

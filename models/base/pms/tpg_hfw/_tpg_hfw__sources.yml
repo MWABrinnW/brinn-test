@@ -2,12 +2,12 @@ version: 2
 
 sources:
   - name: tpg_hfw
-    description: ""
+    description: ''
     database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: tpg_hfw
     tables:
       - name: holdings
-        description: ""
+        description: ''
         columns:
           - name: ASOFDATE
             description: ''

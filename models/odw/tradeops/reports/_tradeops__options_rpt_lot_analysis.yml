@@ -9,7 +9,7 @@ models:
         description: Custodian name, lower-case, no spaces.
         data_type: VARCHAR
       - name: ACCOUNT_NUMBER
-        description: 'End-client account number at Schwab.'
+        description: End-client account number at Schwab.
         data_type: VARCHAR
       - name: SECURITY_ID_SOURCE
         description: ''
@@ -21,7 +21,8 @@ models:
         description: ''
         data_type: VARCHAR
       - name: CUSIP
-        description: 'Committee on Uniform Securities Identification Procedures. A CUSIP number identifies most securities.'
+        description: >-
+          Committee on Uniform Securities Identification Procedures. A CUSIP number identifies most securities.
         data_type: VARCHAR
       - name: POSITION_DESCRIPTION
         description: ''
@@ -40,16 +41,13 @@ models:
         data_type: VARCHAR
       - name: TAX_LOT_VALUE
         description: ''
-        data_type: VARCHAR
+        data_type: NUMBER
       - name: POSITION_VALUE
         description: ''
-        data_type: VARCHAR
+        data_type: NUMBER
       - name: VALUE_DIFF
         description: ''
-        data_type: VARCHAR
-      - name: SRC
-        description: ''
-        data_type: VARCHAR
+        data_type: NUMBER
       - name: IS_NIGO
         description: ''
         data_type: NUMBER
@@ -62,3 +60,7 @@ models:
       - name: PRODUCT_TYPE
         description: ''
         data_type: VARCHAR
+      - name: IS_MATCH
+        description: ''
+      - name: IS_EXCLUDED
+        description: ''

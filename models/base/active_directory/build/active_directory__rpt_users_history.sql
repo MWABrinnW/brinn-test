@@ -80,6 +80,7 @@ where 1 = 1
         target_col_name='_effective_at',
         do_lookback = false,
         do_new = false
+
     ) }}
 qualify row_number() over (
         partition by u._effective_at::date , u.distinguishedname order by u._created_at desc
@@ -158,6 +159,7 @@ where 1 = 1
         target_col_name='_effective_at',
         do_lookback = false,
         do_new = false
+
     ) }}
 qualify row_number() over (
         partition by _effective_at::date , distinguishedname order by _created_at desc

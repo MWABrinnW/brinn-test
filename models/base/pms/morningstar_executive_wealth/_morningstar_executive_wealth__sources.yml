@@ -2,16 +2,66 @@ version: 2
 
 sources:
   - name: morningstar_executive_wealth
-    description: ""
+    description: ''
     database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: morningstar_executive_wealth
     tables:
       - name: accounts
-        description: ""
+        description: ''
+        columns:
+          - name: NAME
+            description: ''
+          - name: ACCOUNT_NUMBER
+            description: ''
+          - name: MARKET_VALUE_USD
+            description: ''
+          - name: MARKET_VALUE_DATE
+            description: ''
+          - name: CLIENT_NAME
+            description: ''
+          - name: ACCOUNT_OWNER
+            description: ''
+          - name: PORTFOLIO_RISK_SCORE
+            description: ''
+          - name: CLIENT_ACCOUNT_TYPE
+            description: ''
+          - name: OPEN_DATE
+            description: ''
+          - name: CLOSED_DATE
+            description: ''
+          - name: PERFORMANCE_START_DATE
+            description: ''
+          - name: INVESTMENT_STRATEGY
+            description: ''
+          - name: INVESTMENT_OBJECTIVE
+            description: ''
+          - name: PRIMARY_BENCHMARK
+            description: ''
+          - name: SECONDARY_BENCHMARK
+            description: ''
+          - name: TERTIARY_BENCHMARK
+            description: ''
+          - name: TRACKING_METHOD
+            description: ''
+          - name: LAST_RECONCILED_DATE
+            description: ''
+          - name: CURRENT_CUSTODIAN
+            description: ''
+          - name: ACCOUNT_AUTHORIZATION
+            description: ''
+          - name: CLIENT_AGGREGATE_CALCULATION
+            description: ''
+          - name: EFFECTIVE_DATE
+            description: ''
+          - name: _CREATED_AT
+            description: ''
+          - name: _SOURCE_FILE
+            description: ''
+          - name: _MD5
+            description: ''
       - name: aum
-        description: ""
+        description: ''
       - name: clients
-        description: ""
+        description: ''
       - name: gain_loss
-        description: ""
-      
+        description: ''

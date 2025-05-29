@@ -2,12 +2,12 @@ version: 2
 
 sources:
   - name: morningstar_hfw
-    description: ""
+    description: ''
     database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: morningstar_hfw
     tables:
       - name: aum
-        description: ""
+        description: ''
         columns:
           - name: ADVISOR_NAME
             description: ''
@@ -82,7 +82,7 @@ sources:
             description: ''
             data_type: VARCHAR
       - name: gain_loss
-        description: ""
+        description: ''
         columns:
           - name: ADVISOR_NAME
             description: ''
@@ -142,7 +142,7 @@ sources:
             description: ''
             data_type: VARCHAR
       - name: accounts
-        description: ""
+        description: ''
         columns:
           - name: NAME
             description: ''
@@ -220,7 +220,7 @@ sources:
             description: ''
             data_type: VARCHAR
       - name: clients
-        description: ""
+        description: ''
         columns:
           - name: NAME
             description: ''

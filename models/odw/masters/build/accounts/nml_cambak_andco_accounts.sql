@@ -1,32 +1,32 @@
 select
     a.effective_date::date                                                    as effective_date
-    , a.system_name::varchar(200)                                             as system_name
-    , a.system_instance::varchar(200)                                         as system_instance
-    , a.system_key::varchar(200)                                              as system_key
-    , a.firm_source::varchar(200)                                             as firm_source
-    , a.account_number_formatted::text(200)                                   as account_number_formatted
-    , a.account_number::varchar(200)                                          as account_number
-    , a.account_number::varchar(200)                                          as pms_account_number
+    , a.system_name::varchar(900)                                             as system_name
+    , a.system_instance::varchar(900)                                         as system_instance
+    , a.system_key::varchar(900)                                              as system_key
+    , a.firm_source::varchar(900)                                             as firm_source
+    , a.account_number_formatted::text(900)                                   as account_number_formatted
+    , a.account_number::varchar(900)                                          as account_number
+    , a.account_number::varchar(900)                                          as pms_account_number
     , a.custodian::text                                                       as pms_custodian
     , a.account_id_pms::text                                                  as pms_account_id
-    , a.account_type::text(200)                                               as pms_account_type
-    , a.account_name::text(200)                                               as pms_account_name
-    , a.registrant_name::text(200)                                            as pms_registrant_name
-    , a.client_id_pms::text(200)                                              as pms_client_id
-    , a.client_name::text(200)                                                as pms_client_name
+    , a.account_type::text(900)                                               as pms_account_type
+    , a.account_name::text(900)                                               as pms_account_name
+    , a.registrant_name::text(900)                                            as pms_registrant_name
+    , a.client_id_pms::text(900)                                              as pms_client_id
+    , a.client_name::text(900)                                                as pms_client_name
     , a.is_active::int                                                        as pms_is_active
     , null::date                                                              as pms_created_date
     , a.opened_date::date                                                     as pms_opened_date
     , a.closed_date::date                                                     as pms_closed_date
     , a.account_value::decimal(16 , 2)                                        as pms_account_value
-    , a.advisor::text(200)                                                    as pms_advisor
+    , a.advisor::text(900)                                                    as pms_advisor
     , a.advisor_id::text                                                      as pms_advisor_id
     , a.advisor_id_source::text                                               as pms_advisor_id_source
-    , null::text(200)                                                         as pms_advisor_email
-    , a.location_code::text(200)                                              as pms_location_code
-    , null::text(200)                                                         as pms_fee_schedule
-    , a.model_investment_strategy::text(200)                                  as pms_model_investment_strategy
-    , a.aum_classification::text(200)                                         as pms_aum_classification
+    , null::text(900)                                                         as pms_advisor_email
+    , a.location_code::text(900)                                              as pms_location_code
+    , null::text(900)                                                         as pms_fee_schedule
+    , a.model_investment_strategy::text(900)                                  as pms_model_investment_strategy
+    , a.aum_classification::text(900)                                         as pms_aum_classification
     , a.is_erisa::int                                                         as pms_is_erisa
     , a.discretion_status::int                                                as pms_is_discretionary
     , null::int                                                               as pms_is_voting_proxied
@@ -35,7 +35,6 @@ select
     , null::int                                                               as pms_cost_basis_method
     -- CRM --------------------------------------------------------------------
     {{ select_crm_null() }}
-
     -- COALESCE ---------------------------------------------------------------
     {{ select_nml_account_coalesce('cambak__andco') }}
 
@@ -90,7 +89,7 @@ select
             > 1 then 1
         else 0
     end                                                                       as has_dupes
-    , ''::text(2000)
+    , ''::text(9000)
     || coalesce(case
         when coalesce(
                 ovrd_acct._excluded_reasons
@@ -123,10 +122,9 @@ select
 
     )::variant                                                                as _extra_fields
     -- META -------------------------------------------------------------------
-    , null::int                                                               as is_head
-    , null::int                                                               as is_current
-    , a._created_at::datetime                                                 as _source_loaded_at
-    , null::text(200)                                                         as _source_file
+    , a._created_at::timestamp_ntz                                            as _created_at
+    , a._created_at::timestamp_ntz                                            as _source_loaded_at
+    , null::text(900)                                                         as _source_file
 from {{ ref('cambak__int_accounts') }} as a
 -- mappings
 left join {{ ref('aux__stg_masters_mappings') }} as map_aum_glo

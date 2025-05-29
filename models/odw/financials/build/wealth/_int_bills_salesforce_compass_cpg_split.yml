@@ -1,0 +1,422 @@
+version: 2
+models:
+  - name: int_bills_salesforce_compass_cpg_split
+    columns:
+      - name: SYSTEM_NAME
+        data_type: VARCHAR
+      - name: SYSTEM_INSTANCE
+        data_type: VARCHAR
+      - name: SYSTEM_KEY
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        data_type: VARCHAR
+      - name: ID
+        data_type: VARCHAR
+      - name: IS_DELETED
+        data_type: BOOLEAN
+      - name: NAME
+        data_type: VARCHAR
+      - name: RECORD_TYPE_ID
+        data_type: VARCHAR
+      - name: CREATED_DATE
+        data_type: TIMESTAMP_TZ
+      - name: CREATED_BY_ID
+        data_type: VARCHAR
+      - name: LAST_MODIFIED_DATE
+        data_type: TIMESTAMP_TZ
+      - name: LAST_MODIFIED_BY_ID
+        data_type: VARCHAR
+      - name: SYSTEM_MODSTAMP
+        data_type: TIMESTAMP_TZ
+      - name: LAST_ACTIVITY_DATE
+        data_type: DATE
+      - name: LAST_VIEWED_DATE
+        data_type: TIMESTAMP_TZ
+      - name: LAST_REFERENCED_DATE
+        data_type: TIMESTAMP_TZ
+      - name: APX_RECONCILIATION_C
+        data_type: BOOLEAN
+      - name: ADJUSTMENT_CREDIT_REMAINING_C
+        data_type: NUMBER
+      - name: ADJUSTMENTS_FEE_C
+        data_type: NUMBER
+      - name: ADMIN_FEE_TOTAL_C
+        data_type: NUMBER
+      - name: ADVISOR_APPROVED_DATE_C
+        data_type: DATE
+      - name: ADVISOR_COMMENTS_C
+        data_type: VARCHAR
+      - name: APPROVED_BY_ADVISOR_C
+        data_type: VARCHAR
+      - name: VIEW_TYPE_HH_PLUS_CLIENT_C
+        data_type: VARCHAR
+      - name: BC_ADJUSTMENTS_FEE_C
+        data_type: NUMBER
+      - name: BC_ADJUSTMENTS_STORED_C
+        data_type: NUMBER
+      - name: BC_BILLABLE_VALUE_STORED_C
+        data_type: NUMBER
+      - name: BC_BILLING_STYLE_STORED_C
+        data_type: VARCHAR
+      - name: BC_FEE_SCHEDULE_STORED_C
+        data_type: VARCHAR
+      - name: DATE_FINALIZED_C
+        data_type: DATE
+      - name: BC_GROSS_FEE_STORED_C
+        data_type: NUMBER
+      - name: BILLABLE_VALUE_C
+        data_type: NUMBER
+      - name: TEAM_MEMBER_ASSIGNED_C
+        data_type: VARCHAR
+      - name: BILLING_CALCULATION_STATUS_C
+        data_type: VARCHAR
+      - name: BILLING_ERROR_TIMESTAMP_C
+        data_type: TIMESTAMP_TZ
+      - name: BILLING_EXCEPTION_COMPLETED_C
+        data_type: BOOLEAN
+      - name: BILLING_METHOD_OLD_C
+        data_type: VARCHAR
+      - name: BILLING_REJECT_NOTES_C
+        data_type: VARCHAR
+      - name: DATE_TO_PULL_FEE_C
+        data_type: DATE
+      - name: BILLING_STYLE_C
+        data_type: VARCHAR
+      - name: BRANCH_2_C
+        data_type: VARCHAR
+      - name: BILLING_ACCOUNT_OUTSTANDING_FEES_NEW_C
+        data_type: NUMBER
+      - name: CALCULATION_AS_OF_DATE_C
+        data_type: DATE
+      - name: CALCULATION_FINALIZED_TIMESTAMP_C
+        data_type: TIMESTAMP_TZ
+      - name: COLLECTION_DATE_C
+        data_type: DATE
+      - name: COLLECTION_NOTES_C
+        data_type: VARCHAR
+      - name: COLLECTION_SHEET_NAME_C
+        data_type: VARCHAR
+      - name: COMPANY_FAMILY_C
+        data_type: VARCHAR
+      - name: WHO_WORKED_REJECT_C
+        data_type: VARCHAR
+      - name: FEE_ESTIMATE_C
+        data_type: NUMBER
+      - name: FEE_EXCLUDED_ASSETS_C
+        data_type: NUMBER
+      - name: FEE_REBATES_C
+        data_type: NUMBER
+      - name: FEE_SCHEDULE_C
+        data_type: VARCHAR
+      - name: FEE_TYPE_C
+        data_type: VARCHAR
+      - name: FINALIZED_FEE_STATUS_C
+        data_type: VARCHAR
+      - name: FIRST_LEVEL_APPROVAL_DATE_C
+        data_type: TIMESTAMP_TZ
+      - name: FIRST_LEVEL_APPROVER_C
+        data_type: VARCHAR
+      - name: GROSS_FEE_C
+        data_type: NUMBER
+      - name: INSUFFICIENT_FUNDS_WORKFLOW_COUNT_C
+        data_type: FLOAT
+      - name: PLAN_C
+        data_type: VARCHAR
+      - name: DATE_REJECT_RESOLVED_C
+        data_type: DATE
+      - name: FEE_FREQUENCY_C
+        data_type: VARCHAR
+      - name: VALUATION_METHOD_C
+        data_type: VARCHAR
+      - name: BILLING_ACCOUNT_NUMBER_AUDIT_TRACKING_C
+        data_type: VARCHAR
+      - name: READY_FOR_COLLECTIONS_AUDIT_TRACKING_C
+        data_type: BOOLEAN
+      - name: NON_WAS_REFERRAL_FEE_C
+        data_type: NUMBER
+      - name: SERVICE_RENDERED_C
+        data_type: VARCHAR
+      - name: SOURCE_INVOICE_IDENTIFIER_C
+        data_type: VARCHAR
+      - name: CALCULATION_SYSTEM_C
+        data_type: VARCHAR
+      - name: INVOICE_DATE_C
+        data_type: DATE
+      - name: INVOICE_LINK_C
+        data_type: VARCHAR
+      - name: MANAGEMENT_STYLE_C
+        data_type: VARCHAR
+      - name: MANUAL_REVIEW_DATE_C
+        data_type: TIMESTAMP_TZ
+      - name: MANUAL_REVIEWER_C
+        data_type: VARCHAR
+      - name: MISCELLANEOUS_ADJUSTMENT_REASON_C
+        data_type: VARCHAR
+      - name: MISCELLANEOUS_ADJUSTMENT_C
+        data_type: NUMBER
+      - name: NTF_1_C
+        data_type: FLOAT
+      - name: NTF_2_C
+        data_type: FLOAT
+      - name: NTF_3_C
+        data_type: FLOAT
+      - name: NTF_FEE_C
+        data_type: NUMBER
+      - name: NET_CONTRIBUTIONS_FEE_C
+        data_type: NUMBER
+      - name: OPERATIONS_APPROVAL_DATE_C
+        data_type: DATE
+      - name: OPERATIONS_COMMENTS_C
+        data_type: VARCHAR
+      - name: ORION_BILL_ID_C
+        data_type: VARCHAR
+      - name: OVERIDE_BILLING_CUSTODIAN_C
+        data_type: VARCHAR
+      - name: PAYOUT_STATUS_C
+        data_type: VARCHAR
+      - name: PAYOUT_TIMESTAMP_C
+        data_type: TIMESTAMP_TZ
+      - name: QPR_LINKING_C
+        data_type: VARCHAR
+      - name: QUARTERBACK_2_C
+        data_type: VARCHAR
+      - name: REJECT_CATEGORY_C
+        data_type: VARCHAR
+      - name: REJECTED_COUNT_C
+        data_type: FLOAT
+      - name: REJECTED_DATE_C
+        data_type: TIMESTAMP_TZ
+      - name: STATUS_C
+        data_type: VARCHAR
+      - name: THIRD_PARTY_CALCULATION_C
+        data_type: BOOLEAN
+      - name: TOTAL_ACCOUNT_VALUE_C
+        data_type: NUMBER
+      - name: WAS_FEE_C
+        data_type: NUMBER
+      - name: WRITE_OFF_FEE_C
+        data_type: NUMBER
+      - name: X_40_ACT_FEE_C
+        data_type: NUMBER
+      - name: BILLING_ACCOUNT_C
+        data_type: VARCHAR
+      - name: ACCOUNT_GENERATING_FEE_C
+        data_type: VARCHAR
+      - name: OLD_NAME_C
+        data_type: VARCHAR
+      - name: ESTATE_ITEM_C
+        data_type: VARCHAR
+      - name: AR_AP_ITEM_C
+        data_type: VARCHAR
+      - name: DATE_LAST_INVOICE_SENT_C
+        data_type: DATE
+      - name: _FIVETRAN_SYNCED
+        data_type: TIMESTAMP_TZ
+      - name: FINANCIAL_ACCOUNT_HOUSEHOLD_ID_DEL_C
+        data_type: VARCHAR
+      - name: FEE_RATE_C
+        data_type: FLOAT
+      - name: REVENUE_AS_OF_DATE_C
+        data_type: DATE
+      - name: CLIENT_PREVIOUS_QTR_FEE_C
+        data_type: NUMBER
+      - name: REGISTRATION_SUMMARY_C
+        data_type: VARCHAR
+      - name: INVOICE_HYPERLINK_C
+        data_type: VARCHAR
+      - name: READY_FOR_COLLECTIONS_C
+        data_type: BOOLEAN
+      - name: DAYS_SINCE_REJECTED_C
+        data_type: FLOAT
+      - name: CLIENT_UNIQUE_IDENTIFIER_C
+        data_type: VARCHAR
+      - name: ADVISOR_APPROVED_STATUS_C
+        data_type: FLOAT
+      - name: CASH_DEFICIT_AMOUNT_C
+        data_type: NUMBER
+      - name: CONCATENATE_2_C
+        data_type: VARCHAR
+      - name: BILLING_ACCOUNT_NUMBER_C
+        data_type: VARCHAR
+      - name: WAS_PERCENTAGE_C
+        data_type: FLOAT
+      - name: ORION_ACCOUNT_ID_C
+        data_type: VARCHAR
+      - name: BC_BILLING_STYLE_C
+        data_type: VARCHAR
+      - name: BILLING_METHOD_C
+        data_type: VARCHAR
+      - name: ACCOUNT_CLOSE_DATE_C
+        data_type: DATE
+      - name: CLIENT_NAME_C
+        data_type: VARCHAR
+      - name: ACCOUNT_TYPE_C
+        data_type: VARCHAR
+      - name: CASH_DEFICIT_C
+        data_type: BOOLEAN
+      - name: CLIENT_AGREEMENT_VERSION_C
+        data_type: VARCHAR
+      - name: CLIENT_CURRENT_QTR_FEE_C
+        data_type: NUMBER
+      - name: INVOICE_ON_QPR_C
+        data_type: BOOLEAN
+      - name: BILLING_ACCOUNT_HOUSEHOLD_ID_DEL_C
+        data_type: VARCHAR
+      - name: DISCOUNT_AMOUNT_C
+        data_type: NUMBER
+      - name: AGGREGATED_IN_TIER_C
+        data_type: BOOLEAN
+      - name: SUBADVISOR_PAYOUT_AMOUNT_C
+        data_type: NUMBER
+      - name: REFERRAL_FEE_PAID_C
+        data_type: NUMBER
+      - name: CLIENT_FEE_CHANGE_AMT_C
+        data_type: NUMBER
+      - name: RECON_DATE_C
+        data_type: DATE
+      - name: ADJUSTMENTS_CROSS_CHECK_C
+        data_type: NUMBER
+      - name: RUN_RATE_REVENUE_C
+        data_type: NUMBER
+      - name: FINAL_FEE_CHANGE_PERC_C
+        data_type: FLOAT
+      - name: NET_FEE_C
+        data_type: NUMBER
+      - name: QUARTERBACK_C
+        data_type: VARCHAR
+      - name: ORION_HOUSE_ID_C
+        data_type: VARCHAR
+      - name: FEE_ACCOUNT_C
+        data_type: VARCHAR
+      - name: CLIENT_FEE_CHANGE_PERC_C
+        data_type: FLOAT
+      - name: STATUS_SUMMARY_C
+        data_type: VARCHAR
+      - name: BILLING_ACCOUNT_FORMATTED_C
+        data_type: VARCHAR
+      - name: DAYS_OUTSTANDING_C
+        data_type: FLOAT
+      - name: BILLING_ACCOUNT_TAX_STATUS_C
+        data_type: VARCHAR
+      - name: ACCOUNT_CURRENT_QTR_FEE_C
+        data_type: NUMBER
+      - name: BILLING_ERROR_TIMESTAMP_ELAPSED_C
+        data_type: FLOAT
+      - name: REFERRAL_FEE_C
+        data_type: NUMBER
+      - name: WAS_CATEGORY_C
+        data_type: VARCHAR
+      - name: QPR_STATUS_C
+        data_type: VARCHAR
+      - name: REFERRAL_FEE_ESTIMATE_C
+        data_type: NUMBER
+      - name: SUBADVISOR_C
+        data_type: VARCHAR
+      - name: DAYS_IN_QTR_PRIOR_TO_INVOICE_C
+        data_type: FLOAT
+      - name: IS_QUALIFIED_C
+        data_type: BOOLEAN
+      - name: BC_GROSS_FEE_C
+        data_type: NUMBER
+      - name: BILLING_EXCEPTION_DETAILS_C
+        data_type: VARCHAR
+      - name: CONCATENATE_3_C
+        data_type: VARCHAR
+      - name: ADMIN_FEE_C
+        data_type: NUMBER
+      - name: GROSS_REVENUE_NO_ADJUSTMENTS_C
+        data_type: NUMBER
+      - name: FIRST_LEVEL_SUMMARY_C
+        data_type: VARCHAR
+      - name: AVG_ANNUAL_GROSS_FEE_RATE_C
+        data_type: FLOAT
+      - name: ACCOUNT_NUMBER_C
+        data_type: VARCHAR
+      - name: REGISTRATION_NAME_C
+        data_type: VARCHAR
+      - name: PREVIOUS_QTR_FEE_C
+        data_type: NUMBER
+      - name: QUARTER_END_CLIENT_RECON_C
+        data_type: DATE
+      - name: MODEL_ON_ACCOUNT_C
+        data_type: VARCHAR
+      - name: BILLING_EXCEPTION_C
+        data_type: BOOLEAN
+      - name: BILLING_ACCOUNT_OUTSTANDING_FEES_C
+        data_type: NUMBER
+      - name: BILLING_ACCOUNT_TYPE_C
+        data_type: VARCHAR
+      - name: FEE_TYPE_SUMMARY_C
+        data_type: VARCHAR
+      - name: CUSTODIAN_C
+        data_type: VARCHAR
+      - name: BILLING_EXCEPTION_CATEGORY_C
+        data_type: VARCHAR
+      - name: BILLING_ACCOUNT_CASH_C
+        data_type: NUMBER
+      - name: DISCOUNT_RATE_C
+        data_type: FLOAT
+      - name: BILLING_CUSTODIAN_C
+        data_type: VARCHAR
+      - name: SUBADVISOR_PAYOUT_RATE_C
+        data_type: FLOAT
+      - name: COLLECTION_MONTH_C
+        data_type: FLOAT
+      - name: START_DATE_C
+        data_type: DATE
+      - name: SHORT_NAME_C
+        data_type: VARCHAR
+      - name: REVENUE_QUARTER_C
+        data_type: VARCHAR
+      - name: FINAL_FEE_CHANGE_AMT_C
+        data_type: NUMBER
+      - name: AUM_CLASSIFICATION_C
+        data_type: VARCHAR
+      - name: GROSS_REVENUE_C
+        data_type: NUMBER
+      - name: INVOICE_QUARTER_C
+        data_type: VARCHAR
+      - name: MSEC_COMMISSIONS_LAST_12_MONTHS_C
+        data_type: NUMBER
+      - name: HOUSEHOLD_TYPE_C
+        data_type: VARCHAR
+      - name: TAX_STATUS_C
+        data_type: VARCHAR
+      - name: BC_BILLABLE_VALUE_C
+        data_type: NUMBER
+      - name: COLLECTION_WEEK_C
+        data_type: FLOAT
+      - name: BRANCH_C
+        data_type: VARCHAR
+      - name: MAXIMUM_LEVEL_ALLOWED_C
+        data_type: NUMBER
+      - name: AVG_ANNUAL_NET_FEE_RATE_C
+        data_type: FLOAT
+      - name: EMAIL_TO_C
+        data_type: VARCHAR
+      - name: FILE_AS_C
+        data_type: VARCHAR
+      - name: BILLING_ACCOUNT_APPROVED_HOUSEHOLD_ID_DEL_C
+        data_type: VARCHAR
+      - name: COLLECTION_QUARTER_C
+        data_type: VARCHAR
+      - name: DAYS_IN_INVOICE_QTR_C
+        data_type: FLOAT
+      - name: PAYMENT_METHOD_FEE_C
+        data_type: NUMBER
+      - name: _FIVETRAN_DELETED
+        data_type: BOOLEAN
+      - name: EFFECTIVE_AT
+        data_type: TIMESTAMP_NTZ
+      - name: _CREATED_AT
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        data_type: NUMBER
+      - name: IS_LATEST
+        data_type: NUMBER
+      - name: IS_EARLIEST
+        data_type: NUMBER
+      - name: IS_CPG
+        data_type: NUMBER
+sources: []
+seeds: []

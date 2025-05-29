@@ -2,12 +2,12 @@ version: 3
 
 sources:
   - name: emoney_mwa
-    description: ""
+    description: ''
     database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
     schema: emoney_mwa
     tables:
       - name: advisors
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -25,7 +25,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: businesses
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -43,7 +43,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: clients
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -61,7 +61,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: entity_interests
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -79,7 +79,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: investment_deposit_accounts
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -97,7 +97,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: net_worth_history
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -115,7 +115,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: people
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -133,7 +133,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: real_estate_assets
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -151,7 +151,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: user
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -169,7 +169,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: account_history
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -187,7 +187,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: account_interests
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -205,7 +205,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: alerts
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -223,7 +223,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: alliances
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -241,7 +241,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: assumptions
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -259,7 +259,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: charities
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -277,7 +277,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: client_group_members
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -295,7 +295,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: client_groups
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -313,7 +313,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: disability_ltc_insurance_accounts
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -331,7 +331,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: external_user_ids
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -349,7 +349,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: facts
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -367,7 +367,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: flows
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -385,7 +385,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: flp_entities
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -403,7 +403,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: holdings
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -421,7 +421,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: liability_note_accounts
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -439,7 +439,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: life_insurance_annuity_accounts
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -457,7 +457,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: medical_insurance_accounts
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -475,7 +475,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: nexus_accounts
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -493,7 +493,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: nexus_advisors
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -511,7 +511,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: nexus_bank_transactions
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -529,7 +529,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: nexus_clients
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -547,7 +547,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: nexus_deleted_bank_transactions
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -565,7 +565,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: nexus_deleted_investment_transactions
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -583,7 +583,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: nexus_holdings
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -601,7 +601,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: nexus_investment_transactions
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -619,7 +619,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: notes
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -637,7 +637,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: personal_property_accounts
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -655,7 +655,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: property_casualty_insurance_accounts
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -673,7 +673,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: stock_option_accounts
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -691,7 +691,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: stock_option_grants
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -709,7 +709,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: tasks
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''
@@ -727,7 +727,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: trust_entities
-        description: ""
+        description: ''
         columns:
           - name: _DATA
             description: ''

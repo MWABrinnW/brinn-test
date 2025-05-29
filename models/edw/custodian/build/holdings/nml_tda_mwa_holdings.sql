@@ -37,7 +37,7 @@ select
     , null::varchar(500)                  as underlying_security_id_source
 
     , cmsd.normalized::varchar(500)       as product_type
-    , cmsd.definition::varchar(500)       as product_type_source
+    , cmsd.definition::varchar(500)       as product_type_source_definition
     , p.security_type::varchar(500)       as product_type_source_code
 
     , null::varchar(500)                  as account_type
@@ -49,10 +49,10 @@ select
 
     , null::variant                       as extra_fields
 
-    , p.is_head                           as is_head
-    , p.is_current                        as is_current
+    , p._source_loaded_at                 as _created_at
     , p._source_loaded_at                 as _source_loaded_at
     , p._source_file                      as _source_file
+    , p.is_head                           as is_head
 from {{ ref('tda__int_positions') }} as p
 left join {{ ref('tda__int_cost_basis_aggregated') }} as cb
     on p.effective_date = cb.effective_date
@@ -67,4 +67,7 @@ left join {{ ref('custodian_mappings') }} as cmsd
     and p.security_type = cmsd.source
 where true
     and p.firm_source = 'mwa'
-qualify row_number() over (partition by p.effective_date , p.account_number , p.symbol order by p._source_loaded_at) = 1
+qualify row_number() over (
+    partition by p.effective_date , p.account_number , p.symbol
+    order by p._source_loaded_at
+) = 1

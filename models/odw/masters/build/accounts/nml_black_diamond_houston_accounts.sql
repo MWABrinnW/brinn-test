@@ -1,1 +1,11 @@
-{{ black_diamond_nml_accounts('houston') }}
+{{ config(
+    materialized='incremental',
+    unique_key='effective_date',
+    incremental_strategy='delete+insert',
+    on_schema_change='sync_all_columns',
+    cluster_by=['effective_date']
+) }}
+
+{%- set instance = 'houston' -%}
+
+{{ black_diamond_nml_accounts_lambda(instance=instance, is_historical=true) }}

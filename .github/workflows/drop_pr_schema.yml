@@ -16,6 +16,7 @@ env:
   SNOWSQL_SCHEMA: DBT
   SNOWSQL_ROLE: engineering
   PR_NUM: ${{ github.event.number }}
+  VENV_DIR: ./.venv
 
 jobs:
   drop-pr-schema:
@@ -42,7 +43,8 @@ jobs:
 
       - name: Delete the Docs
         run: |
-          .\utilities\.venv\Scripts\Activate.ps1
+          $venv_dir = "$env:VENV_DIR"
+          Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
           $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
           aws s3 rm s3://${{ env.DBT_DOCS_BUCKET }}/${{ env.PR_NUM }} --recursive
 

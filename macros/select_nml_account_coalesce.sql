@@ -41,7 +41,7 @@
             , ovrd_sys_adv._advisor
         )
         {% if system_key | lower in ['black_diamond__mps' , 'orion__mps'] -%} , coalesce(pms_advisor , crm_advisor) {%- endif %}
-        , crm_advisor 
+        , crm_advisor
         , pms_advisor
     )                                                                        as advisor
     , coalesce(
@@ -50,7 +50,7 @@
             , ovrd_sys_acct._advisor_id
             , ovrd_sys_adv._advisor_id)
         {% if system_key | lower in ['black_diamond__mps' , 'orion__mps'] -%} , coalesce(pms_advisor_id , crm_advisor_id) {%- endif %}
-        , crm_advisor_id 
+        , crm_advisor_id
         , pms_advisor_id
     )                                                                        as advisor_id
     , coalesce(
@@ -59,7 +59,7 @@
             , ovrd_sys_acct._advisor_id_source
             , ovrd_sys_adv._advisor_id_source)
         {% if system_key | lower in ['black_diamond__mps' , 'orion__mps'] -%} , coalesce(pms_advisor_id_source, crm_advisor_id_source) {%- endif %}
-        , crm_advisor_id_source 
+        , crm_advisor_id_source
         , pms_advisor_id_source
     )                                                                        as advisor_id_source
     , coalesce(
@@ -92,7 +92,7 @@
             , map_aum_glo.target_value
         )
         {% if system_key | lower in ['black_diamond__mps' , 'orion__mps'] -%} , coalesce(pms_aum_classification , crm_aum_classification) {%- endif %}
-        , crm_aum_classification 
+        , crm_aum_classification
         , pms_aum_classification
     )                                                                        as aum_classification
     , coalesce(

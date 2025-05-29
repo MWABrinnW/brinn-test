@@ -27,16 +27,15 @@ select
     , a.location_code                                                         as pms_location_code
     , a.fee_schedule                                                          as pms_fee_schedule--not available in RS yet
     , a.investment_strategy                                                   as pms_model_investment_strategy
-    , a.aum_classification                                                    as pms_aum_classification--sourced from crm
-    , a.is_erisa                                                              as pms_is_erisa--sourced from custodian
-    , a.is_discretionary                                                      as pms_is_discretionary--sourced from custodian
-    , a.is_voting_proxied                                                     as pms_is_voting_proxied--sourced from custodian
-    , a.is_prime_broker                                                       as pms_is_prime_broker
-    , a.is_broker_dealer_account                                              as pms_is_broker_dealer_account
-    , a.cost_basis_method                                                     as pms_cost_basis_method
+    , null::text                                                              as pms_aum_classification
+    , null::int                                                               as pms_is_erisa
+    , null::int                                                               as pms_is_discretionary
+    , null::int                                                               as pms_is_voting_proxied
+    , null::int                                                               as pms_is_prime_broker
+    , null::int                                                               as pms_is_broker_dealer_account
+    , null::text                                                              as pms_cost_basis_method
     -- CRM --------------------------------------------------------------------
     {{ select_crm_null() }}
-
     -- COALESCE ---------------------------------------------------------------
     {{ select_nml_account_coalesce() }}
 
@@ -126,11 +125,11 @@ select
 
     )::variant                                                                as _extra_fields
     -- META -------------------------------------------------------------------
-    , a.is_head                                                               as is_head
-    , a.is_current                                                            as is_current
-    , a._source_loaded_at::timestamp_ntz                                      as _source_loaded_at
-    , a._source_file::varchar(200)                                            as _source_file
-from {{ ref('int_orion_accounts') }} as a
+    --, a.is_head                                                               as is_head
+    , a._source_loaded_at                                                     as _created_at
+    , a._source_loaded_at                                                     as _source_loaded_at
+    , a._source_file                                                          as _source_file
+from {{ ref('orion__bld_accounts') }} as a
 
 -- mappings
 left join {{ ref('aux__stg_masters_mappings') }} as map_aum_glo

@@ -12,7 +12,6 @@ select
     ,valuationunit                  as valuation_unit
     ,effective_date::date           as effective_date
     , {{ col_is_head(reference=source('schwab_mps', 'securities')) }}
-    , {{ col_is_current(date_col='effective_date') }}
     ,record_datetime::timestamp     as record_datetime
     ,record_date::date              as record_date
     ,record_datetime::timestamp     as _source_loaded_at

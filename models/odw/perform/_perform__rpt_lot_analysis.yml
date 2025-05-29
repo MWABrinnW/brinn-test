@@ -22,6 +22,8 @@ models:
       - name: ACCOUNT_NUMBER
         description: ''
         data_type: VARCHAR
+      - name: ACCOUNT_ID
+        description: ''
       - name: SYMBOL
         description: ''
         data_type: VARCHAR
@@ -74,9 +76,6 @@ models:
         description: ''
         data_type: ARRAY
       - name: IS_MATCH
-        description: ''
-        data_type: NUMBER
-      - name: IS_HEAD
         description: ''
         data_type: NUMBER
       - name: _CREATED_AT

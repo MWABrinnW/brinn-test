@@ -3,10 +3,10 @@ models:
   - name: salesforce_compass_accounts
     tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["effective_date", "account_number"]
-          ignore_row_if: "any_value_is_missing" # (Optional. Default is 'all_values_are_missing')
+          column_list: [effective_at, account_number]
+          ignore_row_if: any_value_is_missing   # (Optional. Default is 'all_values_are_missing')
           quote_columns: false # (Optional)
-          row_condition: "effective_date >= current_date() - 90"
+          row_condition: effective_at::date >= current_date() - 10
     columns:
       - name: EFFECTIVE_AT
         description: ''
@@ -85,6 +85,8 @@ models:
       - name: IS_BROKER_DEALER_ACCOUNT
         description: ''
       - name: IS_VOTING_PROXIED
+        description: ''
+      - name: FEE_SCHEDULE_ID
         description: ''
       - name: FEE_SCHEDULE
         description: ''
@@ -174,11 +176,15 @@ models:
         description: ''
       - name: EMPLOYEE_NUMBER
         description: ''
+      - name: EMPLOYEE_NUMBER_SOURCE
+        description: ''
       - name: INVESTMENT_STRATEGY
         description: ''
       - name: PARTNER_FIRM
         description: ''
       - name: TRADING_SYSTEM
+        description: ''
+      - name: RN_ACCT_NUM
         description: ''
       - name: _FIVETRAN_SYNCED
         description: ''
@@ -186,9 +192,5 @@ models:
         description: ''
       - name: _SOURCE_LOADED_AT
         description: ''
-      - name: EFFECTIVE_DATE
-        description: ''
       - name: IS_HEAD
-        description: ''
-      - name: IS_LATEST
         description: ''

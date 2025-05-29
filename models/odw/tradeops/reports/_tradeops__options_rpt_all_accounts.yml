@@ -1,0 +1,4 @@
+version: 2
+models:
+  - name: tradeops__options_rpt_all_accounts
+    columns: []

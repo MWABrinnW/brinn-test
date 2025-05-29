@@ -27,7 +27,7 @@ select
         else 0
     end                           as exists_in_map
     , a.is_head                   as is_head
-    , a.is_current                as is_current
+    , a._created_at               as _created_at
     , a._source_loaded_at         as _source_loaded_at
     , a._source_file              as _source_file
     , a._checksum                 as _checksum

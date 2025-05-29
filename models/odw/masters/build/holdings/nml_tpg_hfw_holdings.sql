@@ -30,8 +30,15 @@ select
     --- [meta] ----------------------------------------------------------------------
     , is_head::int                        as is_head
     , is_current::int                     as is_current
+    , _created_at::datetime               as _created_at
     , _created_at::datetime               as _source_loaded_at
     , _source_file::text(200)             as _source_file
 from {{ ref('tpg_hfw__stg_holdings') }}
 -- dedupes holdings records found in multiple files for the same effective date
-where rn = 1
+where 1 = 1
+    and is_head_for_day = 1
+-- Pick only one record per position_id, just in case there is duplication.
+qualify row_number() over (
+    partition by effective_date , _created_at , account_number , position_id
+    order by _created_at desc , _source_file desc
+) = 1

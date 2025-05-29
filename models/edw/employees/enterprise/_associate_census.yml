@@ -1,0 +1,110 @@
+version: 2
+models:
+  - name: associate_census
+    columns:
+      - name: ASSOCIATE_REPORTING_ID
+        description: ''
+      - name: ASSOCIATE_ID
+        description: >-
+          ADP system identifier, exists in Oracle HCM for legacy data reference.  Will be blank for new
+          associates.
+      - name: LEGACY_EMPLOYEE_NUMBER
+        description: ''
+      - name: ASSOCIATE_LEGAL_NAME_FULL
+        description: 'Full legal name: Last, First Middle'
+      - name: EMPLOYMENT_STATUS
+        description: '"Active" or "Terminated"'
+      - name: ASSOCIATE_WORKER_TYPE
+        description: ''
+      - name: FT_PT_TEMP
+        description: Full time, part time, temp
+      - name: ASSOCIATE_LATEST_HIRE_DATE
+        description: ''
+      - name: ASSOCIATE_FINAL_TERMINATION_DATE
+        description: The date the associate terminated
+      - name: VOL_INVOL
+        description: ''
+      - name: _3_ACCOUNTING_ID
+        description: ''
+      - name: LOCATION_CODE
+        description: Mariner Location ID for the location (ex. 100, L-10015)
+      - name: ASSOCIATE_WORK_SITE_LOCATION_NAME
+        description: ''
+      - name: COST_NUM
+        description: ''
+      - name: ADVISOR_NONADVISOR
+        description: >-
+          Indicates if this associate is in an advisor or non-advisor role Added to HCM field list on
+          5/24/2024
+      - name: JOB_LEVEL
+        description: >-
+          The level of position for the associate: Admin/Staff, Technical, Associate Advisor, Advisor,
+          Senior Advisor, Management, Executive Field rename requested 5/24/2024.
+      - name: REGION_NAME
+        description: Region name, markets are grouped into a region
+      - name: LOCATION_NAME
+        description: Location name, offices are grouped into a location
+      - name: ASSOCIATE_DEPARTMENT_NAME
+        description: ''
+      - name: JOB_FAMILY
+        description: >-
+          Wealth Management, Wealth Operations, Specialty Tax, Investments, Business Development, Business
+          Intelligence, Human Resources, Information Technology, etc. Added to HCM field list on 5/24/2024
+      - name: JOB_FUNCTION_NAME
+        description: >-
+          Name of the primary job function of the associate, for example: Benefits, Client Service, Compliance,
+          Estate Planning, Finance, Insurance, Licensed Advisor, Platform Mangement, Portfolio Management,
+          Team Operations, Trading, etc.
+      - name: ASSOCIATE_TITLE
+        description: ''
+      - name: YEARS_OF_SERVICE
+        description: ''
+      - name: AGE_BAND
+        description: ''
+      - name: ASSOCIATE_GENDER
+        description: ''
+      - name: ASSOCIATE_FTE
+        description: ''
+      - name: ASSOCIATE_MANAGER_NAME
+        description: ''
+      - name: ASSOCIATE_MANAGER_ASSIGNMENT_ID
+        description: ''
+      - name: ASSOCIATE_WORK_SITE_LOCATION_REAL_ESTATE_CODE
+        description: ''
+      - name: IS_CURRENT
+        description: ''
+      - name: IS_START
+        description: ''
+      - name: IS_END
+        description: ''
+      - name: IS_TERM
+        description: ''
+      - name: IS_NEW
+        description: ''
+      - name: IS_INVOL_TERM
+        description: ''
+      - name: IS_VOL_TERM
+        description: ''
+      - name: DATA_LAST_REFRESHED_DATE
+        description: ''
+      - name: ASSIGNMENT_START_DATE
+        description: ''
+      - name: PERSON_SOURCE
+        description: Person source from the Person profile (acquisition, lift-out, etc.)
+      - name: TITLE_CHANGE_REASON
+        description: ''
+      - name: JOB_ID
+        description: Job ID
+      - name: MONTH_END_DATE
+        description: ''
+      - name: FIRST_DAY_OF_MONTH
+        description: ''
+      - name: LAST_DAY_OF_MONTH
+        description: ''
+      - name: EFFECTIVE_AT
+        description: >-
+          The datetime this record was pulled from the source system (previously ADP, now Oracle HCM)
+      - name: IS_MONTH_END
+        description: ''
+      - name: IS_HEAD
+        description: Returns the latest version of the demographics file from HCM.

@@ -2,10 +2,13 @@
     materialized='incremental',
     unique_key='effective_date',
     incremental_strategy='delete+insert',
-    on_schema_change='sync_all_columns'
+    on_schema_change='sync_all_columns',
+    cluster_by=['effective_date', 'custodian']
 )}}
 
-{# Set the upstream normalized models here and dbt will use them dynamically below #}
+{%- set start_date = cvar('start_date_custodian') -%}
+{%- set lookback = cvar('lookback') -%}
+
 {%-
     set source_models = [
           'nml_schwab_mwa_accounts'
@@ -25,39 +28,37 @@
     ]
 -%}
 
-with cte_max_created_at as (
-    {%- if is_incremental() -%}
-    select max(_created_at) as _created_at from {{ this }}
-    {%- else -%}
-    select null::timestamp as _created_at
-    {%- endif -%}
+with destination_summary as (
+    {% if is_incremental() -%}
+    select effective_date, custodian, firm_source, max(_created_at) as _created_at, max(_source_loaded_at) as _source_loaded_at
+    from {{ this }}
+    where 1 = 1
+        -- Model start date. This applies for full-refresh.
+        and effective_date >= '{{ start_date }}'
+        {%- if is_incremental() or target.name not in ['prod'] %}
+        -- Restrict lookback window if incremental or not prod.
+        and effective_date >= current_date() - {{ lookback }}
+        {%- endif %}
+    group by 1,2,3
+    order by 1,2,3
+    {% else -%}
+    select null::date as effective_date, null::text as custodian, null::text as firm_source
+        , null::timestamp as _created_at, null::timestamp as _source_loaded_at
+    {% endif -%}
 )
 
-,cte_effective_dates_out_of_date as (
+, source_summary as (
     {% for nml_model in source_models -%}
-    {%- set parts = nml_model.split('_') -%}
-    {%- set custodian = parts[1] -%}
-    {%- set firm_source = parts[2] -%}
-    select distinct effective_date, {{"'" ~ nml_model ~ "'"}} as model_source
+    select effective_date, custodian, firm_source, max(_created_at) as _created_at, {{"'" ~ nml_model ~ "'"}} as model_source
     from {{ ref(nml_model) }}
-    -- Capture effective dates where source timestamp is newer than destination max timestamp.
-    -- This should account for a historical date that was reloaded because the _created_at would
-    -- evaluate as newer than the max timestamp in destination.
-    where _created_at > nvl((select max(_created_at) from cte_max_created_at), dateadd(d, -1, _created_at))
-
-
-    {%- if is_incremental() %}
-
-    union
-
-    select distinct effective_date, {{"'" ~ nml_model ~ "'"}} as model_source
-    from {{ ref(nml_model) }}
-    where effective_date not in (
-        select distinct effective_date
-        from {{ this }}
-        where replace(custodian,'-','') = '{{custodian}}' and firm_source = '{{firm_source}}'
-        )
-    {%- endif -%}
+    where 1 = 1
+        -- Model start date. This applies for full-refresh.
+        and effective_date >= '{{ start_date }}'
+        {%- if is_incremental() or target.name not in ['prod'] %}
+        -- Restrict lookback window if incremental or not prod.
+        and effective_date >= current_date() - {{ lookback }}
+        {%- endif %}
+    group by all
 
     {%- if not loop.last %}
 
@@ -67,19 +68,91 @@ with cte_max_created_at as (
     {%- endfor %}
 )
 
-,cte_accounts as (
+, date_spine as (
+    select effective_date, custodian, firm_source from source_summary group by all
+    union
+    select effective_date, custodian, firm_source from destination_summary group by all
+)
+
+, dates_to_refresh as (
+    select
+        a.effective_date    as effective_date
+        , a.custodian       as custodian
+        , a.firm_source     as firm_source
+        , s._created_at     as source_created_at
+        , d._created_at     as destination_created_at
+    from date_spine a
+    left join source_summary s
+        on a.effective_date = s.effective_date
+        and a.custodian = s.custodian
+        and a.firm_source = s.firm_source
+    left join destination_summary d
+        on a.effective_date = d.effective_date
+        and a.custodian = d.custodian
+        and a.firm_source = d.firm_source
+    where 1 = 1
+        and (
+            -- Check if missing from destination OR the source records are newer for that date.
+            s._created_at > coalesce(d._created_at, s._created_at - interval '1 day')
+        )
+    group by all
+)
+
+--------------------------------------------------------------
+
+, cte_accounts as (
     {% for nml_model in source_models -%}
-    select * exclude _created_at
+    select
+        effective_date
+        , custodian
+        , firm
+        , firm_source
+        , account_number
+        , account_number_formatted
+        , custodian_link
+        , custodian_link_detail
+        , rep_link
+        , rep_link_detail
+        , account_type
+        , account_type_source_definition
+        , account_type_source_code
+        , opened_date
+        , account_title
+        , first_name
+        , middle_name
+        , last_name
+        , irs_id
+        , irs_id_type
+        , birth_date
+        , email_address
+        , phone
+        , cost_basis_method_mutual_funds
+        , cost_basis_method_non_mutual_funds
+        , is_taxable
+        , is_fee_authorized
+        , is_prime_broker
+        , is_margin_enabled
+        , options_approval_level
+        , restrictions_source_code
+        , is_multiple_margin_enabled
+        , restrictions_source_definition
+        , restrictions
+        , mailing_address_street
+        , mailing_address_city
+        , mailing_address_state
+        , mailing_address_zip
+        , mailing_address_country
+        , legal_address_street
+        , legal_address_city
+        , legal_address_state
+        , legal_address_zip
+        , legal_address_country
+        , _created_at
+        , _source_loaded_at
+        , _source_file
     from {{ ref(nml_model) }}
     where true
-        {{ incremental_date_filter(
-            source_col_name='effective_date',
-            target_col_name='effective_date',
-            do_lookback = false,
-            do_new = false,
-            custom_condition_only = true,
-            custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
-        ) }}
+        and effective_date in (select distinct effective_date from dates_to_refresh)
 
     {%- if not loop.last %}
 
@@ -89,7 +162,7 @@ with cte_max_created_at as (
     {%- endfor %}
 )
 
-,cte_cash as (
+, cte_cash as (
     select
           effective_date
         , custodian
@@ -101,17 +174,10 @@ with cte_max_created_at as (
         , money_market_value::decimal(17, 2) as money_market_value
     from {{ ref('bld_custodian_cash_balances') }}
     where true
-        {{ incremental_date_filter(
-            source_col_name='effective_date',
-            target_col_name='effective_date',
-            do_lookback = false,
-            do_new = false,
-            custom_condition_only = true,
-            custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
-        ) }}
+        and effective_date in (select distinct effective_date from dates_to_refresh)
 )
 
-,cte_holdings as (
+, cte_holdings as (
     select
           effective_date
         , custodian
@@ -128,23 +194,16 @@ with cte_max_created_at as (
                 when nvl(is_cash,0) = 1
                 then nvl(market_value,0)
                 else 0 end)::decimal(17, 2)         as cash_value
-    from {{ ref('bld_custodian_holdings') }}
+    from {{ ref('custodian_holdings') }}
     where true
-        {{ incremental_date_filter(
-            source_col_name='effective_date',
-            target_col_name='effective_date',
-            do_lookback = false,
-            do_new = false,
-            custom_condition_only = true,
-            custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
-        ) }}
+        and effective_date in (select distinct effective_date from dates_to_refresh)
     group by effective_date, custodian, firm, firm_source
             , account_number, account_number_formatted
 )
 
-,cte_accounts_with_values as (
+, cte_accounts_with_values as (
     select
-        a.effective_date
+        a.effective_date                                  as effective_date
         , a.custodian::text(200)                          as custodian
         , a.firm::text(200)                               as firm
         , a.firm_source::text(200)                        as firm_source
@@ -189,8 +248,6 @@ with cte_max_created_at as (
         , a.legal_address_state::text(200)                as legal_address_state
         , a.legal_address_zip::text(200)                  as legal_address_zip
         , a.legal_address_country::text(200)              as legal_address_country
-        , a.is_head::int                                  as is_head
-        , a.is_current::int                               as is_current
         , a._source_loaded_at::timestamp                  as _source_loaded_at
         , a._source_file::text(200)                       as _source_file
     from cte_accounts as a

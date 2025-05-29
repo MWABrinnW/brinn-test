@@ -52,7 +52,6 @@ select
     , acc2.employee_number::text(200)                                                 as associate_id_primary
     , 'W-2'::text(200)                                                                as advisor_type
 
-
     -- [assets and fees]
     , bb.fee_type_description::text(200)                                              as fee_type
     , coalesce(acc.fee_schedule , acc2.fee_schedule)::text                            as fee_schedule_source
@@ -150,7 +149,7 @@ from {{ ref('sei_manasquan__base_bills') }} as bb
 -- joins crm data on invoice date, if available
 left join {{ ref('salesforce_compass_accounts') }} as acc
     on trim(replace(bb.account_number , '-' , '')) = trim(replace(acc.account_number_formatted , '-' , ''))
-    and bb.fee_effective_date = acc.effective_date
+    and bb.fee_effective_date = acc.effective_at::date
 -- otherwise, joins to the current snapshot (is_head = 1)
 left join {{ ref('salesforce_compass_accounts') }} as acc2
     on bb.account_number = acc2.account_number_formatted

@@ -29,7 +29,6 @@ select
     , b.system_key::text(200)                                                 as system_key
     , b.firm_source::text(200)                                                as firm_source
 
-
     -- [location]
     , 'L-10001'::text(200)                                                    as client_location_code
 
@@ -84,7 +83,6 @@ select
     , null::text(200)                                                         as billing_custodian
     , null::text(200)                                                         as partner_firm
     , null::text(200)                                                         as partner_firm_original
-
 
     -- [advisor]
     , trim(b.cwm_lead_advisor)::varchar(200)                                  as advisor_source

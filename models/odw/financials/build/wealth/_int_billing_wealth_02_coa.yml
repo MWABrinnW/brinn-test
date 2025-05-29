@@ -1,0 +1,316 @@
+version: 2
+models:
+  - name: int_billing_wealth_02_coa
+    columns:
+      - name: SYSTEM_NAME
+        data_type: VARCHAR
+        description: ''
+      - name: SYSTEM_INSTANCE
+        data_type: VARCHAR
+        description: ''
+      - name: SYSTEM_KEY
+        data_type: VARCHAR
+        description: ''
+      - name: FIRM_SOURCE
+        description: Firm entity associated with the link value.
+        data_type: VARCHAR
+      - name: LOCATION_CODE
+        description: Mariner Location ID for the location (ex. 100, L-10015)
+        data_type: VARCHAR
+      - name: OFFICE_NAME
+        description: Office name/location in the format of 'City, State'
+        data_type: VARCHAR
+      - name: CLIENT_LOCATION_CODE
+        data_type: VARCHAR
+        description: ''
+      - name: CLIENT_OFFICE_NAME
+        data_type: VARCHAR
+        description: ''
+      - name: INVOICE_CREATED_AT
+        data_type: TIMESTAMP_NTZ
+        description: ''
+      - name: INVOICE_DATE
+        data_type: DATE
+        description: ''
+      - name: REVENUE_PERIOD_END_DATE
+        data_type: DATE
+        description: ''
+      - name: REVENUE_QUARTER_END_DATE
+        data_type: DATE
+        description: ''
+      - name: INVOICE_NUMBER_SOURCE
+        data_type: VARCHAR
+        description: ''
+      - name: BILLING_STATEMENT_ID_SOURCE
+        data_type: VARCHAR
+        description: ''
+      - name: BILLING_STATEMENT_ID_CRM
+        data_type: VARCHAR
+        description: ''
+      - name: INVOICE_STATUS
+        data_type: VARCHAR
+        description: ''
+      - name: IS_INTRA_PERIOD_INVOICE
+        data_type: NUMBER
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: End-client account number at Schwab.
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER_FORMATTED
+        data_type: VARCHAR
+        description: ''
+      - name: BILLING_ACCOUNT_NUMBER
+        data_type: VARCHAR
+        description: ''
+      - name: ACCOUNT_ID_PMS
+        data_type: VARCHAR
+        description: ''
+      - name: REGISTRANT_NAME
+        data_type: VARCHAR
+        description: ''
+      - name: ACCOUNT_NAME
+        data_type: VARCHAR
+        description: ''
+      - name: TYPE_OF_ACCOUNT
+        data_type: VARCHAR
+        description: ''
+      - name: CLIENT_ID_PMS
+        data_type: VARCHAR
+        description: ''
+      - name: AUM_CLASSIFICATION_STATUS
+        data_type: VARCHAR
+        description: ''
+      - name: MODEL_INVESTMENT_STRATEGY
+        data_type: VARCHAR
+        description: ''
+      - name: MODEL_GROUPING_ASSIGNMENT
+        data_type: VARCHAR
+        description: ''
+      - name: CUSTODIAN
+        description: Custodian name, lower-case, no spaces.
+        data_type: VARCHAR
+      - name: BILLING_CUSTODIAN
+        data_type: VARCHAR
+        description: ''
+      - name: PARTNER_FIRM
+        data_type: VARCHAR
+        description: ''
+      - name: PARTNER_FIRM_ORIGINAL
+        data_type: VARCHAR
+        description: ''
+      - name: ADVISOR_SOURCE
+        data_type: VARCHAR
+        description: ''
+      - name: ADVISOR_ORIGINAL
+        data_type: VARCHAR
+        description: ''
+      - name: ASSOCIATE_ID_ORIGINAL
+        data_type: VARCHAR
+        description: ''
+      - name: ADVISOR_PRIMARY
+        data_type: VARCHAR
+        description: ''
+      - name: ASSOCIATE_ID_PRIMARY
+        data_type: VARCHAR
+        description: ''
+      - name: ADVISOR_TYPE
+        data_type: VARCHAR
+        description: ''
+      - name: ADVISOR
+        data_type: VARCHAR
+        description: ''
+      - name: ASSOCIATE_ID
+        description: >-
+          ADP system identifier, exists in Oracle HCM for legacy data reference.  Will be blank for new
+          associates.
+        data_type: VARCHAR
+      - name: FEE_TYPE
+        data_type: VARCHAR
+        description: ''
+      - name: FEE_SCHEDULE_SOURCE
+        data_type: VARCHAR
+        description: ''
+      - name: FEE_SCHEDULE_TYPE
+        data_type: VARCHAR
+        description: ''
+      - name: FEE_SCHEDULE
+        data_type: VARCHAR
+        description: ''
+      - name: ASSETS_AS_OF_DATE
+        data_type: DATE
+        description: ''
+      - name: FEE_CALCULATION_DATE
+        data_type: DATE
+        description: ''
+      - name: EFFECTIVE_FEE_RATE
+        data_type: NUMBER
+        description: ''
+      - name: TOTAL_ACCOUNT_VALUE
+        data_type: NUMBER
+        description: ''
+      - name: BILLABLE_VALUE
+        data_type: NUMBER
+        description: ''
+      - name: FEE_EXCLUDED_ASSETS
+        data_type: NUMBER
+        description: ''
+      - name: CLIENT_FEE_GROSS
+        data_type: NUMBER
+        description: ''
+      - name: CLIENT_FEE_REBATES
+        data_type: NUMBER
+        description: ''
+      - name: CLIENT_NET_CONTRIBUTION_FEE
+        data_type: NUMBER
+        description: ''
+      - name: CLIENT_ADJUSTMENTS_FEE
+        data_type: NUMBER
+        description: ''
+      - name: CLIENT_WRITE_OFF_FEE
+        data_type: NUMBER
+        description: ''
+      - name: CLIENT_FEE_NET
+        data_type: NUMBER
+        description: ''
+      - name: REFERRAL_FEE
+        data_type: NUMBER
+        description: ''
+      - name: COLLECTION_DATE
+        data_type: DATE
+        description: ''
+      - name: THIRD_PARTY_CALCULATION
+        data_type: BOOLEAN
+        description: ''
+      - name: BILLING_STYLE
+        data_type: VARCHAR
+        description: ''
+      - name: BILLING_FREQUENCY
+        data_type: VARCHAR
+        description: ''
+      - name: BILLING_METHOD
+        data_type: VARCHAR
+        description: ''
+      - name: BILL_ON_BALANCE_TYPE
+        data_type: VARCHAR
+        description: ''
+      - name: PAYMENT_TERMS
+        data_type: VARCHAR
+        description: ''
+      - name: PAYMENT_METHOD_FEE
+        data_type: VARCHAR
+        description: ''
+      - name: ACCOUNT_CLASS
+        data_type: VARCHAR
+        description: ''
+      - name: RECURRING_REVENUE
+        data_type: BOOLEAN
+        description: ''
+      - name: IMPACTED_BY_FINANCIAL_MARKETS
+        data_type: BOOLEAN
+        description: ''
+      - name: COA_SEGMENT_1_LEGAL_ENTITY_ID
+        data_type: VARCHAR
+        description: ''
+      - name: COA_SEGMENT_2_PRODUCT_ID
+        data_type: VARCHAR
+        description: ''
+      - name: COA_SEGMENT_3_ACCOUNTING_ID
+        data_type: VARCHAR
+        description: ''
+      - name: COA_SEGMENT_4_TEAM_ID
+        data_type: VARCHAR
+        description: ''
+      - name: COA_SEGMENT_5_NATURAL_ACCOUNT_ID
+        data_type: VARCHAR
+        description: ''
+      - name: COA_SEGMENT_6_INITIATIVE_ID
+        data_type: VARCHAR
+        description: ''
+      - name: COA_SEGMENT_7_INTERCOMPANY_ID
+        data_type: VARCHAR
+        description: ''
+      - name: COA_SEGMENT_8_FUTURE_ID
+        data_type: VARCHAR
+        description: ''
+      - name: COA_ACCOUNT_NUMBER
+        data_type: VARCHAR
+        description: ''
+      - name: REVENUE_CATEGORY
+        data_type: VARCHAR
+        description: ''
+      - name: REVENUE_TYPE
+        data_type: VARCHAR
+        description: ''
+      - name: SYSTEM_NAME_CRM
+        data_type: VARCHAR
+        description: ''
+      - name: SYSTEM_INSTANCE_CRM
+        data_type: VARCHAR
+        description: ''
+      - name: SYSTEM_KEY_CRM
+        data_type: VARCHAR
+        description: ''
+      - name: ACCOUNT_ID_CRM
+        data_type: VARCHAR
+        description: ''
+      - name: CLIENT_ID_CRM
+        data_type: VARCHAR
+        description: ''
+      - name: CLIENT_ID_ORIGINAL_CRM
+        data_type: VARCHAR
+        description: ''
+      - name: CLIENT_ID_UNIQUE_COMPASS
+        data_type: VARCHAR
+        description: ''
+      - name: CLIENT_NAME
+        data_type: VARCHAR
+        description: ''
+      - name: CLIENT_NAME_ORIGINAL_CRM
+        data_type: VARCHAR
+        description: ''
+      - name: CLIENT_LEAD_SOURCE
+        data_type: VARCHAR
+        description: ''
+      - name: CLIENT_KEY_TAGS_CRM
+        data_type: VARCHAR
+        description: ''
+      - name: TRANSACTION_TYPE
+        data_type: VARCHAR
+        description: ''
+      - name: TRANSACTION_LINE_TYPE
+        data_type: VARCHAR
+        description: ''
+      - name: TRANSACTION_LINE_QUANTITY
+        data_type: NUMBER
+        description: ''
+      - name: CURRENCY_CODE
+        data_type: VARCHAR
+        description: ''
+      - name: CURRENCY_CONVERSION_TYPE
+        data_type: VARCHAR
+        description: ''
+      - name: UNIT_SELLING_PRICE
+        data_type: NUMBER
+        description: ''
+      - name: IS_EXCLUDED
+        data_type: NUMBER
+        description: ''
+      - name: _INVOICE_KEY
+        data_type: VARCHAR
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: Time when the records were created in the source table.
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: File where the record is sourced from.
+        data_type: VARCHAR
+      - name: _BOX_FILE_ID
+        description: identifier for the box file.
+        data_type: VARCHAR
+      - name: _EXTRA_FIELDS
+        data_type: VARIANT
+        description: ''
+      - name: excluded_reasons
+        description: ''
+sources: []
+seeds: []

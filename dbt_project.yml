@@ -78,7 +78,7 @@ on-run-end:
 
 data_tests:
   +store_failures: true
-  +store_failures_as: view
+  +store_failures_as: table
   +limit: 1000
   +schema: |
     {% if target.name in ['prod'] %} "{{ target.schema }}_test__audit"
@@ -87,12 +87,22 @@ data_tests:
   +grants:
     select: "{{ ['engineering'] if target.name in ['prod', 'ci'] else []}}"
 
+sources:
+  github_source:
+    +enabled: "{{ target.name in ['prod'] }}"
+  github:
+    +enabled: "{{ target.name in ['prod'] }}"
+  fivetran_log:
+    +enabled: false
+
 # [Configuring models]
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 models:
   +transient: false
+
   github_source:
     +tags: ["github", "daily"]
+    +enabled: "{{ target.name in ['prod'] }}"
     +grants:
       select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
     +database: |
@@ -101,8 +111,10 @@ models:
       {%- elif target.name == "ci"  -%} datalake_{{env_var('PR_NUM')}}
       {%- endif -%}
     +schema: github # leave blank for just the target_schema
+
   github:
     +tags: ["github", "daily"]
+    +enabled: "{{ target.name in ['prod'] }}"
     +grants:
       select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
     +database: |
@@ -124,6 +136,7 @@ models:
       {%- endif -%}
     +schema: fivetran_log # leave blank for just the target_schema
     staging:
+      +enabled: false
       +database: |
         {%- if  target.name == "dev" -%} datalake_dev
         {%- elif target.name == "prod"  -%} datalake
@@ -132,8 +145,9 @@ models:
       +schema: fivetran_log # leave blank for just the target_schema
 
   dbt_artifacts:
+    +enabled: "{{ target.name in ['prod'] }}"
     +grants:
-      select: "{{ ['engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
+      select: "{{ ['engineering'] if target.name in ['prod'] else []}}"
 
   data_engineering:
     +persist_docs:
@@ -554,7 +568,6 @@ models:
       crm:
         +schema: crm
         +tags: ["crm"]
-        +dbt-osmosis: "_{parent}_models.yml"
         build:
           +schema: build
       activetick:
@@ -568,7 +581,6 @@ models:
         +tags: ["masters"]
         +grants:
           +select: "{{ ['db_pms_r','db_edw_client_r','reporting'] if target.name in ['prod', 'test', 'ci'] else []}}"
-        +dbt-osmosis: "_{parent}_models.yml"
         build:
           +schema: build
       mis:
@@ -601,7 +613,6 @@ models:
         +tags: ["revenue","financials","billing"]
         +grants:
           +select: "{{ ['db_odw_financials_r'] if target.name in ['prod', 'ci'] else []}}"
-        +dbt-osmosis: "_{parent}_models.yml"
         build:
           +schema: build
 

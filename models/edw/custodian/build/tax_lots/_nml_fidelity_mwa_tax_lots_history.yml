@@ -1,0 +1,82 @@
+version: 2
+models:
+  - name: nml_fidelity_mwa_tax_lots_history
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: FIRM
+        description: ''
+      - name: FIRM_SOURCE
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: SYMBOL
+        description: ''
+      - name: TICKER
+        description: ''
+      - name: CUSIP
+        description: ''
+      - name: QUANTITY
+        description: ''
+      - name: COST_PER_SHARE
+        description: ''
+      - name: COST_BASIS
+        description: ''
+      - name: CURRENT_PRICE
+        description: ''
+      - name: CURRENT_VALUE
+        description: ''
+      - name: TRADE_DATE
+        description: ''
+      - name: SETTLEMENT_DATE
+        description: ''
+      - name: ENTRY_DATE_SOURCE
+        description: ''
+      - name: IS_CASH
+        description: ''
+      - name: IS_SWEEP
+        description: ''
+      - name: IS_SHORT
+        description: ''
+      - name: IS_WASH_SALE
+        description: ''
+      - name: LOT_ID_SOURCE
+        description: ''
+      - name: SECURITY_ID_SOURCE
+        description: ''
+      - name: OPTION_TICKER
+        description: ''
+      - name: OPTION_INDICATOR
+        description: ''
+      - name: OPTION_EXPIRATION_DATE
+        description: ''
+      - name: OPTION_STRIKE_PRICE
+        description: ''
+      - name: ISIN
+        description: ''
+      - name: SEDOL
+        description: ''
+      - name: PRODUCT_TYPE
+        description: ''
+      - name: PRODUCT_TYPE_SOURCE_DEFINITION
+        description: ''
+      - name: PRODUCT_TYPE_SOURCE_CODE
+        description: ''
+      - name: LEGACY_PRODUCT_TYPE
+        description: ''
+      - name: LEGACY_PRODUCT_TYPE_SOURCE_DEFINITION
+        description: ''
+      - name: LEGACY_PRODUCT_TYPE_SOURCE_CODE
+        description: ''
+      - name: _CREATED_AT
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''
+      - name: _EXTRA_FIELDS
+        description: ''

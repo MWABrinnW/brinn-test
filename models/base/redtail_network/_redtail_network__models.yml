@@ -164,9 +164,8 @@ models:
       - name: EFFECTIVE_AT
         description: ''
         data_type: TIMESTAMP_LTZ
-      - name: EFFECTIVE_DATE
+      - name: _CREATED_AT
         description: ''
-        data_type: DATE
       - name: _SOURCE_LOADED_AT
         description: ''
         data_type: TIMESTAMP_LTZ
@@ -238,9 +237,6 @@ models:
       - name: EFFECTIVE_AT
         description: ''
         data_type: TIMESTAMP_LTZ
-      - name: EFFECTIVE_DATE
-        description: ''
-        data_type: DATE
       - name: IS_HEAD
         description: ''
         data_type: NUMBER
@@ -297,9 +293,6 @@ models:
       - name: EFFECTIVE_AT
         description: ''
         data_type: TIMESTAMP_LTZ
-      - name: EFFECTIVE_DATE
-        description: ''
-        data_type: DATE
       - name: IS_HEAD
         description: ''
         data_type: NUMBER
@@ -338,9 +331,6 @@ models:
       - name: EFFECTIVE_AT
         description: ''
         data_type: TIMESTAMP_LTZ
-      - name: EFFECTIVE_DATE
-        description: ''
-        data_type: DATE
       - name: _SOURCE_LOADED_AT
         description: ''
         data_type: TIMESTAMP_LTZ
@@ -406,9 +396,6 @@ models:
       - name: EFFECTIVE_AT
         description: ''
         data_type: TIMESTAMP_LTZ
-      - name: EFFECTIVE_DATE
-        description: ''
-        data_type: DATE
       - name: IS_HEAD
         description: ''
         data_type: NUMBER
@@ -444,9 +431,6 @@ models:
       - name: EFFECTIVE_AT
         description: ''
         data_type: TIMESTAMP_LTZ
-      - name: EFFECTIVE_DATE
-        description: ''
-        data_type: DATE
       - name: IS_HEAD
         description: ''
         data_type: NUMBER
@@ -488,9 +472,6 @@ models:
       - name: EFFECTIVE_AT
         description: ''
         data_type: TIMESTAMP_LTZ
-      - name: EFFECTIVE_DATE
-        description: ''
-        data_type: DATE
       - name: _SOURCE_LOADED_AT
         description: ''
         data_type: TIMESTAMP_LTZ
@@ -757,9 +738,6 @@ models:
       - name: EFFECTIVE_AT
         description: ''
         data_type: TIMESTAMP_LTZ
-      - name: EFFECTIVE_DATE
-        description: ''
-        data_type: DATE
       - name: _SOURCE_LOADED_AT
         description: ''
         data_type: TIMESTAMP_LTZ
@@ -930,12 +908,179 @@ models:
       - name: EFFECTIVE_AT
         description: ''
         data_type: TIMESTAMP_LTZ
-      - name: EFFECTIVE_DATE
+      - name: _CREATED_AT
         description: ''
-        data_type: DATE
       - name: _SOURCE_LOADED_AT
         description: ''
         data_type: TIMESTAMP_LTZ
       - name: _SOURCE_FILE
         description: ''
         data_type: VARCHAR
+  - name: redtail_network__base_workflows
+    columns:
+      - name: WORKFLOW_ID
+        description: ''
+      - name: WORKFLOW_TEMPLATE_ID
+        description: ''
+      - name: WORKFLOW_NAME
+        description: ''
+      - name: WORKFLOW_DUE_DATE
+        description: ''
+      - name: WORKFLOW_CURRENT_STEP_ID
+        description: ''
+      - name: WORKFLOW_STATUS
+        description: ''
+      - name: WORKFLOW_ASSIGNEE_ID
+        description: ''
+      - name: WORKFLOW_ASSIGNEE_TYPE
+        description: ''
+      - name: WORKFLOW_COMPLETION_DATE
+        description: ''
+      - name: WORKFLOW_DESCRIPTION
+        description: ''
+      - name: WORKFLOW_CATEGORY_ID
+        description: ''
+      - name: WORKFLOW_CATEGORY
+        description: ''
+      - name: WORKFLOW_EXCLUDE_WEEKENDS
+        description: ''
+      - name: WORKFLOW_DELETED
+        description: ''
+      - name: WORKFLOW_CREATED_AT
+        description: ''
+      - name: WORKFLOW_UPDATED_AT
+        description: ''
+      - name: WORKFLOW_EFFECTIVE_AT
+        description: ''
+      - name: STEP_ID
+        description: ''
+      - name: STEP_NAME
+        description: ''
+      - name: STEP_WORKFLOW_ID
+        description: ''
+      - name: STEP_ORDER_POSITION
+        description: ''
+      - name: STEP_INTERVAL
+        description: ''
+      - name: STEP_FREQUENCY
+        description: ''
+      - name: STEP_INTERVAL_PLACEMENT
+        description: ''
+      - name: STEP_DISPLAY_INTERVAL
+        description: ''
+      - name: STEP_COMPLETION_DATE
+        description: ''
+      - name: STEP_DESCRIPTION
+        description: ''
+      - name: STEP_COMMENTS
+        description: ''
+      - name: STEP_TASKS_REMAINING
+        description: ''
+      - name: STEP_DELETED
+        description: ''
+      - name: STEP_CREATED_AT
+        description: ''
+      - name: STEP_UPDATED_AT
+        description: ''
+      - name: TASK_ID
+        description: ''
+      - name: TASK_NAME
+        description: ''
+      - name: TASK_WORKFLOW_STEP_ID
+        description: ''
+      - name: TASK_PARENT_STEP_TASK_ID
+        description: ''
+      - name: TASK_ASSIGNEE_ID
+        description: ''
+      - name: TASK_ASSIGNEE_TYPE
+        description: ''
+      - name: TASK_DISPLAY_POSITION
+        description: ''
+      - name: TASK_DUE_DATE
+        description: ''
+      - name: TASK_CALCULATED_DUE_DATE
+        description: ''
+      - name: TASK_COMPLETION_DATE
+        description: ''
+      - name: TASK_DESCRIPTION
+        description: ''
+      - name: TASK_DELETED
+        description: ''
+      - name: TASK_CREATED_AT
+        description: ''
+      - name: TASK_UPDATED_AT
+        description: ''
+      - name: OUTCOME_ID
+        description: ''
+      - name: OUTCOME_NAME
+        description: ''
+      - name: OUTCOME_WORKFLOW_STEP_ID
+        description: ''
+      - name: OUTCOME_NEXT_WORKFLOW_STEP_ID
+        description: ''
+      - name: OUTCOME_DELETED
+        description: ''
+      - name: OUTCOME_CREATED_AT
+        description: ''
+      - name: OUTCOME_UPDATED_AT
+        description: ''
+      - name: CONTACT_TYPE
+        description: ''
+      - name: CONTACT_FIRST_NAME
+        description: ''
+      - name: CONTACT_MIDDLE_NAME
+        description: ''
+      - name: CONTACT_LAST_NAME
+        description: ''
+      - name: CONTACT_COMPANY_NAME
+        description: ''
+      - name: CONTACT_FULL_NAME
+        description: ''
+      - name: CONTACT_NICKNAME
+        description: ''
+      - name: CONTACT_SUFFIX_ID
+        description: ''
+      - name: CONTACT_SUFFIX
+        description: ''
+      - name: CONTACT_JOB_TITLE
+        description: ''
+      - name: CONTACT_FAVORITE
+        description: ''
+      - name: CONTACT_PRONOUNS
+        description: ''
+      - name: CONTACT_DELETED
+        description: ''
+      - name: CONTACT_CREATED_AT
+        description: ''
+      - name: CONTACT_UPDATED_AT
+        description: ''
+      - name: CONTACT_ID
+        description: ''
+      - name: IS_HEAD
+        description: ''
+      - name: EFFECTIVE_AT
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''
+  - name: redtail_network__int_contact_preferred_pms
+    columns:
+      - name: CONTACT_ID
+        description: ''
+      - name: FIELD_VALUE
+        description: ''
+      - name: ADVISOR
+        description: ''
+      - name: PREFERRED_PMS
+        description: ''
+      - name: EMAIL_ADDRESS
+        description: ''
+      - name: ADVISOR_FULL_NAME
+        description: ''
+      - name: _EXTRA_FIELDS
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: _CREATED_AT
+        description: ''

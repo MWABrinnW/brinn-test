@@ -1,0 +1,56 @@
+version: 2
+models:
+  - name: mis__stg_orion_tax_lots_29042
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: AS_OF_DATE
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_ID
+        description: ''
+      - name: TICKER
+        description: ''
+      - name: CUSIP
+        description: ''
+      - name: TOTAL_UNITS
+        description: ''
+      - name: CURRENT_PRICE_ORIGINAL
+        description: ''
+      - name: CURRENT_PRICE
+        description: ''
+      - name: CURRENT_VALUE
+        description: ''
+      - name: ORIGINAL_COST_PER_SHARE
+        description: ''
+      - name: ORIGINAL_COST_TOTAL
+        description: ''
+      - name: ACQUISITION_DATE
+        description: ''
+      - name: IS_CUSTODIAL_CASH
+        description: ''
+      - name: PRICE_FACTOR
+        description: ''
+      - name: PRODUCT_TYPE
+        description: ''
+      - name: ASSET_CLASS
+        description: ''
+      - name: PRODUCT_CATEGORY
+        description: ''
+      - name: PRODUCT_ID
+        description: ''
+      - name: ASSET_ID
+        description: ''
+      - name: LOT_ID
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''
+      - name: _CREATED_AT
+        description: ''
+      - name: _ID
+        description: ''
+      - name: IS_HEAD
+        description: ''
+      - name: IS_HEAD_FOR_DAY
+        description: ''

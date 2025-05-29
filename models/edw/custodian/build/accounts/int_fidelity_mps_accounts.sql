@@ -1,68 +1,81 @@
--- depends_on: {{ source('fidelity_mps', 'nabase') }}
--- depends_on: {{ ref('fidelity_mps_history__vw_nabase_2x1_mailing_address') }}
--- depends_on: {{ ref('fidelity_mps_history__vw_nabase_2x2_legal_address') }}
--- depends_on: {{ ref('fidelity_mps_history__vw_nabase_3x0_notification') }}
--- depends_on: {{ ref('fidelity_mps_history__vw_nabase_2x0_customer') }}
--- depends_on: {{ ref('fidelity_mps_history__vw_nabase_101_account') }}
--- depends_on: {{ ref('dates') }}
 {{ config(
     materialized='incremental',
     unique_key='effective_date',
     incremental_strategy='delete+insert',
-    on_schema_change='sync_all_columns'
+    on_schema_change='sync_all_columns',
+    cluster_by=['effective_date']
 ) }}
 
-{# Prepare the query we'll use to determine if new data from the source is available #}
-{%- set src = source('fidelity_mps', 'nabase') -%}
+{% set start_date = cvar('start_date_custodian') %}
+{% set lookback = cvar('lookback') %}
 
-{# Check if table exists in the database. If it doesn't we can't run the query to check for new data without failing #}
-{%- set source_relation = adapter.get_relation(
-      database=this.database,
-      schema=this.schema,
-      identifier=this.name) -%}
-
-{%- set table_exists=source_relation is not none -%}
-
-{%- set qry_check_for_new_data -%}
-select
-    case
-        when (select count(*) from {{ this }}) = 0
-            then 1 -- no records in table
-        when (select top 1 1
-              from {{ src }}
-              where record_datetime > (select max(_created_at) from {{ this }})
-              ) = 1
-            then 1 -- new records in source compared to destination
-        else 0 -- no need to insert anything new
-        end
-{%- endset -%}
-
-{# Execute the query to determine if new data is ready. 1=yes 0=no #}
-{%- if execute and table_exists -%}
-    {%- set result = dbt_utils.get_single_value(qry_check_for_new_data) -%}
-{%- else -%}
-  {%- set result = 0 -%}
-{%- endif -%}
-
-{%- if result == 0 and flags.FULL_REFRESH == false and table_exists -%}
-    {# Run a simple query with no results because nothing needs inserted #}
-    select *
+with destination_summary as (
+    {% if is_incremental() -%}
+    select effective_date, custodian, firm_source, max(_created_at) as _created_at, max(_source_loaded_at) as _source_loaded_at
     from {{ this }}
-    limit 0
-{%- else -%}
-{# Insert new data #}
-with cte_effective_dates_out_of_date as
-(
-  select distinct effective_date
-  from {{ src }}
-  {% if table_exists -%}
-  where record_datetime > (select nvl(max(_created_at), dateadd(d, -1, record_datetime)) from {{ this }})
-  or effective_date not in (select distinct effective_date from {{ this }})
-  {% else -%}
-  where true
-  {% endif -%}
+    where 1 = 1
+        -- Model start date. This applies for full-refresh.
+        and effective_date >= '{{ start_date }}'
+        {%- if is_incremental() or target.name not in ['prod'] %}
+        -- Restrict lookback window if incremental or not prod.
+        and effective_date >= current_date() - {{ lookback }}
+        {%- endif %}
+        and firm_source not in ('other', 'sma', 'unknown')
+    group by 1,2,3
+    order by 1,2,3
+    {% else -%}
+    select null::date as effective_date, null::text as custodian, null::text as firm_source
+        , null::timestamp as _created_at, null::timestamp as _source_loaded_at
+    {% endif -%}
 )
-,cte_mailing_address as
+
+, source_summary as (
+    {%- set src_model = 'fidelity_mps_history__vw_nabase_101_account' %}
+    select effective_date, custodian, firm_source, max(_source_loaded_at) as _created_at, {{"'" ~ src_model ~ "'"}} as model_source
+    from {{ ref(src_model) }}
+    where 1 = 1
+        -- Exclude auxillary/bunk firm sources because it muddies up the comparison.
+        and firm_source not in ('other', 'sma', 'unknown')
+        -- Model start date. This applies for full-refresh.
+        and effective_date >= '{{ start_date }}'
+        {%- if is_incremental() or target.name not in ['prod'] %}
+        -- Restrict lookback window if incremental or not prod.
+        and effective_date >= current_date() - {{ lookback }}
+        {%- endif %}
+    group by all
+)
+
+, date_spine as (
+    select effective_date, custodian, firm_source from source_summary group by all
+    union
+    select effective_date, custodian, firm_source from destination_summary group by all
+)
+
+, dates_to_refresh as (
+    select
+        a.effective_date
+        , a.custodian
+        , a.firm_source
+        , s._created_at as source_created_at
+        , d._created_at as destination_created_at
+    from date_spine a
+    left join source_summary s
+        on a.effective_date = s.effective_date
+        and a.custodian = s.custodian
+        and a.firm_source = s.firm_source
+    left join destination_summary d
+        on a.effective_date = d.effective_date
+        and a.custodian = d.custodian
+        and a.firm_source = d.firm_source
+    where 1 = 1
+        and (
+            -- Check if missing from destination OR the source records are newer for that date.
+            s._created_at > coalesce(d._created_at, s._created_at - interval '1 day')
+        )
+    group by all
+)
+
+, cte_mailing_address as
 (
   select
     effective_date
@@ -79,17 +92,14 @@ with cte_effective_dates_out_of_date as
   from {{ ref('fidelity_mps_history__vw_nabase_2x1_mailing_address') }}
   where true
     and record_number = '211'
-    {{ incremental_date_filter(
-          source_col_name = 'effective_date',
-          target_col_name = 'effective_date',
-          do_lookback = false,
-          do_new = false,
-          custom_condition_only = true,
-          custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
-    ) }}
+    and effective_date in (select distinct effective_date from dates_to_refresh)
+    -- Offer the snowflake query optimizer a chance to prune the query early
+    -- if there are no dates to refresh.
+    and exists (select 1 from dates_to_refresh)
 
 )
-,cte_legal_address as
+
+, cte_legal_address as
 (
   select
     effective_date
@@ -106,16 +116,14 @@ with cte_effective_dates_out_of_date as
   from {{ ref('fidelity_mps_history__vw_nabase_2x2_legal_address') }}
   where true
     and record_number = '212'
-    {{ incremental_date_filter(
-          source_col_name = 'effective_date',
-          target_col_name = 'effective_date',
-          do_lookback = false,
-          do_new = false,
-          custom_condition_only = true,
-          custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
-    ) }}
+    and effective_date in (select distinct effective_date from dates_to_refresh)
+    -- Offer the snowflake query optimizer a chance to prune the query early
+    -- if there are no dates to refresh.
+    and exists (select 1 from dates_to_refresh)
+  order by effective_date
 )
-,cte_notification as
+
+, cte_notification as
 (
   select
     effective_date
@@ -125,16 +133,14 @@ with cte_effective_dates_out_of_date as
   from {{ ref('fidelity_mps_history__vw_nabase_3x0_notification') }}
   where true
     and record_number = '310'
-    {{ incremental_date_filter(
-          source_col_name = 'effective_date',
-          target_col_name = 'effective_date',
-          do_lookback = false,
-          do_new = false,
-          custom_condition_only = true,
-          custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
-    ) }}
+    and effective_date in (select distinct effective_date from dates_to_refresh)
+    -- Offer the snowflake query optimizer a chance to prune the query early
+    -- if there are no dates to refresh.
+    and exists (select 1 from dates_to_refresh)
+  order by effective_date
 )
-,cte_customer as
+
+, cte_customer as
 (
   select
     effective_date
@@ -147,16 +153,75 @@ with cte_effective_dates_out_of_date as
   from {{ ref('fidelity_mps_history__vw_nabase_2x0_customer') }}
   where true
     and record_number = '210'
-    {{ incremental_date_filter(
-          source_col_name = 'effective_date',
-          target_col_name = 'effective_date',
-          do_lookback = false,
-          do_new = false,
-          custom_condition_only = true,
-          custom_condition = 'effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
-    ) }}
+    and effective_date in (select distinct effective_date from dates_to_refresh)
+    -- Offer the snowflake query optimizer a chance to prune the query early
+    -- if there are no dates to refresh.
+    and exists (select 1 from dates_to_refresh)
+  order by effective_date
 )
-,cte_account as
+
+, cte_account as (
+  select
+      a.effective_date
+    , 'fidelity' as custodian
+    , 'mps' as firm_source
+    , a.account_custodial
+    , a.account_custodial_formatted
+    , a.registration_type
+    , case
+        when nvl(a.establish_date, '') in ('', '0000', '000000', '00000000') then null::date
+        else to_date(a.establish_date, 'yyyymmdd') end::date                      as establish_date
+    , a.irs_no
+    , a.irs_code
+    , case
+        when nvl(a.birth_date, '') in ('', '0000', '000000', '00000000') then null::date
+        else to_date(a.birth_date, 'yyyymmdd') end::date                          as birth_date
+    , a.cost_basis_disposal_method_code
+    , a.fee_authorization_code
+    , a.prime_broker_indicator
+    , a.portfolio_margin_indicator
+    , a.multiple_margin_indicator
+    , a.option_agreement
+    , a.restriction_code_partial
+    , a._source_loaded_at
+    , a._source_file
+    , a.proxy_vote_indicator
+    from {{ ref('fidelity_mps_history__vw_raw_nabase_101_account') }} a
+    where true
+      and a.effective_date in (select distinct effective_date from dates_to_refresh)
+      -- Offer the snowflake query optimizer a chance to prune the query early
+      -- if there are no dates to refresh.
+      and exists (select 1 from dates_to_refresh)
+    order by a.effective_date
+)
+
+, cte_business as (
+  select
+    effective_date, account_custodial, fixed_format_business_trust_name_1
+    from {{ ref('fidelity_mps_history__vw_nabase_102_business') }}
+    where true
+      and effective_date in (select distinct effective_date from dates_to_refresh)
+      -- Offer the snowflake query optimizer a chance to prune the query early
+      -- if there are no dates to refresh.
+      and exists (select 1 from dates_to_refresh)
+    order by effective_date
+)
+
+, cte_person as (
+  select
+    effective_date, account_custodial, fixed_format_first_name_1, fixed_format_middle_name_1, fixed_format_last_name_1
+      , fixed_format_first_name_2, fixed_format_middle_name_2, fixed_format_last_name_2
+      , fixed_format_first_name_3, fixed_format_middle_name_3, fixed_format_last_name_3
+    from {{ ref('fidelity_mps_history__vw_nabase_102_person') }}
+    where true
+      and effective_date in (select distinct effective_date from dates_to_refresh)
+      -- Offer the snowflake query optimizer a chance to prune the query early
+      -- if there are no dates to refresh.
+      and exists (select 1 from dates_to_refresh)
+    order by effective_date
+)
+
+, cte_all_accounts as
 (
   select
       a.effective_date
@@ -242,22 +307,27 @@ with cte_effective_dates_out_of_date as
               '(\\s{2,})', ' '), ' ,', ','), '')::varchar(500)
           end                                                     as account_title
           , a.proxy_vote_indicator                                as proxy_vote_indicator
-    from {{ ref('fidelity_mps_history__vw_nabase_101_account') }} a
-    left join {{ ref('fidelity_mps_history__vw_nabase_102_business') }} b
+    from cte_account a
+    left join cte_business b
       on a.effective_date = b.effective_date
       and a.account_custodial = b.account_custodial
-    left join {{ ref('fidelity_mps_history__vw_nabase_102_person') }} p
+      and b.effective_date in (select distinct effective_date from dates_to_refresh)
+      -- Offer the snowflake query optimizer a chance to prune the query early
+      -- if there are no dates to refresh.
+      and exists (select 1 from dates_to_refresh)
+    left join cte_person p
       on a.effective_date = p.effective_date
       and a.account_custodial = p.account_custodial
+      and p.effective_date in (select distinct effective_date from dates_to_refresh)
+      -- Offer the snowflake query optimizer a chance to prune the query early
+      -- if there are no dates to refresh.
+      and exists (select 1 from dates_to_refresh)
     where true
-    {{ incremental_date_filter(
-          source_col_name = 'a.effective_date',
-          target_col_name = 'a.effective_date',
-          do_lookback = false,
-          do_new = false,
-          custom_condition_only = true,
-          custom_condition = 'a.effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
-    ) }}
+      and a.effective_date in (select distinct effective_date from dates_to_refresh)
+      -- Offer the snowflake query optimizer a chance to prune the query early
+      -- if there are no dates to refresh.
+      and exists (select 1 from dates_to_refresh)
+    order by a.effective_date
 )
 
 select
@@ -296,11 +366,11 @@ select
         when a.prime_broker_indicator in ('0', '7')
             then 1
         else 0 end                                             as is_prime_broker
-  , case 
-        when a.portfolio_margin_indicator = 'P'
+  , case
+       when a.portfolio_margin_indicator = 'P'
             then 1
         else 0 end                                             as is_margin_enabled
-  , case 
+  , case
         when a.multiple_margin_indicator = 'Y'
             then 1
         else 0 end                                             as is_multiple_margin_enabled
@@ -326,38 +396,44 @@ select
   , la.fixed_format_state                                      as legal_address_state
   , la.fixed_format_postal_code                                as legal_address_zip
   , la.country_name                                            as legal_address_country
-  , {{ col_is_head(
-      reference=ref('fidelity_mps_history__vw_nabase_101_account'),
-      source_date_col='a.effective_date'
-      ) }}
-  , {{ col_is_current(date_col='a.effective_date') }}
   , current_timestamp()::timestamp                             as _created_at
   , a._source_loaded_at::timestamp                             as _source_loaded_at
   , a._source_file                                             as _source_file
-from cte_account a
+from cte_all_accounts a
 left join cte_mailing_address ma
    on a.effective_date = ma.effective_date
    and a.account_custodial = ma.account_custodial
    and ma.record_number = '211'
+    and ma.effective_date in (select distinct effective_date from dates_to_refresh)
+    -- Offer the snowflake query optimizer a chance to prune the query early
+    -- if there are no dates to refresh.
+    and exists (select 1 from dates_to_refresh)
 left join cte_legal_address la
    on a.effective_date = la.effective_date
    and a.account_custodial = la.account_custodial
    and la.record_number = '212'
+      and la.effective_date in (select distinct effective_date from dates_to_refresh)
+      -- Offer the snowflake query optimizer a chance to prune the query early
+      -- if there are no dates to refresh.
+      and exists (select 1 from dates_to_refresh)
 left join cte_notification n
   on a.effective_date = n.effective_date
   and a.account_custodial = n.account_custodial
   and n.record_number = '310'
+      and n.effective_date in (select distinct effective_date from dates_to_refresh)
+      -- Offer the snowflake query optimizer a chance to prune the query early
+      -- if there are no dates to refresh.
+      and exists (select 1 from dates_to_refresh)
 left join cte_customer c
   on a.effective_date = c.effective_date
   and a.account_custodial = c.account_custodial
   and c.record_number = '210'
+      and c.effective_date in (select distinct effective_date from dates_to_refresh)
+      -- Offer the snowflake query optimizer a chance to prune the query early
+      -- if there are no dates to refresh.
+      and exists (select 1 from dates_to_refresh)
 where true
-    {{ incremental_date_filter(
-          source_col_name = 'a.effective_date',
-          target_col_name = 'effective_date',
-          do_lookback = false,
-          do_new = false,
-          custom_condition_only = true,
-          custom_condition = 'a.effective_date in (select distinct effective_date from cte_effective_dates_out_of_date)'
-    ) }}
-{%- endif %}
+    and a.effective_date in (select distinct effective_date from dates_to_refresh)
+    -- Offer the snowflake query optimizer a chance to prune the query early
+    -- if there are no dates to refresh.
+    and exists (select 1 from dates_to_refresh)

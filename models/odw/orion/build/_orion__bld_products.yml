@@ -1,0 +1,4 @@
+version: 2
+models:
+  - name: orion__bld_products
+    columns: []

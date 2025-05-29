@@ -4,13 +4,17 @@
     {%- if execute -%}
         {% if do_rap %}
 
-            {% if any_rap_in_scope() %}
+            {% if cvar('force_create_policies') or any_rap_in_scope() %}
 
                 {{ log("Creating/altering row access policies (DBT_RAP=" ~ do_rap ~ ")", info=true) }}
 
-                -- CREATE ROW ACCESS POLICIES
+                {# CREATE ROW ACCESS POLICIES #}
+                {%- set sql -%}
                 {{ rap_firm_source() }}
                 {{ rap_tradeops_system_key() }}
+                {%- endset -%}
+
+                {% set results = run_query(sql) %}
 
             {% endif %}
 

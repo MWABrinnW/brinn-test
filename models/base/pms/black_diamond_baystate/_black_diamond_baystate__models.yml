@@ -193,7 +193,9 @@ models:
         data_tests:
           - accepted_values:
               name: unique_black_diamond_baystate_tag_name
-              values: ['Account Comments', 'Active/Passive Form', 'Advisor Commission Split Code', 'Billing Company', 'Notes', 'Notes 1', 'Notes 2', 'Select Alternatives', 'Select Equities', 'Select Fixed Income', 'Select Program']
+              values: [Account Comments, Active/Passive Form, Advisor Commission Split Code, Billing Company,
+                Notes, Notes 1, Notes 2, Select Alternatives, Select Equities, Select Fixed Income, Select
+                    Program]
               config:
                 severity: warn
       - name: TAG_VALUE
@@ -776,6 +778,8 @@ models:
       - name: WORKFLOW
         description: ''
         data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
       - name: _ID
         description: ''
         data_type: NUMBER

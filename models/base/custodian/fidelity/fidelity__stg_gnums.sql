@@ -1,5 +1,5 @@
 select
-    dt.prior_market_date                                              as effective_date
+    a.effective_date                                                  as effective_date
     , case
         when a._source_file ilike '%0001183388%'
             then 'mwa'
@@ -49,16 +49,15 @@ select
     , nullif(trim(a.json:"secondary g# name 9"::text(200)) , '')      as secondary_gnum_name_9
     , nullif(trim(a.json:"secondary g# 10"::text(200)) , '')          as secondary_gnum_10
     , nullif(trim(a.json:"secondary g# name 10"::text(200)) , '')     as secondary_gnum_name_10
+    , a._created_at                                                   as _created_at
     , a._created_at                                                   as _source_loaded_at
     , {{ col_is_head(
         reference=source('fidelity', 'gnums'),
-        source_date_col='a._source_file_date',
-        reference_date_col='_source_file_date') }}
-    , {{ col_is_current(date_col='dt.prior_market_date') }}
+        source_date_col='a.effective_date',
+        reference_date_col='effective_date') }}
+    , {{ col_is_current(date_col='a.effective_date') }}
     , a._source_file::text(200)                                       as _source_file
     , a._source_file_date::date                                       as _source_file_date
     , a._row_number::int                                              as _row_number
     , a._checksum::text(200)                                          as _checksum
 from {{ source('fidelity', 'gnums') }} as a
-left join {{ ref('dates') }} as dt
-    on a._source_file_date = dt.date_key

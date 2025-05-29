@@ -11,6 +11,8 @@ models:
       - name: SYSTEM_KEY
         description: ''
         data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
       - name: EFFECTIVE_DATE
         description: ''
         data_type: DATE

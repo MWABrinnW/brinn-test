@@ -104,12 +104,8 @@ models:
       - name: EXTRA_FIELDS
         description: ''
         data_type: VARIANT
-      - name: IS_HEAD
+      - name: _CREATED_AT
         description: ''
-        data_type: NUMBER
-      - name: IS_CURRENT
-        description: ''
-        data_type: NUMBER
       - name: _SOURCE_LOADED_AT
         description: ''
         data_type: TIMESTAMP_NTZ

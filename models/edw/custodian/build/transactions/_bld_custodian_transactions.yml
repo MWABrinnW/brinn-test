@@ -1,0 +1,146 @@
+version: 2
+models:
+  - name: bld_custodian_transactions
+    data_tests:
+      - compare_describe_to_prod:
+          name: compare_describe_to_prod_bld_custodian_transactions
+          state_database: edw
+          state_schema: build
+          state_name: bld_custodian_transactions
+          summarize: false
+          exclude_columns: [_created_at, is_head, is_current, _source_loaded_at, _source_file]
+          where_clause: effective_date >= current_date() - 7
+          config:
+            severity: warn
+      - dbt_expectations.expect_table_row_count_to_equal_other_table:
+          name: compare_row_count_bld_custodian_transactions
+          config:
+            severity: warn
+            enabled: "{{ target.name != 'prod' }}"
+          compare_model: edw.build.bld_custodian_transactions
+          group_by: [effective_date, custodian]
+          compare_group_by: [effective_date, custodian]
+          row_condition: effective_date >= current_date() - 7
+          compare_row_condition: effective_date >= current_date() - 7
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: CUSTODIAN
+        description: Custodian name, lower-case, no spaces.
+      - name: FIRM
+        description: Firm name
+      - name: FIRM_SOURCE
+        description: Firm entity associated with the link value.
+      - name: ACCOUNT_NUMBER
+        description: End-client account number at Schwab
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: CUSTODIAN_LINK
+        description: ''
+      - name: CUSTODIAN_LINK_DETAIL
+        description: ''
+      - name: REP_LINK
+        description: ''
+      - name: REP_LINK_DETAIL
+        description: ''
+      - name: ACCOUNT_TYPE
+        description: >-
+          Type of account (Brokerage, Schwab One, IRA, etc.) SCHWAB ONE, QUALIFIED RETIREMENT PLAN, BROKERAGE
+      - name: ACCOUNT_TYPE_SOURCE_DEFINITION
+        description: ''
+      - name: ACCOUNT_TYPE_SOURCE_CODE
+        description: ''
+      - name: PRODUCT_TYPE
+        description: ''
+      - name: PRODUCT_TYPE_SOURCE_DEFINITION
+        description: ''
+      - name: PRODUCT_TYPE_SOURCE_CODE
+        description: ''
+      - name: SYMBOL
+        description: ''
+      - name: TICKER
+        description: ''
+      - name: CUSIP
+        description: >-
+          Committee on Uniform Securities Identification Procedures. A CUSIP number identifies most securities
+      - name: TRANSACTION_TYPE_1_SOURCE_CODE
+        description: ''
+      - name: TRANSACTION_TYPE_2_SOURCE_CODE
+        description: ''
+      - name: TRANSACTION_TYPE_3_SOURCE_CODE
+        description: ''
+      - name: TRANSACTION_TYPE_4_SOURCE_CODE
+        description: ''
+      - name: TRANSACTION_TYPE_5_SOURCE_CODE
+        description: ''
+      - name: TRANSACTION_DATE
+        description: >-
+          The actual date the transaction is to be recognized. The effective date of the transaction.
+          This will be identical to the trade date in most cases. This date can, however, be different
+          from trade date in rare instances, for example, if the trade was processed through a foreign
+          exchange with a holiday schedule that differs from domestic exchanges.
+      - name: SETTLEMENT_DATE
+        description: The expected trade settlement date.
+      - name: ENTRY_DATE
+        description: TBD
+      - name: UNITS_SHARES
+        description: ''
+      - name: PRICE
+        description: Amount or value per unit or Quantity of a record.
+      - name: GROSS_AMOUNT
+        description: >-
+          Total amount or value of a trade record before deductions (Gross Amount = [Quantity * Price]
+          + [Other Credits])
+      - name: NET_AMOUNT
+        description: >-
+          Final amount or value of a record (Net Amount = Gross Amount - [All Fees and Withholdings]).
+          May be zero for non-trade activity. Provides a negative sign for sell transactions. Interfaces
+          may want to use absolute value instead.
+      - name: COMMISSION
+        description: Amount or value of fee type - Commission
+      - name: CLOSING_PRICE
+        description: |
+          Closing price in Schwab systems.
+          OBSOLETE field, use \"Closing Price - Unfactored.\"
+      - name: CLOSING_PRICE_UNFACTORED
+        description: >-
+          Closing price in Schwab systems. For securities where a factor applies, the value provided does
+          not reflect the factor. Multiply by the Factor  value in the next field for a factored price.
+      - name: FACTOR
+        description: >-
+          The security's current factor. For securities without a factor, the factor value will default
+          to 1. Applies to TIPS, asset-backed securities, and other securities where a factor exists.
+      - name: FACTOR_DATE
+        description: The date associated with the Factor value provided in the previous field.
+      - name: IS_TRADE
+        description: ''
+      - name: BUY_SELL
+        description: ''
+      - name: DEBIT_CREDIT_INDICATOR
+        description: >-
+          Resolves direction and method of a record (In vs. Out and Cash vs. Trade/Exchange) CREDIT, DEBIT,
+          LONG, SHORT
+      - name: TRADE_EXECUTED_AT
+        description: ''
+      - name: EX_DIVIDEND_DATE
+        description: if applicable
+      - name: IS_CANCELED
+        description: ''
+      - name: ISIN
+        description: >-
+          International Securities Identification Number. A unique international code which identifies
+          a securities issue
+      - name: SEDOL
+        description: >-
+          The Stock Exchange Daily Official List number, a code used by the London Stock Exchange to identify
+          foreign stocks
+      - name: TRANSACTION_ID_SOURCE
+        description: ''
+      - name: TRANSACTION_ID
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: Time when the records were created in the source table.
+      - name: _SOURCE_FILE
+        description: ''
+      - name: _CREATED_AT
+        description: ''

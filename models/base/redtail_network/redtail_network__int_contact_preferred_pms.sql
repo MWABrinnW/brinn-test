@@ -1,57 +1,77 @@
-with cte_split as (
+{{ config(materialized='table') }}
+
+
+with contacts as (
     select
-        cu.effective_date
-        , cu.is_head
-        , cu.contact_id
-        , cu.field_value
-        , split.value as advisor
-    from {{ ref('redtail_network__base_contact_udfs') }} as cu
-    , lateral split_to_table(cu.field_value , '|') as split
-    where cu.is_head = 1
-        and cu.contact_udf_field_id = 272
+        contact_id
+        , first_name
+        , middle_name
+        , last_name
+        , full_name
+        , status
+        , category
+        , _created_at
+    from {{ ref('redtail_network__base_contacts') }}
+    where true
+        and is_head = 1
+        and status in ('Platform Advisor' , 'Network Advisor')
 )
 
-, cte_emails as (
+, contact_udfs as (
+    select
+        cu.effective_at::date     as effective_date
+        , cu.contact_id           as contact_id
+        , cu.contact_udf_field_id as contact_udf_field_id
+        , cu.field_value          as field_value
+        , split.value             as advisor
+    from {{ ref('redtail_network__base_contact_udfs') }} as cu
+    , lateral split_to_table(cu.field_value , '|') as split
+    where true
+        and cu.is_head = 1
+)
+
+, emails as (
     -- This CTE selects one 'Work' email address per contact, prioritizing primary emails (is_primary = 1).
     -- If no primary exists, it falls back to a non-primary Work email (is_primary = 0).
-    select *
-    from (
-        select
-            *
-            , row_number() over (
-                partition by contact_id
-                order by case when is_primary = 1 then 1 else 2 end
-            ) as rn
-        from {{ ref('redtail_network__base_contact_email_addresses') }}
-        where is_head = 1
-            and email_type_description = 'Work'
-    ) as prioritized_emails
-    where rn = 1
+    select
+        contact_id
+        , email_address
+    from {{ ref('redtail_network__base_contact_email_addresses') }}
+    where true
+        and is_head = 1
+        and email_type_description = 'Work'
+        and contact_id in (select distinct t.contact_id from contacts as t)
+    qualify row_number() over (
+        partition by contact_id
+        order by case when is_primary = 1 then 1 else 2 end
+    ) = 1
 )
 
 select
-    ct.effective_date
-    , ct.is_head
-    , ct.contact_id
-    , cu.field_value
+    ct.contact_id                         as contact_id
+    , cu.field_value                      as field_value
     , coalesce(cu.advisor , ct.full_name) as advisor
     , cu2.field_value                     as preferred_pms
-    , re.email_address                    as email_address
+    , em.email_address                    as email_address
     , ct.full_name                        as advisor_full_name
     , object_construct_keep_null(
-        'rt_status' , ct.status
-        , 'rt_category' , ct.category
-        , 'ft_full_name' , ct.first_name || ' ' || ct.middle_name || ' ' || ct.last_name
+        'redtail_status' , ct.status
+        , 'redtail_category' , ct.category
+        , 'redtail_full_name' , concat_ws(' ' , ct.first_name , ct.middle_name , ct.last_name)
     )                                     as _extra_fields
-    --, ct.*
-from {{ ref('redtail_network__base_contacts') }} as ct
-left join cte_split as cu
+    , ct._created_at                      as _source_loaded_at
+    , current_timestamp()::timestamp_ntz  as _created_at
+from contacts as ct
+left join contact_udfs as cu
     on ct.contact_id = cu.contact_id
-left join {{ ref('redtail_network__base_contact_udfs') }} as cu2
+    and cu.contact_udf_field_id = 272
+left join contact_udfs as cu2
     on ct.contact_id = cu2.contact_id
-    and cu2.is_head = 1
     and cu2.contact_udf_field_id = 245
-left join cte_emails as re
-    on ct.contact_id = re.contact_id
-where ct.is_head = 1
-    and ct.status in ('Platform Advisor' , 'Network Advisor')
+left join emails as em
+    on ct.contact_id = em.contact_id
+where true
+qualify row_number() over (
+    partition by coalesce(cu.advisor , ct.full_name)
+    order by ct.contact_id asc , ct._created_at desc
+) = 1

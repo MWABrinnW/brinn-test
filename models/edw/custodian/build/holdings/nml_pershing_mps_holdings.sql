@@ -62,7 +62,7 @@ select
     , null::varchar(500)                                                                   as underlying_security_id_source
 
     , cmsd.normalized::varchar(500)                                                        as product_type
-    , cmsd.definition::varchar(500)                                                        as product_type_source
+    , cmsd.definition::varchar(500)                                                        as product_type_source_definition
     , p.security_type_code::varchar(500)                                                   as product_type_source_code
 
     , cmat.normalized::varchar(500)                                                        as account_type
@@ -74,10 +74,10 @@ select
 
     , null::variant                                                                        as extra_fields
 
-    , p.is_head                                                                            as is_head
-    , p.is_current                                                                         as is_current
+    , p._source_loaded_at                                                                  as _created_at
     , p._source_loaded_at                                                                  as _source_loaded_at
     , p._source_file::varchar(500)                                                         as _source_file
+    , p.is_head                                                                            as is_head
 from {{ ref('pershing_mps__potl_a_aggregated_total_position_quantity_holdings') }} as p
 left join {{ ref('pershing_mps__isca_f') }} as price
     on p.effective_date = price.effective_date

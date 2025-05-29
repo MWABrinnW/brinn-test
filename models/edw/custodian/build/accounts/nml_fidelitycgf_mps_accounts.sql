@@ -51,8 +51,6 @@ select
     , a.state              as legal_address_state
     , a.zip                as legal_address_zip
     , null                 as legal_address_country
-    , {{ col_is_head(reference=ref('fidelity_mps_history__vw_cgf_acct'), source_date_col='effective_date') }}
-    , {{ col_is_current(date_col='effective_date') }}
     , a._source_loaded_at  as _created_at
     , a._source_loaded_at  as _source_loaded_at
     , a._source_file       as _source_file

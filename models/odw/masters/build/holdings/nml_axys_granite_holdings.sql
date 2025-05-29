@@ -30,6 +30,7 @@ select
     --- [meta] ---------------------------------------------------------------------
     , is_head::int                        as is_head
     , null::int                           as is_current
+    , _created_at::datetime               as _created_at
     , _created_at::datetime               as _source_loaded_at
     , null::text(200)                     as _source_file
 from {{ ref('axys_granite__stg_holdings') }}

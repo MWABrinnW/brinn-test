@@ -1,0 +1,22 @@
+version: 2
+models:
+  - name: ring_central__stg_sms
+    columns:
+      - name: JSON:CONVERSATIONID::STRING
+        description: ''
+      - name: RECIPIENTS.VALUE:NAME::STRING
+        description: ''
+      - name: RECIPIENTS.VALUE:PHONENUMBER::STRING
+        description: ''
+      - name: JSON:FROM.NAME::STRING
+        description: ''
+      - name: JSON:FROM.PHONENUMBER::STRING
+        description: ''
+      - name: JSON:ID::STRING
+        description: ''
+      - name: JSON:SUBJECT::STRING
+        description: ''
+      - name: JSON:CREATIONTIME::TIMESTAMPLTZ
+        description: ''
+      - name: JSON:LASTMODIFIEDTIME::TIMESTAMPLTZ
+        description: ''

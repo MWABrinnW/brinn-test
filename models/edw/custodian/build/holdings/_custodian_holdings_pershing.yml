@@ -1,0 +1,98 @@
+version: 2
+models:
+  - name: custodian_holdings_pershing
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: FIRM
+        description: ''
+      - name: FIRM_SOURCE
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: SYMBOL
+        description: ''
+      - name: TICKER
+        description: ''
+      - name: CUSIP
+        description: ''
+      - name: SECURITY_NAME
+        description: ''
+      - name: SECURITY_TYPE
+        description: ''
+      - name: SECURITY_NAME_SOURCE
+        description: ''
+      - name: IS_CASH
+        description: ''
+      - name: IS_SWEEP
+        description: ''
+      - name: MARKET_VALUE
+        description: ''
+      - name: UNITS_SHARES
+        description: ''
+      - name: QUANTITY
+        description: ''
+      - name: QUANTITY_SETTLED
+        description: ''
+      - name: QUANTITY_UNSETTLED
+        description: ''
+      - name: PRICE
+        description: ''
+      - name: PRICE_UNFACTORED
+        description: ''
+      - name: FACTOR
+        description: ''
+      - name: COST_BASIS
+        description: ''
+      - name: IS_13F
+        description: ''
+      - name: ASSET_CATEGORY
+        description: ''
+      - name: ASSET_CLASS
+        description: ''
+      - name: CUSIP_SECURITY_TYPE
+        description: ''
+      - name: CUSIP_FUND_TYPE
+        description: ''
+      - name: CUSIP_INCOME_TYPE
+        description: ''
+      - name: UNDERLYING_TICKER
+        description: ''
+      - name: UNDERLYING_CUSIP
+        description: ''
+      - name: UNDERLYING_SECURITY_ID_SOURCE
+        description: ''
+      - name: PRODUCT_TYPE
+        description: ''
+      - name: PRODUCT_TYPE_SOURCE_DEFINITION
+        description: ''
+      - name: PRODUCT_TYPE_SOURCE_CODE
+        description: ''
+      - name: ACCOUNT_TYPE
+        description: ''
+      - name: ACCOUNT_TYPE_SOURCE
+        description: ''
+      - name: ACCOUNT_TYPE_SOURCE_CODE
+        description: ''
+      - name: SECURITY_ID_SOURCE
+        description: ''
+      - name: ISIN
+        description: ''
+      - name: SEDOL
+        description: ''
+      - name: EXTRA_FIELDS
+        description: ''
+      - name: RN_FIRM_SOURCE
+        description: ''
+      - name: RN_GLOBAL
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''
+      - name: _CREATED_AT
+        description: ''

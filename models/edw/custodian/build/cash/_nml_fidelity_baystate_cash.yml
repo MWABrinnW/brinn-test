@@ -35,9 +35,6 @@ models:
       - name: IS_HEAD
         description: ''
         data_type: NUMBER
-      - name: IS_CURRENT
-        description: ''
-        data_type: NUMBER
       - name: _SOURCE_FILE
         description: ''
         data_type: VARCHAR

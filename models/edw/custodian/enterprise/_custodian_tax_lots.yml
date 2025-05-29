@@ -7,9 +7,10 @@ models:
           state_database: edw
           state_schema: enterprise
           state_name: custodian_tax_lots
-          summarize: False
-          include_columns: ["effective_date", "custodian", "account_number", "symbol", "ticker", "cusip", "quantity", "current_price", "current_value", "is_cash", "is_sweep", "is_short", "rn_global", "product_type"]
-          exclude_columns: ["_created_at", "is_head", "is_current", "_source_loaded_at", "_source_file"]
+          summarize: false
+          include_columns: [effective_date, custodian, account_number, symbol, ticker, cusip, quantity,
+            current_price, current_value, is_cash, is_sweep, is_short, rn_global, product_type]
+          exclude_columns: [_created_at, is_head, is_current, _source_loaded_at, _source_file]
           where_clause: effective_date >= current_date() - 4
           config:
             severity: warn
@@ -18,18 +19,18 @@ models:
         description: ''
         data_type: DATE
       - name: CUSTODIAN
-        description: 'Custodian name, lower-case, no spaces.'
+        description: Custodian name, lower-case, no spaces.
         data_type: VARCHAR
       - name: FIRM
         description: ''
         data_type: VARCHAR
       - name: FIRM_SOURCE
-        description: 'Firm entity associated with the link value.'
+        description: Firm entity associated with the link value.
         meta:
           row_access_policy: rap_firm_source
         data_type: VARCHAR
       - name: ACCOUNT_NUMBER
-        description: 'End client account number at Schwab'
+        description: End client account number at Schwab
         data_type: VARCHAR
       - name: ACCOUNT_NUMBER_FORMATTED
         description: ''
@@ -41,7 +42,7 @@ models:
         description: ''
         data_type: VARCHAR
       - name: CUSIP
-        description: 'CUSIP'
+        description: CUSIP
         data_type: VARCHAR
       - name: QUANTITY
         description: ''
@@ -98,10 +99,14 @@ models:
         description: ''
         data_type: NUMBER
       - name: ISIN
-        description: 'International Securities Identification Number.  A unique international code which identifies a securities issue.'
+        description: >-
+          International Securities Identification Number.  A unique international code which identifies
+          a securities issue.
         data_type: VARCHAR
       - name: SEDOL
-        description: 'The Stock Exchange Daily Official List number; a code used by the London Stock Exchange to identify foreign stocks'
+        description: >-
+          The Stock Exchange Daily Official List number; a code used by the London Stock Exchange to identify
+          foreign stocks
         data_type: VARCHAR
       - name: PRODUCT_TYPE
         description: ''
@@ -134,7 +139,7 @@ models:
         description: ''
         data_type: VARIANT
       - name: _SOURCE_LOADED_AT
-        description: 'Time when the records were created in the source table.'
+        description: Time when the records were created in the source table.
         data_type: TIMESTAMP_NTZ
       - name: _SOURCE_FILE
         description: ''

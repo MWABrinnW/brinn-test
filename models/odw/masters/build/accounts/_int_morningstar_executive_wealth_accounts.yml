@@ -1,0 +1,82 @@
+version: 2
+models:
+  - name: int_morningstar_executive_wealth_accounts
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: ACCOUNT_NUMBER_SOURCE
+        description: ''
+      - name: EXISTS_BOTH
+        description: ''
+      - name: EXISTS_BASE_ACCOUNTS
+        description: ''
+      - name: EXISTS_BASE_AUM
+        description: ''
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: FIRM_SOURCE
+        description: ''
+      - name: FINANCIAL_ACCOUNT_NUMBER
+        description: ''
+      - name: FINANCIAL_ACCOUNT_NUMBER_CLEAN
+        description: ''
+      - name: INTERNAL_FINANCIAL_ACCOUNT_NUMBER
+        description: ''
+      - name: INTERNAL_HOUSEHOLD_NUMBER
+        description: ''
+      - name: REGISTRANT_NAME
+        description: ''
+      - name: FINANCIAL_ACCOUNT_NAME
+        description: ''
+      - name: HOUSEHOLD_NAME
+        description: ''
+      - name: LOCATION_CODE
+        description: ''
+      - name: LOCATION_NAME
+        description: ''
+      - name: TYPE_OF_ACCOUNT
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: MODEL_INVESTMENT_STRATEGY
+        description: ''
+      - name: CLIENT_MANAGER
+        description: ''
+      - name: FEE_SCHEDULE
+        description: ''
+      - name: ERISA
+        description: ''
+      - name: ACCOUNT_ACTIVE
+        description: ''
+      - name: AUM_CLASSIFICATION_STATUS
+        description: ''
+      - name: DISCRETION_STATUS
+        description: ''
+      - name: PROXY_VOTING_STATUS
+        description: ''
+      - name: COST_BASIS_DISPOSAL_METHOD
+        description: ''
+      - name: PRIME_BROKER_ENABLED
+        description: ''
+      - name: CURRENT_VALUE
+        description: ''
+      - name: ACCOUNT_OPEN_DATE
+        description: ''
+      - name: CLOSED_DATE
+        description: ''
+      - name: AS_OF_DATE
+        description: ''
+      - name: AUM_STATUS
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: IS_HEAD
+        description: ''
+      - name: IS_CURRENT
+        description: ''
+      - name: _GRP
+        description: ''

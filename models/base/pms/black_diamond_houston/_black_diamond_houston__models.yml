@@ -1,6 +1,17 @@
 version: 2
 models:
   - name: black_diamond_houston__base_accounts
+    data_tests:
+      - dbt_expectations.expect_table_row_count_to_equal_other_table:
+          name: compare_row_count_black_diamond_houston__base_accounts
+          config:
+            severity: error
+            enabled: "{{ target.name != 'prod' }}"
+          compare_model: datalake.black_diamond_houston.base_accounts
+          group_by: [effective_date]
+          compare_group_by: [effective_date]
+          row_condition: "effective_date >= current_date() - 7"
+          compare_row_condition: "effective_date >= current_date() - 7"
     columns:
       - name: SYSTEM_NAME
         description: ''
@@ -14,6 +25,8 @@ models:
       - name: FIRM_SOURCE
         description: ''
         data_type: VARCHAR
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
       - name: ACCOUNT_NUMBER
         description: ''
         data_type: VARCHAR
@@ -125,12 +138,8 @@ models:
       - name: RECORD_ID
         description: ''
         data_type: NUMBER
-      - name: IS_HEAD
+      - name: _CREATED_AT
         description: ''
-        data_type: NUMBER
-      - name: IS_CURRENT
-        description: ''
-        data_type: NUMBER
       - name: _SOURCE_LOADED_AT
         description: ''
         data_type: TIMESTAMP_LTZ
@@ -188,6 +197,9 @@ models:
       - name: STATE
         description: ''
         data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
   - name: black_diamond_houston__base_account_fees
     columns:
       - name: SYSTEM_NAME
@@ -820,6 +832,8 @@ models:
       - name: WARNINGS
         description: ''
         data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
       - name: _CREATED_AT
         description: ''
         data_type: TIMESTAMP_NTZ
@@ -870,3 +884,255 @@ models:
       - name: _SOURCE_LOADED_AT
         description: ''
         data_type: TIMESTAMP_LTZ
+  - name: black_diamond_houston__base_accounts_history
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: FIRM_SOURCE
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_CATEGORY
+        description: ''
+      - name: ACCOUNT_REGISTRATION_TYPE
+        description: ''
+      - name: ACCOUNT_SUBCATEGORY
+        description: ''
+      - name: ACCOUNT_TYPE
+        description: ''
+      - name: AS_OF_DATE
+        description: ''
+      - name: BILLABLE
+        description: ''
+      - name: BILLING_ACCOUNT_DESCRIPTION
+        description: ''
+      - name: BILLING_END_DATE
+        description: ''
+      - name: BILLING_NUMBER
+        description: ''
+      - name: BILLING_START_DATE
+        description: ''
+      - name: CLOSED_DATE
+        description: ''
+      - name: CUSTODIAL_ACCOUNT_NAME
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: DATA_PROVIDER
+        description: ''
+      - name: DISCRETIONARY
+        description: ''
+      - name: EXTERNAL_BILLING_ACCOUNTID
+        description: ''
+      - name: HISTORY_START_DATE
+        description: ''
+      - name: ID
+        description: ''
+      - name: LAST_RECONCILED_DATE
+        description: ''
+      - name: LONG_NUMBER
+        description: ''
+      - name: MANAGER
+        description: ''
+      - name: ACCOUNT_NAME
+        description: ''
+      - name: OTHER_BILLING_METHOD
+        description: ''
+      - name: PAY_BY_INVOICE
+        description: ''
+      - name: PERFORMANCESTARTDATE
+        description: ''
+      - name: START_DATE
+        description: ''
+      - name: SUPERVISED
+        description: ''
+      - name: TAX_STATUS
+        description: ''
+      - name: TEAM
+        description: ''
+      - name: TOTAL_EMV
+        description: ''
+      - name: STYLE_NAME
+        description: ''
+      - name: FEE_SCHEDULE_TYPE
+        description: ''
+      - name: FEE_NAME
+        description: ''
+      - name: RATE_TYPE
+        description: ''
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: RECORD_ID
+        description: ''
+      - name: _CREATED_AT
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: PB
+        description: ''
+      - name: TR
+        description: ''
+      - name: WAS_ACCOUNT
+        description: ''
+      - name: NOTES
+        description: ''
+      - name: STATE2
+        description: ''
+      - name: STRATEGY
+        description: ''
+      - name: LOT
+        description: ''
+      - name: R
+        description: ''
+      - name: SI_CUSTODY
+        description: ''
+      - name: ACCOUNT_REGISTRATION
+        description: ''
+      - name: TD_ACCOUNT_NUMBER
+        description: ''
+      - name: STONNINGTON_REFERRAL
+        description: ''
+      - name: REGULATORY_ACCOUNT
+        description: ''
+      - name: QB
+        description: ''
+      - name: MWA_CONTRACT
+        description: ''
+      - name: REST_NOTES
+        description: ''
+      - name: SAN_ACCOUNT
+        description: ''
+      - name: STATE
+        description: ''
+  - name: black_diamond_houston__base_accounts_fresh
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: FIRM_SOURCE
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_CATEGORY
+        description: ''
+      - name: ACCOUNT_REGISTRATION_TYPE
+        description: ''
+      - name: ACCOUNT_SUBCATEGORY
+        description: ''
+      - name: ACCOUNT_TYPE
+        description: ''
+      - name: AS_OF_DATE
+        description: ''
+      - name: BILLABLE
+        description: ''
+      - name: BILLING_ACCOUNT_DESCRIPTION
+        description: ''
+      - name: BILLING_END_DATE
+        description: ''
+      - name: BILLING_NUMBER
+        description: ''
+      - name: BILLING_START_DATE
+        description: ''
+      - name: CLOSED_DATE
+        description: ''
+      - name: CUSTODIAL_ACCOUNT_NAME
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: DATA_PROVIDER
+        description: ''
+      - name: DISCRETIONARY
+        description: ''
+      - name: EXTERNAL_BILLING_ACCOUNTID
+        description: ''
+      - name: HISTORY_START_DATE
+        description: ''
+      - name: ID
+        description: ''
+      - name: LAST_RECONCILED_DATE
+        description: ''
+      - name: LONG_NUMBER
+        description: ''
+      - name: MANAGER
+        description: ''
+      - name: ACCOUNT_NAME
+        description: ''
+      - name: OTHER_BILLING_METHOD
+        description: ''
+      - name: PAY_BY_INVOICE
+        description: ''
+      - name: PERFORMANCESTARTDATE
+        description: ''
+      - name: START_DATE
+        description: ''
+      - name: SUPERVISED
+        description: ''
+      - name: TAX_STATUS
+        description: ''
+      - name: TEAM
+        description: ''
+      - name: TOTAL_EMV
+        description: ''
+      - name: STYLE_NAME
+        description: ''
+      - name: FEE_SCHEDULE_TYPE
+        description: ''
+      - name: FEE_NAME
+        description: ''
+      - name: RATE_TYPE
+        description: ''
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: RECORD_ID
+        description: ''
+      - name: _CREATED_AT
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: PB
+        description: ''
+      - name: TR
+        description: ''
+      - name: WAS_ACCOUNT
+        description: ''
+      - name: NOTES
+        description: ''
+      - name: STATE2
+        description: ''
+      - name: STRATEGY
+        description: ''
+      - name: LOT
+        description: ''
+      - name: R
+        description: ''
+      - name: SI_CUSTODY
+        description: ''
+      - name: ACCOUNT_REGISTRATION
+        description: ''
+      - name: TD_ACCOUNT_NUMBER
+        description: ''
+      - name: STONNINGTON_REFERRAL
+        description: ''
+      - name: REGULATORY_ACCOUNT
+        description: ''
+      - name: QB
+        description: ''
+      - name: MWA_CONTRACT
+        description: ''
+      - name: REST_NOTES
+        description: ''
+      - name: SAN_ACCOUNT
+        description: ''
+      - name: STATE
+        description: ''

@@ -1,0 +1,58 @@
+version: 2
+models:
+  - name: bld_associate_revenue_coding
+    columns:
+      - name: SOURCE_FILE_YEAR
+        data_type: VARCHAR
+      - name: SOURCE_FILE_ID
+        data_type: VARCHAR
+      - name: SHEET_NAME
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        data_type: DATE
+      - name: START_DATE
+        description: Unique identifier for each Location Master record.
+        data_type: DATE
+      - name: END_DATE
+        description: Start date the new location is active.
+        data_type: DATE
+      - name: ASSOC_ID_HC
+        data_type: VARCHAR
+      - name: ASSOC_NAME_HC
+        data_type: VARCHAR
+      - name: ASSOCIATE_ID_ORACLE
+        data_type: VARCHAR
+      - name: ASSOCIATE_ID_ADP
+        data_type: VARCHAR
+      - name: ASSOCIATE_NAME_LEGAL
+        data_type: VARCHAR
+      - name: ASSOCIATE_REVENUE_CODING
+        data_type: VARCHAR
+      - name: SEG_1
+        data_type: VARCHAR
+      - name: SEG_2
+        data_type: VARCHAR
+      - name: SEG_3
+        data_type: VARCHAR
+      - name: SEG_4
+        data_type: VARCHAR
+      - name: SEG_5
+        data_type: VARCHAR
+      - name: SEG_6
+        data_type: VARCHAR
+      - name: SEG_7
+        data_type: VARCHAR
+      - name: SEG_8
+        data_type: VARCHAR
+      - name: _ID
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        description: Datetime when the record was created in Snowflake.
+        data_type: TIMESTAMP_NTZ
+      - name: IS_LATEST
+        data_type: NUMBER
+      - name: IS_HEAD
+        description: Returns the latest version of the demographics file from HCM.
+        data_type: NUMBER
+sources: []
+seeds: []

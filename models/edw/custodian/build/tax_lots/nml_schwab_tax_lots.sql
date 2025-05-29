@@ -66,7 +66,6 @@ select
     , t.product_code::text(500)                  as legacy_product_type_source_code
 
     , t.is_head                                  as is_head
-    , t.is_current                               as is_current
     , greatest(
         t._source_loaded_at
         , s._source_loaded_at
@@ -82,7 +81,7 @@ left join {{ ref('schwab__base_securities') }} as s
     on t.effective_date = s.effective_date
     and t.item_issue_id = s.item_issue_id
     and t.firm_source = s.firm_source
-    and s.rn = 1
+    and s.rn_firm_source = 1
 left join {{ ref('custodian_mappings') }} as cmpt
     on t.custodian = cmpt.custodian
     and cmpt.field = 'product_type'

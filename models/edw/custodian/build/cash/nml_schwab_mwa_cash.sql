@@ -10,10 +10,9 @@ select
     , a.equity_including_options::decimal(15 , 2)                                         as option_market_value
     , a.cash_margin_balance_settled_only::decimal(15 , 2)                                 as margin_equity_value
     , a.is_head                                                                           as is_head
-    , a.is_current                                                                        as is_current
     , null::text(500)                                                                     as _source_file
     , a._source_loaded_at                                                                 as _source_loaded_at
 from {{ ref('schwab__base_cash') }} as a
 where true
     and a.firm_source = 'mwa'
-    and a.rn = 1
+    and a.rn_firm_source = 1

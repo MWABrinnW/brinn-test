@@ -1,451 +1,455 @@
 version: 2
 models:
-- name: int_pershing_mps_accounts
-  columns:
-  - name: EFFECTIVE_DATE
-    description: ''
-    data_type: DATE
-  - name: EFFECTIVE_DATE_SOURCE
-    description: ''
-    data_type: DATE
-  - name: EFFECTIVE_DATE_BASE
-    description: ''
-    data_type: DATE
-  - name: CUSTODIAN
-    description: ''
-    data_type: VARCHAR
-  - name: FIRM_SOURCE
-    description: ''
-    data_type: VARCHAR
-  - name: TRANSACTION_CODE
-    description: ''
-    data_type: VARCHAR
-  - name: RECORD_INDICATOR_VALUE
-    description: ''
-    data_type: VARCHAR
-  - name: RECORD_ID_SEQUENCE_NUMBER
-    description: ''
-    data_type: NUMBER
-  - name: ACCOUNT_NUMBER
-    description: ''
-    data_type: VARCHAR
-  - name: INTRODUCING_BROKER_DEALER_IBD_NUMBER
-    description: ''
-    data_type: VARCHAR
-  - name: INVESTMENT_PROFESSIONAL_IP_NUMBER
-    description: ''
-    data_type: VARCHAR
-  - name: ACCOUNT_SHORT_NAME
-    description: ''
-    data_type: VARCHAR
-  - name: TRANSACTION_TYPE
-    description: ''
-    data_type: VARCHAR
-  - name: AUTOTITLED_OR_USERTITLED_ACCOUNT
-    description: ''
-    data_type: VARCHAR
-  - name: ACCOUNT_TYPE_CODE
-    description: ''
-    data_type: VARCHAR
-  - name: REGISTRATION_TYPE
-    description: ''
-    data_type: VARCHAR
-  - name: NUMBER_OF_ACCOUNT_TITLE_LINES_IN_REGISTRATION_LINES
-    description: ''
-    data_type: VARCHAR
-  - name: ACCOUNT_REGISTRATION_LINE_1
-    description: ''
-    data_type: VARCHAR
-  - name: ACCOUNT_REGISTRATION_LINE_2
-    description: ''
-    data_type: VARCHAR
-  - name: ACCOUNT_REGISTRATION_LINE_3
-    description: ''
-    data_type: VARCHAR
-  - name: ACCOUNT_REGISTRATION_LINE_4
-    description: ''
-    data_type: VARCHAR
-  - name: ACCOUNT_REGISTRATION_LINE_5
-    description: ''
-    data_type: VARCHAR
-  - name: ACCOUNT_REGISTRATION_LINE_6
-    description: ''
-    data_type: VARCHAR
-  - name: DATE_ACCOUNT_OPENED
-    description: ''
-    data_type: DATE
-  - name: DATE_ACCOUNT_INFORMATION_UPDATED
-    description: ''
-    data_type: NUMBER
-  - name: ACCOUNT_STATUS_INDICATOR
-    description: ''
-    data_type: VARCHAR
-  - name: PENDING_CLOSED_DATE
-    description: ''
-    data_type: DATE
-  - name: DATE_ACCOUNT_CLOSED
-    description: ''
-    data_type: DATE
-  - name: CLOSING_NOTICE_DATE
-    description: ''
-    data_type: DATE
-  - name: ACCOUNT_REACTIVATED_DATE
-    description: ''
-    data_type: DATE
-  - name: DATE_ACCOUNT_REOPENED
-    description: ''
-    data_type: DATE
-  - name: PROCEEDS
-    description: ''
-    data_type: VARCHAR
-  - name: TRANSFER_INSTRUCTIONS
-    description: ''
-    data_type: VARCHAR
-  - name: INCOME_INSTRUCTIONS
-    description: ''
-    data_type: VARCHAR
-  - name: NUMBER_OF_CONFIRMS_FOR_THIS_ACCOUNT
-    description: ''
-    data_type: VARCHAR
-  - name: NUMBER_OF_STATEMENTS_FOR_THIS_ACCOUNT
-    description: ''
-    data_type: VARCHAR
-  - name: INVESTMENT_OBJECTIVE_TRANSACTION_CODE
-    description: ''
-    data_type: VARCHAR
-  - name: COMMENTS
-    description: ''
-    data_type: VARCHAR
-  - name: EMPLOYER_SHORTNAME
-    description: ''
-    data_type: VARCHAR
-  - name: EMPLOYERS_CUSIP
-    description: ''
-    data_type: VARCHAR
-  - name: EMPLOYERS_SYMBOL
-    description: ''
-    data_type: VARCHAR
-  - name: MARGIN_PRIVILEGES_REVOKED
-    description: ''
-    data_type: VARCHAR
-  - name: STATEMENT_REVIEW_DATE
-    description: ''
-    data_type: DATE
-  - name: MARGIN_PAPERS_ON_FILE
-    description: ''
-    data_type: VARCHAR
-  - name: OPTION_PAPERS_ON_FILE
-    description: ''
-    data_type: VARCHAR
-  - name: FOR_PERSHING_INTERNAL_USE_ONLY
-    description: ''
-    data_type: VARCHAR
-  - name: GOOD_FAITH_MARGIN
-    description: ''
-    data_type: VARCHAR
-  - name: INVESTMENT_PROFESSIONAL_DISCRETION_GRANTED
-    description: ''
-    data_type: VARCHAR
-  - name: INVESTMENT_ADVISOR_DISCRETION_GRANTED
-    description: ''
-    data_type: VARCHAR
-  - name: THIRD_PARTY_DISCRETION_GRANTED
-    description: ''
-    data_type: VARCHAR
-  - name: THIRD_PARTY_NAME
-    description: ''
-    data_type: VARCHAR
-  - name: RISK_FACTOR_CODE
-    description: ''
-    data_type: VARCHAR
-  - name: INVESTMENT_OBJECTIVE_CODE
-    description: ''
-    data_type: VARCHAR
-  - name: OPTION__EQUITIES
-    description: ''
-    data_type: VARCHAR
-  - name: OPTION__INDEX
-    description: ''
-    data_type: VARCHAR
-  - name: OPTION__DEBT
-    description: ''
-    data_type: VARCHAR
-  - name: OPTION__CURRENCY
-    description: ''
-    data_type: VARCHAR
-  - name: OPTION_LEVEL_1
-    description: ''
-    data_type: VARCHAR
-  - name: OPTION_LEVEL_2
-    description: ''
-    data_type: VARCHAR
-  - name: OPTION_LEVEL_3
-    description: ''
-    data_type: VARCHAR
-  - name: OPTION_LEVEL_4
-    description: ''
-    data_type: VARCHAR
-  - name: OPTION__CALL_LIMITS
-    description: ''
-    data_type: NUMBER
-  - name: OPTION__PUT_LIMITS
-    description: ''
-    data_type: NUMBER
-  - name: OPTION__TOTAL_LIMITS_OF_PUTS_AND_CALLS
-    description: ''
-    data_type: NUMBER
-  - name: NONUS_DOLLAR_TRADING
-    description: ''
-    data_type: VARCHAR
-  - name: NOT_USED_RESERVED_FOR_FUTURE_USE
-    description: ''
-    data_type: VARCHAR
-  - name: NONCUSTOMER_INDICATOR
-    description: ''
-    data_type: VARCHAR
-  - name: THIRD_PARTY_FEE_INDICATOR
-    description: ''
-    data_type: VARCHAR
-  - name: THIRD_PARTY_FEE_APPROVAL_DATE
-    description: ''
-    data_type: DATE
-  - name: INTERMEDIARY_ACCOUNT_INDICATOR
-    description: ''
-    data_type: VARCHAR
-  - name: COMMISSION_SCHEDULE
-    description: ''
-    data_type: VARCHAR
-  - name: GROUP_INDEX
-    description: ''
-    data_type: VARCHAR
-  - name: MONEY_MANAGER_ID
-    description: ''
-    data_type: VARCHAR
-  - name: MONEY_MANAGER_OBJECTIVE_ID
-    description: ''
-    data_type: VARCHAR
-  - name: DTC_ID_CONFIRM_NUMBER_FOR_NONCOD_ACCOUNT
-    description: ''
-    data_type: VARCHAR
-  - name: CAPS_MASTER_MNEMONIC
-    description: ''
-    data_type: VARCHAR
-  - name: EMPLOYEE_ID
-    description: ''
-    data_type: VARCHAR
-  - name: PRIME_BROKERFREE_FUND_INDICATOR
-    description: ''
-    data_type: VARCHAR
-  - name: FEE_BASED_ACCOUNT_INDICATOR
-    description: ''
-    data_type: VARCHAR
-  - name: PERSHING_INTERNAL_USE_ONLY
-    description: ''
-    data_type: VARCHAR
-  - name: FEE_BASED_TERMINATION_DATE
-    description: ''
-    data_type: DATE
-  - name: PLAN_NAME
-    description: ''
-    data_type: VARCHAR
-  - name: SELFDIRECTED_401K_ACCOUNT_TYPE
-    description: ''
-    data_type: VARCHAR
-  - name: PLAN_TYPE
-    description: ''
-    data_type: VARCHAR
-  - name: PLAN_NUMBER
-    description: ''
-    data_type: VARCHAR
-  - name: EMPLOYEEEMPLOYEE_RELATIVE_INDICATOR
-    description: ''
-    data_type: VARCHAR
-  - name: COMMISSION_PERCENT_DISCOUNT
-    description: ''
-    data_type: NUMBER
-  - name: BLOCK_MUTUAL_FUND_FEES
-    description: ''
-    data_type: VARCHAR
-  - name: NAME_OF_INVESTMENT_PROFESSIONAL_WHO_SIGNED_NEW
-    description: ''
-    data_type: VARCHAR
-  - name: DATE_INVESTMENT_PROFESSIONAL_SIGNED_NEW_ACCOUNT_FORM
-    description: ''
-    data_type: DATE
-  - name: NAME_OF_PRINCIPAL_WHO_SIGNED_NEW_ACCOUNT_FORM
-    description: ''
-    data_type: VARCHAR
-  - name: DATE_PRINCIPAL_SIGNED_NEW_ACCOUNT_FORM
-    description: ''
-    data_type: DATE
-  - name: POLITICALLY_EXPOSED_PERSON_INDICATOR
-    description: ''
-    data_type: VARCHAR
-  - name: PRIVATE_BANKING_ACCOUNT_INDICATOR
-    description: ''
-    data_type: VARCHAR
-  - name: FOREIGN_BANK_ACCOUNT_INDICATOR
-    description: ''
-    data_type: VARCHAR
-  - name: INITIAL_SOURCE_OF_FUNDS
-    description: ''
-    data_type: VARCHAR
-  - name: USA_PATRIOT_ACT_EXEMPT_REASON
-    description: ''
-    data_type: VARCHAR
-  - name: PRIMARY_COUNTRY_OF_CITIZENSHIP
-    description: ''
-    data_type: VARCHAR
-  - name: COUNTRY_OF_RESIDENCE
-    description: ''
-    data_type: VARCHAR
-  - name: BIRTH_DATE
-    description: ''
-    data_type: DATE
-  - name: AGEBASED_FUND_ROLL_EXEMPT_INDICATOR
-    description: ''
-    data_type: VARCHAR
-  - name: MONEY_FUND_REFORM__RETAIL
-    description: ''
-    data_type: VARCHAR
-  - name: TRUSTED_CONTACT_STATUS
-    description: ''
-    data_type: VARCHAR
-  - name: REGULATORY_ACCOUNT_TYPE_CATEGORY
-    description: ''
-    data_type: VARCHAR
-  - name: ACCOUNT_MANAGED_BY_TRUST_COMPANY_INDICATOR
-    description: ''
-    data_type: VARCHAR
-  - name: VOTING_AUTHORITY
-    description: ''
-    data_type: VARCHAR
-  - name: INTERNAL_USE
-    description: ''
-    data_type: VARCHAR
-  - name: INTERNAL_USE_2
-    description: ''
-    data_type: VARCHAR
-  - name: INTERNAL_USE_3
-    description: ''
-    data_type: VARCHAR
-  - name: INTERNAL_USE_4
-    description: ''
-    data_type: VARCHAR
-  - name: CUSTOMER_TYPE
-    description: ''
-    data_type: VARCHAR
-  - name: INTERNAL_USE_5
-    description: ''
-    data_type: VARCHAR
-  - name: INTERNAL_USE_6
-    description: ''
-    data_type: VARCHAR
-  - name: INTERNAL_USE_7
-    description: ''
-    data_type: VARCHAR
-  - name: INTERNAL_USE_8
-    description: ''
-    data_type: VARCHAR
-  - name: INTERNAL_USE_9
-    description: ''
-    data_type: VARCHAR
-  - name: FULFILLMENT_METHOD
-    description: ''
-    data_type: VARCHAR
-  - name: CREDIT_INTEREST_INDICATOR
-    description: ''
-    data_type: VARCHAR
-  - name: AMA_INDICATOR
-    description: ''
-    data_type: VARCHAR
-  - name: FOR_PERSHING_INTERNAL_USE_ONLY_2
-    description: ''
-    data_type: VARCHAR
-  - name: TAX_ID_TYPE
-    description: ''
-    data_type: VARCHAR
-  - name: TAX_ID_NUMBER
-    description: ''
-    data_type: VARCHAR
-  - name: TAX_STATUS
-    description: ''
-    data_type: VARCHAR
-  - name: EMAIL_ADDRESS_1
-    description: ''
-    data_type: VARCHAR
-  - name: TELEPHONE_NUMBER_1
-    description: ''
-    data_type: VARCHAR
-  - name: ACCOUNT_TITLE
-    description: ''
-    data_type: VARCHAR
-  - name: FIRST_NAME
-    description: ''
-    data_type: VARCHAR
-  - name: MIDDLE_NAME
-    description: ''
-    data_type: VARCHAR
-  - name: LAST_NAME
-    description: ''
-    data_type: VARCHAR
-  - name: MAILING_ADDRESS_STREET
-    description: ''
-    data_type: VARCHAR
-  - name: MAILING_ADDRESS_CITY
-    description: ''
-    data_type: VARCHAR
-  - name: MAILING_ADDRESS_STATE
-    description: ''
-    data_type: VARCHAR
-  - name: MAILING_ADDRESS_ZIP
-    description: ''
-    data_type: VARCHAR
-  - name: MAILING_ADDRESS_COUNTRY
-    description: ''
-    data_type: VARCHAR
-  - name: LEGAL_ADDRESS_STREET
-    description: ''
-    data_type: VARCHAR
-  - name: LEGAL_ADDRESS_CITY
-    description: ''
-    data_type: VARCHAR
-  - name: LEGAL_ADDRESS_STATE
-    description: ''
-    data_type: VARCHAR
-  - name: LEGAL_ADDRESS_ZIP
-    description: ''
-    data_type: VARCHAR
-  - name: LEGAL_ADDRESS_COUNTRY
-    description: ''
-    data_type: VARCHAR
-  - name: COST_BASIS_ACCOUNTING_SYSTEM
-    description: ''
-    data_type: VARCHAR
-  - name: DISPOSITION_METHOD_FOR_MUTUAL_FUNDS
-    description: ''
-    data_type: VARCHAR
-  - name: DISPOSITION_METHOD_FOR_ALL_OTHER_SECURITY_TYPES
-    description: ''
-    data_type: VARCHAR
-  - name: DISPOSITION_METHOD_FOR_STOCKS_IN_DIVIDEND_REINVESTMENT
-    description: ''
-    data_type: VARCHAR
-  - name: IS_HEAD
-    description: ''
-    data_type: NUMBER
-  - name: IS_CURRENT
-    description: ''
-    data_type: NUMBER
-  - name: _CREATED_AT
-    description: ''
-    data_type: TIMESTAMP_NTZ
-  - name: _SOURCE_LOADED_AT
-    description: ''
-    data_type: TIMESTAMP_NTZ
-  - name: _SOURCE_FILE
-    description: ''
-    data_type: VARCHAR
-  - name: RN
-    description: ''
-    data_type: NUMBER
+  - name: int_pershing_mps_accounts
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+        data_type: DATE
+      - name: EFFECTIVE_DATE_SOURCE
+        description: ''
+        data_type: DATE
+      - name: EFFECTIVE_DATE_BASE
+        description: ''
+        data_type: DATE
+      - name: CUSTODIAN
+        description: ''
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: ''
+        data_type: VARCHAR
+      - name: TRANSACTION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: RECORD_INDICATOR_VALUE
+        description: ''
+        data_type: VARCHAR
+      - name: RECORD_ID_SEQUENCE_NUMBER
+        description: ''
+        data_type: NUMBER
+      - name: ACCOUNT_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: INTRODUCING_BROKER_DEALER_IBD_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: INVESTMENT_PROFESSIONAL_IP_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_SHORT_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: TRANSACTION_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: AUTOTITLED_OR_USERTITLED_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_TYPE_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: REGISTRATION_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: NUMBER_OF_ACCOUNT_TITLE_LINES_IN_REGISTRATION_LINES
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_REGISTRATION_LINE_1
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_REGISTRATION_LINE_2
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_REGISTRATION_LINE_3
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_REGISTRATION_LINE_4
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_REGISTRATION_LINE_5
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_REGISTRATION_LINE_6
+        description: ''
+        data_type: VARCHAR
+      - name: DATE_ACCOUNT_OPENED
+        description: ''
+        data_type: DATE
+      - name: DATE_ACCOUNT_INFORMATION_UPDATED
+        description: ''
+        data_type: NUMBER
+      - name: ACCOUNT_STATUS_INDICATOR
+        description: ''
+        data_type: VARCHAR
+      - name: PENDING_CLOSED_DATE
+        description: ''
+        data_type: DATE
+      - name: DATE_ACCOUNT_CLOSED
+        description: ''
+        data_type: DATE
+      - name: CLOSING_NOTICE_DATE
+        description: ''
+        data_type: DATE
+      - name: ACCOUNT_REACTIVATED_DATE
+        description: ''
+        data_type: DATE
+      - name: DATE_ACCOUNT_REOPENED
+        description: ''
+        data_type: DATE
+      - name: PROCEEDS
+        description: ''
+        data_type: VARCHAR
+      - name: TRANSFER_INSTRUCTIONS
+        description: ''
+        data_type: VARCHAR
+      - name: INCOME_INSTRUCTIONS
+        description: ''
+        data_type: VARCHAR
+      - name: NUMBER_OF_CONFIRMS_FOR_THIS_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: NUMBER_OF_STATEMENTS_FOR_THIS_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: INVESTMENT_OBJECTIVE_TRANSACTION_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: COMMENTS
+        description: ''
+        data_type: VARCHAR
+      - name: EMPLOYER_SHORTNAME
+        description: ''
+        data_type: VARCHAR
+      - name: EMPLOYERS_CUSIP
+        description: ''
+        data_type: VARCHAR
+      - name: EMPLOYERS_SYMBOL
+        description: ''
+        data_type: VARCHAR
+      - name: MARGIN_PRIVILEGES_REVOKED
+        description: ''
+        data_type: VARCHAR
+      - name: STATEMENT_REVIEW_DATE
+        description: ''
+        data_type: DATE
+      - name: MARGIN_PAPERS_ON_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: OPTION_PAPERS_ON_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: FOR_PERSHING_INTERNAL_USE_ONLY
+        description: ''
+        data_type: VARCHAR
+      - name: GOOD_FAITH_MARGIN
+        description: ''
+        data_type: VARCHAR
+      - name: INVESTMENT_PROFESSIONAL_DISCRETION_GRANTED
+        description: ''
+        data_type: VARCHAR
+      - name: INVESTMENT_ADVISOR_DISCRETION_GRANTED
+        description: ''
+        data_type: VARCHAR
+      - name: THIRD_PARTY_DISCRETION_GRANTED
+        description: ''
+        data_type: VARCHAR
+      - name: THIRD_PARTY_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: RISK_FACTOR_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: INVESTMENT_OBJECTIVE_CODE
+        description: ''
+        data_type: VARCHAR
+      - name: OPTION__EQUITIES
+        description: ''
+        data_type: VARCHAR
+      - name: OPTION__INDEX
+        description: ''
+        data_type: VARCHAR
+      - name: OPTION__DEBT
+        description: ''
+        data_type: VARCHAR
+      - name: OPTION__CURRENCY
+        description: ''
+        data_type: VARCHAR
+      - name: OPTION_LEVEL_1
+        description: ''
+        data_type: VARCHAR
+      - name: OPTION_LEVEL_2
+        description: ''
+        data_type: VARCHAR
+      - name: OPTION_LEVEL_3
+        description: ''
+        data_type: VARCHAR
+      - name: OPTION_LEVEL_4
+        description: ''
+        data_type: VARCHAR
+      - name: OPTION__CALL_LIMITS
+        description: ''
+        data_type: NUMBER
+      - name: OPTION__PUT_LIMITS
+        description: ''
+        data_type: NUMBER
+      - name: OPTION__TOTAL_LIMITS_OF_PUTS_AND_CALLS
+        description: ''
+        data_type: NUMBER
+      - name: NONUS_DOLLAR_TRADING
+        description: ''
+        data_type: VARCHAR
+      - name: NOT_USED_RESERVED_FOR_FUTURE_USE
+        description: ''
+        data_type: VARCHAR
+      - name: NONCUSTOMER_INDICATOR
+        description: ''
+        data_type: VARCHAR
+      - name: THIRD_PARTY_FEE_INDICATOR
+        description: ''
+        data_type: VARCHAR
+      - name: THIRD_PARTY_FEE_APPROVAL_DATE
+        description: ''
+        data_type: DATE
+      - name: INTERMEDIARY_ACCOUNT_INDICATOR
+        description: ''
+        data_type: VARCHAR
+      - name: COMMISSION_SCHEDULE
+        description: ''
+        data_type: VARCHAR
+      - name: GROUP_INDEX
+        description: ''
+        data_type: VARCHAR
+      - name: MONEY_MANAGER_ID
+        description: ''
+        data_type: VARCHAR
+      - name: MONEY_MANAGER_OBJECTIVE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: DTC_ID_CONFIRM_NUMBER_FOR_NONCOD_ACCOUNT
+        description: ''
+        data_type: VARCHAR
+      - name: CAPS_MASTER_MNEMONIC
+        description: ''
+        data_type: VARCHAR
+      - name: EMPLOYEE_ID
+        description: ''
+        data_type: VARCHAR
+      - name: PRIME_BROKERFREE_FUND_INDICATOR
+        description: ''
+        data_type: VARCHAR
+      - name: FEE_BASED_ACCOUNT_INDICATOR
+        description: ''
+        data_type: VARCHAR
+      - name: PERSHING_INTERNAL_USE_ONLY
+        description: ''
+        data_type: VARCHAR
+      - name: FEE_BASED_TERMINATION_DATE
+        description: ''
+        data_type: DATE
+      - name: PLAN_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: SELFDIRECTED_401K_ACCOUNT_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: PLAN_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: PLAN_NUMBER
+        description: ''
+        data_type: VARCHAR
+      - name: EMPLOYEEEMPLOYEE_RELATIVE_INDICATOR
+        description: ''
+        data_type: VARCHAR
+      - name: COMMISSION_PERCENT_DISCOUNT
+        description: ''
+        data_type: NUMBER
+      - name: BLOCK_MUTUAL_FUND_FEES
+        description: ''
+        data_type: VARCHAR
+      - name: NAME_OF_INVESTMENT_PROFESSIONAL_WHO_SIGNED_NEW
+        description: ''
+        data_type: VARCHAR
+      - name: DATE_INVESTMENT_PROFESSIONAL_SIGNED_NEW_ACCOUNT_FORM
+        description: ''
+        data_type: DATE
+      - name: NAME_OF_PRINCIPAL_WHO_SIGNED_NEW_ACCOUNT_FORM
+        description: ''
+        data_type: VARCHAR
+      - name: DATE_PRINCIPAL_SIGNED_NEW_ACCOUNT_FORM
+        description: ''
+        data_type: DATE
+      - name: POLITICALLY_EXPOSED_PERSON_INDICATOR
+        description: ''
+        data_type: VARCHAR
+      - name: PRIVATE_BANKING_ACCOUNT_INDICATOR
+        description: ''
+        data_type: VARCHAR
+      - name: FOREIGN_BANK_ACCOUNT_INDICATOR
+        description: ''
+        data_type: VARCHAR
+      - name: INITIAL_SOURCE_OF_FUNDS
+        description: ''
+        data_type: VARCHAR
+      - name: USA_PATRIOT_ACT_EXEMPT_REASON
+        description: ''
+        data_type: VARCHAR
+      - name: PRIMARY_COUNTRY_OF_CITIZENSHIP
+        description: ''
+        data_type: VARCHAR
+      - name: COUNTRY_OF_RESIDENCE
+        description: ''
+        data_type: VARCHAR
+      - name: BIRTH_DATE
+        description: ''
+        data_type: DATE
+        meta:
+          masking_policy: mp_client_pii_date
+      - name: AGEBASED_FUND_ROLL_EXEMPT_INDICATOR
+        description: ''
+        data_type: VARCHAR
+      - name: MONEY_FUND_REFORM__RETAIL
+        description: ''
+        data_type: VARCHAR
+      - name: TRUSTED_CONTACT_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: REGULATORY_ACCOUNT_TYPE_CATEGORY
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_MANAGED_BY_TRUST_COMPANY_INDICATOR
+        description: ''
+        data_type: VARCHAR
+      - name: VOTING_AUTHORITY
+        description: ''
+        data_type: VARCHAR
+      - name: INTERNAL_USE
+        description: ''
+        data_type: VARCHAR
+      - name: INTERNAL_USE_2
+        description: ''
+        data_type: VARCHAR
+      - name: INTERNAL_USE_3
+        description: ''
+        data_type: VARCHAR
+      - name: INTERNAL_USE_4
+        description: ''
+        data_type: VARCHAR
+      - name: CUSTOMER_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: INTERNAL_USE_5
+        description: ''
+        data_type: VARCHAR
+      - name: INTERNAL_USE_6
+        description: ''
+        data_type: VARCHAR
+      - name: INTERNAL_USE_7
+        description: ''
+        data_type: VARCHAR
+      - name: INTERNAL_USE_8
+        description: ''
+        data_type: VARCHAR
+      - name: INTERNAL_USE_9
+        description: ''
+        data_type: VARCHAR
+      - name: FULFILLMENT_METHOD
+        description: ''
+        data_type: VARCHAR
+      - name: CREDIT_INTEREST_INDICATOR
+        description: ''
+        data_type: VARCHAR
+      - name: AMA_INDICATOR
+        description: ''
+        data_type: VARCHAR
+      - name: FOR_PERSHING_INTERNAL_USE_ONLY_2
+        description: ''
+        data_type: VARCHAR
+      - name: TAX_ID_TYPE
+        description: ''
+        data_type: VARCHAR
+      - name: TAX_ID_NUMBER
+        description: ''
+        data_type: VARCHAR
+        meta:
+          masking_policy: mp_client_pii_text
+      - name: TAX_STATUS
+        description: ''
+        data_type: VARCHAR
+      - name: EMAIL_ADDRESS_1
+        description: ''
+        data_type: VARCHAR
+      - name: TELEPHONE_NUMBER_1
+        description: ''
+        data_type: VARCHAR
+      - name: ACCOUNT_TITLE
+        description: ''
+        data_type: VARCHAR
+      - name: FIRST_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: MIDDLE_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: LAST_NAME
+        description: ''
+        data_type: VARCHAR
+      - name: MAILING_ADDRESS_STREET
+        description: ''
+        data_type: VARCHAR
+      - name: MAILING_ADDRESS_CITY
+        description: ''
+        data_type: VARCHAR
+      - name: MAILING_ADDRESS_STATE
+        description: ''
+        data_type: VARCHAR
+      - name: MAILING_ADDRESS_ZIP
+        description: ''
+        data_type: VARCHAR
+      - name: MAILING_ADDRESS_COUNTRY
+        description: ''
+        data_type: VARCHAR
+      - name: LEGAL_ADDRESS_STREET
+        description: ''
+        data_type: VARCHAR
+      - name: LEGAL_ADDRESS_CITY
+        description: ''
+        data_type: VARCHAR
+      - name: LEGAL_ADDRESS_STATE
+        description: ''
+        data_type: VARCHAR
+      - name: LEGAL_ADDRESS_ZIP
+        description: ''
+        data_type: VARCHAR
+      - name: LEGAL_ADDRESS_COUNTRY
+        description: ''
+        data_type: VARCHAR
+      - name: COST_BASIS_ACCOUNTING_SYSTEM
+        description: ''
+        data_type: VARCHAR
+      - name: DISPOSITION_METHOD_FOR_MUTUAL_FUNDS
+        description: ''
+        data_type: VARCHAR
+      - name: DISPOSITION_METHOD_FOR_ALL_OTHER_SECURITY_TYPES
+        description: ''
+        data_type: VARCHAR
+      - name: DISPOSITION_METHOD_FOR_STOCKS_IN_DIVIDEND_REINVESTMENT
+        description: ''
+        data_type: VARCHAR
+      - name: IS_HEAD
+        description: ''
+        data_type: NUMBER
+      - name: IS_CURRENT
+        description: ''
+        data_type: NUMBER
+      - name: _CREATED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        data_type: TIMESTAMP_NTZ
+      - name: _SOURCE_FILE
+        description: ''
+        data_type: VARCHAR
+      - name: RN
+        description: ''
+        data_type: NUMBER

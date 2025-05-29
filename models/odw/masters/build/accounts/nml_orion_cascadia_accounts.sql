@@ -27,16 +27,15 @@ select
     , a.location_code                                                         as pms_location_code
     , a.fee_schedule                                                          as pms_fee_schedule--not available in RS yet
     , a.investment_strategy                                                   as pms_model_investment_strategy
-    , a.aum_classification                                                    as pms_aum_classification--sourced from crm
-    , a.is_erisa                                                              as pms_is_erisa--sourced from custodian
-    , a.is_discretionary                                                      as pms_is_discretionary--sourced from custodian
-    , a.is_voting_proxied                                                     as pms_is_voting_proxied--sourced from custodian
-    , a.is_prime_broker                                                       as pms_is_prime_broker
-    , a.is_broker_dealer_account                                              as pms_is_broker_dealer_account
-    , a.cost_basis_method                                                     as pms_cost_basis_method
+    , null::text                                                              as pms_aum_classification
+    , null::int                                                               as pms_is_erisa
+    , null::int                                                               as pms_is_discretionary
+    , null::int                                                               as pms_is_voting_proxied
+    , null::int                                                               as pms_is_prime_broker
+    , null::int                                                               as pms_is_broker_dealer_account
+    , null::text                                                              as pms_cost_basis_method
     -- CRM --------------------------------------------------------------------
     {{ select_crm_salesforce_compass() }}
-
     -- COALESCE ---------------------------------------------------------------
     {{ select_nml_account_coalesce() }}
 
@@ -132,26 +131,26 @@ select
 
     )::variant                                                                as _extra_fields
     -- META -------------------------------------------------------------------
-    , a.is_head                                                               as is_head
-    , a.is_current                                                            as is_current
+    --, a.is_head                                                               as is_head
+    , a._source_loaded_at                                                     as _created_at
     , a._source_loaded_at                                                     as _source_loaded_at
     , a._source_file                                                          as _source_file
-from {{ ref('int_orion_accounts') }} as a
+from {{ ref('orion__bld_accounts') }} as a
 -- [crm] join to the salesforce crm "effective_date" and then on "is_head" if the first join does not return a result.
-left join {{ ref('salesforce_compass_accounts') }} as sf1
-    on pms_account_number = sf1.account_number
+left join {{ ref('bld_salesforce_compass_accounts') }} as sf1
+    on a.effective_date = sf1.effective_at::date
+    and pms_account_number = sf1.account_number
     and __custodian_key = case
         when sf1.custodian_key in ('schwab' , 'fidelity' , 'lpl' , 'pershing' , 'tda') then sf1.custodian_key
         else ''
     end
-    and a.effective_date = sf1.effective_at::date
-left join {{ ref('salesforce_compass_accounts') }} as sf2
+left join {{ ref('bld_salesforce_compass_accounts') }} as sf2
     on pms_account_number = sf2.account_number
     and __custodian_key = case
         when sf2.custodian_key in ('schwab' , 'fidelity' , 'lpl' , 'pershing' , 'tda') then sf2.custodian_key
         else ''
     end
-    and sf2.is_head = 1
+    and sf2.effective_at::date = (select max(tt.effective_at::date) from {{ ref('bld_salesforce_compass_accounts') }} as tt)
 -- mappings
 left join {{ ref('aux__stg_masters_mappings') }} as map_aum_glo
     on map_aum_glo.field = 'aum_classification'

@@ -73,10 +73,10 @@ select
         , 'legacy_product_type_source_code' , p.product_code::text
     )                                                               as extra_fields
 
-    , p.is_head                                                     as is_head
-    , p.is_current                                                  as is_current
+    , p._created_at                                                 as _created_at
     , p._source_loaded_at                                           as _source_loaded_at
     , null::varchar(500)                                            as _source_file
+    , p.is_head                                                     as is_head
 from {{ ref('schwab__base_positions') }} as p
 left join {{ ref('schwab__base_cost_basis') }} as pcb
     on p.effective_date = pcb.effective_date

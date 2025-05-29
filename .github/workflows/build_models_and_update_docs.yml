@@ -43,31 +43,15 @@ jobs:
           echo "PYTHON_VERSION=$python_version" | Out-File -Append -FilePath $env:GITHUB_ENV
           echo "python_version=$python_version" >> $GITHUB_ENV
 
-      - name: Cache venv
-        uses: actions/cache@v4
-        id: cache-venv
-        with:
-          path: ./utilities/.venv
-          key: dbt-venv-${{ runner.os }}-py${{ env.python_version }}-${{ hashFiles('requirements-ci.txt') }}
-
       - name: Install python requirements
         shell: pwsh
         run: |
-          $venv_dir = ".\utilities\.venv"
-          echo "cache-hit: ${{ steps.cache-venv.outputs.cache-hit }}"
-          if ('${{ steps.cache-venv.outputs.cache-hit }}' -ne 'true') {
-            if ((Test-Path -Path "$venv_dir" -PathType Container)) {
-              Write-Host "Removing existing venv"
-              Remove-Item -Path "$venv_dir" -Force -Recurse
-            } else {
-              Write-Host "Did not detect existing venv $venv_dir"
-            }
-            Write-Host "Creating venv"
-            python -m venv $venv_dir
-            Write-Host "Installing requirements"
-            & "$venv_dir\Scripts\Activate.ps1"
-            pip install -r requirements-ci.txt
-          } else {echo "Using cached venv"}
+          $venv_dir = "$env:VENV_DIR"
+          Write-Host "Creating venv"
+          uv venv $venv_dir --python 3.12.10
+          Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
+          Write-Host "Installing requirements"
+          uv pip install -r requirements-ci.txt
 
       - name: Cache dbt packages
         uses: actions/cache@v4
@@ -79,14 +63,16 @@ jobs:
       - name: dbt deps
         shell: pwsh
         run: |
-          ./utilities/.venv/Scripts/Activate.ps1
+          $venv_dir = "$env:VENV_DIR"
+          Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
           echo "cache-hit: ${{ steps.cache-dbt-packages.outputs.cache-hit }}"
           if ('${{ steps.cache-dbt-packages.outputs.cache-hit }}' -ne 'true') {dbt deps} else {echo "Using cached dbt packages"}
 
       - name: dbt build
         shell: pwsh
         run: |
-          .\utilities\.venv\Scripts\Activate.ps1
+          $venv_dir = "$env:VENV_DIR"
+          Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
           dbt build --target=$env:DBT_TARGET -s state:modified.body+1 state:modified.configs state:modified.persisted_descriptions state:modified.macros+1 state:modified.contract
 
       - name: upload dbt artifacts
@@ -138,31 +124,15 @@ jobs:
           echo "PYTHON_VERSION=$python_version" | Out-File -Append -FilePath $env:GITHUB_ENV
           echo "python_version=$python_version" >> $GITHUB_ENV
 
-      - name: Cache venv
-        uses: actions/cache@v4
-        id: cache-venv
-        with:
-          path: ./utilities/.venv
-          key: dbt-venv-${{ runner.os }}-py${{ env.python_version }}-${{ hashFiles('requirements-ci.txt') }}
-
       - name: Install python requirements
         shell: pwsh
         run: |
-          $venv_dir = ".\utilities\.venv"
-          echo "cache-hit: ${{ steps.cache-venv.outputs.cache-hit }}"
-          if ('${{ steps.cache-venv.outputs.cache-hit }}' -ne 'true') {
-            if ((Test-Path -Path "$venv_dir" -PathType Container)) {
-              Write-Host "Removing existing venv"
-              Remove-Item -Path "$venv_dir" -Force -Recurse
-            } else {
-              Write-Host "Did not detect existing venv $venv_dir"
-            }
-            Write-Host "Creating venv"
-            python -m venv $venv_dir
-            Write-Host "Installing requirements"
-            & "$venv_dir\Scripts\Activate.ps1"
-            pip install -r requirements-ci.txt
-          } else {echo "Using cached venv"}
+          $venv_dir = "$env:VENV_DIR"
+          Write-Host "Creating venv"
+          uv venv $venv_dir --python 3.12.10
+          Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
+          Write-Host "Installing requirements"
+          uv pip install -r requirements-ci.txt
 
       - name: Cache dbt packages
         uses: actions/cache@v4
@@ -174,21 +144,24 @@ jobs:
       - name: dbt deps
         shell: pwsh
         run: |
-          ./utilities/.venv/Scripts/Activate.ps1
+          $venv_dir = "$env:VENV_DIR"
+          Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
           echo "cache-hit: ${{ steps.cache-dbt-packages.outputs.cache-hit }}"
           if ('${{ steps.cache-dbt-packages.outputs.cache-hit }}' -ne 'true') {dbt deps} else {echo "Using cached dbt packages"}
 
       - name: dbt docs generate
         shell: pwsh
         run: |
-          .\utilities\.venv\Scripts\Activate.ps1
+          $venv_dir = "$env:VENV_DIR"
+          Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
           dbt compile --target=$env:DBT_TARGET
           dbt docs generate --target=$env:DBT_TARGET --no-compile
 
       - name: Upload the docs
         shell: pwsh
         run: |
-          .\utilities\.venv\Scripts\Activate.ps1
+          $venv_dir = "$env:VENV_DIR"
+          Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
           $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
           aws s3 sync ./target/ s3://${{ env.DBT_DOCS_BUCKET }}/${{ env.PR_NUM }}/ --delete
 

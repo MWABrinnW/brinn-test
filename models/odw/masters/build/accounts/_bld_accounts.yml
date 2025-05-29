@@ -1,78 +1,108 @@
 version: 2
 models:
   - name: bld_accounts
+    data_tests:
+      - compare_describe_to_prod:
+          name: compare_describe_to_prod_bld_accounts
+          config:
+            severity: warn
+          state_database: odw
+          state_schema: build
+          state_name: bld_accounts
+          summarize: false
+          include_columns: [effective_date, system_key, firm_source, account_number, is_active, location_code,
+            pms_account_id, advisor, aum_classification, is_excluded]
+          exclude_columns: [_created_at, is_head, is_current, _source_loaded_at, _source_file]
+          where_clause: effective_date >= current_date() - 7
+      - dbt_expectations.expect_table_row_count_to_equal_other_table:
+          name: compare_row_count_bld_accounts
+          config:
+            severity: warn
+            enabled: "{{ target.name != 'prod' }}"
+          compare_model: odw.build.bld_accounts
+          group_by: [effective_date, system_key]
+          compare_group_by: [effective_date, system_key]
+          row_condition: effective_date >= current_date() - 7
+          compare_row_condition: effective_date >= current_date() - 7
     columns:
       - name: EFFECTIVE_DATE
         description: ''
-      - name: SYSTEM
-        description: 'Source system name.'
+      - name: SYSTEM_NAME
+        description: ''
       - name: SYSTEM_INSTANCE
-        description: 'Source system instance name.'
+        description: Source system instance name.
       - name: SYSTEM_KEY
-        description: 'Key for the PMS instance. PMS and PMS_INSTANCE_LOCATION concatenated.'
-      - name: LEGACY_SYSTEM_NAME
-        description: 'SQL Server system name identifier.'
+        description: Key for the PMS instance. PMS and PMS_INSTANCE_LOCATION concatenated.
       - name: FIRM_SOURCE
-        description: 'mwa | mps | andco | baystate'
+        description: mwa | mps | andco | baystate
+        meta:
+          row_access_policy: rap_firm_source
+      - name: FIRM_SOURCE_VERIFIED
+        description: ''
       - name: ACCOUNT_NUMBER_FORMATTED
-        description: 'Account number including custodian or source sytem formatting such as hyphens, spacing, and case sensitivity.'
+        description: >-
+          Account number including custodian or source sytem formatting such as hyphens, spacing, and
+          case sensitivity.
       - name: ACCOUNT_NUMBER
-        description: 'Account number without formatting or leading zeros.'
+        description: Account number without formatting or leading zeros.
       - name: CUSTODIAN
-        description: 'Custodian name.'
-      - name: ACCOUNT_ID
-        description: 'Internal account id. Usually specific to the source system_key.'
+        description: Custodian name.
+      - name: LINK
+        description: The custodian master number, g number, rep code, or equivalent.
+      - name: LINK_TYPE
+        description: The type of link (i.e. master number or G number)
+      - name: LINK_SUBTYPE
+        description: >-
+          Some custodians have primary, secondary, or other labels to indicate the type of link value.
       - name: ACCOUNT_TYPE
         description: 'Account type. Example: IRA Rollover.'
       - name: ACCOUNT_NAME
-        description: 'Account name.'
+        description: Account name.
       - name: REGISTRANT_NAME
-        description: 'Registration name.'
-      - name: HOUSEHOLD_ID
-        description: 'Internal household or client id. Usually specific to the source system_key.'
-      - name: HOUSEHOLD_NAME
-        description: 'Household name.'
+        description: Registration name.
+      - name: CLIENT_NAME
+        description: ''
       - name: IS_ACTIVE
-        description: 'Is the account active (1 or 0).'
+        description: Is the account active (1 or 0).
       - name: CREATED_DATE
-        description: 'Account created date, if available. Would be specific to the source system_key.'
+        description: Account created date, if available. Would be specific to the source system_key.
       - name: OPENED_DATE
-        description: 'Account open or start date.'
+        description: Account open or start date.
       - name: CLOSED_DATE
-        description: 'Account close or cancel date.'
+        description: Account close or cancel date.
       - name: ACCOUNT_VALUE
-        description: 'Latest account market value.'
+        description: Latest account market value.
       - name: ADVISOR
-        description: 'Advisor.'
+        description: Advisor.
       - name: ADVISOR_EMAIL
-        description: 'Advisor email.'
-      - name: ADVISOR_EMPLOYEE_ID
-        description: ''
-      - name: DISCRETION_STATUS
-        description: 'Discretionary status'
+        description: Advisor email.
       - name: LOCATION_CODE
-        description: ''
+        description: Mariner Location ID for the location (ex. 100, L-10015)
+      - name: OFFICE_NAME
+        description: Office name/location in the format of 'City, State'
       - name: FEE_SCHEDULE
         description: ''
-      - name: INVESTMENT_STRATEGY
+      - name: MODEL_INVESTMENT_STRATEGY
         description: ''
       - name: AUM_CLASSIFICATION
         description: ''
       - name: IS_ERISA
         description: ''
-      - name: IS_VOTING_PROXIED
+      - name: IS_DISCRETIONARY
         description: ''
       - name: IS_PRIME_BROKER
         description: ''
       - name: IS_BROKER_DEALER_ACCOUNT
         description: ''
-      - name: SOT_ADVISOR__ACCOUNT_NUMBER
+      - name: PREF_ADVISOR__ACCOUNT_NUMBER
         description: ''
-      - name: SOT_ADVISOR
+      - name: PREF_ADVISOR
         description: ''
-      - name: SOT_LOCATION
+      - name: PREF_LOCATION
         description: ''
-      - name: SOT
+      - name: PREF_SYSTEM_KEY
+        description: ''
+      - name: IS_INSTITUTIONAL
         description: ''
       - name: dedupe_system_rn
         description: ''
@@ -85,6 +115,28 @@ models:
       - name: DEDUPE_system_key_COUNT
         description: ''
       - name: HAS_DUPES
+        description: ''
+      - name: __IS_EXCLUDED
+        description: ''
+      - name: __IF_EXCLUDED_REASONS
+        description: ''
+      - name: __DEDUPE_SYSTEM_RN
+        description: ''
+      - name: __PREFER_OPEN
+        description: ''
+      - name: __KEY_MATCH_PREFERENCE
+        description: ''
+      - name: __OVRD_ACCT_AND_OR_ADVISOR
+        description: ''
+      - name: __PREFER_PORTFOLIO
+        description: ''
+      - name: __OVRD_LOCATION
+        description: ''
+      - name: __PREFER_TAMARAC
+        description: ''
+      - name: __PREFER_ORION
+        description: ''
+      - name: __PREFER_WITH_CRM_ID
         description: ''
       - name: HAS_CUSTODIAL_FEED
         description: ''
@@ -104,9 +156,9 @@ models:
         description: ''
       - name: PMS_REGISTRANT_NAME
         description: ''
-      - name: PMS_HOUSEHOLD_ID
+      - name: PMS_CLIENT_ID
         description: ''
-      - name: PMS_HOUSEHOLD_NAME
+      - name: PMS_CLIENT_NAME
         description: ''
       - name: PMS_IS_ACTIVE
         description: ''
@@ -156,9 +208,9 @@ models:
         description: ''
       - name: CRM_REGISTRANT_NAME
         description: ''
-      - name: CRM_HOUSEHOLD_ID
+      - name: CRM_CLIENT_ID
         description: ''
-      - name: CRM_HOUSEHOLD_NAME
+      - name: CRM_CLIENT_NAME
         description: ''
       - name: CRM_IS_ACTIVE
         description: ''
@@ -178,7 +230,7 @@ models:
         description: ''
       - name: CRM_FEE_SCHEDULE
         description: ''
-      - name: CRM_INVESTMENT_STRATEGY
+      - name: CRM_MODEL_INVESTMENT_STRATEGY
         description: ''
       - name: CRM_AUM_CLASSIFICATION
         description: ''
@@ -194,33 +246,50 @@ models:
         description: ''
       - name: CUS_IS_DISCRETIONARY
         description: ''
-      - name: CUS_IS_VOTING_PROXIED
-        description: ''
       - name: CUS_IS_PRIME_BROKER
         description: ''
       - name: CUS_IS_BROKER_DEALER_ACCOUNT
         description: ''
       - name: __CUSTODIAN_KEY
-        description: 'Custodian name derived value for our core custodians (fidelity, schwab, tda, pershing, lpl).'
-      - name: system_key__ACCOUNT_NUMBER
-        description: "Concat(system_key, '__', ACCOUNT_NUMBER)"
-      - name: system_key__ADVISOR
-        description: "Concat(system_key, '__', ADVISOR)"
-      - name: ADVISOR__ACCOUNT_NUMBER
-        description: "Concat(ADVISOR, '__', ACCOUNT_NUMBER)"
-      - name: EXTRA_FIELDS
-        description: 'Additional fields that might be specific to the system_key.'
-      - name: IS_HEAD
-        description: 'Is the record a member of the most recent available effective_date that exists.'
-      - name: IS_CURRENT
-        description: 'Is the record a member of the most recent market date.'
-      - name: _SOURCE_LOADED_AT
+        description: >-
+          Custodian name derived value for our core custodians (fidelity, schwab, tda, pershing, lpl).
+      - name: __CUSTODIAN_CUST
         description: ''
+      - name: system_key__ACCOUNT_NUMBER
+        description: Concat(system_key, '__', ACCOUNT_NUMBER)
+      - name: system_key__ADVISOR
+        description: Concat(system_key, '__', ADVISOR)
+      - name: ADVISOR__ACCOUNT_NUMBER
+        description: Concat(ADVISOR, '__', ACCOUNT_NUMBER)
+      - name: __ACCOUNT_KEY
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: Time when the records were created in the source table.
       - name: _SOURCE_FILE
         description: ''
-      - name: SOT_FINAL
+      - name: _EXTRA_FIELDS
+        description: ''
+      - name: __PREFERRED_SYSTEM_KEY
         description: ''
       - name: IS_PRIMARY
-        description: 'Is the record considered the primary record if there are duplicates across or within the system_key.'
+        description: >-
+          Is the record considered the primary record if there are duplicates across or within the system_key.
+      - name: IS_MARKET_DAY
+        description: ''
       - name: IS_MARKET_MONTH_END
-        description: 'Is the effective date the last effective_date (market day) for the month.'
+        description: Is the effective date the last effective_date (market day) for the month.
+      - name: _CREATED_AT
+        description: >-
+          Datetime representing when the record was loaded into the table from the source file.
+      - name: ADVISOR_ID
+        description: ''
+      - name: ADVISOR_ID_SOURCE
+        description: ''
+      - name: PMS_ADVISOR_ID
+        description: ''
+      - name: PMS_ADVISOR_ID_SOURCE
+        description: ''
+      - name: CRM_ADVISOR_ID
+        description: ''
+      - name: CRM_ADVISOR_ID_SOURCE
+        description: ''

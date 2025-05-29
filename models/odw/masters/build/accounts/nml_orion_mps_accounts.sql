@@ -1,3 +1,91 @@
+{{ config(
+    materialized='incremental',
+    unique_key='effective_date',
+    incremental_strategy='delete+insert',
+    on_schema_change='sync_all_columns',
+    cluster_by=['effective_date']
+) }}
+
+{%- set start_date = cvar('start_date_pms') -%}
+{%- set lookback = cvar('lookback') -%}
+
+{%-
+    set src_models = [
+          'orion__bld_accounts'
+    ]
+-%}
+
+with destination_summary as (
+    {% if is_incremental() -%}
+    select effective_date, system_key, max(_created_at) as _created_at
+    from {{ this }}
+    where 1 = 1
+        -- Model start date. This applies for full-refresh.
+        and effective_date >= '{{ start_date }}'
+        {%- if is_incremental() or target.name not in ['prod'] %}
+        -- Restrict lookback window if incremental or not prod.
+        and effective_date >= current_date() - {{ lookback }}
+        {%- endif %}
+    group by all
+    order by 1
+    {% else -%}
+    select null::date as effective_date, null::text as system_key
+        , null::timestamp as _created_at
+    {% endif -%}
+)
+
+, source_summary as (
+    {%- for src_model in src_models %}
+    select
+        effective_date              as effective_date
+        , system_key                as system_key
+        , max(_created_at)          as _created_at
+        , {{"'" ~ src_model ~ "'"}} as model_source
+    from {{ ref(src_model) }}
+    where 1 = 1
+        -- Model start date. This applies for full-refresh.
+        and effective_date >= '{{ start_date }}'
+        {%- if is_incremental() or target.name not in ['prod'] %}
+        -- Restrict lookback window if incremental or not prod.
+        and effective_date >= current_date() - {{ lookback }}
+        {%- endif %}
+        and system_key = 'orion__mps'
+    group by all
+
+    {%- if not loop.last %}
+
+    union all
+
+    {% endif -%}
+    {%- endfor %}
+)
+
+, date_spine as (
+    select effective_date, system_key from source_summary group by all
+    union
+    select effective_date, system_key from destination_summary group by all
+)
+
+, dates_to_refresh as (
+    select
+        a.effective_date    as effective_date
+        , s._created_at     as source_created_at
+        , d._created_at     as destination_created_at
+    from date_spine a
+    left join source_summary s
+        on a.effective_date = s.effective_date
+        and a.system_key = s.system_key
+    left join destination_summary d
+        on a.effective_date = d.effective_date
+        and a.system_key = d.system_key
+    where 1 = 1
+        and (
+            -- Check if missing from destination OR the source records are newer for that date.
+            s._created_at > coalesce(d._created_at, s._created_at - interval '1 day')
+        )
+    group by all
+)
+
 select
     a.effective_date                                                          as effective_date
     , a.system_name                                                           as system_name
@@ -30,12 +118,12 @@ select
     , a.fee_schedule                                                          as pms_fee_schedule--not available in RS yet
     , a.investment_strategy                                                   as pms_model_investment_strategy
     , coalesce(udf_aum.fieldvalue , udf_aum_def.defaultvalue)::text(200)      as pms_aum_classification--sourced from crm
-    , a.is_erisa                                                              as pms_is_erisa--sourced from custodian
-    , a.is_discretionary                                                      as pms_is_discretionary--sourced from custodian
-    , a.is_voting_proxied                                                     as pms_is_voting_proxied--sourced from custodian
-    , a.is_prime_broker                                                       as pms_is_prime_broker
-    , a.is_broker_dealer_account                                              as pms_is_broker_dealer_account
-    , a.cost_basis_method                                                     as pms_cost_basis_method
+    , null::int                                                               as pms_is_erisa
+    , a.is_discretionary                                                      as pms_is_discretionary
+    , null::int                                                               as pms_is_voting_proxied
+    , null::int                                                               as pms_is_prime_broker
+    , null::int                                                               as pms_is_broker_dealer_account
+    , null::text                                                              as pms_cost_basis_method
     -- CRM --------------------------------------------------------------------
     {{ select_crm_null() }}
 
@@ -126,11 +214,11 @@ select
 
     )::variant                                                                as _extra_fields
     -- META -------------------------------------------------------------------
-    , a.is_head                                                               as is_head
-    , a.is_current                                                            as is_current
+    --, a.is_head                                                               as is_head
+    , a._source_loaded_at                                                     as _created_at
     , a._source_loaded_at                                                     as _source_loaded_at
     , a._source_file                                                          as _source_file
-from {{ ref('int_orion_accounts') }} as a
+from {{ ref('orion__bld_accounts') }} as a
 left join {{ ref('orion__base_vw_userdefinedfields_account') }} as udf_aum
     on a.fkalclient = udf_aum.fkalclient
     and a.account_id = udf_aum.fkaccount
@@ -148,7 +236,7 @@ left join {{ ref('redtail_network__int_contact_preferred_pms') }} as pp
 -- mappings
 left join {{ ref('aux__stg_masters_mappings') }} as map_aum_glo
     on map_aum_glo.field = 'aum_classification'
-    {% if instance | lower == 'mps' -%} 
+    {% if instance | lower == 'mps' -%}
     and coalesce(pms_aum_classification , crm_aum_classification) = map_aum_glo.source_value
     {% else %}
         and coalesce(crm_aum_classification , pms_aum_classification) = map_aum_glo.source_value
@@ -203,3 +291,5 @@ left join {{ ref('aux__stg_masters_preferred_system_key') }} as pref_loc
 where true
     and a.account_number is not null
     and a.system_key = 'orion__mps'
+    and exists(select 1 from dates_to_refresh)
+    and a.effective_date in (select distinct effective_date from dates_to_refresh)

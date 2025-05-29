@@ -1,0 +1,88 @@
+version: 2
+models:
+  - name: stg_manual_accounts
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: FIRM_SOURCE
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_VALUE
+        description: ''
+      - name: ACCOUNT_ID_CRM
+        description: ''
+      - name: ACCOUNT_ID_PMS
+        description: ''
+      - name: ACCOUNT_NAME
+        description: ''
+      - name: CLIENT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_PMS
+        description: ''
+      - name: CLIENT_NAME
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: ACCOUNT_TYPE
+        description: ''
+      - name: AUM_CLASSIFICATION
+        description: ''
+      - name: MODEL_INVESTMENT_STRATEGY
+        description: ''
+      - name: FEE_SCHEDULE
+        description: ''
+      - name: ADVISOR
+        description: ''
+      - name: ADVISOR_ID
+        description: ''
+      - name: ADVISOR_ID_SOURCE
+        description: ''
+      - name: ADVISOR_EMAIL
+        description: ''
+      - name: DISCRETION_STATUS
+        description: ''
+      - name: IS_ACTIVE
+        description: ''
+      - name: OPENED_DATE
+        description: ''
+      - name: CLOSED_DATE
+        description: ''
+      - name: LOCATION_CODE
+        description: ''
+      - name: OFFICE_NAME
+        description: ''
+      - name: LINK
+        description: ''
+      - name: LINK_TYPE
+        description: ''
+      - name: LINK_SUBTYPE
+        description: ''
+      - name: LEGACY_SYSTEM_NAME
+        description: ''
+      - name: IS_INSTITUTIONAL
+        description: ''
+      - name: IS_ERISA
+        description: ''
+      - name: IS_MARKET_DAY
+        description: ''
+      - name: IS_MARKET_MONTH_END
+        description: ''
+      - name: IS_EXCLUDED
+        description: ''
+      - name: EXCLUDED_REASONS
+        description: ''
+      - name: IS_MANUAL_ACCOUNT
+        description: ''
+      - name: _CREATED_AT
+        description: ''
+      - name: _EXTRA_FIELDS
+        description: ''

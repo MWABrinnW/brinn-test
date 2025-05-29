@@ -1,5 +1,5 @@
 
-select 
+select
      lower(custodianid)                         as custodian
     ,'mwa'                                      as firm_source
     ,null::text(200)                            as firm
@@ -86,7 +86,6 @@ select
     ,null::int                                  as is_from_tda_migration
     ,effective_date::date                       as effective_date
     ,{{ col_is_head(reference=source('schwab_mwa', 'accounts')) }}
-    ,{{ col_is_current(date_col='effective_date') }}
     ,record_datetime::timestamp                 as _source_loaded_at
     ,null::text(200)                            as _source_file
 from {{ source('schwab_mwa', 'accounts') }}
@@ -183,7 +182,6 @@ select
     , is_from_tda_migration
     , effective_date
     , is_head
-    , is_current
     , _source_loaded_at
     , _source_file
 from {{ ref('schwab__base_accounts') }}

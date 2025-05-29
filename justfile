@@ -21,20 +21,16 @@ set windows-shell := ["pwsh", "-NoLogo", "-NoProfileLoadTime", "-Command"]
 @setup:
   $ErrorActionPreference = "Stop"
 
+  # Need to check for uv installation and install here if needed.
+
   # Evaluates to false if set; otherwise, sets root
-  if (-not $env:VENV_DIR) {$env:VENV_DIR=".\.venv"}
-
-  echo "Setting up your environment..."
-  echo "venv_dir=$($env:VENV_DIR)"
-
-  # Create the venv dir
-  if (!(Test-Path $env:VENV_DIR)) {\
-    New-Item -Path $env:VENV_DIR -ItemType Directory;\
-    python -m venv $env:VENV_DIR;\
-  }
+  uv venv --python 3.12.10 --allow-insecure-host https://github.com
 
   # Activate the venv
-  Invoke-Expression "$($env:VENV_DIR)\Scripts\activate"
+  Invoke-Expression "$($env:VENV_DIR)\Scripts\activate.ps1"
+
+  # Install deps
+  uv pip install -r requirements-dev.txt --native-tls
 
 @test:
   if ($true) {\
@@ -44,7 +40,7 @@ set windows-shell := ["pwsh", "-NoLogo", "-NoProfileLoadTime", "-Command"]
 
 # List files that are changed between current branch and remote main
 @ls:
-  git diff --diff-filter=AMU --name-status origin/main . | ForEach-Object {$_ -replace '^[A-Z]\s+'}
+  git -c core.safecrlf=false diff --diff-filter=AMU --name-status origin/main . | ForEach-Object {$_ -replace '^[A-Z]\s+'}
 
 # [SQLFLUFF]
 
@@ -77,3 +73,42 @@ alias ff := fix_failed
 @lint_failed:
   ./sqlfluff.ps1 -do lint -select failed
 alias lf := lint_failed
+
+# Print the local run_results.json to PS table.
+@results:
+  $json = Get-Content -Path "./target/run_results.json" -Raw | ConvertFrom-Json; \
+  $results = $json.results | \
+    Where-Object { $_.relation_name } | \
+    Sort-Object -Property execution_time | \
+    ForEach-Object { \
+      if ($_.unique_id.startswith("test")) { \
+        $type = "test" \
+      } else { \
+        $type = "model" \
+      } \
+      [PSCustomObject]@{ \
+        run_time_sec    = [math]::Round($_.execution_time, 2); \
+        run_time_min    = [math]::Round($_.execution_time / 60, 2); \
+        status          = $_.status; \
+        rows_affected   = $_.adapter_response.rows_affected; \
+        type            = $type; \
+        node_name       = $_.relation_name; \
+        query_id        = $_.adapter_response.query_id; \
+      } \
+    }; \
+  $results \
+    | Sort-Object \
+      @{Expression={$_.type}; Descending=$false}, \
+      @{Expression={$_.status} ;Descending=$false}, \
+      @{Expression={$_.run_time_sec} ;Descending=$false} | \
+    Format-Table -AutoSize; \
+  $invocation_command = $json.args.invocation_command; \
+  Write-Output "invocation_command: $invocation_command"
+
+# Run dbt-osmosis for all changes models.
+@osmosis:
+  Invoke-Expression "$($env:VENV_DIR)\Scripts\activate.ps1"
+  dbt-osmosis yaml refactor $($(just ls) | Where-Object {$_ -like 'models/*.sql'}) --auto-apply
+
+
+

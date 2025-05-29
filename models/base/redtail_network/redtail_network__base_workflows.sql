@@ -171,7 +171,6 @@ select
     , {{ col_is_head(reference=src,
      reference_date_col='_effective_at::date', source_date_col='_effective_at::date') }}
     , w._effective_at::timestamp_ltz       as effective_at
-    , w._effective_at::date                as effective_date
     , w._created_at::timestamp_ltz         as _source_loaded_at
     , w._source_file::varchar(200)         as _source_file
 

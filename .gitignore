@@ -24,3 +24,4 @@ target-base/
 .aider*
 .vscode\mcp.json
 .env.dev
+dbt_internal_packages/

@@ -2,11 +2,11 @@ version: 2
 
 sources:
   - name: flyer
-    description: ""
+    description: ''
     database: "{{ var('db_raw', env_var('DBT_DB_RAW', 'raw')) }}"
     tables:
       - name: allocations
-        description: ""
+        description: ''
         columns:
           - name: JSON
             data_type: VARIANT
@@ -21,7 +21,7 @@ sources:
             data_type: TIMESTAMP_NTZ
             description: ''
       - name: positions
-        description: ""
+        description: ''
         columns:
           - name: JSON
             data_type: VARIANT
@@ -36,7 +36,7 @@ sources:
             data_type: TIMESTAMP_NTZ
             description: ''
       - name: groups
-        description: "Raw groups data from copilot"
+        description: Raw groups data from copilot
         columns:
           - name: JSON
             data_type: VARIANT
@@ -51,7 +51,7 @@ sources:
             data_type: TIMESTAMP_NTZ
             description: ''
       - name: models
-        description: "Raw models data from copilot"
+        description: Raw models data from copilot
         columns:
           - name: JSON
             data_type: VARIANT
@@ -66,7 +66,7 @@ sources:
             data_type: TIMESTAMP_NTZ
             description: ''
       - name: restrictions
-        description: "Raw security restrictions data from copilot"
+        description: Raw security restrictions data from copilot
         columns:
           - name: JSON
             data_type: VARIANT
@@ -81,7 +81,7 @@ sources:
             data_type: TIMESTAMP_NTZ
             description: ''
       - name: accounts
-        description: "Raw account data from copilot"
+        description: Raw account data from copilot
         columns:
           - name: JSON
             data_type: VARIANT
@@ -96,7 +96,7 @@ sources:
             data_type: TIMESTAMP_NTZ
             description: ''
       - name: sod_salesforce_accounts
-        description: "Salesforce estate item table used for SOD accounts."
+        description: Salesforce estate item table used for SOD accounts.
         columns:
           - name: ID
             data_type: VARCHAR
@@ -207,7 +207,7 @@ sources:
             data_type: TIMESTAMP_NTZ
             description: ''
       - name: sod_accounts_history
-        description: "History of FixFlyer SOD accounts."
+        description: History of FixFlyer SOD accounts.
         columns:
           - name: EFFECTIVE_DATE
             data_type: DATE
@@ -276,7 +276,7 @@ sources:
             data_type: TIMESTAMP_LTZ
             description: ''
       - name: sod_positions_history
-        description: "History of FixFlyer SOD positions."
+        description: History of FixFlyer SOD positions.
         columns:
           - name: EFFECTIVE_DATE
             data_type: DATE

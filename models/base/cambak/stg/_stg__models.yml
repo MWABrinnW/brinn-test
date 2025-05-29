@@ -1,0 +1,75 @@
+version: 2
+models:
+  - name: cambak__int_accounts
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: FIRM_SOURCE
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_VALUE
+        description: ''
+      - name: ACCOUNT_ID_CRM
+        description: ''
+      - name: ACCOUNT_ID_PMS
+        description: ''
+      - name: ACCOUNT_NAME
+        description: ''
+      - name: CLIENT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_PMS
+        description: ''
+      - name: CLIENT_NAME
+        description: ''
+      - name: REGISTRANT_NAME
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: ACCOUNT_TYPE
+        description: ''
+      - name: AUM_CLASSIFICATION
+        description: ''
+      - name: MODEL_INVESTMENT_STRATEGY
+        description: ''
+      - name: ADVISOR
+        description: ''
+      - name: ADVISOR_ID
+        description: ''
+      - name: ADVISOR_ID_SOURCE
+        description: ''
+      - name: DISCRETION_STATUS
+        description: ''
+      - name: IS_ACTIVE
+        description: ''
+      - name: OPENED_DATE
+        description: ''
+      - name: CLOSED_DATE
+        description: ''
+      - name: LOCATION_CODE
+        description: Mariner Location ID for the location (ex. 100, L-10015)
+      - name: OFFICE_NAME
+        description: Office name/location in the format of 'City, State'
+      - name: LINK
+        description: ''
+      - name: LINK_TYPE
+        description: ''
+      - name: LINK_SUBTYPE
+        description: ''
+      - name: IS_INSTITUTIONAL
+        description: ''
+      - name: IS_ERISA
+        description: ''
+      - name: _CREATED_AT
+        description: >-
+          Datetime representing when the record was loaded into the table from the source file.
+      - name: _EXTRA_FIELDS
+        description: ''

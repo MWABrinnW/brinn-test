@@ -14,13 +14,7 @@ models:
         description: Firm entity associated with the link value.
         tests:
           - accepted_values:
-              values: [
-                'mwa',
-                'mps',
-                'andco',
-                'baystate',
-                'network'
-              ]
+              values: [mwa, mps, andco, baystate, network]
         meta:
           row_access_policy: rap_firm_source
         data_type: VARCHAR
@@ -52,26 +46,17 @@ models:
         data_type: VARCHAR
         tests:
           - accepted_values:
-              values: [
-                'Data Aggregation / Reporting Only',
-                'AUA - Assets Under Advisory',
-                'Needs Classification',
-                'Employee Account ( Non-AUA / Non-AUM )',
-                'AUM - Assets Under Management'
-              ]
-              where: "is_legacy=0"
+              values: [Data Aggregation / Reporting Only, AUA - Assets Under Advisory, Needs Classification,
+                Employee Account ( Non-AUA / Non-AUM ), AUM - Assets Under Management]
+              where: is_legacy=0
       - name: ADVISOR
         data_type: VARCHAR
       - name: DISCRETION_STATUS
         data_type: VARCHAR
         tests:
           - accepted_values:
-              values: [
-                'discretionary',
-                'non-discretionary',
-                'partial'
-              ]
-              where: "is_legacy=0 and discretion_status is not null"
+              values: [discretionary, non-discretionary, partial]
+              where: is_legacy=0 and discretion_status is not null
       - name: IS_ACTIVE
         data_type: NUMBER
       - name: OPENED_DATE

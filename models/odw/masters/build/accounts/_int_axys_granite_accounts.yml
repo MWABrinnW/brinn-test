@@ -1,0 +1,58 @@
+version: 2
+models:
+  - name: int_axys_granite_accounts
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: FIRM_SOURCE
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: TYPE
+        description: ''
+      - name: _CREATED_AT
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: _SOURCE_FILE
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: ACCOUNT_ID
+        description: ''
+      - name: ACCOUNT_NAME
+        description: ''
+      - name: CLIENT_ID
+        description: ''
+      - name: IS_ACTIVE
+        description: ''
+      - name: OPENED_DATE
+        description: ''
+      - name: CLOSED_DATE
+        description: ''
+      - name: ACCOUNT_VALUE
+        description: ''
+      - name: ADVISOR
+        description: ''
+      - name: ADVISOR_ID
+        description: ''
+      - name: ADVISOR_ID_SOURCE
+        description: ''
+      - name: ADVISOR_EMAIL
+        description: ''
+      - name: MODEL_INVESTMENT_STRATEGY
+        description: ''
+      - name: IS_DISCRETIONARY
+        description: ''
+      - name: IS_VOTING_PROXIED
+        description: ''
+      - name: IS_PRIME_BROKER
+        description: ''

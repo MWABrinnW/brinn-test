@@ -1,0 +1,114 @@
+version: 2
+models:
+  - name: schwab__base_open_positions_taxable_fresh
+    columns:
+      - name: CUSTODIAN
+        description: Custodian name, lower-case, no spaces.
+      - name: FIRM_SOURCE
+        description: Firm entity associated with the link value.
+      - name: FIRM
+        description: ''
+      - name: RECORD_TYPE
+        description: ''
+      - name: CUSTODIAN_ID
+        description: ''
+      - name: MASTER_ACCOUNT_NUMBER
+        description: ''
+      - name: MASTER_ACCOUNT_NAME
+        description: ''
+      - name: BUSINESS_DATE
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: SECURITY_TYPE
+        description: ''
+      - name: PRODUCT_CODE
+        description: ''
+      - name: PRODUCT_CATEGORY_CODE
+        description: ''
+      - name: TAX_CODE
+        description: ''
+      - name: SYMBOL_TICKER
+        description: ''
+      - name: CUSIP
+        description: ''
+      - name: SCHWAB_INTERNAL_ID
+        description: ''
+      - name: ITEM_ISSUE_ID
+        description: ''
+      - name: ISIN
+        description: ''
+      - name: SEDOL
+        description: ''
+      - name: OPTIONS_DISPLAY_SYMBOL
+        description: ''
+      - name: UNDERLYING_TICKER_SYMBOL
+        description: ''
+      - name: UNDERLYING_CUSIP
+        description: ''
+      - name: UNDERLYING_SCHWAB_INTERNAL_ID
+        description: ''
+      - name: UNDERLYING_ITEM_ISSUE_ID
+        description: ''
+      - name: UNDERLYING_ISIN
+        description: ''
+      - name: UNDERLYING_SEDOL
+        description: ''
+      - name: CURRENT_QUANTITY
+        description: ''
+      - name: LONG_SHORT_INDICATOR
+        description: ''
+      - name: CURRENT_MARKET_VALUE
+        description: ''
+      - name: ACCRUED_INTEREST_FIXED_INCOME
+        description: ''
+      - name: COST_BASIS_UNAMORTIZED_COST_BASIS_AMOUNT
+        description: ''
+      - name: COST_PER_SHARE_SHARE_COST_AMOUNT
+        description: ''
+      - name: ADJUSTED_COST_BASIS_AMORTIZED_COST_BASIS_AMOUNT
+        description: ''
+      - name: ADJUSTED_COST_PER_SHARE
+        description: ''
+      - name: UNREALIZED_GAIN_LOSS_UGL
+        description: ''
+      - name: COST_BASIS_FULLY_KNOWN
+        description: ''
+      - name: COST_BASIS_TYPE
+        description: ''
+      - name: ACCOUNT_TAXABLE_INDICATOR
+        description: ''
+      - name: CERTIFIED_INDICATOR
+        description: ''
+      - name: ORIGINAL_FACE
+        description: ''
+      - name: ACCOUNT_LOT_SELECTION_METHOD_DEFAULT
+        description: ''
+      - name: COST_METHOD
+        description: ''
+      - name: PRINCIPAL_PAYDOWN_FACTOR
+        description: ''
+      - name: MASTER_NUMBER
+        description: ''
+      - name: IS_DECEASED
+        description: Is this a master/link designated for deceased clients.
+      - name: IS_FROM_TDA_MIGRATION
+        description: Is the Schwab master (link) related to the TDA migration in September 2023.
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: RN
+        description: ''
+      - name: RN_FIRM_SOURCE
+        description: ''
+      - name: RN_GLOBAL
+        description: ''
+      - name: IS_HEAD
+        description: ''
+      - name: IS_CURRENT
+        description: ''
+      - name: _CREATED_AT
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: Time when the records were created in the source table.
+      - name: _SOURCE_FILE
+        description: ''

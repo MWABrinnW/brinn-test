@@ -2,12 +2,12 @@ version: 2
 
 sources:
   - name: black_diamond_baystate
-    description: ""
+    description: ''
     database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
     schema: black_diamond_baystate
     tables:
       - name: accounts
-        description: ""
+        description: ''
         columns:
           - name: JSON
             data_type: VARIANT
@@ -25,7 +25,7 @@ sources:
             data_type: NUMBER
             description: ''
       - name: client
-        description: ""
+        description: ''
         columns:
           - name: JSON
             data_type: VARIANT
@@ -43,7 +43,7 @@ sources:
             data_type: NUMBER
             description: ''
       - name: portfolio
-        description: ""
+        description: ''
         columns:
           - name: JSON
             data_type: VARIANT
@@ -61,7 +61,7 @@ sources:
             data_type: NUMBER
             description: ''
       - name: portfolio_group
-        description: ""
+        description: ''
         columns:
           - name: JSON
             data_type: VARIANT
@@ -79,7 +79,7 @@ sources:
             data_type: NUMBER
             description: ''
       - name: relationship
-        description: ""
+        description: ''
         columns:
           - name: JSON
             data_type: VARIANT
@@ -97,7 +97,7 @@ sources:
             data_type: NUMBER
             description: ''
       - name: target
-        description: ""
+        description: ''
         columns:
           - name: JSON
             data_type: VARIANT
@@ -115,7 +115,7 @@ sources:
             data_type: NUMBER
             description: ''
       - name: transactions
-        description: ""
+        description: ''
         columns:
           - name: JSON
             data_type: VARIANT
@@ -133,12 +133,12 @@ sources:
             data_type: NUMBER
             description: ''
   - name: black_diamond_baystate_raw
-    description: ""
+    description: ''
     database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
     schema: black_diamond_baystate
     tables:
       - name: bills
-        description: ""
+        description: ''
         columns:
           - name: JSON
             data_type: VARIANT

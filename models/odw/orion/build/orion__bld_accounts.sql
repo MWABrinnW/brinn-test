@@ -6,9 +6,9 @@
     on_schema_change='sync_all_columns'
 ) }}
 
-{% set lookback = cvar('lookback') %}
-{% set dev_filter = cvar('dev_day_filter') %}
-{%- set max_lookback = 183 -%}
+{%- set start_date = cvar('start_date_orion') -%}
+{%- set lookback = cvar('lookback') -%}
+
 
 -- need distinct because of tiered bill schedules
 with cte_dates_to_refresh as (
@@ -30,12 +30,11 @@ with cte_dates_to_refresh as (
         select distinct effective_date
         from {{ ref('orion__base_vw_account') }}
         where 1 = 1
-            -- Max lookback for a full refresh.
-            and effective_date >= current_date() - 183
-
-            {%- if target.name not in ['prod'] %}
-            --Restrict lookback window in dev.
-            and effective_date >= current_date() - {{ dev_filter }}
+            -- Model start date. This applies for full-refresh.
+            and effective_date >= '{{ start_date }}'
+            {%- if is_incremental() or target.name not in ['prod'] %}
+            -- Restrict lookback window if incremental or not prod
+            and effective_date >= current_date() - {{ lookback }}
             {%- endif %}
     {%- endif %}
 )
@@ -133,6 +132,7 @@ select
     , cust.name::text(500)                          as custodian
     , a.pkaccount::text(200)                        as account_id
     , regtype.sregdesc::text(200)                   as account_type
+    , regtype.isqual::int                           as is_qualified
     , p.entityname::text(500)                       as account_name
     , reg.pkregistration::integer                   as registration_id
     , regp.reg_pers_entityname::text(512)           as registrant_name
@@ -195,6 +195,7 @@ select
         , udf_ecldb.fieldvalue
     )::boolean::int                                 as eclipse_enabled
     , udfcom.fieldvalue::decimal(16 , 2)            as committed_amount_udf
+    , a.isdiscretionary::int                        as is_discretionary
 
     -- META ----------------------------------------  ---------------------------
     , current_timestamp()::timestamp_ntz            as _created_at
@@ -317,7 +318,6 @@ left join cte_eclipse_udf as udf_ecldb
     and a.effective_date = udf_ecldb.effective_date
 
 where 1 = 1
-    and a.effective_date >= current_date() - {{ max_lookback }}
     -- If an account record doesn't have an account number we'll exclude it.
     -- Not sure if this has happened before but it would probably indicate a corrupt,
     -- fake, or otherwise useless record. We _need_ an account number.

@@ -6,9 +6,8 @@
     cluster_by=['effective_date', 'fkalclient', 'left(account_number, 2)']
 ) }}
 
-{% set lookback = cvar('lookback') %}
-{% set dev_filter = cvar('dev_day_filter') %}
-{%- set max_lookback = 183 -%}
+{%- set start_date = cvar('start_date_orion') -%}
+{%- set lookback = cvar('lookback') -%}
 
 select
     v.effective_date                                                             as effective_date
@@ -82,16 +81,14 @@ left join {{ ref('orion__base_vw_productpricefactor') }} as ppf
     on ass.productid = ppf.fkproduct
     and v.effective_date = ppf.factordate
 where 1 = 1
-    -- Max lookback for a full refresh.
-    and v.effective_date >= current_date() - {{ max_lookback }}
-    {%- if target.name not in ['prod'] %}
-        -- Restrict lookback window in dev.
-        and v.effective_date >= current_date() - {{ dev_filter }}
+    -- Model start date. This applies for full-refresh.
+    and v.effective_date >= '{{ start_date }}'
+    {%- if is_incremental() or target.name not in ['prod'] %}
+    -- Restrict lookback window if incremental or not prod
+    and v.effective_date >= current_date() - {{ lookback }}
     {%- endif %}
 
     {%- if is_incremental() %}
-        -- Restrict lookback for incremental run.
-        and v.effective_date >= current_date() - {{ lookback }}
         -- These are the dates that need added/refreshed.
         and v.effective_date in (
             select aa.effective_date

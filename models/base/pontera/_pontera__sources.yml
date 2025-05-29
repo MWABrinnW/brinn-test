@@ -3,16 +3,21 @@ version: 2
 sources:
   - name: pontera
     database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
-    description: ""
+    description: ''
     schema: pontera
     tables:
       - name: accounts
         columns:
           - name: _data
+            description: ''
           - name: effective_date
+            description: ''
           - name: _created_at
+            description: ''
           - name: _source_file
+            description: ''
           - name: _id
+            description: ''
       - name: clients
         columns:
           - name: _data

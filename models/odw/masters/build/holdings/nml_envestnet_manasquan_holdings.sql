@@ -30,6 +30,7 @@ select
     --- [meta] ----------------------------------------------------------------------
     , is_head::int                        as is_head
     , is_current::int                     as is_current
+    , _created_at::datetime               as _created_at
     , _created_at::datetime               as _source_loaded_at
     , null::text(200)                     as _source_file
 from {{ ref('envestnet_manasquan__stg_positions') }}

@@ -151,6 +151,7 @@ select
 ,{{ col_is_current(date_col='effective_date') }}
 , effective_date::date as effective_date
 , _source_file as _source_file
+, _created_at::timestamp as _created_at
 , _created_at::timestamp as _source_loaded_at
 from {{ src }}
 where true

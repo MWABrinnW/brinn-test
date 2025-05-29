@@ -1,0 +1,107 @@
+version: 2
+models:
+  - name: advisors_enterprise
+    columns:
+      - name: SYSTEM_NAME
+        description: System information in which the data comes from (PMS, CRM, Financials, etc.)
+      - name: ASSOCIATE_ID
+        description: >-
+          System identifier for the advisor/solicitor (Oracle HCM ID, Redtail ID or CPG/Baystate ID, from
+          CRM)
+      - name: ADVISOR_LEGAL_NAME_FULL
+        description: Full name for the advisor/solicitor in the format of <first name> <last name>
+      - name: ADVISOR_LEGAL_NAME_FIRST
+        description: First name of the advisor/solicitor
+      - name: ADVISOR_LEGAL_NAME_LAST
+        description: Last name of the advisor/solicitor
+      - name: ADVISOR_TYPE
+        description: 'Type of advisor: W-2, 1099, Solicitor'
+      - name: ADVISOR_NONADVISOR
+        description: >-
+          Indicates whether this position is an Advisor or Non-Advisor role (criteria based on compliance
+          considerations)
+      - name: EMPLOYMENT_STATUS
+        description: Indicates if the associated is currently Active, Terminated, or on Leave
+      - name: ACTIVE_IND
+        description: >-
+          Indicates if this advisor/solicitor is active for the given effective date.  1=true, 0=false
+      - name: ADVISOR_FIRM_NAME
+        description: Firm/employer for the advisor/solicitor
+      - name: ADVISOR_TITLE
+        description: Job title for the advisor/solicitor
+      - name: ADVISOR_WORKER_TYPE
+        description: Type of worker (Employee, Intern, Temporary)
+      - name: ADVISOR_START_DATE
+        description: Date the advisor/solicitor started with Mariner Wealth or Mariner Independent
+      - name: ADVISOR_FINAL_TERMINATION_DATE
+        description: Date the advisor/solicitor left Mariner Wealth or the Mariner Independent platform
+      - name: ADVISOR_WORK_SITE_LOCATION_NAME
+        description: >-
+          The location name of the physical working address of the associate (ex. Overland Park, KS).
+      - name: ADVISOR_WORK_SITE_ADDRESS_CITY
+        description: >-
+          City of the physical working location for the advisor/solicitor, reporting location for remote
+          advisors/solicitors
+      - name: ADVISOR_WORK_SITE_ADDRESS_STATE_ABB
+        description: >-
+          2-letter state abbreviation of the physical working location for the advisor/solicitor, reporting
+          location for remote advisors/solicitors
+      - name: ADVISOR_WORK_SITE_ADDRESS_ZIP_CODE
+        description: >-
+          Zip code of the physical working location for the advisor/solicitor, reporting location for
+          remote advisors/solicitors
+      - name: ADVISOR_WORK_EMAIL
+        description: Advisor/solicitor work email address
+      - name: JOB_FUNCTION_NAME
+        description: Name of the primary job function of the associate
+      - name: JOB_FAMILY
+        description: Name of the group the employee is a part of
+      - name: JOB_LEVEL
+        description: 'The level of position for the advisor: Advisor, Senior Advisor, etc.'
+      - name: INDIVIDUAL_CRD
+        description: Individual advisor/solicitor CRD number
+      - name: FIRM_CRD
+        description: Firm CRD for the advisor/contact (used to indicate MPS or MIAN)
+      - name: REGISTERED_ENTITY
+        description: >-
+          Entity affiliated with the Firm CRD for advisor, which should be consistent with the SEC advisor
+          information (ex. MPS or MIAN).
+      - name: INDEPENDENT_CATEGORY
+        description: >-
+          Mariner Independent Advisor/solicitor category, sourced from Redtail. Not applicable to W-2
+          advisors.
+      - name: INDEPENDENT_STATUS
+        description: >-
+          Mariner Independent Advisor/solicitor status, sourced from Redtail. Not applicable to W-2 advisors.
+      - name: INDEPENDENT_AFFILIATION_MODEL
+        description: >-
+          Which Mariner Independent affiliation model does this advisor/solicitor fall into? Not applicable
+          to W-2 advisors.
+      - name: INDEPENDENT_CATEGORY_LEGACY
+        description: >-
+          Redtail category prior to the repurpose of this field to Mariner Independent affiliation models
+          in September 2024
+      - name: _3_ACCOUNTING_ID
+        description: >-
+          Accounting ID that corresponds 1:1 with a Mariner Location Code, segment 3 of full account number
+          from chart of accounts
+      - name: ADVISOR_DEPARTMENT_NAME
+        description: Org Office or Department Name
+      - name: LOCATION_CODE
+        description: Mariner Location ID for the location (ex. 100, L-10015)
+      - name: REGION_NAME
+        description: >-
+          Region Name associated with associate Accounting ID/Department (sourced from Location Master)
+      - name: LOCATION_NAME
+        description: >-
+          Location Name associated with associate Accounting ID/Department (sourced from Location Master)
+      - name: EFFECTIVE_DATE
+        description: >-
+          State of the data - Reporting period As of Date, or date the data was refreshed in the underlying
+          table
+      - name: _CREATED_AT
+        description: Date and time the record was created on this table
+      - name: IS_HEAD
+        description: Indicates which records are the most recent (1=current, 0=historical)
+sources: []
+seeds: []

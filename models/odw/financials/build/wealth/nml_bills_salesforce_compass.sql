@@ -260,7 +260,6 @@ select
     , 'User'::text(200)                                               as currency_conversion_type
     , ir.net_fee_c::number(20 , 5)                                    as unit_selling_price
 
-
     {# --[gavins adds]
     ,ir.short_name_c::text(200) as short_name
     ,ir.branch_c::text(200) as branch_primary
@@ -270,7 +269,6 @@ select
     ,ir.quarterback_c::text(200) as quarterback_primary
     ,ir.old_name_c::text(200) as old_name
     ,acc.household_location_id::text(200) as mariner_location #}
-
 
     -- exlucsion
     , array_to_string(
@@ -286,7 +284,6 @@ select
     )::text(2000)                                                     as excluded_reasons
     , case when excluded_reasons = '' then 0 else 1 end::int          as is_excluded
 
-
     -- [finanical dates] dependencies on upstream identifiers
     , {{ financials_set_revenue_period() }}
 
@@ -295,7 +292,6 @@ select
     , ir._created_at::timestamp_ntz(9)                                as _source_loaded_at
     , null::text(200)                                                 as _source_file
     , null::text(200)                                                 as _box_file_id
-
 
     -- These are fields that are likely specific to this source
     -- and are intended to help with one off investigations or
@@ -320,7 +316,7 @@ left join {{ ref('dates') }} as dt
 -- We want to know what it looked like at the time of billing.
 left join {{ ref('salesforce_compass_accounts') }} as acc-- historcial
     on ir.estate_item_c = acc.id
-    and least(ir.invoice_date_c , ir.revenue_as_of_date_c) = acc.effective_date
+    and least(ir.invoice_date_c , ir.revenue_as_of_date_c) = acc.effective_at::date
 -- If the join with date to the account record fails, we will go ahead
 -- and use the latest available version of the record.
 left join {{ ref('salesforce_compass_accounts') }} as acc2

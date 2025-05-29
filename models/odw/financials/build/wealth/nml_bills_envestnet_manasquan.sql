@@ -20,7 +20,6 @@ select
     , b.system_key::text(200)                                                    as system_key
     , b.firm_source::text(200)                                                   as firm_source
 
-
     -- [location]
     , coalesce(
         a_hist.household_location_code
@@ -177,7 +176,6 @@ select
         , 'join_crm_sf_eff_date' , iff(a_hist.account_number is not null , 1 , 0)
         , 'join_crm_sf_is_head' , iff(a_head.account_number is not null , 1 , 0)
     )::variant                                                                   as _extra_fields
-
 
 from {{ ref('envestnet_manasquan__stg_bills') }} as b
 left join {{ ref('salesforce_compass_accounts') }} as a_hist

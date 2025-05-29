@@ -3,10 +3,10 @@ models:
   - name: orion__base_vw_account
     data_tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["effective_date", "fkalclient", "pkaccount"]
-          ignore_row_if: "any_value_is_missing"
+          column_list: [effective_date, fkalclient, pkaccount]
+          ignore_row_if: any_value_is_missing
           quote_columns: false
-          row_condition: "effective_date >= current_date() - 4"
+          row_condition: effective_date >= current_date() - 4
     columns:
       - name: CLIENTNAME
         description: ''
@@ -430,10 +430,10 @@ models:
   - name: orion__base_vw_accountbalancestatus
     data_tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["effective_date", "fkalclient", "fkaccount"]
-          ignore_row_if: "any_value_is_missing"
+          column_list: [effective_date, fkalclient, fkaccount]
+          ignore_row_if: any_value_is_missing
           quote_columns: false
-          row_condition: "effective_date >= current_date() - 4"
+          row_condition: effective_date >= current_date() - 4
     columns:
       - name: CLIENTNAME
         description: ''
@@ -745,8 +745,8 @@ models:
   - name: orion__base_vw_billaccount
     data_tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["fkalclient", "fkaccount"]
-          ignore_row_if: "any_value_is_missing"
+          column_list: [fkalclient, fkaccount]
+          ignore_row_if: any_value_is_missing
           quote_columns: false
     columns:
       - name: CLIENTNAME
@@ -1182,8 +1182,8 @@ models:
   - name: orion__base_vw_asset
     data_tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["fkalclient", "fkasset"]
-          ignore_row_if: "any_value_is_missing"
+          column_list: [fkalclient, fkasset]
+          ignore_row_if: any_value_is_missing
     columns:
       - name: CLIENTNAME
         description: ''
@@ -2266,23 +2266,23 @@ models:
   - name: orion__base_vw_assetvalue
     data_tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["effective_date", "fkalclient", "fkasset"]
-          ignore_row_if: "any_value_is_missing"
+          column_list: [effective_date, fkalclient, fkasset]
+          ignore_row_if: any_value_is_missing
           quote_columns: false
-          row_condition: "effective_date >= current_date() - 4"
+          row_condition: effective_date >= current_date() - 4
     columns:
       - name: CLIENTNAME
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: SYSTEM_NAME
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: SYSTEM_INSTANCE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: SYSTEM_KEY
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: FIRM_SOURCE
         description: ''
         meta:
@@ -2319,7 +2319,7 @@ models:
         data_type: TIMESTAMP_NTZ
       - name: _PK
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: _IS_FULL
         description: ''
         data_type: NUMBER
@@ -2331,10 +2331,10 @@ models:
         data_type: TIMESTAMP_NTZ
       - name: _SOURCE_FILE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: _CHECKSUM
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
   - name: orion__base_vw_contribcode
     columns:
       - name: CLIENTNAME
@@ -2485,23 +2485,23 @@ models:
   - name: orion__base_vw_costbasisunrealized
     data_tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["effective_date", "fkalclient", "fkasset", "fkassetcostbasis"]
-          ignore_row_if: "any_value_is_missing"
+          column_list: [effective_date, fkalclient, fkasset, fkassetcostbasis]
+          ignore_row_if: any_value_is_missing
           quote_columns: false
-          row_condition: "effective_date >= current_date() - 4"
+          row_condition: effective_date >= current_date() - 4
     columns:
       - name: CLIENTNAME
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: SYSTEM_NAME
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: SYSTEM_INSTANCE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: SYSTEM_KEY
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: FIRM_SOURCE
         description: ''
         meta:
@@ -2511,7 +2511,7 @@ models:
         data_type: NUMBER
       - name: RECORDSOURCE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: FKASSET
         description: ''
         data_type: NUMBER
@@ -2553,7 +2553,7 @@ models:
         data_type: DATE
       - name: _PK
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: _EXTRACTED_AT
         description: ''
         data_type: TIMESTAMP_NTZ
@@ -2565,10 +2565,10 @@ models:
         data_type: TIMESTAMP_NTZ
       - name: _SOURCE_FILE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: _CHECKSUM
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: _IS_FULL
         description: ''
         data_type: NUMBER
@@ -2962,8 +2962,8 @@ models:
   - name: orion__base_vw_brokerdealer
     data_tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["fkalclient", "pkbrokerdealer"]
-          ignore_row_if: "any_value_is_missing"
+          column_list: [fkalclient, pkbrokerdealer]
+          ignore_row_if: any_value_is_missing
           quote_columns: false
     columns:
       - name: CLIENTNAME
@@ -3657,8 +3657,8 @@ models:
   - name: orion__base_vw_fundfamily
     data_tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["fkalclient", "pkfundfamily"]
-          ignore_row_if: "any_value_is_missing"
+          column_list: [fkalclient, pkfundfamily]
+          ignore_row_if: any_value_is_missing
           quote_columns: false
     columns:
       - name: CLIENTNAME
@@ -4271,8 +4271,8 @@ models:
   - name: orion__base_vw_downloadsource
     data_tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["fkalclient", "pkdownloadsource"]
-          ignore_row_if: "any_value_is_missing"
+          column_list: [fkalclient, pkdownloadsource]
+          ignore_row_if: any_value_is_missing
           quote_columns: false
     columns:
       - name: CLIENTNAME
@@ -5152,8 +5152,8 @@ models:
   - name: orion__base_vw_personal
     data_tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["fkalclient", "pkpersonal"]
-          ignore_row_if: "any_value_is_missing"
+          column_list: [fkalclient, pkpersonal]
+          ignore_row_if: any_value_is_missing
           quote_columns: false
     columns:
       - name: CLIENTNAME
@@ -5370,8 +5370,8 @@ models:
   - name: orion__base_vw_personal_brokerdealer
     data_tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["effective_date", "bd_fkalclient", "bd_pkbrokerdealer"]
-          ignore_row_if: "any_value_is_missing"
+          column_list: [effective_date, bd_fkalclient, bd_pkbrokerdealer]
+          ignore_row_if: any_value_is_missing
           quote_columns: false
           row_condition: effective_date >= current_date() - 4
     columns:
@@ -5526,10 +5526,10 @@ models:
   - name: orion__base_vw_personal_registration
     data_tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["effective_date", "reg_fkalclient", "reg_fkpersonal", "reg_pkregistration"]
-          ignore_row_if: "any_value_is_missing"
+          column_list: [effective_date, reg_fkalclient, reg_fkpersonal, reg_pkregistration]
+          ignore_row_if: any_value_is_missing
           quote_columns: false
-          row_condition: "effective_date >= current_date() - 4"
+          row_condition: effective_date >= current_date() - 4
     columns:
       - name: CLIENTNAME
         description: ''
@@ -5784,22 +5784,22 @@ models:
   - name: orion__base_vw_product
     data_tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["fkalclient", "pkproduct"]
-          ignore_row_if: "any_value_is_missing"
+          column_list: [fkalclient, pkproduct]
+          ignore_row_if: any_value_is_missing
           quote_columns: false
     columns:
       - name: CLIENTNAME
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: SYSTEM_NAME
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: SYSTEM_INSTANCE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: SYSTEM_KEY
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: FIRM_SOURCE
         description: ''
         meta:
@@ -5818,10 +5818,10 @@ models:
         data_type: DATE
       - name: PRODCREATEDBY
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: TICKER
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: CURRPRICE
         description: ''
         data_type: FLOAT
@@ -5830,34 +5830,34 @@ models:
         data_type: DATE
       - name: CUSIP
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: ISACTIVE
         description: ''
         data_type: NUMBER
       - name: PRODUCTNAME
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: EDITEDDATE
         description: ''
         data_type: DATE
       - name: EDITEDBY
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: OLDRECID
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: OLDLRECID
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: FKSHARECLASS
         description: ''
         data_type: NUMBER
       - name: APCCODE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: MICROPALCODE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: DEFAULTPRICE
         description: ''
         data_type: FLOAT
@@ -5872,10 +5872,10 @@ models:
         data_type: NUMBER
       - name: PRODUCTTYPENAME
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: FUNDNUMBER
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: ISUSEPRICETIME
         description: ''
         data_type: NUMBER
@@ -5950,7 +5950,7 @@ models:
         data_type: NUMBER
       - name: PRODUCTCLASS
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: FKRISKCATEGORY
         description: ''
         data_type: NUMBER
@@ -6001,7 +6001,7 @@ models:
         data_type: NUMBER
       - name: COLOR
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: ANNUALINCOMERATE
         description: ''
         data_type: FLOAT
@@ -6025,7 +6025,7 @@ models:
         data_type: NUMBER
       - name: PRODUCTNAMEOVERRIDE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: CREATEDDATE
         description: ''
         data_type: TIMESTAMP_NTZ
@@ -6034,14 +6034,11 @@ models:
         data_type: DATE
       - name: _PK
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: _EXTRACTED_AT
         description: ''
         data_type: TIMESTAMP_NTZ
       - name: IS_HEAD
-        description: ''
-        data_type: NUMBER
-      - name: IS_CURRENT
         description: ''
         data_type: NUMBER
       - name: _IS_FULL
@@ -6052,10 +6049,10 @@ models:
         data_type: TIMESTAMP_NTZ
       - name: _SOURCE_FILE
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
       - name: _CHECKSUM
         description: ''
-        data_type: TEXT
+        data_type: VARCHAR
   - name: orion__base_vw_billtype
     columns:
       - name: CLIENTNAME
@@ -6403,8 +6400,8 @@ models:
   - name: orion__base_vw_registrationtype
     data_tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["fkalclient", "pkregistrationtype"]
-          ignore_row_if: "any_value_is_missing"
+          column_list: [fkalclient, pkregistrationtype]
+          ignore_row_if: any_value_is_missing
           quote_columns: false
     columns:
       - name: CLIENTNAME
@@ -6684,10 +6681,10 @@ models:
   - name: orion__base_vw_modelagg
     data_tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["effective_date", "fkalclient", "fkmodelagg"]
-          ignore_row_if: "any_value_is_missing"
+          column_list: [effective_date, fkalclient, fkmodelagg]
+          ignore_row_if: any_value_is_missing
           quote_columns: false
-          row_condition: "effective_date >= current_date() - 4"
+          row_condition: effective_date >= current_date() - 4
     columns:
       - name: CLIENTNAME
         description: ''
@@ -7368,8 +7365,8 @@ models:
   - name: orion__base_vw_personal_household
     data_tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["hh_fkalclient", "hh_pkclient"]
-          ignore_row_if: "any_value_is_missing"
+          column_list: [hh_fkalclient, hh_pkclient]
+          ignore_row_if: any_value_is_missing
           quote_columns: false
     columns:
       - name: CLIENTNAME
@@ -8003,10 +8000,10 @@ models:
   - name: orion__base_vw_registration
     data_tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["effective_date", "fkalclient", "pkregistration"]
-          ignore_row_if: "any_value_is_missing"
+          column_list: [effective_date, fkalclient, pkregistration]
+          ignore_row_if: any_value_is_missing
           quote_columns: false
-          row_condition: "effective_date >= current_date() - 4"
+          row_condition: effective_date >= current_date() - 4
     columns:
       - name: CLIENTNAME
         description: ''
@@ -8222,10 +8219,10 @@ models:
   - name: orion__base_vw_representative
     data_tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["effective_date", "fkalclient", "pkrep"]
-          ignore_row_if: "any_value_is_missing"
+          column_list: [effective_date, fkalclient, pkrep]
+          ignore_row_if: any_value_is_missing
           quote_columns: false
-          row_condition: "effective_date >= current_date() - 4"
+          row_condition: effective_date >= current_date() - 4
     columns:
       - name: CLIENTNAME
         description: ''
@@ -8516,10 +8513,10 @@ models:
   - name: orion__base_vw_household
     data_tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["effective_date", "fkalclient", "pkclient"]
-          ignore_row_if: "any_value_is_missing"
+          column_list: [effective_date, fkalclient, pkclient]
+          ignore_row_if: any_value_is_missing
           quote_columns: false
-          row_condition: "effective_date >= current_date() - 4"
+          row_condition: effective_date >= current_date() - 4
     columns:
       - name: CLIENTNAME
         description: ''
@@ -9394,10 +9391,10 @@ models:
   - name: orion__base_vw_userdefinedfields_account
     data_tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["effective_date", "fkalclient", "code", "fkaccount"]
-          ignore_row_if: "any_value_is_missing"
+          column_list: [effective_date, fkalclient, code, fkaccount]
+          ignore_row_if: any_value_is_missing
           quote_columns: false
-          row_condition: "effective_date >= current_date() - 4"
+          row_condition: effective_date >= current_date() - 4
     columns:
       - name: CLIENTNAME
         description: ''
@@ -9808,8 +9805,8 @@ models:
   - name: orion__base_vw_subadvisor
     data_tests:
       - dbt_expectations.expect_compound_columns_to_be_unique:
-          column_list: ["fkalclient", "pksubadvisor"]
-          ignore_row_if: "any_value_is_missing"
+          column_list: [fkalclient, pksubadvisor]
+          ignore_row_if: any_value_is_missing
           quote_columns: false
     columns:
       - name: CLIENTNAME

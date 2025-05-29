@@ -1,3 +1,133 @@
+{{ config(
+    materialized='incremental',
+    unique_key='effective_date',
+    incremental_strategy='delete+insert',
+    on_schema_change='sync_all_columns',
+    cluster_by=['effective_date']
+) }}
+
+{%- set start_date = cvar('start_date_pms') -%}
+{%- set lookback = cvar('lookback') -%}
+
+{%-
+    set src_models = [
+          'salesforce_compass__base_plan_c'
+    ]
+-%}
+
+with destination_summary as (
+    {% if is_incremental() -%}
+    select effective_date, max(_created_at) as _created_at
+    from {{ this }}
+    where 1 = 1
+        -- Model start date. This applies for full-refresh.
+        and effective_date >= '{{ start_date }}'
+        {%- if is_incremental() or target.name not in ['prod'] %}
+        -- Restrict lookback window if incremental or not prod.
+        and effective_date >= current_date() - {{ lookback }}
+        {%- endif %}
+        -- RPS migrated to Cambak.
+        and effective_date <= '2025-04-29'
+    group by all
+    order by 1
+    {% else -%}
+    select null::date as effective_date
+        , null::timestamp as _created_at
+    {% endif -%}
+)
+
+, source_summary as (
+    {%- for src_model in src_models %}
+    select
+        effective_at::date          as effective_date
+        , max(_created_at)          as _created_at
+        , {{"'" ~ src_model ~ "'"}} as model_source
+    from {{ ref(src_model) }}
+    where 1 = 1
+        -- Model start date. This applies for full-refresh.
+        and effective_at::date >= '{{ start_date }}'
+        {%- if is_incremental() or target.name not in ['prod'] %}
+        -- Restrict lookback window if incremental or not prod.
+        and effective_at::date >= current_date() - {{ lookback }}
+        {%- endif %}
+        and effective_at::date < current_date()
+        -- RPS migrated to Cambak.
+        and effective_at::date <= '2025-04-29'
+    group by all
+
+    {%- if not loop.last %}
+
+    union all
+
+    {% endif -%}
+    {%- endfor %}
+)
+
+, date_spine as (
+    select effective_date from source_summary group by all
+    union
+    select effective_date from destination_summary group by all
+)
+
+
+, dates_to_refresh as (
+    select
+        a.effective_date    as effective_date
+        , s._created_at     as source_created_at
+        , d._created_at     as destination_created_at
+    from date_spine a
+    left join source_summary s
+        on a.effective_date = s.effective_date
+    left join destination_summary d
+        on a.effective_date = d.effective_date
+    where 1 = 1
+        and (
+            -- Check if missing from destination OR the source records are newer for that date.
+            s._created_at > coalesce(d._created_at, s._created_at - interval '1 day')
+        )
+    group by all
+)
+
+, base_plan as (
+    select
+        a.effective_at
+        , a.system_key
+        , a.id
+        , a.plan_type_c
+        , a.name
+        , a.account_c
+        , a.created_date
+        , a.date_iaa_submitted_c
+        , a.close_date_c
+        , a.plan_assets_c
+        , a.advisory_fee_schedule_c
+        , a.aum_classification_c
+        , a.fiduciary_relationship_c
+        , a.owner_id
+        , a.custodian_c
+        , a.sfdc_project_status_c
+        , a.fee_schedule_c
+        , a._created_at
+    from {{ ref('salesforce_compass__base_plan_c') }} as a
+    where 1 = 1
+        and exists(select 1 from dates_to_refresh)
+        and a.effective_at::date in (select distinct t.effective_date from dates_to_refresh as t)
+        and a.is_latest = 1
+        and coalesce(a.is_deleted , 0) = 0
+)
+
+, base_account as (
+    select
+        a.effective_at          as effective_at
+        , a.household_id        as household_id
+        , max(a.household_name) as household_name
+    from {{ ref('bld_salesforce_compass_accounts') }} as a
+    where 1 = 1
+        and exists(select 1 from dates_to_refresh)
+        and a.effective_at::date in (select distinct t.effective_date from dates_to_refresh as t)
+    group by all
+)
+
 select
     a.effective_at::date                                                      as effective_date
     , 'salesforce'                                                            as system_name
@@ -7,19 +137,26 @@ select
     , coalesce(ovrd_acct._account_number_formatted , a.id)                    as account_number_formatted
     , coalesce(ovrd_acct._account_number , a.id)                              as account_number
     , coalesce(ovrd_acct._account_number , a.id)                              as pms_account_number
-    , c.name::text(200)                                                       as pms_custodian
-    , a.id::text(200)                                                         as pms_account_id
-    , a.plan_type_c::text(200)                                                as pms_account_type
+    , c.name::text(500)                                                       as pms_custodian
+    , a.id::text(500)                                                         as pms_account_id
+    , a.plan_type_c::text(500)                                                as pms_account_type
     , a.name::text(500)                                                       as pms_account_name
     , null::text(500)                                                         as pms_registrant_name
     , a.account_c                                                             as pms_client_id
-    , ba.name::text(200)                                                      as pms_client_name
+    , ba.household_name::text                                                 as pms_client_name
     , iff(a.sfdc_project_status_c = 'Active Client/Plan' , 1 , 0)::int        as pms_is_active
     , a.created_date::date                                                    as pms_created_date
     , a.date_iaa_submitted_c::date                                            as pms_opened_date
     , a.close_date_c::date                                                    as pms_closed_date
-    , a.plan_assets_c::decimal(16 , 2)                                        as pms_account_value
-    , u.name::text(200)                                                       as pms_advisor
+    -- For quarter end, we need to allow time (2-3 weeks) for the business to back date
+    -- the plan asset value for the quarter end date. We only receive plan asset value
+    -- updates every quarter (maybe monthly?). The override file joined here allows us
+    -- to use the plan asset value that is provided a few weeks after month end.
+    , coalesce(
+        nv.plan_assets_c
+        , a.plan_assets_c
+    )::decimal(16 , 2)                                                        as pms_account_value
+    , u.name::text(500)                                                       as pms_advisor
     , u.employee_number::text                                                 as pms_advisor_id
     , case
         when (
@@ -28,11 +165,11 @@ select
         )
             then 'oracle__hcm'
     end::text                                                                 as pms_advisor_id_source
-    , u.email::text(200)                                                      as pms_advisor_email
-    , '301'::text(200)                                                        as pms_location_code
-    , a.advisory_fee_schedule_c::text(200)                                    as pms_fee_schedule
-    , null::text(200)                                                         as pms_model_investment_strategy
-    , a.aum_classification_c::text(200)                                       as pms_aum_classification
+    , u.email::text(500)                                                      as pms_advisor_email
+    , '301'::text(500)                                                        as pms_location_code
+    , a.advisory_fee_schedule_c::text(500)                                    as pms_fee_schedule
+    , null::text(500)                                                         as pms_model_investment_strategy
+    , a.aum_classification_c::text(500)                                       as pms_aum_classification
     , case
         when left(lower(a.fiduciary_relationship_c) , 5) = 'erisa'
             then 1
@@ -51,7 +188,6 @@ select
 
     -- CRM --------------------------------------------------------------------
     {{ select_crm_null('salesforce__compass_rps') }}
-
     -- COALESCE ---------------------------------------------------------------
     {{ select_nml_account_coalesce('salesforce__compass_rps') }}
 
@@ -109,7 +245,7 @@ select
             > 1 then 1
         else 0
     end                                                                       as has_dupes
-    , ''::text(2000)
+    , ''::text(5000)
     || coalesce(case
         when 1 = 2--noqa:ST10
             then ';'
@@ -134,11 +270,15 @@ select
 
     )::variant                                                                as _extra_fields
     -- META -------------------------------------------------------------------
-    , a.is_head                                                               as is_head
-    , 1                                                                       as is_current
+    , current_timestamp()::timestamp_ntz                                      as _created_at
     , a._created_at::timestamp_ntz                                            as _source_loaded_at
-    , null::text(200)                                                         as _source_file
-from {{ ref('salesforce_compass__base_plan_c') }} as a
+    , null::text(500)                                                         as _source_file
+from base_plan as a
+-- Exclude dates that aren't market days and future dates.
+inner join {{ ref('dates') }} as dt
+    on a.effective_at::date = dt.date_key
+    and dt.is_market_day = 1
+    and dt.date_key < current_date()
 left join {{ ref('aux__stg_rules_account_value_dates') }} as vo
     on a.effective_at::date = vo.effective_date
     and a.system_key = vo._system_key
@@ -158,10 +298,9 @@ left join {{ ref('salesforce_compass__base_custodian_c') }} as c
     on a.effective_at::date = c.effective_at::date
     and a.custodian_c = c.id
     and c.is_latest = 1
-left join {{ ref('salesforce_compass__base_account') }} as ba
+left join base_account as ba
     on a.effective_at::date = ba.effective_at::date
-    and a.account_c = ba.id
-    and ba.is_latest = 1
+    and a.account_c = ba.household_id
 -- mappings
 left join {{ ref('aux__stg_masters_mappings') }} as map_aum_glo
     on map_aum_glo.field = 'aum_classification'
@@ -211,8 +350,4 @@ left join {{ ref('aux__stg_masters_preferred_system_key') }} as pref_loc
     on location_code = pref_loc.scope_key
     and a.effective_at::date between coalesce(pref_loc.start_date , a.effective_at::date)
     and coalesce(pref_loc.end_date , a.effective_at::date)
-
 where true
-    and a.effective_at::date <= '2025-04-29'
-    and coalesce(a.is_deleted , 0) = 0
-    and a.is_latest = 1

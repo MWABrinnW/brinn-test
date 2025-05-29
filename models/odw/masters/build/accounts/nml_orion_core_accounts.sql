@@ -1,3 +1,144 @@
+{{ config(
+    materialized='incremental',
+    unique_key='effective_date',
+    incremental_strategy='delete+insert',
+    on_schema_change='sync_all_columns',
+    cluster_by=['effective_date']
+) }}
+
+{%- set start_date = cvar('start_date_pms') -%}
+{%- set lookback = cvar('lookback') -%}
+
+{%-
+    set src_models = [
+          'orion__bld_accounts'
+    ]
+-%}
+
+with destination_summary as (
+    {% if is_incremental() -%}
+    select effective_date, system_key, max(_created_at) as _created_at
+    from {{ this }}
+    where 1 = 1
+        -- Model start date. This applies for full-refresh.
+        and effective_date >= '{{ start_date }}'
+        {%- if is_incremental() or target.name not in ['prod'] %}
+        -- Restrict lookback window if incremental or not prod.
+        and effective_date >= current_date() - {{ lookback }}
+        {%- endif %}
+    group by all
+    order by 1
+    {% else -%}
+    select null::date as effective_date, null::text as system_key
+        , null::timestamp as _created_at
+    {% endif -%}
+)
+
+, source_summary as (
+    {%- for src_model in src_models %}
+    select
+        effective_date              as effective_date
+        , system_key                as system_key
+        , max(_created_at)          as _created_at
+        , {{"'" ~ src_model ~ "'"}} as model_source
+    from {{ ref(src_model) }}
+    where 1 = 1
+        -- Model start date. This applies for full-refresh.
+        and effective_date >= '{{ start_date }}'
+        {%- if is_incremental() or target.name not in ['prod'] %}
+        -- Restrict lookback window if incremental or not prod.
+        and effective_date >= current_date() - {{ lookback }}
+        {%- endif %}
+        and system_key = 'orion__core'
+    group by all
+
+    {%- if not loop.last %}
+
+    union all
+
+    {% endif -%}
+    {%- endfor %}
+)
+
+, date_spine as (
+    select effective_date, system_key from source_summary group by all
+    union
+    select effective_date, system_key from destination_summary group by all
+)
+
+, dates_to_refresh as (
+    select
+        a.effective_date    as effective_date
+        , s._created_at     as source_created_at
+        , d._created_at     as destination_created_at
+    from date_spine a
+    left join source_summary s
+        on a.effective_date = s.effective_date
+        and a.system_key = s.system_key
+    left join destination_summary d
+        on a.effective_date = d.effective_date
+        and a.system_key = d.system_key
+    where 1 = 1
+        and (
+            -- Check if missing from destination OR the source records are newer for that date.
+            s._created_at > coalesce(d._created_at, s._created_at - interval '1 day')
+        )
+    group by all
+)
+
+--------------------------------------------------------------------------------
+
+, orion_accounts as (
+    select *
+    from {{ ref('orion__bld_accounts') }}
+    where 1 = 1
+        and account_number is not null
+        and system_key = 'orion__core'
+        and exists(select 1 from dates_to_refresh)
+        and effective_date in (select distinct effective_date from dates_to_refresh)
+)
+
+, sf_accounts as (
+    select
+        effective_at
+        , system_name, system_instance, system_key
+        , orion_account_id
+        , estate_item_id
+        , account_type
+        , registration_type
+        , account_name
+        , custodian
+        , registrant_name
+        , household_id
+        , household_name
+        , is_active
+        , created_at
+        , opened_date
+        , closed_date
+        , account_value
+        , client_manager
+        , client_manager_email
+        , household_location_code
+        , fee_schedule
+        , investment_strategy
+        , aum_classification
+        , is_erisa
+        , is_discretionary
+        , is_voting_proxied
+        , is_prime_broker
+        , is_broker_dealer_account
+        , employee_number
+        , employee_number_source
+        , row_number() over(
+            partition by effective_at::date, orion_account_id
+            order by rn_acct_num
+        )   as rn_orion_account_id
+    from {{ ref('bld_salesforce_compass_accounts') }}
+    where 1 = 1
+        and exists(select 1 from dates_to_refresh)
+        and effective_at::date in (select distinct effective_date from dates_to_refresh)
+)
+
 select
     a.effective_date                                                          as effective_date
     , a.system_name                                                           as system_name
@@ -27,13 +168,13 @@ select
     , a.location_code                                                         as pms_location_code
     , a.fee_schedule                                                          as pms_fee_schedule
     , a.investment_strategy                                                   as pms_model_investment_strategy
-    , a.aum_classification                                                    as pms_aum_classification
-    , a.is_erisa                                                              as pms_is_erisa
-    , a.is_discretionary                                                      as pms_is_discretionary
-    , a.is_voting_proxied                                                     as pms_is_voting_proxied
-    , a.is_prime_broker                                                       as pms_is_prime_broker
-    , a.is_broker_dealer_account                                              as pms_is_broker_dealer_account
-    , a.cost_basis_method                                                     as pms_cost_basis_method
+    , null::text                                                              as pms_aum_classification
+    , null::int                                                               as pms_is_erisa
+    , null::int                                                               as pms_is_discretionary
+    , null::int                                                               as pms_is_voting_proxied
+    , null::int                                                               as pms_is_prime_broker
+    , null::int                                                               as pms_is_broker_dealer_account
+    , null::text                                                              as pms_cost_basis_method
     -- CRM --------------------------------------------------------------------
     {{ select_crm_salesforce_compass() }}
 
@@ -94,7 +235,7 @@ select
     end                                                                       as has_dupes
     , array_to_string(
         array_construct_compact(
-        -- household 
+        -- household
             case
                 when pms_client_name ilike 'History Client%' then 'Historical client;'
                 when pms_client_name = 'History Household' then 'Historical client;'
@@ -107,14 +248,14 @@ select
                 when pms_advisor = 'Boston History Conversion' then 'Conversion account;'
                 when pms_advisor = 'MIAN Accounts' then 'Custodian direct account;'
             end
-            -- account 
+            -- account
             , case
                 when pms_account_name ilike 'Hist Account' then 'Historical account;'
                 when a.account_number ilike '%NOTIONAL' then 'Premium Income duplication;'
                 when a.account_number ilike '%_HIST' then 'Historical account;'
                 when a.account_number ilike '%_HIST_E' then 'Historical account;'
             end
-            -- custodian dealer 
+            -- custodian dealer
             , case
                 when pms_custodian = 'Sample Custodian' then 'Sample custodian;'
                 when
@@ -148,18 +289,20 @@ select
 
     )::variant                                                                as _extra_fields
     -- META -------------------------------------------------------------------
-    , a.is_head                                                               as is_head
-    , a.is_current                                                            as is_current
+    --, a.is_head                                                               as is_head
+    , a._source_loaded_at                                                     as _created_at
     , a._source_loaded_at                                                     as _source_loaded_at
     , a._source_file                                                          as _source_file
-from {{ ref('int_orion_accounts') }} as a
+from orion_accounts as a
 -- [crm] join to the salesforce crm "effective_date" and then on "is_head" if the first join does not return a result.
-left join {{ ref('salesforce_compass_accounts') }} as sf1
-    on a.account_id = sf1.orion_account_id
-    and a.effective_date = sf1.effective_at::date
-left join {{ ref('salesforce_compass_accounts') }} as sf2
-    on a.account_id = sf2.orion_account_id
-    and sf2.is_head = 1
+left join sf_accounts as sf1
+    on a.effective_date = sf1.effective_at::date
+    and a.account_id = sf1.orion_account_id
+    and sf1.rn_orion_account_id = 1
+left join sf_accounts as sf2
+    on sf2.effective_at::date = (select max(tt.effective_at::date) from sf_accounts as tt)
+    and a.account_id = sf2.orion_account_id
+    and sf2.rn_orion_account_id = 1
 -- mappings
 left join {{ ref('aux__stg_masters_mappings') }} as map_aum_glo
     on map_aum_glo.field = 'aum_classification'
@@ -209,7 +352,4 @@ left join {{ ref('aux__stg_masters_preferred_system_key') }} as pref_loc
     on location_code = pref_loc.scope_key
     and a.effective_date between coalesce(pref_loc.start_date , a.effective_date)
     and coalesce(pref_loc.end_date , a.effective_date)
-
-where true
-    and a.account_number is not null
-    and a.system_key = 'orion__core'
+where 1 = 1

@@ -12,22 +12,30 @@ sources:
         description: ''
         columns:
           - name: content
+            description: ''
           - name: _created_at
+            description: ''
       - name: estate_item
         description: ''
         columns:
           - name: content
+            description: ''
           - name: _created_at
+            description: ''
       - name: estate_item_contact_link
         description: ''
         columns:
           - name: content
+            description: ''
           - name: _created_at
+            description: ''
       - name: case
         description: Salesforce Compass Case object.
         columns:
           - name: content
+            description: ''
           - name: _created_at
+            description: ''
           - name: _id
             description: Record identity id
   - name: mis
@@ -40,22 +48,30 @@ sources:
         columns:
           - name: CONTENT
             data_type: VARIANT
+            description: ''
           - name: _CREATED_AT
             data_type: TIMESTAMP_NTZ
+            description: ''
       - name: orion_tax_lots
         description: Orion tax lots used for MIS trading pipelines.
         columns:
           - name: CONTENT
             data_type: VARIANT
+            description: ''
           - name: _CREATED_AT
             data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: EFFECTIVE_DATE
+            description: ''
       - name: orion_transactions
         description: Orion transaction used for MIS trading pipelines.
         columns:
           - name: CONTENT
             data_type: VARIANT
+            description: ''
           - name: _CREATED_AT
             data_type: TIMESTAMP_NTZ
+            description: ''
       - name: orion_tax_lots_api
         description: |
           Orion tax lots from the Orion Connect API.
@@ -64,11 +80,37 @@ sources:
         columns:
           - name: _DATA
             data_type: VARIANT
+            description: ''
           - name: _CREATED_AT
             data_type: TIMESTAMP_NTZ
+            description: ''
           - name: _SOURCE_FILE
             data_type: VARCHAR
+            description: ''
           - name: _ID
             data_type: NUMBER
+            description: ''
           - name: EFFECTIVE_DATE
             data_type: DATE
+            description: ''
+      - name: orion_tax_lots_29042
+        description: |
+          Orion tax lots from Orion reports API.
+          Query id: 29042
+          Produces pendings adjusted lots.
+        columns:
+          - name: _DATA
+            data_type: VARIANT
+            description: ''
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+            description: ''
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+            description: ''
+          - name: _ID
+            data_type: NUMBER
+            description: ''
+          - name: EFFECTIVE_DATE
+            data_type: DATE
+            description: ''

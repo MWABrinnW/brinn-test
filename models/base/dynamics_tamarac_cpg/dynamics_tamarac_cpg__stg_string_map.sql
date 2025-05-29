@@ -12,11 +12,15 @@ select
     , json:_FIVETRAN_DELETED::integer      as _fivetran_deleted
     , json:_FIVETRAN_SYNCED::timestamp_ntz as _fivetran_synced
     , _created_at::timestamp_ntz           as _created_at
-    , {{ col_is_head(reference = source('dynamics_tamarac_cpg', 'stringmap'), 
-            reference_date_col = 'effective_at::date', 
-            source_date_col = 'effective_at::date') }}
-    , case when
-            dense_rank() over (partition by effective_at::date order by date_trunc('second' , _created_at) desc) = 1
+    , {{ col_is_head(
+        reference = source('dynamics_tamarac_cpg', 'stringmap'),
+        reference_date_col = 'effective_at::date',
+        source_date_col = 'effective_at::date'
+        ) }}
+    , case
+        when _created_at = max(_created_at) over (
+                partition by effective_at::date
+            )
             then 1
         else 0
     end::int                               as is_head_for_day

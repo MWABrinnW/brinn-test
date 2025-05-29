@@ -17,6 +17,7 @@ select
     tl.effective_date                                      as effective_date
     , tl.custodian                                         as custodian
     , tl.account_number                                    as account_number
+    , tl.account_id                                        as account_id
     , a.trading_id                                         as trading_id
     , tl.symbol                                            as symbol
     , tl.ticker                                            as ticker

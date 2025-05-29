@@ -42,12 +42,12 @@ select
     , case
         when pl3.picklist_string_value = 'Integration'
             and pl4.picklist_string_value = 'RPS'
-            then '301'-- Legacy RPS  
+            then '301'-- Legacy RPS
         when pl3.picklist_string_value = 'Acquisition'
             and pl4.picklist_string_value = 'Cardinal Investment Advisors'
-            then 'L-10130'-- Cardinal  
+            then 'L-10130'-- Cardinal
         else
-            'L-10101'--AndCo  
+            'L-10101'--AndCo
 
     end::text                                              as location_code
     , loc.office_name::text                                as office_name

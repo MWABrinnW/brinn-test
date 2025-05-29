@@ -1,32 +1,118 @@
+{{ config(
+    materialized='incremental',
+    unique_key='effective_date',
+    incremental_strategy='delete+insert',
+    on_schema_change='sync_all_columns',
+    cluster_by=['effective_date']
+) }}
+
+{%- set start_date = cvar('start_date_pms') -%}
+{%- set lookback = cvar('lookback') -%}
+
+{%-
+    set src_models = [
+          'bld_salesforce_compass_accounts'
+    ]
+-%}
+
+with destination_summary as (
+    {% if is_incremental() -%}
+    select effective_date, max(_created_at) as _created_at
+    from {{ this }}
+    where 1 = 1
+        -- Model start date. This applies for full-refresh.
+        and effective_date >= '{{ start_date }}'
+        {%- if is_incremental() or target.name not in ['prod'] %}
+        -- Restrict lookback window if incremental or not prod.
+        and effective_date >= current_date() - {{ lookback }}
+        {%- endif %}
+    group by all
+    order by 1
+    {% else -%}
+    select null::date as effective_date
+        , null::timestamp as _created_at
+    {% endif -%}
+)
+
+, source_summary as (
+    {%- for src_model in src_models %}
+    select
+        effective_at::date          as effective_date
+        , max(_created_at)          as _created_at
+        , {{"'" ~ src_model ~ "'"}} as model_source
+    from {{ ref(src_model) }}
+    where 1 = 1
+        -- Model start date. This applies for full-refresh.
+        and effective_at::date >= '{{ start_date }}'
+        {%- if is_incremental() or target.name not in ['prod'] %}
+        -- Restrict lookback window if incremental or not prod.
+        and effective_at::date >= current_date() - {{ lookback }}
+        {%- endif %}
+        and effective_at::date < current_date()
+    group by all
+
+    {%- if not loop.last %}
+
+    union all
+
+    {% endif -%}
+    {%- endfor %}
+)
+
+, date_spine as (
+    select effective_date from source_summary group by all
+    union
+    select effective_date from destination_summary group by all
+)
+
+
+, dates_to_refresh as (
+    select
+        a.effective_date    as effective_date
+        , s._created_at     as source_created_at
+        , d._created_at     as destination_created_at
+    from date_spine a
+    left join source_summary s
+        on a.effective_date = s.effective_date
+    left join destination_summary d
+        on a.effective_date = d.effective_date
+    where 1 = 1
+        and (
+            -- Check if missing from destination OR the source records are newer for that date.
+            s._created_at > coalesce(d._created_at, s._created_at - interval '1 day')
+        )
+    group by all
+)
+
 select
     a.effective_at::date                                                      as effective_date
-    , a.system_name                                                           as pms_name
-    , 'mic'                                                                   as pms_instance
+    , a.system_name                                                           as system_name
+    , 'mic'                                                                   as system_instance
     , 'salesforce__compass_mic'                                               as system_key
     , a.firm_source                                                           as firm_source
     , a.account_number                                                        as account_number_formatted
     , a.account_number                                                        as account_number
     , a.account_number                                                        as pms_account_number
-    , a.custodian::text(200)                                                  as pms_custodian
-    , a.id::text(200)                                                         as pms_account_id
-    , a.registration_type::text(200)                                          as pms_account_type
+    , a.custodian::text(500)                                                  as pms_custodian
+    , a.id::text(500)                                                         as pms_account_id
+    , a.registration_type::text(500)                                          as pms_account_type
     , a.account_name::text(500)                                               as pms_account_name
     , a.registrant_name::text(500)                                            as pms_registrant_name
-    , a.household_id::text(200)                                               as pms_client_id
-    , a.household_name::text(200)                                             as pms_client_name
+    , a.household_id::text(500)                                               as pms_client_id
+    , a.household_name::text(500)                                             as pms_client_name
     , a.is_active::int                                                        as pms_is_active
     , a.created_at::date                                                      as pms_created_date
     , a.opened_date::date                                                     as pms_opened_date
     , a.closed_date::date                                                     as pms_closed_date
     , a.account_value::decimal(16 , 2)                                        as pms_account_value
-    , a.client_manager::text(200)                                             as pms_advisor
+    , a.client_manager::text(500)                                             as pms_advisor
     , null::text                                                              as pms_advisor_id
     , null::text                                                              as pms_advisor_id_source
-    , a.client_manager_email::text(200)                                       as pms_advisor_email
-    , a.household_location_code::text(200)                                    as pms_location_code
-    , a.fee_schedule::text(200)                                               as pms_fee_schedule
-    , a.investment_strategy::text(200)                                        as pms_model_investment_strategy
-    , a.aum_classification::text(200)                                         as pms_aum_classification
+    , a.client_manager_email::text(500)                                       as pms_advisor_email
+    , a.household_location_code::text(500)                                    as pms_location_code
+    , a.fee_schedule::text(500)                                               as pms_fee_schedule
+    , a.investment_strategy::text(500)                                        as pms_model_investment_strategy
+    , a.aum_classification::text(500)                                         as pms_aum_classification
     , a.is_erisa::int                                                         as pms_is_erisa
     , a.is_discretionary::int                                                 as pms_is_discretionary
     , a.is_voting_proxied::int                                                as pms_is_voting_proxied
@@ -36,7 +122,6 @@ select
 
     -- CRM --------------------------------------------------------------------
     {{ select_crm_null('salesforce__compass_mic') }}
-
     -- COALESCE ---------------------------------------------------------------
     {{ select_nml_account_coalesce(system_key='salesforce__compass_mic') }}
 
@@ -88,7 +173,7 @@ select
             > 1 then 1
         else 0
     end                                                                       as has_dupes
-    , ''::text(2000)
+    , ''::text(5000)
     || coalesce(case
         when 1 = 2--noqa:ST10
             then ';'
@@ -112,60 +197,64 @@ select
 
     )::variant                                                                as _extra_fields
     -- META -------------------------------------------------------------------
-    , a.is_head                                                               as is_head
-    , {{ col_is_current(date_col='a.effective_at::date') }}
+    , current_timestamp()::timestamp_ntz                                      as _created_at
     , a._source_loaded_at::timestamp_ntz                                      as _source_loaded_at
-    , null::text(200)                                                         as _source_file
-from {{ ref('salesforce_compass_accounts') }} as a
+    , null::text(500)                                                         as _source_file
+from {{ ref('bld_salesforce_compass_accounts') }} as a
+-- Exclude dates that aren't market days and future dates.
+inner join {{ ref('dates') }} as dt
+    on a.effective_at::date = dt.date_key
+    and dt.is_market_day = 1
+    and dt.date_key < current_date()
 -- mappings
 left join {{ ref('aux__stg_masters_mappings') }} as map_aum_glo
     on map_aum_glo.field = 'aum_classification'
     and coalesce(crm_aum_classification , pms_aum_classification) = map_aum_glo.source_value
     and
-    a.effective_date between coalesce(map_aum_glo.start_date , a.effective_date) and coalesce(
-        map_aum_glo.end_date , a.effective_date
+    a.effective_at::date between coalesce(map_aum_glo.start_date , a.effective_at::date) and coalesce(
+        map_aum_glo.end_date , a.effective_at::date
     )
 left join {{ ref('aux__stg_masters_mappings') }} as map_cus_glo
     on map_cus_glo.field = 'custodian'
     and pms_custodian = map_cus_glo.source_value
     and
-    a.effective_date between coalesce(map_cus_glo.start_date , a.effective_date) and coalesce(
-        map_cus_glo.end_date , a.effective_date
+    a.effective_at::date between coalesce(map_cus_glo.start_date , a.effective_at::date) and coalesce(
+        map_cus_glo.end_date , a.effective_at::date
     )
 -- overrides
 left join {{ ref('aux__stg_masters_overrides') }} as ovrd_acct
     on ovrd_acct.scope = 'account_number'
     and pms_account_number = ovrd_acct.scope_key
-    and a.effective_date between coalesce(ovrd_acct.start_date , a.effective_date)
-    and coalesce(ovrd_acct.end_date , a.effective_date)
+    and a.effective_at::date between coalesce(ovrd_acct.start_date , a.effective_at::date)
+    and coalesce(ovrd_acct.end_date , a.effective_at::date)
 
 left join {{ ref('aux__stg_masters_overrides') }} as ovrd_sys_acct
     on ovrd_sys_acct.scope = 'system_key__account_number'
     and system_key__account_number = ovrd_sys_acct.scope_key
-    and a.effective_date between coalesce(ovrd_sys_acct.start_date , a.effective_date)
-    and coalesce(ovrd_sys_acct.end_date , a.effective_date)
+    and a.effective_at::date between coalesce(ovrd_sys_acct.start_date , a.effective_at::date)
+    and coalesce(ovrd_sys_acct.end_date , a.effective_at::date)
 
 left join {{ ref('aux__stg_masters_overrides') }} as ovrd_sys_adv
     on ovrd_sys_adv.scope = 'system_key__advisor'
     and system_key__advisor = ovrd_sys_adv.scope_key
-    and a.effective_date between coalesce(ovrd_sys_adv.start_date , a.effective_date)
-    and coalesce(ovrd_sys_adv.end_date , a.effective_date)
+    and a.effective_at::date between coalesce(ovrd_sys_adv.start_date , a.effective_at::date)
+    and coalesce(ovrd_sys_adv.end_date , a.effective_at::date)
 
 -- preferred system key
 left join {{ ref('aux__stg_masters_preferred_system_key') }} as pref_adv_acct
     on advisor__account_number = pref_adv_acct.scope_key
-    and a.effective_date between coalesce(pref_adv_acct.start_date , a.effective_date)
-    and coalesce(pref_adv_acct.end_date , a.effective_date)
+    and a.effective_at::date between coalesce(pref_adv_acct.start_date , a.effective_at::date)
+    and coalesce(pref_adv_acct.end_date , a.effective_at::date)
 
 left join {{ ref('aux__stg_masters_preferred_system_key') }} as pref_adv
     on coalesce(pms_advisor , crm_advisor) = pref_adv.scope_key
-    and a.effective_date between coalesce(pref_adv.start_date , a.effective_date)
-    and coalesce(pref_adv.end_date , a.effective_date)
+    and a.effective_at::date between coalesce(pref_adv.start_date , a.effective_at::date)
+    and coalesce(pref_adv.end_date , a.effective_at::date)
 
 left join {{ ref('aux__stg_masters_preferred_system_key') }} as pref_loc
     on location_code = pref_loc.scope_key
-    and a.effective_date between coalesce(pref_loc.start_date , a.effective_date)
-    and coalesce(pref_loc.end_date , a.effective_date)
+    and a.effective_at::date between coalesce(pref_loc.start_date , a.effective_at::date)
+    and coalesce(pref_loc.end_date , a.effective_at::date)
 
 where true
     and coalesce(a.is_deleted , 0) = 0
@@ -176,4 +265,5 @@ where true
     )
     and a.as_of_date is not null
     and coalesce(a.custodian , '') <> 'Billing Accounts'
-order by a.effective_at::date
+    and exists(select 1 from dates_to_refresh)
+    and a.effective_at::date in (select distinct t.effective_date from dates_to_refresh as t)

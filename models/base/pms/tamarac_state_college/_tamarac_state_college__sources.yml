@@ -2,12 +2,14 @@ version: 2
 
 sources:
   - name: tamarac_state_college
-    description: ""
-    database: "{{ var('tamarac_state_college_src', env_var('DB_SRC__TAMARAC_STATE_COLLEGE', env_var('DBT_DB_RAW_SRC', 'raw'))) }}"
+    description: ''
+    database: >-
+      {{ var('tamarac_state_college_src', env_var('DB_SRC__TAMARAC_STATE_COLLEGE', env_var('DBT_DB_RAW_SRC',
+      'raw'))) }}
     schema: tamarac_state_college
     tables:
       - name: assets
-        description: ""
+        description: ''
         columns:
           - name: CONTENT
             description: ''
@@ -25,7 +27,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: clients
-        description: ""
+        description: ''
         columns:
           - name: CONTENT
             description: ''
@@ -43,7 +45,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: accounts
-        description: ""
+        description: ''
         columns:
           - name: CONTENT
             description: ''
@@ -61,7 +63,7 @@ sources:
             description: ''
             data_type: NUMBER
       - name: households
-        description: ""
+        description: ''
         columns:
           - name: CONTENT
             description: ''

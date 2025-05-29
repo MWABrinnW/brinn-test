@@ -1,0 +1,96 @@
+version: 2
+models:
+  - name: schwab__base_cash_history
+    columns:
+      - name: CUSTODIAN
+        description: Custodian name, lower-case, no spaces.
+      - name: FIRM_SOURCE
+        description: Firm entity associated with the link value.
+      - name: FIRM
+        description: ''
+      - name: RECORD_TYPE
+        description: ''
+      - name: CUSTODIAN_ID
+        description: ''
+      - name: MASTER_ACCOUNT_NUMBER
+        description: ''
+      - name: MASTER_ACCOUNT_NAME
+        description: ''
+      - name: BUSINESS_DATE
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_TITLE_LINE_1
+        description: ''
+      - name: ACCOUNT_TITLE_LINE_2
+        description: ''
+      - name: ACCOUNT_TITLE_LINE_3
+        description: ''
+      - name: ACCOUNT_REGISTRATION
+        description: ''
+      - name: ACCOUNT_TYPE
+        description: ''
+      - name: NET_CREDIT_OR_DEBIT_SETTLED_UNSETTLED
+        description: ''
+      - name: MARGIN_BALANCE_SETTLED_UNSETTLED
+        description: ''
+      - name: TOTAL_AVAILABLE_TO_PAY
+        description: ''
+      - name: MARGIN_BUYING_POWER
+        description: ''
+      - name: MONEY_MARKET_FUNDS_SETTLED_UNSETTLED
+        description: ''
+      - name: MTD_MARGIN_INTEREST
+        description: ''
+      - name: DAILY_MARGIN_INTEREST
+        description: ''
+      - name: EQUITY_EXCLUDING_OPTIONS
+        description: ''
+      - name: EQUITY_PERCENTAGE
+        description: ''
+      - name: MARKET_VALUE_LONG
+        description: ''
+      - name: MARKET_VALUE_SHORT
+        description: ''
+      - name: EQUITY_INCLUDING_OPTIONS
+        description: ''
+      - name: OPTION_REQUIREMENTS
+        description: ''
+      - name: MONTH_END_DIVIDEND_PAYOUT
+        description: ''
+      - name: MAINTENANCE_CALL
+        description: ''
+      - name: MVL_CASH_ACCOUNT_EXCLUDING_OPTIONS
+        description: ''
+      - name: NET_MARKET_VALUE_POSITIONS_ONLY
+        description: ''
+      - name: NET_MARKET_VALUE_POSITIONS_PLUS_CASH_AND_MONEY_MARKET
+        description: ''
+      - name: CASH_BALANCE_SETTLED_ONLY
+        description: ''
+      - name: CASH_MARGIN_BALANCE_SETTLED_ONLY
+        description: ''
+      - name: VERSION_MARKER_3
+        description: ''
+      - name: BANK_SWEEP_INTEREST_BEARING_FEATURE
+        description: ''
+      - name: MASTER_NUMBER
+        description: ''
+      - name: IS_DECEASED
+        description: Is this a master/link designated for deceased clients.
+      - name: IS_FROM_TDA_MIGRATION
+        description: Is the Schwab master (link) related to the TDA migration in September 2023.
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: RN
+        description: ''
+      - name: RN_FIRM_SOURCE
+        description: ''
+      - name: RN_GLOBAL
+        description: ''
+      - name: _CREATED_AT
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: Time when the records were created in the source table.
+      - name: _SOURCE_FILE
+        description: ''

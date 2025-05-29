@@ -23,17 +23,12 @@ select
     , a.effective_at::timestampntz                           as effective_at
     , a._created_at::timestampntz                            as _created_at
     , {{ col_is_head(
-    reference=src,
-    source_date_col='effective_at',
-    reference_date_col='effective_at'
-    ) }}
+        reference=src,
+        source_date_col='effective_at',
+        reference_date_col='effective_at'
+        ) }}
     , case
-        when a._created_at = (
-                select max(sub._created_at)
-                from {{ src }} as sub
-                where sub.effective_at::date = a.effective_at::date
-                    and sub.json:ID::text(200) = a.json:ID::text(200)
-            )
+        when a._created_at = max(a._created_at) over (partition by a.effective_at::date)
             then 1
         else 0
     end::int                                                 as is_head_for_day
