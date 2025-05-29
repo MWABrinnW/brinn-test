@@ -1,5 +1,5 @@
 -- obtains clients from rps template to filter salesforce accounts,
--- 'salesforce_compass_accounts' mart model not used, rps uses plans, not accounts
+-- 'salesforce_compass_accounts' mart model not used, rps uses plans, not accounts (estate items)
 with sf1_clients_cte as (
     select
         id                    as acct_id
@@ -11,6 +11,14 @@ with sf1_clients_cte as (
         , lead_source_c       as lead_source_c
         , key_tags_c          as key_tags_c
         , effective_at::date  as effective_date
+        , case when max(effective_at) over (partition by id) = effective_at
+                then 1 else
+                0
+        end                   as is_head
+        , case when max(effective_at) over (partition by id , effective_at) = effective_at
+                then 1 else
+                0
+        end                   as is_head_per_day
     from {{ ref('salesforce_compass__base_account') }}
     where true
         and is_deleted = 0
@@ -18,7 +26,6 @@ with sf1_clients_cte as (
         and is_latest = 1
         and effective_at::date >= '2024-01-01'
         and id in (select distinct aa.client_salesforce_id from {{ ref('rps__stg_bills') }} as aa)
-    group by all
 )
 
 -- obtains the salesforce advisor at the datetime of the invoice
@@ -74,10 +81,10 @@ with sf1_clients_cte as (
 
 -- [system attributes]
 select
-    r.system_name::text                                                               as system_name
-    , r.system_instance::text                                                         as system_instance
-    , r.system_key::text                                                              as system_key
-    , 'mwa'::text                                                                     as firm_source
+    r.system_name::text                                                                         as system_name
+    , r.system_instance::text                                                                   as system_instance
+    , r.system_key::text                                                                        as system_key
+    , 'inst'::text                                                                              as firm_source
 
     -- [location]
     , coalesce(
@@ -88,8 +95,17 @@ select
                 then
                     '301'
         end
-    )::text                                                                           as location_code
-    , coalesce(l1.office_name , l2.office_name)::text                                 as office_name
+    )::text                                                                                     as location_code
+    , case
+        when lower(r.location) = 'rps'
+            then
+                (
+                    select aa.office_name from {{ ref('locations_active') }} as aa
+                    where aa.location_code = '301'
+                )
+        else
+            coalesce(l1.office_name , l2.office_name)::text
+    end                                                                                         as office_name
     , case
         when lower(r.location) = 'rps'
             then
@@ -107,77 +123,78 @@ select
                 )
         else
             l2.office_name
-    end::text                                                                         as client_office_name
+    end::text                                                                                   as client_office_name
 
     -- [financial dates]
-    , r.invoice_date::datetime                                                        as invoice_created_at
-    , r.invoice_date::date                                                            as invoice_date
-    , r.revenue_quarter_end_date::date                                                as revenue_period_end_date
-    , r.revenue_quarter_end_date::date                                                as revenue_quarter_end_date
+    , r.invoice_date::datetime                                                                  as invoice_created_at
+    , r.invoice_date::date                                                                      as invoice_date
+    , r.revenue_quarter_end_date::date                                                          as revenue_period_end_date
+    , r.revenue_quarter_end_date::date                                                          as revenue_quarter_end_date
 
     -- [invoice]
-    , null::text                                                                      as invoice_number_source
-    , null::text                                                                      as billing_statement_id_source
+    , null::text                                                                                as invoice_number_source
+    , null::text                                                                                as billing_statement_id_source
     , iff(
         r.client_payment is null , 'outstanding' , 'paid'
-    )::text                                                                           as invoice_status
-    , null::int                                                                       as is_intra_period_invoice
-    , r.account_number::text                                                          as account_number
-    , r.account_number_formatted::text                                                as account_number_formatted
-    , r.account_number::text                                                          as billing_account_number
-    , null::text                                                                      as account_id_pms
-    , z.acct_name::text                                                               as registrant_name
-    , r.client_name::text                                                             as account_name
-    , null::text                                                                      as type_of_account
-    , r.client_salesforce_id::text                                                    as client_id_pms
-    , null::text                                                                      as aum_classification_status
-    , r.record_keeper::text                                                           as custodian
-    , r.record_keeper::text                                                           as billing_custodian
-    , z.partner_firm_name::text                                                       as partner_firm_original
-    , z.partner_firm_name::text                                                       as partner_firm
+    )::text                                                                                     as invoice_status
+    , 0::int                                                                                    as is_intra_period_invoice
+    , r.account_number::text                                                                    as account_number
+    , r.account_number_formatted::text                                                          as account_number_formatted
+    , r.account_number::text                                                                    as billing_account_number
+    , null::text                                                                                as account_id_pms
+    , coalesce(z1.acct_name , z2.acct_name)::text                                               as registrant_name
+    , r.client_name::text                                                                       as account_name
+    , null::text                                                                                as type_of_account
+    , r.client_salesforce_id::text                                                              as client_id_pms
+    , null::text                                                                                as aum_classification_status
+    , r.record_keeper::text                                                                     as custodian
+    , r.record_keeper::text                                                                     as billing_custodian
+    , coalesce(z1.partner_firm_name , z2.partner_firm_name)::text                               as partner_firm_original
+    , coalesce(z1.partner_firm_name , z2.partner_firm_name)::text                               as partner_firm
 
     -- [advisor]
-    , r.client_manager_new::text                                                      as advisor_source
-    , r.client_manager::text                                                          as advisor_original
-    , coalesce(c.associate_full_name , r.client_manager_new , r.client_manager)::text as advisor_primary
-    , coalesce(c.associate_id_oracle , z.employee_number)::text                       as associate_id_primary
-    , 'W-2'::text                                                                     as advisor_type
-    , coalesce(c.associate_full_name , r.client_manager_new , r.client_manager)::text as advisor
+    , r.client_manager_new::text                                                                as advisor_source
+    , r.client_manager::text                                                                    as advisor_original
+    , coalesce(c.associate_full_name , r.client_manager_new , r.client_manager)::text           as advisor_primary
+    , coalesce(c.associate_id_oracle , coalesce(z1.employee_number , z2.employee_number))::text as associate_id_primary
+    , 'W-2'::text                                                                               as advisor_type
+    , coalesce(c.associate_full_name , r.client_manager_new , r.client_manager)::text           as advisor
     , coalesce(
-        c.associate_id_oracle , z.employee_number
-    )::text                                                                           as associate_id
+        c.associate_id_oracle , coalesce(z1.employee_number , z2.employee_number)
+    )::text                                                                                     as associate_id
 
     -- [assets and fees]
-    , r.comment::text                                                                 as fee_type
-    , null::text                                                                      as fee_schedule_source
-    , r.invoice_date::date                                                            as assets_as_of_date
-    , r.invoice_date::date                                                            as fee_calculation_date
-    , null::number(18 , 2)                                                            as total_account_value
-    , null::number(18 , 2)                                                            as billable_value
-    , r.amount::number(18 , 2)                                                        as client_fee_gross
-    , null::number(18 , 2)                                                            as client_adjustments_fee
-    , r.amount::number(18 , 2)                                                        as client_fee_net
-    , r.client_payment::date                                                          as collection_date
+    , r.comment::text                                                                           as fee_type
+    , null::text                                                                                as fee_schedule_source
+    , r.invoice_date::date                                                                      as assets_as_of_date
+    , r.invoice_date::date                                                                      as fee_calculation_date
+    , null::number(18 , 2)                                                                      as total_account_value
+    , null::number(18 , 2)                                                                      as billable_value
+    , r.amount::number(18 , 2)                                                                  as client_fee_gross
+    , null::number(18 , 2)                                                                      as client_adjustments_fee
+    , r.amount::number(18 , 2)                                                                  as client_fee_net
+    , r.client_payment::date                                                                    as collection_date
 
     -- [billing terms and payment]
-    , initcap(r.billing_style)::text                                                  as billing_style
-    , initcap(r.billing_frequency)::text                                              as billing_frequency
-    , initcap(r.billing_source)::text                                                 as billing_method
+    , initcap(r.billing_style)::text                                                            as billing_style
+    , initcap(r.billing_frequency)::text                                                        as billing_frequency
+    , initcap(r.billing_source)::text                                                           as billing_method
 
     -- [accounting]
-    , 'rev'::text                                                                     as account_class
-    , 1::boolean                                                                      as recurring_revenue
-    , 0::boolean                                                                      as impacted_by_financial_markets
-    , '110'::text                                                                     as coa_segment_1_legal_entity_id
-    , '000'::text                                                                     as coa_segment_2_product_id
+    , 'rev'::text                                                                               as account_class
+    , 1::boolean                                                                                as recurring_revenue
+    , 0::boolean                                                                                as impacted_by_financial_markets
+    , '110'::text                                                                               as coa_segment_1_legal_entity_id
+    , '000'::text                                                                               as coa_segment_2_product_id
     , coalesce(
         l1.accounting_id , l2.accounting_id , '3301'
-    )::text                                                                           as coa_segment_3_accounting_id
-    , '0000'::text                                                                    as coa_segment_4_team_id
-    , '43001'::text                                                                   as coa_segment_5_natural_account_id
-    , '000'::text                                                                     as coa_segment_6_initiative_id
-    , '000'::text                                                                     as coa_segment_7_intercompany_id
-    , '000'::text                                                                     as coa_segment_8_future_id
+    )::text                                                                                     as coa_segment_3_accounting_id
+    , '0000'::text                                                                              as coa_segment_4_team_id
+    , '43001'::text
+        as coa_segment_5_natural_account_id
+    , '000'::text                                                                               as coa_segment_6_initiative_id
+    , '000'::text                                                                               as coa_segment_7_intercompany_id
+    , '000'::text                                                                               as coa_segment_8_future_id
     , concat_ws(
         '-'
         , coa_segment_1_legal_entity_id
@@ -188,55 +205,59 @@ select
         , coa_segment_6_initiative_id
         , coa_segment_7_intercompany_id
         , coa_segment_8_future_id
-    )::text                                                                           as coa_account_number
-    , '401k'::text                                                                    as revenue_category
-    , '401k'::text                                                                    as revenue_type
+    )::text                                                                                     as coa_account_number
+    , '401k'::text                                                                              as revenue_category
+    , '401k'::text                                                                              as revenue_type
 
     -- [crm]
-    , 'salesforce'::text                                                              as system_name_crm
-    , 'compass'::text                                                                 as system_instance_crm
-    , concat(system_name_crm , '__' , system_instance_crm)::text                      as system_key_crm
-    , null::text                                                                      as account_id_crm
-    , r.client_salesforce_id::text                                                    as client_id_crm
-    , r.client_salesforce_id::text                                                    as client_id_original_crm
-    , z.unique_identifier_c::text                                                     as client_id_unique_compass
-    , z.acct_name::text                                                               as client_name
-    , z.acct_name::text                                                               as client_name_original_crm
-    , z.lead_source_c::text                                                           as client_lead_source
-    , z.key_tags_c::text                                                              as client_key_tags_crm
+    , 'salesforce'::text                                                                        as system_name_crm
+    , 'compass'::text                                                                           as system_instance_crm
+    , concat(system_name_crm , '__' , system_instance_crm)::text                                as system_key_crm
+    , null::text                                                                                as account_id_crm
+    , r.client_salesforce_id::text                                                              as client_id_crm
+    , r.client_salesforce_id::text                                                              as client_id_original_crm
+    , coalesce(z1.unique_identifier_c , z2.unique_identifier_c)::text                           as client_id_unique_compass
+    , coalesce(z1.acct_name , z2.acct_name)::text                                               as client_name
+    , coalesce(z1.acct_name , z2.acct_name)::text                                               as client_name_original_crm
+    , coalesce(z1.lead_source_c , z2.lead_source_c)::text                                       as client_lead_source
+    , coalesce(z1.key_tags_c , z2.key_tags_c)::text                                             as client_key_tags_crm
 
     -- [transactions]
-    , 'Invoice'::text                                                                 as transaction_type
-    , 'Line'::text                                                                    as transaction_line_type
-    , 1::int                                                                          as transaction_line_quantity
-    , 'USD'::text                                                                     as currency_code
-    , 'User'::text                                                                    as currency_conversion_type
-    , r.amount::number(18 , 2)                                                        as unit_selling_price
+    , 'Invoice'::text                                                                           as transaction_type
+    , 'Line'::text                                                                              as transaction_line_type
+    , 1::int                                                                                    as transaction_line_quantity
+    , 'USD'::text                                                                               as currency_code
+    , 'User'::text                                                                              as currency_conversion_type
+    , r.amount::number(18 , 2)                                                                  as unit_selling_price
 
     -- [exclusions]
     -- no records are being excluded, default to 0
-    , ''::text                                                                        as excluded_reasons
+    , ''::text                                                                                  as excluded_reasons
     , case
         when excluded_reasons = '' then 0
         else 1
-    end::int                                                                          as is_excluded
+    end::int                                                                                    as is_excluded
 
     -- [referential]
-    , r.account_number || '_' || r.invoice_date::text                                 as _invoice_key
-    , r._created_at::datetime                                                         as _source_loaded_at
-    , r._box_file_name::text                                                          as _source_file
-    , r._box_file_id::text                                                            as _box_file_id
-    , null::variant                                                                   as _extra_fields
-    , r._created_at::datetime                                                         as _created_at
+    , r.account_number || '_' || r.invoice_date::text                                           as _invoice_key
+    , r._created_at::datetime                                                                   as _source_loaded_at
+    , r._box_file_name::text                                                                    as _source_file
+    , r._box_file_id::text                                                                      as _box_file_id
+    , null::variant                                                                             as _extra_fields
+    , r._created_at::datetime                                                                   as _created_at
 
 from {{ ref('rps__stg_bills') }} as r
-left join sf2_clients_cte as z
-    on r.client_salesforce_id = z.acct_id
-    and r.invoice_date = z.effective_date
+left join sf2_clients_cte as z1
+    on r.client_salesforce_id = z1.acct_id
+    and r.invoice_date = z1.effective_date
+    and z1.is_head_per_day = 1
+left join sf2_clients_cte as z2
+    on r.client_salesforce_id = z2.acct_id
+    and z2.is_head = 1
 left join associates_rev_coding_latest_cte as c
-    on z.employee_number = c.associate_id_oracle
+    on coalesce(z1.employee_number , z2.employee_number) = c.associate_id_oracle
     and r.revenue_quarter_end_date = c.effective_date
 left join locations_cte as l1
     on c.location_accounting_id = l1.accounting_id
 left join locations_cte as l2
-    on z.finance_code_c = l2.location_code
+    on coalesce(z1.finance_code_c , z2.finance_code_c) = l2.location_code

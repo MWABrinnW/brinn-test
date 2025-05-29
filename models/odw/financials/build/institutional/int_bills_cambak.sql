@@ -72,7 +72,7 @@ select
     , inv.invoice_number::text                             as invoice_number_source
     , inv.invoice_id::text                                 as billing_statement_id_source
     , null::text                                           as invoice_status
-    , null::int                                            as is_intra_period_invoice
+    , 0::int                                               as is_intra_period_invoice
     , case
         when invoice_level = 'invoice'
             then (
@@ -187,11 +187,11 @@ select
     -- [accounting]
     , 'rev'::text                                          as account_class
     , case
-        when bdx.billing_frequency_string in ('Quarterly')
+        when bdx.billing_frequency_string in ('Quarterly' , 'Monthly')
             then 1
         else 0
     end::boolean                                           as recurring_revenue
-    , null::boolean                                        as impacted_by_financial_markets
+    , 0::boolean                                           as impacted_by_financial_markets
     , '270'::text                                          as coa_segment_1_legal_entity_id
     , '000'::text                                          as coa_segment_2_product_id
     , loc.accounting_id::text                              as coa_segment_3_accounting_id
@@ -267,7 +267,7 @@ select
         'invoice level'
         , invoice_level
     ):variant                                              as _extra_fields
-    , pln._created_at::datetime                            as _created_at
+    , inv._created_at::datetime                            as _created_at
     , 0::int                                               as is_legacy
     , row_number() over (
         partition by clt.client_id , inv.invoice_id
