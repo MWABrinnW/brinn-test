@@ -37,18 +37,22 @@ with destination_summary as (
 , source_summary as (
     {%- for src_model in src_models %}
     select
-        effective_at::date          as effective_date
-        , max(_created_at)          as _created_at
+        a.effective_at::date          as effective_date
+        , max(a._created_at)          as _created_at
         , {{"'" ~ src_model ~ "'"}} as model_source
-    from {{ ref(src_model) }}
+    from {{ ref(src_model) }} a
+    inner join {{ ref('dates') }} dt
+        on a.effective_at::date = dt.date_key
+        and dt.is_market_day = 1
+        and dt.date_key < current_date()
     where 1 = 1
         -- Model start date. This applies for full-refresh.
-        and effective_at::date >= '{{ start_date }}'
+        and a.effective_at::date >= '{{ start_date }}'
         {%- if is_incremental() or target.name not in ['prod'] %}
         -- Restrict lookback window if incremental or not prod.
-        and effective_at::date >= current_date() - {{ lookback }}
+        and a.effective_at::date >= current_date() - {{ lookback }}
         {%- endif %}
-        and effective_at::date < current_date()
+        and a.effective_at::date < current_date()
     group by all
 
     {%- if not loop.last %}

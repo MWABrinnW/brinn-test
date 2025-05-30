@@ -3,11 +3,11 @@ models:
   - name: odw_accounts
     data_tests:
       - dbt_expectations.expect_table_row_count_to_equal_other_table:
-          name: compare_row_count_pms_holdings
+          name: compare_row_count_pms_accounts
           config:
             severity: warn
             enabled: "{{ target.name != 'prod' }}"
-          compare_model: odw.enterprise.holdings
+          compare_model: odw.enterprise.accounts
           group_by: [effective_date, system_key]
           compare_group_by: [effective_date, system_key]
           row_condition: effective_date >= current_date() - 7
