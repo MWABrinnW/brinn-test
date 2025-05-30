@@ -7,8 +7,8 @@
       That way, users with the role can run metadata queries showing objects
       in that schema (a common need for BI tools)
     */
+  {% if execute and flags.WHICH in ('run', 'build', 'clone') %}
   {% set schema_grants = {} %}
-  {% if execute %}
     {{ log("Evaluating if there are any schemas that need created") }}
     {% for node in graph.nodes.values() | selectattr("resource_type", "equalto", "model") %}
       {% if node.unique_id in selected_resources %}
@@ -24,7 +24,6 @@
       {% endif %}
       {% endif %}
     {% endfor %}
-  {% endif %}
   {% set grant_list %}
     {% for schema in schema_grants %}
       {% if schema_grants[schema] | length > 0 %}
@@ -34,4 +33,5 @@
     {% endfor %}
   {% endset %}
   {{ return(grant_list) }}
+  {% endif %}
 {% endmacro %}

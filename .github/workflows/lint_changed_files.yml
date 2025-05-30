@@ -14,7 +14,7 @@ on:
       - seeds/**/*sql
 
 env:
-  VENV_DIR: ./.venv
+  VENV_DIR: "./.venv"
 
 jobs:
   lint-changed:

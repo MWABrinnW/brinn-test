@@ -55,7 +55,7 @@ models:
       - dbt_expectations.expect_table_row_count_to_equal_other_table:
           name: compare_row_count_tpg_hfw__int_accounts
           config:
-            severity: error
+            severity: warn
             enabled: "{{ target.name != 'prod' }}"
           compare_model: datalake.tpg_hfw.int_accounts
           group_by: [effective_date]

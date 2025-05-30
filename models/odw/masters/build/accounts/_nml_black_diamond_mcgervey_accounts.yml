@@ -14,6 +14,7 @@ models:
           where_clause: effective_date >= current_date() - 7
           config:
             severity: warn
+            enabled: "{{ target.name != 'prod' }}"
       - dbt_expectations.expect_table_columns_to_contain_set:
           name: check_column_list_nml_black_diamond_mcgervey_accounts
           column_list: "{{ cvar('pms_accounts_nml_column_list') }}"

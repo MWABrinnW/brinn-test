@@ -3,39 +3,39 @@ with max_date_from_history as (
 )
 
 select
-    a.effective_date              as effective_date
-    , a.custodian                 as custodian
-    , cc.firm_source              as firm_source
-    , cc.effective_start_date     as effective_start_date
-    , cc.effective_end_date       as effective_end_date
-    , a.account_number_formatted  as account_number_formatted
-    , a.account_number            as account_number
-    , a.gnum                      as link
-    , 'gnumber'                   as link_type
+    a.effective_date                     as effective_date
+    , a.custodian                        as custodian
+    , cc.firm_source                     as firm_source
+    , cc.effective_start_date            as effective_start_date
+    , cc.effective_end_date              as effective_end_date
+    , a.account_number_formatted         as account_number_formatted
+    , a.account_number                   as account_number
+    , a.gnum                             as link
+    , 'gnumber'                          as link_type
     , case
         when a.is_primary = 1
             then 'primary'
         else 'secondary'
-    end::text(500)                as link_subtype
-    , a.gnum_name                 as link_description
-    , cc.link_subtype_detail      as link_subtype_detail
-    , cc.location_code            as location_code
-    , cc.advisor_email            as advisor_email
-    , cc.description              as description
-    , cc.notes                    as notes
-    , cc.is_deceased              as is_deceased
-    , cc.has_trading_authority    as has_trading_authority
+    end::text(500)                       as link_subtype
+    , a.gnum_name                        as link_description
+    , cc.link_subtype_detail             as link_subtype_detail
+    , cc.location_code                   as location_code
+    , cc.advisor_email                   as advisor_email
+    , cc.description                     as description
+    , cc.notes                           as notes
+    , cc.is_deceased                     as is_deceased
+    , cc.has_trading_authority           as has_trading_authority
     , case
         when cc.link is not null
             then 1
         else 0
-    end                           as exists_in_map
-    , a._created_at               as _created_at
-    , a._source_loaded_at         as _source_loaded_at
-    , a._source_file              as _source_file
-    , a._checksum                 as _checksum
+    end                                  as exists_in_map
+    , current_timestamp()::timestamp_ntz as _created_at
+    , a._source_loaded_at                as _source_loaded_at
+    , a._source_file                     as _source_file
+    , a._checksum                        as _checksum
     , max(cc._source_loaded_at)
-        over (partition by 1 = 1) as _map_loaded_at
+        over (partition by 1 = 1)        as _map_loaded_at
 from {{ ref('fidelity__int_gnums') }} as a
 left join {{ ref('aux__stg_custodian_links') }} as cc
     on a.custodian = cc.custodian
@@ -48,35 +48,35 @@ where 1 = 1
 union all
 
 select
-    a.effective_date                  as effective_date
-    , a.custodian                     as custodian
-    , a.firm_source                   as firm_source
-    , cc.effective_start_date         as effective_start_date
-    , cc.effective_end_date           as effective_end_date
-    , a.account_number                as account_number_formatted
-    , a.account_number                as account_number
-    , a.fa_master_account_number      as link
-    , 'master_number'                 as link_type
-    , 'fa_master'                     as link_subtype
-    , a.fa_master_account_description as link_description
-    , cc.link_subtype_detail          as link_subtype_detail
-    , cc.location_code                as location_code
-    , cc.advisor_email                as advisor_email
-    , cc.description                  as description
-    , cc.notes                        as notes
-    , cc.is_deceased                  as is_deceased
-    , cc.has_trading_authority        as has_trading_authority
+    a.effective_date                     as effective_date
+    , a.custodian                        as custodian
+    , a.firm_source                      as firm_source
+    , cc.effective_start_date            as effective_start_date
+    , cc.effective_end_date              as effective_end_date
+    , a.account_number                   as account_number_formatted
+    , a.account_number                   as account_number
+    , a.fa_master_account_number         as link
+    , 'master_number'                    as link_type
+    , 'fa_master'                        as link_subtype
+    , a.fa_master_account_description    as link_description
+    , cc.link_subtype_detail             as link_subtype_detail
+    , cc.location_code                   as location_code
+    , cc.advisor_email                   as advisor_email
+    , cc.description                     as description
+    , cc.notes                           as notes
+    , cc.is_deceased                     as is_deceased
+    , cc.has_trading_authority           as has_trading_authority
     , case
         when cc.link is not null
             then 1
         else 0
-    end                               as exists_in_map
-    , a._source_loaded_at             as _created_at
-    , a._source_loaded_at             as _source_loaded_at
-    , a._source_file                  as _source_file
-    , a._md5                          as _checksum
+    end                                  as exists_in_map
+    , current_timestamp()::timestamp_ntz as _created_at
+    , a._source_loaded_at                as _source_loaded_at
+    , a._source_file                     as _source_file
+    , a._md5                             as _checksum
     , max(cc._source_loaded_at)
-        over (partition by 1 = 1)     as _map_loaded_at
+        over (partition by 1 = 1)        as _map_loaded_at
 from {{ ref('schwab__base_fa_master_relationships') }} as a
 left join {{ ref('aux__stg_custodian_links') }} as cc
     on a.custodian = cc.custodian
@@ -119,7 +119,7 @@ select
             then 1
         else 0
     end                                       as exists_in_map
-    , a._source_loaded_at                     as _created_at
+    , current_timestamp()::timestamp_ntz      as _created_at
     , a._source_loaded_at                     as _source_loaded_at
     , a._source_file                          as _source_file
     , null::text(500)                         as _checksum
@@ -166,7 +166,7 @@ select
             then 1
         else 0
     end                                   as exists_in_map
-    , a._source_loaded_at                 as _created_at
+    , current_timestamp()::timestamp_ntz  as _created_at
     , a._source_loaded_at                 as _source_loaded_at
     , a._source_file                      as _source_file
     , null::text(500)                     as _checksum
@@ -207,7 +207,7 @@ select
             then 1
         else 0
     end                                   as exists_in_map
-    , a._source_loaded_at                 as _created_at
+    , current_timestamp()::timestamp_ntz  as _created_at
     , a._source_loaded_at                 as _source_loaded_at
     , a._source_file                      as _source_file
     , null::text(500)                     as _checksum

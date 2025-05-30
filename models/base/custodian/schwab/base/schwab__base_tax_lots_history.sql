@@ -6,7 +6,7 @@
     cluster_by=['effective_date', 'custodian']
 )}}
 
-{%- set start_date = cvar('start_date_custodian') -%}
+{%- set start_date = '2025-01-01' -%}
 {%- set lookback = cvar('lookback') -%}
 
 {# Set the upstream raw models here and dbt will use them dynamically below.

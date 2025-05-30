@@ -4,9 +4,9 @@
         set all_project_vars = {
             'force_create_policies': var('force_create_policies', false),
             'offset': var('offset', '0'),
-            'lookback': var('lookback', 40 if target.name == prod else 7),
+            'lookback': var('lookback', 40 if target.name == 'prod' else 7),
             'start_date_orion': var('start_date_orion','2022-12-31'),
-            'start_date_custodian': var('start_date_custodian', '2022-12-31'),
+            'start_date_custodian': var('start_date_custodian', '2023-12-31'),
             'start_date_pms': var('start_date_pms', '2023-01-01'),
             'custodian_accounts_nml_column_list': [
                 "EFFECTIVE_DATE", "CUSTODIAN", "FIRM", "FIRM_SOURCE", "ACCOUNT_NUMBER", "ACCOUNT_NUMBER_FORMATTED",

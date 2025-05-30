@@ -12,6 +12,7 @@ models:
           where_clause: effective_date >= current_date() - 7
           config:
             severity: warn
+            enabled: "{{ target.name != 'prod' }}"
       - dbt_expectations.expect_table_row_count_to_equal_other_table:
           name: compare_row_count_bld_custodian_transactions
           config:

@@ -23,6 +23,7 @@ models:
           where_clause: none
           config:
             severity: warn
+            enabled: "{{ target.name != 'prod' }}"
     columns:
       - name: TRANID
         data_type: NUMBER

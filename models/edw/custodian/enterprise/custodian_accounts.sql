@@ -75,7 +75,7 @@ select
     , ca.rn_global
     , ca._created_at
     , ca._source_loaded_at
-{# , ca._source_file #}
+    , ca._source_file
 from cte_custodians_spined as c
 left join {{ ref('bld_custodian_accounts') }} as ca
     on c.custodian = ca.custodian

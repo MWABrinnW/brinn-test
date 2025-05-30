@@ -1,10 +1,10 @@
-{{config(
+{{ config(
     materialized='incremental',
     unique_key='effective_date',
     incremental_strategy='delete+insert',
     on_schema_change='sync_all_columns',
     cluster_by=['effective_date']
-)}}
+) }}
 
 {%- set start_date = cvar('start_date_custodian') -%}
 {%- set lookback = cvar('lookback') -%}
@@ -62,6 +62,45 @@ with destination_summary as (
             -- Check if missing from destination OR the source records are newer for that date.
             s._created_at > coalesce(d._created_at, s._created_at - interval '1 day')
         )
+    group by all
+)
+
+-------------------------------------------------------
+
+, securities as (
+    select
+        s.effective_date
+        , s.symbol
+        , s.cusip
+        , s.option_symbol_id_occ
+        , s.underlying_cusip
+        -- This field in the underlying view is surely compute heavy and probably scans the full table.
+        --, s.is_cusip_head
+    from {{ ref('fidelity_baystate_history__vw_secmast_1_security') }} as s
+    where 1 = 1
+        and exists(select 1 from dates_to_refresh)
+        and s.effective_date::date in (select distinct t.effective_date from dates_to_refresh as t)
+)
+
+, sweep_funds as (
+    select
+        effective_date
+        , account_number
+        , ticker
+    from {{ ref('int_fidelity_baystate_account_sweep_fund') }}
+    where 1 = 1
+        and exists(select 1 from dates_to_refresh)
+        and effective_date::date in (select distinct t.effective_date from dates_to_refresh as t)
+)
+
+, cost_basis as (
+    select
+        effective_date                      as effective_date
+        , account_custodial                 as account_custodial
+        , cusip                             as cusip
+        , sum(current_cost_unadjusted_wash) as cost_basis
+    from {{ ref('fidelity_baystate_history__vw_tlaopen_tax_accounting') }}
+    where 1 = 1
     group by all
 )
 
@@ -141,20 +180,12 @@ select
 from {{ ref('fidelity_baystate_history__vw_positd_position') }} as p
 left join {{ ref('custodian_firms') }} as cf
     on p.firm_source = cf.firm_source
-left join {{ ref('fidelity_baystate_history__vw_secmast_1_security') }} as s1
+left join securities as s1
     on p.effective_date = s1.effective_date
     and p.cusip = s1.cusip
-    and s1.effective_date in (select effective_date from dates_to_refresh group by effective_date)
-    -- Offer the snowflake query optimizer a chance to prune the query early
-    -- if there are no dates to refresh.
-    and exists (select 1 from dates_to_refresh)
-left join {{ ref('fidelity_baystate_history__vw_secmast_1_security') }} as s2
+left join securities as s2
     on s1.effective_date = s2.effective_date
     and s1.underlying_cusip = s2.cusip
-    and s2.effective_date in (select effective_date from dates_to_refresh group by effective_date)
-    -- Offer the snowflake query optimizer a chance to prune the query early
-    -- if there are no dates to refresh.
-    and exists (select 1 from dates_to_refresh)
 left join {{ ref('custodian_mappings') }} as cmat
     on p.custodian = cmat.custodian
     and cmat.field = 'account_type'
@@ -163,22 +194,14 @@ left join {{ ref('custodian_mappings') }} as cmpt
     on p.custodian = cmpt.custodian
     and cmpt.field = 'product_type'
     and p.product_code = cmpt.source
-left join {{ ref('int_fidelity_baystate_cost_basis') }} as cb
+left join cost_basis as cb
     on p.effective_date = cb.effective_date
     and p.account_custodial = cb.account_custodial
     and p.cusip = cb.cusip
-    and cb.effective_date in (select effective_date from dates_to_refresh group by effective_date)
-    -- Offer the snowflake query optimizer a chance to prune the query early
-    -- if there are no dates to refresh.
-    and exists (select 1 from dates_to_refresh)
-left join {{ ref('int_fidelity_baystate_account_sweep_fund') }} as sweep
+left join sweep_funds as sweep
     on p.effective_date = sweep.effective_date
     and p.account_custodial = sweep.account_number
     and p.symbol = sweep.ticker
-    and sweep.effective_date in (select effective_date from dates_to_refresh group by effective_date)
-    -- Offer the snowflake query optimizer a chance to prune the query early
-    -- if there are no dates to refresh.
-    and exists (select 1 from dates_to_refresh)
 where 1 = 1
     and p.effective_date in (select effective_date from dates_to_refresh group by effective_date)
     -- Offer the snowflake query optimizer a chance to prune the query early

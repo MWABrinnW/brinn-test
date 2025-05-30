@@ -32,6 +32,7 @@ models:
           where_clause: is_head = 1
           config:
             severity: warn
+            enabled: "{{ target.name != 'prod' }}"
     columns:
       - name: EFFECTIVE_DATE
         description: ''

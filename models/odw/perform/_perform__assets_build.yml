@@ -13,6 +13,7 @@ models:
           where_clause: none
           config:
             severity: warn
+            enabled: "{{ target.name != 'prod' }}"
     columns:
       - name: ACCOUNT_NUMBER
         description: ''

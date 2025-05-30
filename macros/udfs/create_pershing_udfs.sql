@@ -1,6 +1,6 @@
 {%- macro create_pershing_udfs() -%}
 
-{%- if execute -%}
+{%- if execute and flags.WHICH in ('run', 'build', 'clone') -%}
 
     {{ log('Creating udf--> ' ~ target.schema ~ '.signed_to_numeric()', info=true) }}
     {{ log('Creating udf--> ' ~ target.schema ~ '.yyyyddd_to_date()', info=true) }}

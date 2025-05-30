@@ -34,7 +34,7 @@ env:
   DBT_PROFILES_DIR: ${{ vars.DBT_PROFILES_DIR }}
   DBT_TARGET_PATH: ./target
   DBT_TARGET: ci
-  VENV_DIR: ./.venv
+  VENV_DIR: "./.venv"
   SNOWSQL_USER: ${{ vars.DBT_USER }}
   SNOWSQL_PWD: ${{ secrets.DBT_PASSWORD }}
   SNOWSQL_ACCOUNT: ${{ vars.DBT_HOST }}
@@ -135,9 +135,9 @@ jobs:
           echo "cache-hit: ${{ steps.cache-dbt-packages.outputs.cache-hit }}"
           if ('${{ steps.cache-dbt-packages.outputs.cache-hit }}' -ne 'true') {dbt deps} else {echo "Using cached dbt packages"}
 
-      - name: Cache dbt target
-        uses: actions/cache@v4
-        id: cache-dbt-target
+      - name: Restore dbt target cache
+        id: restore-dbt-target-cache
+        uses: actions/cache/restore@v4
         with:
           path: ./target
           key: dbt-target-${{ runner.os }}-py${{ env.python_version }}-pr${{ github.event.number }}
@@ -159,10 +159,14 @@ jobs:
             New-Item -Path "$dest_dir" -ItemType Directory
           }
 
-          dbt compile
+          dbt docs generate
 
           # # [Copy up new artifacts]
           # Copy-Item -Path "$($env:DBT_TARGET_PATH)/*" -Destination "$dest_dir" -Recurse -Force
+          # if (Test-Path -Path "$($env:DBT_TARGET_PATH)/catalog.json" -PathType leaf) {
+          #   Write-Host "Copying catalog.json to $dest_dir"
+          #   Copy-Item "$($env:DBT_TARGET_PATH)/catalog.json" -Destination "$dest_dir" -Force
+          #   } else { Write-Host "catalog.json not found" }
 
       - name: dbt clone
         shell: pwsh
@@ -174,6 +178,14 @@ jobs:
           #dbt run-operation create_masking_policies --vars 'force_create_policies: true' --target=$env:DBT_TARGET
 
           dbt clone -s state:modified+1,config.materialized:incremental,state:old
+
+      - name: Always save cache
+        id: always-save-cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          key: ${{ steps.restore-dbt-target-cache.outputs.cache-primary-key }}
+          path: ./target
 
 
   dbt-build:
@@ -217,9 +229,9 @@ jobs:
           path: ./dbt_packages
           key: dbt-packages-${{ runner.os }}-py${{ env.python_version }}-${{ hashFiles('packages.yml') }}
 
-      - name: Cache dbt target
-        uses: actions/cache@v4
-        id: cache-dbt-target
+      - name: Restore dbt target cache
+        id: restore-dbt-target-cache
+        uses: actions/cache/restore@v4
         with:
           path: ./target
           key: dbt-target-${{ runner.os }}-py${{ env.python_version }}-pr${{ github.event.number }}
@@ -309,8 +321,8 @@ jobs:
           uv pip install -r requirements-ci.txt
 
       - name: Restore dbt target cache
+        id: restore-dbt-target-cache
         uses: actions/cache/restore@v4
-        id: cache-dbt-target
         with:
           path: ./target
           key: dbt-target-${{ runner.os }}-py${{ env.python_version }}-pr${{ github.event.number }}
@@ -374,7 +386,7 @@ jobs:
 
       - name: Restore dbt target cache
         uses: actions/cache/restore@v4
-        id: cache-dbt-target
+        id: restore-dbt-target-cache
         with:
           path: ./target
           key: dbt-target-${{ runner.os }}-py${{ env.python_version }}-pr${{ github.event.number }}

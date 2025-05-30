@@ -7,8 +7,9 @@
       That way, users with the role can run metadata queries showing objects
       in that schema (a common need for BI tools)
     */
+  {% if execute and flags.WHICH in ('run', 'build', 'clone') %}
+
   {% set schema_grants = {} %}
-  {% if execute %}
     {% for node in graph.nodes.values() | selectattr("resource_type", "equalto", "model") %}
       {% if node.unique_id in selected_resources %}
       {% set grants = node.config.get('grants') %}
@@ -23,7 +24,6 @@
       {% endif %}
       {% endif %}
     {% endfor %}
-  {% endif %}
   {% set grant_list %}
     {% for schema in schema_grants %}
       {% for role in schema_grants[schema] %}
@@ -32,5 +32,8 @@
       {% endfor %}
     {% endfor %}
   {% endset %}
+
   {{ return(grant_list) }}
+
+  {% endif %}
 {% endmacro %}

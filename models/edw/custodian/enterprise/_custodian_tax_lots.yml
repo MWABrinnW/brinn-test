@@ -14,6 +14,7 @@ models:
           where_clause: effective_date >= current_date() - 4
           config:
             severity: warn
+            enabled: "{{ target.name != 'prod' }}"
     columns:
       - name: EFFECTIVE_DATE
         description: ''

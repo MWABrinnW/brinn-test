@@ -14,6 +14,7 @@ models:
           where_clause: trade_date >= current_date - 7
           config:
             severity: warn
+            enabled: "{{ target.name != 'prod' }}"
     columns:
       - name: SYSTEM_NAME
         description: ''

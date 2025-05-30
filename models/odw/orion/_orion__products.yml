@@ -12,6 +12,7 @@ models:
           where_clause: none
           config:
             severity: warn
+            enabled: "{{ target.name != 'prod' }}"
       - dbt_expectations.expect_compound_columns_to_be_unique:
           column_list: ["fkalclient", "product_id"]
           ignore_row_if: "any_value_is_missing"

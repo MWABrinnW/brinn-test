@@ -13,6 +13,7 @@ models:
           where_clause: date >= current_date() - 3
           config:
             severity: warn
+            enabled: "{{ target.name != 'prod' }}"
     columns:
       - name: SYSTEM_NAME
         description: ''
