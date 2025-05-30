@@ -1,7 +1,3 @@
-with max_date_from_history as (
-    select max(effective_date) as effective_date from {{ ref('custodian_account_links_history') }}
-)
-
 select
     a.effective_date                     as effective_date
     , a.custodian                        as custodian
@@ -43,7 +39,7 @@ left join {{ ref('aux__stg_custodian_links') }} as cc
     and a.effective_date
     between coalesce(cc.effective_start_date , a.effective_date) and coalesce(cc.effective_end_date , a.effective_date)
 where 1 = 1
-    and a.effective_date > (select max(t.effective_date) from max_date_from_history as t)
+    and a.effective_date > (select max(t.effective_date) from {{ ref('custodian_account_links_history') }} as t where t.custodian = 'fidelity')
 
 union all
 
@@ -84,7 +80,7 @@ left join {{ ref('aux__stg_custodian_links') }} as cc
     and a.effective_date
     between coalesce(cc.effective_start_date , a.effective_date) and coalesce(cc.effective_end_date , a.effective_date)
 where 1 = 1
-    and a.effective_date > (select max(t.effective_date) from max_date_from_history as t)
+    and a.effective_date > (select max(t.effective_date) from {{ ref('custodian_account_links_history') }} as t where t.custodian = 'schwab')
 qualify
     row_number() over (partition by
         a.effective_date
@@ -138,7 +134,7 @@ left join {{ ref('schwab__base_fa_master_relationships') }} as fam
 where 1 = 1
     --exclude record if it's already represented by FAM file
     and fam.account_number is null
-    and a.effective_date > (select max(t.effective_date) from max_date_from_history as t)
+    and a.effective_date > (select max(t.effective_date) from {{ ref('custodian_account_links_history') }} as t where t.custodian = 'schwab')
 
 union all
 
@@ -179,7 +175,7 @@ left join {{ ref('aux__stg_custodian_links') }} as cc
     and a.effective_date
     between coalesce(cc.effective_start_date , a.effective_date) and coalesce(cc.effective_end_date , a.effective_date)
 where 1 = 1
-    and effective_date > (select max(t.effective_date) from max_date_from_history as t)
+    and effective_date > (select max(t.effective_date) from {{ ref('custodian_account_links_history') }} as t where t.custodian = 'pershing' and t.firm_source = 'mwa')
 
 union all
 
@@ -220,4 +216,4 @@ left join {{ ref('aux__stg_custodian_links') }} as cc
     and a.effective_date
     between coalesce(cc.effective_start_date , a.effective_date) and coalesce(cc.effective_end_date , a.effective_date)
 where 1 = 1
-    and effective_date > (select max(t.effective_date) from max_date_from_history as t)
+    and effective_date > (select max(t.effective_date) from {{ ref('custodian_account_links_history') }} as t where t.custodian = 'pershing' and t.firm_source = 'mwa')

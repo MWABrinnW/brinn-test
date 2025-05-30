@@ -68,12 +68,12 @@ vars:
       {%- endif -%}
 
 on-run-start:
-  - "{{ create_schemas() if target.name in ['prod', 'ci'] }}"
-  - "{{ has_children_in_scope(model_name='pershing_udfs', macro_name='create_pershing_udfs') }}"
-  - "{{ create_row_access_policies() }}"
-  - "{{ create_masking_policies() }}"
+  - "{{ create_schemas() if target.name in ['prod', 'ci'] and flags.WHICH in ('run', 'build', 'clone')  }}"
+  - "{{ has_children_in_scope(model_name='pershing_udfs', macro_name='create_pershing_udfs') if flags.WHICH in ('run', 'build', 'clone')  }}"
+  - "{{ create_row_access_policies() if flags.WHICH in ('run', 'build', 'clone') }}"
+  - "{{ create_masking_policies() if flags.WHICH in ('run', 'build', 'clone') }}"
 on-run-end:
-  - "{{ grant_usage_on_schemas_where_select() if target.name in ['prod', 'ci'] }}"
+  - "{{ grant_usage_on_schemas_where_select() if target.name in ['prod', 'ci'] and flags.WHICH in ('run', 'build', 'clone') }}"
   - "{% if target.name in ['prod'] %}{{ dbt_artifacts.upload_results(results) }}{% endif %}"
 
 data_tests:
