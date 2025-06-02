@@ -677,7 +677,11 @@ models:
         enterprise:
           +schema: enterprise
           +grants:
-            select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
+            select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod', 'ci'] else []}}"
+        reports:
+          +schema: enterprise
+          +grants:
+            select: "{{ ['db_odw_financials_r'] if target.name in ['prod', 'ci'] else []}}"
 
       locations:
         +tags: ["locations"]

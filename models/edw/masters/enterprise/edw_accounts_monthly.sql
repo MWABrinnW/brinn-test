@@ -1,9 +1,10 @@
 {{
   config(
-    alias = 'accounts' if target.name in ['prod', 'ci'] else none,
+    alias = 'accounts_monthly' if target.name in ['prod', 'ci'] else none,
     schema = 'enterprise' if target.name in ['prod', 'ci'] else none
     )
 }}
+
 
 select
     effective_date
@@ -45,16 +46,14 @@ select
     , is_manual_account
     , is_legacy
     , {{ col_is_head(
-        reference=ref('nml_accounts'),
+        reference=ref('stg_accounts'),
         source_date_col='effective_date',
         reference_date_col='effective_date'
     ) }}
     , _source_loaded_at
-    , _created_at
     , _extra_fields
-from {{ ref('nml_accounts') }}
+    , _created_at
+from {{ ref('stg_accounts') }}
 where true
+    and is_head_for_day = 1
     and is_excluded = 0
-    and is_primary = 1
-    and (closed_date is null or effective_date < closed_date)
-order by effective_date , system_key , account_number

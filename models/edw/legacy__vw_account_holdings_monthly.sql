@@ -105,7 +105,7 @@ select
     , dt.month_end_date                      as month_end_date
     , null::int                              as is_head
     , null::int                              as is_current
-from {{ ref('edw_holdings') }} as h
+from {{ ref('edw_holdings_monthly') }} as h
 left join {{ ref('dates') }} as dt
     on h.effective_date = dt.date_key
 where true

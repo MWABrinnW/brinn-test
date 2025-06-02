@@ -88,7 +88,7 @@ select
     , null::int                         as is_head
     , {{ col_is_current(date_col='effective_date') }}
 
-from {{ ref('edw_accounts') }} as a
+from {{ ref('edw_accounts_monthly') }} as a
 left join {{ ref('dates') }} as dt
     on a.effective_date = dt.date_key
 where true
