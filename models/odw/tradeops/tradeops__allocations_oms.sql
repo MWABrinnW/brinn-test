@@ -92,18 +92,14 @@ select
     , a.system_instance::text                                  as system_instance
 
     , object_construct(a.*)                                    as _extra_fields
-from {{ ref('flyer__stg_orders_allocations') }} as a
+from {{ ref('flyer__int_orders_allocations') }} as a
 left join {{ ref('flyer__stg_accounts') }} as acc
     on a.member_account = acc.account_number
     and a.order_trade_date = acc._created_at::date
-    and a._env = acc._env
     and acc.is_head = 1
 where 1 = 1
-    and a.is_head = 1
-    -- Exclude unfilled orders
-    --and coalesce(a.member_net_money,0) <> 0
-    and a._env = {{ "'" ~ copilot_env() ~ "'" }}
-
+-- Exclude unfilled orders
+--and coalesce(a.member_net_money,0) <> 0
 
 -- [FourForty]
 union all

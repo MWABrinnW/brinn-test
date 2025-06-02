@@ -16,11 +16,11 @@ models:
             severity: warn
             enabled: "{{ target.name != 'prod' }}"
       - dbt_expectations.expect_table_row_count_to_equal_other_table:
-          name: compare_row_count_bld_custodian_holdings
+          name: compare_row_count_custodian_holdings
           config:
             severity: warn
             enabled: "{{ target.name != 'prod' }}"
-          compare_model: edw.build.bld_custodian_holdings
+          compare_model: edw.enterprise.custodian_holdings
           group_by: [effective_date, custodian]
           compare_group_by: [effective_date, custodian]
           row_condition: effective_date >= current_date() - 7

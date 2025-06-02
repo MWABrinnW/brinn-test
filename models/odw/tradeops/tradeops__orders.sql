@@ -60,8 +60,7 @@ select
     , a.order_option_put_or_call                                  as option_type
 
     , max(a._created_at)                                          as last_collected_at
-from {{ ref('flyer__stg_orders_allocations') }} as a
+from {{ ref('flyer__int_orders_allocations') }} as a
 where 1 = 1
-    and a.is_head = 1
 group by all
 order by a.order_trade_date desc , a.transaction_time asc

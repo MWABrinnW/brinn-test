@@ -1,26 +1,7 @@
-with cte_max_per_day as (
-    select
-        _uri
-        , _created_at::date as _created_date
-        , {{ parse_copilot_env(col='_uri') }}
-        , max(_created_at)  as _max_created_at_for_day
-    from {{ source('flyer', 'groups') }}
-    where _env = {{ "'" ~ copilot_env() ~ "'" }}
-    group by all
-)
-
-, cte_max as (
-    select
-        _uri
-        , max(_max_created_at_for_day) as _max_created_at
-    from cte_max_per_day
-    group by _uri
-)
-
 select
-     'copilot'::text as system_name
-    , 'mwa-options' as system_instance
-    , system_name || '__' || system_instance as system_key
+     'copilot'::text                                      as system_name
+    , 'mwa-options'                                       as system_instance
+    , system_name || '__' || system_instance              as system_key
     , a.json:name::text(200)                              as group_name
     , a.json:description::text(200)                       as group_description
     , a.json:groupId::text(200)                           as group_id
@@ -58,12 +39,12 @@ select
     , acc.value:taxLotReliefMethod::text(200)             as tax_lot_relief_method
     , try_to_boolean(acc.value:taxable::text)::int        as is_taxable
     , case
-        when mx._max_created_at is not null
+        when a._created_at = (select max(_created_at) from {{ source('flyer', 'groups') }})
             then 1
         else 0
     end::int                                              as is_head
     , case
-        when a._created_at = mxpd._max_created_at_for_day
+        when a._created_at = max(a._created_at) over(partition by a._created_at::date)
             then 1
         else 0
     end::int                                              as is_head_for_day
@@ -73,12 +54,6 @@ select
     , a._uri                                              as _uri
     , {{ parse_copilot_env(col='a._uri') }}
 from {{ source('flyer', 'groups') }} as a
-left join cte_max as mx
-    on a._uri = mx._uri
-    and a._created_at = mx._max_created_at
-left join cte_max_per_day as mxpd
-    on a._uri = mxpd._uri
-    and a._created_at::date = mxpd._created_date
 left join {{ ref('dates' ) }} as dt
     on a._created_at::date = dt.date_key
 , lateral flatten(input => a.json, path => 'accounts') as acc

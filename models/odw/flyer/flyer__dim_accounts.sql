@@ -25,7 +25,8 @@ with accounts as (
         , 'schwab'            as custodian
         , option_requirements as option_requirements
     from {{ ref('schwab__base_cash') }}
-    where is_head = 1
+    where 1 = 1
+        and is_head = 1
         and rn_global = 1
         and account_number in (
             select distinct t.account_number
@@ -39,7 +40,8 @@ with accounts as (
         , 'fidelity'                as custodian
         , house_option_requirements as option_requirements
     from {{ ref('fidelity__stg_option_reqs') }}
-    where is_head = 1
+    where 1 = 1
+        and is_head = 1
         and account_number in (
             select distinct t.account_number
             from accounts as t

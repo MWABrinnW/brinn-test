@@ -12,7 +12,7 @@ with cte_internal as (
         , symbol                      as symbol
         , max(price::decimal(20 , 2)) as price
         , sum(units_shares)           as quantity
-        , '440'                       as source
+        --, '440'                       as source
     from {{ ref('fourforty__int_orders_allocations') }}
     where 1 = 1
         -- We exclude today because the custodian data won't have record of them until
@@ -24,7 +24,7 @@ with cte_internal as (
 
     -- [Copilot]
     select
-        a.order_trade_date                                          as trade_date
+        a.trading_session_date                                      as trade_date
         , lower(acc.custodian)                                      as custodian
         , a.member_account                                          as account_number
         , coalesce(a.option_symbol_occ , a.symbol , a.order_symbol) as symbol
@@ -36,19 +36,16 @@ with cte_internal as (
                 then a.member_quantity * -1
             else a.member_quantity
         end)                                                        as quantity
-        , a.system_key                                              as source
-    from {{ ref('flyer__stg_orders_allocations') }} as a
+        --, a.system_key                                              as source
+    from {{ ref('flyer__int_orders_allocations') }} as a
     left join {{ ref('flyer__stg_accounts') }} as acc
         on a.member_account = acc.account_number
-        and a.order_trade_date = acc._created_at::date
-        and a._env = acc._env
+        --and a.trading_session_date = acc._created_at::date
         and acc.is_head = 1
     where 1 = 1
-        and a._env = {{ "'" ~ copilot_env() ~ "'" }}
-        and a.is_head = 1
         -- We exclude today because the custodian data won't have record of them until
         -- the nexter day.
-        and a.order_trade_date between dateadd('DAY' , -7 , current_date()) and current_date() - 1
+        and a.trading_session_date between dateadd('DAY' , -7 , current_date()) and current_date() - 1
         -- We only need to compare orders that resulted in an allocation.
         and abs(a.member_quantity) > 0
     group by all
@@ -94,17 +91,17 @@ with cte_internal as (
 )
 
 select
-    coalesce(i.trade_date , e.trade_date)           as trade_date
-    , coalesce(i.custodian , e.custodian)           as custodian
-    , coalesce(i.account_number , e.account_number) as account_number
-    , coalesce(i.symbol , e.symbol)                 as symbol
-    , i.quantity::decimal(17 , 2)                   as units_internal
-    , e.quantity::decimal(17 , 2)                   as units_external
-    , i.price::decimal(15 , 3)                      as price_internal
-    , e.price::decimal(15 , 3)                      as price_external
+    coalesce(i.trade_date , e.trade_date)                 as trade_date
+    , coalesce(i.custodian , e.custodian , acc.custodian) as custodian
+    , coalesce(i.account_number , e.account_number)       as account_number
+    , coalesce(i.symbol , e.symbol)                       as symbol
+    , i.quantity::decimal(17 , 2)                         as units_internal
+    , e.quantity::decimal(17 , 2)                         as units_external
+    , i.price::decimal(15 , 3)                            as price_internal
+    , e.price::decimal(15 , 3)                            as price_external
     , abs(
         i.quantity - e.quantity
-    )::decimal(17 , 3)                              as diff
+    )::decimal(17 , 3)                                    as diff
     , case
         when units_internal is null then 'Unmatched external'
         when units_external is null then 'Unmatched internal'
@@ -122,15 +119,15 @@ select
             then 'Trade matched'
         when diff is not null and diff <> 0 then 'Internal/external Discrepancy'
         when diff = 0 then 'Trade matched'
-    end                                             as match_type
-    , iff(match_type = 'Trade matched' , 1 , 0)     as is_match
-    , arrayagg(distinct ag.group_name)              as groups
-    , acc.account_title                             as account_name
-    , acc.restrictions_source_code                  as restrictions_source_code
+    end                                                   as match_type
+    , iff(match_type = 'Trade matched' , 1 , 0)           as is_match
+    , arrayagg(distinct ag.group_name)                    as groups
+    , acc.account_title                                   as account_name
+    , acc.restrictions_source_code                        as restrictions_source_code
 from cte_internal as i
 full outer join cte_external as e
     on i.trade_date = e.trade_date
-    and i.custodian = e.custodian
+    and lower(i.custodian) = lower(e.custodian)
     and i.account_number = e.account_number
     and i.symbol = e.symbol
 left join cte_accounts as acc

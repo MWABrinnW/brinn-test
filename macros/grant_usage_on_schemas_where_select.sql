@@ -7,21 +7,32 @@
       That way, users with the role can run metadata queries showing objects
       in that schema (a common need for BI tools)
     */
-  {% set schema_grants = {} %}
   {% if execute %}
+
+  {% set schema_grants = {} %}
     {% for node in graph.nodes.values() | selectattr("resource_type", "equalto", "model") %}
-      {% set grants = node.config.get('grants') %}
-      {% set select_roles = grants['select'] if grants else [] %}
-      {% if select_roles %}
-        {% set database_schema = node.database ~ "." ~ node.schema %}
-        {% if database_schema in database_schemas %}
-          {% do schema_grants[database_schema].add(select_roles) %}
-        {% else %}
-          {% do schema_grants.update({database_schema: set(select_roles)}) %}
+
+      {% if node.unique_id in selected_resources %}
+
+        {% set grants = node.config.get('grants') %}
+        {% set select_roles = grants['select'] if grants else [] %}
+
+        {% if select_roles %}
+
+          {% set database_schema = node.database ~ "." ~ node.schema %}
+
+          {% if database_schema in database_schemas %}
+            {% do schema_grants[database_schema].add(select_roles) %}
+          {% else %}
+            {% do schema_grants.update({database_schema: set(select_roles)}) %}
+          {% endif %}
+
         {% endif %}
+
       {% endif %}
+
     {% endfor %}
-  {% endif %}
+
   {% set grant_list %}
     {% for schema in schema_grants %}
       {% for role in schema_grants[schema] %}
@@ -30,5 +41,8 @@
       {% endfor %}
     {% endfor %}
   {% endset %}
+
   {{ return(grant_list) }}
+
+  {% endif %}
 {% endmacro %}

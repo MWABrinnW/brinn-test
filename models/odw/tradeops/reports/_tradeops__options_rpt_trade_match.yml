@@ -9,21 +9,22 @@ models:
 
       UNMATCHED-OMS: Exists internally but not externally.
 
-      UNMATCHED-EXTERNAL: Exists externally but not internally (we did not place the trade via internal system).
+      UNMATCHED-EXTERNAL: Exists externally but not internally (we did not place the trade via internal
+      system).
     columns:
       - name: TRADE_DATE
-        description: 'The date the trade was executed. NOTE: This field is not the same as the "Transaction Date" in Schwab''s legacy transaction files. To match the Transaction Date in the legacy files, use ''Transaction Date'' instead.'
+        description: >-
+          The date the trade was executed. NOTE: This field is not the same as the "Transaction Date"
+          in Schwab's legacy transaction files. To match the Transaction Date in the legacy files, use
+          'Transaction Date' instead.
         data_type: DATE
       - name: CUSTODIAN
-        description: 'Custodian name, lower-case, no spaces.'
+        description: Custodian name, lower-case, no spaces.
         data_type: VARCHAR
       - name: ACCOUNT_NUMBER
-        description: 'End-client account number at Schwab'
+        description: End-client account number at Schwab
         data_type: VARCHAR
       - name: SYMBOL
-        description: ''
-        data_type: VARCHAR
-      - name: INTERNAL_SOURCES
         description: ''
         data_type: VARCHAR
       - name: UNITS_INTERNAL
@@ -44,9 +45,8 @@ models:
       - name: MATCH_TYPE
         description: ''
         data_type: VARCHAR
-      - name: IS_MATCHED
+      - name: IS_MATCH
         description: ''
-        data_type: NUMBER
       - name: GROUPS
         description: ''
         data_type: ARRAY

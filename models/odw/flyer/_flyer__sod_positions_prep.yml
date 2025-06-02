@@ -1,15 +1,26 @@
 version: 2
 models:
   - name: flyer__sod_positions_prep
+    data_tests:
+      - dbt_expectations.expect_table_row_count_to_equal_other_table:
+          name: compare_row_count_flyer_sod_positions_prep
+          config:
+            severity: warn
+            enabled: "{{ target.name != 'prod' }}"
+          compare_model: odw.flyer.sod_positions_prep
+          group_by: [effective_date, custodian]
+          compare_group_by: [effective_date, custodian]
+          row_condition: effective_date >= current_date() - 7
+          compare_row_condition: effective_date >= current_date() - 7
     columns:
       - name: EFFECTIVE_DATE
         description: ''
         data_type: DATE
       - name: CUSTODIAN
-        description: ''
+        description: Custodian name, lower-case, no spaces.
         data_type: VARCHAR
       - name: ACCOUNT_NUMBER
-        description: 'End-client account number at Schwab.'
+        description: End-client account number at Schwab.
         data_type: VARCHAR
       - name: PRODUCT
         description: ''
@@ -18,17 +29,15 @@ models:
         description: ''
         data_type: VARCHAR
       - name: CUSIP
-        description: 'CUSIP'
+        description: CUSIP
         data_type: VARCHAR
       - name: QUANTITY
         description: ''
         data_type: NUMBER
-      - name: PRICE
+      - name: COST_PER_SHARE
         description: ''
-        data_type: NUMBER
-      - name: LOT_COST
+      - name: COST_BASIS
         description: ''
-        data_type: NUMBER
       - name: CURRENT_PRICE
         description: ''
         data_type: NUMBER

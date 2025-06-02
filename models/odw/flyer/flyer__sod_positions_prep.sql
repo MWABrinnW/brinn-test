@@ -6,7 +6,10 @@ with cte_accounts as (
     from {{ ref('flyer__stg_sod_accounts_history') }}
     where 1 = 1
         and _created_at::date = (select max(_created_at::date) from {{ ref('flyer__stg_sod_accounts_history') }})
-    qualify row_number() over (partition by _created_at::date , account_no , custodian order by _created_at desc) = 1
+    qualify row_number() over (
+            partition by _created_at::date , account_no , custodian
+            order by _created_at desc
+        ) = 1
 )
 
 , cte_schwab_cash as (
@@ -56,7 +59,12 @@ with cte_accounts as (
         and upper(a.custodian) = upper(v.custodian)
         and upper(a.account_number) = upper(v.account_no)
     where true
-        and a.rn_global = 1
+        --and a.rn_global = 1
+        and a.effective_date = (select max(effective_date) from cte_accounts)
+    qualify dense_rank() over (
+            partition by a.effective_date , a.account_number
+            order by a.master_number
+        ) = 1
 )
 
 , cte_schwab_money_market as (
@@ -89,7 +97,7 @@ with cte_accounts as (
         , null::text(200)                                as legacy_product_type_source_definition
 
         , 'cte_schwab_money_market--nml_schwab_holdings' as src
-    from {{ ref('nml_schwab_holdings') }} as a
+    from {{ ref('nml_schwab_holdings_head') }} as a
     inner join cte_accounts as v
         on a.effective_date = v.effective_date
         and upper(a.custodian) = upper(v.custodian)
@@ -193,6 +201,7 @@ with cte_accounts as (
         and upper(a.account_custodial) = upper(v.account_no)
     where 1 = 1
         and abs(a.net_trade_date_balance) > 0
+        and a.effective_date = (select max(effective_date) from cte_accounts)
 )
 
 , cte_securities as (
@@ -202,11 +211,15 @@ with cte_accounts as (
         , security_type_description
         , fund_type
         , row_number()
-            over (partition by cusip order by iff(security_type_description is not null , 0 , 1) asc , issue_entry_date desc)
+            over (
+                partition by cusip
+                order by iff(security_type_description is not null , 0 , 1) asc , issue_entry_date desc
+            )
             as rn_cusip
         , row_number()
             over (
-                partition by ticker_symbol order by iff(security_type_description is not null , 0 , 1) asc , issue_entry_date desc
+                partition by ticker_symbol
+                order by iff(security_type_description is not null , 0 , 1) asc , issue_entry_date desc
             )
             as rn_ticker
     from {{ ref('cusip_history__base_issues') }}
@@ -304,7 +317,7 @@ with cte_accounts as (
         on a.cusip = s.cusip
         and s.rn_cusip = 1
     where 1 = 1
-        and a.effective_date in (select distinct effective_date from cte_accounts)
+        and a.effective_date = (select max(effective_date) from cte_accounts)
         and a.rn_global = 1
         -- exclude because we pull from holdings
         and not (a.custodian = 'fidelity' and a.is_cash = 1)

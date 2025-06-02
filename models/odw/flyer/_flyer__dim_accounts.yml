@@ -9,11 +9,11 @@ models:
       - name: ACCOUNT_ID
         description: ''
       - name: ACCOUNT_NUMBER
-        description: ''
+        description: End-client account number at Schwab.
       - name: ACCOUNT_NAME
         description: ''
       - name: CUSTODIAN
-        description: ''
+        description: Custodian name, lower-case, no spaces.
       - name: IS_ACTIVE
         description: ''
       - name: START_DATE
