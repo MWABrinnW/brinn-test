@@ -290,7 +290,7 @@ select
     )::variant                                                                as _extra_fields
     -- META -------------------------------------------------------------------
     --, a.is_head                                                               as is_head
-    , a._source_loaded_at                                                     as _created_at
+    , current_timestamp()::timestamp_ntz                                      as _created_at
     , a._source_loaded_at                                                     as _source_loaded_at
     , a._source_file                                                          as _source_file
 from orion_accounts as a
