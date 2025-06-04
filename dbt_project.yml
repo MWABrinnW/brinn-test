@@ -38,6 +38,7 @@ query-comment:
 
 flags:
   skip_nodes_if_on_run_start_fails: True
+  indirect_selection: buildable
 
 vars:
   dbt_date:time_zone: "America/Chicago"

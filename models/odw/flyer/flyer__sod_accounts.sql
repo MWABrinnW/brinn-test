@@ -9,17 +9,44 @@ with custodian_accounts as (
         , null::text(200) as account_type
     from {{ ref('custodian_account_links') }}
     where 1 = 1
-        and is_head = 1
-        and custodian in ('schwab' , 'fidelity')
-        and link in (
-            -- schwab options master
-            '08261207'
-            -- fidelity options G#
-            , 'G14279989'
-            -- fidelity options brokeragelink
-            , 'G26998441'
-            -- TDA migrated schwab accounts
-            , '08261207' , '08220807' , '08220445'
+        -- Sometimes we need to use the fidelity account list from the prior day because
+        -- the fidelity gnum files can come in too late. We miss out on new Fidelity accounts
+        -- for the day but it keeps the pipeline running without waiting on the files.
+        -- Because of that we can't us `is_head=1` because the schwab records would be
+        -- returned and the fidelity excluded because the newest effective_date fidelity
+        -- records haven't been loaded yet and what does exist doesn't match the max
+        -- effective date that the schwab records possess.
+        and (
+            (
+            -- Schwab
+                custodian ilike 'schwab'
+                and effective_date
+                = (
+                    select max(effective_date) from {{ ref('custodian_account_links') }}
+                    where custodian = 'schwab'
+                )
+                and link in (
+                -- schwab options master
+                    '08261207'
+                    -- TDA migrated schwab accounts
+                    , '08261207' , '08220807' , '08220445'
+                )
+            )
+            or (
+            -- Fidelity
+                custodian ilike 'fidelity'
+                and effective_date
+                = (
+                    select max(effective_date) from {{ ref('custodian_account_links') }}
+                    where custodian = 'fidelity'
+                )
+                and link in (
+                -- fidelity options G#
+                    'G14279989'
+                    -- fidelity options brokeragelink
+                    , 'G26998441'
+                )
+            )
         )
     order by custodian , link , account_number
 )
