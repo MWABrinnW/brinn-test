@@ -1,14 +1,14 @@
 version: 2
 
 sources:
-  - name: insurance
+  - name: insurance_mir
     description: Extraction of an Excel document that encapsulate the insurance business; specifically, tabs 'Client Table' & 'Revenue Detail'.
     database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
-    schema: insurance
+    schema: insurance_mir
     loaded_at_field: _created_at
 
     tables:
-      - name: bills
+      - name: revenue
         columns:
           - name: json
             description: an array for each record stored in key-value pairs.
@@ -48,3 +48,23 @@ sources:
           - name: _id
             description: identifier for the record.
             data_type: int            
+      - name: payees
+        columns:
+          - name: json
+            description: an array for each record stored in key-value pairs.
+            data_type: variant
+          - name: _created_at
+            description: datetime each record is loaded to the source table.
+            data_type: datetime
+          - name: _box_file_id
+            description: identifier for the box file.
+            data_type: string
+          - name: _box_file_name
+            description: name of the box file.
+            data_type: string
+          - name: _box_meta
+            description: metadata associated with the box file.
+            data_type: variant
+          - name: _id
+            description: identifier for the record.
+            data_type: int

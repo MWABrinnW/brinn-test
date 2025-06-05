@@ -341,7 +341,7 @@ models:
         +grants:
           select: "{{ ['db_crm_mps_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
-      insurance:
+      insurance_mir:
         +tags: ["insurance", "mir"]
         +grants:
           +select: "{{ ['finance'] if target.name in ['prod', 'ci'] else []}}"

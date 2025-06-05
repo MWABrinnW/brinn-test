@@ -34,4 +34,4 @@ select
         , partition_col='_box_file_name'
         , reference_date_col='_created_at'
         , source_date_col='_created_at') }}
-from {{ source('insurance', 'bills') }}
+from {{ source('insurance_mir', 'revenue') }}
