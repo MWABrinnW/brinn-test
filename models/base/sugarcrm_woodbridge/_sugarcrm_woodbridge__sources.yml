@@ -1,0 +1,18 @@
+sources:
+  - name: sugarcrm_woodbridge
+    description: ""
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    schema: sugarcrm_woodbridge
+    tables:
+      - name: campaigns
+        description: "SugarCRM custom module, scrm_Campaigns"
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _ID
+            description: ''
+            data_type: NUMBER

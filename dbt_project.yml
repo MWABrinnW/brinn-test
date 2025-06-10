@@ -529,6 +529,11 @@ models:
         +grants:
           select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
+      sugarcrm_woodbridge:
+        +tags: ["sugarcrm" , "woodbridge"]
+        +grants:
+          select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod', 'ci'] else []}}"
+
       xcm:
         +tags: ["tax", "xcm"]
         +dbt-osmosis: "_{model}.yml"
