@@ -1,4 +1,60 @@
 version: 2
 models:
   - name: bld_holdings_all
-    columns: []
+    columns:
+      - name: EFFECTIVE_DATE
+        description: ''
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: FIRM_SOURCE
+        description: ''
+      - name: ACCOUNT_ID
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: CUSIP
+        description: ''
+      - name: TICKER
+        description: ''
+      - name: IS_CUSTODIAL_CASH
+        description: ''
+      - name: SECURITY_ID
+        description: ''
+      - name: SECURITY_NAME
+        description: ''
+      - name: SECURITY_TYPE
+        description: ''
+      - name: SECURITY_SUBTYPE
+        description: ''
+      - name: ASSET_CLASS
+        description: ''
+      - name: MARKET_VALUE
+        description: ''
+      - name: QUANTITY
+        description: ''
+      - name: PRICE
+        description: ''
+      - name: PRICE_UNFACTORED
+        description: ''
+      - name: FACTOR
+        description: ''
+      - name: COST_BASIS
+        description: ''
+      - name: IS_MANUAL_HOLDINGS
+        description: ''
+      - name: IS_LEGACY
+        description: ''
+      - name: _CREATED_AT
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: _CREATED_AT_2
+        description: ''

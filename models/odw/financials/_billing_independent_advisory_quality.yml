@@ -4,33 +4,46 @@ models:
     columns:
       - name: RELATION
         data_type: VARCHAR
+        description: ''
       - name: SYSTEM_KEY
         data_type: VARCHAR
+        description: ''
       - name: FIELD
         data_type: VARCHAR
+        description: ''
       - name: DTYPE
         data_type: VARCHAR
+        description: ''
       - name: MONTH_END_DATE
         data_type: DATE
+        description: ''
       - name: COUNT_ALL
         data_type: NUMBER
+        description: ''
       - name: COUNT_NULL
         data_type: NUMBER
+        description: ''
       - name: DISTINCT_VALUES
         data_type: NUMBER
+        description: ''
       - name: IS_DISTINCT
         data_type: BOOLEAN
+        description: ''
       - name: SUM
         data_type: NUMBER
+        description: ''
       - name: MIN
         data_type: VARCHAR
+        description: ''
       - name: MAX
         data_type: VARCHAR
+        description: ''
       - name: MODE
         data_type: VARCHAR
+        description: ''
       - name: DISTINCT_VALUES_LIMITED
         data_type: VARCHAR
+        description: ''
       - name: VALUE_MAX_LENGTH
         data_type: NUMBER
-sources: []
-seeds: []
+        description: ''

@@ -3,7 +3,7 @@
     unique_key='effective_date',
     incremental_strategy='delete+insert',
     on_schema_change='sync_all_columns',
-    cluster_by=['effective_date', 'fkalclient', 'left(account_number, 2)']
+    cluster_by=['effective_date', 'system_key', 'left(account_number, 2)']
 ) }}
 
 {%- set start_date = cvar('start_date_orion') -%}
@@ -17,7 +17,7 @@ select
     , a.firm_source                                                              as firm_source
     , a.pkaccount                                                                as account_id
     , upper(ass.acctcode)                                                        as account_number_formatted
-    , upper(replace(ass.acctcode, '-', ''))              as account_number
+    , upper(replace(ass.acctcode, '-', ''))                                      as account_number
     , ph.hh_pkclient                                                             as household_id
     , ph.hh_pers_entityname                                                      as household_name
     , cust.name                                                                  as custodian

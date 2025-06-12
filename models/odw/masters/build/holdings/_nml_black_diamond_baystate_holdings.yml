@@ -1,6 +1,11 @@
 version: 2
 models:
   - name: nml_black_diamond_baystate_holdings
+    data_tests:
+      - dbt_expectations.expect_table_columns_to_contain_set:
+          name: nml_black_diamond_baystate_holdings_check_column_list
+          column_list: "{{ cvar('pms_holdings_nml_column_list') }}"
+          transform: upper
     columns:
       - name: EFFECTIVE_DATE
         description: ''
@@ -54,9 +59,9 @@ models:
         description: ''
       - name: COST_BASIS
         description: ''
-      - name: IS_HEAD
+      - name: IS_LEGACY
         description: ''
-      - name: IS_CURRENT
+      - name: IS_MANUAL_HOLDINGS
         description: ''
       - name: _CREATED_AT
         description: ''

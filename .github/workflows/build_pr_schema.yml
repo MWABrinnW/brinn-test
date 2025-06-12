@@ -34,7 +34,7 @@ env:
   DBT_PROFILES_DIR: ${{ vars.DBT_PROFILES_DIR }}
   DBT_TARGET_PATH: ./target
   DBT_TARGET: ci
-  VENV_DIR: "./.venv"
+  DBT_INDIRECT_SELECTION: eager
   SNOWSQL_USER: ${{ vars.DBT_USER }}
   SNOWSQL_PWD: ${{ secrets.DBT_PASSWORD }}
   SNOWSQL_ACCOUNT: ${{ vars.DBT_HOST }}
@@ -44,6 +44,7 @@ env:
   PR_NUM: ${{ github.event.number }}
   BRANCH: ${{ github.event.pull_request.head.ref }}
   DEST_DIR: ${{ vars.ARTIFACTS_ROOT_DIR }}/${{ github.event.pull_request.head.ref }}
+  VENV_DIR: "./${{ github.event.pull_request.head.ref }}/.venv"
 
 
 jobs:
@@ -146,7 +147,7 @@ jobs:
             New-Item -Path "$dest_dir" -ItemType Directory
           }
 
-          dbt build --fail-fast -s state:modified.body+1 state:modified.configs state:modified.persisted_descriptions state:modified.macros+1 state:modified.contract
+          dbt build --fail-fast -s state:modified.body+1 state:modified.persisted_descriptions state:modified.macros+1 state:modified.contract
 
       - name: upload dbt artifacts
         shell: pwsh

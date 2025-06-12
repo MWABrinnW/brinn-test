@@ -109,8 +109,4 @@ select
     , _extra_fields::variant                      as _extra_fields
     , _created_at::timestamp_ntz(9)               as _created_at
     , 0::int                                      as is_legacy
-from {{ ref('bld_billing_wealth') }}
-where system_key in ('black_diamond__baystate' , 'black_diamond__mps')
-    or (
-        system_key = 'salesforce__compass' and (_extra_fields['is_cpg'] = 1)
-    )
+from {{ ref('billing_independent_advisory') }}

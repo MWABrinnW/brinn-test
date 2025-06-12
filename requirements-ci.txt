@@ -1,4 +1,4 @@
-dbt-core==1.9.4
+dbt-core==1.9.6
 dbt-snowflake==1.9.1
 dbt-osmosis==1.1.17
 sqlfluff==3.4.0

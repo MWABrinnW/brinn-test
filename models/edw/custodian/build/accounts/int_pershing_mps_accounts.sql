@@ -196,6 +196,100 @@ with destination_summary as (
     where datediff(day , s.effective_date , d.date_key) between 0 and 6
 )
 
+---------------------------------------------------------------------
+
+, accf_b as (
+    select
+        effective_date
+        , account_number
+        , tax_id_type
+        , tax_id_number
+        , tax_status
+    from {{ ref('pershing_mps__accf_b_main_account_information') }}
+    where 1 = 1
+        and exists(select 1 from dates_to_refresh)
+        and effective_date in (select distinct effective_date from cte_effective_dates)
+)
+
+, accf_c as (
+    select
+        effective_date
+        , account_number
+        , cost_basis_accounting_system
+        , disposition_method_for_mutual_funds
+        , disposition_method_for_all_other_security_types
+        , disposition_method_for_stocks_in_dividend_reinvestment
+    from {{ ref('pershing_mps__accf_c_main_account_information_address_1_and_2') }}
+    where 1 = 1
+        and exists(select 1 from dates_to_refresh)
+        and effective_date in (select distinct effective_date from cte_effective_dates)
+)
+
+, acct_b as (
+    select
+        effective_date
+        , account_number
+        , tax_id_type
+        , tax_id_number
+        , tax_status
+    from {{ ref('pershing_mps__acct_b_main_account_information') }}
+    where 1 = 1
+        and exists(select 1 from dates_to_refresh)
+        and effective_date in (select distinct effective_date from cte_effective_dates)
+)
+
+, acct_c as (
+    select
+        effective_date
+        , account_number
+        , cost_basis_accounting_system
+        , disposition_method_for_mutual_funds
+        , disposition_method_for_all_other_security_types
+        , disposition_method_for_stocks_in_dividend_reinvestment
+    from {{ ref('pershing_mps__acct_c_main_account_information_address_1_and_2') }}
+    where 1 = 1
+        and exists(select 1 from dates_to_refresh)
+        and effective_date in (select distinct effective_date from cte_effective_dates)
+)
+
+, hldr_j as (
+    select
+        effective_date
+        , account_number
+        , client_type
+        , email_address_1
+        , telephone_number_1
+        , client_name_type_format
+        , freeform_line_1
+        , freeform_line_2
+        , freeform_line_3
+        , freeform_line_4
+        , address_line_1
+        , address_line_2
+        , address_line_3
+        , address_line_4
+        , address_line_1_2
+        , address_line_2_2
+        , address_line_3_2
+        , address_line_4_2
+        , city
+        , state
+        , zippostal_code
+        , country_code
+        , individual_first_name
+        , individual_middle_name
+        , individual_last_name
+        , city_2
+        , state_2
+        , zippostal_code_2
+        , country_code_2
+    from {{ ref('pershing_mps__hldr_j_individual_entity_client_common_information') }}
+    where 1 = 1
+        and exists(select 1 from dates_to_refresh)
+        and effective_date in (select distinct effective_date from cte_effective_dates)
+)
+
+
 , cte_account_spine_fulls as (
     select
         dt.effective_date                                           as effective_date
@@ -379,18 +473,18 @@ with destination_summary as (
         , f._source_loaded_at                                         as _source_loaded_at
         , f._source_file                                              as _source_file
     from {{ ref('pershing_mps__accf_a_main_account_information') }} as f
-    left join {{ ref('pershing_mps__accf_b_main_account_information') }} as b
+    left join accf_b as b
         on f.effective_date = b.effective_date
         and f.account_number = b.account_number
         and exists(select 1 from dates_to_refresh)
         and b.effective_date in (select distinct effective_date from dates_to_refresh)
-    left join {{ ref('pershing_mps__hldr_j_individual_entity_client_common_information') }} as j
+    left join hldr_j as j
         on f.effective_date = j.effective_date
         and f.account_number = j.account_number
         and j.client_type = 'AH'
         and exists(select 1 from dates_to_refresh)
         and j.effective_date in (select distinct effective_date from dates_to_refresh)
-    left join {{ ref('pershing_mps__accf_c_main_account_information_address_1_and_2') }} as maic
+    left join accf_c as maic
         on f.effective_date = maic.effective_date
         and f.account_number = maic.account_number
         and exists(select 1 from dates_to_refresh)
@@ -585,18 +679,18 @@ with destination_summary as (
         , f._source_loaded_at                                         as _source_loaded_at
         , f._source_file                                              as _source_file
     from {{ ref('pershing_mps__acct_a_main_account_information') }} as f
-    left join {{ ref('pershing_mps__acct_b_main_account_information') }} as b
+    left join acct_b as b
         on f.effective_date = b.effective_date
         and f.account_number = b.account_number
         and exists(select 1 from dates_to_refresh)
         and b.effective_date in (select distinct effective_date from dates_to_refresh)
-    left join {{ ref('pershing_mps__hldr_j_individual_entity_client_common_information') }} as j
+    left join hldr_j as j
         on f.effective_date = j.effective_date
         and f.account_number = j.account_number
         and j.client_type = 'AH'
         and exists(select 1 from dates_to_refresh)
         and j.effective_date in (select distinct effective_date from dates_to_refresh)
-    left join {{ ref('pershing_mps__acct_c_main_account_information_address_1_and_2') }} as maic
+    left join acct_c as maic
         on f.effective_date = maic.effective_date
         and f.account_number = maic.account_number
         and exists(select 1 from dates_to_refresh)

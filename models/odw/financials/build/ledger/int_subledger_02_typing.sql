@@ -9,13 +9,13 @@ select
     , sw.system_instance::varchar(200)                  as system_instance
     , sw.system_key::varchar(200)                       as system_key
 
-    -- [location]     
+    -- [location]
     , sw.location_code                                  as location_code
     , sw.office_name                                    as office_name
     , sw.location_code::varchar(200)                    as client_location_code
     , sw.office_name::varchar(200)                      as client_office_name
 
-    -- [financial dates]      
+    -- [financial dates]
     , sw.invoice_created_at::datetime                   as invoice_created_at
     , sw.invoice_date::date                             as invoice_date
     , sw.revenue_month_start_date::date                 as revenue_month_start_date
@@ -113,7 +113,6 @@ select
     , sw.client_lead_source::varchar(200)               as client_lead_source
     , sw.client_key_tags_crm::varchar(200)              as client_key_tags_crm
 
-
     -- [transactions]
     , sw.transaction_type::varchar                      as transaction_type
     , sw.transaction_line_type::varchar(200)            as transaction_line_type
@@ -132,7 +131,6 @@ select
     , sw._source_file::varchar(200)                     as _source_file
     , sw._box_file_id::varchar(200)                     as _box_file_id
     , sw._extra_fields::variant                         as _extra_fields
-
 
 from
     {{ ref('int_subledger_01_allocations') }} as sw

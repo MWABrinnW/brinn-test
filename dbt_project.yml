@@ -38,7 +38,6 @@ query-comment:
 
 flags:
   skip_nodes_if_on_run_start_fails: True
-  indirect_selection: buildable
 
 vars:
   dbt_date:time_zone: "America/Chicago"
@@ -81,10 +80,7 @@ data_tests:
   +store_failures: true
   +store_failures_as: table
   +limit: 1000
-  +schema: |
-    {% if target.name in ['prod'] %} "{{ target.schema }}_test__audit"
-    {% else %} "{{ target.schema }}"
-    {% endif %}
+  +schema: "{{ 'test' if target.name in ['prod'] else target.schema}}"
   +grants:
     select: "{{ ['engineering'] if target.name in ['prod', 'ci'] else []}}"
 

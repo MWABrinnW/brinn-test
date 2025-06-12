@@ -1,0 +1,406 @@
+version: 2
+models:
+  - name: stg_salesforce_compass_invoice_review
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: ID
+        description: ''
+      - name: IS_DELETED
+        description: ''
+      - name: NAME
+        description: ''
+      - name: RECORD_TYPE_ID
+        description: ''
+      - name: CREATED_DATE
+        description: ''
+      - name: CREATED_BY_ID
+        description: ''
+      - name: LAST_MODIFIED_DATE
+        description: ''
+      - name: LAST_MODIFIED_BY_ID
+        description: ''
+      - name: SYSTEM_MODSTAMP
+        description: ''
+      - name: LAST_ACTIVITY_DATE
+        description: ''
+      - name: LAST_VIEWED_DATE
+        description: ''
+      - name: LAST_REFERENCED_DATE
+        description: ''
+      - name: APX_RECONCILIATION_C
+        description: ''
+      - name: ADVISOR_APPROVED_DATE_C
+        description: ''
+      - name: ADVISOR_COMMENTS_C
+        description: ''
+      - name: APPROVED_BY_ADVISOR_C
+        description: ''
+      - name: VIEW_TYPE_HH_PLUS_CLIENT_C
+        description: ''
+      - name: BC_BILLING_STYLE_STORED_C
+        description: ''
+      - name: BC_FEE_SCHEDULE_STORED_C
+        description: ''
+      - name: DATE_FINALIZED_C
+        description: ''
+      - name: TEAM_MEMBER_ASSIGNED_C
+        description: ''
+      - name: BILLING_CALCULATION_STATUS_C
+        description: ''
+      - name: BILLING_ERROR_TIMESTAMP_C
+        description: ''
+      - name: BILLING_EXCEPTION_COMPLETED_C
+        description: ''
+      - name: BILLING_METHOD_OLD_C
+        description: ''
+      - name: BILLING_REJECT_NOTES_C
+        description: ''
+      - name: DATE_TO_PULL_FEE_C
+        description: ''
+      - name: BILLING_STYLE_C
+        description: ''
+      - name: BRANCH_2_C
+        description: ''
+      - name: CALCULATION_AS_OF_DATE_C
+        description: ''
+      - name: CALCULATION_FINALIZED_TIMESTAMP_C
+        description: ''
+      - name: COLLECTION_DATE_C
+        description: ''
+      - name: COLLECTION_NOTES_C
+        description: ''
+      - name: COLLECTION_SHEET_NAME_C
+        description: ''
+      - name: COMPANY_FAMILY_C
+        description: ''
+      - name: WHO_WORKED_REJECT_C
+        description: ''
+      - name: FEE_SCHEDULE_C
+        description: ''
+      - name: FEE_TYPE_C
+        description: ''
+      - name: FINALIZED_FEE_STATUS_C
+        description: ''
+      - name: FIRST_LEVEL_APPROVAL_DATE_C
+        description: ''
+      - name: FIRST_LEVEL_APPROVER_C
+        description: ''
+      - name: INSUFFICIENT_FUNDS_WORKFLOW_COUNT_C
+        description: ''
+      - name: PLAN_C
+        description: ''
+      - name: DATE_REJECT_RESOLVED_C
+        description: ''
+      - name: FEE_FREQUENCY_C
+        description: ''
+      - name: VALUATION_METHOD_C
+        description: ''
+      - name: BILLING_ACCOUNT_NUMBER_AUDIT_TRACKING_C
+        description: ''
+      - name: READY_FOR_COLLECTIONS_AUDIT_TRACKING_C
+        description: ''
+      - name: SERVICE_RENDERED_C
+        description: ''
+      - name: SOURCE_INVOICE_IDENTIFIER_C
+        description: ''
+      - name: CALCULATION_SYSTEM_C
+        description: ''
+      - name: INVOICE_DATE_C
+        description: ''
+      - name: INVOICE_LINK_C
+        description: ''
+      - name: MANAGEMENT_STYLE_C
+        description: ''
+      - name: MANUAL_REVIEW_DATE_C
+        description: ''
+      - name: MANUAL_REVIEWER_C
+        description: ''
+      - name: MISCELLANEOUS_ADJUSTMENT_REASON_C
+        description: ''
+      - name: NTF_1_C
+        description: ''
+      - name: NTF_2_C
+        description: ''
+      - name: NTF_3_C
+        description: ''
+      - name: OPERATIONS_APPROVAL_DATE_C
+        description: ''
+      - name: OPERATIONS_COMMENTS_C
+        description: ''
+      - name: ORION_BILL_ID_C
+        description: ''
+      - name: OVERIDE_BILLING_CUSTODIAN_C
+        description: ''
+      - name: PAYOUT_STATUS_C
+        description: ''
+      - name: PAYOUT_TIMESTAMP_C
+        description: ''
+      - name: QPR_LINKING_C
+        description: ''
+      - name: QUARTERBACK_2_C
+        description: ''
+      - name: REJECT_CATEGORY_C
+        description: ''
+      - name: REJECTED_COUNT_C
+        description: ''
+      - name: REJECTED_DATE_C
+        description: ''
+      - name: STATUS_C
+        description: ''
+      - name: THIRD_PARTY_CALCULATION_C
+        description: ''
+      - name: BILLING_ACCOUNT_C
+        description: ''
+      - name: ACCOUNT_GENERATING_FEE_C
+        description: ''
+      - name: OLD_NAME_C
+        description: ''
+      - name: ESTATE_ITEM_C
+        description: ''
+      - name: AR_AP_ITEM_C
+        description: ''
+      - name: DATE_LAST_INVOICE_SENT_C
+        description: ''
+      - name: _FIVETRAN_SYNCED
+        description: ''
+      - name: FINANCIAL_ACCOUNT_HOUSEHOLD_ID_DEL_C
+        description: ''
+      - name: FEE_RATE_C
+        description: ''
+      - name: REVENUE_AS_OF_DATE_C
+        description: ''
+      - name: REGISTRATION_SUMMARY_C
+        description: ''
+      - name: INVOICE_HYPERLINK_C
+        description: ''
+      - name: READY_FOR_COLLECTIONS_C
+        description: ''
+      - name: DAYS_SINCE_REJECTED_C
+        description: ''
+      - name: CLIENT_UNIQUE_IDENTIFIER_C
+        description: ''
+      - name: ADVISOR_APPROVED_STATUS_C
+        description: ''
+      - name: CONCATENATE_2_C
+        description: ''
+      - name: BILLING_ACCOUNT_NUMBER_C
+        description: ''
+      - name: WAS_PERCENTAGE_C
+        description: ''
+      - name: ORION_ACCOUNT_ID_C
+        description: ''
+      - name: BC_BILLING_STYLE_C
+        description: ''
+      - name: BILLING_METHOD_C
+        description: ''
+      - name: ACCOUNT_CLOSE_DATE_C
+        description: ''
+      - name: CLIENT_NAME_C
+        description: ''
+      - name: ACCOUNT_TYPE_C
+        description: ''
+      - name: CASH_DEFICIT_C
+        description: ''
+      - name: CLIENT_AGREEMENT_VERSION_C
+        description: ''
+      - name: INVOICE_ON_QPR_C
+        description: ''
+      - name: BILLING_ACCOUNT_HOUSEHOLD_ID_DEL_C
+        description: ''
+      - name: AGGREGATED_IN_TIER_C
+        description: ''
+      - name: RECON_DATE_C
+        description: ''
+      - name: FINAL_FEE_CHANGE_PERC_C
+        description: ''
+      - name: QUARTERBACK_C
+        description: ''
+      - name: ORION_HOUSE_ID_C
+        description: ''
+      - name: FEE_ACCOUNT_C
+        description: ''
+      - name: CLIENT_FEE_CHANGE_PERC_C
+        description: ''
+      - name: STATUS_SUMMARY_C
+        description: ''
+      - name: BILLING_ACCOUNT_FORMATTED_C
+        description: ''
+      - name: DAYS_OUTSTANDING_C
+        description: ''
+      - name: BILLING_ACCOUNT_TAX_STATUS_C
+        description: ''
+      - name: BILLING_ERROR_TIMESTAMP_ELAPSED_C
+        description: ''
+      - name: WAS_CATEGORY_C
+        description: ''
+      - name: QPR_STATUS_C
+        description: ''
+      - name: SUBADVISOR_C
+        description: ''
+      - name: DAYS_IN_QTR_PRIOR_TO_INVOICE_C
+        description: ''
+      - name: IS_QUALIFIED_C
+        description: ''
+      - name: BILLING_EXCEPTION_DETAILS_C
+        description: ''
+      - name: CONCATENATE_3_C
+        description: ''
+      - name: FIRST_LEVEL_SUMMARY_C
+        description: ''
+      - name: AVG_ANNUAL_GROSS_FEE_RATE_C
+        description: ''
+      - name: ACCOUNT_NUMBER_C
+        description: ''
+      - name: REGISTRATION_NAME_C
+        description: ''
+      - name: QUARTER_END_CLIENT_RECON_C
+        description: ''
+      - name: MODEL_ON_ACCOUNT_C
+        description: ''
+      - name: BILLING_EXCEPTION_C
+        description: ''
+      - name: BILLING_ACCOUNT_TYPE_C
+        description: ''
+      - name: FEE_TYPE_SUMMARY_C
+        description: ''
+      - name: CUSTODIAN_C
+        description: ''
+      - name: BILLING_EXCEPTION_CATEGORY_C
+        description: ''
+      - name: DISCOUNT_RATE_C
+        description: ''
+      - name: BILLING_CUSTODIAN_C
+        description: ''
+      - name: SUBADVISOR_PAYOUT_RATE_C
+        description: ''
+      - name: COLLECTION_MONTH_C
+        description: ''
+      - name: START_DATE_C
+        description: ''
+      - name: SHORT_NAME_C
+        description: ''
+      - name: REVENUE_QUARTER_C
+        description: ''
+      - name: AUM_CLASSIFICATION_C
+        description: ''
+      - name: INVOICE_QUARTER_C
+        description: ''
+      - name: HOUSEHOLD_TYPE_C
+        description: ''
+      - name: TAX_STATUS_C
+        description: ''
+      - name: COLLECTION_WEEK_C
+        description: ''
+      - name: BRANCH_C
+        description: ''
+      - name: AVG_ANNUAL_NET_FEE_RATE_C
+        description: ''
+      - name: EMAIL_TO_C
+        description: ''
+      - name: FILE_AS_C
+        description: ''
+      - name: BILLING_ACCOUNT_APPROVED_HOUSEHOLD_ID_DEL_C
+        description: ''
+      - name: COLLECTION_QUARTER_C
+        description: ''
+      - name: DAYS_IN_INVOICE_QTR_C
+        description: ''
+      - name: _FIVETRAN_DELETED
+        description: ''
+      - name: CLIENT_PREVIOUS_QTR_FEE_C
+        description: ''
+      - name: ACCOUNT_CURRENT_QTR_FEE_C
+        description: ''
+      - name: BC_BILLABLE_VALUE_STORED_C
+        description: ''
+      - name: TOTAL_ACCOUNT_VALUE_C
+        description: ''
+      - name: REFERRAL_FEE_C
+        description: ''
+      - name: FEE_REBATES_C
+        description: ''
+      - name: REFERRAL_FEE_ESTIMATE_C
+        description: ''
+      - name: FEE_EXCLUDED_ASSETS_C
+        description: ''
+      - name: GROSS_FEE_C
+        description: ''
+      - name: BC_GROSS_FEE_C
+        description: ''
+      - name: CASH_DEFICIT_AMOUNT_C
+        description: ''
+      - name: BILLABLE_VALUE_C
+        description: ''
+      - name: ADMIN_FEE_TOTAL_C
+        description: ''
+      - name: ADMIN_FEE_C
+        description: ''
+      - name: BC_ADJUSTMENTS_FEE_C
+        description: ''
+      - name: GROSS_REVENUE_NO_ADJUSTMENTS_C
+        description: ''
+      - name: ADJUSTMENTS_FEE_C
+        description: ''
+      - name: NET_CONTRIBUTIONS_FEE_C
+        description: ''
+      - name: BC_ADJUSTMENTS_STORED_C
+        description: ''
+      - name: PREVIOUS_QTR_FEE_C
+        description: ''
+      - name: NTF_FEE_C
+        description: ''
+      - name: PAYMENT_METHOD_FEE_C
+        description: ''
+      - name: BILLING_ACCOUNT_OUTSTANDING_FEES_C
+        description: ''
+      - name: WAS_FEE_C
+        description: ''
+      - name: CLIENT_CURRENT_QTR_FEE_C
+        description: ''
+      - name: MISCELLANEOUS_ADJUSTMENT_C
+        description: ''
+      - name: FEE_ESTIMATE_C
+        description: ''
+      - name: DISCOUNT_AMOUNT_C
+        description: ''
+      - name: BILLING_ACCOUNT_CASH_C
+        description: ''
+      - name: SUBADVISOR_PAYOUT_AMOUNT_C
+        description: ''
+      - name: REFERRAL_FEE_PAID_C
+        description: ''
+      - name: X_40_ACT_FEE_C
+        description: ''
+      - name: CLIENT_FEE_CHANGE_AMT_C
+        description: ''
+      - name: FINAL_FEE_CHANGE_AMT_C
+        description: ''
+      - name: ADJUSTMENTS_CROSS_CHECK_C
+        description: ''
+      - name: RUN_RATE_REVENUE_C
+        description: ''
+      - name: NET_FEE_C
+        description: ''
+      - name: GROSS_REVENUE_C
+        description: ''
+      - name: MSEC_COMMISSIONS_LAST_12_MONTHS_C
+        description: ''
+      - name: WRITE_OFF_FEE_C
+        description: ''
+      - name: BC_GROSS_FEE_STORED_C
+        description: ''
+      - name: BC_BILLABLE_VALUE_C
+        description: ''
+      - name: MAXIMUM_LEVEL_ALLOWED_C
+        description: ''
+      - name: ADJUSTMENT_CREDIT_REMAINING_C
+        description: ''
+      - name: NON_WAS_REFERRAL_FEE_C
+        description: ''
+      - name: BILLING_ACCOUNT_OUTSTANDING_FEES_NEW_C
+        description: ''

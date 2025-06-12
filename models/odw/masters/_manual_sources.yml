@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: manual
+  - name: raw_pms
     database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
     schema: pms
     tables:

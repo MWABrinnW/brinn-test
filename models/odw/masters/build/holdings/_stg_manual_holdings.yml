@@ -1,6 +1,11 @@
 version: 2
 models:
   - name: stg_manual_holdings
+    data_tests:
+      - dbt_expectations.expect_table_columns_to_contain_set:
+          name: stg_manual_holdings_check_column_list
+          column_list: "{{ cvar('pms_holdings_nml_column_list') }}"
+          transform: upper
     columns:
       - name: EFFECTIVE_DATE
         description: ''
@@ -52,9 +57,15 @@ models:
         description: ''
       - name: FACTOR
         description: ''
-      - name: COST_BASIS
+      - name: IS_LEGACY
         description: ''
       - name: IS_MANUAL_HOLDINGS
         description: ''
+      - name: COST_BASIS
+        description: ''
       - name: _CREATED_AT
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: _SOURCE_FILE
         description: ''

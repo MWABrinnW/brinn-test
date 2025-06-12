@@ -1,6 +1,29 @@
 version: 2
 models:
   - name: billing_wealth
+    data_tests:
+      # Tests for comparing target model to production model.
+      - dbt_expectations.expect_table_row_count_to_equal_other_table:
+          name: billing_wealth_compare_row_count
+          description: Compare the row count of the billing_wealth model to the prod model.
+          config:
+            severity: warn
+            enabled: "{{ target.name != 'prod' }}"
+          compare_model: odw.financials.billing_wealth
+          group_by: [revenue_period_end_date, system_key]
+          compare_group_by: [revenue_period_end_date, system_key]
+      - compare_describe_to_prod:
+          name: billing_wealth_compare_describe_to_prod
+          description: Compare the describe() of the billing_wealth model to the prod model.
+          state_database: odw
+          state_schema: financials
+          state_name: billing_wealth
+          summarize: false
+          include_columns: [revenue_period_end_date, system_key, location_code, office_name, is_intra_period_invoice,
+            associate_id, client_fee_net, is_excluded, coa_account_number, advisor]
+          config:
+            severity: warn
+            enabled: "{{ target.name != 'prod' }}"
     columns:
       - name: SYSTEM_NAME
         description: >-
@@ -54,6 +77,10 @@ models:
       - name: REVENUE_PERIOD_END_DATE
         description: End date of invoiced service period, date grain dependent on billing frequency
         data_type: DATE
+        data_tests:
+          - not_null:
+              where: is_legacy = 0
+
       - name: REVENUE_QUARTER_END_DATE
         description: >-
           Quarter that the billed fees will be reported in.  Date format that represents the last calendar
@@ -83,6 +110,13 @@ models:
       - name: IS_INTRA_PERIOD_INVOICE
         description: Indicates if this invoice was created in the middle of a billing cycle
         data_type: NUMBER
+        data_tests:
+          - not_null:
+              where: is_legacy = 0
+          - accepted_values:
+              values: [0, 1]
+              where: is_legacy = 0
+
       - name: ACCOUNT_NUMBER
         description: Financial account number excluding leading zeroes or hyphens within the number
         data_type: VARCHAR
@@ -222,9 +256,23 @@ models:
       - name: BILLING_STYLE
         description: Denotes whether the account is billed in arrears or advance
         data_type: VARCHAR
+        data_tests:
+          - not_null:
+              where: is_legacy = 0
+          - accepted_values:
+              values: [Arrears, Advance]
+              where: is_legacy = 0
+
       - name: BILLING_FREQUENCY
         description: How frequent the client is billed (quarterly, monthly, etc.)
         data_type: VARCHAR
+        data_tests:
+          - not_null:
+              where: is_legacy = 0
+          - accepted_values:
+              values: [Monthly, Quarterly, Annually, One-Time, Semi-Annually]
+              where: is_legacy = 0
+
       - name: BILLING_METHOD
         description: Billing method for the invoice, ex. Automatic Deduction, Invoiced, Direct, Indirect
         data_type: VARCHAR
@@ -238,7 +286,7 @@ models:
         data_type: VARCHAR
       - name: PAYMENT_METHOD_FEE
         description: Tracks Advice Pay fees associated with billing
-        data_type: VARCHAR
+        data_type: NUMBER
       - name: ACCOUNT_CLASS
         description: >-
           Valid values are: REV | Revenue (Wealth); FREIGHT | Freight; TAX | Tax; REC | Receivables; CHARGES
@@ -284,6 +332,9 @@ models:
       - name: REVENUE_CATEGORY
         description: Business line category in which the revenue is attributed to
         data_type: VARCHAR
+        data_tests:
+          - not_null
+
       - name: REVENUE_TYPE
         description: Type of revenue, derived field based on Fee Type.  Important for the GL.
         data_type: VARCHAR
@@ -386,5 +437,3 @@ models:
           the normalization and/or business logic of our mastered Rev360 sources, but do allow for basic
           aggregation of revenue history for 2022 and 2023.
         data_type: NUMBER
-sources: []
-seeds: []

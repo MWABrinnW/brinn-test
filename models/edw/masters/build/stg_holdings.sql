@@ -14,6 +14,7 @@ select
     , json:"custodian"::text                  as custodian
     , json:"cusip"::text                      as cusip
     , json:"ticker"::text                     as ticker
+    , null::int                               as is_ticker_cusip
     , json:"is_custodial_cash"::int           as is_custodial_cash
     , json:"security_id"::text                as security_id
     , json:"security_name"::text              as security_name
@@ -27,39 +28,43 @@ select
     , json:"factor"::number(19 , 9)           as factor
     , json:"cost_basis"::number(19 , 9)       as cost_basis
     , json:"is_manual_holdings"::int          as is_manual_holdings
-    , _created_at
-    , {{ col_is_head_for_day(partition_col='json:effective_date') }}
+    , _created_at                             as _created_at
+    , {{ col_is_head_for_day(
+        partition_col='json:effective_date::date'
+        ) }}
 from {{ source('raw', 'holdings') }}
-where true
--- unions holdings from the legacy masters pipeline prior to 2025
+
+-- Unions holdings from the legacy masters prior to 2025.
 union all
+
 select
-    lh.effective_date
-    , lh.system_name
-    , lh.system_instance
-    , lh.system_key
-    , lh.firm_source
-    , lh.account_id
-    , lh.account_number_formatted
-    , lh.account_number
-    , lh.is_legacy
-    , lh.custodian
-    , lh.cusip
-    , lh.ticker
-    , lh.is_custodial_cash
-    , lh.security_id
-    , lh.security_name
-    , lh.security_type
-    , lh.security_subtype
-    , lh.asset_class
-    , lh.market_value
-    , lh.quantity
-    , lh.price
-    , lh.price_unfactored
-    , lh.factor
-    , lh.cost_basis
-    , lh.is_manual_holdings
-    , lh._created_at
-    , lh.is_head_for_day
+    lh.effective_date             as effective_date
+    , lh.system_name              as system_name
+    , lh.system_instance          as system_instance
+    , lh.system_key               as system_key
+    , lh.firm_source              as firm_source
+    , lh.account_id               as account_id
+    , lh.account_number_formatted as account_number_formatted
+    , lh.account_number           as account_number
+    , lh.is_legacy                as is_legacy
+    , lh.custodian                as custodian
+    , lh.cusip                    as cusip
+    , lh.ticker                   as ticker
+    , null::int                   as is_ticker_cusip
+    , lh.is_custodial_cash        as is_custodial_cash
+    , lh.security_id              as security_id
+    , lh.security_name            as security_name
+    , lh.security_type            as security_type
+    , lh.security_subtype         as security_subtype
+    , lh.asset_class              as asset_class
+    , lh.market_value             as market_value
+    , lh.quantity                 as quantity
+    , lh.price                    as price
+    , lh.price_unfactored         as price_unfactored
+    , lh.factor                   as factor
+    , lh.cost_basis               as cost_basis
+    , lh.is_manual_holdings       as is_manual_holdings
+    , lh._created_at              as _created_at
+    , 1::int                      as is_head_for_day
 from {{ ref('stg_legacy_holdings') }} as lh
 order by effective_date , system_key , account_number , market_value

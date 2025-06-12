@@ -435,12 +435,6 @@ models:
       - name: DISPOSITION_METHOD_FOR_STOCKS_IN_DIVIDEND_REINVESTMENT
         description: ''
         data_type: VARCHAR
-      - name: IS_HEAD
-        description: ''
-        data_type: NUMBER
-      - name: IS_CURRENT
-        description: ''
-        data_type: NUMBER
       - name: _CREATED_AT
         description: ''
         data_type: TIMESTAMP_NTZ

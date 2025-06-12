@@ -1,5 +1,62 @@
-select
+{{ config(
+    materialized = 'incremental',
+    incremental_strategy = 'delete+insert',
+    on_schema_change = 'sync_all_columns',
+    unique_key = 'system_key',
+    cluster_by = ['revenue_period_end_date', 'system_key']
+) }}
 
+with stale_check as (
+    {%- if is_incremental() %}
+        select
+            case
+                -- Compare source table max timestamp after TZ conversion to destination max timestamp.
+                when (
+                    select max(_created_at)::timestamp_ntz
+                    from {{ ref('int_bills_salesforce_compass_cpg_split') }}
+                ) > (select max(_created_at) from {{ this }})
+                    then 1
+                else 0
+            end::int as is_stale
+    {%- else %}
+        select 1::int as is_stale
+    {%- endif %}
+)
+
+------------------------------------------------------------
+
+, cpg_accounts as (
+    select
+        effective_date                       as effective_date
+        , replace(account_number , '-' , '') as account_number
+        , advisor                            as advisor
+        , upload_account_id                  as upload_account_id
+        , account_name                       as account_name
+        , account_type                       as account_type
+        , primary_household_id               as primary_household_id
+        , aum_indicator                      as aum_indicator
+        , target_allocation                  as target_allocation
+        , primary_advisor                    as primary_advisor
+        , household_advisor                  as household_advisor
+        , billing_definitions                as billing_definitions
+    from {{ ref('tamarac_state_college_history__base_accounts') }}
+    where 1 = 1
+        and entity_type = 'Single Account'
+        and effective_date in (
+            select invoice_date_c
+            from {{ ref('int_bills_salesforce_compass_cpg_split') }}
+            where is_cpg = 1
+            group by all
+        )
+        and 1 = (select max(is_stale) from stale_check)
+    qualify row_number() over (
+            partition by effective_date , replace(account_number , '-' , '')
+            order by _created_at desc
+        ) = 1
+    order by effective_date , upload_account_id
+)
+
+select
     -- [pms attributes]
     ir.system_name::text(200)                                         as system_name
     , ir.system_instance::text(200)                                   as system_instance
@@ -11,7 +68,9 @@ select
 
     -- [invoice]
     , ir.name::text(200)                                              as invoice_number_source
-    , ir.created_date::timestamp_ntz                                  as invoice_created_at
+    , convert_timezone(
+        'America/Chicago' , ir.created_date
+    )::timestamp_ntz                                                  as invoice_created_at
     , ir.invoice_date_c::date                                         as invoice_date
     , ir.orion_bill_id_c::text(200)                                   as billing_statement_id_source
     , ir.id::text(200)                                                as billing_statement_id_crm
@@ -218,7 +277,8 @@ select
 
     -- [referential]
     , null::text(200)                                                 as _trans_key
-    , ir._created_at::timestamp_ntz(9)                                as _source_loaded_at
+    , current_timestamp()::timestamp_ntz(9)                           as _created_at
+    , ir._fivetran_synced::timestamp_ntz(9)                           as _source_loaded_at
     , null::text(200)                                                 as _source_file
     , null::text(200)                                                 as _box_file_id
     , object_construct_keep_null(
@@ -236,30 +296,26 @@ select
 from {{ ref('int_bills_salesforce_compass_cpg_split') }} as ir
 left join {{ ref('dates') }} as dt
     on coalesce(ir.calculation_as_of_date_c , ir.invoice_date_c)::date = dt.date_key
-
-inner join {{ ref('tamarac_state_college_history__base_accounts') }} as ba
+inner join cpg_accounts as ba
     on replace(ir.account_number_c , '-' , '') = ba.account_number
+    --and ir.invoice_date_c between ba.start_date and ba.end_date
     and ir.invoice_date_c = ba.effective_date
-    and ba.rn = 1
-    and ba.entity_type in ('Single Account')
-
 -- join to the dynamics crm "effective_date" and then on "is_head" if the first join does not return a result.
-inner join {{ ref('dynamics_tamarac_cpg__int_accounts') }} as acc
+left join {{ ref('dynamics_tamarac_cpg__int_accounts') }} as acc
     on ir.invoice_date_c::date = acc.effective_date
     and ba.upload_account_id = acc.crm_pms_account_id
-
-inner join {{ ref('dynamics_tamarac_cpg__int_accounts') }} as acc2
+    and 1 = (select max(is_stale) from stale_check)
+left join {{ ref('dynamics_tamarac_cpg__int_accounts') }} as acc2
     on acc2.effective_date = (select max(effective_date) from {{ ref('dynamics_tamarac_cpg__int_accounts') }})
     and ba.upload_account_id = acc2.crm_pms_account_id
-
+    and 1 = (select max(is_stale) from stale_check)
 -- excludes service types categorized as tax preparation
 left join {{ ref('salesforce_compass__base_mh_service') }} as mh
     on ir.service_rendered_c = mh.id
 left join {{ ref('aux__stg_financials_fee_type') }} as ovrd_fee_type
     on ir.system_key = ovrd_fee_type.system_key
     and lower(ir.fee_type_c) = lower(ovrd_fee_type.fee_type)
-
--- isolates cpg invoices
-where true
+where 1 = 1
     and ir.invoice_date_c >= '09/30/2024'
     and ir.is_cpg = 1
+    and 1 = (select max(is_stale) from stale_check)

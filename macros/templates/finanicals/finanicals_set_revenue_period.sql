@@ -43,16 +43,16 @@
         -- NOT quarterly or monthly bills, evaluate on-cycle or off-cycle
         when is_intra_period_invoice = 0 then
             case
-                when billing_style ilike 'Advance' then 
+                when billing_style ilike 'Advance' then
                     last_day(dateadd('Quarter', 1, fee_calculation_date), 'Quarter')
-                when billing_style ilike 'Arrears' then 
+                when billing_style ilike 'Arrears' then
                     last_day(dateadd('Quarter', 0, fee_calculation_date), 'Quarter')
             end
         when is_intra_period_invoice = 1 then
             case
-                when billing_style ilike 'Advance' then 
+                when billing_style ilike 'Advance' then
                     last_day(dateadd('Quarter', 0, fee_calculation_date), 'Quarter')
-                when billing_style ilike 'Arrears' then     
+                when billing_style ilike 'Arrears' then
                     last_day(dateadd('Quarter', 0, fee_calculation_date), 'Quarter')
             end
     end::date as revenue_period_end_date

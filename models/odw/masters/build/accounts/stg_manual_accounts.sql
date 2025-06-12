@@ -41,4 +41,4 @@ select
     , 1::int                                    as is_manual_account
     , _created_at::datetime                     as _created_at
     , null::variant                             as _extra_fields
-from {{ source('manual', 'accounts_manual') }}
+from {{ source('raw_pms', 'accounts_manual') }}

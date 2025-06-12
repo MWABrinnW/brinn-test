@@ -33,7 +33,10 @@ with line_item_cte as (
 
 -- ensures that the location is the most recent one in the source system. this is used to evaluate the location in cch.
 , locations_cte as (
-    select *
+    select
+        accounting_id
+        , location_code
+        , office_name
     from {{ ref('locations') }}
     where true
     qualify row_number() over (

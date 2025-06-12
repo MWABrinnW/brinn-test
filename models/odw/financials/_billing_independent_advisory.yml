@@ -1,6 +1,27 @@
 version: 2
 models:
   - name: billing_independent_advisory
+    data_tests:
+      # Tests for comparing target model to production model.
+      - dbt_expectations.expect_table_row_count_to_equal_other_table:
+          name: billing_independent_advisory_compare_row_count
+          config:
+            severity: warn
+            enabled: "{{ target.name != 'prod' }}"
+          compare_model: odw.financials.billing_independent_advisory
+          group_by: [revenue_period_end_date, system_key]
+          compare_group_by: [revenue_period_end_date, system_key]
+      - compare_describe_to_prod:
+          name: billing_independent_advisory_compare_describe_to_prod
+          state_database: odw
+          state_schema: financials
+          state_name: billing_independent_advisory
+          summarize: false
+          include_columns: [revenue_period_end_date, system_key, location_code, office_name, is_intra_period_invoice,
+            associate_id, client_fee_net, is_excluded, coa_account_number]
+          config:
+            severity: warn
+            enabled: "{{ target.name != 'prod' }}"
     columns:
       - name: SYSTEM_NAME
         data_type: VARCHAR
@@ -193,7 +214,7 @@ models:
         data_type: VARCHAR
         description: ''
       - name: PAYMENT_METHOD_FEE
-        data_type: VARCHAR
+        data_type: NUMBER
         description: ''
       - name: ACCOUNT_CLASS
         data_type: VARCHAR
@@ -315,5 +336,3 @@ models:
       - name: IS_LEGACY
         data_type: NUMBER
         description: ''
-sources: []
-seeds: []

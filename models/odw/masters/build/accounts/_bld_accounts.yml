@@ -36,8 +36,6 @@ models:
         description: Key for the PMS instance. PMS and PMS_INSTANCE_LOCATION concatenated.
       - name: FIRM_SOURCE
         description: mwa | mps | andco | baystate
-        meta:
-          row_access_policy: rap_firm_source
       - name: FIRM_SOURCE_VERIFIED
         description: ''
       - name: ACCOUNT_NUMBER_FORMATTED

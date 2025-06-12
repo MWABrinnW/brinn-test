@@ -108,7 +108,7 @@ alias lf := lint_failed
 # Run dbt-osmosis for all changes models.
 @osmosis:
   Invoke-Expression "$($env:VENV_DIR)\Scripts\activate.ps1"
-  dbt-osmosis yaml refactor $($(just ls) | Where-Object {$_ -like 'models/*.sql'}) --auto-apply
+  dbt-osmosis yaml refactor $($(just ls) | Where-Object {$_ -like 'models/*.sql'}) --auto-apply --skip-merge-meta --output-to-lower
 
 
 

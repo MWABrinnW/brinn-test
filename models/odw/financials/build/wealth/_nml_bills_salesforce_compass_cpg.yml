@@ -1,6 +1,19 @@
 version: 2
 models:
   - name: nml_bills_salesforce_compass_cpg
+    data_tests:
+      # - dbt_expectations.expect_table_row_count_to_equal_other_table:
+      #     name: compare_row_count_nml_bills_salesforce_compass_cpg
+      #     config:
+      #       severity: warn
+      #       enabled: "{{ target.name != 'prod' }}"
+      #     compare_model: odw.build.nml_bills_salesforce_compass_cpg
+      #     group_by: [revenue_period_end_date, system_key]
+      #     compare_group_by: [revenue_period_end_date, system_key]
+      - dbt_expectations.expect_table_columns_to_contain_set:
+          name: nml_bills_salesforce_compass_cpg_check_column_list
+          column_list: "{{ cvar('billing_wealth_nml_column_list') }}"
+          transform: upper
     columns:
       - name: SYSTEM_NAME
         data_type: VARCHAR
@@ -20,6 +33,9 @@ models:
       - name: INVOICE_NUMBER_SOURCE
         data_type: VARCHAR
         description: ''
+        data_tests:
+          - unique
+
       - name: INVOICE_CREATED_AT
         data_type: TIMESTAMP_NTZ
         description: ''
@@ -257,6 +273,8 @@ models:
       - name: _TRANS_KEY
         data_type: VARCHAR
         description: ''
+      - name: _CREATED_AT
+        description: ''
       - name: _SOURCE_LOADED_AT
         data_type: TIMESTAMP_NTZ
         description: ''
@@ -269,5 +287,3 @@ models:
       - name: _EXTRA_FIELDS
         data_type: OBJECT
         description: ''
-sources: []
-seeds: []

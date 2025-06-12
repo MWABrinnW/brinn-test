@@ -1,0 +1,237 @@
+version: 2
+models:
+  - name: bld_billing_wealth_black_diamond_houston
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+      - name: SYSTEM_INSTANCE
+        description: ''
+      - name: SYSTEM_KEY
+        description: ''
+      - name: FIRM_SOURCE
+        description: ''
+      - name: LOCATION_CODE
+        description: Mariner Location ID for the location (ex. 100, L-10015)
+      - name: OFFICE_NAME
+        description: Office name/location in the format of 'City, State'
+      - name: CLIENT_LOCATION_CODE
+        description: ''
+      - name: CLIENT_OFFICE_NAME
+        description: ''
+      - name: INVOICE_CREATED_AT
+        description: ''
+      - name: INVOICE_DATE
+        description: ''
+      - name: REVENUE_PERIOD_END_DATE
+        description: ''
+      - name: REVENUE_QUARTER_END_DATE
+        description: ''
+      - name: INVOICE_NUMBER_SOURCE
+        description: ''
+      - name: BILLING_STATEMENT_ID_SOURCE
+        description: ''
+      - name: BILLING_STATEMENT_ID_CRM
+        description: ''
+      - name: INVOICE_STATUS
+        description: ''
+      - name: IS_INTRA_PERIOD_INVOICE
+        description: ''
+      - name: ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_NUMBER_FORMATTED
+        description: ''
+      - name: BILLING_ACCOUNT_NUMBER
+        description: ''
+      - name: ACCOUNT_ID_PMS
+        description: ''
+      - name: REGISTRANT_NAME
+        description: ''
+      - name: ACCOUNT_NAME
+        description: ''
+      - name: TYPE_OF_ACCOUNT
+        description: ''
+      - name: CLIENT_ID_PMS
+        description: ''
+      - name: AUM_CLASSIFICATION_STATUS
+        description: ''
+      - name: MODEL_INVESTMENT_STRATEGY
+        description: ''
+      - name: MODEL_GROUPING_ASSIGNMENT
+        description: ''
+      - name: CUSTODIAN
+        description: ''
+      - name: BILLING_CUSTODIAN
+        description: ''
+      - name: PARTNER_FIRM
+        description: ''
+      - name: PARTNER_FIRM_ORIGINAL
+        description: ''
+      - name: ADVISOR_SOURCE
+        description: ''
+      - name: ADVISOR_ORIGINAL
+        description: ''
+      - name: ASSOCIATE_ID_ORIGINAL
+        description: ''
+      - name: ADVISOR_PRIMARY
+        description: ''
+      - name: ASSOCIATE_ID_PRIMARY
+        description: ''
+      - name: ADVISOR_TYPE
+        description: ''
+      - name: ADVISOR
+        description: ''
+      - name: ASSOCIATE_ID
+        description: >-
+          ADP system identifier, exists in Oracle HCM for legacy data reference.  Will be blank for new
+          associates.
+      - name: FEE_TYPE
+        description: ''
+      - name: FEE_SCHEDULE_SOURCE
+        description: ''
+      - name: FEE_SCHEDULE_TYPE
+        description: ''
+      - name: FEE_SCHEDULE
+        description: ''
+      - name: ASSETS_AS_OF_DATE
+        description: ''
+      - name: FEE_CALCULATION_DATE
+        description: ''
+      - name: EFFECTIVE_FEE_RATE
+        description: ''
+      - name: TOTAL_ACCOUNT_VALUE
+        description: ''
+      - name: BILLABLE_VALUE
+        description: ''
+      - name: FEE_EXCLUDED_ASSETS
+        description: ''
+      - name: CLIENT_FEE_GROSS
+        description: ''
+      - name: CLIENT_FEE_REBATES
+        description: ''
+      - name: CLIENT_NET_CONTRIBUTION_FEE
+        description: ''
+      - name: CLIENT_ADJUSTMENTS_FEE
+        description: ''
+      - name: CLIENT_WRITE_OFF_FEE
+        description: ''
+      - name: CLIENT_FEE_NET
+        description: ''
+      - name: REFERRAL_FEE
+        description: ''
+      - name: COLLECTION_DATE
+        description: ''
+      - name: THIRD_PARTY_CALCULATION
+        description: ''
+      - name: BILLING_STYLE
+        description: ''
+      - name: BILLING_FREQUENCY
+        description: ''
+      - name: BILLING_METHOD
+        description: ''
+      - name: BILL_ON_BALANCE_TYPE
+        description: ''
+      - name: PAYMENT_TERMS
+        description: ''
+      - name: PAYMENT_METHOD_FEE
+        description: ''
+      - name: ACCOUNT_CLASS
+        description: ''
+      - name: RECURRING_REVENUE
+        description: ''
+      - name: IMPACTED_BY_FINANCIAL_MARKETS
+        description: ''
+      - name: REVENUE_CATEGORY
+        description: ''
+      - name: REVENUE_TYPE
+        description: ''
+      - name: SYSTEM_NAME_CRM
+        description: ''
+      - name: SYSTEM_INSTANCE_CRM
+        description: ''
+      - name: SYSTEM_KEY_CRM
+        description: ''
+      - name: ACCOUNT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_CRM
+        description: ''
+      - name: CLIENT_ID_ORIGINAL_CRM
+        description: ''
+      - name: CLIENT_ID_UNIQUE_COMPASS
+        description: ''
+      - name: CLIENT_NAME
+        description: ''
+      - name: CLIENT_NAME_ORIGINAL_CRM
+        description: ''
+      - name: CLIENT_LEAD_SOURCE
+        description: ''
+      - name: CLIENT_KEY_TAGS_CRM
+        description: ''
+      - name: TRANSACTION_TYPE
+        description: ''
+      - name: TRANSACTION_LINE_TYPE
+        description: ''
+      - name: TRANSACTION_LINE_QUANTITY
+        description: ''
+      - name: CURRENCY_CODE
+        description: ''
+      - name: CURRENCY_CONVERSION_TYPE
+        description: ''
+      - name: UNIT_SELLING_PRICE
+        description: ''
+      - name: EXCLUDED_REASONS
+        description: ''
+      - name: IS_EXCLUDED
+        description: ''
+      - name: _INVOICE_KEY
+        description: ''
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: _SOURCE_FILE
+        description: File where the record is sourced from.
+      - name: _BOX_FILE_ID
+        description: ''
+      - name: _EXTRA_FIELDS
+        description: ''
+      - name: CLIENT_LOCATION_ACCOUNTING_ID
+        description: ''
+      - name: ADVISOR_NONADVISOR
+        description: >-
+          Indicates if this associate is in an advisor or non-advisor role Added to HCM field list on
+          5/24/2024
+      - name: ASSOCIATE_COA_SEGMENT_1
+        description: ''
+      - name: ASSOCIATE_COA_SEGMENT_2
+        description: ''
+      - name: ASSOCIATE_COA_SEGMENT_3
+        description: ''
+      - name: ASSOCIATE_COA_SEGMENT_4
+        description: ''
+      - name: ASSOCIATE_COA_SEGMENT_5
+        description: ''
+      - name: ASSOCIATE_COA_SEGMENT_6
+        description: ''
+      - name: ASSOCIATE_COA_SEGMENT_7
+        description: ''
+      - name: ASSOCIATE_COA_SEGMENT_8
+        description: ''
+      - name: COA_SEGMENT_1_LEGAL_ENTITY_ID
+        description: ''
+      - name: COA_SEGMENT_2_PRODUCT_ID
+        description: ''
+      - name: COA_SEGMENT_3_ACCOUNTING_ID
+        description: ''
+      - name: COA_SEGMENT_4_TEAM_ID
+        description: ''
+      - name: COA_SEGMENT_5_NATURAL_ACCOUNT_ID
+        description: ''
+      - name: COA_SEGMENT_6_INITIATIVE_ID
+        description: ''
+      - name: COA_SEGMENT_7_INTERCOMPANY_ID
+        description: ''
+      - name: COA_SEGMENT_8_FUTURE_ID
+        description: ''
+      - name: COA_ACCOUNT_NUMBER
+        description: ''
+      - name: _CREATED_AT
+        description: >-
+          Datetime representing when the record was loaded into the table from the source file.

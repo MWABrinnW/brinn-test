@@ -1518,6 +1518,8 @@ models:
       - name: IS_HEAD
         description: ''
         data_type: NUMBER
+      - name: IS_HEAD_FOR_DAY
+        description: ''
       - name: IS_LATEST
         description: ''
         data_type: NUMBER

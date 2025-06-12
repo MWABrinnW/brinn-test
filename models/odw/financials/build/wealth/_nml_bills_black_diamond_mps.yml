@@ -1,6 +1,19 @@
 version: 2
 models:
   - name: nml_bills_black_diamond_mps
+    data_tests:
+      - dbt_expectations.expect_table_row_count_to_equal_other_table:
+          name: compare_row_count_nml_bills_black_diamond_mps
+          config:
+            severity: warn
+            enabled: "{{ target.name != 'prod' }}"
+          compare_model: odw.build.nml_bills_black_diamond_mps
+          group_by: [revenue_period_end_date, system_key]
+          compare_group_by: [revenue_period_end_date, system_key]
+      - dbt_expectations.expect_table_columns_to_contain_set:
+          name: check_column_list_nml_bills_black_diamond_mps
+          column_list: "{{ cvar('billing_wealth_nml_column_list') }}"
+          transform: upper
     columns:
       - name: SYSTEM_NAME
         data_type: VARCHAR

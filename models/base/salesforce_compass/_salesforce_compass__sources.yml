@@ -1040,3 +1040,4 @@ sources:
           - name: _FIVETRAN_SYNCED
             description: ''
             data_type: TIMESTAMP_TZ
+      - name: invoice_review_c

@@ -26,8 +26,6 @@ models:
         description: ''
       - name: FIRM_SOURCE
         description: ''
-        meta:
-          row_access_policy: rap_firm_source
       - name: ACCOUNT_NUMBER_FORMATTED
         description: ''
       - name: ACCOUNT_NUMBER

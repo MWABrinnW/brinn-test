@@ -206,7 +206,9 @@ select
     , a._created_at::timestamp                                          as _created_at
     , {{ col_is_head(
         reference=source('salesforce_compass', 'invoice_review_c'),
-        source_date_col='a.effective_at', reference_date_col='effective_at') }}
+        source_date_col='a.effective_at',
+        reference_date_col='effective_at'
+        ) }}
     , case
         when a._created_at = max(a._created_at) over (partition by a.effective_at::date)
             then 1

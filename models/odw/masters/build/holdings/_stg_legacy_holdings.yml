@@ -1,6 +1,11 @@
 version: 2
 models:
   - name: stg_legacy_holdings
+    data_tests:
+      - dbt_expectations.expect_table_columns_to_contain_set:
+          name: stg_legacy_holdings_check_column_list
+          column_list: "{{ cvar('pms_holdings_nml_column_list') }}"
+          transform: upper
     columns:
       - name: EFFECTIVE_DATE
         description: ''
@@ -18,11 +23,17 @@ models:
         description: ''
       - name: ACCOUNT_NUMBER
         description: ''
+      - name: CLIENT_ID
+        description: ''
+      - name: CLIENT_NAME
+        description: ''
       - name: CUSTODIAN
         description: ''
       - name: CUSIP
         description: ''
       - name: TICKER
+        description: ''
+      - name: IS_TICKER_CUSIP
         description: ''
       - name: IS_CUSTODIAL_CASH
         description: ''
@@ -48,13 +59,13 @@ models:
         description: ''
       - name: COST_BASIS
         description: ''
-      - name: IS_MANUAL_HOLDINGS
-        description: ''
       - name: IS_LEGACY
         description: ''
-      - name: _SOURCE_LOADED_AT
+      - name: IS_MANUAL_HOLDINGS
         description: ''
       - name: _CREATED_AT
         description: ''
-      - name: IS_HEAD_FOR_DAY
+      - name: _SOURCE_LOADED_AT
+        description: ''
+      - name: _SOURCE_FILE
         description: ''

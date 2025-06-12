@@ -195,7 +195,7 @@ models:
         data_type: VARCHAR
         description: ''
       - name: PAYMENT_METHOD_FEE
-        data_type: VARCHAR
+        data_type: NUMBER
         description: ''
       - name: ACCOUNT_CLASS
         data_type: VARCHAR
@@ -290,6 +290,8 @@ models:
       - name: UNIT_SELLING_PRICE
         data_type: NUMBER
         description: ''
+      - name: excluded_reasons
+        description: ''
       - name: IS_EXCLUDED
         data_type: NUMBER
         description: ''
@@ -311,7 +313,5 @@ models:
       - name: _CREATED_AT
         data_type: TIMESTAMP_NTZ
         description: ''
-      - name: excluded_reasons
+      - name: IS_LEGACY
         description: ''
-sources: []
-seeds: []

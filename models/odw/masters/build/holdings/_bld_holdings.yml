@@ -54,6 +54,10 @@ models:
         description: ''
       - name: COST_BASIS
         description: ''
+      - name: IS_LEGACY
+        description: ''
+      - name: IS_MANUAL_HOLDINGS
+        description: ''
       - name: _SOURCE_LOADED_AT
         description: ''
       - name: _SOURCE_FILE

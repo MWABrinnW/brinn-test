@@ -2,9 +2,7 @@
     severity='warn',
 ) }}
 
-{%- set base_bills = [
-    {'model': 'salesforce_compass__base_invoice_review_c', 'invoice_date': 'invoice_date_c',
-     'client_fee_net': 'net_fee_c', 'is_head': 'yes', 'created_at': "greatest(last_modified_date,created_date)"},
+{%- set src_bills = [
     {'model': 'addepar_corbenic_history__int_bills', 'invoice_date': 'billing_date',
      'client_fee_net': 'billing_fee_value', 'is_head': 'yes', 'created_at': '_created_at'},
     {'model': 'black_diamond_baystate__base_bills', 'invoice_date': "(dateadd('day', -1, date_trunc('quarter', cash_available_date)))::date",
@@ -23,23 +21,23 @@
 
 with cte_billing_max as (
     select
-        system_key                   as billing_system_key
+        system_key                   as dest_system_key
         , max(_created_at)::datetime as max_created_at
     from
-        {{ ref('bld_billing_wealth') }}
+        {{ ref('billing_wealth') }}
     group by all
 )
 
-, cte_base as (
-    {%- for source in base_bills %}
+, source_stats as (
+    {%- for source in src_bills %}
         select
-            a.system_key                                             as base_system_key--noqa: LT01
-            , last_day(date_trunc('month' , {{ source['invoice_date'] }}))::date as base_invoice_date
-            , sum({{ source['client_fee_net'] }})::number(15 , 2)                       as base_client_fee_net--noqa: LT01
+            a.system_key                                                         as src_system_key--noqa: LT01
+            , last_day(date_trunc('month' , {{ source['invoice_date'] }}))::date as src_invoice_date
+            , sum({{ source['client_fee_net'] }})::number(15 , 2)                as src_client_fee_net--noqa: LT01
         from
             {{ ref(source['model']) }} as a
         left join cte_billing_max as b
-            on a.system_key = b.billing_system_key
+            on a.system_key = b.dest_system_key
         where
             true
             and last_day(date_trunc('month' , {{ source['invoice_date'] }}::date))
@@ -54,8 +52,7 @@ with cte_billing_max as (
             {%- endif %}
 
             -- salesforce only
-            {%- if source['model'] == 'salesforce_compass__base_invoice_review_c' %}
-                and a.is_latest = 1
+        {%- if source['model'] == 'stg_salesforce_compass_invoice_review' %}
                 and a.is_deleted = 0
                 and a._fivetran_deleted = 0
             {%- endif %}
@@ -71,11 +68,11 @@ with cte_billing_max as (
 
 , cte_billing as (
     select
-        system_key                                                 as billing_system_key
-        , last_day(date_trunc('month' , invoice_date::date))::date as billing_invoice_date
-        , sum(client_fee_net)::number(15 , 2)                      as billing_client_fee_net
+        system_key                                                 as dest_system_key
+        , last_day(date_trunc('month' , invoice_date::date))::date as dest_invoice_date
+        , sum(client_fee_net)::number(15 , 2)                      as dest_client_fee_net
     from
-        {{ ref('bld_billing_wealth') }}
+        {{ ref('billing_wealth') }}
     where
         true
         and last_day(date_trunc('month' , invoice_date::date))
@@ -86,13 +83,13 @@ with cte_billing_max as (
 )
 
 select
-    base.*
-    , billing.*
-    , (base.base_client_fee_net - billing.billing_client_fee_net)::number(15 , 2) as revenue_diff
-    , (base.base_client_fee_net = billing.billing_client_fee_net)::boolean        as revenue_equality
-from cte_base as base
-left join cte_billing as billing
-    on base.base_system_key = billing.billing_system_key
-    and base.base_invoice_date = billing.billing_invoice_date
-where revenue_equality = false
-order by base.base_system_key asc , base.base_invoice_date desc
+    src.*
+    , dest.*
+    , (dest.dest_client_fee_net - src.src_client_fee_net)::number(15 , 2) as revenue_diff
+    , (src.src_client_fee_net = dest.dest_client_fee_net)::int            as is_match
+from source_stats as src
+left join cte_billing as dest
+    on src.src_system_key = dest.dest_system_key
+    and src.src_invoice_date = dest.dest_invoice_date
+where is_match = 0
+order by src.src_system_key asc , src.src_invoice_date desc
