@@ -1,0 +1,854 @@
+version: 2
+models:
+- name: hubspot_advisor_recruiting__base_contact
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: NUMBER
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_ALL_CONTACT_VIDS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_FIRST_DEAL_CREATED_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_CALCULATED_MOBILE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_ENTERED_CUSTOMER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_COUNT_IS_WORKED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_DAYS_TO_CLOSE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_COUNT_IS_UNWORKED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_GDC
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_ASSETS_UNDER_MANAGMENT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_CALCULATED_PHONE_NUMBER_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_CALCULATED_PHONE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_CALCULATED_MERGED_VIDS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_AVATAR_FILEMANAGER_KEY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_CALCULATED_FORM_SUBMISSIONS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_FIRST_CONVERSION_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_FIRST_CONVERSION_EVENT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_CALL_DISPOSITION
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HOME_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HOME_ZIPCODE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_DATE_OF_BIRTH
+    description: ''
+    meta:
+      masking_policy: mp_client_pii_date
+    data_type: DATE
+  - name: PROPERTY_HOME_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HOME_ADDRESS_1
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ADDITIONAL_EMAILS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_GENDER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_CREATED_BY_USER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HOME_ADDRESS_2
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_CONTENT_MEMBERSHIP_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_ENTERED_OPPORTUNITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_IS_UNWORKED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_ENTERED_LEAD
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_EXITED_LEAD
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_IS_CONTACT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_DOMAIN
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LAST_SALES_ACTIVITY_TIMESTAMP
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_HS_LAST_SALES_ACTIVITY_DATE
+    description: ''
+    data_type: DATE
+  - name: PROPERTY_HS_DATE_EXITED_OPPORTUNITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_FIRST_ENGAGEMENT_OBJECT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_ENTERED_SUBSCRIBER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_DATE_EXITED_SUBSCRIBER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_SENDS_SINCE_LAST_ENGAGEMENT
+    description: ''
+    data_type: NUMBER
+  - name: PROPERTY_HS_LAST_SALES_ACTIVITY_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_IP_TIMEZONE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_HARD_BOUNCE_REASON_ENUM
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LATEST_SEQUENCE_ENROLLED_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LATEST_SEQUENCE_ENROLLED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_PIPELINE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_MARKETABLE_UNTIL_RENEWAL
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LATEST_SOURCE_TIMESTAMP
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_OBJECT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_OPPORTUNITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_MARKETABLE_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_LEAD
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_BETWEEN_CONTACT_CREATION_AND_DEAL_CLOSE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_TO_MOVE_FROM_LEAD_TO_CUSTOMER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SEARCHABLE_CALCULATED_MOBILE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_TO_MOVE_FROM_OPPORTUNITY_TO_CUSTOMER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SALES_EMAIL_LAST_OPENED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_CUSTOMER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LEAD_STATUS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SA_FIRST_ENGAGEMENT_OBJECT_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SA_FIRST_ENGAGEMENT_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_BETWEEN_CONTACT_CREATION_AND_DEAL_CREATION
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SA_FIRST_ENGAGEMENT_DESCR
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_TO_FIRST_ENGAGEMENT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SEARCHABLE_CALCULATED_PHONE_NUMBER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SALES_EMAIL_LAST_CLICKED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_IN_SUBSCRIBER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIMEZONE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LEGAL_BASIS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_TIME_TO_MOVE_FROM_SUBSCRIBER_TO_CUSTOMER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SEQUENCES_ACTIVELY_ENROLLED_COUNT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_PINNED_ENGAGEMENT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SEQUENCES_IS_ENROLLED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SEQUENCES_ENROLLED_COUNT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_RECENT_DEAL_CLOSE_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_OPTOUT_7368234
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NUM_CONVERSION_EVENTS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_FIRSTNAME
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NUM_UNIQUE_CONVERSION_EVENTS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NUM_ASSOCIATED_DEALS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_LASTMODIFIEDDATE
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: PROPERTY_RECENT_DEAL_AMOUNT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_TOTAL_REVENUE
+    description: ''
+    data_type: NUMBER
+  - name: PROPERTY_TWITTERHANDLE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_REFERAL_PARTNER
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_USER_IDS_OF_ALL_OWNERS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HUBSPOT_OWNER_ASSIGNEDDATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_RECRUITER_CUSTODIAN_SALES_TEAM
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_OPTOUT_7484018
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_SOCIAL_MEDIA
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_SPOUSE_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_UPDATED_BY_USER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_DELIVERED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_IP_STATE_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_IP_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_RECENT_CONVERSION_EVENT_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_IP_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_IP_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_RECENT_CONVERSION_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_IP_COUNTRY_CODE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_STREET_ADDRESS_2
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_WORK_EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_USER_IDS_OF_ALL_NOTIFICATION_UNFOLLOWERS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_USER_IDS_OF_ALL_NOTIFICATION_FOLLOWERS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_OUTBOUND_ADVISOR_RETIREMENT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_REPCRD
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_RIAFIRMCRD
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_RIAFIRMNAME
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_CITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_LASTNAME
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_NUM_PAGE_VIEWS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HUBSPOT_TEAM_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_NUM_EVENT_COMPLETIONS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_OPTOUT
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_FIRST_TIMESTAMP
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_TWITTERPROFILEPHOTO
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_NUM_VISITS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SOCIAL_FACEBOOK_CLICKS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_FIRST_VISIT_TIMESTAMP
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_LAST_TIMESTAMP
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SOCIAL_GOOGLE_PLUS_CLICKS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ALL_OWNER_IDS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SOCIAL_TWITTER_CLICKS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SOCIAL_LINKEDIN_CLICKS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NUM_NOTES
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_ENGAGEMENTS_LAST_MEETING_BOOKED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NOTES_LAST_UPDATED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_MOBILEPHONE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NOTES_NEXT_ACTIVITY_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NOTES_LAST_CONTACTED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_ADDRESS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SALES_EMAIL_LAST_REPLIED
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_NUM_CONTACTED_NOTES
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HUBSPOT_OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_PHONE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_FAX
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_LAST_EMAIL_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_LAST_SEND_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LATEST_MEETING_ACTIVITY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_LAST_URL
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_OPEN
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_LAST_OPEN_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_BOUNCE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_SOURCE_DATA_2
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_SOURCE_DATA_1
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LATEST_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_REVENUE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_AVERAGE_PAGE_VIEWS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ALL_ACCESSIBLE_TEAM_IDS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_ASSOCIATEDCOMPANYID
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_WEBSITE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_SOCIAL_NUM_BROADCAST_CLICKS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_STATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_LIFECYCLESTAGE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_LAST_VISIT_TIMESTAMP
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LIFECYCLESTAGE_LEAD_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ANALYTICS_SOURCE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_CREATEDATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_ALL_TEAM_IDS
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LIFECYCLESTAGE_OPPORTUNITY_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LATEST_SOURCE_DATA_1
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LATEST_SOURCE_DATA_2
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_COMPANY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_JOBTITLE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LIFECYCLESTAGE_CUSTOMER_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_CLOSEDATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_COUNTRY
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_ANNUALREVENUE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_LIFECYCLESTAGE_SUBSCRIBER_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_ZIP
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_FIRST_SEND_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_HS_EMAIL_FIRST_OPEN_DATE
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_advisor_recruiting__base_contact_form_submission
+  columns:
+  - name: CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FORM_ID
+    description: ''
+    data_type: VARCHAR
+  - name: TIMESTAMP
+    description: ''
+    data_type: VARCHAR
+  - name: PORTAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: PAGE_ID
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_advisor_recruiting__base_owner
+  columns:
+  - name: OWNER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FIRST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LAST_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: EMAIL
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_AT
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATED_AT
+    description: ''
+    data_type: VARCHAR
+  - name: ACTIVE_USER_ID
+    description: ''
+    data_type: VARCHAR
+  - name: IS_ACTIVE
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_advisor_recruiting__base_property
+  columns:
+  - name: _FIVETRAN_ID
+    description: ''
+    data_type: VARCHAR
+  - name: HUBSPOT_OBJECT
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: LABEL
+    description: ''
+    data_type: VARCHAR
+  - name: DESCRIPTION
+    description: ''
+    data_type: VARCHAR
+  - name: GROUP_NAME
+    description: ''
+    data_type: VARCHAR
+  - name: TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: FIELD_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CALCULATED
+    description: ''
+    data_type: VARCHAR
+  - name: HUBSPOT_DEFINED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_advisor_recruiting__base_form
+  columns:
+  - name: GUID
+    description: ''
+    data_type: VARCHAR
+  - name: PORTAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: ACTION
+    description: ''
+    data_type: VARCHAR
+  - name: METHOD
+    description: ''
+    data_type: VARCHAR
+  - name: CSS_CLASS
+    description: ''
+    data_type: VARCHAR
+  - name: REDIRECT
+    description: ''
+    data_type: VARCHAR
+  - name: SUBMIT_TEXT
+    description: ''
+    data_type: VARCHAR
+  - name: FOLLOW_UP_ID
+    description: ''
+    data_type: VARCHAR
+  - name: NOTIFY_RECIPIENTS
+    description: ''
+    data_type: VARCHAR
+  - name: LEAD_NURTURING_CAMPAIGN_ID
+    description: ''
+    data_type: VARCHAR
+  - name: FORM_TYPE
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_AT
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATED_AT
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_advisor_recruiting__base_property_option
+  columns:
+  - name: LABEL
+    description: ''
+    data_type: VARCHAR
+  - name: PROPERTY_ID
+    description: ''
+    data_type: VARCHAR
+  - name: VALUE
+    description: ''
+    data_type: VARCHAR
+  - name: DISPLAY_ORDER
+    description: ''
+    data_type: VARCHAR
+  - name: DOUBLE_DATA
+    description: ''
+    data_type: VARCHAR
+  - name: HIDDEN
+    description: ''
+    data_type: VARCHAR
+  - name: READ_ONLY
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_advisor_recruiting__base_contact_list
+  columns:
+  - name: ID
+    description: ''
+    data_type: VARCHAR
+  - name: NAME
+    description: ''
+    data_type: VARCHAR
+  - name: DELETEABLE
+    description: ''
+    data_type: VARCHAR
+  - name: DYNAMIC
+    description: ''
+    data_type: VARCHAR
+  - name: PORTAL_ID
+    description: ''
+    data_type: VARCHAR
+  - name: UPDATED_AT
+    description: ''
+    data_type: VARCHAR
+  - name: CREATED_AT
+    description: ''
+    data_type: VARCHAR
+  - name: METADATA_LAST_PROCESSING_STATE_CHANGE_AT
+    description: ''
+    data_type: VARCHAR
+  - name: METADATA_PROCESSING
+    description: ''
+    data_type: VARCHAR
+  - name: METADATA_LAST_SIZE_CHANGE_AT
+    description: ''
+    data_type: VARCHAR
+  - name: METADATA_ERROR
+    description: ''
+    data_type: VARCHAR
+  - name: METADATA_SIZE
+    description: ''
+    data_type: VARCHAR
+  - name: OFFSET_
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER
+- name: hubspot_advisor_recruiting__base_contact_list_member
+  columns:
+  - name: CONTACT_ID
+    description: ''
+    data_type: VARCHAR
+  - name: CONTACT_LIST_ID
+    description: ''
+    data_type: VARCHAR
+  - name: ADDED_AT
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_DELETED
+    description: ''
+    data_type: VARCHAR
+  - name: _FIVETRAN_SYNCED
+    description: ''
+    data_type: VARCHAR
+  - name: EFFECTIVE_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: _CREATED_AT
+    description: ''
+    data_type: TIMESTAMP_NTZ
+  - name: IS_HEAD
+    description: ''
+    data_type: NUMBER
+  - name: IS_LATEST
+    description: ''
+    data_type: NUMBER

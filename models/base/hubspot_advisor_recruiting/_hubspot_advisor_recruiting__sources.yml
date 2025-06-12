@@ -1,0 +1,56 @@
+version: 2
+
+sources:
+  - name: hubspot_advisor_recruiting
+    description: ""
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    loaded_at_field: _created_at
+    tables:
+      - name: contact_form_submission
+        description: ""
+        columns:
+          - name: json
+          - name: effective_at
+          - name: _created_at
+      - name: contact_list_member
+        description: ""
+        columns:
+          - name: json
+          - name: effective_at
+          - name: _created_at
+      - name: contact_list
+        description: ""
+        columns:
+          - name: json
+          - name: effective_at
+          - name: _created_at
+      - name: contact
+        description: ""
+        columns:
+          - name: json
+          - name: effective_at
+          - name: _created_at
+      - name: form
+        description: ""
+        columns:
+          - name: json
+          - name: effective_at
+          - name: _created_at
+      - name: owner
+        description: ""
+        columns:
+          - name: json
+          - name: effective_at
+          - name: _created_at
+      - name: property_option
+        description: ""
+        columns:
+          - name: json
+          - name: effective_at
+          - name: _created_at
+      - name: property
+        description: ""
+        columns:
+          - name: json
+          - name: effective_at
+          - name: _created_at
