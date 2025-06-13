@@ -204,7 +204,7 @@ models:
       cambak:
         +tags: ["institutional", "cambak", "andco"]
         +grants:
-          +select: "{{ ['finance'] if target.name in ['prod', 'ci'] else []}}"
+          +select: "{{ ['finance' , 'institutional'] if target.name in ['prod', 'ci'] else []}}"
 
       cch_dau:
         +tags: ["cch_dau"]
