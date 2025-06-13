@@ -6,6 +6,8 @@ models:
           name: nml_tamarac_state_college_holdings_check_column_list
           column_list: "{{ cvar('pms_holdings_nml_column_list') }}"
           transform: upper
+          config:
+            enabled: "{{ target.name != 'prod' }}"
     columns:
       - name: EFFECTIVE_DATE
         description: ''

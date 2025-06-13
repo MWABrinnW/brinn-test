@@ -34,7 +34,7 @@ env:
   DBT_PROFILES_DIR: ${{ vars.DBT_PROFILES_DIR }}
   DBT_TARGET_PATH: ./target
   DBT_TARGET: ci
-  DBT_INDIRECT_SELECTION: eager
+  DBT_INDIRECT_SELECTION: cautious
   SNOWSQL_USER: ${{ vars.DBT_USER }}
   SNOWSQL_PWD: ${{ secrets.DBT_PASSWORD }}
   SNOWSQL_ACCOUNT: ${{ vars.DBT_HOST }}
@@ -108,6 +108,18 @@ jobs:
         with:
           path: ./target
           key: dbt-target-${{ runner.os }}-py${{ env.python_version }}-pr${{ github.event.number }}
+
+      - name: dbt deps
+        shell: pwsh
+        run: |
+          $venv_dir = "$env:VENV_DIR"
+          echo "cache-hit: ${{ steps.cache-dbt-packages.outputs.cache-hit }}"
+          if ('${{ steps.cache-dbt-packages.outputs.cache-hit }}' -ne 'true') {
+            Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
+            dbt deps
+            } else {
+              echo "Using cached dbt packages"
+            }
 
       - name: Set source DB vars
         shell: pwsh

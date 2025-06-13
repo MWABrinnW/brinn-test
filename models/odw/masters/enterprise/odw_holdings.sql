@@ -61,7 +61,7 @@ select
     ) }}
     , h._created_at
 from {{ ref('odw_accounts') }} as a
-left join {{ ref('bld_holdings_all') }} as h
+left join {{ ref('bld_holdings') }} as h
     on a.effective_date = h.effective_date
     and a.system_key = h.system_key
     and a.account_number = h.account_number

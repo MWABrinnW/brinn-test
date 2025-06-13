@@ -80,7 +80,10 @@ data_tests:
   +store_failures: true
   +store_failures_as: table
   +limit: 1000
-  +schema: "{{ 'test' if target.name in ['prod'] else target.schema}}"
+  +schema: |
+    {%- if target.name == "prod" -%} test
+    {%- else -%} {{ target.schema }}
+    {%- endif -%}
   +grants:
     select: "{{ ['engineering'] if target.name in ['prod', 'ci'] else []}}"
 

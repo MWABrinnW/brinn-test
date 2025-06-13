@@ -63,10 +63,25 @@ with destination_summary as (
 
     {%- if not loop.last %}
 
-    union
+    union all
 
     {% endif -%}
     {%- endfor %}
+
+    union all
+
+    select effective_date, system_key, max(_created_at) as _created_at, 'orion__bld_holdings' as model_source
+    from {{ ref('orion__bld_holdings') }}
+    where 1 = 1
+        -- Model start date. This applies for full-refresh.
+        and effective_date >= '{{ start_date }}'
+        -- We only need to build starting in 2025.
+        and effective_date >= '2025-01-01'
+        {%- if is_incremental() or target.name not in ['prod'] %}
+        -- Restrict lookback window if incremental or not prod.
+        and effective_date >= current_date() - {{ lookback }}
+        {%- endif %}
+    group by all
 )
 
 , date_spine as (
@@ -100,7 +115,7 @@ with destination_summary as (
 , data_to_build as (
     {%- for nml_model in source_models %}
         select
-            effective_date                                  as effective_date
+            a.effective_date                                as effective_date
             , a.system_name                                 as system_name
             , a.system_instance                             as system_instance
             , a.system_key                                  as system_key
@@ -133,17 +148,65 @@ with destination_summary as (
             , '{{ nml_model }}'                             as _source_model
             , concat(a.effective_date, '__', a.system_key)  as _effective_date__system_key
         from {{ ref(nml_model) }} a
+        inner join dates_to_refresh b
+            on a.effective_date = b.effective_date
+            and a.system_key = b.system_key
+            and b.is_stale = 1
         where 1 = 1
             -- Offer the snowflake query optimizer a chance to prune the query early
             -- if there are no dates to refresh.
             and exists (select 1 from dates_to_refresh where is_stale = 1)
-            and effective_date in (select distinct t.effective_date from dates_to_refresh as t where t.is_stale = 1 and a.system_key = t.system_key)
+            --and effective_date in (select distinct t.effective_date from dates_to_refresh as t where t.is_stale = 1 and a.system_key = t.system_key)
         {%- if not loop.last %}
 
         union all
 
         {%- endif %}
     {%- endfor %}
+
+    union all
+
+    select
+        a.effective_date                                  as effective_date
+        , a.system_name::text                             as system_name
+        , a.system_instance::text                         as system_instance
+        , a.system_key::text                              as system_key
+        , a.firm_source::text                             as firm_source
+        , a.account_id::text                              as account_id
+        , a.account_number_formatted::text                as account_number_formatted
+        , a.account_number::text                          as account_number
+        , null::text                                      as client_id
+        , null::text                                      as client_name
+        , a.custodian::text                               as custodian
+        , a.cusip::text                                   as cusip
+        , a.ticker::text                                  as ticker
+        , a.is_ticker_cusip::int                          as is_ticker_cusip
+        , a.is_custodial_cash::int                        as is_custodial_cash
+        , a.product_id::text                              as security_id
+        , a.product_name::text                            as security_name
+        , a.product_type::text                            as security_type
+        , a.product_category::text                        as security_subtype
+        , a.asset_class::text                             as asset_class
+        , a.market_value::number(19 , 9)                  as market_value
+        , a.quantity::number(19 , 9)                      as quantity
+        , a.price::number(19 , 9)                         as price
+        , a.price_unfactored::number(19 , 9)              as price_unfactored
+        , a.factor::number(19 , 9)                        as factor
+        , a.cost_basis::number(19 , 9)                    as cost_basis
+        , 0::int                                          as is_legacy
+        , 0::int                                          as is_manual_holdings
+        , a._source_loaded_at                             as _source_loaded_at
+        , a._source_file                                  as _source_file
+        , 'orion__bld_holdings'                           as _source_model
+        , concat(a.effective_date, '__', a.system_key)    as _effective_date__system_key
+    from {{ ref('orion__bld_holdings') }} as a
+    inner join dates_to_refresh b
+        on a.effective_date = b.effective_date
+        and a.system_key = b.system_key
+        and b.is_stale = 1
+    where true
+        and a.effective_date >= '2025-01-01'
+        and exists (select 1 from dates_to_refresh where is_stale = 1)
 )
 
 
@@ -152,4 +215,4 @@ select
     , current_timestamp()::datetime as _created_at
 from data_to_build
 where true
-order by effective_date, account_number, market_value
+order by effective_date, system_key, account_number, market_value

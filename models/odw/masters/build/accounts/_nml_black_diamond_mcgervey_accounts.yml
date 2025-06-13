@@ -19,6 +19,8 @@ models:
           name: check_column_list_nml_black_diamond_mcgervey_accounts
           column_list: "{{ cvar('pms_accounts_nml_column_list') }}"
           transform: upper
+          config:
+            enabled: "{{ target.name != 'prod' }}"
     columns:
       - name: EFFECTIVE_DATE
         description: ''

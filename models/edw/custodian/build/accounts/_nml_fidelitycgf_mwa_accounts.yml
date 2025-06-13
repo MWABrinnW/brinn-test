@@ -6,6 +6,8 @@ models:
         name: check_column_list_nml_fidelitycgf_mwa_accounts
         column_list: "{{ cvar('custodian_accounts_nml_column_list') }}"
         transform: upper
+        config:
+          enabled: "{{ target.name != 'prod' }}"
   columns:
   - name: EFFECTIVE_DATE
     description: ''

@@ -181,3 +181,4 @@ where true
         or (a.location_code = 'L-10130' and a.effective_date >= '2025-04-01')
         or (a.location_code = '301' and a.effective_date >= '2025-04-30')
     )
+    and a.effective_date < current_date()

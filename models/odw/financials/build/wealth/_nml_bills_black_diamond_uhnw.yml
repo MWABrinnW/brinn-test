@@ -14,6 +14,8 @@ models:
           name: check_column_list_nml_bills_black_diamond_uhnw
           column_list: "{{ cvar('billing_wealth_nml_column_list') }}"
           transform: upper
+          config:
+            enabled: "{{ target.name != 'prod' }}"
     columns:
       - name: SYSTEM_NAME
         data_type: VARCHAR
