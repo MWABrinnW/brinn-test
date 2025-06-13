@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: active_directory_mwa
     description: ""
-    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
     schema: active_directory_mwa
     loaded_at_field: record_datetime
     tables:
@@ -1923,7 +1923,7 @@ sources:
             data_type: DATE
   - name: active_directory
     description: ""
-    database: "{{ var('db_datalake_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
     schema: active_directory
     loaded_at_field: _created_at
     tables:
