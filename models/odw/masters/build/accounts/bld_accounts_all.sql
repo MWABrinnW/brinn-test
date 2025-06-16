@@ -1,57 +1,57 @@
 -- non-inst accounts
 select
-    ba.effective_date              as effective_date
-    , ba.system_name               as system_name
-    , ba.system_instance           as system_instance
-    , ba.system_key                as system_key
-    , ba.firm_source               as firm_source
-    , ba.account_number_formatted  as account_number_formatted
-    , ba.account_number            as account_number
-    , ba.__account_key             as __account_key
-    , ba.account_value             as account_value
-    , ba.crm_account_id            as account_id_crm
-    , ba.pms_account_id            as account_id_pms
-    , ba.account_name              as account_name
-    , ba.crm_client_id             as client_id_crm
-    , ba.pms_client_id             as client_id_pms
-    , ba.client_name               as client_name
+    ba.effective_date::date              as effective_date
+    , ba.system_name::text               as system_name
+    , ba.system_instance::text           as system_instance
+    , ba.system_key::text                as system_key
+    , ba.firm_source::text               as firm_source
+    , ba.account_number_formatted::text  as account_number_formatted
+    , ba.account_number::text            as account_number
+    , ba.__account_key::text             as __account_key
+    , ba.account_value::number(18 , 2)   as account_value
+    , ba.crm_account_id::text            as account_id_crm
+    , ba.pms_account_id::text            as account_id_pms
+    , ba.account_name::text              as account_name
+    , ba.crm_client_id::text             as client_id_crm
+    , ba.pms_client_id::text             as client_id_pms
+    , ba.client_name::text               as client_name
     , coalesce(
         (case when ba.__custodian_cust = '' then null
             else ba.__custodian_cust
         end) , ba.custodian
-    )::text                        as custodian
-    , ba.account_type              as account_type
-    , ba.aum_classification        as aum_classification
-    , ba.model_investment_strategy as model_investment_strategy
-    , ba.fee_schedule              as fee_schedule
-    , ba.advisor                   as advisor
-    , ba.advisor_id                as advisor_id
-    , ba.advisor_id_source         as advisor_id_source
-    , ba.advisor_email             as advisor_email
+    )::text                              as custodian
+    , ba.account_type::text              as account_type
+    , ba.aum_classification::text        as aum_classification
+    , ba.model_investment_strategy::text as model_investment_strategy
+    , ba.fee_schedule::text              as fee_schedule
+    , ba.advisor::text                   as advisor
+    , ba.advisor_id::text                as advisor_id
+    , ba.advisor_id_source::text         as advisor_id_source
+    , ba.advisor_email::text             as advisor_email
     , case when ba.is_discretionary = 1 then 'discretionary'
         when ba.is_discretionary = 0 then 'non-discretionary'
         when ba.is_discretionary = 2 then 'partial'
-    end::text                      as discretion_status
-    , ba.is_active                 as is_active
-    , ba.opened_date               as opened_date
-    , ba.closed_date               as closed_date
-    , ba.location_code             as location_code
-    , ba.office_name               as office_name
-    , ba.link                      as link
-    , ba.link_type                 as link_type
-    , ba.link_subtype              as link_subtype
-    , ba.is_institutional          as is_institutional
-    , ba.is_erisa                  as is_erisa
-    , ba.is_market_day             as is_market_day
-    , ba.is_market_month_end       as is_market_month_end
-    , ba.is_excluded               as is_excluded
-    , ba.excluded_reasons          as excluded_reasons
-    , ba.is_primary                as is_primary
-    , 0::int                       as is_manual_account
-    , 0::int                       as is_legacy
-    , ba._source_loaded_at         as _source_loaded_at
-    , ba._created_at               as _created_at
-    , ba._extra_fields             as _extra_fields
+    end::text                            as discretion_status
+    , ba.is_active::int                  as is_active
+    , ba.opened_date::date               as opened_date
+    , ba.closed_date::date               as closed_date
+    , ba.location_code::text             as location_code
+    , ba.office_name::text               as office_name
+    , ba.link::text                      as link
+    , ba.link_type::text                 as link_type
+    , ba.link_subtype::text              as link_subtype
+    , ba.is_institutional::int           as is_institutional
+    , ba.is_erisa::int                   as is_erisa
+    , ba.is_market_day::int              as is_market_day
+    , ba.is_market_month_end::int        as is_market_month_end
+    , ba.is_excluded::int                as is_excluded
+    , ba.excluded_reasons::text          as excluded_reasons
+    , ba.is_primary::int                 as is_primary
+    , 0::int                             as is_manual_account
+    , 0::int                             as is_legacy
+    , ba._source_loaded_at::datetime     as _source_loaded_at
+    , ba._created_at::timestamp_ntz      as _created_at
+    , ba._extra_fields::variant          as _extra_fields
 from {{ ref('bld_accounts') }} as ba
 where true
     and ba.effective_date >= '2025-01-01'
