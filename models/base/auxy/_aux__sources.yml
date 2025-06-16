@@ -677,3 +677,25 @@ sources:
           - name: _ID
             description: ''
             data_type: INT
+      - name: active_directory_sync_exclusions
+        tags: ['active_directory']
+        description: This is used to manage exclusions for the ERP --> Active Directory sync. DE-481
+        columns:
+          - name: JSON
+            description: ''
+            data_type: VARIANT
+          - name: _CREATED_AT
+            description: ''
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_FILE_NAME
+            description: ''
+            data_type: VARCHAR
+          - name: _BOX_META
+            description: ''
+            data_type: VARIANT
+          - name: _ID
+            description: ''
+            data_type: INT

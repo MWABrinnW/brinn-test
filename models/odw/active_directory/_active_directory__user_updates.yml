@@ -7,23 +7,24 @@ models:
           state_database: odw
           state_schema: active_directory
           state_name: user_updates
-          summarize: False
-          exclude_columns: ["_created_at", "is_head", "is_current", "_source_loaded_at", "_source_file",
-                          "erp_effective_at", "ad_effective_at", "update_payload_detail", "field_comparison",
-                          "fields_to_update"]
+          summarize: false
+          include_columns: [employee_num, update_payload_detail, needs_updated, fields_to_update, is_excluded, cnt_fields_to_update]
           where_clause: none
           config:
             severity: warn
             store_failures_as: table
+            enabled: "{{ target.name != 'prod' }}"
     columns:
       - name: EMPLOYEE_NUM
-        description: ''
+        description: >-
+          ADP employee number, 6-digit unique identifier.  Exists in HCM for historical data reference.  Will
+          be blank for new associates.
       - name: SYSTEM_KEY
         description: ''
       - name: FULL_NAME
         description: ''
       - name: EMPLOYMENT_STATUS
-        description: ''
+        description: '"Active" or "Terminated"'
       - name: EXISTS_IN_SOURCE
         description: ''
       - name: EXISTS_IN_AD
@@ -83,4 +84,6 @@ models:
       - name: ERP_EFFECTIVE_AT
         description: ''
       - name: AD_EFFECTIVE_AT
+        description: ''
+      - name: _EXTRA_FIELDS
         description: ''
