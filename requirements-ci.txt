@@ -4,3 +4,4 @@ dbt-osmosis==1.1.17
 sqlfluff==3.4.0
 polars[pyarrow]==1.30.0
 pyarrow<19.0.0
+duckdb
