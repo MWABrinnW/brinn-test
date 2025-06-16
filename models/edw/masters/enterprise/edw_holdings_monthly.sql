@@ -68,4 +68,4 @@ left join {{ ref('stg_holdings') }} as h
     and a.account_number = h.account_number
     and a.account_id_pms = h.account_id_pms
     and h.is_head_for_day = 1
-order by a.effective_date , a.system_key , a.account_number , h.market_value
+order by a.effective_date , a.system_key

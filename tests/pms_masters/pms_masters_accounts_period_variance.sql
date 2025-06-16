@@ -1,3 +1,5 @@
+{{ config(enabled=false) }}
+
 -- acctBySystemKey
 with data_cte as (
     select

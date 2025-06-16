@@ -57,4 +57,4 @@ where true
     and is_excluded = 0
     and is_primary = 1
     and (closed_date is null or effective_date < closed_date)
-order by effective_date , system_key , account_number
+order by effective_date , system_key

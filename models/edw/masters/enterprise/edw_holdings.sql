@@ -55,15 +55,15 @@ select
     , h.is_manual_holdings
     , a.is_legacy
     , {{ col_is_head(
-        reference=ref('edw_accounts_monthly'),
+        reference=ref('edw_accounts'),
         source_date_col='a.effective_date',
         reference_date_col='effective_date'
     ) }}
     , h._created_at
-from {{ ref('edw_accounts_monthly') }} as a
+from {{ ref('edw_accounts') }} as a
 left join {{ ref('bld_holdings') }} as h
     on a.effective_date = h.effective_date
     and a.system_key = h.system_key
     and a.account_number = h.account_number
     and a.account_id_pms = h.account_id
-order by a.effective_date , a.system_key , a.account_number , h.market_value
+order by a.effective_date , a.system_key

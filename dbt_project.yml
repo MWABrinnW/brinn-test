@@ -37,7 +37,8 @@ query-comment:
   append: true # Snowflake removes prefixed comments.
 
 flags:
-  skip_nodes_if_on_run_start_fails: True
+  skip_nodes_if_on_run_start_fails: true
+  state_modified_compare_more_unrendered_values: true
 
 vars:
   dbt_date:time_zone: "America/Chicago"
