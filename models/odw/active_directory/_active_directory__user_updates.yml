@@ -13,7 +13,7 @@ models:
           config:
             severity: warn
             store_failures_as: table
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
     columns:
       - name: EMPLOYEE_NUM
         description: >-

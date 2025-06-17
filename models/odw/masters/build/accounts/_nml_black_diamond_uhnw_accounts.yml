@@ -18,7 +18,7 @@ models:
           name: compare_row_count_nml_black_diamond_uhnw_accounts
           config:
             severity: warn
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
           compare_model: odw.build.nml_black_diamond_uhnw_accounts
           group_by: [effective_date, system_key]
           compare_group_by: [effective_date, system_key]
@@ -29,7 +29,7 @@ models:
           column_list: "{{ cvar('pms_accounts_nml_column_list') }}"
           transform: upper
           config:
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
     columns:
       - name: EFFECTIVE_DATE
         description: ''

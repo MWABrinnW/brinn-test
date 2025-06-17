@@ -6,7 +6,7 @@ models:
           name: compare_row_count_schwab__base_tax_lots
           config:
             severity: error
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
           compare_model: datalake.schwab.base_tax_lots
           group_by: [effective_date]
           compare_group_by: [effective_date]

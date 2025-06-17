@@ -6,7 +6,7 @@ models:
           name: compare_describe_to_prod_bld_accounts
           config:
             severity: warn
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
           state_database: odw
           state_schema: build
           state_name: bld_accounts
@@ -19,7 +19,7 @@ models:
           name: compare_row_count_bld_accounts
           config:
             severity: warn
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
           compare_model: odw.build.bld_accounts
           group_by: [effective_date, system_key]
           compare_group_by: [effective_date, system_key]

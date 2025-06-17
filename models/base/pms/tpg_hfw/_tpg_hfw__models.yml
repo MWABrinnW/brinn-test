@@ -56,7 +56,7 @@ models:
           name: compare_row_count_tpg_hfw__int_accounts
           config:
             severity: warn
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
           compare_model: datalake.tpg_hfw.int_accounts
           group_by: [effective_date]
           compare_group_by: [effective_date]

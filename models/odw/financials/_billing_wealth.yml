@@ -8,7 +8,7 @@ models:
           description: Compare the row count of the billing_wealth model to the prod model.
           config:
             severity: warn
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
           compare_model: odw.financials.billing_wealth
           group_by: [revenue_period_end_date, system_key]
           compare_group_by: [revenue_period_end_date, system_key]
@@ -23,7 +23,7 @@ models:
             associate_id, client_fee_net, is_excluded, coa_account_number, advisor]
           config:
             severity: warn
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
     columns:
       - name: SYSTEM_NAME
         description: >-

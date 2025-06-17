@@ -12,12 +12,12 @@ models:
           where_clause: effective_date >= current_date() - 5
           config:
             severity: warn
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
       - dbt_expectations.expect_table_row_count_to_equal_other_table:
           name: compare_row_count_bld_custodian_tax_lots
           config:
             severity: warn
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
           compare_model: edw.build.bld_custodian_tax_lots
           group_by: [effective_date, custodian]
           compare_group_by: [effective_date, custodian]

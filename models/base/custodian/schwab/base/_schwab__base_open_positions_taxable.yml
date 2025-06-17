@@ -6,7 +6,7 @@ models:
           name: compare_row_count_schwab__base_open_positions_taxable
           config:
             severity: error
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
           compare_model: datalake.schwab.base_open_positions_taxable
           group_by: [effective_date]
           compare_group_by: [effective_date]

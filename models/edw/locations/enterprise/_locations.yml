@@ -20,7 +20,7 @@ models:
           where_clause: none
           config:
             severity: warn
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
     columns:
       - name: location_code
         description: Mariner Location ID for the location (ex. 100, L-10015)

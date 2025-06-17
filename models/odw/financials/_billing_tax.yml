@@ -7,7 +7,7 @@ models:
           name: billing_tax_compare_row_count
           config:
             severity: warn
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
           compare_model: odw.financials.billing_tax
           group_by: [revenue_period_end_date, system_key]
           compare_group_by: [revenue_period_end_date, system_key]
@@ -22,7 +22,7 @@ models:
           ]
           config:
             severity: warn
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
     columns:
       - name: SYSTEM_NAME
         data_type: VARCHAR

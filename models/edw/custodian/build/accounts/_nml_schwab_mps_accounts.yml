@@ -7,7 +7,7 @@ models:
         column_list: "{{ cvar('custodian_accounts_nml_column_list') }}"
         transform: upper
         config:
-          enabled: "{{ target.name != 'prod' }}"
+          enabled: true
   columns:
   - name: EFFECTIVE_DATE
     description: ''

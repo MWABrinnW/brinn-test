@@ -14,13 +14,13 @@ models:
           where_clause: effective_date >= current_date() - 7
           config:
             severity: warn
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
       - dbt_expectations.expect_table_columns_to_contain_set:
           name: check_column_list_nml_cambak_andco_accounts
           column_list: "{{ cvar('pms_accounts_nml_column_list') }}"
           transform: upper
           config:
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
     columns:
       - name: EFFECTIVE_DATE
         description: ''

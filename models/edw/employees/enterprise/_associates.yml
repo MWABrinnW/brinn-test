@@ -12,7 +12,7 @@ models:
           where_clause: None
           config:
             severity: warn
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
     columns:
       - name: ASSOCIATE_ID
         description: 'ADP system identifier, exists in Oracle HCM for legacy data reference.  Will be blank for new associates.'

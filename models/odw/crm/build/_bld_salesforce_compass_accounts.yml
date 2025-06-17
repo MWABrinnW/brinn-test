@@ -6,7 +6,7 @@ models:
           name: compare_row_count_bld_salesforce_compass_accounts
           config:
             severity: warn
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
           compare_model: odw.build.bld_salesforce_compass_accounts
           group_by: [effective_at::date]
           compare_group_by: [effective_at::date]

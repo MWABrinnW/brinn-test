@@ -6,7 +6,7 @@ models:
           name: compare_row_count_pms_holdings
           config:
             severity: warn
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
           compare_model: odw.enterprise.holdings
           group_by: [effective_date, system_key]
           compare_group_by: [effective_date, system_key]

@@ -6,7 +6,7 @@ models:
           name: compare_row_count_fidelity__int_gnums
           config:
             severity: error
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
           compare_model: datalake.fidelity.int_gnums
           group_by: [effective_date]
           compare_group_by: [effective_date]

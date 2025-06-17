@@ -7,7 +7,7 @@ models:
           name: billing_independent_advisory_compare_row_count
           config:
             severity: warn
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
           compare_model: odw.financials.billing_independent_advisory
           group_by: [revenue_period_end_date, system_key]
           compare_group_by: [revenue_period_end_date, system_key]
@@ -21,7 +21,7 @@ models:
             associate_id, client_fee_net, is_excluded, coa_account_number]
           config:
             severity: warn
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
     columns:
       - name: SYSTEM_NAME
         data_type: VARCHAR

@@ -6,7 +6,7 @@ models:
           name: compare_row_count_nml_bills_envestnet_manasquan
           config:
             severity: warn
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
           compare_model: odw.build.nml_bills_envestnet_manasquan
           group_by: [revenue_period_end_date, system_key]
           compare_group_by: [revenue_period_end_date, system_key]
@@ -15,7 +15,7 @@ models:
           column_list: "{{ cvar('billing_wealth_nml_column_list') }}"
           transform: upper
           config:
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
     columns:
       - name: SYSTEM_NAME
         data_type: VARCHAR

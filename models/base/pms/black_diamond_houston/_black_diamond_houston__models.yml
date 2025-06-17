@@ -6,7 +6,7 @@ models:
           name: compare_row_count_black_diamond_houston__base_accounts
           config:
             severity: error
-            enabled: "{{ target.name != 'prod' }}"
+            enabled: true
           compare_model: datalake.black_diamond_houston.base_accounts
           group_by: [effective_date]
           compare_group_by: [effective_date]
