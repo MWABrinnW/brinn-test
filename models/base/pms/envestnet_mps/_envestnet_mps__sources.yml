@@ -3,8 +3,8 @@ version: 2
 sources:
   - name: envestnet_mps
     description: ""
-    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
-    schema: envestnet_mps_history
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    schema: envestnet_mps
     tables:
       - name: account_fee_schedule_fee_component
         description: ""

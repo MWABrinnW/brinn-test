@@ -36,5 +36,5 @@ select
         , reference_date_col='_created_at'
         , source_date_col='_created_at') }}
     , _box_meta                                                              as _box_meta
-from {{ source('envestnet_mwa_raw','bills') }}
+from {{ source('envestnet_mwa','bills') }}
 where true

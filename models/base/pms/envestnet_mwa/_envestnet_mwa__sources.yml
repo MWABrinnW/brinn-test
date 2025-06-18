@@ -3,8 +3,8 @@ version: 2
 sources:
   - name: envestnet_mwa
     description: ""
-    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
-    schema: envestnet_mwa_history
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    schema: envestnet_mwa
     tables:
       - name: account_fee_schedule_fee_component
         description: ""
@@ -3111,11 +3111,6 @@ sources:
           - name: RECORD_DATE
             description: ''
             data_type: DATE
-  - name: envestnet_mwa_raw
-    description: ""
-    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
-    schema: envestnet_mwa
-    tables:
       - name: bills
         columns:
           - name: JSON

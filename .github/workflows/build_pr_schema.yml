@@ -186,15 +186,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
-          DEST_DIR: '//mh-file/ActiveBatchShare/prod/ops/dbt/actions/comment'
           PYTHONIOENCODING: utf-8
         run: |
+          $dest_dir = $env:DEST_DIR
           $venv_dir = "$env:VENV_DIR"
           Write-Host "Activating virtual environment at $venv_dir"
           Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
 
-          $runResultsPath = Join-Path $env:DEST_DIR "run_results.json"
-          $manifestPath = Join-Path $env:DEST_DIR "manifest.json"
+          $runResultsPath = Join-Path $dest_dir "run_results.json"
+          $manifestPath = Join-Path $dest_dir "manifest.json"
 
           Write-Host "Running Python script with args:"
           Write-Host "--run_results $runResultsPath"

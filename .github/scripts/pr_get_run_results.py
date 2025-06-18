@@ -23,14 +23,14 @@ def arg_parser(args_list: list = None):
     parser.add_argument(
         "--run_results",
         type=Path,
-        default=Path("//mh-file/ActiveBatchShare/prod/ops/prod_artifacts/run_results.json"),
+        default=Path("../target/run_results.json"),
         required=False,
         help="Path to run_results.json"
     )
     parser.add_argument(
         "--manifest",
         type=Path,
-        default=Path("//mh-file/ActiveBatchShare/prod/ops/dbt/rev360//manifest.json"),
+        default=Path("../target/manifest.json"),
         required=False,
         help="Path to manifest.json",
     )

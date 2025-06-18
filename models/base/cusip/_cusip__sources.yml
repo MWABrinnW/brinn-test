@@ -3,8 +3,8 @@ version: 2
 sources:
   - name: cusip
     description: ""
-    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
-    schema: cusip_history
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    schema: cusip
     tables:
       - name: allcmmaster_issue
         description: ""

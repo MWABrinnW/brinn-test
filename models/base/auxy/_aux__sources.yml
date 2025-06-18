@@ -5,7 +5,7 @@ sources:
     description: >
       The sources represent auxillary source systems and files,
       Typically resulting in the use of Box or Smartsheets files used for mapping or as supplemntary data not available elsewhere."
-    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
     tables:
       - name: locations
         tags: ['locations']
@@ -569,7 +569,7 @@ sources:
             data_type: VARCHAR
           - name: _ID
             description: ''
-            data_type: NUMBER    
+            data_type: NUMBER
   - name: raw_aux
     description: >
       The sources represent auxillary source systems and files,
@@ -620,7 +620,7 @@ sources:
       - name: masters_overrides
         tags: ['masters','pms']
         description: Override attributes with value from Box file.
-        columns: 
+        columns:
           - name: JSON
             description: ''
             data_type: VARIANT

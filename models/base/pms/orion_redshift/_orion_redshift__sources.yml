@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: orion
     description: "Orion data from redshift share. Includes all instances. Will be Snowflake native 2025Q2."
-    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
     schema: orion
     tables:
       - name: stg_vw_account

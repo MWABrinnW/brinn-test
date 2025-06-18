@@ -17,5 +17,5 @@ select
     , _box_file_id::varchar(200)                                 as _box_file_id
     , _box_file_name::varchar(200)                               as _box_file_name
     , _box_meta::variant                                         as _box_meta
-from {{ source('portfoliocenter_tcea_raw', 'bills') }}
+from {{ source('portfoliocenter_tcea', 'bills') }}
 where json:"Account Number" is not null

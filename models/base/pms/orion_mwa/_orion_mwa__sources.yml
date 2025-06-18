@@ -3,8 +3,8 @@ version: 2
 sources:
   - name: orion_mwa
     description: ""
-    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
-    schema: orion_mwa_report_history
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    schema: orion_mwa_report
     tables:
       - name: as_of_value_by_account_6473_history
         description: ""
@@ -536,7 +536,7 @@ sources:
             data_type: DATE
   - name: orion_mwa_bulk
     description: ""
-    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
     schema: orion_mwa_bulk_history
     tables:
       - name: assetbasiscostlots

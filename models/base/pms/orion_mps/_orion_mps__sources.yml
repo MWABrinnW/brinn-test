@@ -3,8 +3,8 @@ version: 2
 sources:
   - name: orion_mps
     description: ""
-    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
-    schema: orion_mps_report_history
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
+    schema: orion_mps_report
     tables:
       - name: as_of_value_by_account_3679_history
         description: ""

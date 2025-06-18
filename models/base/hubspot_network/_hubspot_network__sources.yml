@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: hubspot_network
     description: ""
-    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
     loaded_at_field: _created_at
     tables:
       - name: company_property_history

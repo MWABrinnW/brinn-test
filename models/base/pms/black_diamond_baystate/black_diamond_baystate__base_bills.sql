@@ -60,4 +60,4 @@ select
     , _box_file_id::varchar(500)                         as _box_file_id
     , _box_file_name::varchar(500)                       as _box_file_name
     , _box_meta::variant                                 as _box_meta
-from {{ source('black_diamond_baystate_raw', 'bills') }}
+from {{ source('black_diamond_baystate', 'bills') }}

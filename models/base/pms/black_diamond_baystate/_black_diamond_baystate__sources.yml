@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: black_diamond_baystate
     description: ''
-    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
     schema: black_diamond_baystate
     tables:
       - name: accounts
@@ -132,11 +132,6 @@ sources:
           - name: RECORD_ID
             data_type: NUMBER
             description: ''
-  - name: black_diamond_baystate_raw
-    description: ''
-    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
-    schema: black_diamond_baystate
-    tables:
       - name: bills
         description: ''
         columns:

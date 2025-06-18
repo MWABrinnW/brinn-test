@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: morningstar_executive_wealth
     description: ''
-    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
     schema: morningstar_executive_wealth
     tables:
       - name: accounts
