@@ -1,9 +1,9 @@
-version: 1
+version: 2
 
 sources:
   - name: reach_360
     description: "Rise Training application data"
-    database: "{{ var('db_reach_360_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    database: "{{ var('db_reach_360_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
     tags: ['reach_360']
     loaded_at_field: _created_at
     tables:

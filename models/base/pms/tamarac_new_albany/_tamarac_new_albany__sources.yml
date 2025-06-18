@@ -4,7 +4,7 @@ sources:
   - name: tamarac_new_albany
     description: ""
     database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
-    schema: tamarac_new_albany_history
+    schema: tamarac_new_albany
     tables:
       - name: assets
         description: ""

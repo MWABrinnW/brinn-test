@@ -16,7 +16,7 @@ select
     , json:versions[0]:detail:url::text(200)          as url
     , json:versions[0]:detail:urlText::text(200)      as url_text
     , _created_at                                     as _created_at
-from {{ source('alteryx_gallery_datalake', 'alteryx_workflows_parsed') }}
+from {{ source('alteryx_gallery', 'alteryx_workflows_parsed') }}
 where 1 = 1
     and _source_file ilike 'workflows.json%'
 order by name

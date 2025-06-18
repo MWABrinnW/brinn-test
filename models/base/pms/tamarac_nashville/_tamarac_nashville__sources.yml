@@ -4,7 +4,7 @@ sources:
   - name: tamarac_nashville
     description: ""
     database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
-    schema: tamarac_nashville_history
+    schema: tamarac_nashville
     tables:
       - name: assets
         description: ""
