@@ -22,11 +22,10 @@ select
     , a.advisorname::text(200)               as advisorname
     , a.associated_users::text(600)          as associated_users
     , case
-        when a.effective_date::date = (
-                select max(effective_date::date)
+        when a._created_at = (
+                select max(_created_at)
                 from {{ source('flyer', 'sod_accounts_history') }}
             )
-            and a._created_at::timestamp = b.max_created_at
             then 1
         else 0
     end::int                                 as is_head
