@@ -188,13 +188,12 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number }}
           PYTHONIOENCODING: utf-8
         run: |
-          $dest_dir = $env:DEST_DIR
           $venv_dir = "$env:VENV_DIR"
           Write-Host "Activating virtual environment at $venv_dir"
           Invoke-Expression "$venv_dir\Scripts\Activate.ps1"
 
-          $runResultsPath = Join-Path $dest_dir "run_results.json"
-          $manifestPath = Join-Path $dest_dir "manifest.json"
+          $runResultsPath = "./target/run_results.json"
+          $manifestPath = "./target/manifest.json"
 
           Write-Host "Running Python script with args:"
           Write-Host "--run_results $runResultsPath"
