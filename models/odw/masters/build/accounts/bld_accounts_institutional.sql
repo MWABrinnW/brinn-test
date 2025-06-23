@@ -11,7 +11,7 @@
 
 {%-
     set src_models = [
-          'cambak__int_accounts'
+          'nml_cambak_andco_accounts'
          ,'nml_salesforce_compass_rps_accounts'
     ]
 -%}
@@ -25,7 +25,10 @@
 
 with destination_summary as (
     {% if is_incremental() -%}
-    select effective_date, system_key, max(_created_at) as _created_at, max(_source_loaded_at) as _source_loaded_at
+    select
+        effective_date              as effective_date
+        , system_key                as system_key
+        , sum(account_value)        as account_value
     from {{ this }}
     where 1 = 1
         -- Model start date. This applies for full-refresh.
@@ -41,7 +44,7 @@ with destination_summary as (
     order by 1,2
     {% else -%}
     select null::date as effective_date, null::text as system_key
-        , null::timestamp as _created_at, null::timestamp as _source_loaded_at
+        , null::decimal(20,2) as account_value
     {% endif -%}
 )
 
@@ -50,7 +53,7 @@ with destination_summary as (
     select
         effective_date              as effective_date
         , system_key                as system_key
-        , max(_created_at)          as _created_at
+        , sum(account_value)        as account_value
         , {{"'" ~ src_model ~ "'"}} as model_source
     from {{ ref(src_model) }}
     where 1 = 1
@@ -63,6 +66,7 @@ with destination_summary as (
         and effective_date >= current_date() - {{ lookback }}
         {%- endif %}
         and effective_date is not null
+        and effective_date < current_date()
     group by all
 
     {%- if not loop.last %}
@@ -83,10 +87,10 @@ with destination_summary as (
     select
         a.effective_date    as effective_date
         , a.system_key      as system_key
-        , s._created_at     as source_created_at
-        , d._created_at     as destination_created_at
+        , s.account_value   as source_account_value
+        , d.account_value   as destination_account_value
         , case
-            when s._created_at > coalesce(d._created_at, s._created_at - interval '1 day')
+            when nvl(s.account_value , 0) <> nvl(d.account_value , 0)
                 then 1
             else 0
             end::int        as is_stale

@@ -63,9 +63,9 @@ with fmv_cte as (
         , *
     from {{ ref('cambak__stg_cbplantargetreturn') }}
     qualify row_number() over (
-        partition by plan_id
-        order by plan_id asc , effective_date desc
-    ) = 1
+            partition by plan_id
+            order by plan_id asc , effective_date desc
+        ) = 1
 )
 
 , team_member_cte as (
@@ -166,6 +166,7 @@ select
             replace(pln.fmv_created_date , ' ' , '') || '+00:00' , 'MM/DD/YYYYHH12:MI:SSAM +TZH:TZM'
         )
     )                                              as _created_at
+    , pln._created_at::datetime                    as _source_loaded_at
     , object_construct_keep_null(
         'plan_open_date' , pln.relationship_start_date
         , 'plan_close_status' , pln.is_closed
