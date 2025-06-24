@@ -212,42 +212,42 @@ with cte_bld_associates as (
         , object_construct(
             'EmployeeID'
             , iff(
-                coalesce(ba.employee_id , '') <> coalesce(ad.employee_id , '') and not array_contains('EmployeeID'::variant, a.properties_to_exclude)
+                coalesce(ba.employee_id , '') <> coalesce(ad.employee_id , '') and not array_contains('EmployeeID'::variant, nvl(a.properties_to_exclude, []))
                 , object_construct_keep_null('source' , ba.employee_id , 'ad' , ad.employee_id)
                 , null
             )
             , 'Company'
             , iff(
-                coalesce(ba.company , '') <> coalesce(ad.company , '') and not array_contains('Company'::variant, a.properties_to_exclude)
+                coalesce(ba.company , '') <> coalesce(ad.company , '') and not array_contains('Company'::variant, nvl(a.properties_to_exclude, []))
                 , object_construct_keep_null('source' , ba.company , 'ad' , ad.company)
                 , null
             )
             , 'Division' , iff(
-                coalesce(ba.division , '') <> coalesce(ad.division , '') and not array_contains('Division'::variant, a.properties_to_exclude)
+                coalesce(ba.division , '') <> coalesce(ad.division , '') and not array_contains('Division'::variant, nvl(a.properties_to_exclude, []))
                 , object_construct_keep_null('source' , ba.division , 'ad' , ad.division)
                 , null
             )
             , 'AdminDescription'
             , iff(
-                coalesce(ba.admin_description , '') <> coalesce(ad.admin_description , '') and not array_contains('AdminDescription'::variant, a.properties_to_exclude)
+                coalesce(ba.admin_description , '') <> coalesce(ad.admin_description , '') and not array_contains('AdminDescription'::variant, nvl(a.properties_to_exclude, []))
                 , object_construct_keep_null('source' , ba.admin_description , 'ad' , ad.admin_description)
                 , null
             )
             , 'Department'
             , iff(
-                coalesce(ba.department , '') <> coalesce(ad.department , '') and not array_contains('Department'::variant, a.properties_to_exclude)
+                coalesce(ba.department , '') <> coalesce(ad.department , '') and not array_contains('Department'::variant, nvl(a.properties_to_exclude, []))
                 , object_construct_keep_null('source' , ba.department , 'ad' , ad.department)
                 , null
             )
             , 'Title'
             , iff(
-                coalesce(ba.title , '') <> coalesce(ad.title , '') and not array_contains('Title'::variant, a.properties_to_exclude)
+                coalesce(ba.title , '') <> coalesce(ad.title , '') and not array_contains('Title'::variant, nvl(a.properties_to_exclude, []))
                 , object_construct_keep_null('source' , ba.title , 'ad' , ad.title)
                 , null
             )
             , 'PhysicalDeliveryOfficeName'
             , iff(
-                coalesce(ba.physical_delivery_office_name , '') <> coalesce(ad.physical_delivery_office_name , '') and not array_contains('PhysicalDeliveryOfficeName'::variant, a.properties_to_exclude)
+                coalesce(ba.physical_delivery_office_name , '') <> coalesce(ad.physical_delivery_office_name , '') and not array_contains('PhysicalDeliveryOfficeName'::variant, nvl(a.properties_to_exclude, []))
                 , object_construct_keep_null(
                     'source' , ba.physical_delivery_office_name , 'ad' , ad.physical_delivery_office_name
                 )
@@ -255,55 +255,55 @@ with cte_bld_associates as (
             )
             , 'Manager'
             , iff(
-                coalesce(ba.manager , '') <> coalesce(ad.manager , '') and not array_contains('Manager'::variant, a.properties_to_exclude)
+                coalesce(ba.manager , '') <> coalesce(ad.manager , '') and not array_contains('Manager'::variant, nvl(a.properties_to_exclude, []))
                 , object_construct_keep_null('source' , ba.manager , 'ad' , ad.manager)
                 , null
             )
             , 'StreetAddress'
             , iff(
-                coalesce(ba.street_address , '') <> coalesce(ad.street_address , '') and not array_contains('StreetAddress'::variant, a.properties_to_exclude)
+                coalesce(ba.street_address , '') <> coalesce(ad.street_address , '') and not array_contains('StreetAddress'::variant, nvl(a.properties_to_exclude, []))
                 , object_construct_keep_null('source' , ba.street_address , 'ad' , ad.street_address)
                 , null
             )
             , 'L'
             , iff(
-                coalesce(ba.city , '') <> coalesce(ad.city , '') and not array_contains('L'::variant, a.properties_to_exclude)
+                coalesce(ba.city , '') <> coalesce(ad.city , '') and not array_contains('L'::variant, nvl(a.properties_to_exclude, []))
                 , object_construct_keep_null('source' , ba.city , 'ad' , ad.city)
                 , null
             )
             , 'st'
             , iff(
-                coalesce(ba.state , '') <> coalesce(ad.state , '') and not array_contains('st'::variant, a.properties_to_exclude)
+                coalesce(ba.state , '') <> coalesce(ad.state , '') and not array_contains('st'::variant, nvl(a.properties_to_exclude, []))
                 , object_construct_keep_null('source' , ba.state , 'ad' , ad.state)
                 , null
             )
             , 'PostalCode'
             , iff(
-                coalesce(ba.postal_code , '') <> coalesce(ad.postal_code , '') and not array_contains('PostalCode'::variant, a.properties_to_exclude)
+                coalesce(ba.postal_code , '') <> coalesce(ad.postal_code , '') and not array_contains('PostalCode'::variant, nvl(a.properties_to_exclude, []))
                 , object_construct_keep_null('source' , ba.postal_code , 'ad' , ad.postal_code)
                 , null
             )
             , 'TelephoneNumber'
             , iff(
-                coalesce(ba.office_phone , '') <> coalesce(ad.office_phone , '') and not array_contains('TelephoneNumber'::variant, a.properties_to_exclude) and nvl(ba.is_woodbridge , 0) = 0
+                coalesce(ba.office_phone , '') <> coalesce(ad.office_phone , '') and not array_contains('TelephoneNumber'::variant, nvl(a.properties_to_exclude, [])) and nvl(ba.is_woodbridge , 0) = 0
                 , object_construct_keep_null('source' , ba.office_phone , 'ad' , ad.office_phone)
                 , null
             )
             , 'otherMobile'
             , iff(
-                coalesce(ba.other_mobile , '') <> coalesce(ad.other_mobile , '') and not array_contains('otherMobile'::variant, a.properties_to_exclude)
+                coalesce(ba.other_mobile , '') <> coalesce(ad.other_mobile , '') and not array_contains('otherMobile'::variant, nvl(a.properties_to_exclude, []))
                 , object_construct_keep_null('source' , ba.other_mobile , 'ad' , ad.other_mobile)
                 , null
             )
             , 'dateOfStart'
             , iff(
-                coalesce(ba.date_of_start , '') <> coalesce(ad.date_of_start , '') and not array_contains('dateOfStart'::variant, a.properties_to_exclude)
+                coalesce(ba.date_of_start , '') <> coalesce(ad.date_of_start , '') and not array_contains('dateOfStart'::variant, nvl(a.properties_to_exclude, []))
                 , object_construct_keep_null('source' , ba.date_of_start , 'ad' , ad.date_of_start)
                 , null
             )
             , 'dateOfBirth'
             , iff(
-                coalesce(ba.date_of_birth , '') <> coalesce(ad.date_of_birth , '') and not array_contains('dateOfBirth'::variant, a.properties_to_exclude)
+                coalesce(ba.date_of_birth , '') <> coalesce(ad.date_of_birth , '') and not array_contains('dateOfBirth'::variant, nvl(a.properties_to_exclude, []))
                 , object_construct_keep_null('source' , ba.date_of_birth , 'ad' , ad.date_of_birth)
                 , null
             )
@@ -313,30 +313,30 @@ with cte_bld_associates as (
         -- This is used for applying updates by the receiving application (powershell Set-ADUser)
         -- !! Should we be clearing values? Maybe only certain ones? !!
         , object_construct(
-            'EmployeeID' , iff(coalesce(ba.employee_id , '') <> coalesce(ad.employee_id , '') and not array_contains('EmployeeID'::variant, a.properties_to_exclude) , ba.employee_id , null)
-            , 'Company' , iff(coalesce(ba.company , '') <> coalesce(ad.company , '') and not array_contains('Company'::variant, a.properties_to_exclude) , ba.company , null)
-            , 'Division' , iff(coalesce(ba.division , '') <> coalesce(ad.division , '') and not array_contains('Division'::variant, a.properties_to_exclude) , ba.division , null)
+            'EmployeeID' , iff(coalesce(ba.employee_id , '') <> coalesce(ad.employee_id , '') and not array_contains('EmployeeID'::variant, nvl(a.properties_to_exclude, [])) , ba.employee_id , null)
+            , 'Company' , iff(coalesce(ba.company , '') <> coalesce(ad.company , '') and not array_contains('Company'::variant, nvl(a.properties_to_exclude, [])) , ba.company , null)
+            , 'Division' , iff(coalesce(ba.division , '') <> coalesce(ad.division , '') and not array_contains('Division'::variant, nvl(a.properties_to_exclude, [])) , ba.division , null)
             , 'AdminDescription'
-            , iff(coalesce(ba.admin_description , '') <> coalesce(ad.admin_description , '') and not array_contains('AdminDescription'::variant, a.properties_to_exclude) , ba.admin_description , null)
-            , 'Department' , iff(coalesce(ba.department , '') <> coalesce(ad.department , '') and not array_contains('Department'::variant, a.properties_to_exclude) , ba.department , null)
-            , 'Title' , iff(coalesce(ba.title , '') <> coalesce(ad.title , '') and not array_contains('Title'::variant, a.properties_to_exclude) , ba.title , null)
+            , iff(coalesce(ba.admin_description , '') <> coalesce(ad.admin_description , '') and not array_contains('AdminDescription'::variant, nvl(a.properties_to_exclude, [])) , ba.admin_description , null)
+            , 'Department' , iff(coalesce(ba.department , '') <> coalesce(ad.department , '') and not array_contains('Department'::variant, nvl(a.properties_to_exclude, [])) , ba.department , null)
+            , 'Title' , iff(coalesce(ba.title , '') <> coalesce(ad.title , '') and not array_contains('Title'::variant, nvl(a.properties_to_exclude, [])) , ba.title , null)
             , 'PhysicalDeliveryOfficeName'
             , iff(
-                coalesce(ba.physical_delivery_office_name , '') <> coalesce(ad.physical_delivery_office_name , '') and not array_contains('PhysicalDeliveryOfficeName'::variant, a.properties_to_exclude)
+                coalesce(ba.physical_delivery_office_name , '') <> coalesce(ad.physical_delivery_office_name , '') and not array_contains('PhysicalDeliveryOfficeName'::variant, nvl(a.properties_to_exclude, []))
                 , ba.physical_delivery_office_name
                 , null
             )
-            , 'Manager' , iff(coalesce(ba.manager , '') <> coalesce(ad.manager , '') and not array_contains('Manager'::variant, a.properties_to_exclude) , ba.manager , null)
+            , 'Manager' , iff(coalesce(ba.manager , '') <> coalesce(ad.manager , '') and not array_contains('Manager'::variant, nvl(a.properties_to_exclude, [])) , ba.manager , null)
             , 'StreetAddress'
-            , iff(coalesce(ba.street_address , '') <> coalesce(ad.street_address , '') and not array_contains('StreetAddress'::variant, a.properties_to_exclude) , ba.street_address , null)
-            , 'L' , iff(coalesce(ba.city , '') <> coalesce(ad.city , '') and not array_contains('L'::variant, a.properties_to_exclude) , ba.city , null)
-            , 'st' , iff(coalesce(ba.state , '') <> coalesce(ad.state , '') and not array_contains('st'::variant, a.properties_to_exclude) , ba.state , null)
-            , 'PostalCode' , iff(coalesce(ba.postal_code , '') <> coalesce(ad.postal_code , '') and not array_contains('PostalCode'::variant, a.properties_to_exclude) , ba.postal_code , null)
+            , iff(coalesce(ba.street_address , '') <> coalesce(ad.street_address , '') and not array_contains('StreetAddress'::variant, nvl(a.properties_to_exclude, [])) , ba.street_address , null)
+            , 'L' , iff(coalesce(ba.city , '') <> coalesce(ad.city , '') and not array_contains('L'::variant, nvl(a.properties_to_exclude, [])) , ba.city , null)
+            , 'st' , iff(coalesce(ba.state , '') <> coalesce(ad.state , '') and not array_contains('st'::variant, nvl(a.properties_to_exclude, [])) , ba.state , null)
+            , 'PostalCode' , iff(coalesce(ba.postal_code , '') <> coalesce(ad.postal_code , '') and not array_contains('PostalCode'::variant, nvl(a.properties_to_exclude, [])) , ba.postal_code , null)
             , 'TelephoneNumber'
-            , iff(coalesce(ba.office_phone , '') <> coalesce(ad.office_phone , '') and not array_contains('TelephoneNumber'::variant, a.properties_to_exclude) and nvl(ba.is_woodbridge , 0) = 0 , ba.office_phone , null)
-            , 'otherMobile' , iff(coalesce(ba.other_mobile , '') <> coalesce(ad.other_mobile , '') and not array_contains('otherMobile'::variant, a.properties_to_exclude) , ba.other_mobile , null)
-            , 'dateOfStart' , iff(coalesce(ba.date_of_start , '') <> coalesce(ad.date_of_start , '') and not array_contains('dateOfStart'::variant, a.properties_to_exclude) , ba.date_of_start , null)
-            , 'dateOfBirth' , iff(coalesce(ba.date_of_birth , '') <> coalesce(ad.date_of_birth , '') and not array_contains('dateOfBirth'::variant, a.properties_to_exclude) , ba.date_of_birth , null)
+            , iff(coalesce(ba.office_phone , '') <> coalesce(ad.office_phone , '') and not array_contains('TelephoneNumber'::variant, nvl(a.properties_to_exclude, [])) and nvl(ba.is_woodbridge , 0) = 0 , ba.office_phone , null)
+            , 'otherMobile' , iff(coalesce(ba.other_mobile , '') <> coalesce(ad.other_mobile , '') and not array_contains('otherMobile'::variant, nvl(a.properties_to_exclude, [])) , ba.other_mobile , null)
+            , 'dateOfStart' , iff(coalesce(ba.date_of_start , '') <> coalesce(ad.date_of_start , '') and not array_contains('dateOfStart'::variant, nvl(a.properties_to_exclude, [])) , ba.date_of_start , null)
+            , 'dateOfBirth' , iff(coalesce(ba.date_of_birth , '') <> coalesce(ad.date_of_birth , '') and not array_contains('dateOfBirth'::variant, nvl(a.properties_to_exclude, [])) , ba.date_of_birth , null)
         )                                                              as update_payload
 
         -- This includes a full accounting of value comparisons.
