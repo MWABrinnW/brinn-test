@@ -12,6 +12,7 @@ select
     , is_product_managed
     , product_name
     , product_type
+    , product_subtype
     , product_class_id
     , product_class
     , asset_class

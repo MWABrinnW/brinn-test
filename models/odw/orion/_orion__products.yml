@@ -59,6 +59,9 @@ models:
       - name: PRODUCT_TYPE
         description: ''
         data_type: TEXT
+      - name: PRODUCT_SUBTYPE
+        description: ''
+        data_type: TEXT
       - name: PRODUCT_CLASS_ID
         description: ''
         data_type: TEXT

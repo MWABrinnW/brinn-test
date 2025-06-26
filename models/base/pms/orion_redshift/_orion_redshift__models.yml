@@ -7882,25 +7882,6 @@ models:
         data_type: TEXT
   - name: orion__base_vw_productsubtype
     columns:
-      - name: CLIENTNAME
-        description: ''
-        data_type: TEXT
-      - name: SYSTEM_NAME
-        description: ''
-        data_type: TEXT
-      - name: SYSTEM_INSTANCE
-        description: ''
-        data_type: TEXT
-      - name: SYSTEM_KEY
-        description: ''
-        data_type: TEXT
-      - name: FIRM_SOURCE
-        description: ''
-        meta:
-          row_access_policy: rap_firm_source
-      - name: FKALCLIENT
-        description: ''
-        data_type: NUMBER
       - name: PKPRODUCTTYPE
         description: ''
         data_type: NUMBER
@@ -7942,25 +7923,6 @@ models:
         data_type: TEXT
   - name: orion__base_vw_producttype
     columns:
-      - name: CLIENTNAME
-        description: ''
-        data_type: TEXT
-      - name: SYSTEM_NAME
-        description: ''
-        data_type: TEXT
-      - name: SYSTEM_INSTANCE
-        description: ''
-        data_type: TEXT
-      - name: SYSTEM_KEY
-        description: ''
-        data_type: TEXT
-      - name: FIRM_SOURCE
-        description: ''
-        meta:
-          row_access_policy: rap_firm_source
-      - name: FKALCLIENT
-        description: ''
-        data_type: NUMBER
       - name: PKPRODUCTTYPE
         description: ''
         data_type: NUMBER

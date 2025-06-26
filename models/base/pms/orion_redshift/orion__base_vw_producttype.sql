@@ -1,11 +1,5 @@
 select
-    ci.clientname                        as clientname
-    , ci.system_name                     as system_name
-    , ci.system_instance                 as system_instance
-    , ci.system_key                      as system_key
-    , ci.firm_source                     as firm_source
-    , a.content:fkalclient::integer      as fkalclient
-    , a.content:pkproducttype::integer   as pkproducttype
+    a.content:pkproducttype::integer     as pkproducttype
     , a.content:producttype::varchar(50) as producttype
     , a.content:createddate::timestamp   as createddate
     , a.effective_at::date               as effective_date
@@ -21,5 +15,3 @@ select
     , a._source_file                     as _source_file
     , a._checksum                        as _checksum
 from {{ source('orion', 'vw_producttype') }} as a
-inner join {{ ref('orion__base_vw_clientinfo') }} as ci
-    on a.content:fkalclient::int = ci.pkalclient

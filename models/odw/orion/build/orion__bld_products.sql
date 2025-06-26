@@ -17,6 +17,7 @@ select
     , prod.productname::text                   as product_name
     , prod.productnameoverride::text           as product_name_override
     , prod.producttypename::text               as product_type
+    , pst.productsubtype::text                 as product_subtype
     , pc.pkproductclass::text                  as product_class_id
     , prod.productclass::text                  as product_class
     , prod.productclass::text                  as asset_class
@@ -45,4 +46,6 @@ left join {{ ref('orion__base_vw_productclass') }} as pc
 left join {{ ref('orion__base_vw_productcategory') }} as pcat
     on pc.fkalclient = pcat.fkalclient
     and pc.fkproductcategory = pcat.pkproductcategory
+left join {{ ref('orion__base_vw_productsubtype') }} as pst
+    on prod.fkproducttype = pst.pkproducttype
 where 1 = 1
