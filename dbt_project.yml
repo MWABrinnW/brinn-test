@@ -753,6 +753,17 @@ models:
         +grants:
           select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
+      securities:
+        +tags: ["securities"]
+        build:
+          +schema: build
+          +grants:
+            select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
+        enterprise:
+          +schema: enterprise
+          +grants:
+            select: "{{ ['engineering', 'datamanagement'] if target.name in ['prod', 'test', 'ci'] else []}}"
+
       vendors:
         +tags: ["vendors"]
         +schema: enterprise

@@ -1,262 +1,252 @@
 version: 2
 models:
+  - name: cusip_history__base_cfi_map
+    columns:
+      - name: ISO_CFI_PREFIX
+        data_type: VARCHAR
+      - name: CFI_CATEGORY
+        data_type: VARCHAR
+      - name: CFI_ATTRIBUTE
+        data_type: VARCHAR
+  - name: cusip_history__base_issuers
+    columns:
+      - name: ISSUER_NUMBER
+        data_type: VARCHAR
+      - name: ISSUER_CHECK
+        data_type: VARCHAR
+      - name: ISSUER_NAME
+        data_type: VARCHAR
+      - name: ISSUER_ADL
+        data_type: VARCHAR
+      - name: ISSUER_TYPE
+        data_type: VARCHAR
+      - name: ISSUER_STATUS
+        data_type: VARCHAR
+      - name: DOMICILE
+        data_type: VARCHAR
+      - name: STATE_CD
+        data_type: VARCHAR
+      - name: CABRE_ID
+        data_type: VARCHAR
+      - name: CABRE_STATUS
+        data_type: VARCHAR
+      - name: LEIGMEI
+        data_type: VARCHAR
+      - name: LEGAL_ENTITY_NAME
+        data_type: VARCHAR
+      - name: PREVIOUS_NAME
+        data_type: VARCHAR
+      - name: ISSUER_ENTRY_DATE
+        data_type: DATE
+      - name: CP_INSTITUTION_TYPE_DESC
+        data_type: VARCHAR
+      - name: ISSUER_TRANSACTION
+        data_type: VARCHAR
+      - name: ISSUER_UPDATE_DATE
+        data_type: DATE
+      - name: RESERVED_1
+        data_type: VARCHAR
+      - name: RESERVED_2
+        data_type: VARCHAR
+      - name: RESERVED_3
+        data_type: VARCHAR
+      - name: RESERVED_4
+        data_type: VARCHAR
+      - name: RESERVED_5
+        data_type: VARCHAR
+      - name: RESERVED_6
+        data_type: VARCHAR
+      - name: RESERVED_7
+        data_type: VARCHAR
+      - name: RESERVED_8
+        data_type: VARCHAR
+      - name: RESERVED_9
+        data_type: VARCHAR
+      - name: RESERVED_10
+        data_type: VARCHAR
+      - name: EFFECTIVE_DATE
+        data_type: DATE
+      - name: IS_HEAD
+        data_type: NUMBER
+      - name: IS_CURRENT
+        data_type: NUMBER
+      - name: RECORD_DATE
+        data_type: DATE
+      - name: RECORD_DATETIME
+        data_type: TIMESTAMP_LTZ
+      - name: SOURCE_FILE
+        data_type: VARCHAR
   - name: cusip_history__base_issues
     columns:
       - name: CUSIP
-        description: ''
         data_type: VARCHAR
       - name: ISSUER_NUM
-        description: ''
         data_type: VARCHAR
       - name: ISSUE_NUM
-        description: ''
         data_type: VARCHAR
       - name: ISSUE_CHECK
-        description: ''
         data_type: VARCHAR
       - name: ISSUE_DESCRIPTION
-        description: ''
         data_type: VARCHAR
       - name: ISSUE_ADDITIONAL_INFO
-        description: ''
         data_type: VARCHAR
       - name: ISSUE_STATUS
-        description: ''
         data_type: VARCHAR
       - name: ISSUE_TYPE_CODE
-        description: ''
         data_type: VARCHAR
       - name: DATED_DATE
-        description: ''
         data_type: DATE
       - name: MATURITY_DATE
-        description: ''
         data_type: DATE
       - name: PARTIAL_MATURITY
-        description: ''
         data_type: VARCHAR
       - name: COUPON_RATE
-        description: ''
         data_type: FLOAT
       - name: CURRENCY_CODE
-        description: ''
         data_type: VARCHAR
       - name: SECURITY_TYPE_DESCRIPTION
-        description: ''
         data_type: VARCHAR
       - name: FISN
-        description: ''
         data_type: VARCHAR
       - name: ISSUE_GROUP
-        description: ''
         data_type: VARCHAR
       - name: ISIN
-        description: ''
         data_type: VARCHAR
       - name: WHERE_TRADED
-        description: ''
         data_type: VARCHAR
       - name: TICKER_SYMBOL
-        description: ''
         data_type: VARCHAR
       - name: US_CFI_CODE
-        description: ''
         data_type: VARCHAR
       - name: ISO_CFI_CODE
-        description: ''
         data_type: VARCHAR
       - name: ISSUE_ENTRY_DATE
-        description: ''
         data_type: DATE
       - name: ALTERNATIVE_MINIMUM_TAX
-        description: ''
         data_type: VARCHAR
       - name: BANK_QUALIFIED
-        description: ''
         data_type: VARCHAR
       - name: CALLABLE
-        description: ''
         data_type: VARCHAR
       - name: FIRST_COUPON_DATE
-        description: ''
         data_type: DATE
       - name: INITIAL_PUBLIC_OFFERING
-        description: ''
         data_type: VARCHAR
       - name: PAYMENT_FREQUENCY_CODE
-        description: ''
         data_type: VARCHAR
       - name: CLOSING_DATE
-        description: ''
         data_type: DATE
       - name: DEPOSITORY_ELIGIBLE
-        description: ''
         data_type: VARCHAR
       - name: PRE_REFUNDED
-        description: ''
         data_type: VARCHAR
       - name: REFUNDABLE
-        description: ''
         data_type: VARCHAR
       - name: REMARKETED
-        description: ''
         data_type: VARCHAR
       - name: SINKING_FUND
-        description: ''
         data_type: VARCHAR
       - name: TAXABLE
-        description: ''
         data_type: VARCHAR
       - name: BOND_FORM
-        description: ''
         data_type: VARCHAR
       - name: ENHANCEMENTS
-        description: ''
         data_type: VARCHAR
       - name: FUND_DISTRIBUTION_POLICY
-        description: ''
         data_type: VARCHAR
       - name: FUND_INVESTMENT_POLICY
-        description: ''
         data_type: VARCHAR
       - name: FUND_TYPE
-        description: ''
         data_type: VARCHAR
       - name: GUARANTEE
-        description: ''
         data_type: VARCHAR
       - name: INCOME_TYPE
-        description: ''
         data_type: VARCHAR
       - name: INSURED_BY
-        description: ''
         data_type: VARCHAR
       - name: OWNERSHIP_RESTRICTIONS
-        description: ''
         data_type: VARCHAR
       - name: PAYMENT_STATUS
-        description: ''
         data_type: VARCHAR
       - name: PREFERRED_TYPE
-        description: ''
         data_type: VARCHAR
       - name: PUTABLE
-        description: ''
         data_type: VARCHAR
       - name: RATE_TYPE
-        description: ''
         data_type: VARCHAR
       - name: REDEMPTION
-        description: ''
         data_type: VARCHAR
       - name: SOURCE_DOCUMENT
-        description: ''
         data_type: VARCHAR
       - name: SPONSORING
-        description: ''
         data_type: VARCHAR
       - name: VOTING_RIGHTS
-        description: ''
         data_type: VARCHAR
       - name: WARRANT_ASSETS
-        description: ''
         data_type: VARCHAR
       - name: WARRANT_STATUS
-        description: ''
         data_type: VARCHAR
       - name: WARRANT_TYPE
-        description: ''
         data_type: VARCHAR
       - name: UNDERWRITER
-        description: ''
         data_type: VARCHAR
       - name: AUDITOR
-        description: ''
         data_type: VARCHAR
       - name: PAYING_AGENT
-        description: ''
         data_type: VARCHAR
       - name: TENDER_AGENT
-        description: ''
         data_type: VARCHAR
       - name: TRANSFER_AGENT
-        description: ''
         data_type: VARCHAR
       - name: BOND_COUNSEL
-        description: ''
         data_type: VARCHAR
       - name: FINANCIAL_ADVISOR
-        description: ''
         data_type: VARCHAR
       - name: MUNICIPAL_SALE_DATE
-        description: ''
         data_type: DATE
       - name: SALE_TYPE
-        description: ''
         data_type: VARCHAR
       - name: OFFERING_AMOUNT
-        description: ''
         data_type: FLOAT
       - name: OFFERING_AMOUNT_CODE
-        description: ''
         data_type: VARCHAR
       - name: ISSUE_TRANSACTION
-        description: ''
         data_type: VARCHAR
       - name: ISSUE_LAST_UPDATE_DATE
-        description: ''
         data_type: DATE
       - name: RESERVED_1
-        description: ''
         data_type: VARCHAR
       - name: RESERVED_2
-        description: ''
         data_type: VARCHAR
       - name: RESERVED_3
-        description: ''
         data_type: VARCHAR
       - name: RESERVED_4
-        description: ''
         data_type: VARCHAR
       - name: RESERVED_5
-        description: ''
         data_type: VARCHAR
       - name: RESERVED_6
-        description: ''
         data_type: VARCHAR
       - name: RESERVED_7
-        description: ''
         data_type: VARCHAR
       - name: IS_13F
-        description: ''
         data_type: VARCHAR
       - name: RESERVED_9
-        description: ''
         data_type: VARCHAR
       - name: RESERVED_10
-        description: ''
         data_type: VARCHAR
       - name: EFFECTIVE_DATE
-        description: ''
         data_type: DATE
       - name: IS_HEAD
-        description: ''
         data_type: NUMBER
       - name: IS_CURRENT
-        description: ''
         data_type: NUMBER
       - name: _CREATED_AT
-        description: ''
         data_type: TIMESTAMP_LTZ
       - name: _SOURCE_FILE
-        description: ''
         data_type: VARCHAR
       - name: RECORD_DATE
-        description: ''
         data_type: DATE
       - name: RECORD_DATETIME
-        description: ''
         data_type: TIMESTAMP_LTZ
       - name: SOURCE_FILE
-        description: ''
         data_type: VARCHAR

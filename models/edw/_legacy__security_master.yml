@@ -1,0 +1,72 @@
+version: 2
+models:
+  - name: legacy__security_master
+    columns:
+      - name: CUSIP
+        data_type: VARCHAR
+      - name: TICKER
+        data_type: VARCHAR
+      - name: ISO_CFI_TYPE
+        data_type: VARCHAR
+      - name: ISO_CFI_CODE
+        data_type: VARCHAR
+      - name: NAME
+        data_type: VARCHAR
+      - name: CFI_CATEGORY
+        data_type: VARCHAR
+      - name: CFI_ATTRIBUTE
+        data_type: VARCHAR
+      - name: MSTAR_GLOBALCATEGORYNAME
+        data_type: VARCHAR
+      - name: MSTAR_CATEGORYNAME
+        data_type: VARCHAR
+      - name: MSTAR_MTYPE
+        data_type: VARCHAR
+      - name: MSTAR_SECURITYTYPE
+        data_type: VARCHAR
+      - name: STYLE_BOX_EQUITY
+        data_type: VARCHAR
+      - name: STYLE_BOX_FIXEDINCOME
+        data_type: VARCHAR
+      - name: SHARE_CLASS
+        data_type: VARCHAR
+      - name: MATURITY
+        data_type: DATE
+      - name: FUND_FAMILY_ID
+        data_type: VARCHAR
+      - name: FUND_FAMILY_NAME
+        data_type: VARCHAR
+      - name: MSTAR_NAME
+        data_type: VARCHAR
+      - name: ORN_PRODUCT_NAME
+        data_type: VARCHAR
+      - name: ORN_PRODUCT_SUBTYPE
+        data_type: VARCHAR
+      - name: ORN_PRODUCT_TYPE
+        data_type: VARCHAR
+      - name: ORN_ASSET_CLASS
+        data_type: VARCHAR
+      - name: ORN_PRODUCT_CATEGORY
+        data_type: VARCHAR
+      - name: ORN_ADV_CATEGORY
+        data_type: VARCHAR
+      - name: ORN_RISK_CATEGORY
+        data_type: VARCHAR
+      - name: FID_SECURITY_TYPE
+        data_type: VARCHAR
+      - name: FID_SECURITY_SUBTYPE
+        data_type: VARCHAR
+      - name: FID_NAME
+        data_type: VARCHAR
+      - name: RECORD_SOURCE
+        data_type: VARCHAR
+      - name: RECORD_DATETIME
+        data_type: TIMESTAMP_LTZ
+      - name: RECORD_DATE
+        data_type: DATE
+      - name: ORN_PRODUCT_DESC
+        data_type: VARCHAR
+      - name: ORN_IS_CASH
+        data_type: BOOLEAN
+      - name: ISIN
+        data_type: VARCHAR

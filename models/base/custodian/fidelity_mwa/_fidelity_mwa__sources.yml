@@ -303,3 +303,15 @@ sources:
           - name: json
           - name: _created_at
           - name: _source_file
+
+  - name: fidelity_mwa_history
+    database: "{{ var('db_datalake_src', env_var('DBT_DB_DATALAKE_SRC', 'datalake')) }}"
+    schema: fidelity_mwa_history
+    tables:
+      - name: security_map
+        description: ""
+        columns:
+          - name: security_type_code
+          - name: security_modifier_code
+          - name: security_type
+          - name: security_subtype
