@@ -94,12 +94,7 @@ with cte_bld_associates as (
         , to_char(associate_birth_date , 'MM/DD')                           as date_of_birth
 
         , position_id                                                       as position_id
-        , case
-            when (person_source ilike 'Acquisition - Woodbridge' or position_department_name ilike 'Woodbridge')
-                then 1
-            else 0
-        end::int                                                            as is_woodbridge
-        , object_insert(_extra_fields , 'is_woodbridge' , is_woodbridge)    as _extra_fields
+        , _extra_fields                                                     as _extra_fields
         , row_number() over (
             partition by employee_num
             order by
@@ -285,7 +280,7 @@ with cte_bld_associates as (
             )
             , 'TelephoneNumber'
             , iff(
-                coalesce(ba.office_phone , '') <> coalesce(ad.office_phone , '') and not array_contains('TelephoneNumber'::variant, nvl(a.properties_to_exclude, [])) and nvl(ba.is_woodbridge , 0) = 0
+                coalesce(ba.office_phone , '') <> coalesce(ad.office_phone , '') and not array_contains('TelephoneNumber'::variant, nvl(a.properties_to_exclude, []))
                 , object_construct_keep_null('source' , ba.office_phone , 'ad' , ad.office_phone)
                 , null
             )
@@ -333,7 +328,7 @@ with cte_bld_associates as (
             , 'st' , iff(coalesce(ba.state , '') <> coalesce(ad.state , '') and not array_contains('st'::variant, nvl(a.properties_to_exclude, [])) , ba.state , null)
             , 'PostalCode' , iff(coalesce(ba.postal_code , '') <> coalesce(ad.postal_code , '') and not array_contains('PostalCode'::variant, nvl(a.properties_to_exclude, [])) , ba.postal_code , null)
             , 'TelephoneNumber'
-            , iff(coalesce(ba.office_phone , '') <> coalesce(ad.office_phone , '') and not array_contains('TelephoneNumber'::variant, nvl(a.properties_to_exclude, [])) and nvl(ba.is_woodbridge , 0) = 0 , ba.office_phone , null)
+            , iff(coalesce(ba.office_phone , '') <> coalesce(ad.office_phone , '') and not array_contains('TelephoneNumber'::variant, nvl(a.properties_to_exclude, [])) , ba.office_phone , null)
             , 'otherMobile' , iff(coalesce(ba.other_mobile , '') <> coalesce(ad.other_mobile , '') and not array_contains('otherMobile'::variant, nvl(a.properties_to_exclude, [])) , ba.other_mobile , null)
             , 'dateOfStart' , iff(coalesce(ba.date_of_start , '') <> coalesce(ad.date_of_start , '') and not array_contains('dateOfStart'::variant, nvl(a.properties_to_exclude, [])) , ba.date_of_start , null)
             , 'dateOfBirth' , iff(coalesce(ba.date_of_birth , '') <> coalesce(ad.date_of_birth , '') and not array_contains('dateOfBirth'::variant, nvl(a.properties_to_exclude, [])) , ba.date_of_birth , null)
