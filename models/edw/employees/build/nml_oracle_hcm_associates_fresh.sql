@@ -74,13 +74,9 @@ select
     , e.associate_other_address_country                               as associate_other_address_country
     , e.associate_education                                           as associate_education
     , e.associate_work_email                                          as associate_work_email
-    , case
-        -- Cardinal acquisition users need to have the HCM work phone instead of the zoom phone.
-        -- DE-394
-        when e.person_source ilike 'Acquisition - Cardinal'
-            then replace(coalesce(e.associate_work_phone , zoom.number) , '+1' , '')
-        else replace(coalesce(zoom.number , e.associate_work_phone) , '+1' , '')
-    end::text                                                         as associate_work_phone
+    , replace(
+        coalesce(zoom.number , e.associate_work_phone) , '+1' , ''
+    )                                                                 as associate_work_phone
     , e.associate_work_cell_phone                                     as associate_work_cell_phone
     , e.associate_original_hire_date::date                            as associate_original_hire_date
     , e.associate_rehire_date::date                                   as associate_rehire_date
