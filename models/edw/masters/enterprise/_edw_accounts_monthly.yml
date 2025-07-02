@@ -1,16 +1,14 @@
 version: 2
 models:
-  - name: edw_accounts
+  - name: edw_accounts_monthly
     columns:
       - name: EFFECTIVE_DATE
         data_type: DATE
       - name: SYSTEM_NAME
         data_type: VARCHAR
       - name: SYSTEM_INSTANCE
-        description: Source system instance name.
         data_type: VARCHAR
       - name: SYSTEM_KEY
-        description: Key for the PMS instance. PMS and PMS_INSTANCE_LOCATION concatenated.
         data_type: VARCHAR
       - name: FIRM_SOURCE
         description: mwa | mps | andco | baystate
@@ -18,22 +16,16 @@ models:
           row_access_policy: rap_firm_source
         data_type: VARCHAR
       - name: ACCOUNT_NUMBER_FORMATTED
-        description: >-
-          Account number including custodian or source system formatting such as hyphens, spacing, and
-          case sensitivity.
         data_type: VARCHAR
       - name: ACCOUNT_NUMBER
-        description: Account number without formatting or leading zeros.
         data_type: VARCHAR
       - name: ACCOUNT_VALUE
-        description: Latest account market value.
         data_type: NUMBER
       - name: ACCOUNT_ID_CRM
         data_type: VARCHAR
       - name: ACCOUNT_ID_PMS
         data_type: VARCHAR
       - name: ACCOUNT_NAME
-        description: Account name.
         data_type: VARCHAR
       - name: CLIENT_ID_CRM
         data_type: VARCHAR
@@ -42,10 +34,8 @@ models:
       - name: CLIENT_NAME
         data_type: VARCHAR
       - name: CUSTODIAN
-        description: Custodian name.
         data_type: VARCHAR
       - name: ACCOUNT_TYPE
-        description: 'Account type. Example: IRA Rollover.'
         data_type: VARCHAR
       - name: AUM_CLASSIFICATION
         data_type: VARCHAR
@@ -54,41 +44,30 @@ models:
       - name: FEE_SCHEDULE
         data_type: VARCHAR
       - name: ADVISOR
-        description: Advisor.
         data_type: VARCHAR
       - name: ADVISOR_ID
         data_type: VARCHAR
       - name: ADVISOR_ID_SOURCE
         data_type: VARCHAR
       - name: ADVISOR_EMAIL
-        description: Advisor email.
         data_type: VARCHAR
       - name: DISCRETION_STATUS
         data_type: VARCHAR
       - name: IS_ACTIVE
-        description: Is the account active (1 or 0).
         data_type: NUMBER
       - name: OPENED_DATE
-        description: Account open or start date.
         data_type: DATE
       - name: CLOSED_DATE
-        description: Account close or cancel date.
         data_type: DATE
       - name: LOCATION_CODE
-        description: Mariner Location ID for the location (ex. 100, L-10015)
         data_type: VARCHAR
       - name: OFFICE_NAME
-        description: Office name/location in the format of 'City, State'
         data_type: VARCHAR
       - name: LINK
-        description: The custodian master number, g number, rep code, or equivalent.
         data_type: VARCHAR
       - name: LINK_TYPE
-        description: The type of link (i.e. master number or G number)
         data_type: VARCHAR
       - name: LINK_SUBTYPE
-        description: >-
-          Some custodians have primary, secondary, or other labels to indicate the type of link value.
         data_type: VARCHAR
       - name: IS_INSTITUTIONAL
         data_type: NUMBER
@@ -97,7 +76,6 @@ models:
       - name: IS_MARKET_DAY
         data_type: NUMBER
       - name: IS_MARKET_MONTH_END
-        description: Is the effective date the last effective_date (market day) for the month.
         data_type: NUMBER
       - name: IS_MANUAL_ACCOUNT
         data_type: NUMBER
@@ -106,11 +84,8 @@ models:
       - name: IS_HEAD
         data_type: NUMBER
       - name: _SOURCE_LOADED_AT
-        description: Time when the records were created in the source table.
-        data_type: TIMESTAMP_NTZ
-      - name: _CREATED_AT
-        description: >-
-          Datetime representing when the record was loaded into the table from the source file.
         data_type: TIMESTAMP_NTZ
       - name: _EXTRA_FIELDS
         data_type: VARIANT
+      - name: _CREATED_AT
+        data_type: TIMESTAMP_NTZ

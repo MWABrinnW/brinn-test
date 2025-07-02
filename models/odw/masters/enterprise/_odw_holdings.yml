@@ -27,7 +27,7 @@ models:
           row_access_policy: rap_firm_source
       - name: ACCOUNT_NUMBER_FORMATTED
         description: >-
-          Account number including custodian or source sytem formatting such as hyphens, spacing, and
+          Account number including custodian or source system formatting such as hyphens, spacing, and
           case sensitivity.
       - name: ACCOUNT_NUMBER
         description: Account number without formatting or leading zeros.
