@@ -1,0 +1,364 @@
+version: 2
+models:
+  - name: billing_insurance
+    data_tests:
+#    - dbt_expectations.expect_table_row_count_to_equal_other_table:
+#        name: billing_insurance_compare_row_count
+#        description: Compare the row count of the billing_insurance model to the prod model.
+#        config:
+#          severity: warn
+#        compare_model: odw.financials.billing_insurance
+#        group_by: [revenue_period_end_date, system_key, firm_source]
+#        compare_group_by: [revenue_period_end_date, system_key, firm_source]
+      - compare_describe_to_prod:
+          name: billing_insurance_compare_describe_to_prod
+          description: Compare the describe() of the billing_insurance model to the prod model.
+          state_database: odw
+          state_schema: financials
+          state_name: billing_insurance
+          summarize: false
+          include_columns: [revenue_period_end_date, system_key, location_code, office_name, firm_source,
+            client_fee_net, coa_account_number, advisor]
+          config:
+            severity: warn
+    columns:
+      - name: SYSTEM_NAME
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: SYSTEM_INSTANCE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: SYSTEM_KEY
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: FIRM_SOURCE
+        description: ''
+        meta:
+          row_access_policy: rap_firm_source
+        config:
+          meta: {}
+          tags: []
+      - name: LOCATION_CODE
+        description: Mariner Location ID for the location (ex. 100, L-10015)
+        config:
+          meta: {}
+          tags: []
+      - name: OFFICE_NAME
+        description: Office name/location in the format of 'City, State'
+        config:
+          meta: {}
+          tags: []
+      - name: CLIENT_LOCATION_CODE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: CLIENT_OFFICE_NAME
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: INVOICE_DATE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: REVENUE_PERIOD_END_DATE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: REVENUE_QUARTER_END_DATE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: INVOICE_NUMBER_SOURCE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: INVOICE_STATUS
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: REGISTRANT_NAME
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: INSURANCE_COORDINATOR
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: INSURANCE_CARRIER
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: INSURANCE_REVENUE_SOURCE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: INSURANCE_POLICY_NUMBER
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: INSURANCE_POLICY_ADDED_DATE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: LEAD_CONSULTANT
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: ADVISOR_SOURCE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: ADVISOR
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: ASSOCIATE_ID
+        description: >-
+          ADP system identifier, exists in Oracle HCM for legacy data reference.  Will be blank for new
+          associates.
+        config:
+          meta: {}
+          tags: []
+      - name: CLIENT_FEE_GROSS
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: CLIENT_FEE_NET
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: BILLING_STYLE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: BILLING_FREQUENCY
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: ACCOUNT_CLASS
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: RECURRING_REVENUE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: IMPACTED_BY_FINANCIAL_MARKETS
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: COA_ACCOUNT_NUMBER
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: COA_SEGMENT_1_LEGAL_ENTITY_ID
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: COA_SEGMENT_2_PRODUCT_ID
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: COA_SEGMENT_3_ACCOUNTING_ID
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: COA_SEGMENT_4_TEAM_ID
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: COA_SEGMENT_5_NATURAL_ACCOUNT_ID
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: COA_SEGMENT_6_INITIATIVE_ID
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: COA_SEGMENT_7_INTERCOMPANY_ID
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: COA_SEGMENT_8_FUTURE_ID
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: REVENUE_CATEGORY
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: REVENUE_TYPE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: SYSTEM_NAME_CRM
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: SYSTEM_INSTANCE_CRM
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: SYSTEM_KEY_CRM
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: ACCOUNT_ID_CRM
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: CLIENT_ID_CRM
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: CLIENT_ID_ORIGINAL_CRM
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: CLIENT_ID_UNIQUE_COMPASS
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: CLIENT_NAME
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: CLIENT_NAME_ORIGINAL_CRM
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: CLIENT_LEAD_SOURCE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: CLIENT_KEY_TAGS_CRM
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: TRANSACTION_TYPE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: TRANSACTION_LINE_TYPE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: TRANSACTION_LINE_QUANTITY
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: CURRENCY_CODE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: CURRENCY_CONVERSION_TYPE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: UNIT_SELLING_PRICE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: IS_EXCLUDED
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: EXCLUDED_REASONS
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: _INVOICE_KEY
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: _SOURCE_LOADED_AT
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: _SOURCE_FILE
+        description: File where the record is sourced from.
+        config:
+          meta: {}
+          tags: []
+      - name: _BOX_FILE_ID
+        description: identifier for the box file.
+        config:
+          meta: {}
+          tags: []
+      - name: _EXTRA_FIELDS
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: _CREATED_AT
+        description: >-
+          Datetime representing when the record was loaded into the table from the source file.
+        config:
+          meta: {}
+          tags: []
+      - name: IS_LEGACY
+        description: ''
+        config:
+          meta: {}
+          tags: []

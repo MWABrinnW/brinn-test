@@ -4,7 +4,7 @@
     ((is_role_in_session('engineering')
         or is_role_in_session('datamanagement'))
     -- MWA/WLTH
-    or (firm_source = 'mwa' and (
+    or (firm_source in ('mwa' , 'mir') and (
         is_role_in_session('wlth')
         -- Legacy inheritance. These should be cleaned up later.
         or is_role_in_session('mwa')
@@ -13,7 +13,7 @@
         or is_role_in_session('db_pms_mwa_r')
     ))
     -- INDE (ntwk, bays, cmpg, swag/mps)
-    or (firm_source in ('mps', 'swag', 'network', 'baystate', 'cpg') and (
+    or (firm_source in ('mps', 'swag', 'network', 'baystate', 'cpg',  'mir') and (
         is_role_in_session('mps')
         or is_role_in_session('ntwk')
         or is_role_in_session('swag')

@@ -344,7 +344,7 @@ models:
       insurance_mir:
         +tags: ["insurance", "mir"]
         +grants:
-          +select: "{{ ['finance'] if target.name in ['prod', 'ci'] else []}}"
+          +select: "{{ ['finance' , 'reporting'] if target.name in ['prod', 'ci'] else []}}"
 
       oracle_fusion:
         +tags: ["oracle", "oracle_fusion"]
@@ -680,10 +680,14 @@ models:
 
       financials:
         +tags: ["financials"]
+        build:
+          +schema: build
+          +grants:
+            +select: "{{ ['engineering','datamanagement'] if target.name in ['prod', 'ci'] else []}}"
         enterprise:
           +schema: enterprise
           +grants:
-            select: "{{ ['db_edw_general_mwa_r'] if target.name in ['prod', 'ci'] else []}}"
+            select: "{{ ['db_edw_revenue_mwa_r'] if target.name in ['prod', 'ci'] else []}}"
         reports:
           +schema: enterprise
           +grants:

@@ -1,0 +1,353 @@
+version: 2
+models:
+  - name: insurance_mir__stg_revenue
+    columns:
+      - name: FIRM_SOURCE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: DATE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: POLICY
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: GROSS_COMM
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: MIR
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: NET_COMM
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: MPS
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: CARRIER
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: CLIENT
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: REVENUE_TYPE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: LEAD_CONSULTANT
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: IC
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: CLIENT_MANAGER_1
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: CLIENT_MANAGER_2
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: INTRODUCER_1
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: INTRODUCER_2
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: THIRD_PARTY_INTRO
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: REV_ACCT
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: HOUSEHOLD_NAME
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: SALESFORCE_START_DATE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: REFERRING_OFFICE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: ACCOUNT
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: SALESFORCE_ID
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: REV_PMT_QUARTER
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: _CREATED_AT
+        description: datetime each record is loaded to the source table.
+        config:
+          meta: {}
+          tags: []
+      - name: _BOX_FILE_ID
+        description: identifier for the box file.
+        config:
+          meta: {}
+          tags: []
+      - name: _BOX_FILE_NAME
+        description: name of the box file.
+        config:
+          meta: {}
+          tags: []
+      - name: _BOX_META
+        description: metadata associated with the box file.
+        config:
+          meta: {}
+          tags: []
+      - name: IS_HEAD
+        description: ''
+        config:
+          meta: {}
+          tags: []
+  - name: insurance_mir__stg_clients
+    columns:
+      - name: FIRM_SOURCE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: DATE_ADDED
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: POLICY
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: CARRIER
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: CLIENT
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: REVENUE_TYPE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: COMMISSIONS_REVENUE_TYPE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: LEAD_CONSULTANT
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: IC
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: CLIENT_MANAGER_1
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: CLIENT_MANAGER_2
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: INTRODUCER_1
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: INTRODUCER_2
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: CLIENT_MANAGER_OVERRIDE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: INTRODUCER_OVERRIDE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: LEAD_CONSULTANT_ID
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: IC_ID
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: CM_OVERRIDE_ID
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: INTRO_OVERRIDE_ID
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: THIRD_PARTY_INTRO
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: THIRD_PARTY_OVERRIDE_RATE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: REV_ACCT
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: HOUSEHOLD_NAME
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: SALESFORCE_START_DATE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: SALESFORCE_ID
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: _CREATED_AT
+        description: datetime each record is loaded to the source table.
+        config:
+          meta: {}
+          tags: []
+      - name: _BOX_FILE_ID
+        description: identifier for the box file.
+        config:
+          meta: {}
+          tags: []
+      - name: _BOX_FILE_NAME
+        description: name of the box file.
+        config:
+          meta: {}
+          tags: []
+      - name: _BOX_META
+        description: metadata associated with the box file.
+        config:
+          meta: {}
+          tags: []
+      - name: IS_HEAD
+        description: ''
+        config:
+          meta: {}
+          tags: []
+  - name: insurance_mir__stg_payees
+    columns:
+      - name: NAME
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: ID
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: ROLE
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: MARKETS
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: _CREATED_AT
+        description: datetime each record is loaded to the source table.
+        config:
+          meta: {}
+          tags: []
+      - name: _BOX_FILE_ID
+        description: identifier for the box file.
+        config:
+          meta: {}
+          tags: []
+      - name: _BOX_FILE_NAME
+        description: name of the box file.
+        config:
+          meta: {}
+          tags: []
+      - name: _BOX_META
+        description: metadata associated with the box file.
+        config:
+          meta: {}
+          tags: []
+      - name: IS_HEAD
+        description: ''
+        config:
+          meta: {}
+          tags: []
+      - name: RN
+        description: ''
+        config:
+          meta: {}
+          tags: []
