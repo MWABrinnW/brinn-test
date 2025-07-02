@@ -2,105 +2,145 @@ version: 2
 models:
   - name: faw__stg_census
     columns:
-      - name: AGE_IN_YEARS
-        description: ''
-        data_type: NUMBER
       - name: ASSIGNMENT_NUMBER
-        description: ''
-        data_type: VARCHAR
-      - name: ASSIGNMENT_STATUS_NAME
-        description: ''
-        data_type: VARCHAR
-      - name: BUSINESS_UNIT_NAME
-        description: ''
-        data_type: VARCHAR
-      - name: CALENDAR_DATE
-        description: ''
-        data_type: DATE
-      - name: DATE_START
-        description: ''
-        data_type: DATE
-      - name: DEPARTMENT_NAME
-        description: ''
-        data_type: VARCHAR
-      - name: DIVISION
-        description: ''
-        data_type: VARCHAR
-      - name: EMPLOYEE_REPORTING_ID
-        description: ''
-        data_type: VARCHAR
-      - name: ETHNICITY_NAME
-        description: ''
-        data_type: VARCHAR
-      - name: FTE
-        description: ''
-        data_type: NUMBER
-      - name: FULL_NAME
-        description: ''
-        data_type: VARCHAR
-      - name: FULL_PART_TIME_FLAG
-        description: ''
-        data_type: VARCHAR
-      - name: JOB_FAMILY_CODE
-        description: ''
-        data_type: VARCHAR
-      - name: JOB_FAMILY_NAME
-        description: ''
-        data_type: VARCHAR
-      - name: JOB_FUNCTION_NAME
-        description: ''
-        data_type: VARCHAR
-      - name: JOB_ID
-        description: ''
-        data_type: VARCHAR
-      - name: LEGAL_EMPLOYER_NAME
-        description: ''
-        data_type: VARCHAR
-      - name: LOCATION_CODE
-        description: ''
-        data_type: VARCHAR
-      - name: LOCATION_NAME
-        description: ''
-        data_type: VARCHAR
-      - name: MGMT_LVL
-        description: ''
-        data_type: VARCHAR
-      - name: MGR_ASSGN_NUMBER
-        description: ''
-        data_type: VARCHAR
-      - name: MGR_FULL_NAME
-        description: ''
-        data_type: VARCHAR
-      - name: MGR_PERSON_NUMBER
-        description: ''
-        data_type: VARCHAR
-      - name: PER_SYSTEM_STATUS
-        description: ''
         data_type: VARCHAR
       - name: PERSON_NUMBER
-        description: ''
+        data_type: VARCHAR
+      - name: EMPLOYEE_REPORTING_ID
+        data_type: VARCHAR
+      - name: PERSON_ID
+        data_type: VARCHAR
+      - name: AGE_IN_YEARS
+        data_type: NUMBER
+      - name: ASSIGNMENT_STATUS_NAME
+        data_type: VARCHAR
+      - name: ASSIGNMENT_ACTION_CODE
+        data_type: VARCHAR
+      - name: ACTION_TYPE_CODE
+        data_type: VARCHAR
+      - name: ASSIGNMENT_EFFECTIVE_START_DATE
+        data_type: DATE
+      - name: BUSINESS_UNIT_NAME
+        data_type: VARCHAR
+      - name: CALENDAR_DATE
+        data_type: DATE
+      - name: DATE_START
+        data_type: DATE
+      - name: ACTUAL_TERMINATION_DATE
+        data_type: DATE
+      - name: TERMINATION_TYPE
+        data_type: VARCHAR
+      - name: DEPARTMENT_NAME
+        data_type: VARCHAR
+      - name: DIVISION
+        data_type: VARCHAR
+      - name: ETHNICITY_NAME
+        data_type: VARCHAR
+      - name: FTE
+        data_type: NUMBER
+      - name: FULL_NAME
+        data_type: VARCHAR
+      - name: FULL_PART_TIME_FLAG
+        data_type: VARCHAR
+      - name: JOB_FAMILY_CODE
+        data_type: VARCHAR
+      - name: JOB_FAMILY_NAME
+        data_type: VARCHAR
+      - name: JOB_FUNCTION_NAME
+        data_type: VARCHAR
+      - name: JOB_ID
+        data_type: VARCHAR
+      - name: MARINER_JOB_ID
+        data_type: VARCHAR
+      - name: LEGAL_EMPLOYER_NAME
+        data_type: VARCHAR
+      - name: LOCATION_CODE
+        data_type: VARCHAR
+      - name: LOCATION_NAME
+        data_type: VARCHAR
+      - name: MGMT_LVL
+        data_type: VARCHAR
+      - name: MGR_ASSGN_NUMBER
+        data_type: VARCHAR
+      - name: MGR_FULL_NAME
+        data_type: VARCHAR
+      - name: MGR_PERSON_NUMBER
+        data_type: VARCHAR
+      - name: PER_SYSTEM_STATUS
         data_type: VARCHAR
       - name: REAL_ESTATE_CODE
-        description: ''
         data_type: VARCHAR
       - name: REGION
-        description: ''
         data_type: VARCHAR
       - name: SECTOR
-        description: ''
         data_type: VARCHAR
       - name: SYSTEM_PERSON_TYPE
-        description: ''
         data_type: VARCHAR
       - name: TENURE_IN_YEARS
-        description: ''
         data_type: NUMBER
+      - name: ACTION_NAME
+        data_type: VARCHAR
+      - name: ACTION_REASON_CODE
+        data_type: VARCHAR
+      - name: COST_NUM
+        data_type: VARCHAR
+      - name: GENDER
+        data_type: VARCHAR
+      - name: PEOPLE_GROUP
+        data_type: VARCHAR
+      - name: SOURCE
+        data_type: VARCHAR
+      - name: START_COUNT
+        data_type: NUMBER
+      - name: END_COUNT
+        data_type: NUMBER
+      - name: NEW_COUNT
+        data_type: NUMBER
+      - name: TERM_COUNT
+        data_type: NUMBER
+      - name: INTEGRATION_ID
+        data_type: VARCHAR
+      - name: W_INSERT_DT
+        data_type: TIMESTAMP_NTZ
+      - name: ACCT_ID
+        data_type: NUMBER
+      - name: IS_MONTH_END
+        data_type: NUMBER
+      - name: FIRST_DAY_OF_MONTH
+        data_type: TIMESTAMP_NTZ
+      - name: LAST_DAY_OF_MONTH
+        data_type: TIMESTAMP_NTZ
+      - name: ASSIGNMENT_ID
+        data_type: NUMBER
+      - name: AGE_BAND
+        data_type: VARCHAR
+      - name: ACTION_DESCRIPTION
+        data_type: VARCHAR
+      - name: IN_VOL_TERM_EVENT_IND
+        data_type: NUMBER
+      - name: TERM_EVENT_IND
+        data_type: NUMBER
+      - name: REHIRE_EVENT_IND
+        data_type: NUMBER
+      - name: VOL_TERM_EVENT_IND
+        data_type: NUMBER
+      - name: JOB_NAME
+        data_type: VARCHAR
+      - name: JOB_CHANGE_IND
+        data_type: NUMBER
+      - name: HIRE_EVENT_IND
+        data_type: NUMBER
+      - name: CAL_DAY_ID
+        data_type: NUMBER
+      - name: TRANSFER_EVENT_IND
+        data_type: NUMBER
+      - name: SALARY_BASIS
+        data_type: VARCHAR
       - name: EFFECTIVE_DATE
-        description: ''
         data_type: DATE
+      - name: IS_HEAD
+        data_type: NUMBER
       - name: _CREATED_AT
-        description: ''
         data_type: TIMESTAMP_NTZ
       - name: _ID
-        description: ''
         data_type: NUMBER

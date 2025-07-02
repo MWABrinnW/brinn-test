@@ -88,7 +88,7 @@ select
     , e.associate_work_email                                          as associate_work_email
     , replace(
         coalesce(zoom.number , e.associate_work_phone) , '+1' , ''
-        )                                                             as associate_work_phone
+    )                                                                 as associate_work_phone
     , e.associate_work_cell_phone                                     as associate_work_cell_phone
     , e.associate_original_hire_date::date                            as associate_original_hire_date
     , e.associate_rehire_date::date                                   as associate_rehire_date
