@@ -234,24 +234,24 @@
         , '000'::text                                                                     as coa_segment_7_intercompany_id
         , '000'::text                                                                     as coa_segment_8_future_id
         , concat_ws(
-            '-'
-            , coa_segment_1_legal_entity_id
-            , coa_segment_2_product_id
-            , coalesce(
-                a.coa_segment_3_accounting_id
-                , case
-                    when assoc.advisor_nonadvisor ilike 'Advisor' and associate_coa_segment_3 is not null
+            '-',
+            coalesce(coa_segment_1_legal_entity_id, '000'),
+            coalesce(coa_segment_2_product_id, '000'),
+            coalesce(
+                a.coa_segment_3_accounting_id,
+                case
+                    when assoc.advisor_nonadvisor ilike 'advisor' and associate_coa_segment_3 is not null
                         then associate_coa_segment_3
                     else client_location_accounting_id
-                end
-            )
-            , coa_segment_4_team_id
-            , a.coa_segment_5_natural_account_id
-            , coa_segment_6_initiative_id
-            , coa_segment_7_intercompany_id
-            , coa_segment_8_future_id
-        )                                                                                 as coa_account_number
-
+                end,
+                '0000'
+            ),
+            coalesce(coa_segment_4_team_id, '0000'),
+            coalesce(a.coa_segment_5_natural_account_id, '00000'),
+            coalesce(coa_segment_6_initiative_id, '000'),
+            coalesce(coa_segment_7_intercompany_id, '000'),
+            coalesce(coa_segment_8_future_id, '000')
+            )                                                                             as coa_account_number
     from data_to_build a
     --------
     left join locations as loc_client
