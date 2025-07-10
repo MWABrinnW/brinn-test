@@ -524,6 +524,11 @@ models:
         +grants:
           select: "{{ ['db_crm_msec_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
+      salesforce_og:
+        +tags: ["crm", "salesforce", "og"]
+        +grants:
+          select: "{{ ['db_crm_r'] if target.name in ['prod', 'ci'] else []}}"
+
       sec:
         +tags: ["sec", "thirteen_f", "form_13f"]
         +grants:

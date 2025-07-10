@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: salesforce_og
+    database: fivetran
+    description: ""
+    schema: salesforce_og
+    tables:
+       - name: opportunity
+       - name: opportunity_contact_role
+       - name: opportunity_history
+       - name: opportunity_partner
+       - name: opportunity_stage
+       - name: lead
+       - name: lead_status
+       - name: lead_history
+       - name: contact
+       - name: campaign
+       - name: campaign_history
+       - name: account
+       - name: account_contact_relation
+       - name: account_contact_role
+       - name: account_partner
