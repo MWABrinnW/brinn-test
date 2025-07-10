@@ -1,0 +1,5 @@
+version: 2
+models:
+  - name: rpt_account_variance
+    description: "Evaluate period-over-period variances in ODW Accounts"
+    columns: []

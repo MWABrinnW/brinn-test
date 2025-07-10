@@ -1,4 +1,6 @@
-{{ config(enabled=false) }}
+{{ config(
+  grants = {'select': ['engineering', 'integration_eng']}
+) }}
 
 -- acctBySystemKey
 with data_cte as (
@@ -32,7 +34,7 @@ with data_cte as (
             partition by system_key
             order by effective_date desc
         )                                                                                        as cnt_prior_day
-        , round(((cnt - cnt_prior_day) / cnt_prior_day) * 100 , 2)                               as cnt_delta
+        , round(((cnt - cnt_prior_day) / nullif(cnt_prior_day , 0)) * 100 , 2)                   as cnt_delta
         , lead(account_value) over (
             partition by system_key
             order by effective_date desc
