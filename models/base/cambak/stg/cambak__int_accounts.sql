@@ -163,10 +163,11 @@ select
     , convert_timezone(
         'America/Chicago'
         , to_timestamp_tz(
-            replace(pln.fmv_created_date , ' ' , '') || '+00:00' , 'MM/DD/YYYYHH12:MI:SSAM +TZH:TZM'
+            pln.fmv_created_date || '+00:00'
         )
-    )                                              as _created_at
-    , pln._created_at::datetime                    as _source_loaded_at
+    )::timestamp_ntz                               as fmv_updated_at
+    , pln._created_at::timestamp_ntz               as _created_at
+    , pln._created_at::timestamp_ntz               as _source_loaded_at
     , object_construct_keep_null(
         'plan_open_date' , pln.relationship_start_date
         , 'plan_close_status' , pln.is_closed
