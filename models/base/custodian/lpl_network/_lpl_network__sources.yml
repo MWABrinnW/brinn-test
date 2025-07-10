@@ -864,7 +864,7 @@ sources:
           - name: _SOURCE_FILE
             description: ''
             data_type: VARCHAR
-      - name: rep
+      - name: repext
         description: "The Rep File contains basic information on each Rep ID that belongs to your organization. Please note that blocked secondary IDs are included in the file. If you desire to suppress these IDs, please use the flag ISBlockedSecondaryRepID."
         columns:
           - name: REPID
