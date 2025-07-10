@@ -1,10 +1,5 @@
 ## Type of change
 
-<details>
-<summary>Instructions</summary>
-
-Remove the types not relevant to the pull request.
-
 - [ ] Bug fix (non-breaking change which fixes an issue)
 - [ ] Refactor (code change that improves structure or readability without changing functionality)
 - [ ] New feature (non-breaking change that adds functionality)
@@ -12,18 +7,6 @@ Remove the types not relevant to the pull request.
 - [ ] Test (adds or updates tests without affecting functionality)
 - [ ] Documentation (updates or adds documentation, such as READMEs or code comments)
 - [ ] Chore (improves the development process or tooling, but does not affect the product or code)
-
-</details>
-
-
-- [ ] Bug fix
-- [ ] Refactor
-- [ ] New feature
-- [ ] Breaking change
-- [ ] Test
-- [ ] Documentation
-- [ ] Chore
-
 
 ## Auto Summary
 
