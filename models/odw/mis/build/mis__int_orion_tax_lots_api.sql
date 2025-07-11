@@ -75,11 +75,11 @@ with dates as (
         on t.asset_id = p.asset_id #}
     where 1 = 1
         and t.effective_date in (select tt.effective_date from dates as tt)
-        and t.is_head_for_day = 1
         -- The source table includes all of Orion data so we
         -- need to filter for just MIS accounts.
         and t.account_id in (select distinct tt.pms_account_id from mis_accounts as tt)
     group by all
+    qualify t._created_at = max(_created_at) over (partition by t.effective_date)
 )
 
 , orion_lots as (
@@ -116,7 +116,6 @@ with dates as (
         , _id              as _id
     from {{ ref('mis__stg_orion_tax_lots_api') }}
     where 1 = 1
-        and is_head_for_day = 1
         -- This source table is already filtered to MIS account scope.
         and effective_date in (select tt.effective_date from dates as tt)
     -- If a product exists via both custodian and orion source then we need
@@ -126,6 +125,7 @@ with dates as (
             partition by account_id , product_id
             order by case when lot_source = 'custodian' then 1 else 2 end
         ) = 1
+        and _created_at = max(_created_at) over (partition by effective_date)
 )
 
 -- Redshift format, which includes asset level and lot level in a way that
@@ -202,7 +202,6 @@ select
     )::decimal(20 , 2)                                         as aggregate_asset_value
     , (aggregate_lot_quantity = aggregate_asset_quantity)::int as is_quantity_match
     , (aggregate_lot_value = aggregate_asset_value)::int       as is_value_match
-
 
     , ass.product_id                                           as product_id
     , ass.asset_id                                             as asset_id
