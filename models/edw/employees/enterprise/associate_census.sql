@@ -299,5 +299,25 @@ left join {{ ref('int_adp_employees_all') }} as be
 left join {{ ref('nml_oracle_hcm_associates') }} as h2
     on right(le.position_id , 6) = h2.employee_num_legacy
     and h2.is_head = 1
-where le.report_month_end <= '11/30/2022'
-    and le.position_id <> '67L000942'--drop Gene Bicknell
+where le.report_month_end between '01/01/2019' and '11/30/2022'
+    and le.position_id not in (
+        '67A000279'
+        , '67L000899'
+        , '67L000942'
+        , '67L001423'
+        , '67L001550'
+        , '67L001704'
+        , '67L001978'
+        , '67L002146'
+        , '67L002193'
+        , '67L002321'
+        , '67L002425'
+        , '67L002427'
+        , '67L002482'
+        , '67L002509'
+        , '67L002518'
+        , '67L002523'
+        , '67L009997'
+        , '67L009998'
+        , '67L999994'
+    )
