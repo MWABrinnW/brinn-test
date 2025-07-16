@@ -29,9 +29,11 @@ select
     , json:"cost_basis"::number(19 , 9)       as cost_basis
     , json:"is_manual_holdings"::int          as is_manual_holdings
     , _created_at                             as _created_at
-    , {{ col_is_head_for_day(
-        partition_col='json:effective_date::date'
-        ) }}
+    , case when _created_at = max(_created_at)
+                over (partition by system_key , effective_date)
+            then 1
+        else 0
+    end::int                                  as is_head_for_day
 from {{ source('raw', 'holdings') }}
 
 -- Unions holdings from the legacy masters prior to 2025.

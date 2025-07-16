@@ -42,7 +42,11 @@ select
     , json:"is_excluded"::int                as is_excluded
     , json:"excluded_reasons"::text          as excluded_reasons
     , _created_at::datetime                  as _created_at
-    , {{ col_is_head_for_day(partition_col='json:"effective_date"') }}
+    , case when _created_at = max(_created_at)
+                over (partition by system_key , effective_date)
+            then 1
+        else 0
+    end::int                                 as is_head_for_day
 from {{ source('raw', 'accounts') }}
 where true
 -- unions account from legacy masters pipeline prior to 2025
