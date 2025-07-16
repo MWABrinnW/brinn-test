@@ -1,18 +1,55 @@
 sources:
   - name: sugarcrm_woodbridge
-    description: ""
+    description: ''
     database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
     schema: sugarcrm_woodbridge
     tables:
-      - name: campaigns
-        description: "SugarCRM custom module, scrm_Campaigns"
+      - name: account
         columns:
           - name: JSON
-            description: ''
+            data_type: VARIANT
+          - name: EFFECTIVE_AT
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+      - name: campaigns
+        description: SugarCRM custom module, scrm_Campaigns
+        columns:
+          - name: JSON
             data_type: VARIANT
           - name: _CREATED_AT
-            description: ''
             data_type: TIMESTAMP_NTZ
           - name: _ID
-            description: ''
             data_type: NUMBER
+      - name: employee
+        columns:
+          - name: JSON
+            data_type: VARIANT
+          - name: EFFECTIVE_AT
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+      - name: lead
+        columns:
+          - name: JSON
+            data_type: VARIANT
+          - name: EFFECTIVE_AT
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+      - name: opportunity
+        columns:
+          - name: JSON
+            data_type: VARIANT
+          - name: EFFECTIVE_AT
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+      - name: users
+        columns:
+          - name: JSON
+            data_type: VARIANT
+          - name: EFFECTIVE_AT
+            data_type: TIMESTAMP_NTZ
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ

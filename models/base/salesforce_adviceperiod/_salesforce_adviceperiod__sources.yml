@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: salesforce_adviceperiod
-    description: ""
+    description: ''
     database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
     loaded_at_field: _created_at
     tables:
@@ -11,37 +11,41 @@ sources:
           - name: json
           - name: effective_at
           - name: _created_at
-
       - name: account_contact_relation
         columns:
           - name: json
           - name: effective_at
           - name: _created_at
-
       - name: account_team_member
         columns:
           - name: json
           - name: effective_at
           - name: _created_at
-
       - name: contact
         columns:
           - name: json
           - name: effective_at
           - name: _created_at
-
       - name: salentica_lmnts_financial_account_c
         columns:
           - name: json
           - name: effective_at
           - name: _created_at
-
-# Not sure about this one.
-
+      - name: upsell_opportunities_c
+        columns:
+          - name: json
+          - name: effective_at
+          - name: _created_at
+      - name: user
+        columns:
+          - name: json
+          - name: effective_at
+          - name: _created_at
   - name: salesforce_adviceperiod_fivetran
-    description: ""
+    description: ''
     database: fivetran
     schema: salesforce_adviceperiod
     loaded_at_field: _fivetran_synced
     tables:
       - name: mh_historical_c
+        columns: []

@@ -1,0 +1,1894 @@
+version: 2
+models:
+  - name: sugarcrm_woodbridge__stg_accounts
+    columns:
+      - name: ANNUAL_REVENUE
+        data_type: VARCHAR
+      - name: ASSIGNED_USERID
+        data_type: VARCHAR
+      - name: ASSIGNED_USERNAME
+        data_type: VARCHAR
+      - name: BASE_RATE
+        data_type: NUMBER
+      - name: BILLING_ADDRESS_CITY
+        data_type: VARCHAR
+      - name: BILLING_ADDRESS_COUNTRY
+        data_type: VARCHAR
+      - name: BILLING_ADDRESS_POSTAL_CODE
+        data_type: VARCHAR
+      - name: BILLING_ADDRESS_STATE
+        data_type: VARCHAR
+      - name: BILLING_ADDRESS_STREET
+        data_type: VARCHAR
+      - name: CREATED_BY_ID
+        data_type: VARCHAR
+      - name: CREATED_BY_NAME
+        data_type: VARCHAR
+      - name: CURRENCY_ID
+        data_type: VARCHAR
+      - name: CUSTOM_ACCOUNT_NO_MAIL_C
+        data_type: NUMBER
+      - name: CUSTOM_ANNUAL_REVENUE_C
+        data_type: NUMBER
+      - name: CUSTOM_COMPANY_SOLD_C
+        data_type: NUMBER
+      - name: CUSTOM_CONFIRMED_REVENUE_C
+        data_type: NUMBER
+      - name: CUSTOM_DATE_REFERRED_C
+        data_type: DATE
+      - name: CUSTOM_DATE_REFERRED_MWA_REPORTS_C
+        data_type: DATE
+      - name: CUSTOM_EBITDA_C
+        data_type: NUMBER
+      - name: CUSTOM_ESTIMATED_LIQUIDITY_C
+        data_type: NUMBER
+      - name: CUSTOM_FINANCING_TYPE_C
+        data_type: VARCHAR
+      - name: CUSTOM_INDUSTRY_DESCRIPTION_C
+        data_type: VARCHAR
+      - name: CUSTOM_LAST_ACTIVITY_DATE_C
+        data_type: DATE
+      - name: CUSTOM_MC_IMPORT_TAG_C
+        data_type: VARCHAR
+      - name: CUSTOM_MWA_ACCOUNT_REFERRAL_STAGE_C
+        data_type: VARCHAR
+      - name: CUSTOM_MY_FAVORITE
+        data_type: NUMBER
+      - name: CUSTOM_ND_A_PRE_NEGOTIATED_C
+        data_type: NUMBER
+      - name: CUSTOM_NUMBER_OF_EMPLOYEES_C
+        data_type: NUMBER
+      - name: CUSTOM_OWNERSHIP_C
+        data_type: VARCHAR
+      - name: CUSTOM_OWNERSHIP_PERCENTAGE_C
+        data_type: NUMBER
+      - name: CUSTOM_PEG_FUNDING_C
+        data_type: VARCHAR
+      - name: CUSTOM_PE_BACKED_STRATEGIC_C
+        data_type: NUMBER
+      - name: CUSTOM_PE_BACKED_STRATEGIC_COMMENTS_C
+        data_type: VARCHAR
+      - name: CUSTOM_PORTFOLIO_COSC
+        data_type: VARCHAR
+      - name: CUSTOM_POTENTIAL_LIQUIDITY_ACCC
+        data_type: NUMBER
+      - name: CUSTOM_PUBLIC_COMPANY_C
+        data_type: VARCHAR
+      - name: CUSTOM_REFERRED_BY_C
+        data_type: VARCHAR
+      - name: CUSTOM_REFERRED_TO_C
+        data_type: VARIANT
+      - name: CUSTOM_REFERRED_TO_MW_AC
+        data_type: NUMBER
+      - name: CUSTOM_REFERRED_TO_MW_A_DROP_DOWN_C
+        data_type: VARCHAR
+      - name: CUSTOMS_F_CREATED_AT_C
+        data_type: VARCHAR
+      - name: CUSTOMS_F_CREATED_BY_C
+        data_type: VARCHAR
+      - name: CUSTOMS_F_LAST_MODIFIED_AT_C
+        data_type: VARCHAR
+      - name: CUSTOMS_F_LAST_MODIFIED_BY_C
+        data_type: VARCHAR
+      - name: CUSTOMS_F_OBJECT_TYPE_C
+        data_type: VARCHAR
+      - name: CUSTOMS_ICDE_SCC
+        data_type: VARCHAR
+      - name: CUSTOM_SITE_C
+        data_type: VARCHAR
+      - name: CUSTOM_SUB_INDUSTRY_C
+        data_type: VARCHAR
+      - name: CUSTOM_ULTIMATE_BUYER_C
+        data_type: NUMBER
+      - name: CUSTOM_UP_SERT_DE_DUPLICATE_PROCESSED_DATE_C
+        data_type: VARCHAR
+      - name: CUSTOM_WG_CLIENT_C
+        data_type: NUMBER
+      - name: DATE_ENTERED
+        data_type: VARCHAR
+      - name: DATE_MODIFIED
+        data_type: VARCHAR
+      - name: DELETED
+        data_type: NUMBER
+      - name: DESCRIPTION
+        data_type: VARCHAR
+      - name: EMAIL
+        data_type: VARIANT
+      - name: EMAIL_1
+        data_type: VARCHAR
+      - name: EMAIL_OPT_OUT
+        data_type: NUMBER
+      - name: EMPLOYEES
+        data_type: NUMBER
+      - name: IS_FOLLOWING
+        data_type: NUMBER
+      - name: GEOCODE_STATUS
+        data_type: VARCHAR
+      - name: HINT_ACCOUNT_FACEBOOK_HANDLE
+        data_type: VARCHAR
+      - name: HINT_ACCOUNT_FISCAL_YEAR_END
+        data_type: NUMBER
+      - name: HINT_ACCOUNT_FOUNDED_YEAR
+        data_type: NUMBER
+      - name: HINT_ACCOUNT_INDUSTRY
+        data_type: VARCHAR
+      - name: HINT_ACCOUNT_INDUSTRY_TAGS
+        data_type: VARCHAR
+      - name: HINT_ACCOUNT_LOCATION
+        data_type: VARCHAR
+      - name: HINT_ACCOUNT_NAICS_CODE_LBL
+        data_type: VARCHAR
+      - name: HINT_ACCOUNT_PIC
+        data_type: VARCHAR
+      - name: HINT_ACCOUNT_SIZE
+        data_type: VARCHAR
+      - name: ID
+        data_type: VARCHAR
+      - name: INDUSTRY
+        data_type: VARCHAR
+      - name: IN_VALID_EMAIL
+        data_type: NUMBER
+      - name: IS_ESCALATED
+        data_type: NUMBER
+      - name: LOCKED_FIELDS
+        data_type: VARIANT
+      - name: MEMBER_OF_ID
+        data_type: VARCHAR
+      - name: MEMBER_OF_NAME
+        data_type: VARCHAR
+      - name: MODIFIED_BY_NAME
+        data_type: VARCHAR
+      - name: MODIFIED_USERID
+        data_type: VARCHAR
+      - name: NAME
+        data_type: VARCHAR
+      - name: PARENTID
+        data_type: VARCHAR
+      - name: PARENT_NAME
+        data_type: VARCHAR
+      - name: PERFORM_SUGAR_ACTION
+        data_type: NUMBER
+      - name: PHONE_ALTERNATE
+        data_type: VARCHAR
+      - name: PHONE_FAX
+        data_type: VARCHAR
+      - name: PHONE_OFFICE
+        data_type: VARCHAR
+      - name: RATING
+        data_type: VARCHAR
+      - name: SERVICE_LEVEL
+        data_type: VARCHAR
+      - name: SHIPPING_ADDRESS_CITY
+        data_type: VARCHAR
+      - name: SHIPPING_ADDRESS_COUNTRY
+        data_type: VARCHAR
+      - name: SHIPPING_ADDRESS_POSTAL_CODE
+        data_type: VARCHAR
+      - name: SHIPPING_ADDRESS_STATE
+        data_type: VARCHAR
+      - name: SHIPPING_ADDRESS_STREET
+        data_type: VARCHAR
+      - name: SIC_CODE
+        data_type: VARCHAR
+      - name: SYNC_KEY
+        data_type: VARCHAR
+      - name: TICKER_SYMBOL
+        data_type: VARCHAR
+      - name: TWITTER
+        data_type: VARCHAR
+      - name: TYPE
+        data_type: VARCHAR
+      - name: WEBSITE
+        data_type: VARCHAR
+      - name: FIVE_TRAN_DELETED
+        data_type: NUMBER
+      - name: FIVE_TRAN_SYNCED
+        data_type: VARCHAR
+      - name: EMAIL_ADDRESS
+        data_type: VARCHAR
+      - name: EMAIL_ADDRESS_ID
+        data_type: VARCHAR
+      - name: IN_VALID_EMAIL_2
+        data_type: NUMBER
+      - name: OPT_OUT
+        data_type: NUMBER
+      - name: PRIMARY_ADDRESS
+        data_type: NUMBER
+      - name: REPLY_TO_ADDRESS
+        data_type: NUMBER
+      - name: NONE_COL
+        data_type: VARCHAR
+      - name: EFFECTIVE_AT
+        data_type: TIMESTAMP_NTZ
+      - name: _CREATED_AT
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        data_type: NUMBER
+      - name: custom_sf_CREATED_AT_C
+        data_type: VARCHAR
+      - name: custom_sf_CREATED_BY_C
+        data_type: VARCHAR
+      - name: custom_sf_LAST_MODIFIED_AT_C
+        data_type: VARCHAR
+      - name: custom_sf_LAST_MODIFIED_BY_C
+        data_type: VARCHAR
+      - name: custom_sf_OBJECT_TYPE_C
+        data_type: VARCHAR
+      - name: fivetran_deleted
+        data_type: NUMBER
+      - name: fivetran_synced
+        data_type: VARCHAR
+  - name: sugarcrm_woodbridge__stg_campaigns
+    columns:
+      - name: _ACL
+        data_type: VARIANT
+      - name: _MODULE
+        data_type: VARCHAR
+      - name: AB_TESTING_SUBJECT_LINES_C
+        data_type: VARCHAR
+      - name: ACCESS_TO_QUICKBOOKS
+        data_type: VARCHAR
+      - name: ACCOUNT_ID_C
+        data_type: VARCHAR
+      - name: ACCOUNTS_SCRM_CAMPAIGNS_C1
+        data_type: VARIANT
+      - name: ACCOUNTS_SCRM_CAMPAIGNS_C1_NAME
+        data_type: VARCHAR
+      - name: ACCOUNTS_SCRM_CAMPAIGNS_C1ACCOUNTS_IDA
+        data_type: VARCHAR
+      - name: ACCOUNTS_SCRM_CAMPAIGNS_C2
+        data_type: VARIANT
+      - name: ACCOUNTS_SCRM_CAMPAIGNS_C2_NAME
+        data_type: VARCHAR
+      - name: ACCOUNTS_SCRM_CAMPAIGNS_C2ACCOUNTS_IDA
+        data_type: VARCHAR
+      - name: ACTIVE_BOOKS_C
+        data_type: NUMBER
+      - name: ACTUAL_CLOSING_DATE
+        data_type: DATE
+      - name: ACTUAL_FEE
+        data_type: NUMBER
+      - name: ACTUAL_VALUE
+        data_type: NUMBER
+      - name: ADSITES_C
+        data_type: BOOLEAN
+      - name: ANALYST
+        data_type: VARCHAR
+      - name: ANTICIPATED_RMKT_DATE
+        data_type: VARCHAR
+      - name: ANY_SPECIAL_INDEMNITY_OR_OTHER_COMMENTS
+        data_type: VARCHAR
+      - name: ASSIGNED_USER_ID
+        data_type: VARCHAR
+      - name: ASSIGNED_USER_LINK
+        data_type: VARIANT
+      - name: ASSIGNED_USER_NAME
+        data_type: VARCHAR
+      - name: BASE_RATE
+        data_type: NUMBER
+      - name: BENCHMARK_DATE_C
+        data_type: VARCHAR
+      - name: BID_FORM
+        data_type: VARCHAR
+      - name: BIDS_CURRENT_CAMPAIGN_C
+        data_type: NUMBER
+      - name: BIDS_DUE_EXT_PD
+        data_type: DATE
+      - name: BIDS_PRIOR_CAMPAIGNS_C
+        data_type: NUMBER
+      - name: BOOK_BID_COUNT_C
+        data_type: NUMBER
+      - name: BOOK_BUYER_COUNT_C
+        data_type: NUMBER
+      - name: BOOK_CLOSING_DATE
+        data_type: DATE
+      - name: BOOK_COUNT_C
+        data_type: NUMBER
+      - name: BOOK_DRAFT_TO_CLIENT
+        data_type: DATE
+      - name: BOOK_LOI_COUNT_C
+        data_type: NUMBER
+      - name: BOOK_LOI_EXECUTED_COUNT_C
+        data_type: NUMBER
+      - name: BOOK_LOI_NONEX_EXEC_COUNT_C
+        data_type: NUMBER
+      - name: BOOK_MM_COUNT_C
+        data_type: NUMBER
+      - name: BOOK_PASS_COUNT_C
+        data_type: NUMBER
+      - name: BOOK_PRIORS_C
+        data_type: NUMBER
+      - name: BOOK_STATUS
+        data_type: VARCHAR
+      - name: BOOK_UNRESPONSIVE_COUNT_C
+        data_type: NUMBER
+      - name: BOOK_WRITER
+        data_type: VARCHAR
+      - name: BOOKS_BIDS_PCTG_C
+        data_type: NUMBER
+      - name: BOOKS_CURRENT_CAMPAIGN_C
+        data_type: NUMBER
+      - name: BOOKS_PRIOR_CAMPAIGNS_C
+        data_type: NUMBER
+      - name: BOOKS_WITH_BIDS
+        data_type: NUMBER
+      - name: BUSINESS_WRITER_EMAIL_C
+        data_type: VARCHAR
+      - name: BUYER_COUNTRY
+        data_type: VARCHAR
+      - name: BUYER_TRUE_OR_FALSE_C
+        data_type: BOOLEAN
+      - name: BW_ACTIVE_C
+        data_type: VARCHAR
+      - name: BW_COMPLETE_C
+        data_type: NUMBER
+      - name: BW_TEAM_LEAD_C
+        data_type: VARCHAR
+      - name: CAMPAIGN_CREATE_DATE
+        data_type: DATE
+      - name: CAMPAIGN_ULTIMATE_BUYER
+        data_type: VARCHAR
+      - name: CASH_AT_CLOSE
+        data_type: NUMBER
+      - name: CASH_AT_CLOSE_PERCENT
+        data_type: NUMBER
+      - name: CIM_1ST_DRAFT_CLIENT_FEEDBACK
+        data_type: BOOLEAN
+      - name: CIM_1ST_DRAFT_COMPLETE_C
+        data_type: NUMBER
+      - name: CIM_1ST_DRAFT_INTERNAL_REVIEW
+        data_type: BOOLEAN
+      - name: CIM_CLIENT_SIGN_OFF
+        data_type: BOOLEAN
+      - name: CIM_COMPETITOR_SLIDE_SENT
+        data_type: BOOLEAN
+      - name: CIM_FINAL_DRAFT_COMPLETED
+        data_type: BOOLEAN
+      - name: CIM_FINAL_DRAFT_INTERNAL_REVIEW
+        data_type: BOOLEAN
+      - name: CIM_FIRST_DRAFT_COMPLETE_C
+        data_type: BOOLEAN
+      - name: CIM_FORECAST_EBITDA
+        data_type: NUMBER
+      - name: CIM_FORECAST_REVENUE
+        data_type: NUMBER
+      - name: CIM_TABLES_APPROVED
+        data_type: BOOLEAN
+      - name: CIM_TABLES_COMPLETE_C
+        data_type: BOOLEAN
+      - name: CIM_TABLES_SENT
+        data_type: BOOLEAN
+      - name: CLIENT_ACCT_RECORD
+        data_type: VARCHAR
+      - name: CLIENT_EGNYTE_LINK_C
+        data_type: VARCHAR
+      - name: CLIENT_FINANCIALS_DUE
+        data_type: DATE
+      - name: CLIENT_MKTING_MATERIALS_DUE
+        data_type: DATE
+      - name: CLIENT_REVIEW_ONLY_C
+        data_type: VARCHAR
+      - name: CLIENT_SIGN_OFF
+        data_type: DATE
+      - name: CLIENT_SIGN_OFF_FIN
+        data_type: DATE
+      - name: CLIENT_TYPE
+        data_type: VARCHAR
+      - name: CLOSE_DATE_CERTAINTY_C
+        data_type: VARCHAR
+      - name: CLOSED_WITHIN_EXCLUSIVITY
+        data_type: BOOLEAN
+      - name: CLOSER
+        data_type: VARCHAR
+      - name: CLOSING_DEADLINE
+        data_type: DATE
+      - name: CLOSING_TEAM_OVERSIGHT_C
+        data_type: VARCHAR
+      - name: CODE_NAME
+        data_type: VARCHAR
+      - name: CONTACTS_SCRM_CAMPAIGNS_C1
+        data_type: VARIANT
+      - name: CONTACTS_SCRM_CAMPAIGNS_C1_NAME
+        data_type: VARCHAR
+      - name: CONTACTS_SCRM_CAMPAIGNS_C1CONTACTS_IDA
+        data_type: VARCHAR
+      - name: CONTACTS_SCRM_CAMPAIGNS_C2
+        data_type: VARIANT
+      - name: CONTACTS_SCRM_CAMPAIGNS_C2_NAME
+        data_type: VARCHAR
+      - name: CONTACTS_SCRM_CAMPAIGNS_C2CONTACTS_IDA
+        data_type: VARCHAR
+      - name: CONTACTS_SCRM_CAMPAIGNS_C3
+        data_type: VARIANT
+      - name: CONTACTS_SCRM_CAMPAIGNS_C3_NAME
+        data_type: VARCHAR
+      - name: CONTACTS_SCRM_CAMPAIGNS_C3CONTACTS_IDA
+        data_type: VARCHAR
+      - name: CONTRACT_TERMINATED_DATE
+        data_type: DATE
+      - name: CREATE_RMKT_C
+        data_type: VARCHAR
+      - name: CREATED_BY
+        data_type: VARCHAR
+      - name: CREATED_BY_LINK
+        data_type: VARIANT
+      - name: CREATED_BY_NAME
+        data_type: VARCHAR
+      - name: CURRENCY
+        data_type: VARCHAR
+      - name: CURRENCY_ID
+        data_type: VARCHAR
+      - name: CURRENT_ACTIVE_BOOKS_C
+        data_type: NUMBER
+      - name: CURRENT_BIDS_C
+        data_type: NUMBER
+      - name: CURRENT_BOOKS_C
+        data_type: NUMBER
+      - name: CURRENT_BOOKS_WITH_BIDS
+        data_type: NUMBER
+      - name: DATABOOK_APPROVED
+        data_type: BOOLEAN
+      - name: DATABOOK_STATUS
+        data_type: VARCHAR
+      - name: DATE_ENTERED
+        data_type: TIMESTAMP_NTZ
+      - name: DATE_EXCLUSIVITY_ENDS
+        data_type: DATE
+      - name: DATE_MODIFIED
+        data_type: TIMESTAMP_NTZ
+      - name: DATE_OF_ENGAGEMENT
+        data_type: DATE
+      - name: DAY_1_CALL
+        data_type: BOOLEAN
+      - name: DAY_1_CALL_DATE
+        data_type: DATE
+      - name: DAY_2_CALL
+        data_type: BOOLEAN
+      - name: DAY_2_CALL_DATE
+        data_type: DATE
+      - name: DAY_PRIOR_MONTH_S_FINANCIALS_CLOSE_C
+        data_type: NUMBER
+      - name: DAYS_FM_ENGAGEMENT_TO_CLOS_C
+        data_type: NUMBER
+      - name: DAYS_FROM_BID_DUE_TO_LOI_SIGNED_C
+        data_type: NUMBER
+      - name: DAYS_FROM_LAUNCH_TO_LOI_SIGNED_C
+        data_type: NUMBER
+      - name: DAYS_LEFT_IN_EXCLUSIVITY_C
+        data_type: NUMBER
+      - name: DAYS_SINCE_BIDS_DUE_C
+        data_type: NUMBER
+      - name: DAYS_SINCE_ON_HOLD_C
+        data_type: NUMBER
+      - name: DAYS_TO_CLOSE_C
+        data_type: NUMBER
+      - name: DAYS_TO_REMARKET_LAUNCH_C
+        data_type: NUMBER
+      - name: DBA
+        data_type: VARCHAR
+      - name: DEAL_MULTIPLE
+        data_type: VARCHAR
+      - name: DEAL_MULTIPLE1
+        data_type: VARCHAR
+      - name: DEALROOM_TRAINING
+        data_type: BOOLEAN
+      - name: DEALROOM_TRAINING_DATE
+        data_type: DATE
+      - name: DEBT
+        data_type: NUMBER
+      - name: DELETED
+        data_type: BOOLEAN
+      - name: DESCRIPTION
+        data_type: VARCHAR
+      - name: DESCRIPTION_1
+        data_type: VARCHAR
+      - name: DIGITAL_MARKETING_LAUNCHER_C
+        data_type: VARCHAR
+      - name: DISCUSS_ON_WEEKLY_CALL
+        data_type: BOOLEAN
+      - name: DM_ADDITIONAL_COMMENTS_C
+        data_type: VARCHAR
+      - name: EBITDA_ADJ_APPROVED
+        data_type: BOOLEAN
+      - name: EBITDA_ADJ_SENT
+        data_type: BOOLEAN
+      - name: EBITDA_AT_CLOSE
+        data_type: NUMBER
+      - name: EBITDA_MARGIN
+        data_type: NUMBER
+      - name: EBITDA_MULTIPLE
+        data_type: NUMBER
+      - name: ENGAGEMENT_DAYS_SINCE_LAUNCH2_C
+        data_type: NUMBER
+      - name: ENGAGEMENT_DAYS_SINCE_LAUNCH_C
+        data_type: NUMBER
+      - name: ENGAGEMENT_DAYS_SO_FAR_C
+        data_type: NUMBER
+      - name: ENGAGEMENT_TOTAL_DAYS_C
+        data_type: NUMBER
+      - name: EQUITY_ROLL
+        data_type: NUMBER
+      - name: EQUITY_ROLL_DOLLAR
+        data_type: NUMBER
+      - name: EST_CLOSING_DATE_FROM_LAUNCH
+        data_type: DATE
+      - name: FA_TEAM_LEAD_C
+        data_type: VARCHAR
+      - name: FEE_TYPE_C
+        data_type: VARCHAR
+      - name: FIN_ANALYST_EMAIL_C
+        data_type: VARCHAR
+      - name: FIN_ANALYST_LEAD_EMAIL_C
+        data_type: VARCHAR
+      - name: FIN_PERFORMANCE_NOTES
+        data_type: VARCHAR
+      - name: FIN_SOURCE
+        data_type: VARCHAR
+      - name: FIN_UPDATE_ETA
+        data_type: DATE
+      - name: FIN_UPDATE_PRIORITY_C
+        data_type: NUMBER
+      - name: FINAL_CIM
+        data_type: VARCHAR
+      - name: FINANCIAL_STATUS_COMMENTS
+        data_type: VARCHAR
+      - name: FINANCIAL_WRITE_UP_COMPLETE
+        data_type: BOOLEAN
+      - name: FINANCIALS_LAST_UPDATED
+        data_type: DATE
+      - name: FINANCIALS_RECEIVED_FROM_CLIENT
+        data_type: BOOLEAN
+      - name: FINANCIALS_STATUS
+        data_type: VARCHAR
+      - name: FISCAL_YEAR_ENDS
+        data_type: VARCHAR
+      - name: FOLLOW_UP_CALL
+        data_type: BOOLEAN
+      - name: FOLLOW_UP_CALL_DATE
+        data_type: DATE
+      - name: FOLLOWING_C
+        data_type: BOOLEAN
+      - name: FORECAST_APPROVED
+        data_type: BOOLEAN
+      - name: FORECAST_BUILT
+        data_type: BOOLEAN
+      - name: FORECAST_CALL_DATE
+        data_type: DATE
+      - name: FUTURE_STORY_CALL
+        data_type: BOOLEAN
+      - name: FUTURE_STORY_CALL_DATE
+        data_type: DATE
+      - name: FY_END_DATE
+        data_type: DATE
+      - name: GENERAL_INDEMNITY_CAP
+        data_type: NUMBER
+      - name: GENERAL_INDEMNITY_CAP_PERCENT
+        data_type: NUMBER
+      - name: ID
+        data_type: VARCHAR
+      - name: INCOME_STATEMENT_NEEDED
+        data_type: VARCHAR
+      - name: INDEMNITY_ESCROW
+        data_type: NUMBER
+      - name: INDEMNITY_ESCROW_PERCENT
+        data_type: NUMBER
+      - name: INITIAL_END_OF_EXCLUSIVITY
+        data_type: DATE
+      - name: IOIS_DUE
+        data_type: DATE
+      - name: IS_ACTIVE
+        data_type: BOOLEAN
+      - name: KICK_OFF_COMPLETE
+        data_type: BOOLEAN
+      - name: KICK_OFF_MEETING
+        data_type: DATE
+      - name: KICKOFF_DATE_TO_START_DATE_C
+        data_type: NUMBER
+      - name: LAST_YEAR_S_T3M_EBITDA
+        data_type: NUMBER
+      - name: LASTACTIVITYDATE
+        data_type: DATE
+      - name: LAWYER
+        data_type: VARCHAR
+      - name: LIKELIHOOD_OF_LOI_SIGNING
+        data_type: VARCHAR
+      - name: LINK_TO_TEASER
+        data_type: VARCHAR
+      - name: LIST_CRITERIA_COMPLETED
+        data_type: BOOLEAN
+      - name: LIST_CRITERIA_DISCUSSION
+        data_type: BOOLEAN
+      - name: LIST_SEGMENTATION_COMPLETE
+        data_type: BOOLEAN
+      - name: LIST_SENT_FOR_APPENDING
+        data_type: BOOLEAN
+      - name: LOCKED_FIELDS
+        data_type: VARIANT
+      - name: LOI_DAYS_LEFT_C
+        data_type: NUMBER
+      - name: LOI_DAYS_SO_FAR_C
+        data_type: NUMBER
+      - name: LOI_SIGNED
+        data_type: DATE
+      - name: LOI_TOTAL_DAYS_C
+        data_type: NUMBER
+      - name: LOIS_CURRENT_CAMPAIGN_C
+        data_type: NUMBER
+      - name: LOIS_DUE
+        data_type: DATE
+      - name: LOIS_PRIOR_CAMPAIGN_C
+        data_type: NUMBER
+      - name: MAIN_MARCOM_CONTACT
+        data_type: VARCHAR
+      - name: MARKED_CLOSED_DATE_C
+        data_type: DATE
+      - name: MARKETING_ASSOCIATE
+        data_type: VARCHAR
+      - name: MARKETING_ASSOCIATE_EMAIL
+        data_type: VARCHAR
+      - name: MARKETING_STATUS_COMMENTS
+        data_type: VARCHAR
+      - name: MARKETING_VIDEO
+        data_type: VARCHAR
+      - name: MARNI_CLIENT_CALL
+        data_type: BOOLEAN
+      - name: MCA_C
+        data_type: VARCHAR
+      - name: MEMBER_VETT_IN_USE_C
+        data_type: NUMBER
+      - name: MM_VIDEOS
+        data_type: VARCHAR
+      - name: MMS_CURRENT_CAMPAIGN_C
+        data_type: NUMBER
+      - name: MMS_PRIOR_CAMPAIGNS_C
+        data_type: NUMBER
+      - name: MMT_1ST_DAY
+        data_type: DATE
+      - name: MMT_2ND_DAY_C
+        data_type: DATE
+      - name: MMT_DECK_STATUS
+        data_type: VARCHAR
+      - name: MMT_INDUSTRY_RESEARCH
+        data_type: BOOLEAN
+      - name: MMT_SCHEDULE_STATUS
+        data_type: VARCHAR
+      - name: MODIFIED_BY_NAME
+        data_type: VARCHAR
+      - name: MODIFIED_USER_ID
+        data_type: VARCHAR
+      - name: MODIFIED_USER_LINK
+        data_type: VARIANT
+      - name: MONTH_OF_CLOSE
+        data_type: VARCHAR
+      - name: MONTHLY_CALL_SET
+        data_type: BOOLEAN
+      - name: MY_FAVORITE
+        data_type: BOOLEAN
+      - name: NAME
+        data_type: VARCHAR
+      - name: NAME_1
+        data_type: VARCHAR
+      - name: NDA_APPROVED_BY_CLIENT
+        data_type: BOOLEAN
+      - name: NDA_EDITED_BY_CLIENT
+        data_type: BOOLEAN
+      - name: NDA_LINK
+        data_type: VARCHAR
+      - name: NDABUYERCHANGESREVIEWEDBY
+        data_type: VARCHAR
+      - name: NDAS_RECEIVED_C
+        data_type: NUMBER
+      - name: NEXT_CONTACT_OH
+        data_type: DATE
+      - name: NO_OF_TIMES_RETRADED_C
+        data_type: NUMBER
+      - name: NUMBEROFCONTACTS
+        data_type: NUMBER
+      - name: NUMBEROFRESPONSES
+        data_type: NUMBER
+      - name: NWC_ESCROW
+        data_type: NUMBER
+      - name: NWC_ESCROW_PERCENT
+        data_type: NUMBER
+      - name: ON_HOLD_DATE
+        data_type: DATE
+      - name: ON_HOLD_FIN_UPDATES_REQ_D
+        data_type: BOOLEAN
+      - name: OTHER_CONSIDERATION
+        data_type: NUMBER
+      - name: PEG_BOOKSCOUNT_C
+        data_type: NUMBER
+      - name: POST_KICK_OFF_RESEARCH_EMAIL
+        data_type: BOOLEAN
+      - name: POTENTIAL_CONCERNS
+        data_type: VARCHAR
+      - name: PRE_LAUNCH_CLOSERS
+        data_type: VARCHAR
+      - name: PRE_LAUNCH_RESEARCH_MARKETING_EMAIL
+        data_type: BOOLEAN
+      - name: R_W_INSURANCE
+        data_type: VARCHAR
+      - name: RAW_DATA_RECEIVED
+        data_type: BOOLEAN
+      - name: REASON_DEAL_BROKE
+        data_type: VARIANT
+      - name: REASON_FOR_TED_TALK_RESHOOT_C
+        data_type: VARCHAR
+      - name: RECEIVED_CLIEN_SENSITIVEVETO_DEL
+        data_type: VARCHAR
+      - name: RECEIVED_CLIENT_REQUEST
+        data_type: VARCHAR
+      - name: REGION
+        data_type: VARCHAR
+      - name: REMARKET_1_C
+        data_type: NUMBER
+      - name: RENEWED_MARKETING_MATERIALS_C
+        data_type: BOOLEAN
+      - name: REPORT_CLOSE_DATE_C
+        data_type: DATE
+      - name: REPORT_START_DATE_C
+        data_type: DATE
+      - name: RESEARCH_COMMENTS_C
+        data_type: VARCHAR
+      - name: RESEARCH_LIST_COMMENTS
+        data_type: VARCHAR
+      - name: RESEARCH_LIST_COMPLETED
+        data_type: BOOLEAN
+      - name: RESEARCH_LIST_STATUS
+        data_type: VARCHAR
+      - name: RESEARCHER
+        data_type: VARCHAR
+      - name: RESEARCHER_EMAIL_C
+        data_type: VARCHAR
+      - name: RETRADE_DATE_C
+        data_type: DATE
+      - name: RETRADE_END_DATE_C
+        data_type: DATE
+      - name: REVENUE_AT_CLOSE
+        data_type: NUMBER
+      - name: RMKT_1_C
+        data_type: NUMBER
+      - name: RMKT_DAYS_TO_LAUNCH_C
+        data_type: NUMBER
+      - name: RMKT_PRIMARY_CONTACT
+        data_type: VARCHAR
+      - name: SA_CLOSER_EMAIL_C
+        data_type: VARCHAR
+      - name: SCRM_CAMPAIGNS_CONTACTS_1
+        data_type: VARIANT
+      - name: SCRM_CAMPAIGNS_CONTACTS_1_NAME
+        data_type: VARCHAR
+      - name: SCRM_CAMPAIGNS_CONTACTS_1CONTACTS_IDB
+        data_type: VARCHAR
+      - name: SCRM_CAMPAIGNS_OPPORTUNITIES_1
+        data_type: VARIANT
+      - name: SCRM_CAMPAIGNS_OPPORTUNITIES_1_NAME
+        data_type: VARCHAR
+      - name: SCRM_CAMPAIGNS_OPPORTUNITIES_1OPPORTUNITIES_IDB
+        data_type: VARCHAR
+      - name: SECTOR
+        data_type: VARCHAR
+      - name: SEGMENTATION_INDUSTRIES_C
+        data_type: VARCHAR
+      - name: SF_CREATED_AT_C
+        data_type: TIMESTAMP_NTZ
+      - name: SF_CREATED_BY_C
+        data_type: VARCHAR
+      - name: SF_LAST_MODIFIED_AT_C
+        data_type: TIMESTAMP_NTZ
+      - name: SF_LAST_MODIFIED_BY_C
+        data_type: VARCHAR
+      - name: SF_OBJECT_TYPE_C
+        data_type: VARCHAR
+      - name: SPECIAL_CAMPAIGN_NOTES
+        data_type: VARCHAR
+      - name: SPECIAL_INDEMNITY_ESCROW
+        data_type: NUMBER
+      - name: SPECIAL_INDEMNITY_ESCROW_PERCENT
+        data_type: NUMBER
+      - name: START_TO_CLOSE_C
+        data_type: NUMBER
+      - name: STARTDATE
+        data_type: DATE
+      - name: STATUS
+        data_type: VARCHAR
+      - name: STOP_DATE
+        data_type: DATE
+      - name: STRATEGIC_BOOKS_C
+        data_type: NUMBER
+      - name: SYNC_KEY
+        data_type: VARCHAR
+      - name: T3M_EBITDA
+        data_type: NUMBER
+      - name: TAG
+        data_type: VARIANT
+      - name: TEAM_COUNT_LINK
+        data_type: VARIANT
+      - name: TEAM_NAME
+        data_type: VARIANT
+      - name: TEASER_CLIENT_SIGN_OFF
+        data_type: BOOLEAN
+      - name: TEASER_DRAFT
+        data_type: BOOLEAN
+      - name: TEASER_INTERNAL_REVIEW
+        data_type: BOOLEAN
+      - name: TEASER_VIDEO_TO_CLIENT
+        data_type: DATE
+      - name: TED_TALK
+        data_type: VARCHAR
+      - name: TED_TALK_RESHOOT
+        data_type: VARCHAR
+      - name: TED_TALK_STATUS
+        data_type: VARCHAR
+      - name: TEST_BOOK_PASS_COUNT_C
+        data_type: NUMBER
+      - name: TEST_BOOK_PRIOR_BIDS_C
+        data_type: NUMBER
+      - name: TESTIMONIAL
+        data_type: VARCHAR
+      - name: THIRD_CLOSER_EMAIL_C
+        data_type: VARCHAR
+      - name: TIMES_CLOSING_DEADLINE_CHANGED_C
+        data_type: NUMBER
+      - name: TIMES_LOI_SIGNED_DATE_CHANGED_C
+        data_type: NUMBER
+      - name: TOTAL_BIDS_C
+        data_type: NUMBER
+      - name: TOTAL_BOOKS_C
+        data_type: NUMBER
+      - name: TOTAL_EARNOUT
+        data_type: NUMBER
+      - name: TOTAL_EARNOUT_PERCENT
+        data_type: NUMBER
+      - name: TOTAL_EV
+        data_type: NUMBER
+      - name: TOTAL_LOIS_C
+        data_type: NUMBER
+      - name: TOTAL_LOIS_EXECUTED_C
+        data_type: NUMBER
+      - name: TOTAL_MGMT_MTGS_C
+        data_type: NUMBER
+      - name: TOTAL_PRIOR_BIDS_C
+        data_type: NUMBER
+      - name: TOTAL_SELLER_NOTE
+        data_type: NUMBER
+      - name: TOTAL_SELLER_NOTE_PERCENT
+        data_type: NUMBER
+      - name: TOTAL_TIME_IN_MARKET_C
+        data_type: NUMBER
+      - name: TRADESHOWS_RECEIVED_C
+        data_type: VARCHAR
+      - name: TT_VIDEO_DATE
+        data_type: DATE
+      - name: TTM_CHECK_C
+        data_type: VARCHAR
+      - name: TTM_CHECK_CLOSING_DEADLINE_C
+        data_type: VARCHAR
+      - name: TTM_CHECK_START_DATE_C
+        data_type: VARCHAR
+      - name: TTM_EBITDA
+        data_type: NUMBER
+      - name: TYPE
+        data_type: VARCHAR
+      - name: UNDER_LOI_DATE
+        data_type: DATE
+      - name: UNDERWRITER_LEAD
+        data_type: VARCHAR
+      - name: US_CLOSER_EMAIL_C
+        data_type: VARCHAR
+      - name: US_REGION_C
+        data_type: VARCHAR
+      - name: UW_ACTIVE_C
+        data_type: VARCHAR
+      - name: UW_BW_PRIORITY_C
+        data_type: NUMBER
+      - name: UW_COMPLETE_NEW_C
+        data_type: NUMBER
+      - name: UW_SECONDARY
+        data_type: VARCHAR
+      - name: VID_SHOOT_DATE
+        data_type: DATE
+      - name: VIDEO_CLIENT_FEEDBACK
+        data_type: BOOLEAN
+      - name: VIDEO_CLIENT_SIGN_OFF
+        data_type: BOOLEAN
+      - name: VIDEO_SHOOT
+        data_type: BOOLEAN
+      - name: WEBSITE_SUB_SECTOR
+        data_type: VARIANT
+      - name: X3RD_CLOSER_C
+        data_type: VARCHAR
+      - name: YTD_EBITDA
+        data_type: NUMBER
+      - name: _CREATED_AT
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        data_type: NUMBER
+  - name: sugarcrm_woodbridge__stg_employees
+    columns:
+      - name: ACL_ROLE_SETID
+        data_type: VARCHAR
+      - name: COOKIE_CONSENT
+        data_type: NUMBER
+      - name: COOKIE_CONSENT_RECEIVED_ON
+        data_type: VARCHAR
+      - name: CREATED_BY_ID
+        data_type: VARCHAR
+      - name: CREATED_BY_NAME
+        data_type: VARCHAR
+      - name: CUSTOMER_JOURNEY_ACCESS
+        data_type: NUMBER
+      - name: CUSTOM_CLOUD_CONSOLE_USER_LINK
+        data_type: VARCHAR
+      - name: CUSTOM_MY_FAVORITE
+        data_type: NUMBER
+      - name: CUSTOM_U_CALCULATED_FIELDS_APP_NOTIFY_C
+        data_type: NUMBER
+      - name: CUSTOM_U_CALCULATED_FIELDS_EMAIL_NOTIFY_C
+        data_type: NUMBER
+      - name: CUSTOM_U_CUSTOM_APP_NOTIFY_C
+        data_type: NUMBER
+      - name: CUSTOM_U_CUSTOM_EMAIL_NOTIFY_C
+        data_type: NUMBER
+      - name: CUSTOM_UDE_DUPLICATE_APP_NOTIFY_C
+        data_type: NUMBER
+      - name: CUSTOM_UDE_DUPLICATE_EMAIL_NOTIFY_C
+        data_type: NUMBER
+      - name: DATE_ENTERED
+        data_type: VARCHAR
+      - name: DATE_MODIFIED
+        data_type: VARCHAR
+      - name: DEFAULT_TEAM
+        data_type: NUMBER
+      - name: DELETED
+        data_type: NUMBER
+      - name: DEPARTMENT
+        data_type: VARCHAR
+      - name: EMPLOYEE_STATUS
+        data_type: VARCHAR
+      - name: EXTERNAL_AUTH_ONLY
+        data_type: NUMBER
+      - name: FIRST_NAME
+        data_type: VARCHAR
+      - name: FULL_NAME
+        data_type: VARCHAR
+      - name: ID
+        data_type: VARCHAR
+      - name: IS_ADMIN
+        data_type: NUMBER
+      - name: IS_GROUP
+        data_type: NUMBER
+      - name: LAST_LOGIN
+        data_type: VARCHAR
+      - name: LAST_NAME
+        data_type: VARCHAR
+      - name: MODIFIED_USERID
+        data_type: VARCHAR
+      - name: PHONE_WORK
+        data_type: VARCHAR
+      - name: PORTAL_ONLY
+        data_type: NUMBER
+      - name: PREFERRED_LANGUAGE
+        data_type: VARCHAR
+      - name: PWD_LAST_CHANGED
+        data_type: VARCHAR
+      - name: RECEIVE_NOTIFICATION
+        data_type: NUMBER
+      - name: SEND_EMAIL_ON_MENTION
+        data_type: NUMBER
+      - name: SHOW_ON_EMPLOYEES
+        data_type: NUMBER
+      - name: SITE_USERID
+        data_type: VARCHAR
+      - name: STATUS
+        data_type: VARCHAR
+      - name: SUGAR_LOGIN
+        data_type: NUMBER
+      - name: SYNC_KEY
+        data_type: VARCHAR
+      - name: SYSTEM_GENERATED_PASSWORD
+        data_type: NUMBER
+      - name: TITLE
+        data_type: VARCHAR
+      - name: USER_HASH
+        data_type: NUMBER
+      - name: USERNAME
+        data_type: VARCHAR
+      - name: FIVE_TRAN_DELETED
+        data_type: NUMBER
+      - name: FIVE_TRAN_SYNCED
+        data_type: VARCHAR
+      - name: ID_2
+        data_type: VARCHAR
+      - name: EFFECTIVE_AT
+        data_type: TIMESTAMP_NTZ
+      - name: _CREATED_AT
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        data_type: NUMBER
+      - name: fivetran_deleted
+        data_type: NUMBER
+      - name: fivetran_synced
+        data_type: VARCHAR
+  - name: sugarcrm_woodbridge__stg_leads
+    columns:
+      - name: ACCOUNT_DESCRIPTION
+        data_type: VARCHAR
+      - name: ACCOUNT_ID
+        data_type: VARCHAR
+      - name: ACCOUNT_TO_LEAD
+        data_type: VARCHAR
+      - name: A_ICONV_BIN_ACCURACY
+        data_type: NUMBER
+      - name: A_ICONV_MULTIPLIER
+        data_type: NUMBER
+      - name: A_ICONV_SCORE_ABSOLUTE
+        data_type: FLOAT
+      - name: A_ICONV_SCORE_CLASSIFICATION
+        data_type: VARCHAR
+      - name: ALT_ADDRESS_CITY
+        data_type: VARCHAR
+      - name: ALT_ADDRESS_COUNTRY
+        data_type: VARCHAR
+      - name: ALT_ADDRESS_POSTAL_CODE
+        data_type: NUMBER
+      - name: ALT_ADDRESS_STATE
+        data_type: VARCHAR
+      - name: ALT_ADDRESS_STREET
+        data_type: VARCHAR
+      - name: ASSIGNED_USERID
+        data_type: VARCHAR
+      - name: ASSIGNED_USERNAME
+        data_type: VARCHAR
+      - name: CONTACT_ID
+        data_type: VARCHAR
+      - name: CONVERTED
+        data_type: NUMBER
+      - name: CONVERTED_OPP_NAME
+        data_type: VARCHAR
+      - name: CREATED_BY_ID
+        data_type: VARCHAR
+      - name: CREATED_BY_NAME
+        data_type: VARCHAR
+      - name: CUSTOM_ACCOUNT_NAME
+        data_type: VARCHAR
+      - name: CUSTOM_ACCOUNT_TYPE_C
+        data_type: VARCHAR
+      - name: CUSTOM_ANNUAL_REVENUE_C
+        data_type: NUMBER
+      - name: CUSTOM_BASE_RATE
+        data_type: NUMBER
+      - name: CUSTOM_BD_EMAIL_LAST_SENT_C
+        data_type: DATE
+      - name: CUSTOM_CALL_RAIL_ANSWERED_CALL_C
+        data_type: VARCHAR
+      - name: CUSTOM_CALL_RAIL_DEVICE_TYPE_C
+        data_type: VARCHAR
+      - name: CUSTOM_CALL_RAIL_DURATION_C
+        data_type: NUMBER
+      - name: CUSTOM_CALL_RAIL_GCL_IDC
+        data_type: VARCHAR
+      - name: CUSTOM_CALL_RAIL_GOOGLE_CAMPAIGN_C
+        data_type: VARCHAR
+      - name: CUSTOM_CALL_RAIL_KEYWORDS_C
+        data_type: VARCHAR
+      - name: CUSTOM_CALL_RAIL_REFERRING_URL_C
+        data_type: VARCHAR
+      - name: CUSTOM_CALL_RAIL_SOURCE_NUMBER_C
+        data_type: VARCHAR
+      - name: CUSTOM_CALL_RAIL_TAG_C
+        data_type: VARCHAR
+      - name: CUSTOM_CONTACT_IDC
+        data_type: VARCHAR
+      - name: CUSTOM_CONTACT_NAME
+        data_type: VARCHAR
+      - name: CUSTOM_CONVERTED_DATE_C
+        data_type: DATE
+      - name: CUSTOM_CO_TYPE_C
+        data_type: VARCHAR
+      - name: CUSTOM_CURRENCY_ID
+        data_type: VARCHAR
+      - name: CUSTOM_DATE_LEAD_REFERRED_TO_MW_AC
+        data_type: DATE
+      - name: CUSTOM_DATE_LEAD_STATUS_CHANGED_C
+        data_type: DATE
+      - name: CUSTOM_DO_NOT_EMAIL_C
+        data_type: NUMBER
+      - name: CUSTOM_EBITDA_C
+        data_type: NUMBER
+      - name: CUSTOM_EBITDA_LOCAL_CURRENCY_C
+        data_type: NUMBER
+      - name: CUSTOM_EMAIL_BOUNCED_DATE_C
+        data_type: VARCHAR
+      - name: CUSTOM_EMAIL_BOUNCED_REASON_C
+        data_type: VARCHAR
+      - name: CUSTOM_EMAILED_BY_BDC
+        data_type: VARCHAR
+      - name: CUSTOM_EOS_STATUS_C
+        data_type: VARCHAR
+      - name: CUSTOM_FINS_RE_CDC
+        data_type: NUMBER
+      - name: CUSTOM_FINS_RE_QC
+        data_type: NUMBER
+      - name: CUSTOM_FIRST_THURSDAY_C
+        data_type: NUMBER
+      - name: CUSTOM_FORM_ANNUAL_REVENUE_C
+        data_type: VARCHAR
+      - name: CUSTOM_FORM_ENTRY_IDC
+        data_type: NUMBER
+      - name: CUSTOM_FORM_LOCALE_C
+        data_type: VARCHAR
+      - name: CUSTOM_FORM_REVENUE_RANGE_C
+        data_type: VARCHAR
+      - name: CUSTOM_FORM_SOURCE_URL_C
+        data_type: VARCHAR
+      - name: CUSTOM_FORM_USER_IPC
+        data_type: VARCHAR
+      - name: CUSTOM_HAS_OPTED_OUT_OF_EMAIL_C
+        data_type: NUMBER
+      - name: CUSTOM_HINT_ACCOUNT_FACEBOOK_HANDLE
+        data_type: VARCHAR
+      - name: CUSTOM_HINT_ACCOUNT_FOUNDED_YEAR
+        data_type: NUMBER
+      - name: CUSTOM_HINT_ACCOUNT_INDUSTRY
+        data_type: VARCHAR
+      - name: CUSTOM_HINT_ACCOUNT_LOCATION
+        data_type: VARCHAR
+      - name: CUSTOM_HINT_ACCOUNT_NAICS_CODE_LBL
+        data_type: VARCHAR
+      - name: CUSTOM_HINT_ACCOUNT_SIZE
+        data_type: NUMBER
+      - name: CUSTOM_HINT_INDUSTRY_TAGS
+        data_type: VARCHAR
+      - name: CUSTOM_INDUSTRY_C
+        data_type: VARCHAR
+      - name: CUSTOM_IS_UNREAD_BY_OWNER_C
+        data_type: NUMBER
+      - name: CUSTOM_LEADS_BDTARGET1BDTARGETIDB
+        data_type: VARCHAR
+      - name: CUSTOM_LEADS_BDTARGET1_NAME
+        data_type: VARCHAR
+      - name: CUSTOM_LEAD_REFERRED_TO_MW_AC
+        data_type: VARCHAR
+      - name: CUSTOM_LINKED_IN_URL_C
+        data_type: VARCHAR
+      - name: CUSTOM_LINK_TO_CONTACT_C
+        data_type: VARCHAR
+      - name: CUSTOM_MARINER_CHANNEL_C
+        data_type: VARCHAR
+      - name: CUSTOM_MARINER_REFERRAL_STAGE_C
+        data_type: VARCHAR
+      - name: CUSTOM_MC_IMPORT_TAG_C
+        data_type: VARCHAR
+      - name: CUSTOM_MY_FAVORITE
+        data_type: NUMBER
+      - name: CUSTOM_NEXT_STEP_DATE_LEAD_C
+        data_type: DATE
+      - name: CUSTOM_NUMBER_OF_EMPLOYEES_C
+        data_type: NUMBER
+      - name: CUSTOM_OPPORTUNITY_NAME
+        data_type: VARCHAR
+      - name: CUSTOM_OWNERSHIP_C
+        data_type: NUMBER
+      - name: CUSTOM_QUALIFIED_AGE_C
+        data_type: NUMBER
+      - name: CUSTOM_QUALIFIED_DATE_1C
+        data_type: VARCHAR
+      - name: CUSTOM_RATING_C
+        data_type: VARCHAR
+      - name: CUSTOM_RELATED_ACCOUNT_C
+        data_type: VARCHAR
+      - name: CUSTOM_REPORT_DATE_CREATED_C
+        data_type: DATE
+      - name: CUSTOM_REVENUE_LOCAL_CURRENCY_C
+        data_type: NUMBER
+      - name: CUSTOMS_F_CREATED_AT_C
+        data_type: VARCHAR
+      - name: CUSTOMS_F_CREATED_BY_C
+        data_type: VARCHAR
+      - name: CUSTOMS_F_LAST_MODIFIED_AT_C
+        data_type: VARCHAR
+      - name: CUSTOMS_F_LAST_MODIFIED_BY_C
+        data_type: VARCHAR
+      - name: CUSTOMS_F_OBJECT_TYPE_C
+        data_type: VARCHAR
+      - name: CUSTOM_SIC_CODEC
+        data_type: VARCHAR
+      - name: CUSTOM_SIC_DESCRIPTION_C
+        data_type: VARCHAR
+      - name: CUSTOM_STATE_FROM_AREA_CODE_C
+        data_type: VARCHAR
+      - name: CUSTOM_TIME_TO_QUALIFY_C
+        data_type: NUMBER
+      - name: CUSTOM_TIME_TO_SELL_C
+        data_type: VARCHAR
+      - name: CUSTOM_TTM_CHECK_C
+        data_type: VARCHAR
+      - name: CUSTOM_USERID_C
+        data_type: VARCHAR
+      - name: CUSTOM_WEALTH_VALUATION_C
+        data_type: VARIANT
+      - name: DATE_ENTERED
+        data_type: VARCHAR
+      - name: DATE_MODIFIED
+        data_type: VARCHAR
+      - name: DELETED
+        data_type: NUMBER
+      - name: DESCRIPTION
+        data_type: VARCHAR
+      - name: DO_NOT_CALL
+        data_type: NUMBER
+      - name: DP_BUSINESS_PURPOSE
+        data_type: VARIANT
+      - name: DP_CONSENT_LAST_UPDATED
+        data_type: DATE
+      - name: EMAIL_OPT_OUT
+        data_type: NUMBER
+      - name: FIRST_NAME
+        data_type: VARCHAR
+      - name: IS_FOLLOWING
+        data_type: NUMBER
+      - name: FULL_NAME
+        data_type: VARCHAR
+      - name: GEOCODE_STATUS
+        data_type: VARCHAR
+      - name: HINT_ACCOUNT_ANNUAL_REVENUE
+        data_type: VARCHAR
+      - name: HINT_ACCOUNT_DESCRIPTION
+        data_type: VARCHAR
+      - name: HINT_ACCOUNT_SIC_CODE_LABEL
+        data_type: VARCHAR
+      - name: HINT_ACCOUNT_TWITTER_HANDLE
+        data_type: VARCHAR
+      - name: HINT_ACCOUNT_WEBSITE
+        data_type: VARCHAR
+      - name: HINT_CONTACT_PIC
+        data_type: VARCHAR
+      - name: HINT_EDUCATION
+        data_type: VARCHAR
+      - name: HINT_EDUCATION_2
+        data_type: VARCHAR
+      - name: HINT_FACEBOOK
+        data_type: VARCHAR
+      - name: HINTJOB2
+        data_type: VARCHAR
+      - name: HINT_PHONE_1
+        data_type: VARCHAR
+      - name: HINT_TWITTER
+        data_type: VARCHAR
+      - name: ID
+        data_type: VARCHAR
+      - name: IN_VALID_EMAIL
+        data_type: NUMBER
+      - name: LAST_NAME
+        data_type: VARCHAR
+      - name: LEAD_SOURCE
+        data_type: VARCHAR
+      - name: LEAD_SOURCE_DESCRIPTION
+        data_type: VARCHAR
+      - name: LOCKED_FIELDS
+        data_type: VARIANT
+      - name: MK_TO_SYNC
+        data_type: NUMBER
+      - name: MODIFIED_BY_NAME
+        data_type: VARCHAR
+      - name: MODIFIED_USERID
+        data_type: VARCHAR
+      - name: NAME
+        data_type: VARCHAR
+      - name: OPPORTUNITY_ID
+        data_type: VARCHAR
+      - name: PERFORM_SUGAR_ACTION
+        data_type: NUMBER
+      - name: PHONE_HOME
+        data_type: VARCHAR
+      - name: PHONE_MOBILE
+        data_type: VARCHAR
+      - name: PHONE_OTHER
+        data_type: VARCHAR
+      - name: PHONE_WORK
+        data_type: VARCHAR
+      - name: PREFERRED_LANGUAGE
+        data_type: VARCHAR
+      - name: PRIMARY_ADDRESS_CITY
+        data_type: VARCHAR
+      - name: PRIMARY_ADDRESS_COUNTRY
+        data_type: VARCHAR
+      - name: PRIMARY_ADDRESS_POSTAL_CODE
+        data_type: VARCHAR
+      - name: PRIMARY_ADDRESS_STATE
+        data_type: VARCHAR
+      - name: PRIMARY_ADDRESS_STREET
+        data_type: VARCHAR
+      - name: REFERED_BY
+        data_type: VARCHAR
+      - name: SALUTATION
+        data_type: VARCHAR
+      - name: STATUS
+        data_type: VARCHAR
+      - name: SYNC_KEY
+        data_type: VARCHAR
+      - name: TITLE
+        data_type: VARCHAR
+      - name: WEBSITE
+        data_type: VARCHAR
+      - name: FIVE_TRAN_DELETED
+        data_type: NUMBER
+      - name: FIVE_TRAN_SYNCED
+        data_type: VARCHAR
+      - name: HASH
+        data_type: VARCHAR
+      - name: A_ICONV_BIN_ACCURACY_2
+        data_type: NUMBER
+      - name: A_ICONV_MULTIPLIER_2
+        data_type: NUMBER
+      - name: A_ICONV_SCORE_ABSOLUTE_2
+        data_type: FLOAT
+      - name: A_ICONV_SCORE_CLASSIFICATION_2
+        data_type: VARCHAR
+      - name: CPD
+        data_type: NUMBER
+      - name: FEATURE_IMPORTANCE
+        data_type: VARIANT
+      - name: FIELDS
+        data_type: VARIANT
+      - name: ID_2
+        data_type: VARCHAR
+      - name: IMPORTANCE
+        data_type: FLOAT
+      - name: NAME_2
+        data_type: VARCHAR
+      - name: TYPE
+        data_type: VARCHAR
+      - name: NONE
+        data_type: VARCHAR
+      - name: EFFECTIVE_AT
+        data_type: TIMESTAMP_NTZ
+      - name: _CREATED_AT
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        data_type: NUMBER
+      - name: custom_sf_CREATED_AT_C
+        data_type: VARCHAR
+      - name: custom_sf_CREATED_BY_C
+        data_type: VARCHAR
+      - name: custom_sf_LAST_MODIFIED_AT_C
+        data_type: VARCHAR
+      - name: custom_sf_LAST_MODIFIED_BY_C
+        data_type: VARCHAR
+      - name: custom_sf_OBJECT_TYPE_C
+        data_type: VARCHAR
+      - name: fivetran_deleted
+        data_type: NUMBER
+      - name: fivetran_synced
+        data_type: VARCHAR
+  - name: sugarcrm_woodbridge__stg_opportunities
+    columns:
+      - name: ACCOUNT_ID
+        data_type: VARCHAR
+      - name: AMOUNT
+        data_type: NUMBER
+      - name: AMOUNT_US_DOLLAR
+        data_type: NUMBER
+      - name: ASSIGNED_USERID
+        data_type: VARCHAR
+      - name: ASSIGNED_USERNAME
+        data_type: VARCHAR
+      - name: BASE_RATE
+        data_type: NUMBER
+      - name: BEST_CASE
+        data_type: NUMBER
+      - name: CLOSED_REVENUE_LINE_ITEMS
+        data_type: NUMBER
+      - name: CLOSED_WON_REVENUE_LINE_ITEMS
+        data_type: NUMBER
+      - name: COMMIT_STAGE
+        data_type: VARCHAR
+      - name: CREATED_BY_ID
+        data_type: VARCHAR
+      - name: CREATED_BY_NAME
+        data_type: VARCHAR
+      - name: CURRENCY_ID
+        data_type: VARCHAR
+      - name: CURRENCY_NAME
+        data_type: VARCHAR
+      - name: CURRENCY_SYMBOL
+        data_type: VARCHAR
+      - name: CUSTOM_ACCOUNT_NAME
+        data_type: VARCHAR
+      - name: CUSTOM_ACTUAL_REFERRAL_FEES_C
+        data_type: NUMBER
+      - name: CUSTOM_AGE_C
+        data_type: NUMBER
+      - name: CUSTOM_AMOUNT_C
+        data_type: NUMBER
+      - name: CUSTOM_BD_TARGET_OPPORTUNITIES_BD_TARGET_IDA
+        data_type: VARCHAR
+      - name: CUSTOM_BD_TARGET_OPPORTUNITIES_NAME
+        data_type: VARCHAR
+      - name: CUSTOM_BEST_EFFORTS_C
+        data_type: VARCHAR
+      - name: CUSTOM_BILLING_STATE_C
+        data_type: VARCHAR
+      - name: CUSTOM_CARVE_OUTS_DROP_DOWN_C
+        data_type: VARCHAR
+      - name: CUSTOM_CARVE_OUT_S_SEE_CLIENT_AGREEMENT_C
+        data_type: NUMBER
+      - name: CUSTOM_CHANGE_TTM_EBITDA_C
+        data_type: NUMBER
+      - name: CUSTOM_CLOSING_FEE_FORMULA_C
+        data_type: VARCHAR
+      - name: CUSTOM_CONTACTS_OPPORTUNITIES_C1_CONTACT_SIDA
+        data_type: VARCHAR
+      - name: CUSTOM_CONTACTS_OPPORTUNITIES_C1_NAME
+        data_type: VARCHAR
+      - name: CUSTOM_CONTACT_IDC
+        data_type: VARCHAR
+      - name: CUSTOM_CONTRACT_DATA_COMPLETE_C
+        data_type: NUMBER
+      - name: CUSTOM_CONTRACT_EXPIRE_C
+        data_type: DATE
+      - name: CUSTOM_CONTRACT_TERMINATION_DATE_C
+        data_type: DATE
+      - name: CUSTOM_CONTRACT_TYPE_C
+        data_type: VARCHAR
+      - name: CUSTOM_CONTRIBUTORS_C
+        data_type: VARIANT
+      - name: CUSTOM_COUNTRY_C
+        data_type: VARCHAR
+      - name: CUSTOM_CURRENT_FORECAST_EBITDA_C
+        data_type: NUMBER
+      - name: CUSTOM_CURRENT_FORECAST_REVENUE_C
+        data_type: NUMBER
+      - name: CUSTOM_DATE_MARINER_QUALIFIED_C
+        data_type: DATE
+      - name: CUSTOM_ENGAGEMENT_FEE1C
+        data_type: NUMBER
+      - name: CUSTOM_EXPECTED_FEE_C
+        data_type: NUMBER
+      - name: CUSTOM_EXPECTED_REFERRAL_FEES_C
+        data_type: NUMBER
+      - name: CUSTOM_FISCAL_QUARTER_C
+        data_type: NUMBER
+      - name: CUSTOM_FISCAL_YEAR_C
+        data_type: NUMBER
+      - name: CUSTOM_FISCAL_C
+        data_type: VARCHAR
+      - name: CUSTOM_FORECAST_CATEGORY_NAME_C
+        data_type: VARCHAR
+      - name: CUSTOM_FORECAST_CATEGORY_C
+        data_type: VARCHAR
+      - name: CUSTOM_GUIDE_TO_MARK_AS_CLIENT_C
+        data_type: VARCHAR
+      - name: CUSTOM_HAS_OPEN_ACTIVITY_C
+        data_type: NUMBER
+      - name: CUSTOM_HAS_OVERDUE_TASK_C
+        data_type: NUMBER
+      - name: CUSTOM_INCLUDES_ALL_KNOWN_ADD_BACK_SC
+        data_type: NUMBER
+      - name: CUSTOM_INDEMNIFICATION_C
+        data_type: VARCHAR
+      - name: CUSTOM_INDEMNIFICATION_WIW_GSC
+        data_type: VARCHAR
+      - name: CUSTOM_INITIAL_PAYMENT_MADE_C
+        data_type: NUMBER
+      - name: CUSTOM_LAST_ACTIVITY_DATE_C
+        data_type: DATE
+      - name: CUSTOM_LAST_STAGE_CHANGE_DATE_C
+        data_type: VARCHAR
+      - name: CUSTOM_LYTT_M_EBITDA_C
+        data_type: NUMBER
+      - name: CUSTOM_LYT3MEBITDAC
+        data_type: NUMBER
+      - name: CUSTOM_MARINER_CHANNEL_C
+        data_type: VARCHAR
+      - name: CUSTOM_MARINER_SOURCE_C
+        data_type: VARCHAR
+      - name: CUSTOM_MINIMUM_VALUE_EXPECTATIONS_C
+        data_type: NUMBER
+      - name: CUSTOM_MONTH_10C
+        data_type: NUMBER
+      - name: CUSTOM_MONTH_11C
+        data_type: NUMBER
+      - name: CUSTOM_MONTH_12C
+        data_type: NUMBER
+      - name: CUSTOM_MONTH_13C
+        data_type: NUMBER
+      - name: CUSTOM_MONTH_14C
+        data_type: NUMBER
+      - name: CUSTOM_MONTH_15C
+        data_type: NUMBER
+      - name: CUSTOM_MONTH_1_MOST_RECENT_C
+        data_type: NUMBER
+      - name: CUSTOM_MONTH_2C
+        data_type: NUMBER
+      - name: CUSTOM_MONTH_3C
+        data_type: NUMBER
+      - name: CUSTOM_MONTH_4C
+        data_type: NUMBER
+      - name: CUSTOM_MONTH_5C
+        data_type: NUMBER
+      - name: CUSTOM_MONTH_6C
+        data_type: NUMBER
+      - name: CUSTOM_MONTH_7C
+        data_type: NUMBER
+      - name: CUSTOM_MONTH_8C
+        data_type: NUMBER
+      - name: CUSTOM_MONTH_9C
+        data_type: NUMBER
+      - name: CUSTOM_MW_A_REFERRAL_TYPE_C
+        data_type: VARIANT
+      - name: CUSTOM_MY_FAVORITE
+        data_type: NUMBER
+      - name: CUSTOM_NEED_LEGAL_PITCH_C
+        data_type: VARCHAR
+      - name: CUSTOM_NEED_WEALTH_MGMT_PITCH_C
+        data_type: VARCHAR
+      - name: CUSTOM_NEXT_STEP_DATE_C
+        data_type: DATE
+      - name: CUSTOM_OF_OWNERS_C
+        data_type: VARCHAR
+      - name: CUSTOM_OWNERSHIP_NAMES_PERCENTAGES_C
+        data_type: VARCHAR
+      - name: CUSTOM_OWNERSHIP_TYPE_C
+        data_type: VARCHAR
+      - name: CUSTOM_PAID_IN_FULL_C
+        data_type: NUMBER
+      - name: CUSTOM_PAYMENT_SCHEDULE_C
+        data_type: VARCHAR
+      - name: CUSTOM_PERCENT_CHANGE_TTM_EBITDA_C
+        data_type: NUMBER
+      - name: CUSTOM_PERCENT_CHANGE_T3MEBITDAC
+        data_type: FLOAT
+      - name: CUSTOM_PITCH_BOOK_ASSIGNED_TO_C
+        data_type: VARCHAR
+      - name: CUSTOM_PITCH_BOOK_COMPLETED_DATE_C
+        data_type: DATE
+      - name: CUSTOM_POTENTIAL_LIQUIDITY_OPPS_C
+        data_type: NUMBER
+      - name: CUSTOM_PROBABILITY_1C
+        data_type: NUMBER
+      - name: CUSTOM_PROJECT_BASED_C
+        data_type: VARCHAR
+      - name: CUSTOM_PUSH_COUNT_C
+        data_type: NUMBER
+      - name: CUSTOM_REASON_LOST_C
+        data_type: VARCHAR
+      - name: CUSTOM_REASON_UNSIGNED_C
+        data_type: VARCHAR
+      - name: CUSTOM_REFERRAL_FEE_PERCENTAGE_C
+        data_type: NUMBER
+      - name: CUSTOM_REFERRED_TO_MWA_OPPS_C
+        data_type: VARCHAR
+      - name: CUSTOM_REPORT_CREATE_DATE_C
+        data_type: DATE
+      - name: CUSTOM_REPORT_EXPECTED_CLOSE_DATE_C
+        data_type: DATE
+      - name: CUSTOM_REQUESTS_CONCERNS_C
+        data_type: VARIANT
+      - name: CUSTOM_REQUESTS_CONCERNS_INFO_C
+        data_type: VARCHAR
+      - name: CUSTOMS_CRM_CAMPAIGNS_OPPORTUNITIES_1_NAME
+        data_type: VARCHAR
+      - name: CUSTOMS_CRM_CAMPAIGNS_OPPORTUNITIES_1SCRM_CAMPAIGNS_IDA
+        data_type: VARCHAR
+      - name: CUSTOMS_CRM_CAMPAIGNS_OPPORTUNITIES_C1_NAME
+        data_type: VARCHAR
+      - name: CUSTOMS_CRM_CAMPAIGNS_OPPORTUNITIES_C1SCRM_CAMPAIGNS_IDA
+        data_type: VARCHAR
+      - name: CUSTOMS_F_AMOUNT_C
+        data_type: NUMBER
+      - name: CUSTOMS_FCLOSE_DATE_C
+        data_type: DATE
+      - name: CUSTOMS_F_CREATED_AT_C
+        data_type: VARCHAR
+      - name: CUSTOMS_F_CREATED_BY_C
+        data_type: VARCHAR
+      - name: CUSTOMS_F_LAST_MODIFIED_AT_C
+        data_type: VARCHAR
+      - name: CUSTOMS_F_LAST_MODIFIED_BY_C
+        data_type: VARCHAR
+      - name: CUSTOMS_F_OBJECT_TYPE_C
+        data_type: VARCHAR
+      - name: CUSTOMS_F_STAGE_NAME_C
+        data_type: VARCHAR
+      - name: CUSTOM_STATED_EBITDA_C
+        data_type: NUMBER
+      - name: CUSTOM_STATED_REVENUE_C
+        data_type: NUMBER
+      - name: CUSTOM_TAIL1C
+        data_type: NUMBER
+      - name: CUSTOM_TERM_C
+        data_type: VARCHAR
+      - name: CUSTOM_TOUCHPOINT_C
+        data_type: VARCHAR
+      - name: CUSTOM_TTM_CHECK_C
+        data_type: VARCHAR
+      - name: CUSTOM_TTM_CHECK_EXP_CLOSE_DATE_C
+        data_type: VARCHAR
+      - name: CUSTOM_TTM_CHECK_WEBINAR_DATE_C
+        data_type: VARCHAR
+      - name: CUSTOM_TTM_EBITDA_C
+        data_type: NUMBER
+      - name: CUSTOM_TTM_REVENUE_C
+        data_type: NUMBER
+      - name: CUSTOM_TTM_YTD_UPDATED_THROUGH_C
+        data_type: DATE
+      - name: CUSTOM_T3MEBITDAC
+        data_type: NUMBER
+      - name: CUSTOM_UCF_LAST_PROCESSED_DATE_C
+        data_type: VARCHAR
+      - name: CUSTOM_USERID_C
+        data_type: VARCHAR
+      - name: CUSTOM_VALUATION_C
+        data_type: NUMBER
+      - name: CUSTOM_VALUATION_FEE_C
+        data_type: NUMBER
+      - name: CUSTOM_VALUE_EXPECTATION_EXPLANATION_C
+        data_type: VARCHAR
+      - name: CUSTOM_WEBINAR_COMPLETED_C
+        data_type: NUMBER
+      - name: CUSTOM_WEBINAR_DATE_C
+        data_type: DATE
+      - name: CUSTOM_WEBINAR_DATE_COPY_FOR_DBC
+        data_type: DATE
+      - name: CUSTOM_WG_SECURITIES_C
+        data_type: NUMBER
+      - name: CUSTOM_WRITE_OFF_C
+        data_type: NUMBER
+      - name: CUSTOM_YTD_EBITDA_C
+        data_type: NUMBER
+      - name: DATE_CLOSED
+        data_type: DATE
+      - name: DATE_CLOSED_TIMESTAMP
+        data_type: NUMBER
+      - name: DATE_ENTERED
+        data_type: VARCHAR
+      - name: DATE_MODIFIED
+        data_type: VARCHAR
+      - name: DELETED
+        data_type: NUMBER
+      - name: DE_NORM_ACCOUNT_NAME
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        data_type: VARCHAR
+      - name: IS_FOLLOWING
+        data_type: NUMBER
+      - name: FORECASTED_LIKELY
+        data_type: NUMBER
+      - name: GEOCODE_STATUS
+        data_type: VARCHAR
+      - name: ID
+        data_type: VARCHAR
+      - name: INCLUDED_REVENUE_LINE_ITEMS
+        data_type: NUMBER
+      - name: IS_ESCALATED
+        data_type: NUMBER
+      - name: LEAD_SOURCE
+        data_type: VARCHAR
+      - name: LOCKED_FIELDS
+        data_type: VARIANT
+      - name: LOST
+        data_type: NUMBER
+      - name: MK_TO_SYNC
+        data_type: NUMBER
+      - name: MODIFIED_BY_NAME
+        data_type: VARCHAR
+      - name: MODIFIED_USERID
+        data_type: VARCHAR
+      - name: NAME
+        data_type: VARCHAR
+      - name: NEXT_STEP
+        data_type: VARCHAR
+      - name: OPPORTUNITY_TYPE
+        data_type: VARCHAR
+      - name: PERFORM_SUGAR_ACTION
+        data_type: NUMBER
+      - name: PROBABILITY
+        data_type: NUMBER
+      - name: RENEWAL
+        data_type: NUMBER
+      - name: SALES_STAGE
+        data_type: VARCHAR
+      - name: SALES_STATUS
+        data_type: VARCHAR
+      - name: SERVICE_OPEN_FLEX_DURATION_RL_IS
+        data_type: NUMBER
+      - name: SERVICE_OPEN_REVENUE_LINE_ITEMS
+        data_type: NUMBER
+      - name: SYNC_KEY
+        data_type: VARCHAR
+      - name: TAGS
+        data_type: VARIANT
+      - name: TOTAL_REVENUE_LINE_ITEMS
+        data_type: NUMBER
+      - name: WORST_CASE
+        data_type: NUMBER
+      - name: FIVE_TRAN_DELETED
+        data_type: NUMBER
+      - name: FIVE_TRAN_SYNCED
+        data_type: VARCHAR
+      - name: HASH
+        data_type: VARCHAR
+      - name: IS_CREATE
+        data_type: NUMBER
+      - name: FIELDS
+        data_type: VARIANT
+      - name: ID_2
+        data_type: VARCHAR
+      - name: LICENSE
+        data_type: NUMBER
+      - name: NAME_2
+        data_type: VARCHAR
+      - name: WRITE
+        data_type: NUMBER
+      - name: NONE
+        data_type: VARCHAR
+      - name: EFFECTIVE_AT
+        data_type: TIMESTAMP_NTZ
+      - name: _CREATED_AT
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        data_type: NUMBER
+      - name: custom_sf_AMOUNT_C
+        data_type: NUMBER
+      - name: custom_sf_CLOSE_DATE_C
+        data_type: DATE
+      - name: custom_sf_CREATED_AT_C
+        data_type: VARCHAR
+      - name: custom_sf_CREATED_BY_C
+        data_type: VARCHAR
+      - name: custom_sf_LAST_MODIFIED_AT_C
+        data_type: VARCHAR
+      - name: custom_sf_LAST_MODIFIED_BY_C
+        data_type: VARCHAR
+      - name: custom_sf_OBJECT_TYPE_C
+        data_type: VARCHAR
+      - name: custom_sf_STAGE_NAME_C
+        data_type: VARCHAR
+      - name: fivetran_deleted
+        data_type: NUMBER
+      - name: fivetran_synced
+        data_type: VARCHAR
+  - name: sugarcrm_woodbridge__stg_users
+    columns:
+      - name: ACL_ROLE_SETID
+        data_type: VARCHAR
+      - name: AUTHENTICATE_ID
+        data_type: VARCHAR
+      - name: COOKIE_CONSENT
+        data_type: NUMBER
+      - name: COOKIE_CONSENT_RECEIVED_ON
+        data_type: VARCHAR
+      - name: CREATED_BY_ID
+        data_type: VARCHAR
+      - name: CREATED_BY_NAME
+        data_type: VARCHAR
+      - name: CUSTOMER_JOURNEY_ACCESS
+        data_type: NUMBER
+      - name: CUSTOM_CLOUD_CONSOLE_USER_LINK
+        data_type: VARCHAR
+      - name: CUSTOM_MY_FAVORITE
+        data_type: NUMBER
+      - name: CUSTOM_U_CALCULATED_FIELDS_APP_NOTIFY_C
+        data_type: NUMBER
+      - name: CUSTOM_U_CALCULATED_FIELDS_EMAIL_NOTIFY_C
+        data_type: NUMBER
+      - name: CUSTOM_U_CUSTOM_APP_NOTIFY_C
+        data_type: NUMBER
+      - name: CUSTOM_U_CUSTOM_EMAIL_NOTIFY_C
+        data_type: NUMBER
+      - name: CUSTOM_UDE_DUPLICATE_APP_NOTIFY_C
+        data_type: NUMBER
+      - name: CUSTOM_UDE_DUPLICATE_EMAIL_NOTIFY_C
+        data_type: NUMBER
+      - name: DATE_ENTERED
+        data_type: VARCHAR
+      - name: DATE_MODIFIED
+        data_type: VARCHAR
+      - name: DEFAULT_TEAM
+        data_type: NUMBER
+      - name: DELETED
+        data_type: NUMBER
+      - name: DEPARTMENT
+        data_type: VARCHAR
+      - name: DESCRIPTION
+        data_type: VARCHAR
+      - name: EMPLOYEE_STATUS
+        data_type: VARCHAR
+      - name: EXTERNAL_AUTH_ONLY
+        data_type: NUMBER
+      - name: FIRST_NAME
+        data_type: VARCHAR
+      - name: FULL_NAME
+        data_type: VARCHAR
+      - name: HASH
+        data_type: NUMBER
+      - name: ID
+        data_type: VARCHAR
+      - name: IS_ADMIN
+        data_type: NUMBER
+      - name: IS_GROUP
+        data_type: NUMBER
+      - name: LAST_LOGIN
+        data_type: VARCHAR
+      - name: LAST_NAME
+        data_type: VARCHAR
+      - name: MODIFIED_USERID
+        data_type: VARCHAR
+      - name: PHONE_WORK
+        data_type: VARCHAR
+      - name: PICTURE
+        data_type: VARCHAR
+      - name: PORTAL_ONLY
+        data_type: NUMBER
+      - name: PREFERRED_LANGUAGE
+        data_type: VARCHAR
+      - name: PWD_LAST_CHANGED
+        data_type: VARCHAR
+      - name: RECEIVE_NOTIFICATION
+        data_type: NUMBER
+      - name: SEND_EMAIL_ON_MENTION
+        data_type: NUMBER
+      - name: SHOW_ON_EMPLOYEES
+        data_type: NUMBER
+      - name: SITE_USERID
+        data_type: VARCHAR
+      - name: STATUS
+        data_type: VARCHAR
+      - name: SUGAR_LOGIN
+        data_type: NUMBER
+      - name: SYNC_KEY
+        data_type: VARCHAR
+      - name: SYSTEM_GENERATED_PASSWORD
+        data_type: NUMBER
+      - name: TITLE
+        data_type: VARCHAR
+      - name: USERNAME
+        data_type: VARCHAR
+      - name: FIVE_TRAN_DELETED
+        data_type: NUMBER
+      - name: FIVE_TRAN_SYNCED
+        data_type: VARCHAR
+      - name: AUTHORIZED_ACCOUNT
+        data_type: VARCHAR
+      - name: EA_PMID
+        data_type: VARCHAR
+      - name: MAIL_AUTHTYPE
+        data_type: VARCHAR
+      - name: MAIL_SMTP_SERVER
+        data_type: VARCHAR
+      - name: MAIL_SMTP_TYPE
+        data_type: VARCHAR
+      - name: MAIL_SMTP_USER
+        data_type: VARCHAR
+      - name: EFFECTIVE_AT
+        data_type: TIMESTAMP_NTZ
+      - name: _CREATED_AT
+        data_type: TIMESTAMP_NTZ
+      - name: IS_HEAD
+        data_type: NUMBER
+      - name: fivetran_deleted
+        data_type: NUMBER
+      - name: fivetran_synced
+        data_type: VARCHAR
