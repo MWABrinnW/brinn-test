@@ -11,7 +11,7 @@
 
 {%-
     set src_models = [
-          'addepar_corbenic_history__base_accounts'
+          'axys_granite__stg_accounts'
     ]
 -%}
 
