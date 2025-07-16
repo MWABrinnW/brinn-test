@@ -223,3 +223,5 @@ models:
         data_type: NUMBER
       - name: IS_LEGACY
         data_type: NUMBER
+
+        

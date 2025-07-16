@@ -1,0 +1,29 @@
+version: 2
+models: 
+  - name: snowflake_users
+    description: "Reporting layer for snowflake user data."
+    columns:
+      - name: USER_ID
+        data_type: NUMBER
+      - name: USER_NAME
+        data_type: VARCHAR
+      - name: LOGIN_NAME
+        data_type: VARCHAR
+      - name: DISPLAY_NAME
+        data_type: VARCHAR
+      - name: FIRST_NAME  
+        data_type: VARCHAR
+      - name: LAST_NAME
+        data_type: VARCHAR                                        
+      - name: EMAIL  
+        data_type: VARCHAR
+      - name: OWNER
+        data_type: VARCHAR   
+      - name: DEFAULT_ROLE  
+        data_type: VARCHAR
+      - name: DEFAULT_WAREHOUSE
+        data_type: VARCHAR                 
+      - name: DISABLED  
+        data_type: VARIANT
+      - name: LAST_SUCCESS_LOGIN
+        data_type: TIMESTAMP
