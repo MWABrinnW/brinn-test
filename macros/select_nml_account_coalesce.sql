@@ -20,7 +20,13 @@
     )                                                                        as account_name
     , coalesce(crm_registrant_name , pms_registrant_name)                    as registrant_name
     , coalesce(crm_client_name , pms_client_name)                            as client_name
-    , coalesce(pms_is_active , crm_is_active)                                as is_active
+    , coalesce(
+        coalesce(
+            ovrd_acct._is_active
+            , ovrd_sys_acct._is_active
+            , ovrd_sys_adv._is_active
+        )
+       , pms_is_active , crm_is_active)                                        as is_active
     , pms_created_date                                                       as created_date
     , coalesce(pms_opened_date , crm_opened_date)                            as opened_date
     , coalesce(pms_closed_date , crm_closed_date)                            as closed_date
