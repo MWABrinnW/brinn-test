@@ -1,0 +1,203 @@
+version: 2
+
+sources:
+  - name: tableau_mwa
+    database: raw
+    tables:
+      - name: connected_app
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: data_driven_alert
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: data_source
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: data_source_revision
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: data_source_tag
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: extract_refresh_task
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: favorite
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: flow
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: groups
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: job
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: metric
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: project
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: server_schedule
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: subscription
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: user_notification
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: users
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: view
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: work_book_revision
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: workbook
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: workbook_deprecated_20250414_000000
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: workbook_revision
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz
+
+      - name: workbook_tag
+        columns:
+          - name: json
+            data_type: variant
+          - name: effective_at
+            data_type: timestamp_ntz
+          - name: _created_at
+            data_type: timestamp_ntz

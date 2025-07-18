@@ -539,6 +539,10 @@ models:
         +grants:
           select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod', 'ci'] else []}}"
 
+      tableau_mwa:
+        +tags: ["tableau", "fivetran", "tableau_mwa"]
+        +grants: 
+          +select: "{{ ['reporting'] if target.name in ['prod', 'ci'] else []}}"
       xcm:
         +tags: ["tax", "xcm"]
         +dbt-osmosis: "_{model}.yml"

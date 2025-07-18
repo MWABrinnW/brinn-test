@@ -1,0 +1,314 @@
+version: 2
+models:
+- name: connected_app
+  columns:
+  - name: effective_at
+  - name: _created_at
+  - name: NAME
+  - name: _FIVETRAN_DELETED
+  - name: _FIVETRAN_ID
+  - name: _FIVETRAN_SYNCED
+  - name: is_head
+- name: data_driven_alert
+  columns:
+  - name: effective_at
+  - name: _created_at
+  - name: WORKBOOK_ID
+  - name: FREQUENCY
+  - name: SUBJECT
+  - name: _FIVETRAN_SYNCED
+  - name: _FIVETRAN_DELETED
+  - name: UPDATED_AT
+  - name: ID
+  - name: CREATED_AT
+  - name: PROJECT_ID
+  - name: PUBLIC
+  - name: OWNER_ID
+  - name: is_head
+
+- name: data_source
+  columns:
+  - name: effective_at
+  - name: _created_at
+  - name: UPDATED_AT
+  - name: CONTENT_URL
+  - name: NAME
+  - name: _FIVETRAN_DELETED
+  - name: USE_REMOTE_QUERY_AGENT
+  - name: _FIVETRAN_SYNCED
+  - name: HAS_EXTRACT
+  - name: PROJECT_ID
+  - name: OWNER_ID
+  - name: ENCRYPT_EXTRACT
+  - name: IS_CERTIFIED
+  - name: CREATED_AT
+  - name: ID
+  - name: WEBPAGE_URL
+  - name: is_head
+- name: data_source_revision
+  columns:
+  - name: effective_at
+  - name: _created_at
+  - name: DATA_SOURCE_ID
+  - name: REVISION_NUMBER
+  - name: _FIVETRAN_DELETED
+  - name: _FIVETRAN_SYNCED
+  - name: is_head
+- name: data_source_tag
+  columns:
+  - name: effective_at
+  - name: _created_at
+  - name: DATA_SOURCE_ID
+  - name: LABEL
+  - name: _FIVETRAN_DELETED
+  - name: _FIVETRAN_SYNCED
+  - name: is_head
+- name: extract_refresh_task
+  columns:
+  - name: effective_at
+  - name: _created_at
+  - name: WORKBOOK_ID
+  - name: ID
+  - name: SITE_ID
+  - name: PRIORITY
+  - name: _FIVETRAN_DELETED
+  - name: SCHEDULE_NEXT_RUN_AT
+  - name: TYPE
+  - name: SCHEDULE_FREQUENCY
+  - name: CONSECUTIVE_FAILED_COUNT
+  - name: _FIVETRAN_SYNCED
+  - name: SCHEDULE_FREQUENCY_DETAILS_START
+  - name: SCHEDULE_FREQUENCY_DETAILS_INTERVAL_WEEKDAY
+  - name: is_head
+- name: favorite
+  columns:
+  - name: effective_at
+  - name: _created_at
+  - name: _FIVETRAN_DELETED
+  - name: LABEL
+  - name: USERS_ID
+  - name: _FIVETRAN_SYNCED
+  - name: SITE_ID
+  - name: VIEW_CREATED_AT
+  - name: VIEW_ID
+  - name: WORKBOOK_ID
+  - name: VIEW_UPDATED_AT
+  - name: VIEW_URL_NAME
+  - name: is_head
+- name: flow
+  columns:
+  - name: effective_at
+  - name: _created_at
+  - name: _FIVETRAN_SYNCED
+  - name: FILE_TYPE
+  - name: CREATED_AT
+  - name: PROJECT_ID
+  - name: OWNER_ID
+  - name: _FIVETRAN_DELETED
+  - name: NAME
+  - name: WEBPAGE_URL
+  - name: ID
+  - name: UPDATED_AT
+  - name: DESCRIPTION
+  - name: is_head
+- name: groups
+  columns:
+  - name: effective_at
+  - name: _created_at
+  - name: _FIVETRAN_SYNCED
+  - name: ID
+  - name: NAME
+  - name: DOMAIN_NAME
+  - name: _FIVETRAN_DELETED
+  - name: USER_ID
+  - name: is_head
+- name: job
+  columns:
+  - name: effective_at
+  - name: _created_at
+  - name: _FIVETRAN_DELETED
+  - name: ENDED_AT
+  - name: SITE_ID
+  - name: STARTED_AT
+  - name: _FIVETRAN_SYNCED
+  - name: ID
+  - name: CREATED_AT
+  - name: STATUS
+  - name: PRIORITY
+  - name: JOB_TYPE
+  - name: is_head
+- name: metric
+  columns:
+  - name: effective_at
+  - name: _created_at
+  - name: _FIVETRAN_DELETED
+  - name: ID
+  - name: UPDATED_AT
+  - name: SUSPENDED
+  - name: _FIVETRAN_SYNCED
+  - name: WEBPAGE_URL
+  - name: NAME
+  - name: CREATED_AT
+  - name: PROJECT_ID
+  - name: UNDERLYING_VIEW_ID
+  - name: OWNER_ID
+  - name: is_head
+- name: project
+  columns:
+  - name: effective_at
+  - name: _created_at
+  - name: _FIVETRAN_DELETED
+  - name: ID
+  - name: CONTENT_PERMISSION
+  - name: UPDATED_AT
+  - name: _FIVETRAN_SYNCED
+  - name: DESCRIPTION
+  - name: OWNER_ID
+  - name: NAME
+  - name: CREATED_AT
+  - name: PARENT_PROJECT_ID
+  - name: is_head
+- name: server_schedule
+  columns:
+  - name: effective_at
+  - name: _created_at
+  - name: TYPE
+  - name: FREQUENCY
+  - name: PRIORITY
+  - name: UPDATED_AT
+  - name: _FIVETRAN_DELETED
+  - name: STATE
+  - name: ID
+  - name: CREATED_AT
+  - name: _FIVETRAN_SYNCED
+  - name: NEXT_RUN_AT
+  - name: NAME
+  - name: is_head
+- name: user_notification
+  columns:
+  - name: effective_at
+  - name: _created_at
+  - name: _FIVETRAN_SYNCED
+  - name: DISABLED_BY_OVERRIDE
+  - name: _FIVETRAN_ID
+  - name: CHANNEL
+  - name: ENABLED
+  - name: _FIVETRAN_DELETED
+  - name: NOTIFICATION_TYPE
+  - name: is_head
+- name: view
+  columns:
+  - name: effective_at
+  - name: _created_at
+  - name: _FIVETRAN_SYNCED
+  - name: ID
+  - name: _FIVETRAN_DELETED
+  - name: CONTENT_URL
+  - name: NAME
+  - name: WORKBOOK_ID
+  - name: OWNER_ID
+  - name: is_head
+- name: workbook_revision
+  columns:
+  - name: effective_at
+  - name: _created_at
+  - name: REVISION_NUMBER
+  - name: WORKBOOK_ID
+  - name: _FIVETRAN_DELETED
+  - name: _FIVETRAN_SYNCED
+  - name: is_head
+- name: work_book_revision
+  columns:
+  - name: effective_at
+  - name: _created_at
+  - name: REVISION_NUMBER
+  - name: WORKBOOK_ID
+  - name: _FIVETRAN_DELETED
+  - name: _FIVETRAN_SYNCED
+  - name: is_head
+- name: workbook_deprecated_20250414_000000
+  columns:
+  - name: effective_at
+  - name: _created_at
+  - name: LOCATION_NAME
+  - name: CREATED_AT
+  - name: ID
+  - name: OWNER_ID
+  - name: LOCATION_TYPE
+  - name: WEBPAGE_URL
+  - name: _FIVETRAN_DELETED
+  - name: SIZE
+  - name: PROJECT_ID
+  - name: LOCATION_ID
+  - name: CONTENT_URL
+  - name: DEFAULT_VIEW_ID
+  - name: NAME
+  - name: ENCRYPT_EXTRACT
+  - name: DESCRIPTION
+  - name: is_head
+- name: workbook_tag
+  columns:
+  - name: effective_at
+  - name: _created_at
+  - name: LABEL
+  - name: WORKBOOK_ID
+  - name: _FIVETRAN_DELETED
+  - name: _FIVETRAN_SYNCED
+  - name: is_head
+- name: subscription
+  columns:
+  - name: effective_at
+  - name: _created_at
+  - name: CONTENT_SEND_IF_VIEW_EMPTY
+  - name: CONTENT_TYPE
+  - name: ID
+  - name: USER_ID
+  - name: SITE_ID
+  - name: _FIVETRAN_DELETED
+  - name: _FIVETRAN_SYNCED
+  - name: CONTENT_ID
+  - name: SCHEDULE_FREQUENCY_DETAILS_START
+  - name: ATTACH_IMAGE
+  - name: SUSPENDED
+  - name: SUBJECT
+  - name: ATTACH_PDF
+  - name: PAGE_ORIENTATION
+  - name: PAGE_SIZE_OPTION
+  - name: is_head
+- name: users
+  columns:
+  - name: effective_at
+  - name: _created_at
+  - name: NAME
+  - name: AUTH_SETTING
+  - name: ID
+  - name: FULL_NAME
+  - name: DOMAIN_NAME
+  - name: SITE_ROLE
+  - name: LANGUAGES
+  - name: EMAIL
+  - name: _FIVETRAN_DELETED
+  - name: _FIVETRAN_SYNCED
+  - name: EXTERNAL_AUTH_USER_ID
+  - name: LAST_LOGIN
+  - name: is_head
+- name: workbook
+  columns:
+  - name: effective_at
+  - name: _created_at
+  - name: LOCATION_TYPE
+  - name: CREATED_AT
+  - name: DEFAULT_VIEW_ID
+  - name: WEBPAGE_URL
+  - name: NAME
+  - name: _FIVETRAN_DELETED
+  - name: LOCATION_ID
+  - name: _FIVETRAN_SYNCED
+  - name: UPDATED_AT
+  - name: SIZE
+  - name: CONTENT_URL
+  - name: LOCATION_NAME
+  - name: OWNER_ID
+  - name: ID
+  - name: ENCRYPT_EXTRACT
+  - name: is_head
