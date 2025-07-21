@@ -3,35 +3,24 @@ models:
   - name: rpt_holdings_daily_delta
     columns:
       - name: EFFECTIVE_DATE
-        description: ''
         data_type: DATE
       - name: IS_CURRENT
-        description: ''
         data_type: BOOLEAN
       - name: SYSTEM_NAME
-        description: ''
         data_type: VARCHAR
       - name: CNT
-        description: ''
         data_type: VARCHAR
       - name: MARKET_VALUE
-        description: ''
         data_type: VARCHAR
       - name: MARKET_VAL_01_EFFDAY
-        description: ''
         data_type: VARCHAR
       - name: MARKET_VAL_01_DELTA
-        description: ''
         data_type: VARCHAR
       - name: MARKET_VAL_15_EFFDAY
-        description: ''
         data_type: VARCHAR
       - name: MARKET_VAL_15_DELTA
-        description: ''
         data_type: VARCHAR
       - name: MARKET_VAL_30_EFFDAY
-        description: ''
         data_type: VARCHAR
       - name: MARKET_VAL_30_DELTA
-        description: ''
         data_type: VARCHAR

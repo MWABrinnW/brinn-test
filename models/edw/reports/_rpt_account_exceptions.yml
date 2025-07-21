@@ -1,0 +1,70 @@
+version: 2
+models:
+  - name: rpt_account_exceptions
+    columns:
+      - name: EFFECTIVE_DATE
+        data_type: DATE
+      - name: SYSTEM_KEY
+        description: Key for the PMS instance. PMS and PMS_INSTANCE_LOCATION concatenated.
+        data_type: VARCHAR
+      - name: FIRM_SOURCE
+        description: mwa | mps | andco | baystate
+        data_type: VARCHAR
+      - name: ACCOUNT_NUMBER
+        description: Account number without formatting or leading zeros.
+        data_type: VARCHAR
+      - name: PMS_ACCOUNT_ID
+        data_type: VARCHAR
+      - name: CRM_ACCOUNT_ID
+        data_type: VARCHAR
+      - name: ADVISOR
+        description: Advisor.
+        data_type: VARCHAR
+      - name: PMS_ADVISOR
+        data_type: VARCHAR
+      - name: CRM_ADVISOR
+        data_type: VARCHAR
+      - name: OPENED_DATE
+        description: Account open or start date.
+        data_type: DATE
+      - name: CLOSED_DATE
+        description: Account close or cancel date.
+        data_type: DATE
+      - name: PMS_CLOSED_DATE
+        data_type: DATE
+      - name: CRM_CLOSED_DATE
+        data_type: DATE
+      - name: CUSTODIAN
+        description: Custodian name.
+        data_type: VARCHAR
+      - name: ACCOUNT_VALUE
+        description: Latest account market value.
+        data_type: NUMBER
+      - name: LOCATION_CODE
+        description: Mariner Location ID for the location (ex. 100, L-10015)
+        data_type: VARCHAR
+      - name: OFFICE_NAME
+        description: Office name/location in the format of 'City, State'
+        data_type: VARCHAR
+      - name: AUM_CLASSIFICATION
+        data_type: VARCHAR
+      - name: PREF_ADVISOR__ACCOUNT_NUMBER
+        data_type: VARCHAR
+      - name: PREF_ADVISOR
+        data_type: VARCHAR
+      - name: PREF_LOCATION
+        data_type: VARCHAR
+      - name: PREF_SYSTEM_KEY
+        data_type: VARCHAR
+      - name: IS_PRIMARY
+        description: >-
+          Is the record considered the primary record if there are duplicates across or within the system_key.
+        data_type: NUMBER
+      - name: IS_EXCLUDED
+        data_type: NUMBER
+      - name: EXCLUDED_REASONS
+        data_type: VARCHAR
+      - name: _EXTRA_FIELDS
+        data_type: VARIANT
+      - name: EXCEPTIONS
+        data_type: VARCHAR
