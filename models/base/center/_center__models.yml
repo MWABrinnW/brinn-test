@@ -1,0 +1,20 @@
+version: 2
+models:
+  - name: center__stg_users
+    columns: []
+  - name: center__stg_expenses
+    columns: []
+  - name: center__stg_manual_exclusions
+    columns:
+      - name: EMPLOYEE_NUM
+        data_type: VARCHAR
+      - name: FIRST_NAME
+        data_type: VARCHAR
+      - name: LAST_NAME
+        data_type: VARCHAR
+      - name: _CREATED_AT
+        data_type: TIMESTAMP_NTZ
+      - name: _BOX_FILE_ID
+        data_type: VARCHAR
+      - name: _BOX_META
+        data_type: VARIANT

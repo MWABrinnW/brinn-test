@@ -256,11 +256,20 @@ select
             , 'phone' , iff(a.phone <> b.phone_number , b.phone_number || ' --> ' || a.phone , null)
             , 'default_approver'
             , iff(c.id <> b.default_approver:id::text , b.default_approver:id::text || ' --> ' || c.id , null)
-            , 'address_1' , iff(a.address_1 <> b.billing_address , b.billing_address || ' --> ' || a.address_1 , null)
-            , 'city' , iff(a.city <> b.billing_city , b.billing_city || ' --> ' || a.city , null)
-            , 'state' , iff(a.state <> b.billing_state , b.billing_state || ' --> ' || a.state , null)
-            , 'zip' , iff(a.zip_code <> b.billing_postal_code , b.billing_postal_code || ' --> ' || a.zip_code , null)
-            , 'country' , iff(a.country <> b.billing_country , b.billing_country || ' --> ' || a.country , null)
+            , 'address_1'
+            , iff(
+                a.address_1 <> b.billing_address and e.employee_num is null , b.billing_address || ' --> ' || a.address_1 , null
+            )
+            , 'city' , iff(a.city <> b.billing_city and e.employee_num is null , b.billing_city || ' --> ' || a.city , null)
+            , 'state' , iff(a.state <> b.billing_state and e.employee_num is null , b.billing_state || ' --> ' || a.state , null)
+            , 'zip'
+            , iff(
+                a.zip_code <> b.billing_postal_code and e.employee_num is null
+                , b.billing_postal_code || ' --> ' || a.zip_code
+                , null
+            )
+            , 'country'
+            , iff(a.country <> b.billing_country and e.employee_num is null , b.billing_country || ' --> ' || a.country , null)
             , 'default_cost_center'
             , iff(
                 a.default_cost_center <> b.default_cost_center_name
@@ -295,5 +304,8 @@ left join {{ ref('center__stg_users') }} as b
 left join {{ ref('center__stg_users') }} as c
     on a.default_approver_email = c.email_address
     and c.is_head = 1
+-- join to ignore address suggestions for manual list of exclusions
+left join {{ ref('center__stg_manual_exclusions') }} as e
+    on a.employee_num = e.employee_num
 -- drop users that are in specific Abacus users list (received from Becky Margason)
 where a.is_abacus_user = 0

@@ -2,10 +2,47 @@ version: 2
 
 sources:
   - name: center
-    description: Center is an expense management platform. IT-16397 https://developer.getcenter.com/docs/getting-started
+    description: >-
+      Center is an expense management platform. IT-16397 https://developer.getcenter.com/docs/getting-started
     database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
     tables:
       - name: users
         description: https://developer.getcenter.com/reference/userlist
+        columns:
+          - name: JSON
+            data_type: VARIANT
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
       - name: expenses
         description: https://developer.getcenter.com/reference/expenselist
+        columns:
+          - name: JSON
+            data_type: VARIANT
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+          - name: _UPDATED_AT
+            data_type: TIMESTAMP_NTZ
+          - name: _SOURCE_FILE
+            data_type: VARCHAR
+          - name: _ID
+            data_type: NUMBER
+          - name: ID
+            data_type: VARCHAR
+      - name: manual_exclusions
+        description: >-
+          Box file loaded to Snowflake, as of July '25 includes users that should be ignored for address variances
+          In the future, could be expanded to include other filters, like Abacus users.
+          https://marinerholdingsllc.app.box.com/file/1925425864040
+        columns:
+          - name: JSON
+            data_type: VARIANT
+          - name: _CREATED_AT
+            data_type: TIMESTAMP_NTZ
+          - name: _BOX_FILE_ID
+            data_type: VARCHAR
+          - name: _BOX_META
+            data_type: VARIANT
+          - name: _BOX_FILE_NAME
+            data_type: VARCHAR
