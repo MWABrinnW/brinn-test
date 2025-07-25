@@ -537,7 +537,7 @@ models:
       sugarcrm_woodbridge:
         +tags: ["sugarcrm" , "woodbridge"]
         +grants:
-          select: "{{ ['datamanagement', 'engineering'] if target.name in ['prod', 'ci'] else []}}"
+          select: "{{ ['db_sugarcrm_woodbridge_r'] if target.name in ['prod', 'ci'] else []}}"
 
       tableau_mwa:
         +tags: ["tableau", "fivetran", "tableau_mwa"]
