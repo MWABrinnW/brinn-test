@@ -373,32 +373,32 @@ sources:
       - name: work_step_template_history
       - name: work_thanks
 
-  # - name: salesforce_baystate
-  #   database: raw
-  #   tables:
-  #     - name: account
-  #       columns:
-  #         - name: json
-  #           data_type: variant
-  #         - name: effective_at
-  #           data_type: timestamp_ntz
-  #         - name: _created_at
-  #           data_type: timestamp_ntz
+  # - name: salesforce_baystate
+  #   database: raw
+  #   tables:
+  #     - name: account
+  #       columns:
+  #         - name: json
+  #           data_type: variant
+  #         - name: effective_at
+  #           data_type: timestamp_ntz
+  #         - name: _created_at
+  #           data_type: timestamp_ntz
 
-  #     - name: account_contact_role
-  #       columns:
-  #         - name: json
-  #           data_type: variant
-  #         - name: effective_at
-  #           data_type: timestamp_ntz
-  #         - name: _created_at
-  #           data_type: timestamp_ntz
+  #     - name: account_contact_role
+  #       columns:
+  #         - name: json
+  #           data_type: variant
+  #         - name: effective_at
+  #           data_type: timestamp_ntz
+  #         - name: _created_at
+  #           data_type: timestamp_ntz
 
-  #     - name: contact
-  #       columns:
-  #         - name: json
-  #           data_type: variant
-  #         - name: effective_at
-  #           data_type: timestamp_ntz
-  #         - name: _created_at
-  #           data_type: timestamp_ntz
+  #     - name: contact
+  #       columns:
+  #         - name: json
+  #           data_type: variant
+  #         - name: effective_at
+  #           data_type: timestamp_ntz
+  #         - name: _created_at
+  #           data_type: timestamp_ntz
