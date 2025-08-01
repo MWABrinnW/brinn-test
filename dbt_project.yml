@@ -344,7 +344,7 @@ models:
       insurance_mir:
         +tags: ["insurance", "mir"]
         +grants:
-          +select: "{{ ['finance' , 'reporting'] if target.name in ['prod', 'ci'] else []}}"
+          +select: "{{ ['finance' , 'reporting', 'db_billing_r'] if target.name in ['prod', 'ci'] else []}}"
 
       oracle_fusion:
         +tags: ["oracle", "oracle_fusion"]
