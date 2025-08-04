@@ -320,7 +320,11 @@ select
     {% else %}
     , null::text                                                          as pms_advisor_id_source
     {% endif %}
+    {% if instance | lower == 'mps' %}
+    , pp.email_address::text                                              as pms_advisor_email
+    {% else %}
     , null::text                                                          as pms_advisor_email
+    {% endif %}
     , case
         when a.system_key = 'black_diamond__houston' then '116'
         when a.system_key = 'black_diamond__mcgervey' then 'L-10016'

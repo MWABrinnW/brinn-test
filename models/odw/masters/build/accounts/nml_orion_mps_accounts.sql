@@ -113,7 +113,7 @@ select
     , case when pp.advisor_full_name is not null
             then 'redtail__network'
     end::text                                                                 as pms_advisor_id_source
-    , null::text(200)                                                         as pms_advisor_email
+    , pp.email_address::text(200)                                             as pms_advisor_email
     , '609'::text                                                             as pms_location_code
     , a.fee_schedule                                                          as pms_fee_schedule--not available in RS yet
     , a.investment_strategy                                                   as pms_model_investment_strategy
