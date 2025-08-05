@@ -87,6 +87,9 @@ def main():
 
     df_results = artifacts.results
     logger.info("Loaded %d dbt results", df_results.height)
+    if df_results.height == 0:
+        logger.info("No dbt run results.")
+        sys.exit(0)
 
     sql = f"""
     select
