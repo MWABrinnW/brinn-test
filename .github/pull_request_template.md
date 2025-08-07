@@ -1,79 +1,64 @@
-## Type of change
+## Additional Detail
 
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] Refactor (code change that improves structure or readability without changing functionality)
-- [ ] New feature (non-breaking change that adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] Test (adds or updates tests without affecting functionality)
-- [ ] Documentation (updates or adds documentation, such as READMEs or code comments)
-- [ ] Chore (improves the development process or tooling, but does not affect the product or code)
+<!--
+Instructions
+
+Provide any context or detail that is meaningfully additive to the LLM auto-generated summary.
+
+In the PR Title, indicate the type of change from these options:
+| fix             | A non-breaking change that resolves a known issue                                 |
+| refactor        | Code improvements that enhance readability or structure without changing behavior |
+| feat            | A non-breaking change that introduces new functionality                           |
+| breaking        | A change that may cause existing functionality to fail or behave differently      |
+| test            | Adds or updates tests without impacting the application's functionality           |
+| docs.           | Updates or adds documentation (e.g., READMEs, comments)                           |
+| chore           | Development process or tooling improvements that do not affect product behavior   |
+-->
+
+
+Contributes to [YT-XXX](LINK) (_don't include title_)
+
 
 ## Auto Summary
 
-
-<details>
-
-An LLM service, _Ellipsis_, will generate a PR summary here.
-
-</details>
-
 <!-- ELLIPSIS_HIDDEN -->
 
 <!-- ELLIPSIS_HIDDEN -->
-
-
-## Additional Detail
-
-<details>
-
-<summary>Instructions</summary>
-
-_Provide any context or detail that is meaningfully additive to the LLM auto-generated summary._
-
-</details>
-
-Resolves | Contributes to [YT-XXX](LINK) (_don't include title_)
 
 
 ## How has this been tested?
+<!--
+Instructions
 
-<details>
+Include:
+- commands/logs/screenshots
+- dbt testing and validation queries (using CI environment)
+- output of dbt queries
 
-<summary>Instructions</summary>
+Exclude:
+- PII
+-->
 
-_Include commands/logs/screenshots as relevant and do not include any PII._
-
-_If making changes to dbt models, please include relevant queries which demonstrate testing and validation, and include the output in this section of the PR._
-</details>
 
 <!-- BUILD_RESULTS_HIDDEN -->
 
 <!-- BUILD_RESULTS_HIDDEN -->
 
 
-## Pre-merge dependencies
+## Dependencies
 
-<details>
+<!--
+Instructions
 
-<summary>Instructions</summary>
+Examples:
+- actions required to deploy or implement changes
+- running a full refresh of some incremental model
+-->
 
-_Describe any actions or scripts that need to occur prior to merge._
-
-</details>
-
+### Pre-Merge
 
 - [x] No action required
 
-
-## Post-merge follow-ups
-
-<details>
-
-<summary>Instructions</summary>
-
-_Document any actions that must be taken post-merge to deploy or otherwise implement the changes in this PR (for example, running a full refresh of some incremental model)._
-
-</details>
-
+### Post-Merge
 
 - [x] No action required
