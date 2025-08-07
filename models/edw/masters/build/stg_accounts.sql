@@ -3,6 +3,9 @@ select
     , json:"system_name"::text               as system_name
     , json:"system_instance"::text           as system_instance
     , json:"system_key"::text                as system_key
+    , json:"crm_name"::text                  as crm_name
+    , json:"crm_instance"::text              as crm_instance
+    , json:"crm_key"::text                   as crm_key
     , json:"firm_source"::text               as firm_source
     , json:"account_number_formatted"::text  as account_number_formatted
     , json:"account_number"::text            as account_number
@@ -56,6 +59,9 @@ select
     , la.system_name
     , la.system_instance
     , la.system_key
+    , null::text as crm_name
+    , null::text as crm_instance
+    , null::text as crm_key
     , la.firm_source
     , la.account_number_formatted
     , la.account_number

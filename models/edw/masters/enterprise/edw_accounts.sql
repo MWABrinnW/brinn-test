@@ -10,6 +10,9 @@ select
     , system_name
     , system_instance
     , system_key
+    , crm_name
+    , crm_instance
+    , crm_key
     , firm_source
     , account_number_formatted
     , account_number

@@ -10,6 +10,12 @@ models:
         data_type: VARCHAR
       - name: SYSTEM_KEY
         data_type: VARCHAR
+      - name: CRM_NAME
+        data_type: VARCHAR
+      - name: CRM_INSTANCE
+        data_type: VARCHAR
+      - name: CRM_KEY
+        data_type: VARCHAR                
       - name: FIRM_SOURCE
         description: mwa | mps | andco | baystate
         meta:

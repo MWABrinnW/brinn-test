@@ -4,6 +4,9 @@ select
     , ba.system_name::text               as system_name
     , ba.system_instance::text           as system_instance
     , ba.system_key::text                as system_key
+    , ba.crm::text                       as crm_name
+    , ba.crm_instance_location::text     as crm_instance
+    , ba.crm_key::text                   as crm_key
     , ba.firm_source::text               as firm_source
     , ba.account_number_formatted::text  as account_number_formatted
     , ba.account_number::text            as account_number
@@ -64,6 +67,9 @@ select
     , ba.system_name               as system_name
     , ba.system_instance           as system_instance
     , ba.system_key                as system_key
+    , ba.crm                       as crm_name
+    , ba.crm_instance_location     as crm_instance
+    , ba.crm_key                   as crm_key
     , ba.firm_source               as firm_source
     , ba.account_number_formatted  as account_number_formatted
     , ba.account_number            as account_number
@@ -124,6 +130,9 @@ select
     , ma.system_name::text(500)               as system_name
     , ma.system_instance::text(500)           as system_instance
     , ma.system_key::text(500)                as system_key
+    , null::text(500)                         as crm_name
+    , null::text(500)                         as crm_instance
+    , null::text(500)                         as crm_key
     , ma.firm_source::text(500)               as firm_source
     , ma.account_number_formatted::text(500)  as account_number_formatted
     , ma.account_number::text(500)            as account_number
@@ -176,6 +185,9 @@ select
     , la.system_name               as system_name
     , la.system_instance           as system_instance
     , la.system_key                as system_key
+    , null::text                   as crm_name
+    , null::text                   as crm_instance
+    , null::text                   as crm_key
     , la.firm_source               as firm_source
     , la.account_number_formatted  as account_number_formatted
     , la.account_number            as account_number

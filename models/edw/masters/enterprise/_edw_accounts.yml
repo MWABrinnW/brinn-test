@@ -12,6 +12,14 @@ models:
       - name: SYSTEM_KEY
         description: Key for the PMS instance. PMS and PMS_INSTANCE_LOCATION concatenated.
         data_type: VARCHAR
+      - name: CRM_NAME
+        data_type: VARCHAR
+      - name: CRM_INSTANCE
+        description: Source CRM instance name.
+        data_type: VARCHAR
+      - name: CRM_KEY
+        description: Key for the CRM instance. CRM_NAME and CRM_INSTANCE concatenated.
+        data_type: VARCHAR        
       - name: FIRM_SOURCE
         description: mwa | mps | andco | baystate
         meta:

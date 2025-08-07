@@ -1,9 +1,15 @@
 {% macro select_crm_null(system_key) -%}
+  {% set is_salesforce_compass = system_key | lower in ['salesforce__compass_mic', 'salesforce__compass_rps'] %}
+  {% if is_salesforce_compass -%} 
+  , 'salesforce'::varchar(200)                                       as crm
+  , 'compass'::varchar(200)                                          as crm_instance_location
+  {% else %}
   , null::varchar(200)                                               as crm
-  , null::varchar(200)                                               as crm_instance_location
+  , null::varchar(200)                                                as crm_instance_location
+  {% endif %}
   , concat(crm, '__', crm_instance_location)                         as crm_key
   , null::varchar(200)                                               as crm_custodian
-  {% if system_key | lower in ['salesforce__compass_mic' , 'salesforce__compass_rps'] -%} 
+  {% if is_salesforce_compass -%} 
   , pms_account_id::varchar(200)                                     as crm_account_id
   {% else %}
   , null::varchar(200)                                               as crm_account_id
@@ -11,7 +17,7 @@
   , null::varchar(200)                                               as crm_account_type
   , null::varchar(200)                                               as crm_account_name
   , null::varchar(200)                                               as crm_registrant_name
-  {% if system_key | lower in ['salesforce__compass_mic' , 'salesforce__compass_rps'] -%} 
+  {% if is_salesforce_compass -%} 
   , pms_client_id::varchar(200)                                      as crm_client_id
   {% else %}
   , null::varchar(200)                                               as crm_client_id
