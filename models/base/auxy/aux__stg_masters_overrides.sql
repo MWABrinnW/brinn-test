@@ -28,4 +28,4 @@ select
     , json:is_broker_dealer_account::int       as _is_broker_dealer_account
     , _created_at::timestamp                   as _source_loaded_at
     , _box_file_id::text(200)                  as _box_file_id
-from {{ source('raw_aux', 'masters_overrides') }}
+from {{ source('aux', 'masters_overrides') }}

@@ -7,9 +7,9 @@ select
     , _created_at::timestamp             as _created_at
     , _box_file_id::varchar(200)         as _box_file_id
     , {{ col_is_head(
-      reference=source('raw_aux', 'options_exclusions'),
+      reference=source('aux', 'options_exclusions'),
       reference_date_col='_created_at',
       source_date_col='_created_at'
       ) }}
 
-from {{ source('raw_aux', 'options_exclusions') }}
+from {{ source('aux', 'options_exclusions') }}

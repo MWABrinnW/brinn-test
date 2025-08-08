@@ -8,4 +8,4 @@ select
     , _box_file_name::text        as _box_file_name
     , _box_meta::variant          as _box_meta
     , _id::int                    as _id
-from {{ source('raw_aux', 'masters_variance_accounts') }}
+from {{ source('aux', 'masters_variance_accounts') }}

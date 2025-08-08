@@ -570,18 +570,10 @@ sources:
           - name: _ID
             description: ''
             data_type: NUMBER
-  - name: raw_aux
-    description: >
-      The sources represent auxillary source systems and files,
-      Typically resulting in the use of Box or Smartsheets files used for mapping or as supplemntary data not available elsewhere."
-    database: "{{ var('db_raw_src', env_var('DBT_DB_RAW_SRC', 'raw')) }}"
-    schema: aux
-    tables:
       - name: options_exclusions
         tags: ['options']
         description: >
-          "Employee record value overrides and manual entries (box file id: 1085269023169)."
-          Used by the HR team to make modification to employee records before they appear in the EDW.
+          ""
         columns:
           - name: JSON
             description: ''

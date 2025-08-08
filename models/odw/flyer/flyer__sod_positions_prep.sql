@@ -1,14 +1,17 @@
 with cte_accounts as (
     select distinct
-        max(effective_date) over (partition by _created_at::date) as effective_date
-        , lower(custodian)                                        as custodian
-        , account_no                                              as account_no
-    from {{ ref('flyer__stg_sod_accounts_history') }}
+        max(a.effective_date) over (partition by a._created_at::date) as effective_date
+        , lower(a.custodian)                                          as custodian
+        , a.account_no                                                as account_no
+    from {{ ref('flyer__stg_sod_accounts_history') }} as a
     where 1 = 1
-        and _created_at::date = (select max(_created_at::date) from {{ ref('flyer__stg_sod_accounts_history') }})
+        and a._created_at::date = (
+            select max(b._created_at::date)
+            from {{ ref('flyer__stg_sod_accounts_history') }} as b
+        )
     qualify row_number() over (
-            partition by _created_at::date , account_no , custodian
-            order by _created_at desc
+            partition by a._created_at::date , a.account_no , a.custodian
+            order by a._created_at desc
         ) = 1
 )
 
@@ -60,7 +63,7 @@ with cte_accounts as (
         and upper(a.account_number) = upper(v.account_no)
     where true
         --and a.rn_global = 1
-        and a.effective_date = (select max(effective_date) from cte_accounts)
+        and a.effective_date = (select max(b.effective_date) from cte_accounts as b)
     qualify dense_rank() over (
             partition by a.effective_date , a.account_number
             order by a.master_number
@@ -106,7 +109,7 @@ with cte_accounts as (
         -- This filter was added because relying on the inner join does not
         -- perform as you would normally expect. For whatever reason, snowflake
         -- is not optimizing the query as anticipated.
-        and a.effective_date = (select max(effective_date) from cte_accounts)
+        and a.effective_date = (select max(b.effective_date) from cte_accounts as b)
         and a.is_sweep = 1
 )
 
@@ -152,7 +155,7 @@ with cte_accounts as (
         and upper(a.custodian) = upper(v.custodian)
         and upper(a.account_number) = upper(v.account_no)
     where 1 = 1
-        and a.effective_date = (select max(effective_date) from cte_accounts)
+        and a.effective_date = (select max(b.effective_date) from cte_accounts as b)
         -- This will include all cash positions and not just the single sweep position.
         -- Robert A confirmed they want all Fidelity MMF tagged as cash so that
         -- scenarios where an account holds cash positions in more than just the core
@@ -201,7 +204,7 @@ with cte_accounts as (
         and upper(a.account_custodial) = upper(v.account_no)
     where 1 = 1
         and abs(a.net_trade_date_balance) > 0
-        and a.effective_date = (select max(effective_date) from cte_accounts)
+        and a.effective_date = (select max(b.effective_date) from cte_accounts as b)
 )
 
 , cte_securities as (
@@ -317,7 +320,7 @@ with cte_accounts as (
         on a.cusip = s.cusip
         and s.rn_cusip = 1
     where 1 = 1
-        and a.effective_date = (select max(effective_date) from cte_accounts)
+        and a.effective_date = (select max(b.effective_date) from cte_accounts as b)
         and a.rn_global = 1
         -- exclude because we pull from holdings
         and not (a.custodian = 'fidelity' and a.is_cash = 1)
@@ -442,7 +445,7 @@ select
     a.effective_date
     , a.custodian
     , a.account_number
-    , coalesce(pm.product , a.product) as product
+    , coalesce(pm.product , a.product)                          as product
     , a.ticker
     , a.cusip
     , a.quantity
@@ -466,8 +469,14 @@ select
     , a.legacy_product_type_source_code
     , a.legacy_product_type_source_definition
     , a.src
+    , case when e.ticker_or_cusip is not null then 1 else 0 end as is_excluded
 from cte_final as a
 left join cte_product_mapping as pm
     on a.ticker = pm.ticker
     and pm.rank = 1
+left join {{ ref('aux__base_options_exclusions') }} as e
+    on a.ticker = e.ticker_or_cusip
+    and e.is_head = 1
+    and a.effective_date between
+    coalesce(e.start_date , a.effective_date) and coalesce(e.end_date , a.effective_date)
 order by a.custodian , a.account_number , a.ticker

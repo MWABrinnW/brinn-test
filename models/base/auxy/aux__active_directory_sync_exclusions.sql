@@ -7,4 +7,4 @@ select
     , _box_file_name::text                             as _box_file_name
     , _box_meta::text                                  as _box_meta
     , _created_at::timestamp_ntz                       as _created_at
-from {{ source('raw_aux', 'active_directory_sync_exclusions') }}
+from {{ source('aux', 'active_directory_sync_exclusions') }}
