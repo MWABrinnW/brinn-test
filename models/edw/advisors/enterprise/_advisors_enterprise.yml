@@ -4,6 +4,11 @@ models:
     columns:
       - name: SYSTEM_NAME
         description: System information in which the data comes from (PMS, CRM, Financials, etc.)
+      - name: SYSTEM_INSTANCE
+        description: Which instance of the source system is the advisor/solicitor data derived from?       
+      - name: SYSTEM_KEY
+        description: >-
+          Advisor/Solicitor source system: concat(system_name , __ , system_instance)     
       - name: ASSOCIATE_ID
         description: >-
           System identifier for the advisor/solicitor (Oracle HCM ID, Redtail ID or CPG/Baystate ID, from
@@ -52,6 +57,10 @@ models:
           remote advisors/solicitors
       - name: ADVISOR_WORK_EMAIL
         description: Advisor/solicitor work email address
+      - name: ADVISOR_PMS_SYSTEM
+        description: Portfolio Management System used by the advisor/solicitor
+      - name: ADVISOR_CRM_SYSTEM
+        description: Customer Relationship Management system used by the advisor/solicitor        
       - name: JOB_FUNCTION_NAME
         description: Name of the primary job function of the associate
       - name: JOB_FAMILY

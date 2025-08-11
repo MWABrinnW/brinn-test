@@ -1,5 +1,7 @@
 select
     system_name
+    , system_instance
+    , system_key
     , associate_id
     , advisor_legal_name_full
     , advisor_legal_name_first
@@ -18,6 +20,8 @@ select
     , advisor_work_site_address_state_abb
     , advisor_work_site_address_zip_code
     , advisor_work_email
+    , advisor_pms_system
+    , advisor_crm_system
     , job_function_name
     , job_family
     , job_level

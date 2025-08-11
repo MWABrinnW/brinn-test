@@ -3,6 +3,9 @@ select
     , vendor_name
     , vendor_risk_id
     , vendor_oracle_actuals_id
+    , parent_vendor_id_global
+    , vendor_hierarchy_level
+    , relationship_type
     , is_in_ea
     , has_active_contract
     , number_of_contracts
@@ -10,7 +13,6 @@ select
     , vendor_status
     , vendor_capability_0
     , vendor_capability_1
-    , vendor_capability_2
     , vendor_owner_ea
     , vendor_owner_ea_email
     , vendor_owner_vr

@@ -10,6 +10,12 @@ models:
         description: 'From vendor global mapping | ex: 1950839'
       - name: vendor_oracle_actuals_id
         description: 'From vendor global mapping (actuals/budget id) | ex: ACTIVETICK'
+      - name: parent_vendor_id_global
+        description: 'Parent vendor id for each vendor record (from global mapping).'  
+      - name: vendor_hierarchy_level
+        description: ''            
+      - name: relationship_type
+        description: ''          
       - name: is_in_ea
         description: 'From Enterprise Architecure | 1 if true, 0 if false'
       - name: has_active_contract
@@ -24,8 +30,6 @@ models:
         description: 'From EA | ex: Client Journey'
       - name: vendor_capability_1
         description: 'From EA | ex: Client Servicing'
-      - name: vendor_capability_2
-        description: 'From EA | ex: Custodian Account Services'
       - name: vendor_owner_ea
         description: 'From EA | ex: Tom Brittan'
       - name: vendor_owner_ea_email
