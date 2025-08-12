@@ -1,1 +1,15 @@
-* text eol=crlf
+# Normalize all text files to LF in the repo
+* text=auto eol=lf
+
+# Explicitly list common dbt/text types (optional, but nice for clarity)
+*.sql     text eol=lf
+*.yml     text eol=lf
+*.yaml    text eol=lf
+*.md      text eol=lf
+*.py      text eol=lf
+*.jinja   text eol=lf
+*.j2      text eol=lf
+*.csv     text eol=lf
+*.json    text eol=lf
+*.toml    text eol=lf
+*.properties text eol=lf
