@@ -361,18 +361,20 @@ models:
           +grants:
             select: "{{ ['db_oracle_epm_r'] if target.name in ['prod', 'test', 'ci'] else []}}"
 
-        accounting_id:
-          +tags: ["oracle-edm", "accounting_id"]
-        initiative:
-          +tags: ["oracle-edm", "initiative"]
-        legal_entity:
-          +tags: ["oracle-edm", "legal_entity"]
-        natural_account:
-          +tags: ["oracle-edm", "natural_account"]
-        product:
-          +tags: ["oracle-edm", "product"]
-        team:
-          +tags: ["oracle-edm", "team"]
+        edm:
+          +tags: ["oracle-edm"]
+          accounting_id:
+            +tags: ["accounting_id"]
+          initiative:
+            +tags: ["initiative"]
+          legal_entity:
+            +tags: ["legal_entity"]
+          natural_account:
+            +tags: ["natural_account"]
+          product:
+            +tags: ["product"]
+          team:
+            +tags: ["team"]
 
       icims:
         +tags: ["icims", "hr"]
