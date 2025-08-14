@@ -160,6 +160,14 @@ jobs:
             New-Item -Path "$dest_dir" -ItemType Directory
           }
 
+          echo "-----Modified body-----"
+          dbt ls -s state:modified.body
+          echo "-----Modified descriptions-----"
+          dbt ls -s state:modified.persisted_descriptions
+          echo "-----Modified macros-----"
+          dbt ls -s state:modified.macros
+
+          echo "-----BUILDING-----"
           dbt build --fail-fast -s state:modified.body+1 state:modified.persisted_descriptions state:modified.macros+1 state:modified.contract
 
       - name: Upload dbt artifacts

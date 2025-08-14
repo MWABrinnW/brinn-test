@@ -8,6 +8,7 @@ with contacts as (
         , middle_name
         , last_name
         , full_name
+        , nickname
         , status
         , category
         , _created_at
@@ -42,29 +43,34 @@ with contacts as (
         and email_type_description = 'Work'
         and contact_id in (select distinct t.contact_id from contacts as t)
     qualify row_number() over (
-        partition by contact_id
-        order by case when is_primary = 1 then 1 else 2 end
-    ) = 1
+            partition by contact_id
+            order by case when is_primary = 1 then 1 else 2 end
+        ) = 1
 )
 
 select
-    ct.contact_id                         as contact_id
-    , cu.field_value                      as field_value
-    , coalesce(cu.advisor , ct.full_name) as advisor
-    , cu2.field_value                     as preferred_pms
-    , em.email_address                    as email_address
-    , ct.full_name                        as advisor_full_name
+    ct.contact_id                        as contact_id
+    , cu.field_value                     as field_value
+    , cu.advisor                         as advisor_udf
+    {# , coalesce(cu.advisor , ct.full_name) as advisor #} -- results ambiguous column down stream, ENG to better understand this field with DMAG
+    , cu2.field_value                    as preferred_pms
+    , em.email_address                   as advisor_email
+    , ct.first_name                      as advisor_first_name
+    , ct.nickname                        as advisor_nick_name
+    , ct.middle_name                     as advisor_middle_name
+    , ct.last_name                       as advisor_last_name
+    , ct.full_name                       as advisor_full_name
     , object_construct_keep_null(
         'redtail_status' , ct.status
         , 'redtail_category' , ct.category
-        , 'redtail_full_name' , concat_ws(' ' , ct.first_name , ct.middle_name , ct.last_name)
-    )                                     as _extra_fields
-    , ct._created_at                      as _source_loaded_at
-    , current_timestamp()::timestamp_ntz  as _created_at
+    )                                    as _extra_fields
+    , ct._created_at                     as _source_loaded_at
+    , current_timestamp()::timestamp_ntz as _created_at
 from contacts as ct
 left join contact_udfs as cu
     on ct.contact_id = cu.contact_id
     and cu.contact_udf_field_id = 272
+-- 245 equates to the "Portfolio Management System" field in Redtail
 left join contact_udfs as cu2
     on ct.contact_id = cu2.contact_id
     and cu2.contact_udf_field_id = 245
@@ -72,6 +78,6 @@ left join emails as em
     on ct.contact_id = em.contact_id
 where true
 qualify row_number() over (
-    partition by coalesce(cu.advisor , ct.full_name)
-    order by ct.contact_id asc , ct._created_at desc
-) = 1
+        partition by coalesce(cu.advisor , ct.full_name)
+        order by ct.contact_id asc , ct._created_at desc
+    ) = 1

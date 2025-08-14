@@ -99,45 +99,7 @@ with destination_summary as (
 {%- else %}
 with
 {%- endif %}
- sf_baystate_advisor_split as (
-    select
-        cod.name                                                    as advisor_commission_split_code
-        , cod.effective_at::date                                    as effective_date
-        , listagg( con.name || ' ('  || to_varchar(det.percentage_c) || '%)' , '; ')
-            within group(order by det.percentage_c desc, con.name)  as full_advisor_team
-    from {{ ref('salesforce_baystate__base_advisor_split_detail_c') }}      as det
-    inner join {{ ref('salesforce_baystate__base_advisor_split_code_c') }}  as cod
-        on det.advisor_split_code_c = cod.id
-        and det.effective_at::date = cod.effective_at::date
-        and cod.is_head_for_day = 1
-        {%- if is_historical %}
-        and exists(select 1 from dates_to_refresh)
-        and cod.effective_at::date in (select distinct t.effective_date from dates_to_refresh as t)
-        {%- else %}
-        and cod.effective_at::date > (select max(effective_date) from {{ ref(history_relation) }})
-        {%- endif %}
-    inner join {{ ref('salesforce_baystate__base_contact') }} as con
-        on det.advisor_name_c = con.id
-        and det.effective_at::date = con.effective_at::date
-        and con.is_head_for_day = 1
-        {%- if is_historical %}
-        and exists(select 1 from dates_to_refresh)
-        and con.effective_at::date in (select distinct t.effective_date from dates_to_refresh as t)
-        {%- else %}
-        and con.effective_at::date > (select max(effective_date) from {{ ref(history_relation) }})
-        {%- endif %}
-    where 1 = 1
-        and det.is_head_for_day = 1
-        {%- if is_historical %}
-        and exists(select 1 from dates_to_refresh)
-        and det.effective_at::date in (select distinct t.effective_date from dates_to_refresh as t)
-        {%- else %}
-        and det.effective_at::date > (select max(effective_date) from {{ ref(history_relation) }})
-        {%- endif %}
-    group by all
-)
-
-, cte_baystate_fee_schedule as (
+cte_baystate_fee_schedule as (
     select
         account_id                                                          as account_id
         , effective_date                                                    as effective_date
@@ -257,6 +219,28 @@ with
 )
 {%- endif %}
 
+{# --execute for both conditions "is_historical: true or false" #}
+
+{%- if instance | lower == 'mps' %}
+, advisors as (
+    select
+        associate_id::text                  as associate_id
+        , advisor_legal_name_first::text    as advisor_legal_name_first
+        , advisor_legal_name_last::text     as advisor_legal_name_last
+        , advisor_legal_name_full::text     as advisor_legal_name_full
+        , advisor_work_email::text          as advisor_work_email
+        , advisor_type::text                as advisor_type
+        , advisor_pms_system::text          as advisor_pms_system
+        , location_code                     as _location_code
+        , system_key::text                  as system_key
+    from {{ ref('advisors_enterprise_head') }}
+    where true
+        {%- if is_historical %}
+        and exists(select 1 from dates_to_refresh)
+        {%- endif %}
+)
+    
+{%- endif %}
 {# --========================================================== #}
 
 select
@@ -303,25 +287,35 @@ select
             else a.manager
             end
         {% if instance | lower == 'mps' %}
-        when a.system_key = 'black_diamond__mps'
-        then pp.advisor_full_name
+            when a.system_key = 'black_diamond__mps'
+            then adv.advisor_legal_name_full
         {% endif %}
-        -- default for "baystate" & "houston" instances
+        {% if instance | lower == 'baystate' %}
+            when a.system_key = 'black_diamond__baystate'
+            then sf1_bay.advisor
+        {% endif %}
+        -- default for "houston" instances
         else a.team
         end::text                                                         as pms_advisor
+
     {% if instance | lower == 'mps' %}
-    , pp.contact_id::text                                                 as pms_advisor_id
+        , adv.associate_id::text                                          as pms_advisor_id
+    {% elif instance | lower == 'baystate' %}
+        , sf1_bay.advisor_id                                              as pms_advisor_id
     {% else %}
-    , null::text                                                          as pms_advisor_id
+        , null::text                                                      as pms_advisor_id
     {% endif %}
-        {% if instance | lower == 'mps' %}
-    , case when pp.advisor_full_name is not null
-        then 'redtail__network' end::text                                 as pms_advisor_id_source
-    {% else %}
-    , null::text                                                          as pms_advisor_id_source
-    {% endif %}
+
+    
     {% if instance | lower == 'mps' %}
-    , pp.email_address::text                                              as pms_advisor_email
+        , case when adv.associate_id is not null
+            then adv.system_key end::text                                 as pms_advisor_id_source
+        {% else %}
+        , null::text                                                      as pms_advisor_id_source
+    {% endif %}
+   
+    {% if instance | lower == 'mps' %}
+    , adv.advisor_work_email                                              as pms_advisor_email
     {% else %}
     , null::text                                                          as pms_advisor_email
     {% endif %}
@@ -331,7 +325,9 @@ select
         when a.system_key = 'black_diamond__commonwealth' then '173'
         when a.system_key = 'black_diamond__uhnw' then '640'
         when a.system_key = 'black_diamond__baystate' then 'L-10070'
-        when a.system_key = 'black_diamond__mps' then '609'
+    {%- if instance | lower == 'mps' %}
+        when a.system_key = 'black_diamond__mps' then coalesce(adv._location_code,'609')
+    {%- endif %}
     end::text                                                             as pms_location_code
     {% if instance | lower == 'baystate' %}
     , cte_fs.fee_schedule                                                 as pms_fee_schedule
@@ -387,7 +383,7 @@ select
     , pref_adv_acct._system_key                                           as pref_advisor__account_number
     {% if instance == 'mps' %}
     , coalesce(pref_adv._system_key , (
-        case when pp.preferred_pms = 'Orion' then 'orion__mps'
+        case when adv.advisor_pms_system = 'orion__mps' then 'orion__mps'
             else 'black_diamond__mps'
         end
     ))
@@ -463,16 +459,20 @@ select
     )                                                                     as is_excluded
 , object_construct_keep_null(
     {% if instance | lower == 'houston' %}
-        'join_sf1_eff_date', IFF(sf1.system_key IS NOT NULL, 1, 0),
-        'join_sf2_is_head', IFF(sf2.system_key IS NOT NULL, 1, 0),
+        'join_sf1_eff_date', iff(sf1.system_key is not null, 1, 0),
+        'join_sf2_is_head', iff(sf2.system_key is not null, 1, 0),
     {% endif %}
-    'join_map_cus_glo', IFF(map_cus_glo.source_value IS NOT NULL, 1, 0),
-    'join_ovrd_acct', IFF(ovrd_acct.scope_key IS NOT NULL, 1, 0),
-    'join_ovrd_sys_acct', IFF(ovrd_sys_acct.scope_key IS NOT NULL, 1, 0),
-    'join_ovrd_sys_adv', IFF(ovrd_sys_adv.scope_key IS NOT NULL, 1, 0),
-    'join_pref_adv_acct', IFF(pref_adv_acct.scope_key IS NOT NULL, 1, 0),
-    'join_pref_adv', IFF(pref_adv.scope_key IS NOT NULL, 1, 0),
-    'join_pref_loc', IFF(pref_loc.scope_key IS NOT NULL, 1, 0)
+    {% if instance | lower == 'mps' %}
+        'pms_advisor_source', (a.team),
+        'join_advisor_master' , iff(adv.associate_id is not null , 1 , 0),
+    {% endif %}
+        'join_map_cus_glo', iff(map_cus_glo.source_value is not null, 1, 0),
+        'join_ovrd_acct', iff(ovrd_acct.scope_key is not null, 1, 0),
+        'join_ovrd_sys_acct', iff(ovrd_sys_acct.scope_key is not null, 1, 0),
+        'join_ovrd_sys_adv', iff(ovrd_sys_adv.scope_key is not null, 1, 0),
+        'join_pref_adv_acct', iff(pref_adv_acct.scope_key is not null, 1, 0),
+        'join_pref_adv', iff(pref_adv.scope_key is not null, 1, 0),
+        'join_pref_loc', iff(pref_loc.scope_key is not null, 1, 0)
 )::variant as _extra_fields
     -- META -------------------------------------------------------------------
     , current_timestamp()::timestamp_ntz                                  as _created_at
@@ -544,8 +544,9 @@ left join cte_baystate_fee_schedule as cte_fs
 {%- endif %}
 
 {%- if instance | lower == 'mps' %}
-left join {{ ref('redtail_network__int_contact_preferred_pms') }} as pp
-    on upper(a.team) = upper(pp.advisor)
+left join advisors as adv
+ on lower(adv.advisor_legal_name_full) = lower(a.team)
+     and lower(adv.system_key) = 'redtail__network'
 {%- endif %}
 
 -- mappings

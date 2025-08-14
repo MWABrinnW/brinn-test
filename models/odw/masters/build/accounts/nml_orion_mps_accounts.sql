@@ -10,9 +10,7 @@
 {%- set lookback = cvar('lookback') -%}
 
 {%-
-    set src_models = [
-          'orion__bld_accounts'
-    ]
+    set src_models = ['orion__bld_accounts']
 -%}
 
 with destination_summary as (
@@ -86,6 +84,22 @@ with destination_summary as (
     group by all
 )
 
+, advisors_enterprise as (
+    select
+        associate_id::text                  as associate_id
+        , advisor_legal_name_first::text    as advisor_legal_name_first
+        , advisor_legal_name_last::text     as advisor_legal_name_last
+        , advisor_legal_name_full::text     as advisor_legal_name_full
+        , advisor_work_email::text          as advisor_work_email
+        , advisor_type::text                as advisor_type
+        , advisor_pms_system::text          as advisor_pms_system
+        , location_code                     as _location_code
+        , system_key::text                  as system_key
+    from {{ ref('advisors_enterprise_head') }}
+    where true
+        and exists(select 1 from dates_to_refresh)
+)
+
 select
     a.effective_date                                                          as effective_date
     , a.system_name                                                           as system_name
@@ -108,16 +122,17 @@ select
     , a.opened_date                                                           as pms_opened_date
     , a.closed_date                                                           as pms_closed_date
     , a.account_value                                                         as pms_account_value
-    , pp.advisor_full_name                                                    as pms_advisor
-    , pp.contact_id::text(200)                                                as pms_advisor_id
-    , case when pp.advisor_full_name is not null
-            then 'redtail__network'
+    , coalesce(adv1.advisor_legal_name_full
+                        , adv2.advisor_legal_name_full)::text                 as pms_advisor
+    , coalesce(adv1.associate_id, adv2.associate_id)::text                    as pms_advisor_id
+    , case when coalesce(adv1.associate_id, adv2.associate_id) is not null
+            then coalesce(adv1.system_key, adv2.system_key)
     end::text                                                                 as pms_advisor_id_source
-    , pp.email_address::text(200)                                             as pms_advisor_email
-    , '609'::text                                                             as pms_location_code
-    , a.fee_schedule                                                          as pms_fee_schedule--not available in RS yet
+    , coalesce(adv1.advisor_work_email, adv2.advisor_work_email)::text        as pms_advisor_email
+    , coalesce(adv1._location_code, adv2._location_code, '609')::text         as pms_location_code
+    , a.fee_schedule                                                          as pms_fee_schedule
     , a.investment_strategy                                                   as pms_model_investment_strategy
-    , coalesce(udf_aum.fieldvalue , udf_aum_def.defaultvalue)::text(200)      as pms_aum_classification--sourced from crm
+    , coalesce(udf_aum.fieldvalue , udf_aum_def.defaultvalue)::text(200)      as pms_aum_classification
     , null::int                                                               as pms_is_erisa
     , a.is_discretionary                                                      as pms_is_discretionary
     , null::int                                                               as pms_is_voting_proxied
@@ -139,12 +154,12 @@ select
     -- HELPERS ----------------------------------------------------------------
     , {{ assign_custodian_key() }}
     , pref_adv_acct._system_key                                               as pref_advisor__account_number
-    , coalesce(pref_adv._system_key , (
-        case when pp.preferred_pms = 'Orion' then 'orion__mps'
-            when pp.preferred_pms = 'Black Diamond' then 'black_diamond__mps'
+    , coalesce(pref_adv._system_key ,
+        (case when coalesce(adv1.advisor_pms_system , adv2.advisor_pms_system) = 'orion__mps' then 'orion__mps'
+            when coalesce(adv1.advisor_pms_system , adv2.advisor_pms_system) = 'black_diamond__mps' then 'black_diamond__mps'
             else 'orion__mps'
-        end
-    ))
+        end)
+    )
         as pref_advisor
     , pref_loc._system_key                                                    as pref_location
     , coalesce(
@@ -205,13 +220,15 @@ select
         'join_udf_aum' , iff(udf_aum.fkalclient is not null , 1 , 0)
         , 'join_udf_aum_def' , iff(udf_aum_def.fkalclient is not null , 1 , 0)
         , 'join_map_cus_glo' , iff(map_cus_glo.source_value is not null , 1 , 0)
+        , 'join_advisor_email' , iff(adv1.associate_id is not null , 1 , 0)
+        , 'join_advisor_name' , iff(adv2.associate_id is not null , 1 , 0)
         , 'join_ovrd_acct' , iff(ovrd_acct.scope_key is not null , 1 , 0)
         , 'join_ovrd_sys_acct' , iff(ovrd_sys_acct.scope_key is not null , 1 , 0)
         , 'join_ovrd_sys_adv' , iff(ovrd_sys_adv.scope_key is not null , 1 , 0)
         , 'join_pref_adv_acct' , iff(pref_adv_acct.scope_key is not null , 1 , 0)
         , 'join_pref_adv' , iff(pref_adv.scope_key is not null , 1 , 0)
         , 'join_pref_loc' , iff(pref_loc.scope_key is not null , 1 , 0)
-
+        , 'pms_advisor_source', (a.advisor)
     )::variant                                                                as _extra_fields
     -- META -------------------------------------------------------------------
     --, a.is_head                                                               as is_head
@@ -224,14 +241,19 @@ left join {{ ref('orion__base_vw_userdefinedfields_account') }} as udf_aum
     and a.account_id = udf_aum.fkaccount
     and a.effective_date = udf_aum.effective_date
     and udf_aum.code = '7AUMCLASSI'
+
 left join {{ ref('orion__base_vw_userdefinedfields') }} as udf_aum_def
     on udf_aum.fkalclient = udf_aum_def.fkalclient
     and udf_aum.effective_date = udf_aum_def.effective_date
     and udf_aum.code = udf_aum_def.code
 
--- overrides to determine the preferred pms key from redtail for mps records
-left join {{ ref('redtail_network__int_contact_preferred_pms') }} as pp
-    on upper(pp.advisor) = upper(a.advisor)
+-- source advisor fields first on email then on name
+left join advisors_enterprise as adv1
+    on lower(adv1.advisor_work_email) = lower(a.advisor_email)
+    and lower(adv1.system_key) = 'redtail__network'
+left join advisors_enterprise as adv2
+ on lower(adv2.advisor_legal_name_full) = lower(a.advisor)
+     and lower(adv2.system_key) = 'redtail__network'
 
 -- mappings
 left join {{ ref('aux__stg_masters_mappings') }} as map_aum_glo
@@ -286,7 +308,6 @@ left join {{ ref('aux__stg_masters_preferred_system_key') }} as pref_loc
     on location_code = pref_loc.scope_key
     and a.effective_date between coalesce(pref_loc.start_date , a.effective_date)
     and coalesce(pref_loc.end_date , a.effective_date)
-
 
 where true
     and a.account_number is not null

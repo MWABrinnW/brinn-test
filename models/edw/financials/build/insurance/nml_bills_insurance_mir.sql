@@ -230,7 +230,7 @@ select
     -- defer to salesforce first 
     , coalesce(
         coalesce(c1.associate_name_legal , sf1.advisor , sf2.advisor , sf3.advisor)
-        , rt.advisor , rev.client_manager_1
+        , rt.advisor_full_name , rev.client_manager_1
     )::text                                                       as advisor
     , coalesce(
         coalesce(c1.associate_id_oracle , sf1.associate_id , sf2.associate_id , sf3.associate_id)
@@ -335,7 +335,12 @@ left join locations_cte as l3
 -- catch all join for line items that don't get assigned a loaction in the two joins above
     on split_part(rev.account , '-' , 3)::text = l3.accounting_id
 left join {{ ref('redtail_network__int_contact_preferred_pms') }} as rt
-    on lower(rt.advisor) = lower(rev.client_manager_1)
+    on lower(
+        coalesce(
+            concat(rt.advisor_first_name , ' ' , rt.advisor_last_name)
+            , concat(rt.advisor_nick_name , ' ' , rt.advisor_last_name)
+        )
+    ) = lower(rev.client_manager_1)
 -- chart of accounts is reflects Oracle values
 where true
     and exists (select 1 from files_to_refresh)
