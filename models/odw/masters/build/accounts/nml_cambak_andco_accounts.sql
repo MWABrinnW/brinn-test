@@ -126,6 +126,9 @@ select
     , a._created_at::timestamp_ntz                                            as _source_loaded_at
     , null::text(900)                                                         as _source_file
 from {{ ref('cambak__int_accounts') }} as a
+inner join {{ ref('dates') }} dt
+    on a.effective_date = dt.date_key
+    and dt.is_market_day = 1
 -- mappings
 left join {{ ref('aux__stg_masters_mappings') }} as map_aum_glo
     on map_aum_glo.field = 'aum_classification'
