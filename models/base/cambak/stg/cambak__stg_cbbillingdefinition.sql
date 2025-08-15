@@ -32,7 +32,9 @@ select
     , to_boolean(rkpaid::text)::int                     as rk_paid
     , to_boolean(firmpulled::text)::int                 as firm_pulled
     , compensationnotes::text                           as compensation_notes
-
+    , fystartmonth::int                                 as fy_start_month
+    , fystartday::int                                   as fy_start_day
+    , employeereferralid::int                           as employee_referral_id
     , to_timestamp_ntz(
         regexp_substr(
             _source_file , '(\\d{4}-\\d{2}-\\d{2}__\\d{2}_\\d{2}_\\d{2})'
