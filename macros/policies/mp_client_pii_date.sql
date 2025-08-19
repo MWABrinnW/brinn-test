@@ -5,7 +5,7 @@ case
       when is_role_in_session('engineering')
         or is_role_in_session('datamanagement')
             then val
-      when is_granted_to_invoker_role('mp_client_pii')
+      when is_role_in_session('mp_client_pii_date')
             then val
       else null::date
 end
